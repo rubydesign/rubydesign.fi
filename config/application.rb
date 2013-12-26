@@ -13,6 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module OfficeClerk
   class Application < Rails::Application
+    config.autoload_paths += %W(#{config.root}/app/modules)
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
