@@ -1,0 +1,5 @@
+<h2><%= t(:new, :default => 'New') %> <%= t('app.models.bucket.bs_caption', :default => 'bucket') %></h2>
+
+<%= render 'form' %>
+
+<%= link_to t(:back, :default => "Back"), buckets_path, :class => "btn" %>

@@ -1,4 +1,7 @@
 <!-- Beautiful Scaffold Menu Do Not Touch This -->
+      <li class="<%= "active" if params[:controller] == "buckets" %>">
+        <%= link_to t('app.models.bucket.bs_caption_plural', :default => 'bucket').capitalize, buckets_path %>
+      </li>
       <li class="<%= "active" if params[:controller] == "orders" %>">
         <%= link_to t('app.models.order.bs_caption_plural', :default => 'order').capitalize, orders_path %>
       </li>

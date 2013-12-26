@@ -1,0 +1,21 @@
+<h2><%= t(:treeview, :default => 'Treeview') %> <%= t('app.models.bucket.bs_caption', :default => 'bucket') %></h2>
+
+<%
+namespace_for_url = ""
+plural_model_name = "buckets"
+model_name        = "bucket"
+opened_node       = Bucket.select(:id).all.map{ |g| "'treeelt_" + g.id.to_s + "'" }.join(',').html_safe
+%>
+
+<div id="treeview" data-model="<%= model_name %>" data-url="/<%= namespace_for_url %><%= plural_model_name %>/" data-opened="[<%= opened_node %>]">
+  <ul>
+    <% Bucket.transaction do %>
+    <% ar = Bucket.where(:bucket_id => nil) %>
+    <% ar = ar.order("position") if Bucket.column_names.include?("position") %>
+      <% for g in ar.all %>
+        <%= build_treeview(g, 'buckets') %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
