@@ -1,0 +1,28 @@
+<h2><%= t(:show, :default => "Show") %> <%= t('app.models.purchase.bs_caption', :default => 'purchase') %></h2>
+
+  <p>
+    <b><%= t('app.models.purchase.bs_attributes.name', :default => 'name') %>:</b>
+      <%= @purchase.name %>
+  </p>
+  <p>
+    <b><%= t('app.models.purchase.bs_attributes.ordered_on', :default => 'ordered_on') %>:</b>
+      <%= @purchase.ordered_on %>
+  </p>
+  <p>
+    <b><%= t('app.models.purchase.bs_attributes.received_on', :default => 'received_on') %>:</b>
+      <%= @purchase.received_on %>
+  </p>
+  <p>
+    <b><%= t('app.models.purchase.bs_attributes.bucket', :default => 'bucket') %>:</b>
+      <%= (@purchase.bucket.nil? ? "" : @purchase.bucket.caption) %>
+  </p>
+  <p>
+    <b><%= t('app.models.purchase.bs_attributes.supplier', :default => 'supplier') %>:</b>
+      <%= @purchase.supplier %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_purchase_path(@purchase), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), purchases_path, :class => "btn" %>
+
