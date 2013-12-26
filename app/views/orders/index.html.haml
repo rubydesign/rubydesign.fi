@@ -112,9 +112,7 @@
             :next_label => t(:next, :default => "Next")          |
         .btn-group.pull-right
           = link_to '<i class="icon-download"></i> CSV'.html_safe,  orders_path(:format => :csv), :class => "btn"
-          = link_to '<i class="icon-download"></i> XML'.html_safe,  orders_path(:format => :xml), :class => "btn"
           = link_to '<i class="icon-download"></i> JSON'.html_safe, orders_path(:format => :json), :class => "btn"
-          = link_to '<i class="icon-download"></i> PDF'.html_safe,  orders_path(:format => :pdf), :class => "btn"
   .span3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("order", "ordered_on", f, "Ordered_on")

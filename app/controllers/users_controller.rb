@@ -50,13 +50,6 @@ class UsersController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @user_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(User,@user_scope)
-        send_data pdfcontent
-      }
     end
   end
 

@@ -50,13 +50,6 @@ class BucketsController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @bucket_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(Bucket,@bucket_scope)
-        send_data pdfcontent
-      }
     end
   end
 

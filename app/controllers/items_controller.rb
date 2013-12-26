@@ -50,13 +50,6 @@ class ItemsController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @item_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(Item,@item_scope)
-        send_data pdfcontent
-      }
     end
   end
 

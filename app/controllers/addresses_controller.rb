@@ -50,13 +50,6 @@ class AddressesController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @address_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(Address,@address_scope)
-        send_data pdfcontent
-      }
     end
   end
 

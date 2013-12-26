@@ -50,13 +50,6 @@ class OrdersController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @order_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(Order,@order_scope)
-        send_data pdfcontent
-      }
     end
   end
 

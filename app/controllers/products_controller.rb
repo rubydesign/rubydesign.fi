@@ -50,13 +50,6 @@ class ProductsController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @product_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(Product,@product_scope)
-        send_data pdfcontent
-      }
     end
   end
 

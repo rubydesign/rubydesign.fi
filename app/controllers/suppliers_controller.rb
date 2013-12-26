@@ -50,13 +50,6 @@ class SuppliersController < BeautifulController
         end 
         render :text => csvstr
       }
-      format.xml{ 
-        render :xml => @supplier_scope.to_a
-      }             
-      format.pdf{
-        pdfcontent = PdfReport.new.to_pdf(Supplier,@supplier_scope)
-        send_data pdfcontent
-      }
     end
   end
 
