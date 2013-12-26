@@ -1,6 +1,4 @@
-class Product < ActiveRecord::Base
-  has_many :items, :dependent => :nullify
-  has_many :products, :dependent => :nullify
+class Item < ActiveRecord::Base
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -25,6 +23,6 @@ class Product < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :price,:cost,:weight,:name,:description,:slug,:ean,:tax,:attributes,:scode,:product_id,:product_group_id,:supplier_id
+    return :quantity,:price,:tax,:product_id
   end
 end

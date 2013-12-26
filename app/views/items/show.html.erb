@@ -1,0 +1,24 @@
+<h2><%= t(:show, :default => "Show") %> <%= t('app.models.item.bs_caption', :default => 'item') %></h2>
+
+  <p>
+    <b><%= t('app.models.item.bs_attributes.quantity', :default => 'quantity') %>:</b>
+      <%= @item.quantity %>
+  </p>
+  <p>
+    <b><%= t('app.models.item.bs_attributes.price', :default => 'price') %>:</b>
+      <%= number_to_currency(@item.price) %>
+  </p>
+  <p>
+    <b><%= t('app.models.item.bs_attributes.tax', :default => 'tax') %>:</b>
+      <%= @item.tax %>
+  </p>
+  <p>
+    <b><%= t('app.models.item.bs_attributes.product', :default => 'product') %>:</b>
+      <%= @item.product %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_item_path(@item), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), items_path, :class => "btn" %>
+
