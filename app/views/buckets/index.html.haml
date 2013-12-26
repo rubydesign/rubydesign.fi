@@ -73,7 +73,7 @@
           = link_to '<i class="icon-download"></i> PDF'.html_safe,  buckets_path(:format => :pdf), :class => "btn"
   .span3
     = search_form_for @q, :url => search_buckets_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("bucket", "string", f, "String")
+      = ransack_field("bucket", "name", f, "String")
       = ransack_field("bucket", "created_at", f, "Created At")
       = ransack_field("bucket", "updated_at", f, "Updated At")
       = ransack_field("bucket", "id", f, "Id")

@@ -92,11 +92,11 @@
       = ransack_field("item", "quantity", f, "Quantity")
       = ransack_field("item", "price", f, "Price")
       = ransack_field("item", "tax", f, "Tax")
-      = ransack_field("item", "product", f, "Product")
+      = ransack_field("item", "product_id", f, "Product")
       = ransack_field("item", "created_at", f, "Created At")
       = ransack_field("item", "updated_at", f, "Updated At")
       = ransack_field("item", "id", f, "Id")
-      = ransack_field("item", "bucket", f, "Bucket")
+      = ransack_field("item", "bucket_id", f, "Bucket")
       / Beautiful_scaffold - AddField - Search - Do not remove
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), items_path(:nosearch => "ok"), :class => "btn"

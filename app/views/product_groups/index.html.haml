@@ -85,7 +85,7 @@
           = link_to '<i class="icon-download"></i> PDF'.html_safe,  product_groups_path(:format => :pdf), :class => "btn"
   .span3
     = search_form_for @q, :url => search_product_groups_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("product_group", "product_group", f, "Product_group")
+      = ransack_field("product_group", "product_group_id", f, "Product_group")
       = ransack_field("product_group", "name", f, "Name")
       = ransack_field("product_group", "slug", f, "Slug")
       = ransack_field("product_group", "picture", f, "Picture")
