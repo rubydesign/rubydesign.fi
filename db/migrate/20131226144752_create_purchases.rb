@@ -4,8 +4,8 @@ class CreatePurchases < ActiveRecord::Migration
       t.string :name
       t.date :ordered_on
       t.string :received_on_date
-      t.reference :bucket
-      t.referece :supplier
+      t.references :bucket
+      t.references :supplier
 
       t.timestamps
     end

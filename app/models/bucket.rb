@@ -1,5 +1,5 @@
 class Bucket < ActiveRecord::Base
-  has_many :Purchases, :dependent => :nullify
+  has_many :purchases, :dependent => :nullify
   has_many :items, :dependent => :nullify
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]

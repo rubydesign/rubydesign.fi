@@ -1,16 +1,16 @@
 # encoding : utf-8
 class PurchasesController < BeautifulController
 
-  before_filter :load_Purchase, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_purchase, :only => [:show, :edit, :update, :destroy]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
 
   def index
     session[:fields] ||= {}
-    session[:fields][:Purchase] ||= (Purchase.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:Purchase)
-    do_sort_and_paginate(:Purchase)
+    session[:fields][:purchase] ||= (Purchase.columns.map(&:name) - ["id"])[0..4]
+    do_select_fields(:purchase)
+    do_sort_and_paginate(:purchase)
     
     @q = Purchase.search(
       params[:q]
@@ -91,16 +91,16 @@ class PurchasesController < BeautifulController
       if @Purchase.save
         format.html {
           if params[:mass_inserting] then
-            redirect_to Purchases_path(:mass_inserting => true)
+            redirect_to purchases_path(:mass_inserting => true)
           else
-            redirect_to Purchase_path(@Purchase), :flash => { :notice => t(:create_success, :model => "Purchase") }
+            redirect_to Purchase_path(@Purchase), :flash => { :notice => t(:create_success, :model => "purchasease") }
           end
         }
         format.json { render :json => @Purchase, :status => :created, :location => @Purchase }
       else
         format.html {
           if params[:mass_inserting] then
-            redirect_to Purchases_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
+            redirect_to purchases_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
           else
             render :action => "new"
           end
@@ -114,7 +114,7 @@ class PurchasesController < BeautifulController
 
     respond_to do |format|
       if @Purchase.update_attributes(params_for_model)
-        format.html { redirect_to Purchase_path(@Purchase), :flash => { :notice => t(:update_success, :model => "Purchase") }}
+        format.html { redirect_to Purchase_path(@Purchase), :flash => { :notice => t(:update_success, :model => "purchasease") }}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -127,7 +127,7 @@ class PurchasesController < BeautifulController
     @Purchase.destroy
 
     respond_to do |format|
-      format.html { redirect_to Purchases_url }
+      format.html { redirect_to purchases_url }
       format.json { head :ok }
     end
   end
@@ -140,7 +140,7 @@ class PurchasesController < BeautifulController
     Purchase.transaction do
       if params[:checkallelt] == "all" then
         # Selected with filter and search
-        do_sort_and_paginate(:Purchase)
+        do_sort_and_paginate(:purchase)
 
         @Purchases = Purchase.search(
           params[:q]
@@ -177,19 +177,19 @@ class PurchasesController < BeautifulController
 
   def treeview_update
     modelclass = Purchase
-    foreignkey = :Purchase_id
+    foreignkey = :purchase_id
 
     render :nothing => true, :status => (update_treeview(modelclass, foreignkey) ? 200 : 500)
   end
   
   private 
   
-  def load_Purchase
+  def load_purchase
     @Purchase = Purchase.find(params[:id])
   end
 
   def params_for_model
-    params.require(:Purchase).permit(Purchase.permitted_attributes)
+    params.require(:purchase).permit(Purchase.permitted_attributes)
   end
 end
 

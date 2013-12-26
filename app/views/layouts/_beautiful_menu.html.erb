@@ -1,6 +1,6 @@
 <!-- Beautiful Scaffold Menu Do Not Touch This -->
-      <li class="<%= "active" if params[:controller] == "Purchases" %>">
-        <%= link_to t('app.models.Purchase.bs_caption_plural', :default => 'Purchase').capitalize, Purchases_path %>
+      <li class="<%= "active" if params[:controller] == "purchaseases" %>">
+        <%= link_to t('app.models.purchase.bs_caption_plural', :default => 'Purchase').capitalize, purchases_path %>
       </li>
       <li class="<%= "active" if params[:controller] == "buckets" %>">
         <%= link_to t('app.models.bucket.bs_caption_plural', :default => 'bucket').capitalize, buckets_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226142519) do
+ActiveRecord::Schema.define(version: 20131226144752) do
 
   create_table "addresses", force: true do |t|
     t.string   "first_name"
@@ -20,6 +20,77 @@ ActiveRecord::Schema.define(version: 20131226142519) do
     t.string   "street2"
     t.string   "postcode"
     t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "buckets", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.integer  "quantity"
+    t.float    "price"
+    t.float    "tax"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "bucket_id"
+  end
+
+  add_index "items", ["bucket_id"], name: "index_items_on_bucket_id"
+
+  create_table "orders", force: true do |t|
+    t.date     "ordered_on"
+    t.float    "total_price"
+    t.float    "total_tax"
+    t.float    "shipping_price"
+    t.float    "shipping_tax"
+    t.integer  "bucket_id"
+    t.string   "email"
+    t.date     "paid_on"
+    t.date     "shipped_on"
+    t.date     "canceled_on"
+    t.string   "shipment_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_groups", force: true do |t|
+    t.integer  "product_group_id"
+    t.string   "name"
+    t.string   "slug"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.float    "price"
+    t.float    "cost"
+    t.float    "weight"
+    t.string   "name"
+    t.text     "description"
+    t.string   "slug"
+    t.string   "ean"
+    t.float    "tax"
+    t.string   "attributes"
+    t.string   "scode"
+    t.integer  "product_id"
+    t.integer  "product_group_id"
+    t.integer  "supplier_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", force: true do |t|
+    t.string   "name"
+    t.date     "ordered_on"
+    t.string   "received_on_date"
+    t.integer  "bucket_id"
+    t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,6 +1,6 @@
 OfficeClerk::Application.routes.draw do
-  match "Purchases/search_and_filter" => "Purchases#index", :via => [:get, :post], :as => :search_Purchases
-  resources :Purchases do
+  match "purchases/search_and_filter" => "purchases#index", :via => [:get, :post], :as => :search_purchases
+  resources :purchases do
     collection do
       post :batch
       get  :treeview

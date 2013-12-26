@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :quantity
       t.float :price
       t.float :tax
-      t.reference :product
+      t.references :product
 
       t.timestamps
     end

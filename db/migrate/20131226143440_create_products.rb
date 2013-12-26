@@ -11,9 +11,9 @@ class CreateProducts < ActiveRecord::Migration
       t.float :tax
       t.string :attributes
       t.string :scode
-      t.reference :product
-      t.reference :product_group
-      t.reference :supplier
+      t.references :product
+      t.references :product_group
+      t.references :supplier
 
       t.timestamps
     end
