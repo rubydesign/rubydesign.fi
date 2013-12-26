@@ -7,7 +7,7 @@
   <% end %>
 </p>
 
-<%= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'supplier', :model_columns => ['name'] } %>
+<%= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'supplier', :model_columns => ['name','address'] } %>
 
 <%# Set your scopes below (string in array) %>
 <% scopes = [] %>
@@ -36,7 +36,7 @@
         <button class="btn" type="submit"><i class="icon-ok"></i> <%= t(:process, :default => "Process") %></button>
       </div>
 
-      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "supplier", :model_columns => ['name','created_at','updated_at'] } %>
+      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "supplier", :model_columns => ['name','address','created_at','updated_at'] } %>
 
       <table class="table table-striped table-bordered table-condensed">
         <thead>
@@ -49,6 +49,9 @@
             </th>
             <th <%= visible_column("supplier", "name") %> class="col-name">
   <%= sorting_header("supplier", "name", "") %>
+</th>
+<th <%= visible_column("supplier", "address") %> class="col-address">
+  <%= sorting_header("supplier", "address", "") %>
 </th>
 
             <!-- Beautiful_scaffold - AddField - Header - Do not remove -->
@@ -73,6 +76,9 @@
             <td><%= check_box_tag "ids[]",supplier.id, false, :class => 'cbbatch' %></td>
               <td <%= visible_column("supplier", "name") %> class="col-name <%= align_attribute("string") %>">
       <%= supplier.name %>
+  </td>
+  <td <%= visible_column("supplier", "address") %> class="col-address <%= align_attribute("reference") %>">
+      <%= supplier.address %>
   </td>
 <!-- Beautiful_scaffold - AddField - Column - Do not remove -->
             <td <%= visible_column("supplier", "created_at") %> class="col-created_at <%= align_attribute("datetime") %>">

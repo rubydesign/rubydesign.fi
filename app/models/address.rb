@@ -1,4 +1,5 @@
 class Address < ActiveRecord::Base
+
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
