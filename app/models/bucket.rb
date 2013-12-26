@@ -1,4 +1,5 @@
 class Bucket < ActiveRecord::Base
+  has_many :items, :dependent => :nullify
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]

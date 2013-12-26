@@ -7,7 +7,7 @@
   <% end %>
 </p>
 
-<%= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'item', :model_columns => ['quantity','price','tax','product'] } %>
+<%= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'item', :model_columns => ['bucket_id','quantity','price','tax','product'] } %>
 
 <%# Set your scopes below (string in array) %>
 <% scopes = [] %>
@@ -36,7 +36,7 @@
         <button class="btn" type="submit"><i class="icon-ok"></i> <%= t(:process, :default => "Process") %></button>
       </div>
 
-      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "item", :model_columns => ['quantity','price','tax','product','created_at','updated_at'] } %>
+      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "item", :model_columns => ['bucket_id','quantity','price','tax','product','created_at','updated_at'] } %>
 
       <table class="table table-striped table-bordered table-condensed">
         <thead>
@@ -60,7 +60,10 @@
   <%= sorting_header("item", "product", "") %>
 </th>
 
-            <!-- Beautiful_scaffold - AddField - Header - Do not remove -->
+            <th <%= visible_column("item", "bucket") %> class="col-bucket">
+  <%= sorting_header("item", "bucket", "") %>
+</th>
+<!-- Beautiful_scaffold - AddField - Header - Do not remove -->
             <th <%= visible_column("item", "created_at") %> class="col-created_at">
               <%= sorting_header("item", "created_at", "") %>
             </th>
@@ -91,6 +94,9 @@
   </td>
   <td <%= visible_column("item", "product") %> class="col-product <%= align_attribute("reference") %>">
       <%= item.product %>
+  </td>
+  <td <%= visible_column("item", "bucket") %> class="col-bucket <%= align_attribute("reference") %>">
+      <%= item.bucket %>
   </td>
 <!-- Beautiful_scaffold - AddField - Column - Do not remove -->
             <td <%= visible_column("item", "created_at") %> class="col-created_at <%= align_attribute("datetime") %>">
@@ -137,7 +143,8 @@
   <%= ransack_field("item", "updated_at", f, "Updated At") %>
   <%= ransack_field("item", "id", f, "Id") %>
 
-      <!-- Beautiful_scaffold - AddField - Search - Do not remove -->
+        <%= ransack_field("item", "bucket", f, "Bucket") %>
+<!-- Beautiful_scaffold - AddField - Search - Do not remove -->
       <%= f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary" %>
       <%= link_to  t(:cancel, :default => "Cancel"), items_path(:nosearch => "ok"), :class => "btn" %>
     <% end %>

@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  belongs_to :bucket
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -23,6 +24,6 @@ class Item < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :quantity,:price,:tax,:product_id
+    return :bucket_id,:quantity,:price,:tax,:product_id
   end
 end

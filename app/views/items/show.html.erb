@@ -17,6 +17,10 @@
       <%= @item.product %>
   </p>
 
+  <p>
+    <b><%= t('app.models.item.bs_attributes.bucket', :default => 'bucket') %>:</b>
+      <%= @item.bucket %>
+  </p>
 <!-- Beautiful_scaffold - AddField - Field - Do not remove -->
 
 <%= link_to t(:edit, :default => "Edit"), edit_item_path(@item), :class => "btn" %>
