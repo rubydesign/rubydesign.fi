@@ -1,4 +1,15 @@
 OfficeClerk::Application.routes.draw do
+  match "Purchases/search_and_filter" => "Purchases#index", :via => [:get, :post], :as => :search_Purchases
+  resources :Purchases do
+    collection do
+      post :batch
+      get  :treeview
+    end
+    member do
+      post :treeview_update
+    end
+  end
+
   match "buckets/search_and_filter" => "buckets#index", :via => [:get, :post], :as => :search_buckets
   resources :buckets do
     collection do

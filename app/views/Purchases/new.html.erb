@@ -1,0 +1,5 @@
+<h2><%= t(:new, :default => 'New') %> <%= t('app.models.Purchase.bs_caption', :default => 'Purchase') %></h2>
+
+<%= render 'form' %>
+
+<%= link_to t(:back, :default => "Back"), Purchases_path, :class => "btn" %>
