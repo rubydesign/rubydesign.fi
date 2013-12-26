@@ -114,6 +114,8 @@ GEM
     guard-rspec (4.2.0)
       guard (>= 2.1.1)
       rspec (>= 2.14, < 4.0)
+    haml (4.1.0.alpha.2)
+      tilt
     hashery (2.1.1)
     hike (1.2.3)
     i18n (0.6.9)
@@ -277,6 +279,7 @@ DEPENDENCIES
   guard-bundler
   guard-rails
   guard-rspec
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails

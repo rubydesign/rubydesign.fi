@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'simple_form'
 gem 'thin'
 gem 'beautiful_scaffold'
+gem "haml"
 
 group :development do
   gem 'better_errors'

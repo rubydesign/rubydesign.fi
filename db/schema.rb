@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226144752) do
+ActiveRecord::Schema.define(version: 20131226151332) do
 
   create_table "addresses", force: true do |t|
     t.string   "first_name"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20131226144752) do
     t.string   "slug"
     t.string   "ean"
     t.float    "tax"
-    t.string   "attributes"
+    t.string   "properties"
     t.string   "scode"
     t.integer  "product_id"
     t.integer  "product_group_id"
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 20131226144752) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "products", ["product_group_id"], name: "index_products_on_product_group_id"
+  add_index "products", ["product_id"], name: "index_products_on_product_id"
+  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id"
 
   create_table "purchases", force: true do |t|
     t.string   "name"
@@ -94,6 +98,8 @@ ActiveRecord::Schema.define(version: 20131226144752) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "purchases", ["bucket_id"], name: "index_purchases_on_bucket_id"
 
   create_table "suppliers", force: true do |t|
     t.string   "name"
@@ -118,10 +124,8 @@ ActiveRecord::Schema.define(version: 20131226144752) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "address_id"
   end
 
-  add_index "users", ["address_id"], name: "index_users_on_address_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 

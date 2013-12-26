@@ -5,7 +5,7 @@ class CreatePurchases < ActiveRecord::Migration
       t.date :ordered_on
       t.string :received_on_date
       t.references :bucket, index: true
-      t.refereces :supplier
+      t.references :supplier
 
       t.timestamps
     end
