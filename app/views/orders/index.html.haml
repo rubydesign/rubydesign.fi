@@ -127,8 +127,6 @@
       = ransack_field("order", "paid_on", f, "Paid_on")
       = ransack_field("order", "canceled_on", f, "Canceled_on")
       = ransack_field("order", "shipment_type", f, "Shipment_type")
-      = ransack_field("order", "created_at", f, "Created At")
-      = ransack_field("order", "updated_at", f, "Updated At")
       = ransack_field("order", "id", f, "Id")
       / Beautiful_scaffold - AddField - Search - Do not remove
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"

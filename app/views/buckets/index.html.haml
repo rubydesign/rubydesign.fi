@@ -72,8 +72,6 @@
   .span3
     = search_form_for @q, :url => search_buckets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("bucket", "name", f, "String")
-      = ransack_field("bucket", "created_at", f, "Created At")
-      = ransack_field("bucket", "updated_at", f, "Updated At")
       = ransack_field("bucket", "id", f, "Id")
       / Beautiful_scaffold - AddField - Search - Do not remove
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
