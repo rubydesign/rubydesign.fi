@@ -3,7 +3,7 @@ class CreatePurchases < ActiveRecord::Migration
     create_table :purchases do |t|
       t.string :name
       t.date :ordered_on
-      t.string :received_on_date
+      t.date :received_on
       t.references :bucket, index: true
       t.references :supplier
 

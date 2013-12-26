@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   create_table "purchases", force: true do |t|
     t.string   "name"
     t.date     "ordered_on"
-    t.string   "received_on_date"
+    t.date     "received_on"
     t.integer  "bucket_id"
     t.integer  "supplier_id"
     t.datetime "created_at"
