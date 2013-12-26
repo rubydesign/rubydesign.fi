@@ -1,0 +1,12 @@
+#modal-columns.modal.hide
+  .modal-header
+    %button.close{"data-dismiss" => "modal", :type => "button"} ×
+    %h3= t(:select_columns, :default => "Select Columns")
+  .modal-body
+    - for field in model_columns
+      %label.checkbox
+        <input type="checkbox" name="field[]" value="#{field}" #{"checked" if session[:fields][model_name.to_sym].include?(field)}> #{t("app.models.#{model_name}.bs_attributes.#{field}", :default => field.capitalize)}
+      %br/
+  .modal-footer
+    %button#filter-columns.btn.btn-primary{"data-url" => "/#{model_name}/select_fields", :type => "button"} Ok
+    %button#cancel-filter-columns.btn{:type => "button"}= t(:cancel, :default => "Cancel")

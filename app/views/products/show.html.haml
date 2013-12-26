@@ -1,0 +1,71 @@
+%h2
+  = t(:show, :default => "Show")
+  = t('app.models.product.bs_caption', :default => 'product')
+%p
+  %b
+    = t('app.models.product.bs_attributes.price', :default => 'price')
+    \:
+  = number_to_currency(@product.price)
+%p
+  %b
+    = t('app.models.product.bs_attributes.cost', :default => 'cost')
+    \:
+  = number_to_currency(@product.cost)
+%p
+  %b
+    = t('app.models.product.bs_attributes.weight', :default => 'weight')
+    \:
+  = @product.weight
+%p
+  %b
+    = t('app.models.product.bs_attributes.name', :default => 'name')
+    \:
+  = @product.name
+%p
+  %b
+    = t('app.models.product.bs_attributes.description', :default => 'description')
+    \:
+  = @product.description
+%p
+  %b
+    = t('app.models.product.bs_attributes.slug', :default => 'slug')
+    \:
+  = @product.slug
+%p
+  %b
+    = t('app.models.product.bs_attributes.ean', :default => 'ean')
+    \:
+  = @product.ean
+%p
+  %b
+    = t('app.models.product.bs_attributes.tax', :default => 'tax')
+    \:
+  = @product.tax
+%p
+  %b
+    = t('app.models.product.bs_attributes.properties', :default => 'properties')
+    \:
+  = @product.properties
+%p
+  %b
+    = t('app.models.product.bs_attributes.scode', :default => 'scode')
+    \:
+  = @product.scode
+%p
+  %b
+    = t('app.models.product.bs_attributes.product', :default => 'product')
+    \:
+  = (@product.product.nil? ? "" : @product.product.caption)
+%p
+  %b
+    = t('app.models.product.bs_attributes.product_group', :default => 'product_group')
+    \:
+  = (@product.product_group.nil? ? "" : @product.product_group.caption)
+%p
+  %b
+    = t('app.models.product.bs_attributes.supplier', :default => 'supplier')
+    \:
+  = (@product.supplier.nil? ? "" : @product.supplier.caption)
+/ Beautiful_scaffold - AddField - Field - Do not remove
+= link_to t(:edit, :default => "Edit"), edit_product_path(@product), :class => "btn"
+= link_to t(:back, :default => "Back"), products_path, :class => "btn"

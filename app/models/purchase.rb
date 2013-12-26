@@ -48,8 +48,5 @@ class Purchase < ActiveRecord::Base
     generate_fulltext_field([])
   end
 
-  def self.permitted_attributes
-    return :name,:ordered_on,:received_on_date,:bucket_id,:supplier
-  end
   belongs_to :bucket
 end

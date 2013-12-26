@@ -1,0 +1,5 @@
+%h2
+  = t(:editing, :default => 'Editing')
+  = t('app.models.bucket.bs_caption', :default => 'bucket')
+= render 'form'
+= link_to t(:back, :default => "Back"), buckets_path, :class => "btn"

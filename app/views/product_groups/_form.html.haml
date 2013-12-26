@@ -1,0 +1,28 @@
+= form_for(@product_group, :html => { :class => "form-horizontal" }) do |f|
+  - if @product_group.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@product_group.errors.count, "error")
+        prohibited this product_group from being saved:
+      %ul
+        - @product_group.errors.full_messages.each do |msg|
+          %li= msg
+  .control-group
+    = f.label :product_group, t('app.models.product_group.bs_attributes.product_group', :default => 'product_group').capitalize, :class => "control-label"
+    .controls
+      = f.text_field :product_group
+  .control-group
+    = f.label :name, t('app.models.product_group.bs_attributes.name', :default => 'name').capitalize, :class => "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :slug, t('app.models.product_group.bs_attributes.slug', :default => 'slug').capitalize, :class => "control-label"
+    .controls
+      = f.text_field :slug
+  .control-group
+    = f.label :picture, t('app.models.product_group.bs_attributes.picture', :default => 'picture').capitalize, :class => "control-label"
+    .controls
+      = f.text_field :picture
+  / Beautiful_scaffold - AddField - Do not remove
+  .form-actions
+    = f.submit :class => "btn btn-primary"

@@ -1,0 +1,5 @@
+%h2
+  = t(:new, :default => 'New')
+  = t('app.models.item.bs_caption', :default => 'item')
+= render 'form'
+= link_to t(:back, :default => "Back"), items_path, :class => "btn"

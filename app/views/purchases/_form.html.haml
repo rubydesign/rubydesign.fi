@@ -1,0 +1,44 @@
+= form_for(@purchase, :html => { :class => "form-horizontal" }) do |f|
+  - if @purchase.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@purchase.errors.count, "error")
+        prohibited this purchase from being saved:
+      %ul
+        - @purchase.errors.full_messages.each do |msg|
+          %li= msg
+  .control-group
+    = f.label :name, t('app.models.purchase.bs_attributes.name', :default => 'name').capitalize, :class => "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :ordered_on, t('app.models.purchase.bs_attributes.ordered_on', :default => 'ordered_on').capitalize, :class => "control-label"
+    .controls
+      .input-append
+        %input#purchase_ordered_on_3i{:name => "purchase[ordered_on(3i)]", :type => "hidden", :value => begin @purchase.ordered_on.day rescue "" end}/
+        %input#purchase_ordered_on_2i{:name => "purchase[ordered_on(2i)]", :type => "hidden", :value => begin @purchase.ordered_on.mon rescue "" end}/
+        %input#purchase_ordered_on_1i{:name => "purchase[ordered_on(1i)]", :type => "hidden", :value => begin @purchase.ordered_on.year rescue "" end}/
+        = f.text_field :ordered_on, :class => "dpicker"
+        %span.add-on
+          %i.icon-calendar
+  .control-group
+    = f.label :received_on, t('app.models.purchase.bs_attributes.received_on', :default => 'received_on').capitalize, :class => "control-label"
+    .controls
+      .input-append
+        %input#purchase_received_on_3i{:name => "purchase[received_on(3i)]", :type => "hidden", :value => begin @purchase.received_on.day rescue "" end}/
+        %input#purchase_received_on_2i{:name => "purchase[received_on(2i)]", :type => "hidden", :value => begin @purchase.received_on.mon rescue "" end}/
+        %input#purchase_received_on_1i{:name => "purchase[received_on(1i)]", :type => "hidden", :value => begin @purchase.received_on.year rescue "" end}/
+        = f.text_field :received_on, :class => "dpicker"
+        %span.add-on
+          %i.icon-calendar
+  .control-group
+    = f.label :bucket, t('app.models.purchase.bs_attributes.bucket', :default => 'bucket').capitalize, :class => "control-label"
+    .controls
+      = f.collection_select :bucket_id, Bucket.all, :id, :caption, :include_blank => true
+  .control-group
+    = f.label :supplier, t('app.models.purchase.bs_attributes.supplier', :default => 'supplier').capitalize, :class => "control-label"
+    .controls
+      = f.text_field :supplier
+  / Beautiful_scaffold - AddField - Do not remove
+  .form-actions
+    = f.submit :class => "btn btn-primary"

@@ -1,0 +1,5 @@
+%h2
+  = t(:new, :default => 'New')
+  = t('app.models.address.bs_caption', :default => 'address')
+= render 'form'
+= link_to t(:back, :default => "Back"), addresses_path, :class => "btn"

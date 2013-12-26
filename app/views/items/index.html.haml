@@ -1,0 +1,103 @@
+%h2
+  = t(:listing, :default => "Listing")
+  = t('app.models.item.bs_caption_plural', :default => 'item')
+%p
+  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.item.bs_caption', :default => 'item'), new_item_path, :class => "btn"
+  - if Item.columns.map(&:name).include?("item_id") then
+    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.item.bs_caption', :default => 'item'), treeview_items_path, :class => "btn"
+= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'item', :model_columns => ['bucket_id','quantity','price','tax','product'] }
+- scopes = []
+- if not scopes.blank? then
+  .btn-toolbar
+    .btn-group
+      = link_to "All (#{@item_scope_for_scope.count})", items_path(:scope => ""), :class => "btn #{((session[:scope][:item].to_s == '') ? 'active' : '')}"
+      - for scope in scopes
+        = link_to "#{scope} (#{@item_scope_for_scope.send(scope).count})", items_path(:scope => scope), :class => "btn #{((session[:scope][:item].to_s == scope) ? 'active' : '')}"
+.row-fluid
+  .span9
+    = form_tag  batch_items_path, :class => "form-inline" do
+      .well.well-small
+        %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
+        %select#select01{:name => "actionprocess"}
+          %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
+          / Beautiful_scaffold - AddField - Batch - Do not remove
+        %button.btn{:type => "submit"}
+          %i.icon-ok
+          = t(:process, :default => "Process")
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "item", :model_columns => ['bucket_id','quantity','price','tax','product','created_at','updated_at'] }
+      %table.table.table-striped.table-bordered.table-condensed
+        %thead
+          %tr
+            %th
+              %a{"data-toggle" => "modal", :href => "#modal-columns", :title => t(:select_columns, :default => "Select Columns")}
+                %i.icon-th-list
+            %th
+              = check_box_tag :checkall, ''
+            <th #{visible_column("item", "quantity")} class="col-quantity">
+            \#{sorting_header("item", "quantity", "")}
+            <th #{visible_column("item", "price")} class="col-price">
+            \#{sorting_header("item", "price", "")}
+            <th #{visible_column("item", "tax")} class="col-tax">
+            \#{sorting_header("item", "tax", "")}
+            <th #{visible_column("item", "product")} class="col-product">
+            \#{sorting_header("item", "product", "")}
+            <th #{visible_column("item", "bucket")} class="col-bucket">
+            \#{sorting_header("item", "bucket", "")}
+            / Beautiful_scaffold - AddField - Header - Do not remove
+            <th #{visible_column("item", "created_at")} class="col-created_at">
+            \#{sorting_header("item", "created_at", "")}
+            <th #{visible_column("item", "updated_at")} class="col-updated_at">
+            \#{sorting_header("item", "updated_at", "")}
+            %th{:colspan => "3"}
+              %label.checkbox
+                = check_box_tag :checkallelt, 'all'
+                = pluralize(@item_scope.count, "item")
+        %tbody
+          - @items.each do |item|
+            %tr{:class => "line-#{cycle("1","2")}"}
+              %td= item.id
+              %td= check_box_tag "ids[]",item.id, false, :class => 'cbbatch'
+              <td #{visible_column("item", "quantity")} class="col-quantity #{align_attribute("integer")}">
+              \#{item.quantity}
+              <td #{visible_column("item", "price")} class="col-price #{align_attribute("price")}">
+              \#{number_to_currency(item.price, :locale => I18n.locale)}
+              <td #{visible_column("item", "tax")} class="col-tax #{align_attribute("float")}">
+              \#{item.tax}
+              <td #{visible_column("item", "product")} class="col-product #{align_attribute("reference")}">
+              \#{item.product}
+              <td #{visible_column("item", "bucket")} class="col-bucket #{align_attribute("reference")}">
+              \#{item.bucket}
+              / Beautiful_scaffold - AddField - Column - Do not remove
+              <td #{visible_column("item", "created_at")} class="col-created_at #{align_attribute("datetime")}">
+              \#{l(item.created_at, :format => :long)}
+              <td #{visible_column("item", "updated_at")} class="col-updated_at #{align_attribute("datetime")}">
+              \#{l(item.updated_at, :format => :long)}
+              %td= link_to '<i class="icon-search"></i>'.html_safe, item_path(item), :title => t(:show, :default => "Show")
+              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item), :title => t(:edit, :default => "Edit")
+              %td= link_to '<i class="icon-remove"></i>'.html_safe, item_path(item), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
+      .btn-toolbar
+        .btn-group
+          - clean_params
+          = will_paginate @items,                                |
+            :inner_window => 0,                                  |
+            :outer_window => 0,                                  |
+            :previous_label => t(:prev, :default => "Previous"), |
+            :next_label => t(:next, :default => "Next")          |
+        .btn-group.pull-right
+          = link_to '<i class="icon-download"></i> CSV'.html_safe,  items_path(:format => :csv), :class => "btn"
+          = link_to '<i class="icon-download"></i> XML'.html_safe,  items_path(:format => :xml), :class => "btn"
+          = link_to '<i class="icon-download"></i> JSON'.html_safe, items_path(:format => :json), :class => "btn"
+          = link_to '<i class="icon-download"></i> PDF'.html_safe,  items_path(:format => :pdf), :class => "btn"
+  .span3
+    = search_form_for @q, :url => search_items_path, :html => { :class => "well well-small" }, :method => :post do |f|
+      = ransack_field("item", "quantity", f, "Quantity")
+      = ransack_field("item", "price", f, "Price")
+      = ransack_field("item", "tax", f, "Tax")
+      = ransack_field("item", "product", f, "Product")
+      = ransack_field("item", "created_at", f, "Created At")
+      = ransack_field("item", "updated_at", f, "Updated At")
+      = ransack_field("item", "id", f, "Id")
+      = ransack_field("item", "bucket", f, "Bucket")
+      / Beautiful_scaffold - AddField - Search - Do not remove
+      = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
+      = link_to  t(:cancel, :default => "Cancel"), items_path(:nosearch => "ok"), :class => "btn"

@@ -1,0 +1,9 @@
+  - path_namespace = '/' + namespace_bs if not namespace_bs.blank?
+  .control-group
+    = f.label plural_linked_model_name.to_sym, t(plural_linked_model_name.to_sym, :default => plural_linked_model_name.capitalize), :class => "control-label"
+    .controls
+      %ul.bs-tagit{"data-param" => "q[#{field_to_search_for_linked_model}_cont]", "data-result" => "caption", "data-url" => "#{path_namespace}/#{plural_linked_model_name}/search_and_filter.json", :id => "#{model_name}_#{linked_model_name}_ids", :name => "#{model_name}[#{linked_model_name}_ids][]"}
+        - begin
+          - for elt in model_class.send(plural_linked_model_name)
+            %li{"data-value" => elt.id}= elt.caption
+        - rescue

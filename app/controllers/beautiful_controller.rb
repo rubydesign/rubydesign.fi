@@ -4,7 +4,6 @@ class BeautifulController < ApplicationController
   layout "beautiful_layout"
 
   def dashboard
-    render :layout => "beautiful_layout"
   end
 
   # Call in AJAX

@@ -1,0 +1,68 @@
+!!!
+%html{:lang => (I18n.locale || I18n.default_locale)}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Beautiful Scaffold
+    %meta{:content => "Beautiful Scaffold", :name => "description"}/
+    %meta{:content => "You or me Sylvain Claudel (http://blog.escarworld.com)", :name => "author"}/
+    = stylesheet_link_tag "application-bs"
+    = javascript_include_tag "application-bs"
+    = csrf_meta_tags
+    = yield :head
+  %body{:style => ""}
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{:href => "#"}
+            Beautiful-Scaffold
+          %ul.nav
+            %li.active
+              %a{:href => "/"} Home
+            %li.hidden-desktop
+              / Mobile navbar
+              %a{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :href => "#"}
+                %i.icon-th-list
+          %ul.nav.pull-right
+            %li
+            / Beautiful_scaffold - Signin - Do not remove
+          .nav-collapse.collapse
+            %ul.nav.hidden-desktop
+              = render( :partial => "layouts/beautiful_menu")
+    .container-fluid
+      .row-fluid
+        .span2
+          %ul.nav.nav-list.well
+            %li.nav-header
+              Menu
+            = render :partial => "layouts/beautiful_menu"
+        .span10
+          - if not flash[:notice].blank? then
+            .alert.alert-info
+              %a.close{"data-dismiss" => "alert", :href => "#"} ×
+              %h4.alert-heading Info :
+              = flash[:notice]
+          - if not flash[:error].blank? then
+            .alert.alert-error
+              %a.close{"data-dismiss" => "alert", :href => "#"} ×
+              %h4.alert-heading Error :
+              = flash[:error]
+          %div
+            = yield
+    .loader{:style => "display:none"}
+      .circle
+      .circle1
+    / Beautiful_scaffold - Modal - Do not remove
+    :javascript
+      <haml:silent>       if not @opened_modal.blank? then 
+      </haml:silent><haml:block>      $('#{@opened_modal}').modal('show');
+      </haml:block>
+    :javascript
+      ;(function($){
+          $.fn.datepicker.dates['#{I18n.locale.to_s}'] = {
+              days:        #{(t("date.day_names") + [t("date.day_names").first]).map(&:capitalize).to_s.html_safe},
+              daysShort:   #{(t("date.abbr_day_names") + [t("date.abbr_day_names").first]).map(&:capitalize).to_s.html_safe},
+              daysMin:     #{(t("date.abbr_day_names") + [t("date.abbr_day_names").first]).map{ |d| d.capitalize[0..2] }.to_s.html_safe},
+              months:      #{t("date.month_names")[1..12].map(&:capitalize).to_s.html_safe},
+              monthsShort: #{t("date.abbr_month_names")[1..12].map(&:capitalize).to_s.html_safe}
+          };
+      }(jQuery));

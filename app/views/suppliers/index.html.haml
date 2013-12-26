@@ -1,0 +1,87 @@
+%h2
+  = t(:listing, :default => "Listing")
+  = t('app.models.supplier.bs_caption_plural', :default => 'supplier')
+%p
+  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), new_supplier_path, :class => "btn"
+  - if Supplier.columns.map(&:name).include?("supplier_id") then
+    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), treeview_suppliers_path, :class => "btn"
+= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'supplier', :model_columns => ['name','address'] }
+- scopes = []
+- if not scopes.blank? then
+  .btn-toolbar
+    .btn-group
+      = link_to "All (#{@supplier_scope_for_scope.count})", suppliers_path(:scope => ""), :class => "btn #{((session[:scope][:supplier].to_s == '') ? 'active' : '')}"
+      - for scope in scopes
+        = link_to "#{scope} (#{@supplier_scope_for_scope.send(scope).count})", suppliers_path(:scope => scope), :class => "btn #{((session[:scope][:supplier].to_s == scope) ? 'active' : '')}"
+.row-fluid
+  .span9
+    = form_tag  batch_suppliers_path, :class => "form-inline" do
+      .well.well-small
+        %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
+        %select#select01{:name => "actionprocess"}
+          %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
+          / Beautiful_scaffold - AddField - Batch - Do not remove
+        %button.btn{:type => "submit"}
+          %i.icon-ok
+          = t(:process, :default => "Process")
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "supplier", :model_columns => ['name','address','created_at','updated_at'] }
+      %table.table.table-striped.table-bordered.table-condensed
+        %thead
+          %tr
+            %th
+              %a{"data-toggle" => "modal", :href => "#modal-columns", :title => t(:select_columns, :default => "Select Columns")}
+                %i.icon-th-list
+            %th
+              = check_box_tag :checkall, ''
+            <th #{visible_column("supplier", "name")} class="col-name">
+            \#{sorting_header("supplier", "name", "")}
+            <th #{visible_column("supplier", "address")} class="col-address">
+            \#{sorting_header("supplier", "address", "")}
+            / Beautiful_scaffold - AddField - Header - Do not remove
+            <th #{visible_column("supplier", "created_at")} class="col-created_at">
+            \#{sorting_header("supplier", "created_at", "")}
+            <th #{visible_column("supplier", "updated_at")} class="col-updated_at">
+            \#{sorting_header("supplier", "updated_at", "")}
+            %th{:colspan => "3"}
+              %label.checkbox
+                = check_box_tag :checkallelt, 'all'
+                = pluralize(@supplier_scope.count, "supplier")
+        %tbody
+          - @suppliers.each do |supplier|
+            %tr{:class => "line-#{cycle("1","2")}"}
+              %td= supplier.id
+              %td= check_box_tag "ids[]",supplier.id, false, :class => 'cbbatch'
+              <td #{visible_column("supplier", "name")} class="col-name #{align_attribute("string")}">
+              \#{supplier.name}
+              <td #{visible_column("supplier", "address")} class="col-address #{align_attribute("reference")}">
+              \#{supplier.address}
+              / Beautiful_scaffold - AddField - Column - Do not remove
+              <td #{visible_column("supplier", "created_at")} class="col-created_at #{align_attribute("datetime")}">
+              \#{l(supplier.created_at, :format => :long)}
+              <td #{visible_column("supplier", "updated_at")} class="col-updated_at #{align_attribute("datetime")}">
+              \#{l(supplier.updated_at, :format => :long)}
+              %td= link_to '<i class="icon-search"></i>'.html_safe, supplier_path(supplier), :title => t(:show, :default => "Show")
+              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_supplier_path(supplier), :title => t(:edit, :default => "Edit")
+              %td= link_to '<i class="icon-remove"></i>'.html_safe, supplier_path(supplier), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
+      .btn-toolbar
+        .btn-group
+          - clean_params
+          = will_paginate @suppliers,                            |
+            :inner_window => 0,                                  |
+            :outer_window => 0,                                  |
+            :previous_label => t(:prev, :default => "Previous"), |
+            :next_label => t(:next, :default => "Next")          |
+        .btn-group.pull-right
+          = link_to '<i class="icon-download"></i> CSV'.html_safe,  suppliers_path(:format => :csv), :class => "btn"
+          = link_to '<i class="icon-download"></i> XML'.html_safe,  suppliers_path(:format => :xml), :class => "btn"
+          = link_to '<i class="icon-download"></i> JSON'.html_safe, suppliers_path(:format => :json), :class => "btn"
+          = link_to '<i class="icon-download"></i> PDF'.html_safe,  suppliers_path(:format => :pdf), :class => "btn"
+  .span3
+    = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
+      = ransack_field("supplier", "name", f, "Name")
+      = ransack_field("supplier", "created_at", f, "Created At")
+      = ransack_field("supplier", "updated_at", f, "Updated At")
+      = ransack_field("supplier", "id", f, "Id")
+      / Beautiful_scaffold - AddField - Search - Do not remove
+      = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
+      = link_to  t(:cancel, :default => "Cancel"), suppliers_path(:nosearch => "ok"), :class => "btn"

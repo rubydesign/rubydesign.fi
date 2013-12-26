@@ -1,0 +1,14 @@
+%h2
+  = t(:treeview, :default => 'Treeview')
+  = t('app.models.item.bs_caption', :default => 'item')
+- namespace_for_url = ""
+- plural_model_name = "items"
+- model_name        = "item"
+- opened_node       = Item.select(:id).all.map{ |g| "'treeelt_" + g.id.to_s + "'" }.join(',').html_safe
+#treeview{"data-model" => model_name, "data-opened" => "[#{opened_node}]", "data-url" => "/#{namespace_for_url}#{plural_model_name}/"}
+  %ul
+    - Item.transaction do
+      - ar = Item.where(:item_id => nil)
+      - ar = ar.order("position") if Item.column_names.include?("position")
+      - for g in ar.all
+        = build_treeview(g, 'items')
