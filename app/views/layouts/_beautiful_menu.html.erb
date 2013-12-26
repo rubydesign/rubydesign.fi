@@ -1,4 +1,7 @@
 <!-- Beautiful Scaffold Menu Do Not Touch This -->
+      <li class="<%= "active" if params[:controller] == "users" %>">
+        <%= link_to t('app.models.user.bs_caption_plural', :default => 'user').capitalize, users_path %>
+      </li>
       <li class="<%= "active" if params[:controller] == "addresses" %>">
         <%= link_to t('app.models.address.bs_caption_plural', :default => 'address').capitalize, addresses_path %>
       </li>

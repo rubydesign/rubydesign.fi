@@ -1,0 +1,21 @@
+<h2><%= t(:treeview, :default => 'Treeview') %> <%= t('app.models.user.bs_caption', :default => 'user') %></h2>
+
+<%
+namespace_for_url = ""
+plural_model_name = "users"
+model_name        = "user"
+opened_node       = User.select(:id).all.map{ |g| "'treeelt_" + g.id.to_s + "'" }.join(',').html_safe
+%>
+
+<div id="treeview" data-model="<%= model_name %>" data-url="/<%= namespace_for_url %><%= plural_model_name %>/" data-opened="[<%= opened_node %>]">
+  <ul>
+    <% User.transaction do %>
+    <% ar = User.where(:user_id => nil) %>
+    <% ar = ar.order("position") if User.column_names.include?("position") %>
+      <% for g in ar.all %>
+        <%= build_treeview(g, 'users') %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+

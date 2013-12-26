@@ -1,3 +1,16 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<h2><%= t(:show, :default => "Show") %> <%= t('app.models.user.bs_caption', :default => 'user') %></h2>
+
+  <p>
+    <b><%= t('app.models.user.bs_attributes.email', :default => 'email') %>:</b>
+      <%= @user.email %>
+  </p>
+  <p>
+    <b><%= t('app.models.user.bs_attributes.name', :default => 'name') %>:</b>
+      <%= @user.name %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_user_path(@user), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), users_path, :class => "btn" %>
+
