@@ -90,20 +90,12 @@ class OrdersController < BeautifulController
     respond_to do |format|
       if @order.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to orders_path(:mass_inserting => true)
-          else
-            redirect_to order_path(@order), :flash => { :notice => t(:create_success, :model => "order") }
-          end
+          redirect_to order_path(@order), :flash => { :notice => t(:create_success, :model => "order") }
         }
         format.json { render :json => @order, :status => :created, :location => @order }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to orders_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @order.errors, :status => :unprocessable_entity }
       end

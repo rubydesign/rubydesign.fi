@@ -5,7 +5,6 @@
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.order.bs_caption', :default => 'order'), new_order_path, :class => "btn"
   - if Order.columns.map(&:name).include?("order_id") then
     = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.order.bs_caption', :default => 'order'), treeview_orders_path, :class => "btn"
-= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'order', :model_columns => ['ordered_on','total_price','total_tax','shipping_price','shipping_tax','bucket','email','paid_on','shipped_on','paid_on','canceled_on','shipment_type'] }
 - scopes = []
 - if not scopes.blank? then
   .btn-toolbar

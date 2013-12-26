@@ -90,20 +90,12 @@ class SuppliersController < BeautifulController
     respond_to do |format|
       if @supplier.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to suppliers_path(:mass_inserting => true)
-          else
-            redirect_to supplier_path(@supplier), :flash => { :notice => t(:create_success, :model => "supplier") }
-          end
+          redirect_to supplier_path(@supplier), :flash => { :notice => t(:create_success, :model => "supplier") }
         }
         format.json { render :json => @supplier, :status => :created, :location => @supplier }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to suppliers_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @supplier.errors, :status => :unprocessable_entity }
       end

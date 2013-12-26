@@ -90,20 +90,12 @@ class AddressesController < BeautifulController
     respond_to do |format|
       if @address.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to addresses_path(:mass_inserting => true)
-          else
-            redirect_to address_path(@address), :flash => { :notice => t(:create_success, :model => "address") }
-          end
+          redirect_to address_path(@address), :flash => { :notice => t(:create_success, :model => "address") }
         }
         format.json { render :json => @address, :status => :created, :location => @address }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to addresses_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @address.errors, :status => :unprocessable_entity }
       end

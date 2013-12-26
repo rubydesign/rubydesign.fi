@@ -90,20 +90,12 @@ class PurchasesController < BeautifulController
     respond_to do |format|
       if @purchase.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to purchases_path(:mass_inserting => true)
-          else
-            redirect_to purchase_path(@purchase), :flash => { :notice => t(:create_success, :model => "purchase") }
-          end
+          redirect_to purchase_path(@purchase), :flash => { :notice => t(:create_success, :model => "purchase") }
         }
         format.json { render :json => @purchase, :status => :created, :location => @purchase }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to purchases_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @purchase.errors, :status => :unprocessable_entity }
       end

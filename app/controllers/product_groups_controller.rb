@@ -90,20 +90,12 @@ class ProductGroupsController < BeautifulController
     respond_to do |format|
       if @product_group.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to product_groups_path(:mass_inserting => true)
-          else
-            redirect_to product_group_path(@product_group), :flash => { :notice => t(:create_success, :model => "product_group") }
-          end
+          redirect_to product_group_path(@product_group), :flash => { :notice => t(:create_success, :model => "product_group") }
         }
         format.json { render :json => @product_group, :status => :created, :location => @product_group }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to product_groups_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @product_group.errors, :status => :unprocessable_entity }
       end

@@ -90,20 +90,12 @@ class BucketsController < BeautifulController
     respond_to do |format|
       if @bucket.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to buckets_path(:mass_inserting => true)
-          else
-            redirect_to bucket_path(@bucket), :flash => { :notice => t(:create_success, :model => "bucket") }
-          end
+          redirect_to bucket_path(@bucket), :flash => { :notice => t(:create_success, :model => "bucket") }
         }
         format.json { render :json => @bucket, :status => :created, :location => @bucket }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to buckets_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @bucket.errors, :status => :unprocessable_entity }
       end

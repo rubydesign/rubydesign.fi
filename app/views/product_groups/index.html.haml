@@ -5,7 +5,6 @@
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.product_group.bs_caption', :default => 'product_group'), new_product_group_path, :class => "btn"
   - if ProductGroup.columns.map(&:name).include?("product_group_id") then
     = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.product_group.bs_caption', :default => 'product_group'), treeview_product_groups_path, :class => "btn"
-= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'product_group', :model_columns => ['product_group','name','slug','picture'] }
 - scopes = []
 - if not scopes.blank? then
   .btn-toolbar

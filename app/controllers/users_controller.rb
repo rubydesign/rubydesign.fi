@@ -90,20 +90,12 @@ class UsersController < BeautifulController
     respond_to do |format|
       if @user.save
         format.html {
-          if params[:mass_inserting] then
-            redirect_to users_path(:mass_inserting => true)
-          else
-            redirect_to user_path(@user), :flash => { :notice => t(:create_success, :model => "user") }
-          end
+          redirect_to user_path(@user), :flash => { :notice => t(:create_success, :model => "user") }
         }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html {
-          if params[:mass_inserting] then
-            redirect_to users_path(:mass_inserting => true), :flash => { :error => t(:error, "Error") }
-          else
-            render :action => "new"
-          end
+          render :action => "new"
         }
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end

@@ -1,20 +1,18 @@
-%li{:class => "active" if params[:controller] == "purchases"}
+%li{:class => params[:controller] == "purchases" && "active" }
   = link_to t('app.models.purchase.bs_caption_plural', :default => 'purchase').capitalize, purchases_path
-%li{:class => "active" if params[:controller] == "purchaseases"}
-  = link_to t('app.models.purchase.bs_caption_plural', :default => 'Purchase').capitalize, purchases_path
-%li{:class => "active" if params[:controller] == "buckets"}
+%li{:class => params[:controller] == "buckets" && "active" }
   = link_to t('app.models.bucket.bs_caption_plural', :default => 'bucket').capitalize, buckets_path
-%li{:class => "active" if params[:controller] == "orders"}
+%li{:class => params[:controller] == "orders" && "active" }
   = link_to t('app.models.order.bs_caption_plural', :default => 'order').capitalize, orders_path
-%li{:class => "active" if params[:controller] == "items"}
+%li{:class => params[:controller] == "items" && "active" }
   = link_to t('app.models.item.bs_caption_plural', :default => 'item').capitalize, items_path
-%li{:class => "active" if params[:controller] == "product_groups"}
+%li{:class => params[:controller] == "product_groups" && "active" }
   = link_to t('app.models.product_group.bs_caption_plural', :default => 'product_group').capitalize, product_groups_path
-%li{:class => "active" if params[:controller] == "products"}
+%li{:class => params[:controller] == "products" && "active" }
   = link_to t('app.models.product.bs_caption_plural', :default => 'product').capitalize, products_path
-%li{:class => "active" if params[:controller] == "users"}
+%li{:class => params[:controller] == "users" && "active" }
   = link_to t('app.models.user.bs_caption_plural', :default => 'user').capitalize, users_path
-%li{:class => "active" if params[:controller] == "addresses"}
+%li{:class => params[:controller] == "addresses" && "active" }
   = link_to t('app.models.address.bs_caption_plural', :default => 'address').capitalize, addresses_path
-%li{:class => "active" if params[:controller] == "suppliers"}
+%li{:class => params[:controller] == "suppliers" && "active" }
   = link_to t('app.models.supplier.bs_caption_plural', :default => 'supplier').capitalize, suppliers_path
