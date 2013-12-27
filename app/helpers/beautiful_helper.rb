@@ -2,7 +2,7 @@
 module BeautifulHelper
 
   def visible_column(model_name, field_name, display_default = 'table-cell', other_css = "")
-    return ('style="display:' + ((session[:fields][model_name.to_sym].to_a.include?(field_name))  ? display_default : 'none') + ';' + other_css + '"').html_safe
+    return :style => "display:" + ((session[:fields][model_name.to_sym].to_a.include?(field_name))  ? display_default : 'none') + ';' + other_css .html_safe
   end
 
   def dropdown_submenu(link_caption, &block)
@@ -177,11 +177,11 @@ module BeautifulHelper
         else
           response += '<div class="input-prepend">'
           response += '<span class="add-on" rel="tooltip" title="' + t(:greater_than, :default => "Greater than") + '"><i class="icon-chevron-right"></i></span>'
-          response += f.text_field((name_field + "_gteq").to_sym, :class => "#{align_attribute("integer")} filter-min span10")
+          response += f.text_field((name_field + "_gteq").to_sym, :class => "ar filter-min span10")
           response += '</div>'
           response += '<div class="input-prepend">'
           response += '<span class="add-on" rel="tooltip" title="' + t(:smaller_than, :default => "Smaller than") + '"><i class="icon-chevron-left"></i></span>'
-          response += f.text_field((name_field + "_lteq").to_sym, :class => "#{align_attribute("integer")} filter-max span10")
+          response += f.text_field((name_field + "_lteq").to_sym, :class => "ar filter-max span10")
           response += '</div>'
 
           infostr = info_input(model_name, [(name_field + "_lteq").to_sym, (name_field + "_gteq").to_sym])
@@ -211,21 +211,6 @@ module BeautifulHelper
       end
     end
     return (rep ? "info" : "")
-  end
-
-  def align_attribute(attribute_type)
-    return case attribute_type
-             when "string" then
-               "al"
-             when "integer", "float", "numeric", "decimal" then
-               "ar"
-             when "boolean" then
-               "ac"
-             when "date", "datetime", "timestamp" then
-               "ac"
-             else
-               "al"
-           end
   end
 
   def exclude_richtext_field(array_of_attributes, only_fulltext = true)

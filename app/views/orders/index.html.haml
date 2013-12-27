@@ -23,7 +23,7 @@
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "order", :model_columns => ['ordered_on','total_price','total_tax','shipping_price','shipping_tax','bucket','email','paid_on','shipped_on','paid_on','canceled_on','shipment_type','created_at','updated_at'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "order", :model_columns => ['ordered_on','total_price','total_tax','shipping_price','shipping_tax','bucket_id','email','paid_on','shipped_on','paid_on','canceled_on','shipment_type'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -32,35 +32,28 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            <th #{visible_column("order", "ordered_on")} class="col-ordered_on">
-            \#{sorting_header("order", "ordered_on", "")}
-            <th #{visible_column("order", "total_price")} class="col-total_price">
-            \#{sorting_header("order", "total_price", "")}
-            <th #{visible_column("order", "total_tax")} class="col-total_tax">
-            \#{sorting_header("order", "total_tax", "")}
-            <th #{visible_column("order", "shipping_price")} class="col-shipping_price">
-            \#{sorting_header("order", "shipping_price", "")}
-            <th #{visible_column("order", "shipping_tax")} class="col-shipping_tax">
-            \#{sorting_header("order", "shipping_tax", "")}
-            <th #{visible_column("order", "bucket")} class="col-bucket">
-            \#{sorting_header("order", "bucket", "")}
-            <th #{visible_column("order", "email")} class="col-email">
-            \#{sorting_header("order", "email", "")}
-            <th #{visible_column("order", "paid_on")} class="col-paid_on">
-            \#{sorting_header("order", "paid_on", "")}
-            <th #{visible_column("order", "shipped_on")} class="col-shipped_on">
-            \#{sorting_header("order", "shipped_on", "")}
-            <th #{visible_column("order", "paid_on")} class="col-paid_on">
-            \#{sorting_header("order", "paid_on", "")}
-            <th #{visible_column("order", "canceled_on")} class="col-canceled_on">
-            \#{sorting_header("order", "canceled_on", "")}
-            <th #{visible_column("order", "shipment_type")} class="col-shipment_type">
-            \#{sorting_header("order", "shipment_type", "")}
-            / Beautiful_scaffold - AddField - Header - Do not remove
-            <th #{visible_column("order", "created_at")} class="col-created_at">
-            \#{sorting_header("order", "created_at", "")}
-            <th #{visible_column("order", "updated_at")} class="col-updated_at">
-            \#{sorting_header("order", "updated_at", "")}
+            %th{ visible_column("order", "ordered_on") }
+              = sorting_header("order", "ordered_on", "")
+            %th{visible_column("order", "total_price")}
+              = sorting_header("order", "total_price", "")
+            %th{visible_column("order", "total_tax")}
+              = sorting_header("order", "total_tax", "")
+            %th{visible_column("order", "shipping_price")}
+              = sorting_header("order", "shipping_price", "")
+            %th{visible_column("order", "bucket_id")}
+              = sorting_header("order", "bucket_id", "")
+            %th{visible_column("order", "email")}
+              = sorting_header("order", "email", "")
+            %th{visible_column("order", "paid_on")}
+              = sorting_header("order", "paid_on", "")
+            %th{visible_column("order", "shipped_on")}
+              = sorting_header("order", "shipped_on", "")
+            %th{visible_column("order", "paid_on")}
+              = sorting_header("order", "paid_on", "")
+            %th{visible_column("order", "canceled_on")}
+              = sorting_header("order", "canceled_on", "")
+            %th{visible_column("order", "shipment_type")}
+              = sorting_header("order", "shipment_type", "")
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -70,35 +63,28 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= order.id
               %td= check_box_tag "ids[]",order.id, false, :class => 'cbbatch'
-              <td #{visible_column("order", "ordered_on")} class="col-ordered_on #{align_attribute("date")}">
-              \#{order.ordered_on}
-              <td #{visible_column("order", "total_price")} class="col-total_price #{align_attribute("price")}">
-              \#{number_to_currency(order.total_price, :locale => I18n.locale)}
-              <td #{visible_column("order", "total_tax")} class="col-total_tax #{align_attribute("price")}">
-              \#{number_to_currency(order.total_tax, :locale => I18n.locale)}
-              <td #{visible_column("order", "shipping_price")} class="col-shipping_price #{align_attribute("price")}">
-              \#{number_to_currency(order.shipping_price, :locale => I18n.locale)}
-              <td #{visible_column("order", "shipping_tax")} class="col-shipping_tax #{align_attribute("float")}">
-              \#{order.shipping_tax}
-              <td #{visible_column("order", "bucket")} class="col-bucket #{align_attribute("reference")}">
-              \#{order.bucket}
-              <td #{visible_column("order", "email")} class="col-email #{align_attribute("string")}">
-              \#{order.email}
-              <td #{visible_column("order", "paid_on")} class="col-paid_on #{align_attribute("date")}">
-              \#{order.paid_on}
-              <td #{visible_column("order", "shipped_on")} class="col-shipped_on #{align_attribute("date")}">
-              \#{order.shipped_on}
-              <td #{visible_column("order", "paid_on")} class="col-paid_on #{align_attribute("date")}">
-              \#{order.paid_on}
-              <td #{visible_column("order", "canceled_on")} class="col-canceled_on #{align_attribute("date")}">
-              \#{order.canceled_on}
-              <td #{visible_column("order", "shipment_type")} class="col-shipment_type #{align_attribute("string")}">
-              \#{order.shipment_type}
-              / Beautiful_scaffold - AddField - Column - Do not remove
-              <td #{visible_column("order", "created_at")} class="col-created_at #{align_attribute("datetime")}">
-              \#{l(order.created_at, :format => :long)}
-              <td #{visible_column("order", "updated_at")} class="col-updated_at #{align_attribute("datetime")}">
-              \#{l(order.updated_at, :format => :long)}
+              %td{visible_column("order", "ordered_on")}
+                = order.ordered_on
+              %td{visible_column("order", "total_price")} 
+                = number_to_currency(order.total_price, :locale => I18n.locale)
+              %td{visible_column("order", "total_tax")} 
+                = number_to_currency(order.total_tax, :locale => I18n.locale)
+              %td{visible_column("order", "shipping_price")} 
+                = number_to_currency(order.shipping_price, :locale => I18n.locale)
+              %td{visible_column("order", "bucket_id")}
+                = order.bucket_id
+              %td{visible_column("order", "email")}
+                = order.email
+              %td{visible_column("order", "paid_on")}
+                = order.paid_on
+              %td{visible_column("order", "shipped_on")}
+                = order.shipped_on
+              %td{visible_column("order", "paid_on")}
+                = order.paid_on
+              %td{visible_column("order", "canceled_on")}
+                = order.canceled_on
+              %td{visible_column("order", "shipment_type")}
+                = order.shipment_type
               %td= link_to '<i class="icon-search"></i>'.html_safe, order_path(order), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_order_path(order), :title => t(:edit, :default => "Edit")
               %td= link_to '<i class="icon-remove"></i>'.html_safe, order_path(order), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")

@@ -23,7 +23,7 @@
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "item", :model_columns => ['bucket_id','quantity','price','tax','product','created_at','updated_at'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "item", :model_columns => ['bucket_id','quantity','price','tax','product'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -32,21 +32,16 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            <th #{visible_column("item", "quantity")} class="col-quantity">
-            \#{sorting_header("item", "quantity", "")}
-            <th #{visible_column("item", "price")} class="col-price">
-            \#{sorting_header("item", "price", "")}
-            <th #{visible_column("item", "tax")} class="col-tax">
-            \#{sorting_header("item", "tax", "")}
-            <th #{visible_column("item", "product")} class="col-product">
-            \#{sorting_header("item", "product", "")}
-            <th #{visible_column("item", "bucket")} class="col-bucket">
-            \#{sorting_header("item", "bucket", "")}
-            / Beautiful_scaffold - AddField - Header - Do not remove
-            <th #{visible_column("item", "created_at")} class="col-created_at">
-            \#{sorting_header("item", "created_at", "")}
-            <th #{visible_column("item", "updated_at")} class="col-updated_at">
-            \#{sorting_header("item", "updated_at", "")}
+            %th{visible_column("item", "quantity")}
+              =sorting_header("item", "quantity", "")
+            %th{visible_column("item", "price")}
+              =sorting_header("item", "price", "")
+            %th{visible_column("item", "tax")}
+              =sorting_header("item", "tax", "")
+            %th{visible_column("item", "product")}
+              =sorting_header("item", "product", "")
+            %th{visible_column("item", "bucket")}
+              =sorting_header("item", "bucket", "")
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -56,21 +51,16 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= item.id
               %td= check_box_tag "ids[]",item.id, false, :class => 'cbbatch'
-              <td #{visible_column("item", "quantity")} class="col-quantity #{align_attribute("integer")}">
-              \#{item.quantity}
-              <td #{visible_column("item", "price")} class="col-price #{align_attribute("price")}">
-              \#{number_to_currency(item.price, :locale => I18n.locale)}
-              <td #{visible_column("item", "tax")} class="col-tax #{align_attribute("float")}">
-              \#{item.tax}
-              <td #{visible_column("item", "product")} class="col-product #{align_attribute("reference")}">
-              \#{item.product}
-              <td #{visible_column("item", "bucket")} class="col-bucket #{align_attribute("reference")}">
-              \#{item.bucket}
-              / Beautiful_scaffold - AddField - Column - Do not remove
-              <td #{visible_column("item", "created_at")} class="col-created_at #{align_attribute("datetime")}">
-              \#{l(item.created_at, :format => :long)}
-              <td #{visible_column("item", "updated_at")} class="col-updated_at #{align_attribute("datetime")}">
-              \#{l(item.updated_at, :format => :long)}
+              %td{visible_column("item", "quantity")}
+                =item.quantity
+              %td{visible_column("item", "price")}
+                =number_to_currency(item.price, :locale => I18n.locale)
+              %td{visible_column("item", "tax")}
+                =item.tax
+              %td{visible_column("item", "product")}
+                =item.product
+              %td{visible_column("item", "bucket")}
+                =item.bucket
               %td= link_to '<i class="icon-search"></i>'.html_safe, item_path(item), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item), :title => t(:edit, :default => "Edit")
               %td= link_to '<i class="icon-remove"></i>'.html_safe, item_path(item), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")

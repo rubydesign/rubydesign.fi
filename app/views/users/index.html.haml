@@ -23,7 +23,7 @@
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "user", :model_columns => ['email','name','address','created_at','updated_at'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "user", :model_columns => ['email','name','address'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -32,17 +32,12 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            <th #{visible_column("user", "email")} class="col-email">
-            \#{sorting_header("user", "email", "")}
-            <th #{visible_column("user", "name")} class="col-name">
-            \#{sorting_header("user", "name", "")}
-            <th #{visible_column("user", "address")} class="col-address">
-            \#{sorting_header("user", "address", "")}
-            / Beautiful_scaffold - AddField - Header - Do not remove
-            <th #{visible_column("user", "created_at")} class="col-created_at">
-            \#{sorting_header("user", "created_at", "")}
-            <th #{visible_column("user", "updated_at")} class="col-updated_at">
-            \#{sorting_header("user", "updated_at", "")}
+            %th{visible_column("user", "email")}
+              =sorting_header("user", "email", "")
+            %th{visible_column("user", "name")}
+              =sorting_header("user", "name", "")
+            %th{visible_column("user", "address")}
+              =sorting_header("user", "address", "")
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -52,17 +47,12 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= user.id
               %td= check_box_tag "ids[]",user.id, false, :class => 'cbbatch'
-              <td #{visible_column("user", "email")} class="col-email #{align_attribute("string")}">
-              \#{user.email}
-              <td #{visible_column("user", "name")} class="col-name #{align_attribute("string")}">
-              \#{user.name}
-              <td #{visible_column("user", "address")} class="col-address #{align_attribute("reference")}">
-              \#{user.address}
-              / Beautiful_scaffold - AddField - Column - Do not remove
-              <td #{visible_column("user", "created_at")} class="col-created_at #{align_attribute("datetime")}">
-              \#{l(user.created_at, :format => :long)}
-              <td #{visible_column("user", "updated_at")} class="col-updated_at #{align_attribute("datetime")}">
-              \#{l(user.updated_at, :format => :long)}
+              %td{visible_column("user", "email")}
+                =user.email
+              %td{visible_column("user", "name")}
+                =user.name
+              %td{visible_column("user", "address")}
+                =user.address
               %td= link_to '<i class="icon-search"></i>'.html_safe, user_path(user), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_user_path(user), :title => t(:edit, :default => "Edit")
               %td= link_to '<i class="icon-remove"></i>'.html_safe, user_path(user), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")

@@ -23,7 +23,7 @@
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "product_group", :model_columns => ['product_group','name','slug','picture','created_at','updated_at'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "product_group", :model_columns => ['product_group','name','slug','picture'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -32,19 +32,14 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            <th #{visible_column("product_group", "product_group")} class="col-product_group">
-            \#{sorting_header("product_group", "product_group", "")}
-            <th #{visible_column("product_group", "name")} class="col-name">
-            \#{sorting_header("product_group", "name", "")}
-            <th #{visible_column("product_group", "slug")} class="col-slug">
-            \#{sorting_header("product_group", "slug", "")}
-            <th #{visible_column("product_group", "picture")} class="col-picture">
-            \#{sorting_header("product_group", "picture", "")}
-            / Beautiful_scaffold - AddField - Header - Do not remove
-            <th #{visible_column("product_group", "created_at")} class="col-created_at">
-            \#{sorting_header("product_group", "created_at", "")}
-            <th #{visible_column("product_group", "updated_at")} class="col-updated_at">
-            \#{sorting_header("product_group", "updated_at", "")}
+            %th{visible_column("product_group", "product_group")}
+              =sorting_header("product_group", "product_group", "")
+            %th{visible_column("product_group", "name")}
+              =sorting_header("product_group", "name", "")
+            %th{visible_column("product_group", "slug")}
+              =sorting_header("product_group", "slug", "")
+            %th{visible_column("product_group", "picture")}
+              =sorting_header("product_group", "picture", "")
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -54,19 +49,14 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= product_group.id
               %td= check_box_tag "ids[]",product_group.id, false, :class => 'cbbatch'
-              <td #{visible_column("product_group", "product_group")} class="col-product_group #{align_attribute("reference")}">
-              \#{product_group.product_group}
-              <td #{visible_column("product_group", "name")} class="col-name #{align_attribute("string")}">
-              \#{product_group.name}
-              <td #{visible_column("product_group", "slug")} class="col-slug #{align_attribute("string")}">
-              \#{product_group.slug}
-              <td #{visible_column("product_group", "picture")} class="col-picture #{align_attribute("string")}">
-              \#{product_group.picture}
-              / Beautiful_scaffold - AddField - Column - Do not remove
-              <td #{visible_column("product_group", "created_at")} class="col-created_at #{align_attribute("datetime")}">
-              \#{l(product_group.created_at, :format => :long)}
-              <td #{visible_column("product_group", "updated_at")} class="col-updated_at #{align_attribute("datetime")}">
-              \#{l(product_group.updated_at, :format => :long)}
+              %td{visible_column("product_group", "product_group")}
+                =product_group.product_group
+              %td{visible_column("product_group", "name")}
+                =product_group.name
+              %td{visible_column("product_group", "slug")}
+                =product_group.slug
+              %td{visible_column("product_group", "picture")}
+                =product_group.picture
               %td= link_to '<i class="icon-search"></i>'.html_safe, product_group_path(product_group), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_product_group_path(product_group), :title => t(:edit, :default => "Edit")
               %td= link_to '<i class="icon-remove"></i>'.html_safe, product_group_path(product_group), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
