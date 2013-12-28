@@ -1,10 +1,12 @@
 %h2
-  = t(:listing, :default => "Listing")
-  = t('app.models.order.bs_caption_plural', :default => 'order')
+  = t(:orders)
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.order.bs_caption', :default => 'order'), new_order_path, :class => "btn"
-  - if Order.columns.map(&:name).include?("order_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.order.bs_caption', :default => 'order'), treeview_orders_path, :class => "btn"
+  = link_to new_order_path , :class => "btn" do
+    %i.icon-plus
+      =  t( :new) + " " + t(:order)
+  = link_to treeview_orders_path, :class => "btn" do
+    %i.icon-folder-close
+      = t(:treeview) + " " + t(:order)
 .row-fluid
   .span9
     = form_tag  batch_orders_path, :class => "form-inline" do
