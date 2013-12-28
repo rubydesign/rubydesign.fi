@@ -21,19 +21,19 @@
     = f.label :total_price, t('app.models.order.bs_attributes.total_price', :default => 'total_price').capitalize, :class => "control-label"
     .controls
       .input-prepend
-        %span.add-on $
+        %span.add-on €
         = f.text_field :total_price
   .control-group
     = f.label :total_tax, t('app.models.order.bs_attributes.total_tax', :default => 'total_tax').capitalize, :class => "control-label"
     .controls
       .input-prepend
-        %span.add-on $
+        %span.add-on €
         = f.text_field :total_tax
   .control-group
     = f.label :shipping_price, t('app.models.order.bs_attributes.shipping_price', :default => 'shipping_price').capitalize, :class => "control-label"
     .controls
       .input-prepend
-        %span.add-on $
+        %span.add-on €
         = f.text_field :shipping_price
   .control-group
     = f.label :shipping_tax, t('app.models.order.bs_attributes.shipping_tax', :default => 'shipping_tax').capitalize, :class => "control-label"

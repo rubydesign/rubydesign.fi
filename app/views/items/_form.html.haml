@@ -8,14 +8,14 @@
         - @item.errors.full_messages.each do |msg|
           %li= msg
   .control-group
-    = f.label :quantity, t('app.models.item.bs_attributes.quantity', :default => 'quantity').capitalize, :class => "control-label"
+    = f.label :quantity, t(:quantity), :class => "control-label"
     .controls
       = f.number_field :quantity
   .control-group
     = f.label :price, t('app.models.item.bs_attributes.price', :default => 'price').capitalize, :class => "control-label"
     .controls
       .input-prepend
-        %span.add-on $
+        %span.add-on €
         = f.text_field :price
   .control-group
     = f.label :tax, t('app.models.item.bs_attributes.tax', :default => 'tax').capitalize, :class => "control-label"
@@ -24,7 +24,7 @@
   .control-group
     = f.label :product, t('app.models.item.bs_attributes.product', :default => 'product').capitalize, :class => "control-label"
     .controls
-      = f.text_field :product
+      = f.text_field :product_id
   .control-group
     = f.label :bucket, t('app.models.item.bs_attributes.bucket', :default => 'bucket').capitalize, :class => "control-label"
     .controls

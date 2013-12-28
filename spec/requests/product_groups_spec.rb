@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe "ProductGroups" do
   describe "GET /product_groups" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get product_groups_path
-      response.status.should be(200)
+    it "lists product groups" do
+      visit product_groups_path
+      page.should_not have_css(".translation_missing")
     end
   end
 end

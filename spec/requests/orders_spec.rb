@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe "Orders" do
   describe "GET /orders" do
-    it "works!" do
+    it "lists orders" do
       visit orders_path
-      response.status.should be(200)
+      page.should_not have_css(".translation_missing")
     end
   end
   describe "GET /orders/new" do
-    it "works!" do
+    it "creates a new order" do
       visit new_order_path
-      response.status.should be(200)
+      page.should_not have_css(".translation_missing")
     end
   end
 end

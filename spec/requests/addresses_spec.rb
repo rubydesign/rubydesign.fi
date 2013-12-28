@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe "Addresses" do
   describe "GET /addresses" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get addresses_path
-      response.status.should be(200)
+    it "lists addresses" do
+      visist addresses_path
+      page.should_not have_css(".translation_missing")
     end
   end
 end
