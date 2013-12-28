@@ -1,5 +1,5 @@
 %h2
-  = t(:new, :default => 'New')
-  = t('app.models.product_group.bs_caption', :default => 'product_group')
+  = t(:new)
+  = t(:product_group)
 = render 'form'
-= link_to t(:back, :default => "Back"), product_groups_path, :class => "btn"
+= link_to t(:back), product_groups_path, :class => "btn"

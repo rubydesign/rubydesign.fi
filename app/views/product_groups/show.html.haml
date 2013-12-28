@@ -1,11 +1,11 @@
 %h2
-  = t(:show, :default => "Show")
+  = t(:show)
   = t('app.models.product_group.bs_caption', :default => 'product_group')
 %p
   %b
     = t('app.models.product_group.bs_attributes.product_group', :default => 'product_group')
     \:
-  = @product_group.product_group
+  = @product_group.product_group_id
 %p
   %b
     = t('app.models.product_group.bs_attributes.name', :default => 'name')

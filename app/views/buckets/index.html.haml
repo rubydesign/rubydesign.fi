@@ -5,13 +5,6 @@
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.bucket.bs_caption', :default => 'bucket'), new_bucket_path, :class => "btn"
   - if Bucket.columns.map(&:name).include?("bucket_id") then
     = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.bucket.bs_caption', :default => 'bucket'), treeview_buckets_path, :class => "btn"
-- scopes = []
-- if not scopes.blank? then
-  .btn-toolbar
-    .btn-group
-      = link_to "All (#{@bucket_scope_for_scope.count})", buckets_path(:scope => ""), :class => "btn #{((session[:scope][:bucket].to_s == '') ? 'active' : '')}"
-      - for scope in scopes
-        = link_to "#{scope} (#{@bucket_scope_for_scope.send(scope).count})", buckets_path(:scope => scope), :class => "btn #{((session[:scope][:bucket].to_s == scope) ? 'active' : '')}"
 .row-fluid
   .span9
     = form_tag  batch_buckets_path, :class => "form-inline" do
@@ -54,11 +47,13 @@
           = will_paginate @buckets,                              |
             :inner_window => 0,                                  |
             :outer_window => 0,                                  |
-            :previous_label => t(:prev, :default => "Previous"), |
-            :next_label => t(:next, :default => "Next")          |
+            :previous_label => t(:prev), |
+            :next_label => t(:next)          |
         .btn-group.pull-right
-          = link_to '<i class="icon-download"></i> CSV'.html_safe,  buckets_path(:format => :csv), :class => "btn"
-          = link_to '<i class="icon-download"></i> JSON'.html_safe, buckets_path(:format => :json), :class => "btn"
+          = link_to buckets_path(:format => :csv), :class => "btn" do
+            %i.icon-download CSV 
+          = link_to buckets_path(:format => :json), :class => "btn" do
+            %i.icon-download JSON 
   .span3
     = search_form_for @q, :url => search_buckets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("bucket", "name", f, "String")

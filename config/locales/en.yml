@@ -1,7 +1,17 @@
 en:
+  are_you_sure: Are you sure?
   bucket: Product list
-  quantity: Quantity
+  back: Back
+  edit: Edit
+  editing: Editing
+  destroy: Destroy
+  new: New
+  prev: Previous
   price: Price
   product: Product
+  product_group: Product Group
+  product_groups: Product Groups
+  quantity: Quantity
+  show: Show
   tax: Vat
-  
+  treeview: Treeview

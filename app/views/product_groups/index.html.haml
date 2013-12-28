@@ -1,28 +1,15 @@
 %h2
-  = t(:listing, :default => "Listing")
-  = t('app.models.product_group.bs_caption_plural', :default => 'product_group')
+  = t(:product_groups)
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.product_group.bs_caption', :default => 'product_group'), new_product_group_path, :class => "btn"
-  - if ProductGroup.columns.map(&:name).include?("product_group_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.product_group.bs_caption', :default => 'product_group'), treeview_product_groups_path, :class => "btn"
-- scopes = []
-- if not scopes.blank? then
-  .btn-toolbar
-    .btn-group
-      = link_to "All (#{@product_group_scope_for_scope.count})", product_groups_path(:scope => ""), :class => "btn #{((session[:scope][:product_group].to_s == '') ? 'active' : '')}"
-      - for scope in scopes
-        = link_to "#{scope} (#{@product_group_scope_for_scope.send(scope).count})", product_groups_path(:scope => scope), :class => "btn #{((session[:scope][:product_group].to_s == scope) ? 'active' : '')}"
+  = link_to new_product_group_path , :class => "btn" do
+    %i.icon-plus
+      =  t( :new) + " " + t(:product_group)
+  = link_to treeview_product_groups_path, :class => "btn" do
+    %i.icon-folder-close
+      = t(:treeview) + " " + t(:product_group)
 .row-fluid
   .span9
-    = form_tag  batch_product_groups_path, :class => "form-inline" do
-      .well.well-small
-        %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
-        %select#select01{:name => "actionprocess"}
-          %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
-          / Beautiful_scaffold - AddField - Batch - Do not remove
-        %button.btn{:type => "submit"}
-          %i.icon-ok
-          = t(:process, :default => "Process")
+    %div
       = render :partial => "layouts/modal_columns", :locals => { :model_name => "product_group", :model_columns => ['product_group','name','slug','picture'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -47,37 +34,41 @@
         %tbody
           - @product_groups.each do |product_group|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= product_group.id
               %td= check_box_tag "ids[]",product_group.id, false, :class => 'cbbatch'
-              %td{visible_column("product_group", "product_group")}
-                =product_group.product_group
+              %td{visible_column("product_group", "product_group_id")}
+                =product_group.product_group_id
               %td{visible_column("product_group", "name")}
                 =product_group.name
               %td{visible_column("product_group", "slug")}
                 =product_group.slug
               %td{visible_column("product_group", "picture")}
                 =product_group.picture
-              %td= link_to '<i class="icon-search"></i>'.html_safe, product_group_path(product_group), :title => t(:show, :default => "Show")
-              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_product_group_path(product_group), :title => t(:edit, :default => "Edit")
-              %td= link_to '<i class="icon-remove"></i>'.html_safe, product_group_path(product_group), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
+              %td 
+                =link_to product_group_path(product_group), :title => t(:show) do 
+                  %i.icon-search
+              %td
+                = link_to edit_product_group_path(product_group), :title => t(:edit) do
+                  %i.icon-pencil
+              %td
+                =link_to product_group_path(product_group), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) do
+                  %i.icon-remove
       .btn-toolbar
         .btn-group
           - clean_params
           = will_paginate @product_groups,                       |
             :inner_window => 0,                                  |
             :outer_window => 0,                                  |
-            :previous_label => t(:prev, :default => "Previous"), |
-            :next_label => t(:next, :default => "Next")          |
+            :previous_label => t(:prev), |
+            :next_label => t(:next)          |
         .btn-group.pull-right
-          = link_to '<i class="icon-download"></i> CSV'.html_safe,  product_groups_path(:format => :csv), :class => "btn"
-          = link_to '<i class="icon-download"></i> JSON'.html_safe, product_groups_path(:format => :json), :class => "btn"
+          = link_to product_groups_path(:format => :csv), :class => "btn" do
+            %i.icon-download CSV
+          = link_to product_groups_path(:format => :json), :class => "btn" do
+            %i.icon-download JSON
   .span3
     = search_form_for @q, :url => search_product_groups_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("product_group", "product_group_id", f, "Product_group")
       = ransack_field("product_group", "name", f, "Name")
       = ransack_field("product_group", "slug", f, "Slug")
       = ransack_field("product_group", "picture", f, "Picture")
-      = ransack_field("product_group", "id", f, "Id")
-      / Beautiful_scaffold - AddField - Search - Do not remove
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), product_groups_path(:nosearch => "ok"), :class => "btn"

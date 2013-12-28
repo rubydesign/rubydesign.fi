@@ -5,13 +5,6 @@
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.address.bs_caption', :default => 'address'), new_address_path, :class => "btn"
   - if Address.columns.map(&:name).include?("address_id") then
     = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.address.bs_caption', :default => 'address'), treeview_addresses_path, :class => "btn"
-- scopes = []
-- if not scopes.blank? then
-  .btn-toolbar
-    .btn-group
-      = link_to "All (#{@address_scope_for_scope.count})", addresses_path(:scope => ""), :class => "btn #{((session[:scope][:address].to_s == '') ? 'active' : '')}"
-      - for scope in scopes
-        = link_to "#{scope} (#{@address_scope_for_scope.send(scope).count})", addresses_path(:scope => scope), :class => "btn #{((session[:scope][:address].to_s == scope) ? 'active' : '')}"
 .row-fluid
   .span9
     = form_tag  batch_addresses_path, :class => "form-inline" do
@@ -74,11 +67,13 @@
           = will_paginate @addresses,                            |
             :inner_window => 0,                                  |
             :outer_window => 0,                                  |
-            :previous_label => t(:prev, :default => "Previous"), |
-            :next_label => t(:next, :default => "Next")          |
+            :previous_label => t(:prev), |
+            :next_label => t(:next)          |
         .btn-group.pull-right
-          = link_to '<i class="icon-download"></i> CSV'.html_safe,  addresses_path(:format => :csv), :class => "btn"
-          = link_to '<i class="icon-download"></i> JSON'.html_safe, addresses_path(:format => :json), :class => "btn"
+          = link_to addresses_path(:format => :csv), :class => "btn" do
+            %i.icon-download CSV 
+          = link_to addresses_path(:format => :json), :class => "btn" do
+            %i.icon-download JSON 
   .span3
     = search_form_for @q, :url => search_addresses_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("address", "first_name", f, "First_name")

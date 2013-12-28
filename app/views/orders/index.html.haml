@@ -5,13 +5,6 @@
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.order.bs_caption', :default => 'order'), new_order_path, :class => "btn"
   - if Order.columns.map(&:name).include?("order_id") then
     = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.order.bs_caption', :default => 'order'), treeview_orders_path, :class => "btn"
-- scopes = []
-- if not scopes.blank? then
-  .btn-toolbar
-    .btn-group
-      = link_to "All (#{@order_scope_for_scope.count})", orders_path(:scope => ""), :class => "btn #{((session[:scope][:order].to_s == '') ? 'active' : '')}"
-      - for scope in scopes
-        = link_to "#{scope} (#{@order_scope_for_scope.send(scope).count})", orders_path(:scope => scope), :class => "btn #{((session[:scope][:order].to_s == scope) ? 'active' : '')}"
 .row-fluid
   .span9
     = form_tag  batch_orders_path, :class => "form-inline" do
@@ -94,11 +87,13 @@
           = will_paginate @orders,                               |
             :inner_window => 0,                                  |
             :outer_window => 0,                                  |
-            :previous_label => t(:prev, :default => "Previous"), |
-            :next_label => t(:next, :default => "Next")          |
+            :previous_label => t(:prev), |
+            :next_label => t(:next)          |
         .btn-group.pull-right
-          = link_to '<i class="icon-download"></i> CSV'.html_safe,  orders_path(:format => :csv), :class => "btn"
-          = link_to '<i class="icon-download"></i> JSON'.html_safe, orders_path(:format => :json), :class => "btn"
+          = link_to orders_path(:format => :csv), :class => "btn" do
+            %i.icon-download CSV 
+          = link_to orders_path(:format => :json), :class => "btn" do
+            %i.icon-download JSON 
   .span3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("order", "ordered_on", f, "Ordered_on")
