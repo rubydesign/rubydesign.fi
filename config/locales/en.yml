@@ -6,6 +6,8 @@ en:
   editing: Editing
   destroy: Destroy
   new: New
+  order: Order
+  orders: Orders
   prev: Previous
   price: Price
   product: Product
