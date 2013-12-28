@@ -63,6 +63,5 @@
     = f.label :supplier, t('app.models.product.bs_attributes.supplier', :default => 'supplier').capitalize, :class => "control-label"
     .controls
       = f.collection_select :supplier_id, Supplier.all, :id, :caption, :include_blank => true
-  / Beautiful_scaffold - AddField - Do not remove
   .form-actions
     = f.submit :class => "btn btn-primary"

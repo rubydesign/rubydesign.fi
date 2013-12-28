@@ -12,7 +12,6 @@
         %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
         %select#select01{:name => "actionprocess"}
           %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
-          / Beautiful_scaffold - AddField - Batch - Do not remove
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
@@ -62,6 +61,5 @@
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("supplier", "name", f, "Name")
       = ransack_field("supplier", "id", f, "Id")
-      / Beautiful_scaffold - AddField - Search - Do not remove
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), suppliers_path(:nosearch => "ok"), :class => "btn"

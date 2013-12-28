@@ -12,7 +12,6 @@
         %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
         %select#select01{:name => "actionprocess"}
           %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
-          / Beautiful_scaffold - AddField - Batch - Do not remove
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
@@ -127,6 +126,5 @@
       = ransack_field("product", "product_group_id", f, "Product_group")
       = ransack_field("product", "supplier_id", f, "Supplier")
       = ransack_field("product", "id", f, "Id")
-      / Beautiful_scaffold - AddField - Search - Do not remove
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), products_path(:nosearch => "ok"), :class => "btn"

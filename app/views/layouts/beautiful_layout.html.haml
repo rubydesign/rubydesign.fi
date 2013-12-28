@@ -24,7 +24,6 @@
                 %i.icon-th-list
           %ul.nav.pull-right
             %li
-            / Beautiful_scaffold - Signin - Do not remove
           .nav-collapse.collapse
             %ul.nav.hidden-desktop
               = render( :partial => "layouts/beautiful_menu")
@@ -51,7 +50,6 @@
     .loader{:style => "display:none"}
       .circle
       .circle1
-    / Beautiful_scaffold - Modal - Do not remove
     :javascript
       <haml:silent>       if not @opened_modal.blank? then 
       </haml:silent><haml:block>      $('#{@opened_modal}').modal('show');
