@@ -1,25 +1,21 @@
 %h2
   = t(:show)
-  = t('app.models.product_group.bs_caption', :default => 'product_group')
+  = t(:product_group)
 %p
   %b
-    = t('app.models.product_group.bs_attributes.product_group', :default => 'product_group')
-    \:
+    = t(:product_group_id) + ":"
   = @product_group.product_group_id
 %p
   %b
-    = t('app.models.product_group.bs_attributes.name', :default => 'name')
-    \:
+    = t(:name) + ":"
   = @product_group.name
 %p
   %b
-    = t('app.models.product_group.bs_attributes.slug', :default => 'slug')
-    \:
+    = t(:slug) + ":"
   = @product_group.slug
 %p
   %b
-    = t('app.models.product_group.bs_attributes.picture', :default => 'picture')
-    \:
+    = t(:picture) + ":"
   = @product_group.picture
-= link_to t(:edit, :default => "Edit"), edit_product_group_path(@product_group), :class => "btn"
-= link_to t(:back, :default => "Back"), product_groups_path, :class => "btn"
+= link_to t(:edit), edit_product_group_path(@product_group), :class => "btn"
+= link_to t(:back), product_groups_path, :class => "btn"

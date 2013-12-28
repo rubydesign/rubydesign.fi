@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :product_group do
-    product_group ""
+    product_group_id 0
     name "MyString"
     slug "MyString"
     picture "MyString"

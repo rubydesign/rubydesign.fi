@@ -3,8 +3,7 @@
   = t('app.models.bucket.bs_caption', :default => 'bucket')
 %p
   %b
-    = t('app.models.bucket.bs_attributes.string', :default => 'string')
-    \:
+    = t('app.models.bucket.bs_attributes.string', :default => 'string') + ":"
   = @bucket.string
 = link_to t(:edit, :default => "Edit"), edit_bucket_path(@bucket), :class => "btn"
 = link_to t(:back, :default => "Back"), buckets_path, :class => "btn"

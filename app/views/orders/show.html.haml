@@ -3,63 +3,51 @@
   = t('app.models.order.bs_caption', :default => 'order')
 %p
   %b
-    = t('app.models.order.bs_attributes.ordered_on', :default => 'ordered_on')
-    \:
+    = t('app.models.order.bs_attributes.ordered_on', :default => 'ordered_on') + ":"
   = @order.ordered_on
 %p
   %b
-    = t('app.models.order.bs_attributes.total_price', :default => 'total_price')
-    \:
+    = t('app.models.order.bs_attributes.total_price', :default => 'total_price') + ":"
   = number_to_currency(@order.total_price)
 %p
   %b
-    = t('app.models.order.bs_attributes.total_tax', :default => 'total_tax')
-    \:
+    = t('app.models.order.bs_attributes.total_tax', :default => 'total_tax') + ":"
   = number_to_currency(@order.total_tax)
 %p
   %b
-    = t('app.models.order.bs_attributes.shipping_price', :default => 'shipping_price')
-    \:
+    = t('app.models.order.bs_attributes.shipping_price', :default => 'shipping_price') + ":"
   = number_to_currency(@order.shipping_price)
 %p
   %b
-    = t('app.models.order.bs_attributes.shipping_tax', :default => 'shipping_tax')
-    \:
+    = t('app.models.order.bs_attributes.shipping_tax', :default => 'shipping_tax') + ":"
   = @order.shipping_tax
 %p
   %b
-    = t('app.models.order.bs_attributes.bucket', :default => 'bucket')
-    \:
+    = t('app.models.order.bs_attributes.bucket', :default => 'bucket') + ":"
   = @order.bucket_id
 %p
   %b
-    = t('app.models.order.bs_attributes.email', :default => 'email')
-    \:
+    = t('app.models.order.bs_attributes.email', :default => 'email') + ":"
   = @order.email
 %p
   %b
-    = t('app.models.order.bs_attributes.paid_on', :default => 'paid_on')
-    \:
+    = t('app.models.order.bs_attributes.paid_on', :default => 'paid_on') + ":"
   = @order.paid_on
 %p
   %b
-    = t('app.models.order.bs_attributes.shipped_on', :default => 'shipped_on')
-    \:
+    = t('app.models.order.bs_attributes.shipped_on', :default => 'shipped_on') + ":"
   = @order.shipped_on
 %p
   %b
-    = t('app.models.order.bs_attributes.paid_on', :default => 'paid_on')
-    \:
+    = t('app.models.order.bs_attributes.paid_on', :default => 'paid_on') + ":"
   = @order.paid_on
 %p
   %b
-    = t('app.models.order.bs_attributes.canceled_on', :default => 'canceled_on')
-    \:
+    = t('app.models.order.bs_attributes.canceled_on', :default => 'canceled_on') + ":"
   = @order.canceled_on
 %p
   %b
-    = t('app.models.order.bs_attributes.shipment_type', :default => 'shipment_type')
-    \:
+    = t('app.models.order.bs_attributes.shipment_type', :default => 'shipment_type') + ":"
   = @order.shipment_type
 = link_to t(:edit, :default => "Edit"), edit_order_path(@order), :class => "btn"
 = link_to t(:back, :default => "Back"), orders_path, :class => "btn"

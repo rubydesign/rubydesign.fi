@@ -3,18 +3,15 @@
   = t('app.models.user.bs_caption', :default => 'user')
 %p
   %b
-    = t('app.models.user.bs_attributes.email', :default => 'email')
-    \:
+    = t('app.models.user.bs_attributes.email', :default => 'email') + ":"
   = @user.email
 %p
   %b
-    = t('app.models.user.bs_attributes.name', :default => 'name')
-    \:
+    = t('app.models.user.bs_attributes.name', :default => 'name') + ":"
   = @user.name
 %p
   %b
-    = t('app.models.user.bs_attributes.address', :default => 'address')
-    \:
+    = t('app.models.user.bs_attributes.address', :default => 'address') + ":"
   = @user.address
 = link_to t(:edit, :default => "Edit"), edit_user_path(@user), :class => "btn"
 = link_to t(:back, :default => "Back"), users_path, :class => "btn"

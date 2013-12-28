@@ -3,28 +3,23 @@
   = t('app.models.item.bs_caption', :default => 'item')
 %p
   %b
-    = t('app.models.item.bs_attributes.quantity', :default => 'quantity')
-    \:
+    = t('app.models.item.bs_attributes.quantity', :default => 'quantity') + ":"
   = @item.quantity
 %p
   %b
-    = t('app.models.item.bs_attributes.price', :default => 'price')
-    \:
+    = t('app.models.item.bs_attributes.price', :default => 'price') + ":"
   = number_to_currency(@item.price)
 %p
   %b
-    = t('app.models.item.bs_attributes.tax', :default => 'tax')
-    \:
+    = t('app.models.item.bs_attributes.tax', :default => 'tax') + ":"
   = @item.tax
 %p
   %b
-    = t('app.models.item.bs_attributes.product', :default => 'product')
-    \:
+    = t('app.models.item.bs_attributes.product', :default => 'product') + ":"
   = @item.product
 %p
   %b
-    = t('app.models.item.bs_attributes.bucket', :default => 'bucket')
-    \:
+    = t('app.models.item.bs_attributes.bucket', :default => 'bucket') + ":"
   = @item.bucket
 = link_to t(:edit, :default => "Edit"), edit_item_path(@item), :class => "btn"
 = link_to t(:back, :default => "Back"), items_path, :class => "btn"

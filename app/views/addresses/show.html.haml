@@ -3,33 +3,27 @@
   = t('app.models.address.bs_caption', :default => 'address')
 %p
   %b
-    = t('app.models.address.bs_attributes.first_name', :default => 'first_name')
-    \:
+    = t('app.models.address.bs_attributes.first_name', :default => 'first_name') + ":"
   = @address.first_name
 %p
   %b
-    = t('app.models.address.bs_attributes.last_name', :default => 'last_name')
-    \:
+    = t('app.models.address.bs_attributes.last_name', :default => 'last_name') + ":"
   = @address.last_name
 %p
   %b
-    = t('app.models.address.bs_attributes.street1', :default => 'street1')
-    \:
+    = t('app.models.address.bs_attributes.street1', :default => 'street1') + ":"
   = @address.street1
 %p
   %b
-    = t('app.models.address.bs_attributes.street2', :default => 'street2')
-    \:
+    = t('app.models.address.bs_attributes.street2', :default => 'street2') + ":"
   = @address.street2
 %p
   %b
-    = t('app.models.address.bs_attributes.postcode', :default => 'postcode')
-    \:
+    = t('app.models.address.bs_attributes.postcode', :default => 'postcode') + ":"
   = @address.postcode
 %p
   %b
-    = t('app.models.address.bs_attributes.country', :default => 'country')
-    \:
+    = t('app.models.address.bs_attributes.country', :default => 'country') + ":"
   = @address.country
 = link_to t(:edit, :default => "Edit"), edit_address_path(@address), :class => "btn"
 = link_to t(:back, :default => "Back"), addresses_path, :class => "btn"

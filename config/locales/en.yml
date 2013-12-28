@@ -5,15 +5,19 @@ en:
   edit: Edit
   editing: Editing
   destroy: Destroy
+  name: Name
   new: New
   order: Order
   orders: Orders
+  picture: Picture
   prev: Previous
   price: Price
   product: Product
   product_group: Product Group
+  product_group_id: Product Line
   product_groups: Product Groups
   quantity: Quantity
   show: Show
+  slug: slug
   tax: Vat
   treeview: Treeview
