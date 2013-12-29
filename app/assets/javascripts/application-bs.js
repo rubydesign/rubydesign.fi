@@ -10,12 +10,10 @@
 //= require twitter/bootstrap/bootstrap-tooltip
 //= require jquery.livequery
 //= require turbolinks
-//= require a-wysihtml5-0.3.0.min
 //= require bootstrap-colorpicker
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
 //= require bootstrap-datetimepicker-for-beautiful-scaffold
-//= require bootstrap-wysihtml5
 //= require jquery.jstree
 //= require tagit.js
 //= require chardinjs

@@ -64,10 +64,6 @@ function bs_init(){
         });
     });
 
-    // Wysiwyg and color field
-    $('.wysiwyg-editor').wysihtml5({"html": true});
-    $('.color').colorpicker({format: 'rgba'});
-
     // Processing
     $('#checkall').click(function(){
         $('.cbbatch').attr('checked', ($(this).attr('checked') != undefined));
