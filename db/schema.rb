@@ -35,12 +35,10 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.float    "price"
     t.float    "tax"
     t.integer  "product_id"
+    t.integer  "basket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "basket_id"
   end
-
-  add_index "items", ["basket_id"], name: "index_items_on_basket_id"
 
   create_table "orders", force: true do |t|
     t.date     "ordered_on"
@@ -105,12 +103,10 @@ ActiveRecord::Schema.define(version: 20131226151332) do
 
   create_table "suppliers", force: true do |t|
     t.string   "name"
+    t.integer  "address_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "address_id"
   end
-
-  add_index "suppliers", ["address_id"], name: "index_suppliers_on_address_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -123,9 +119,10 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.integer  "bucket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

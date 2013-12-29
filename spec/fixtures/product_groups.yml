@@ -1,0 +1,24 @@
+---
+ProductGroup_1:
+  id: 1
+  name: Gourmet
+  url_name: gourmet
+  created_at: 2013-12-29 19:32:28.100812000 Z
+  updated_at: 2013-12-29 19:32:28.100812000 Z
+
+---
+ProductGroup_2:
+  id: 2
+  product_group_id: 1
+  name: Tee
+  url_name: tee
+  created_at: 2013-12-29 19:32:43.704969000 Z
+  updated_at: 2013-12-29 19:32:43.704969000 Z
+
+---
+ProductGroup_3:
+  id: 3
+  name: kosmetiika
+  created_at: 2013-12-29 19:34:17.942424000 Z
+  updated_at: 2013-12-29 19:34:17.942424000 Z
+

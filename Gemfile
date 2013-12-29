@@ -17,6 +17,7 @@ gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
 gem "twitter-bootstrap-rails"
 gem "chardinjs-rails"
+gem 'db_fixtures_dump'
 
 group :development do
   gem 'better_errors'

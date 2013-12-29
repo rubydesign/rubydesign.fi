@@ -9,17 +9,21 @@
           %li= msg
   .span6
     .control-group
-      = f.label :name, t('app.models.product.bs_attributes.name', :default => 'name').capitalize, :class => "control-label"
+      = f.label :name, t(:name), :class => "control-label"
       .controls
         = f.text_field :name
     .control-group
-      = f.label :description, t('app.models.product.bs_attributes.description', :default => 'description').capitalize, :class => "control-label"
+      = f.label :description, t(:description), :class => "control-label"
       .controls
         = f.text_area :description, :rows => 10 , :cols => 40
     .control-group
-      = f.label :supplier, t('app.models.product.bs_attributes.supplier', :default => 'supplier').capitalize, :class => "control-label"
+      = f.label :supplier, t(:supplier), :class => "control-label"
       .controls
         = f.collection_select :supplier_id, Supplier.all, :id, :caption, :include_blank => true
+    .control-group
+      = f.label :product_group, t(:product_group), :class => "control-label"
+      .controls
+        = f.collection_select :product_group_id, ProductGroup.all, :id, :caption, :include_blank => true
      
   .span3
     .control-group

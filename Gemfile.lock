@@ -71,6 +71,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     database_cleaner (1.0.1)
+    db_fixtures_dump (0.0.9)
     debug_inspector (0.0.2)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   chardinjs-rails
   coffee-rails
   database_cleaner (= 1.0.1)
+  db_fixtures_dump
   devise
   email_spec
   factory_girl_rails
