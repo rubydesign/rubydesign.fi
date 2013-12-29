@@ -32,9 +32,9 @@
         %span.add-on
           %i.icon-calendar
   .control-group
-    = f.label :bucket, t('app.models.purchase.bs_attributes.bucket', :default => 'bucket').capitalize, :class => "control-label"
+    = f.label :basket, t('app.models.purchase.bs_attributes.basket', :default => 'basket').capitalize, :class => "control-label"
     .controls
-      = f.collection_select :bucket_id, Bucket.all, :id, :caption, :include_blank => true
+      = f.collection_select :basket_id, Basket.all, :id, :caption, :include_blank => true
   .control-group
     = f.label :supplier, t('app.models.purchase.bs_attributes.supplier', :default => 'supplier').capitalize, :class => "control-label"
     .controls

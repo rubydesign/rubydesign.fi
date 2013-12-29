@@ -15,7 +15,7 @@
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "purchase", :model_columns => ['name','ordered_on','received_on','bucket','supplier'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "purchase", :model_columns => ['name','ordered_on','received_on','basket','supplier'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -30,8 +30,8 @@
               =sorting_header("purchase", "ordered_on", "")
             %th{visible_column("purchase", "received_on")}
               =sorting_header("purchase", "received_on", "")
-            %th{visible_column("purchase", "bucket")}
-              =sorting_header("purchase", "bucket_id", "")
+            %th{visible_column("purchase", "basket")}
+              =sorting_header("purchase", "basket_id", "")
             %th{visible_column("purchase", "supplier")}
               =sorting_header("purchase", "supplier", "")
             %th{:colspan => "3"}
@@ -49,9 +49,9 @@
                 =purchase.ordered_on
               %td{visible_column("purchase", "received_on")}
                 =purchase.received_on
-              %td{visible_column("purchase", "bucket")}
-              - if not purchase.bucket_id.nil? then
-                = link_to purchase.bucket.caption, bucket_path(purchase.bucket_id)
+              %td{visible_column("purchase", "basket")}
+              - if not purchase.basket_id.nil? then
+                = link_to purchase.basket.caption, basket_path(purchase.basket_id)
               - else
                 = t(:any, :default => "Any")
               %td{visible_column("purchase", "supplier")}
@@ -77,7 +77,7 @@
       = ransack_field("purchase", "name", f, "Name")
       = ransack_field("purchase", "ordered_on", f, "Ordered_on")
       = ransack_field("purchase", "received_on", f, "Received_on")
-      = ransack_field("purchase", "bucket_id", f, "Bucket")
+      = ransack_field("purchase", "basket_id", f, "Basket")
       = ransack_field("purchase", "supplier_id", f, "Supplier")
       = ransack_field("purchase", "id", f, "Id")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"

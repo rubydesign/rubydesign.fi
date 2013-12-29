@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "updated_at"
   end
 
-  create_table "buckets", force: true do |t|
+  create_table "baskets", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "bucket_id"
+    t.integer  "basket_id"
   end
 
-  add_index "items", ["bucket_id"], name: "index_items_on_bucket_id"
+  add_index "items", ["basket_id"], name: "index_items_on_basket_id"
 
   create_table "orders", force: true do |t|
     t.date     "ordered_on"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.float    "total_tax"
     t.float    "shipping_price"
     t.float    "shipping_tax"
-    t.integer  "bucket_id"
+    t.integer  "basket_id"
     t.string   "email"
     t.date     "paid_on"
     t.date     "shipped_on"
@@ -93,13 +93,13 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "name"
     t.date     "ordered_on"
     t.date     "received_on"
-    t.integer  "bucket_id"
+    t.integer  "basket_id"
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "purchases", ["bucket_id"], name: "index_purchases_on_bucket_id"
+  add_index "purchases", ["basket_id"], name: "index_purchases_on_basket_id"
 
   create_table "suppliers", force: true do |t|
     t.string   "name"

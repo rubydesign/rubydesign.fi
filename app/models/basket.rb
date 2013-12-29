@@ -1,4 +1,4 @@
-class Bucket < ActiveRecord::Base
+class Basket < ActiveRecord::Base
   has_many :purchases, :dependent => :nullify
   has_many :items, :dependent => :nullify
   scope :sorting, lambda{ |options|

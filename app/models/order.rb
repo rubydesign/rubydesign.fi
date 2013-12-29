@@ -23,6 +23,6 @@ class Order < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :ordered_on,:total_price,:total_tax,:shipping_price,:shipping_tax,:bucket_id,:email,:paid_on,:shipped_on,:paid_on,:canceled_on,:shipment_type
+    return :ordered_on,:total_price,:total_tax,:shipping_price,:shipping_tax,:basket_id,:email,:paid_on,:shipped_on,:paid_on,:canceled_on,:shipment_type
   end
 end

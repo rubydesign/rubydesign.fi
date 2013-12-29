@@ -17,7 +17,7 @@
         %button.btn{:type => "submit"}
           %i.icon-ok
           = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "order", :model_columns => ['ordered_on','total_price','total_tax','shipping_price','shipping_tax','bucket_id','email','paid_on','shipped_on','paid_on','canceled_on','shipment_type'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "order", :model_columns => ['ordered_on','total_price','total_tax','shipping_price','shipping_tax','basket_id','email','paid_on','shipped_on','paid_on','canceled_on','shipment_type'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -34,8 +34,8 @@
               = sorting_header("order", "total_tax", "")
             %th{visible_column("order", "shipping_price")}
               = sorting_header("order", "shipping_price", "")
-            %th{visible_column("order", "bucket_id")}
-              = sorting_header("order", "bucket_id", "")
+            %th{visible_column("order", "basket_id")}
+              = sorting_header("order", "basket_id", "")
             %th{visible_column("order", "email")}
               = sorting_header("order", "email", "")
             %th{visible_column("order", "paid_on")}
@@ -65,8 +65,8 @@
                 = number_to_currency(order.total_tax, :locale => I18n.locale)
               %td{visible_column("order", "shipping_price")} 
                 = number_to_currency(order.shipping_price, :locale => I18n.locale)
-              %td{visible_column("order", "bucket_id")}
-                = order.bucket_id
+              %td{visible_column("order", "basket_id")}
+                = order.basket_id
               %td{visible_column("order", "email")}
                 = order.email
               %td{visible_column("order", "paid_on")}
@@ -102,7 +102,7 @@
       = ransack_field("order", "total_tax", f, "Total_tax")
       = ransack_field("order", "shipping_price", f, "Shipping_price")
       = ransack_field("order", "shipping_tax", f, "Shipping_tax")
-      = ransack_field("order", "bucket_id", f, "Bucket")
+      = ransack_field("order", "basket_id", f, "Basket")
       = ransack_field("order", "email", f, "Email")
       = ransack_field("order", "paid_on", f, "Paid_on")
       = ransack_field("order", "shipped_on", f, "Shipped_on")

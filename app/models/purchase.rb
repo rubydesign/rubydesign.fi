@@ -23,7 +23,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :name,:ordered_on,:received_on,:bucket_id,:supplier
+    return :name,:ordered_on,:received_on,:basket_id,:supplier
   end
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
@@ -48,5 +48,5 @@ class Purchase < ActiveRecord::Base
     generate_fulltext_field([])
   end
 
-  belongs_to :bucket
+  belongs_to :basket
 end

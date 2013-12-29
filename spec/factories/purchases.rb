@@ -5,7 +5,7 @@ FactoryGirl.define do
     name "MyString"
     ordered_on "2013-12-26"
     received_on "2013-12-26"
-    bucket nil
+    basket nil
     supplier ""
   end
 end

@@ -15,8 +15,8 @@
   = @purchase.received_on
 %p
   %b
-    = t('app.models.purchase.bs_attributes.bucket', :default => 'bucket') + ":"
-  = (@purchase.bucket.nil? ? "" : @purchase.bucket.caption)
+    = t('app.models.purchase.bs_attributes.basket', :default => 'basket') + ":"
+  = (@purchase.basket.nil? ? "" : @purchase.basket.caption)
 %p
   %b
     = t('app.models.purchase.bs_attributes.supplier', :default => 'supplier') + ":"

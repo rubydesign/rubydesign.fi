@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration
       t.float :total_tax
       t.float :shipping_price
       t.float :shipping_tax
-      t.references :bucket
+      t.references :basket
       t.string :email
       t.date :paid_on
       t.date :shipped_on

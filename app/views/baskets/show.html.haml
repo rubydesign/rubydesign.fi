@@ -1,0 +1,9 @@
+%h2
+  = t(:show, :default => "Show")
+  = t('app.models.basket.bs_caption', :default => 'basket')
+%p
+  %b
+    = t('app.models.basket.bs_attributes.string', :default => 'string') + ":"
+  = @basket.string
+= link_to t(:edit, :default => "Edit"), edit_basket_path(@basket), :class => "btn"
+= link_to t(:back, :default => "Back"), baskets_path, :class => "btn"

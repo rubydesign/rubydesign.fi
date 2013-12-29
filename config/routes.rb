@@ -10,8 +10,8 @@ OfficeClerk::Application.routes.draw do
     end
   end
 
-  match "buckets/search_and_filter" => "buckets#index", :via => [:get, :post], :as => :search_buckets
-  resources :buckets do
+  match "baskets/search_and_filter" => "baskets#index", :via => [:get, :post], :as => :search_baskets
+  resources :baskets do
     collection do
       post :batch
       get  :treeview
