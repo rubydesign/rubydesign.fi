@@ -1,6 +1,7 @@
 en:
   addresses: Adresses
   are_you_sure: Are you sure?
+  create_success: Sucessfully created
   basket: Product list
   back: Back
   destroy: Destroy
@@ -27,3 +28,4 @@ en:
   tax: Vat
   treeview: Treeview
   users: Users
+  

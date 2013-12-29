@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :url_name
       t.string :ean
       t.float :tax
+      t.integer :inventory , :default => 0
       t.string :properties
       t.string :scode
       t.references :product, index: true

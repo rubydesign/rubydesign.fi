@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "url_name"
     t.string   "ean"
     t.float    "tax"
+    t.integer  "inventory",        default: 0
     t.string   "properties"
     t.string   "scode"
     t.integer  "product_id"
