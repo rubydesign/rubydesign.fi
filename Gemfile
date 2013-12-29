@@ -1,21 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-gem 'rails', '4.0.1'
+gem 'rails'
 gem 'sqlite3'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'devise'
-gem 'figaro'
 gem 'simple_form'
-gem 'thin'
-gem 'beautiful_scaffold'
 gem "haml"
+gem "will_paginate"
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
+gem "prawn"
+gem "twitter-bootstrap-rails"
+gem "chardinjs-rails"
 
 group :development do
   gem 'better_errors'
@@ -41,13 +42,3 @@ group :test do
   gem 'email_spec'
 end
 
-gem "will_paginate"
-gem "ransack", github: "ernie/ransack", branch: "rails-4"
-gem "prawn", "1.0.0.rc2"
-gem "RedCloth"
-gem "bb-ruby"
-gem "bluecloth"
-gem "rdiscount"
-gem "sanitize"
-gem "twitter-bootstrap-rails"
-gem "chardinjs-rails"
