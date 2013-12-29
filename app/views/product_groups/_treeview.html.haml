@@ -1,6 +1,8 @@
 %ul
-  - ProductGroup.transaction do
-    - ar = ProductGroup.where(:product_group_id => nil)
+  %li
+    = link_to group.name , edit_product_group_path(group), :title => t(:edit)          
+    - ar = ProductGroup.where(:product_group_id => group.id)
     - ar = ar.order("position") if ProductGroup.column_names.include?("position")
     - for g in ar.all
-      = build_treeview(g, 'product_groups')
+      = render "treeview" , :group => g
+      

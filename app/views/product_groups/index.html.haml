@@ -61,4 +61,6 @@
       = ransack_field("product_group", "url_name", f, "Url")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), product_groups_path(:nosearch => "ok"), :class => "btn"
-    = render "treeview"
+    %hr
+    - ProductGroup.where(:product_group_id => nil).each do |group|
+      = render "treeview" , :group => group

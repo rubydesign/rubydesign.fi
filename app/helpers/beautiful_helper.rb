@@ -231,22 +231,6 @@ module BeautifulHelper
     return column[0..-4]
   end
 
-  def build_treeview(obj, child_relation, caption_method = "caption")
-    out = '
-      <li id="treeelt_' + obj.id.to_s + '" data-id="' + obj.id.to_s + '">
-        <a href="#">' + obj.send(caption_method).to_s + '</a>
-        <ul>'
-    ar = obj.send(child_relation.to_sym)
-    ar = ar.order('position') if obj.class.column_names.include?("position")
-    for o in ar.all
-      out += build_treeview(o, child_relation, caption_method)
-    end
-    out += '
-        </ul>
-      </li>'
-    return out.html_safe
-  end
-
   def clean_params
     params.delete :q
     params.delete :fields
