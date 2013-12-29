@@ -32,9 +32,9 @@
     .controls
       = f.text_area :description, :rows => 5
   .control-group
-    = f.label :slug, t('app.models.product.bs_attributes.slug', :default => 'slug').capitalize, :class => "control-label"
+    = f.label :url_name, t('app.models.product.bs_attributes.url_name', :default => 'url_name').capitalize, :class => "control-label"
     .controls
-      = f.text_field :slug
+      = f.text_field :url_name
   .control-group
     = f.label :ean, t('app.models.product.bs_attributes.ean', :default => 'ean').capitalize, :class => "control-label"
     .controls

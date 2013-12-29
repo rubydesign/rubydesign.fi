@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   create_table "product_groups", force: true do |t|
     t.integer  "product_group_id"
     t.string   "name"
-    t.string   "slug"
+    t.string   "url_name"
     t.string   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.float    "weight"
     t.string   "name"
     t.text     "description"
-    t.string   "slug"
+    t.string   "url_name"
     t.string   "ean"
     t.float    "tax"
     t.string   "properties"

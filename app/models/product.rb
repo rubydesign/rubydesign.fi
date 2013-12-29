@@ -24,7 +24,7 @@ class Product < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :price,:cost,:weight,:name,:description,:slug,:ean,:tax,:properties,:scode,:product_id,:product_group_id,:supplier_id
+    return :price,:cost,:weight,:name,:description,:url_name,:ean,:tax,:properties,:scode,:product_id,:product_group_id,:supplier_id
   end
   belongs_to :product
   belongs_to :product_group

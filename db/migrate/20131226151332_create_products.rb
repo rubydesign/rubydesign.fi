@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration
       t.float :weight
       t.string :name
       t.text :description
-      t.string :slug
+      t.string :url_name
       t.string :ean
       t.float :tax
       t.string :properties

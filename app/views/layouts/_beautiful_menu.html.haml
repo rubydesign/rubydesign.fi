@@ -1,18 +1,18 @@
 %li{:class => params[:controller] == "purchases" && "active" }
-  = link_to t('app.models.purchase.bs_caption_plural', :default => 'purchase').capitalize, purchases_path
+  = link_to t(:purchases), purchases_path
 %li{:class => params[:controller] == "buckets" && "active" }
-  = link_to t('app.models.bucket.bs_caption_plural', :default => 'bucket').capitalize, buckets_path
+  = link_to t(:bucket), buckets_path
 %li{:class => params[:controller] == "orders" && "active" }
-  = link_to t('app.models.order.bs_caption_plural', :default => 'order').capitalize, orders_path
+  = link_to t(:orders), orders_path
 %li{:class => params[:controller] == "items" && "active" }
-  = link_to t('app.models.item.bs_caption_plural', :default => 'item').capitalize, items_path
+  = link_to t(:items), items_path
 %li{:class => params[:controller] == "product_groups" && "active" }
-  = link_to t('app.models.product_group.bs_caption_plural', :default => 'product_group').capitalize, product_groups_path
+  = link_to t(:product_groups), product_groups_path
 %li{:class => params[:controller] == "products" && "active" }
-  = link_to t('app.models.product.bs_caption_plural', :default => 'product').capitalize, products_path
+  = link_to t(:products), products_path
 %li{:class => params[:controller] == "users" && "active" }
-  = link_to t('app.models.user.bs_caption_plural', :default => 'user').capitalize, users_path
+  = link_to t(:users), users_path
 %li{:class => params[:controller] == "addresses" && "active" }
-  = link_to t('app.models.address.bs_caption_plural', :default => 'address').capitalize, addresses_path
+  = link_to t(:addresses), addresses_path
 %li{:class => params[:controller] == "suppliers" && "active" }
-  = link_to t('app.models.supplier.bs_caption_plural', :default => 'supplier').capitalize, suppliers_path
+  = link_to t(:suppliers), suppliers_path

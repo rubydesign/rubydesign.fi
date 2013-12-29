@@ -1,10 +1,12 @@
 en:
+  addresses: Adresses
   are_you_sure: Are you sure?
   bucket: Product list
   back: Back
+  destroy: Destroy
   edit: Edit
   editing: Editing
-  destroy: Destroy
+  items: Items
   name: Name
   new: New
   order: Order
@@ -13,11 +15,15 @@ en:
   prev: Previous
   price: Price
   product: Product
+  products: Products
   product_group: Product Group
   product_group_id: Product Line
   product_groups: Product Groups
+  purchases: Purchases
   quantity: Quantity
+  suppliers: Suppliers
   show: Show
-  slug: slug
+  url_name: url_name
   tax: Vat
   treeview: Treeview
+  users: Users

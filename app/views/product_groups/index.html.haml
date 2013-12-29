@@ -10,7 +10,7 @@
 .row-fluid
   .span9
     %div
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "product_group", :model_columns => ['product_group','name','slug','picture'] }
+      = render :partial => "layouts/modal_columns", :locals => { :model_name => "product_group", :model_columns => ['product_group','name','url_name','picture'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
@@ -23,8 +23,8 @@
               =sorting_header("product_group", "product_group", "")
             %th{visible_column("product_group", "name")}
               =sorting_header("product_group", "name", "")
-            %th{visible_column("product_group", "slug")}
-              =sorting_header("product_group", "slug", "")
+            %th{visible_column("product_group", "url_name")}
+              =sorting_header("product_group", "url_name", "")
             %th{visible_column("product_group", "picture")}
               =sorting_header("product_group", "picture", "")
             %th{:colspan => "3"}
@@ -39,8 +39,8 @@
                 =product_group.product_group_id
               %td{visible_column("product_group", "name")}
                 =product_group.name
-              %td{visible_column("product_group", "slug")}
-                =product_group.slug
+              %td{visible_column("product_group", "url_name")}
+                =product_group.url_name
               %td{visible_column("product_group", "picture")}
                 =product_group.picture
               %td 
@@ -68,7 +68,7 @@
   .span3
     = search_form_for @q, :url => search_product_groups_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("product_group", "name", f, "Name")
-      = ransack_field("product_group", "slug", f, "Slug")
+      = ransack_field("product_group", "url_name", f, "Slug")
       = ransack_field("product_group", "picture", f, "Picture")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), product_groups_path(:nosearch => "ok"), :class => "btn"

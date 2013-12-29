@@ -10,15 +10,15 @@
   .control-group
     = f.label :product_group, t(:product_group), :class => "control-label"
     .controls
-      = f.text_field :product_group_id
+      = f.collection_select(:product_group_id, ProductGroup.all, :id, :name, :prompt => 'Select')
   .control-group
     = f.label :name, t(:name), :class => "control-label"
     .controls
       = f.text_field :name
   .control-group
-    = f.label :slug, t(:slug), :class => "control-label"
+    = f.label :url_name, t(:url_name), :class => "control-label"
     .controls
-      = f.text_field :slug
+      = f.text_field :url_name
   .control-group
     = f.label :picture, t(:picture), :class => "control-label"
     .controls

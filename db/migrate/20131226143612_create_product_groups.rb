@@ -3,7 +3,7 @@ class CreateProductGroups < ActiveRecord::Migration
     create_table :product_groups do |t|
       t.references :product_group
       t.string :name
-      t.string :slug
+      t.string :url_name
       t.string :picture
 
       t.timestamps
