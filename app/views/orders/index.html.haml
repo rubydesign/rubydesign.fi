@@ -9,21 +9,10 @@
       = t(:treeview) + " " + t(:order)
 .row-fluid
   .span9
-    = form_tag  batch_orders_path, :class => "form-inline" do
-      .well.well-small
-        %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
-        %select#select01{:name => "actionprocess"}
-          %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
-        %button.btn{:type => "submit"}
-          %i.icon-ok
-          = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "order", :model_columns => ['ordered_on','total_price','total_tax','shipping_price','shipping_tax','basket_id','email','paid_on','shipped_on','paid_on','canceled_on','shipment_type'] }
+    %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th
-              %a{"data-toggle" => "modal", :href => "#modal-columns", :title => t(:select_columns, :default => "Select Columns")}
-                %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
             %th{ column_style("order", "ordered_on") }
@@ -55,7 +44,6 @@
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= order.id
               %td= check_box_tag "ids[]",order.id, false, :class => 'cbbatch'
               %td{column_style("order", "ordered_on")}
                 = order.ordered_on

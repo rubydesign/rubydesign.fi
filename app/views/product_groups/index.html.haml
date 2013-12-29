@@ -10,13 +10,9 @@
 .row-fluid
   .span9
     %div
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "product_group", :model_columns => ['product_group','name','url_name','picture'] }
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th
-              %a{"data-toggle" => "modal", :href => "#modal-columns", :title => t(:select_columns, :default => "Select Columns")}
-                %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
             %th{column_style("product_group", "product_group")}

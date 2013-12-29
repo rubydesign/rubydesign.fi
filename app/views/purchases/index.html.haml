@@ -7,21 +7,10 @@
     = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.purchase.bs_caption', :default => 'purchase'), treeview_purchases_path, :class => "btn"
 .row-fluid
   .span9
-    = form_tag  batch_purchases_path, :class => "form-inline" do
-      .well.well-small
-        %label.control-label{:for => "select01"}= t(:batch, :default => "Batch")
-        %select#select01{:name => "actionprocess"}
-          %option{:value => "destroy"}= t(:destroy, :default => "Destroy")
-        %button.btn{:type => "submit"}
-          %i.icon-ok
-          = t(:process, :default => "Process")
-      = render :partial => "layouts/modal_columns", :locals => { :model_name => "purchase", :model_columns => ['name','ordered_on','received_on','basket','supplier'] }
+    %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th
-              %a{"data-toggle" => "modal", :href => "#modal-columns", :title => t(:select_columns, :default => "Select Columns")}
-                %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
             %th{column_style("purchase", "name")}
@@ -41,7 +30,6 @@
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= purchase.id
               %td= check_box_tag "ids[]",purchase.id, false, :class => 'cbbatch'
               %td{column_style("purchase", "name")}
                 =purchase.name
