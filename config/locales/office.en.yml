@@ -1,8 +1,10 @@
 en:
+  address: Adress
   addresses: Adresses
   are_you_sure: Are you sure?
-  create_success: Sucessfully created
-  basket: Product list
+  create_success: Successfully created
+  basket: Basket
+  baskets: Baskets
   back: Back
   destroy: Destroy
   edit: Edit
@@ -24,6 +26,7 @@ en:
   quantity: Quantity
   suppliers: Suppliers
   show: Show
+  update_success: Successfully updated
   url_name: Url name
   tax: Vat
   treeview: Treeview

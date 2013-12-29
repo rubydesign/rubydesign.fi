@@ -63,13 +63,7 @@ OfficeClerk::Application.routes.draw do
   end
 
   match "addresses/search_and_filter" => "addresses#index", :via => [:get, :post], :as => :search_addresses
-  resources :addresses do
-    collection do
-      post :batch
-    end
-    member do
-    end
-  end
+  resources :addresses 
 
   match "suppliers/search_and_filter" => "suppliers#index", :via => [:get, :post], :as => :search_suppliers
   resources :suppliers do

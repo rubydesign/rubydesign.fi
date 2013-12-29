@@ -1,6 +1,6 @@
 %h2
-  = t(:listing, :default => "Listing")
-  = t('app.models.basket.bs_caption_plural', :default => 'basket')
+  = t(:listing)
+  = t(:baskets)
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.basket.bs_caption', :default => 'basket'), new_basket_path, :class => "btn"
 .row-fluid

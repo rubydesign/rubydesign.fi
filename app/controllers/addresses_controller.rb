@@ -51,106 +51,36 @@ class AddressesController < BeautifulController
   end
 
   def show
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @address }
-    end
   end
 
   def new
     @address = Address.new
-
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @address }
-    end
   end
 
   def edit
-    
+    @address = Address.find(params[:id]).dup || Address.new
+    render "new" , :flash => { :notice => "create a new addresses" }
   end
 
   def create
     @address = Address.create(params_for_model)
-
-    respond_to do |format|
-      if @address.save
-        format.html {
-          redirect_to address_path(@address), :flash => { :notice => t(:create_success, :model => "address") }
-        }
-        format.json { render :json => @address, :status => :created, :location => @address }
-      else
-        format.html {
-          render :action => "new"
-        }
-        format.json { render :json => @address.errors, :status => :unprocessable_entity }
-      end
+    if @address.save
+        redirect_to address_path(@address), :flash => { :notice => t(:create_success, :model => "address") }
+    else
+        render :action => "new"
     end
   end
 
   def update
-
-    respond_to do |format|
-      if @address.update_attributes(params_for_model)
-        format.html { redirect_to address_path(@address), :flash => { :notice => t(:update_success, :model => "address") }}
-        format.json { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @address.errors, :status => :unprocessable_entity }
-      end
+    if @address.update_attributes(params_for_model)
+      redirect_to address_path(@address), :flash => { :notice => t(:update_success, :model => "address") }
+    else
+      render :action => "edit" 
     end
   end
 
   def destroy
-    @address.destroy
-
-    respond_to do |format|
-      format.html { redirect_to addresses_url }
-      format.json { head :ok }
-    end
-  end
-
-  def batch
-    attr_or_method, value = params[:actionprocess].split(".")
-
-    @addresses = []    
-    
-    Address.transaction do
-      if params[:checkallelt] == "all" then
-        # Selected with filter and search
-        do_sort_and_paginate(:address)
-
-        @addresses = Address.search(
-          params[:q]
-        ).result(
-          :distinct => true
-        )
-      else
-        # Selected elements
-        @addresses = Address.find(params[:ids].to_a)
-      end
-
-      @addresses.each{ |address|
-        if not Address.columns_hash[attr_or_method].nil? and
-               Address.columns_hash[attr_or_method].type == :boolean then
-         address.update_attribute(attr_or_method, boolean(value))
-         address.save
-        else
-          case attr_or_method
-          # Set here your own batch processing
-          # address.save
-          when "destroy" then
-            address.destroy
-          end
-        end
-      }
-    end
-    
-    redirect_to :back
+    redirect_to address_path, :flash => { :notice => "cant destroy addresses" }
   end
 
   private 
