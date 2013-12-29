@@ -43,8 +43,6 @@
                 = link_to edit_product_path(product), :title => t(:edit) do
                   %i.icon-pencil
               %td
-                = link_to product_path(product), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy) do
-                  %i.icon-remove
       .btn-toolbar
         .btn-group
           - clean_params
@@ -73,6 +71,5 @@
       = ransack_field("product", "product_id", f, "Product")
       = ransack_field("product", "product_group_id", f, "Product_group")
       = ransack_field("product", "supplier_id", f, "Supplier")
-      = ransack_field("product", "id", f, "Id")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), products_path(:nosearch => "ok"), :class => "btn"

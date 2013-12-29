@@ -28,7 +28,7 @@
               %td{column_style("supplier", "address")}
                 =supplier.address
               %td= link_to '<i class="icon-search"></i>'.html_safe, supplier_path(supplier), :title => t(:show, :default => "Show")
-              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_supplier_path(supplier), :title => t(:edit, :default => "Edit")
+              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_supplier_path(supplier), :title => t(:edit)
               %td= link_to '<i class="icon-remove"></i>'.html_safe, supplier_path(supplier), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
       .btn-toolbar
         .btn-group

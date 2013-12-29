@@ -53,5 +53,6 @@
   %b
     = t('app.models.product.bs_attributes.supplier', :default => 'supplier') + ":"
   = (@product.supplier.nil? ? "" : @product.supplier.caption)
-= link_to t(:edit, :default => "Edit"), edit_product_path(@product), :class => "btn"
-= link_to t(:back, :default => "Back"), products_path, :class => "btn"
+= link_to t(:edit), edit_product_path(@product), :class => "btn"
+= link_to t(:back), products_path, :class => "btn"
+= link_to t(:delete) , delete_product_path(@product), :class => "btn"

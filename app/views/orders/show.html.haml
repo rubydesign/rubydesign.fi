@@ -49,5 +49,5 @@
   %b
     = t('app.models.order.bs_attributes.shipment_type', :default => 'shipment_type') + ":"
   = @order.shipment_type
-= link_to t(:edit, :default => "Edit"), edit_order_path(@order), :class => "btn"
-= link_to t(:back, :default => "Back"), orders_path, :class => "btn"
+= link_to t(:edit), edit_order_path(@order), :class => "btn"
+= link_to t(:back), orders_path, :class => "btn"

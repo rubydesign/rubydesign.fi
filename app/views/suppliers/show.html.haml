@@ -9,5 +9,5 @@
   %b
     = t('app.models.supplier.bs_attributes.address', :default => 'address') + ":"
   = @supplier.address
-= link_to t(:edit, :default => "Edit"), edit_supplier_path(@supplier), :class => "btn"
-= link_to t(:back, :default => "Back"), suppliers_path, :class => "btn"
+= link_to t(:edit), edit_supplier_path(@supplier), :class => "btn"
+= link_to t(:back), suppliers_path, :class => "btn"

@@ -50,6 +50,7 @@ OfficeClerk::Application.routes.draw do
       post :batch
     end
     member do
+      post :delete
     end
   end
 

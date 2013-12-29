@@ -40,7 +40,7 @@
               %td{column_style("item", "basket")}
                 =item.basket
               %td= link_to '<i class="icon-search"></i>'.html_safe, item_path(item), :title => t(:show, :default => "Show")
-              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item), :title => t(:edit, :default => "Edit")
+              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item), :title => t(:edit)
               %td= link_to '<i class="icon-remove"></i>'.html_safe, item_path(item), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
       .btn-toolbar
         .btn-group
@@ -59,7 +59,5 @@
       = ransack_field("item", "price", f, "Price")
       = ransack_field("item", "tax", f, "Tax")
       = ransack_field("item", "product_id", f, "Product")
-      = ransack_field("item", "id", f, "Id")
-      = ransack_field("item", "basket_id", f, "Basket")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), items_path(:nosearch => "ok"), :class => "btn"
