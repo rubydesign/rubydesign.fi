@@ -7,9 +7,6 @@ class OrdersController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:order] ||= (Order.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:order)
     do_sort_and_paginate(:order)
     
     @q = Order.search(

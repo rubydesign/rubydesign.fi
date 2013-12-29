@@ -24,17 +24,17 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{visible_column("address", "first_name")}
+            %th{column_style("address", "first_name")}
               =sorting_header("address", "first_name", "")
-            %th{visible_column("address", "last_name")}
+            %th{column_style("address", "last_name")}
               =sorting_header("address", "last_name", "")
-            %th{visible_column("address", "street1")}
+            %th{column_style("address", "street1")}
               =sorting_header("address", "street1", "")
-            %th{visible_column("address", "street2")}
+            %th{column_style("address", "street2")}
               =sorting_header("address", "street2", "")
-            %th{visible_column("address", "postcode")}
+            %th{column_style("address", "postcode")}
               =sorting_header("address", "postcode", "")
-            %th{visible_column("address", "country")}
+            %th{column_style("address", "country")}
               =sorting_header("address", "country", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -45,17 +45,17 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= address.id
               %td= check_box_tag "ids[]",address.id, false, :class => 'cbbatch'
-              %td{visible_column("address", "first_name")}
+              %td{column_style("address", "first_name")}
                 =address.first_name
-              %td{visible_column("address", "last_name")}
+              %td{column_style("address", "last_name")}
                 =address.last_name
-              %td{visible_column("address", "street1")}
+              %td{column_style("address", "street1")}
                 =address.street1
-              %td{visible_column("address", "street2")}
+              %td{column_style("address", "street2")}
                 =address.street2
-              %td{visible_column("address", "postcode")}
+              %td{column_style("address", "postcode")}
                 =address.postcode
-              %td{visible_column("address", "country")}
+              %td{column_style("address", "country")}
                 =address.country
               %td= link_to '<i class="icon-search"></i>'.html_safe, address_path(address), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_address_path(address), :title => t(:edit, :default => "Edit")

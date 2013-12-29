@@ -7,9 +7,6 @@ class PurchasesController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:purchase] ||= (Purchase.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:purchase)
     do_sort_and_paginate(:purchase)
     
     @q = Purchase.search(

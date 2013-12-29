@@ -24,31 +24,31 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{visible_column("product", "price")}
+            %th{column_style("product", "price")}
               =sorting_header("product", "price", "")
-            %th{visible_column("product", "cost")}
+            %th{column_style("product", "cost")}
               =sorting_header("product", "cost", "")
-            %th{visible_column("product", "weight")}
+            %th{column_style("product", "weight")}
               =sorting_header("product", "weight", "")
-            %th{visible_column("product", "name")}
+            %th{column_style("product", "name")}
               =sorting_header("product", "name", "")
-            %th{visible_column("product", "description")}
+            %th{column_style("product", "description")}
               =sorting_header("product", "description", "")
-            %th{visible_column("product", "url_name")}
+            %th{column_style("product", "url_name")}
               =sorting_header("product", "url_name", "")
-            %th{visible_column("product", "ean")}
+            %th{column_style("product", "ean")}
               =sorting_header("product", "ean", "")
-            %th{visible_column("product", "tax")}
+            %th{column_style("product", "tax")}
               =sorting_header("product", "tax", "")
-            %th{visible_column("product", "properties")}
+            %th{column_style("product", "properties")}
               =sorting_header("product", "properties", "")
-            %th{visible_column("product", "scode")}
+            %th{column_style("product", "scode")}
               =sorting_header("product", "scode", "")
-            %th{visible_column("product", "product")}
+            %th{column_style("product", "product")}
               =sorting_header("product", "product_id", "")
-            %th{visible_column("product", "product_group")}
+            %th{column_style("product", "product_group")}
               =sorting_header("product", "product_group_id", "")
-            %th{visible_column("product", "supplier")}
+            %th{column_style("product", "supplier")}
               =sorting_header("product", "supplier_id", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -59,37 +59,37 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= product.id
               %td= check_box_tag "ids[]",product.id, false, :class => 'cbbatch'
-              %td{visible_column("product", "price")}
+              %td{column_style("product", "price")}
                 =number_to_currency(product.price, :locale => I18n.locale)
-              %td{visible_column("product", "cost")}
+              %td{column_style("product", "cost")}
                 =number_to_currency(product.cost, :locale => I18n.locale)
-              %td{visible_column("product", "weight")}
+              %td{column_style("product", "weight")}
                 =product.weight
-              %td{visible_column("product", "name")}
+              %td{column_style("product", "name")}
                 =product.name
-              %td{visible_column("product", "description")}
+              %td{column_style("product", "description")}
                 =product.description
-              %td{visible_column("product", "url_name")}
+              %td{column_style("product", "url_name")}
                 =product.url_name
-              %td{visible_column("product", "ean")}
+              %td{column_style("product", "ean")}
                 =product.ean
-              %td{visible_column("product", "tax")}
+              %td{column_style("product", "tax")}
                 =product.tax
-              %td{visible_column("product", "properties")}
+              %td{column_style("product", "properties")}
                 =product.properties
-              %td{visible_column("product", "scode")}
+              %td{column_style("product", "scode")}
                 =product.scode
-              %td{visible_column("product", "product")}
+              %td{column_style("product", "product")}
               - if not product.product_id.nil? then
                 = link_to product.product.caption, product_path(product.product_id)
               - else
                 = t(:any, :default => "Any")
-              %td{visible_column("product", "product_group")}
+              %td{column_style("product", "product_group")}
               - if not product.product_group_id.nil? then
                 = link_to product.product_group.caption, product_group_path(product.product_group_id)
               - else
                 = t(:any, :default => "Any")
-              %td{visible_column("product", "supplier")}
+              %td{column_style("product", "supplier")}
               - if not product.supplier_id.nil? then
                 = link_to product.supplier.caption, supplier_path(product.supplier_id)
               - else

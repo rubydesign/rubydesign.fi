@@ -7,9 +7,6 @@ class AddressesController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:address] ||= (Address.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:address)
     do_sort_and_paginate(:address)
     
     @q = Address.search(

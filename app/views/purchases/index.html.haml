@@ -24,15 +24,15 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{visible_column("purchase", "name")}
+            %th{column_style("purchase", "name")}
               =sorting_header("purchase", "name", "")
-            %th{visible_column("purchase", "ordered_on")}
+            %th{column_style("purchase", "ordered_on")}
               =sorting_header("purchase", "ordered_on", "")
-            %th{visible_column("purchase", "received_on")}
+            %th{column_style("purchase", "received_on")}
               =sorting_header("purchase", "received_on", "")
-            %th{visible_column("purchase", "basket")}
+            %th{column_style("purchase", "basket")}
               =sorting_header("purchase", "basket_id", "")
-            %th{visible_column("purchase", "supplier")}
+            %th{column_style("purchase", "supplier")}
               =sorting_header("purchase", "supplier", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -43,18 +43,18 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= purchase.id
               %td= check_box_tag "ids[]",purchase.id, false, :class => 'cbbatch'
-              %td{visible_column("purchase", "name")}
+              %td{column_style("purchase", "name")}
                 =purchase.name
-              %td{visible_column("purchase", "ordered_on")}
+              %td{column_style("purchase", "ordered_on")}
                 =purchase.ordered_on
-              %td{visible_column("purchase", "received_on")}
+              %td{column_style("purchase", "received_on")}
                 =purchase.received_on
-              %td{visible_column("purchase", "basket")}
+              %td{column_style("purchase", "basket")}
               - if not purchase.basket_id.nil? then
                 = link_to purchase.basket.caption, basket_path(purchase.basket_id)
               - else
                 = t(:any, :default => "Any")
-              %td{visible_column("purchase", "supplier")}
+              %td{column_style("purchase", "supplier")}
                 =purchase.supplier
               %td= link_to '<i class="icon-search"></i>'.html_safe, purchase_path(purchase), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_purchase_path(purchase), :title => t(:edit, :default => "Edit")

@@ -19,13 +19,13 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{visible_column("product_group", "product_group")}
+            %th{column_style("product_group", "product_group")}
               =sorting_header("product_group", "product_group", "")
-            %th{visible_column("product_group", "name")}
+            %th{column_style("product_group", "name")}
               =sorting_header("product_group", "name", "")
-            %th{visible_column("product_group", "url_name")}
+            %th{column_style("product_group", "url_name")}
               =sorting_header("product_group", "url_name", "")
-            %th{visible_column("product_group", "picture")}
+            %th{column_style("product_group", "picture")}
               =sorting_header("product_group", "picture", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -35,13 +35,13 @@
           - @product_groups.each do |product_group|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= check_box_tag "ids[]",product_group.id, false, :class => 'cbbatch'
-              %td{visible_column("product_group", "product_group_id")}
+              %td{column_style("product_group", "product_group_id")}
                 =product_group.product_group_id
-              %td{visible_column("product_group", "name")}
+              %td{column_style("product_group", "name")}
                 =product_group.name
-              %td{visible_column("product_group", "url_name")}
+              %td{column_style("product_group", "url_name")}
                 =product_group.url_name
-              %td{visible_column("product_group", "picture")}
+              %td{column_style("product_group", "picture")}
                 =product_group.picture
               %td 
                 =link_to product_group_path(product_group), :title => t(:show) do 

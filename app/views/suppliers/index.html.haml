@@ -24,9 +24,9 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{visible_column("supplier", "name")}
+            %th{column_style("supplier", "name")}
               =sorting_header("supplier", "name", "")
-            %th{visible_column("supplier", "address")}
+            %th{column_style("supplier", "address")}
               =sorting_header("supplier", "address", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -37,9 +37,9 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= supplier.id
               %td= check_box_tag "ids[]",supplier.id, false, :class => 'cbbatch'
-              %td{visible_column("supplier", "name")}
+              %td{column_style("supplier", "name")}
                 =supplier.name
-              %td{visible_column("supplier", "address")}
+              %td{column_style("supplier", "address")}
                 =supplier.address
               %td= link_to '<i class="icon-search"></i>'.html_safe, supplier_path(supplier), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_supplier_path(supplier), :title => t(:edit, :default => "Edit")

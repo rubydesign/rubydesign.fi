@@ -1,8 +1,8 @@
 # encoding : utf-8
 module BeautifulHelper
 
-  def visible_column(model_name, field_name, display_default = 'table-cell', other_css = "")
-    return :style => "display:" + ((session[:fields][model_name.to_sym].to_a.include?(field_name))  ? display_default : 'none') + ';' + other_css .html_safe
+  def column_style(model_name, field_name, display_default = 'table-cell', other_css = "")
+    return :style => "display:table-cell;" + other_css
   end
 
   def dropdown_submenu(link_caption, &block)

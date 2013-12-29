@@ -7,9 +7,6 @@ class BasketsController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:basket] ||= (Basket.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:basket)
     do_sort_and_paginate(:basket)
     
     @q = Basket.search(

@@ -15,14 +15,6 @@ class BeautifulController < ApplicationController
     render :nothing => true
   end
 
-  def do_select_fields(model_sym)
-    # Fields
-    session[:fields] ||= {}
-    session[:fields][model_sym] ||= nil
-    params[:fields] ||= session[:fields][model_sym]
-    session[:fields][model_sym] = params[:fields]
-  end
-
   def do_sort_and_paginate(model_sym)
     # Sort
     session[:sorting] ||= {}

@@ -7,9 +7,6 @@ class UsersController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:user] ||= (User.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:user)
     do_sort_and_paginate(:user)
     
     @q = User.search(

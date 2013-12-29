@@ -26,27 +26,27 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{ visible_column("order", "ordered_on") }
+            %th{ column_style("order", "ordered_on") }
               = sorting_header("order", "ordered_on", "")
-            %th{visible_column("order", "total_price")}
+            %th{column_style("order", "total_price")}
               = sorting_header("order", "total_price", "")
-            %th{visible_column("order", "total_tax")}
+            %th{column_style("order", "total_tax")}
               = sorting_header("order", "total_tax", "")
-            %th{visible_column("order", "shipping_price")}
+            %th{column_style("order", "shipping_price")}
               = sorting_header("order", "shipping_price", "")
-            %th{visible_column("order", "basket_id")}
+            %th{column_style("order", "basket_id")}
               = sorting_header("order", "basket_id", "")
-            %th{visible_column("order", "email")}
+            %th{column_style("order", "email")}
               = sorting_header("order", "email", "")
-            %th{visible_column("order", "paid_on")}
+            %th{column_style("order", "paid_on")}
               = sorting_header("order", "paid_on", "")
-            %th{visible_column("order", "shipped_on")}
+            %th{column_style("order", "shipped_on")}
               = sorting_header("order", "shipped_on", "")
-            %th{visible_column("order", "paid_on")}
+            %th{column_style("order", "paid_on")}
               = sorting_header("order", "paid_on", "")
-            %th{visible_column("order", "canceled_on")}
+            %th{column_style("order", "canceled_on")}
               = sorting_header("order", "canceled_on", "")
-            %th{visible_column("order", "shipment_type")}
+            %th{column_style("order", "shipment_type")}
               = sorting_header("order", "shipment_type", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -57,27 +57,27 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= order.id
               %td= check_box_tag "ids[]",order.id, false, :class => 'cbbatch'
-              %td{visible_column("order", "ordered_on")}
+              %td{column_style("order", "ordered_on")}
                 = order.ordered_on
-              %td{visible_column("order", "total_price")} 
+              %td{column_style("order", "total_price")} 
                 = number_to_currency(order.total_price, :locale => I18n.locale)
-              %td{visible_column("order", "total_tax")} 
+              %td{column_style("order", "total_tax")} 
                 = number_to_currency(order.total_tax, :locale => I18n.locale)
-              %td{visible_column("order", "shipping_price")} 
+              %td{column_style("order", "shipping_price")} 
                 = number_to_currency(order.shipping_price, :locale => I18n.locale)
-              %td{visible_column("order", "basket_id")}
+              %td{column_style("order", "basket_id")}
                 = order.basket_id
-              %td{visible_column("order", "email")}
+              %td{column_style("order", "email")}
                 = order.email
-              %td{visible_column("order", "paid_on")}
+              %td{column_style("order", "paid_on")}
                 = order.paid_on
-              %td{visible_column("order", "shipped_on")}
+              %td{column_style("order", "shipped_on")}
                 = order.shipped_on
-              %td{visible_column("order", "paid_on")}
+              %td{column_style("order", "paid_on")}
                 = order.paid_on
-              %td{visible_column("order", "canceled_on")}
+              %td{column_style("order", "canceled_on")}
                 = order.canceled_on
-              %td{visible_column("order", "shipment_type")}
+              %td{column_style("order", "shipment_type")}
                 = order.shipment_type
               %td= link_to '<i class="icon-search"></i>'.html_safe, order_path(order), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_order_path(order), :title => t(:edit, :default => "Edit")

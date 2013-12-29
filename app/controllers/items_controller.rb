@@ -7,9 +7,6 @@ class ItemsController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:item] ||= (Item.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:item)
     do_sort_and_paginate(:item)
     
     @q = Item.search(

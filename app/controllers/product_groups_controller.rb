@@ -7,9 +7,6 @@ class ProductGroupsController < BeautifulController
   #authorize_resource
 
   def index
-    session[:fields] ||= {}
-    session[:fields][:product_group] ||= (ProductGroup.columns.map(&:name) - ["id"])[0..4]
-    do_select_fields(:product_group)
     do_sort_and_paginate(:product_group)
     
     @q = ProductGroup.search(

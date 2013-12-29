@@ -24,15 +24,15 @@
                 %i.icon-th-list
             %th
               = check_box_tag :checkall, ''
-            %th{visible_column("item", "quantity")}
+            %th{column_style("item", "quantity")}
               =sorting_header("item", "quantity", "")
-            %th{visible_column("item", "price")}
+            %th{column_style("item", "price")}
               =sorting_header("item", "price", "")
-            %th{visible_column("item", "tax")}
+            %th{column_style("item", "tax")}
               =sorting_header("item", "tax", "")
-            %th{visible_column("item", "product")}
+            %th{column_style("item", "product")}
               =sorting_header("item", "product", "")
-            %th{visible_column("item", "basket")}
+            %th{column_style("item", "basket")}
               =sorting_header("item", "basket", "")
             %th{:colspan => "3"}
               %label.checkbox
@@ -43,15 +43,15 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= item.id
               %td= check_box_tag "ids[]",item.id, false, :class => 'cbbatch'
-              %td{visible_column("item", "quantity")}
+              %td{column_style("item", "quantity")}
                 =item.quantity
-              %td{visible_column("item", "price")}
+              %td{column_style("item", "price")}
                 =number_to_currency(item.price, :locale => I18n.locale)
-              %td{visible_column("item", "tax")}
+              %td{column_style("item", "tax")}
                 =item.tax
-              %td{visible_column("item", "product")}
+              %td{column_style("item", "product")}
                 =item.product
-              %td{visible_column("item", "basket")}
+              %td{column_style("item", "basket")}
                 =item.basket
               %td= link_to '<i class="icon-search"></i>'.html_safe, item_path(item), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_item_path(item), :title => t(:edit, :default => "Edit")
