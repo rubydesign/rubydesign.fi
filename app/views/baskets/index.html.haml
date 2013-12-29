@@ -3,8 +3,6 @@
   = t('app.models.basket.bs_caption_plural', :default => 'basket')
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.basket.bs_caption', :default => 'basket'), new_basket_path, :class => "btn"
-  - if Basket.columns.map(&:name).include?("basket_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.basket.bs_caption', :default => 'basket'), treeview_baskets_path, :class => "btn"
 .row-fluid
   .span9
     %div

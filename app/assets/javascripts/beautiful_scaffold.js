@@ -98,46 +98,6 @@ function bs_init(){
         return false;
     });
 
-    // TreeView JS
-    var opened = eval($("#treeview").attr("data-opened"));
-    var url = $("#treeview").attr("data-url");
-    var model = $("#treeview").attr("data-model");
-    $("#treeview")
-        .jstree({
-            "plugins" : [
-                "themes","html_data","ui","dnd"
-            ],
-            "core" : {
-                "initially_open" : [opened]
-            }
-        })
-        .bind("move_node.jstree", function (e, data) {
-            data.rslt.o.each(function (i) {
-                var dataajax = {
-                    "operation" : "move_node",
-                    "position" : data.rslt.cp + i,
-                    "title" : data.rslt.name,
-                    "copy" : data.rslt.cy ? 1 : 0
-                };
-                dataajax[model + "_id"] = data.rslt.cr === -1 ? "" : data.rslt.np.data("id");
-                $.ajax({
-                    async : false,
-                    type: 'POST',
-                    url: url + $(this).data("id") + "/treeview_update",
-                    data : dataajax,
-                    success : function (r) {
-                        $(data.rslt.oc).attr("id", "treeelt_" + r.id);
-                        if(data.rslt.cy && $(data.rslt.oc).children("UL").length) {
-                            data.inst.refresh(data.inst._get_parent(data.rslt.oc));
-                        }
-                    },
-                    error : function (r) {
-                        $.jstree.rollback(data.rlbk);
-                    }
-                });
-            });
-        });
-
     // Barcode
     $('.barcode').each(function(index){
         $(this).barcode($(this).attr('data-barcode'), $(this).attr('data-type-barcode'));

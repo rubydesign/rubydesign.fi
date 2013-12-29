@@ -3,10 +3,8 @@ OfficeClerk::Application.routes.draw do
   resources :purchases do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -14,10 +12,8 @@ OfficeClerk::Application.routes.draw do
   resources :baskets do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -25,10 +21,8 @@ OfficeClerk::Application.routes.draw do
   resources :orders do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -36,10 +30,8 @@ OfficeClerk::Application.routes.draw do
   resources :items do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -47,10 +39,8 @@ OfficeClerk::Application.routes.draw do
   resources :product_groups do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -58,10 +48,8 @@ OfficeClerk::Application.routes.draw do
   resources :products do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -69,10 +57,8 @@ OfficeClerk::Application.routes.draw do
   resources :users do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -80,10 +66,8 @@ OfficeClerk::Application.routes.draw do
   resources :addresses do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 
@@ -91,10 +75,8 @@ OfficeClerk::Application.routes.draw do
   resources :suppliers do
     collection do
       post :batch
-      get  :treeview
     end
     member do
-      post :treeview_update
     end
   end
 

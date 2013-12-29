@@ -153,17 +153,6 @@ class ProductGroupsController < BeautifulController
     redirect_to :back
   end
 
-  def treeview
-
-  end
-
-  def treeview_update
-    modelclass = ProductGroup
-    foreignkey = :product_group_id
-
-    render :nothing => true, :status => (update_treeview(modelclass, foreignkey) ? 200 : 500)
-  end
-  
   private 
   
   def load_product_group

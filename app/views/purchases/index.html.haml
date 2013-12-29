@@ -3,8 +3,6 @@
   = t('app.models.purchase.bs_caption_plural', :default => 'purchase')
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.purchase.bs_caption', :default => 'purchase'), new_purchase_path, :class => "btn"
-  - if Purchase.columns.map(&:name).include?("purchase_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.purchase.bs_caption', :default => 'purchase'), treeview_purchases_path, :class => "btn"
 .row-fluid
   .span9
     %div

@@ -49,42 +49,4 @@ class BeautifulController < ApplicationController
     raise ArgumentError.new("invalid value for Boolean: \"#{string}\"")
   end
 
-  def update_treeview(modelclass, foreignkey)
-    parent_id    = (params[foreignkey].to_i == 0 ? nil : params[foreignkey].to_i)
-    index        = params[:position].to_i
-
-    elt          = modelclass.find(params[:id])
-    elt.attributes = { foreignkey => parent_id }
-
-    if modelclass.column_names.include?("position") then
-      new_pos = 0
-      modelclass.transaction do
-        all_elt = modelclass.where(foreignkey => parent_id).order("position ASC").to_a
-
-        begin
-          if index == all_elt.length then
-            new_pos = all_elt.last.position + 1
-          elsif index == 0 then
-            new_pos = all_elt.first.position - 1
-          else
-            new_pos = all_elt[index].position
-
-            end_of_array = all_elt[index..-1]
-            end_of_array.each{ |g|
-              next if g == elt
-              g.position = g.position.to_i + 1
-              g.save
-
-              next_elt = end_of_array[end_of_array.index(g) + 1]
-              break if not next_elt.nil? and next_elt.position > g.position
-            }
-          end
-        rescue
-          new_pos = 0
-        end
-      end
-      elt.position = new_pos
-    end
-    return elt.save
-  end
 end

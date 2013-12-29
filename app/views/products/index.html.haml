@@ -3,8 +3,6 @@
   = t('app.models.product.bs_caption_plural', :default => 'product')
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.product.bs_caption', :default => 'product'), new_product_path, :class => "btn"
-  - if Product.columns.map(&:name).include?("product_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.product.bs_caption', :default => 'product'), treeview_products_path, :class => "btn"
 .row-fluid
   .span9
     %div
@@ -105,7 +103,7 @@
       = ransack_field("product", "weight", f, "Weight")
       = ransack_field("product", "name", f, "Name")
       = ransack_field("product", "description", f, "Description")
-      = ransack_field("product", "url_name", f, "Slug")
+      = ransack_field("product", "url_name", f, "Url name")
       = ransack_field("product", "ean", f, "Ean")
       = ransack_field("product", "tax", f, "Tax")
       = ransack_field("product", "properties", f, "Properties")

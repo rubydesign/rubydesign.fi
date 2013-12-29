@@ -152,17 +152,6 @@ class ProductsController < BeautifulController
     
     redirect_to :back
   end
-
-  def treeview
-
-  end
-
-  def treeview_update
-    modelclass = Product
-    foreignkey = :product_id
-
-    render :nothing => true, :status => (update_treeview(modelclass, foreignkey) ? 200 : 500)
-  end
   
   private 
   

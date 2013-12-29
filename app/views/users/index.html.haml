@@ -3,8 +3,6 @@
   = t('app.models.user.bs_caption_plural', :default => 'user')
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.user.bs_caption', :default => 'user'), new_user_path, :class => "btn"
-  - if User.columns.map(&:name).include?("user_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.user.bs_caption', :default => 'user'), treeview_users_path, :class => "btn"
 .row-fluid
   .span9
     %div

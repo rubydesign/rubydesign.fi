@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   create_table "product_groups", force: true do |t|
     t.integer  "product_group_id"
     t.string   "name"
+    t.integer  "position"
     t.string   "url_name"
     t.string   "picture"
     t.datetime "created_at"

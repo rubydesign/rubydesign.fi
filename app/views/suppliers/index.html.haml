@@ -3,8 +3,6 @@
   = t('app.models.supplier.bs_caption_plural', :default => 'supplier')
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), new_supplier_path, :class => "btn"
-  - if Supplier.columns.map(&:name).include?("supplier_id") then
-    = link_to '<i class="icon-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), treeview_suppliers_path, :class => "btn"
 .row-fluid
   .span9
     %div

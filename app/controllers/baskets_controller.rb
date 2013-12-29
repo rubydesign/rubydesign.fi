@@ -153,17 +153,6 @@ class BasketsController < BeautifulController
     redirect_to :back
   end
 
-  def treeview
-
-  end
-
-  def treeview_update
-    modelclass = Basket
-    foreignkey = :basket_id
-
-    render :nothing => true, :status => (update_treeview(modelclass, foreignkey) ? 200 : 500)
-  end
-  
   private 
   
   def load_basket

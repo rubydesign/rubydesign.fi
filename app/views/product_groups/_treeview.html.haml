@@ -1,0 +1,6 @@
+%ul
+  - ProductGroup.transaction do
+    - ar = ProductGroup.where(:product_group_id => nil)
+    - ar = ar.order("position") if ProductGroup.column_names.include?("position")
+    - for g in ar.all
+      = build_treeview(g, 'product_groups')
