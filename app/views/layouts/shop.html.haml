@@ -1,0 +1,103 @@
+!!!
+/[if lt IE 7 ] <html class="ie ie6" lang="en">
+/[if IE 7 ] <html class="ie ie7" lang="en">
+/[if IE 8 ] <html class="ie ie8" lang="en">
+/[if IE 9 ] <html class="ie ie9" lang="en">
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %title Auringosta Itään, Kuusta Länteen - Cinnamon Apple Spices
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1", name: "viewport"}
+    %meta{content: "Sisustus, Lifestyle, luomukosmetiikka , luonnonkosmetiikka , farfalla", name: "keywords"}
+    %meta{content: "Saat mausteisen herkkujuoman lisäämällä jauhetta kuumaan tai kylmään omenamehuun. Jauheet ovat riittoisia ja lisäaineettomia. Yhdestä purkista voit saada 20L valmista juomaa. Valmistusaineet: sokeri, kaneli, neilikka, muskottisose.", name: "description"}
+    = stylesheet_link_tag "shop"
+    = javascript_include_tag "shop"
+    %meta{content: "authenticity_token", name: "csrf-param"}
+    %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
+  %body#product-details
+    #header.container
+      .header.row.container
+        %nav.nav-bar.span12
+          %ul#nav-bar.inline
+            %li#link-to-cart
+              %a.empty{href: "/cart"} Ostoskori: (tyhjä)
+            %li#link-to-login
+              %a{href: "/login"} kirjaudu
+      .container.span12
+        = render "menu"
+        .span3
+          =render "groups"
+          %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
+            %div{style: "margin:0;padding:0;display:inline"}
+              %input{name: "utf8", type: "hidden", value: "✓"}/
+            %input#keywords{name: "keywords", placeholder: "Etsi", type: "search"}
+            %input{type: "submit", value: "Etsi"}/
+        .content.span7
+          .product-title-h1
+            %h1.product-title{itemprop: "name"} Cinnamon Apple Spices
+          .span3
+            .picture
+              .row
+                #product-images
+                  #main-image
+                    %img{alt: "Cinnamon Apple Spices", itemprop: "image", src: "/assets/shop/Cinnamon_Apple_Spice.jpg"}
+                  #thumbnails
+                    / no need for thumnails unless there is more then one image
+                    %ul#product-thumbnails.thumbnails.inline
+                      %li#tmb-3.tmb-all
+                        %img{src: "/assets/shop/Cinnamon_Apple_Spice.jpg" , :width => 60 , :height => 60}
+                %div
+                  %h6.product-section-title Ominaisuudet
+                  %table#product-properties.table-display
+                    %tbody
+                      %tr.even
+                        %td
+                          %strong Tuoteryhmä
+                        %td Gourmet
+                      %tr.odd
+                        %td
+                          %strong Valmistaja
+                        %td FeuerGlas
+          .span3
+            .row
+              #product-description
+                %div
+                  Saat mausteisen herkkujuoman lisäämällä jauhetta kuumaan tai kylmään omenamehuun. Jauheet ovat riittoisia ja lisäaineettomia. Yhdestä purkista voit saada 20L valmista juomaa. Valmistusaineet: sokeri, kaneli, neilikka, muskottisose.
+                #cart-form
+                  %form{"accept-charset" => "UTF-8", action: "/orders/populate", method: "post"}
+                    #inside-product-cart-form
+                      .span4
+                        #product-price
+                          %h6.product-section-title Hinta
+                          %div
+                            %span.price.selling{itemprop: "price"} 7,90 €
+                        .add-to-cart
+                          %input#variants_3.title{max: "1", min: "1", name: "variants[3]", type: "number", value: "1"}/
+                          %button#add-to-cart-button.large.primary{type: "submit"}
+                            Lisää ostoskoriin
+              #taxon-crumbs.span4
+                %h6.product-section-title Etsi samanlaisia tuotteita
+                %div
+                  %ul#similar_items_by_taxon
+                    %li
+                      %a{href: "/t/web/gourmet"} Gourmet
+      %div{id: "footer container"}
+        .left
+          Suunnittelu ja toteutus Ruby Design    
+          %br/
+          Powered by
+          %a{href: "http://rubyclerks.com/"} RubyClerks
+        .right{align: "right"}
+          %b> AURINGOSTA ITÄÄN, KUUSTA LÄNTEEN
+           | Fredrikinkatu 19 (Viiskulma), Helsinki
+          %br/
+          puh +358- (0)9- 621 7001 | Y-tunnus 2380478-1 | 
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-12603339-1', 'auringostaitaan.fi');
+      ga('send', 'pageview');

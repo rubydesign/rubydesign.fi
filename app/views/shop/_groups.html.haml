@@ -1,0 +1,7 @@
+%nav#groups.sidebar-item
+  -@groups.each do |group , items|
+    %h6.group= group
+    %ul.group-list
+      -items.each do |item|
+        %li
+          %a{href: item}= item

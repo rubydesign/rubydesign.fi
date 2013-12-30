@@ -1,0 +1,16 @@
+// Place all the styles related to the shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ *=require twitter-bootstrap-static/bootstrap
+ */
+
+.header {
+  height: 180px;
+  background: transparent image-url('shop/header.gif') top center no-repeat ;
+}
+
+
+body {
+  background: #fff url("shop/tausta.jpg") top left repeat-x;
+}

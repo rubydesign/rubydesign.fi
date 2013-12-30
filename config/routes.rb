@@ -1,4 +1,6 @@
 OfficeClerk::Application.routes.draw do
+  resources :shops
+
   match "purchases/search_and_filter" => "purchases#index", :via => [:get, :post], :as => :search_purchases
   resources :purchases do
     collection do
@@ -79,5 +81,8 @@ OfficeClerk::Application.routes.draw do
   match ':model_sym/select_fields' => 'beautiful#select_fields', :via => [:get, :post]
 
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+
+  #shop
+  get 'group/:id' => 'shop#group', :as => :group
+  get 'prod/:id' => 'shop#product', :as => :prod
 end
