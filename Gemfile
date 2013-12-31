@@ -18,6 +18,7 @@ gem "prawn"
 gem "twitter-bootstrap-rails"
 gem "chardinjs-rails"
 gem 'db_fixtures_dump'
+gem "paperclip"
 
 group :development do
   gem 'better_errors'

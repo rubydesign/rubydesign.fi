@@ -1,4 +1,4 @@
-= form_for(@product_group, :html => { :class => "form-horizontal" }) do |f|
+= form_for(@product_group, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
   - if @product_group.errors.any?
     #error_explanation
       %h2
@@ -16,6 +16,10 @@
     .controls
       = f.text_field :name
   .control-group
+    = f.label :description, t(:description), :class => "control-label"
+    .controls
+      = f.text_field :description
+  .control-group
     = f.label :position, t(:position), :class => "control-label"
     .controls
       = f.text_field :position
@@ -26,6 +30,6 @@
   .control-group
     = f.label :picture, t(:picture), :class => "control-label"
     .controls
-      = f.text_field :picture
+      = f.file_field :main_picture
   .form-actions
     = f.submit :class => "btn btn-primary"

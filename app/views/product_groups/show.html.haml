@@ -11,11 +11,15 @@
   = @product_group.name
 %p
   %b
+    = t(:description) + ":"
+  = @product_group.description
+%p
+  %b
     = t(:url_name) + ":"
   = @product_group.url_name
 %p
   %b
     = t(:picture) + ":"
-  = @product_group.picture
+  = image_tag @product_group.main_picture.url
 = link_to t(:edit), edit_product_group_path(@product_group), :class => "btn"
 = link_to t(:back), product_groups_path, :class => "btn"

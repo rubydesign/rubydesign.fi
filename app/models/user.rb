@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :address
+  belongs_to :basket
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -16,18 +17,8 @@ class User < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :email,:name,:address_id
+    return :email,:name
   end
-  scope :sorting, lambda{ |options|
-    attribute = options[:attribute]
-    direction = options[:sorting]
-
-    attribute ||= "id"
-    direction ||= "DESC"
-
-    order("#{attribute} #{direction}")
-  }
-
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
