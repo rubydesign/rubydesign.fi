@@ -3,6 +3,10 @@
   = t('app.models.product.bs_caption', :default => 'product')
 %p
   %b
+    = t(:picture) + ":"
+  = image_tag @product.main_picture.url
+%p
+  %b
     = t('app.models.product.bs_attributes.price', :default => 'price') + ":"
   = number_to_currency(@product.price)
 %p

@@ -9,6 +9,7 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
+            %th{column_style("product_group", "main_picture")}=t( "picture")
             %th{column_style("product", "ean")}
               =sorting_header("product", "ean", "")
             %th{column_style("product", "name")}
@@ -26,6 +27,8 @@
         %tbody
           - @products.each do |product|
             %tr{:class => "line-#{cycle("1","2")}"}
+              %td{column_style("product_group", "picture")}
+                = image_tag product.main_picture.url
               %td{column_style("product", "ean")}
                 =product.ean
               %td{column_style("product", "name")}

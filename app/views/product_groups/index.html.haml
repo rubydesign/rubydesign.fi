@@ -14,6 +14,7 @@
               =sorting_header("product_group", "name", "")
             %th{column_style("product_group", "link")}
               =sorting_header("product_group", "link", "")
+            %th{column_style("product_group", "product_group_id")}=t( "parent")
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -23,8 +24,11 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td{column_style("product_group", "picture")}
                 = image_tag product_group.main_picture.url
+                = image_tag product_group.extra_picture.url
               %td{column_style("product_group", "name")}
                 =product_group.name
+              %td{column_style("product_group", "link")}
+                =product_group.link
               %td{column_style("product_group", "product_group_id")}
                 = ProductGroup.find(product_group.product_group_id).name if product_group.product_group_id 
               %td 
@@ -52,7 +56,7 @@
   .span3
     = search_form_for @q, :url => search_product_groups_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("product_group", "name", f, "Name")
-      = ransack_field("product_group", "link", f, "Url")
+      = ransack_field("product_group", "description", f, "Description")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), product_groups_path(:nosearch => "ok"), :class => "btn"
     %hr

@@ -11,10 +11,11 @@
 
 class Product < ActiveRecord::Base
   has_many :products, :dependent => :nullify
-  has_many :images, -> {order(:position)}, :dependent => :destroy
   belongs_to :product
   belongs_to :product_group
   belongs_to :supplier
+  has_attached_file :main_picture
+  has_attached_file :extra_picture
 
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
@@ -31,19 +32,16 @@ class Product < ActiveRecord::Base
   scope :deleted, lambda { where('deleted_on IS NOT NULL') }
 
   validates :price, :numericality => true , :presence => true
-  validates :cost_price, :numericality => true
+  validates :cost, :numericality => true
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
  
   def generate_url_if_needed
-    unless link
-      link = name.gsub(" " , "_").downcase
+    if link.blank?
+      self.link = name.gsub(" " , "_").downcase
     end
     true
   end
-    def paid_with_card?
-      payment_type == "card"
-    end
     
   # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
   def caption

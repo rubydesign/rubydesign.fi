@@ -21,5 +21,9 @@
   %b
     = t(:picture) + ":"
   = image_tag @product_group.main_picture.url
+%p
+  %b
+    = t(:picture) + ":"
+  = image_tag @product_group.extra_picture.url
 = link_to t(:edit), edit_product_group_path(@product_group), :class => "btn"
 = link_to t(:back), product_groups_path, :class => "btn"

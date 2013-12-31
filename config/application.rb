@@ -25,7 +25,14 @@ module OfficeClerk
       g.view_specs false
       g.helper_specs false
     end
+    
+    config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '100x100>', :product  => '600x600>' },
+                                :default_style => :list,
+                                :url => "/images/:id/:style/:basename.:extension",
+                                :path => ":rails_root/public/images/:id/:style/:basename.:extension" }
 
+    # FOG example see more in paperclip docs  {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
