@@ -1,4 +1,4 @@
-class CreateBaskets < ActiveRecord::Migration
+class Baskets < ActiveRecord::Migration
   def change
     create_table :baskets do |t|
       t.string :name

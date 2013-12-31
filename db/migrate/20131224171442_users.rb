@@ -1,4 +1,4 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class Users < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
@@ -21,7 +21,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       #Clerk
       t.string :name
-      t.references :bucket
+      t.references :basket
+      t.references :address
 
       t.timestamps
     end

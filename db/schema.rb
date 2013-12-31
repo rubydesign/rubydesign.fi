@@ -61,23 +61,39 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "name"
     t.integer  "position"
     t.string   "url_name"
-    t.string   "picture"
+    t.string   "main_picture_file_name"
+    t.string   "main_picture_content_type"
+    t.integer  "main_picture_file_size"
+    t.datetime "main_picture_updated_at"
+    t.string   "extra_picture_file_name"
+    t.string   "extra_picture_content_type"
+    t.integer  "extra_picture_file_size"
+    t.datetime "extra_picture_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
     t.float    "price"
-    t.float    "cost"
-    t.float    "weight"
+    t.string   "main_picture_file_name"
+    t.string   "main_picture_content_type"
+    t.integer  "main_picture_file_size"
+    t.datetime "main_picture_updated_at"
+    t.string   "extra_picture_file_name"
+    t.string   "extra_picture_content_type"
+    t.integer  "extra_picture_file_size"
+    t.datetime "extra_picture_updated_at"
+    t.float    "cost",                       default: 0.0
+    t.float    "weight",                     default: 0.1
     t.string   "name"
     t.text     "description"
     t.string   "url_name"
     t.string   "ean"
     t.float    "tax"
-    t.integer  "inventory",        default: 0
+    t.integer  "inventory",                  default: 0
     t.string   "properties"
     t.string   "scode"
+    t.date     "deleted_on"
     t.integer  "product_id"
     t.integer  "product_group_id"
     t.integer  "supplier_id"
@@ -120,7 +136,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.integer  "bucket_id"
+    t.integer  "basket_id"
+    t.integer  "address_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
