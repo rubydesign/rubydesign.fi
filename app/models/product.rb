@@ -33,11 +33,11 @@ class Product < ActiveRecord::Base
   validates :price, :numericality => true , :presence => true
   validates :cost_price, :numericality => true
   validates :name, :presence => true
-  validates :url_name, presence: true, :if => :generate_url_if_needed
+  validates :link, presence: true, :if => :generate_url_if_needed
  
   def generate_url_if_needed
-    unless url_name
-      url_name = name.gsub(" " , "_").downcase
+    unless link
+      link = name.gsub(" " , "_").downcase
     end
     true
   end
@@ -51,6 +51,6 @@ class Product < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :price,:cost,:weight,:name,:description,:url_name,:ean,:tax,:properties,:scode,:product_id,:product_group_id,:supplier_id
+    return :price,:cost,:weight,:name,:description,:link,:ean,:tax,:properties,:scode,:product_id,:product_group_id,:supplier_id
   end
 end

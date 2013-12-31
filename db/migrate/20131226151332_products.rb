@@ -8,7 +8,7 @@ class Products < ActiveRecord::Migration
       t.float   :weight , :default => 0.1
       t.string  :name
       t.text    :description
-      t.string  :url_name
+      t.string  :link
       t.string  :ean
       t.float   :tax
       t.integer :inventory , :default => 0

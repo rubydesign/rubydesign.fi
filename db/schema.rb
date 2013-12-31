@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.integer  "product_group_id"
     t.string   "name"
     t.integer  "position"
-    t.string   "url_name"
+    t.string   "link"
     t.string   "main_picture_file_name"
     t.string   "main_picture_content_type"
     t.integer  "main_picture_file_size"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.float    "weight",                     default: 0.1
     t.string   "name"
     t.text     "description"
-    t.string   "url_name"
+    t.string   "link"
     t.string   "ean"
     t.float    "tax"
     t.integer  "inventory",                  default: 0

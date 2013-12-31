@@ -5,13 +5,13 @@ class ShopController < ApplicationController
 
   
   def product
-    @product = Product.where(:url_name => params[:id]).first
+    @product = Product.where(:link => params[:id]).first
     #error handling
     @group = ProductGroup.find(@product.product_group_id)
   end
 
   def group
-    @group = ProductGroup.where(:url_name => params[:id])
+    @group = ProductGroup.where(:link => params[:id])
   end
 
   private

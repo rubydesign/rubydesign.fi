@@ -5,7 +5,7 @@ class ProductGroups < ActiveRecord::Migration
       t.string      :name
       t.string      :description
       t.integer     :position
-      t.string      :url_name
+      t.string      :link
       t.attachment  :main_picture
       t.attachment  :extra_picture
 

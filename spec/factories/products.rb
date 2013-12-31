@@ -7,7 +7,7 @@ FactoryGirl.define do
     weight 1.5
     name "MyString"
     description "MyText"
-    url_name "MyString"
+    link "MyString"
     ean "MyString"
     tax 1.5
     properties "MyString"

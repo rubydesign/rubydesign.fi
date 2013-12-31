@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :product_group do
     product_group_id 0
     name "MyString"
-    url_name "MyString"
+    link "MyString"
     picture "MyString"
   end
 end

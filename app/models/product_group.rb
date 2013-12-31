@@ -20,6 +20,6 @@ class ProductGroup < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :product_group_id,:name,:url_name,:main_picture,:extra_picture
+    return :product_group_id,:name,:link,:main_picture,:extra_picture
   end
 end

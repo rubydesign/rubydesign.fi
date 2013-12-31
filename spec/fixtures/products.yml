@@ -4,7 +4,7 @@ Product_1:
   price: 10.0
   name: After nine
   description: great
-  url_name: after_nine
+  link: after_nine
   inventory: 0
   product_group_id: 1
   supplier_id: 2
@@ -16,7 +16,7 @@ Product_2:
   id: 2
   name: kasivoide
   description: good
-  url_name: kasiv
+  link: kasiv
   inventory: 0
   product_group_id: 3
   supplier_id: 1

@@ -12,8 +12,8 @@
             %th{column_style("product_group", "main_picture")}=t( "picture")
             %th{column_style("product_group", "name")}
               =sorting_header("product_group", "name", "")
-            %th{column_style("product_group", "url_name")}
-              =sorting_header("product_group", "url_name", "")
+            %th{column_style("product_group", "link")}
+              =sorting_header("product_group", "link", "")
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -52,7 +52,7 @@
   .span3
     = search_form_for @q, :url => search_product_groups_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("product_group", "name", f, "Name")
-      = ransack_field("product_group", "url_name", f, "Url")
+      = ransack_field("product_group", "link", f, "Url")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), product_groups_path(:nosearch => "ok"), :class => "btn"
     %hr
