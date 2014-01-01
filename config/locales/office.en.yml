@@ -19,9 +19,9 @@ en:
   price: Price
   product: Product
   products: Products
-  product_group: Product Group
-  product_group_id: Product Line
-  product_groups: Product Groups
+  category: Product Group
+  category_id: Product Line
+  categories: Product Groups
   purchases: Purchases
   quantity: Quantity
   suppliers: Suppliers

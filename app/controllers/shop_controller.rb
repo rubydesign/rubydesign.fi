@@ -7,16 +7,16 @@ class ShopController < ApplicationController
   def product
     @product = Product.where(:link => params[:id]).first
     #error handling
-    @group = ProductGroup.find(@product.product_group_id)
+    @group = Category.find(@product.category_id)
   end
 
   def group
-    @group = ProductGroup.where(:link => params[:id])
+    @group = Category.where(:link => params[:id])
   end
 
   private
     def load
-      @groups = ProductGroup.all
+      @groups = Category.all
       @menu =  {"/pages/kotisivu" => "KOTISIVU" ,
                 "/products" => "VERKKOKAUPPA" ,
                 "/pages/tuotteista" => "TUOTTEISTA",

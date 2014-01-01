@@ -37,8 +37,8 @@ OfficeClerk::Application.routes.draw do
     end
   end
 
-  match "product_groups/search_and_filter" => "product_groups#index", :via => [:get, :post], :as => :search_product_groups
-  resources :product_groups do
+  match "categories/search_and_filter" => "categories#index", :via => [:get, :post], :as => :search_categories
+  resources :categories do
     collection do
       post :batch
     end

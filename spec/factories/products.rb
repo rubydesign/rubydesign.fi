@@ -13,7 +13,7 @@ FactoryGirl.define do
     properties "MyString"
     scode "MyString"
     product nil
-    product_group nil
+    category nil
     supplier nil
   end
 end

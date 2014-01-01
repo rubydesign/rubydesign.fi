@@ -12,7 +12,7 @@
 class Product < ActiveRecord::Base
   has_many :products, :dependent => :nullify
   belongs_to :product
-  belongs_to :product_group
+  belongs_to :category
   belongs_to :supplier
   has_attached_file :main_picture
   has_attached_file :extra_picture

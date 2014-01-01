@@ -22,9 +22,9 @@
         .controls
           = f.collection_select :supplier_id, Supplier.all, :id, :caption, :include_blank => true
       .control-group
-        = f.label :product_group, t(:product_group), :class => "control-label"
+        = f.label :category, t(:category), :class => "control-label"
         .controls
-          = f.collection_select :product_group_id, ProductGroup.all, :id, :caption, :include_blank => true
+          = f.collection_select :category_id, Category.all, :id, :caption, :include_blank => true
     .span3
       .control-group
         = f.label :link, t(:link), :class => "control-label"

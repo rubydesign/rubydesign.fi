@@ -1,6 +1,6 @@
-class ProductGroup < ActiveRecord::Base
+class Category < ActiveRecord::Base
   has_many :products, :dependent => :nullify
-  has_many :product_groups, :dependent => :nullify
+  has_many :categories, :dependent => :nullify
   has_attached_file :main_picture
   has_attached_file :extra_picture
 

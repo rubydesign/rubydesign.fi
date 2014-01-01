@@ -1,0 +1,29 @@
+%h2
+  = t(:show)
+  = t(:category)
+%p
+  %b
+    = t(:category_id) + ":"
+  = @category.category_id
+%p
+  %b
+    = t(:name) + ":"
+  = @category.name
+%p
+  %b
+    = t(:description) + ":"
+  = @category.description
+%p
+  %b
+    = t(:link) + ":"
+  = @category.link
+%p
+  %b
+    = t(:picture) + ":"
+  = image_tag @category.main_picture.url
+%p
+  %b
+    = t(:picture) + ":"
+  = image_tag @category.extra_picture.url
+= link_to t(:edit), edit_category_path(@category), :class => "btn"
+= link_to t(:back), categories_path, :class => "btn"

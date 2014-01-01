@@ -16,7 +16,7 @@ class Products < ActiveRecord::Migration
       t.string  :scode
       t.date    :deleted_on
       t.references :product,        index: true
-      t.references :product_group,  index: true
+      t.references :category,  index: true
       t.references :supplier,       index: true
       t.timestamps
     end

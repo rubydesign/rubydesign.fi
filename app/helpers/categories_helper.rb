@@ -1,4 +1,4 @@
 # encoding : utf-8
 require "beautiful_helper"
-module ProductGroupsHelper
+module CategoriesHelper
 end

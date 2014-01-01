@@ -1,7 +1,7 @@
-class ProductGroups < ActiveRecord::Migration
+class Categories < ActiveRecord::Migration
   def change
-    create_table :product_groups do |t|
-      t.references :product_group
+    create_table :categories do |t|
+      t.references :category
       t.string      :name
       t.string      :description
       t.integer     :position , :default => 1

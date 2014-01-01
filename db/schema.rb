@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "updated_at"
   end
 
-  create_table "product_groups", force: true do |t|
-    t.integer  "product_group_id"
+  create_table "categories", force: true do |t|
+    t.integer  "category_id"
     t.string   "name"
     t.string   "description"
     t.integer  "position",                   default: 1
@@ -96,13 +96,13 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "scode"
     t.date     "deleted_on"
     t.integer  "product_id"
-    t.integer  "product_group_id"
+    t.integer  "category_id"
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "products", ["product_group_id"], name: "index_products_on_product_group_id"
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
   add_index "products", ["product_id"], name: "index_products_on_product_id"
   add_index "products", ["supplier_id"], name: "index_products_on_supplier_id"
 

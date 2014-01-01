@@ -9,7 +9,7 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th{column_style("product_group", "main_picture")}=t( "picture")
+            %th{column_style("category", "main_picture")}=t( "picture")
             %th{column_style("product", "ean")}
               =sorting_header("product", "ean", "")
             %th{column_style("product", "name")}
@@ -27,7 +27,7 @@
         %tbody
           - @products.each do |product|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td{column_style("product_group", "picture")}
+              %td{column_style("category", "picture")}
                 = image_tag product.main_picture.url
               %td{column_style("product", "ean")}
                 =product.ean
@@ -72,7 +72,7 @@
       = ransack_field("product", "scode", f, "Scode")
       = ransack_field("product", "inventory", f, "Inventory")
       = ransack_field("product", "product_id", f, "Product")
-      = ransack_field("product", "product_group_id", f, "Product_group")
+      = ransack_field("product", "category_id", f, "Product_group")
       = ransack_field("product", "supplier_id", f, "Supplier")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), products_path(:nosearch => "ok"), :class => "btn"

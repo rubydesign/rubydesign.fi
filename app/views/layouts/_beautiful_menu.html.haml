@@ -6,8 +6,8 @@
   = link_to t(:orders), orders_path
 %li{:class => params[:controller] == "items" && "active" }
   = link_to t(:items), items_path
-%li{:class => params[:controller] == "product_groups" && "active" }
-  = link_to t(:product_groups), product_groups_path
+%li{:class => params[:controller] == "categories" && "active" }
+  = link_to t(:categories), categories_path
 %li{:class => params[:controller] == "products" && "active" }
   = link_to t(:products), products_path
 %li{:class => params[:controller] == "users" && "active" }
