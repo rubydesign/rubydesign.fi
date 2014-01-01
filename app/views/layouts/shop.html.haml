@@ -33,55 +33,7 @@
               %input{name: "utf8", type: "hidden", value: "✓"}/
             %input#keywords{name: "keywords", placeholder: "Etsi", type: "search"}
             %input{type: "submit", value: "Etsi"}/
-        .content.span7
-          .product-title-h1
-            %h1.product-title{itemprop: "name"} Cinnamon Apple Spices
-          .span3
-            .picture
-              .row
-                #product-images
-                  #main-image
-                    %img{alt: "Cinnamon Apple Spices", itemprop: "image", src: "/assets/shop/Cinnamon_Apple_Spice.jpg"}
-                  #thumbnails
-                    / no need for thumnails unless there is more then one image
-                    %ul#product-thumbnails.thumbnails.inline
-                      %li#tmb-3.tmb-all
-                        %img{src: "/assets/shop/Cinnamon_Apple_Spice.jpg" , :width => 60 , :height => 60}
-                %div
-                  %h6.product-section-title Ominaisuudet
-                  %table#product-properties.table-display
-                    %tbody
-                      %tr.even
-                        %td
-                          %strong Tuoteryhmä
-                        %td Gourmet
-                      %tr.odd
-                        %td
-                          %strong Valmistaja
-                        %td FeuerGlas
-          .span3
-            .row
-              #product-description
-                %div
-                  Saat mausteisen herkkujuoman lisäämällä jauhetta kuumaan tai kylmään omenamehuun. Jauheet ovat riittoisia ja lisäaineettomia. Yhdestä purkista voit saada 20L valmista juomaa. Valmistusaineet: sokeri, kaneli, neilikka, muskottisose.
-                #cart-form
-                  %form{"accept-charset" => "UTF-8", action: "/orders/populate", method: "post"}
-                    #inside-product-cart-form
-                      .span4
-                        #product-price
-                          %h6.product-section-title Hinta
-                          %div
-                            %span.price.selling{itemprop: "price"} 7,90 €
-                        .add-to-cart
-                          %input#variants_3.title{max: "1", min: "1", name: "variants[3]", type: "number", value: "1"}/
-                          %button#add-to-cart-button.large.primary{type: "submit"}
-                            Lisää ostoskoriin
-              #taxon-crumbs.span4
-                %h6.product-section-title Etsi samanlaisia tuotteita
-                %div
-                  %ul#similar_items_by_taxon
-                    %li
-                      %a{href: "/t/web/gourmet"} Gourmet
+        = yield
       %div{id: "footer container"}
         .left
           Suunnittelu ja toteutus Ruby Design    

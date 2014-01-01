@@ -14,14 +14,18 @@ class ShopController < ApplicationController
     @group = Category.where(:link => params[:id])
   end
 
+  def page
+    template = params[:id]
+    render template
+  end
   private
     def load
       @groups = Category.all
-      @menu =  {"/pages/kotisivu" => "KOTISIVU" ,
-                "/products" => "VERKKOKAUPPA" ,
-                "/pages/tuotteista" => "TUOTTEISTA",
-                "/pages/toimitusehdot" => "TOIMITUSEHDOT" ,
-                "/pages/liike" => "LIIKKEEMME" }
+      @menu =  {"/page/kotisivu" => "KOTISIVU" ,
+                "/group/start" => "VERKKOKAUPPA" ,
+                "/page/tuotteista" => "TUOTTEISTA",
+                "/page/toimitusehdot" => "TOIMITUSEHDOT" ,
+                "/page/liike" => "LIIKKEEMME" }
       @groups =  { "Luomukosmetiikka" =>["Kasvojenhoito" , "Vartalonhoito" , "Hiustenhoito" , "Aromasprayt"],
                   "Sisustus" => ["Valaisimet" , "Gourmet" , "Vaatteet","Muut"] }
     end

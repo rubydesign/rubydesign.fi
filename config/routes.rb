@@ -85,4 +85,5 @@ OfficeClerk::Application.routes.draw do
   #shop
   get 'group/:id' => 'shop#group', :as => :group
   get 'prod/:id' => 'shop#product', :as => :prod
+  get 'page/:id' => 'shop#page', :as => :page
 end
