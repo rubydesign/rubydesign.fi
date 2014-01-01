@@ -28,9 +28,6 @@ group :development do
   gem 'guard-rspec'
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'rb-fchange', :require=>false
-  gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
 end
 group :development, :test do
   gem 'factory_girl_rails'
