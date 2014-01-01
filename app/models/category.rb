@@ -17,7 +17,7 @@ class Category < ActiveRecord::Base
   validates :link, presence: true, :if => :generate_url_if_needed
  
   def generate_url_if_needed
-    if link.blank?
+    if link.blank? && link != nil
       self.link = name.gsub(" " , "_").downcase
     end
     true

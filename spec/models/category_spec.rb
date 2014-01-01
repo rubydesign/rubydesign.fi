@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "validates a name" do 
+    pro = Category.new
+    pro.save.should be false
+  end
 end

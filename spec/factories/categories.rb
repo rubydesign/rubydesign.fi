@@ -2,9 +2,7 @@
 
 FactoryGirl.define do
   factory :category do
-    category_id 0
-    name "MyString"
-    link "MyString"
-    picture "MyString"
+    name "Gourmet"
+    link "gourmet"
   end
 end

@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "updated_at"
   end
 
+  create_table "categories", force: true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "position",                   default: 1
+    t.string   "link"
+    t.string   "main_picture_file_name"
+    t.string   "main_picture_content_type"
+    t.integer  "main_picture_file_size"
+    t.datetime "main_picture_updated_at"
+    t.string   "extra_picture_file_name"
+    t.string   "extra_picture_content_type"
+    t.integer  "extra_picture_file_size"
+    t.datetime "extra_picture_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", force: true do |t|
     t.integer  "quantity"
     t.float    "price"
@@ -52,24 +70,6 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.date     "shipped_on"
     t.date     "canceled_on"
     t.string   "shipment_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "categories", force: true do |t|
-    t.integer  "category_id"
-    t.string   "name"
-    t.string   "description"
-    t.integer  "position",                   default: 1
-    t.string   "link"
-    t.string   "main_picture_file_name"
-    t.string   "main_picture_content_type"
-    t.integer  "main_picture_file_size"
-    t.datetime "main_picture_updated_at"
-    t.string   "extra_picture_file_name"
-    t.string   "extra_picture_content_type"
-    t.integer  "extra_picture_file_size"
-    t.datetime "extra_picture_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

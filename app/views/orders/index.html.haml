@@ -44,11 +44,11 @@
               %td{column_style("order", "ordered_on")}
                 = order.ordered_on
               %td{column_style("order", "total_price")} 
-                = number_to_currency(order.total_price, :locale => I18n.locale)
+                = number_to_currency(order.total_price)
               %td{column_style("order", "total_tax")} 
-                = number_to_currency(order.total_tax, :locale => I18n.locale)
+                = number_to_currency(order.total_tax)
               %td{column_style("order", "shipping_price")} 
-                = number_to_currency(order.shipping_price, :locale => I18n.locale)
+                = number_to_currency(order.shipping_price)
               %td{column_style("order", "basket_id")}
                 = order.basket_id
               %td{column_style("order", "email")}

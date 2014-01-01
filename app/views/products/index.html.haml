@@ -34,7 +34,7 @@
               %td{column_style("product", "name")}
                 =product.name
               %td{column_style("product", "price")}
-                =number_to_currency(product.price, :locale => I18n.locale)
+                =number_to_currency(product.price)
               %td{column_style("product", "properties")}
                 =product.properties
               %td{column_style("product", "inventory")}

@@ -31,13 +31,13 @@ class Product < ActiveRecord::Base
   scope :active, lambda { where(:deleted_on => nil) }
   scope :deleted, lambda { where('deleted_on IS NOT NULL') }
 
-  validates :price, :numericality => true , :presence => true
+  validates :price, :numericality => true 
   validates :cost, :numericality => true
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
  
   def generate_url_if_needed
-    if link.blank?
+    if link.blank? && link != nil
       self.link = name.gsub(" " , "_").downcase
     end
     true

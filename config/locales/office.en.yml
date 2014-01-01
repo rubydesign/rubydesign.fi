@@ -6,6 +6,7 @@ en:
   basket: Basket
   baskets: Baskets
   back: Back
+  description: Description
   destroy: Destroy
   edit: Edit
   editing: Editing
@@ -14,14 +15,16 @@ en:
   new: New
   order: Order
   orders: Orders
+  parent: Parent
   picture: Picture
+  position: Position
   prev: Previous
   price: Price
   product: Product
   products: Products
-  category: Product Group
+  category: Product Category
   category_id: Product Line
-  categories: Product Groups
+  categories: Product Categories
   purchases: Purchases
   quantity: Quantity
   suppliers: Suppliers
