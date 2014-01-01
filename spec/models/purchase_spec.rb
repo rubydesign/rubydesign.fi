@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Purchase do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "factory is ok" do 
+    p = Purchase.new FactoryGirl.attributes_for :purchase
+    p.save.should be true
+  end
 end

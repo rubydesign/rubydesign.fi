@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Item do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "factory is ok" do 
+    i = Item.new FactoryGirl.attributes_for :item
+    i.save.should be true
+  end
 end
