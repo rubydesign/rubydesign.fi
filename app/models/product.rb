@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
   has_attached_file :extra_picture
 
   # default product scope only lists non-deleted products
-  default_scope where(:deleted_on => nil)
+  default_scope {where(:deleted_on => nil)}
  
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]

@@ -12,6 +12,7 @@ class ShopController < ApplicationController
 
   def group
     @group = Category.where(:link => params[:id])
+    @group = Category.first unless @group
   end
 
   def page
@@ -26,7 +27,5 @@ class ShopController < ApplicationController
                 "/page/tuotteista" => "TUOTTEISTA",
                 "/page/toimitusehdot" => "TOIMITUSEHDOT" ,
                 "/page/liike" => "LIIKKEEMME" }
-      @groups =  { "Luomukosmetiikka" =>["Kasvojenhoito" , "Vartalonhoito" , "Hiustenhoito" , "Aromasprayt"],
-                  "Sisustus" => ["Valaisimet" , "Gourmet" , "Vaatteet","Muut"] }
     end
 end
