@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe "Shops" do
-  describe "GET /product" do
-    it "works! (now write some real specs)" do
+  describe "GET /prod" do
+    it "get something" do
+      FactoryGirl.create :product
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get shops_path
-      response.status.should be(200)
+      visit prod_path(:id => 1)
+      status_code.should be(200)
     end
   end
 end

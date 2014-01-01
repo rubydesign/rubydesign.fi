@@ -7,7 +7,7 @@ class ShopController < ApplicationController
   def product
     @product = Product.where(:link => params[:id]).first
     #error handling
-    @group = Category.find(@product.category_id)
+#    @group = Category.find(@product.category_id)
   end
 
   def group
