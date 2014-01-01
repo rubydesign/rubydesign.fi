@@ -2,11 +2,10 @@
 
 FactoryGirl.define do
   factory :address do
-    first_name "MyString"
-    last_name "MyString"
-    street1 "MyString"
-    street2 "MyString"
-    postcode "MyString"
-    country "MyString"
+    first_name "Me"
+    last_name "Isdat"
+    street1 "living here"
+    postcode "111"
+    country "Suomi"
   end
 end

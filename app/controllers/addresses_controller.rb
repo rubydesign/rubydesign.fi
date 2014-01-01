@@ -80,7 +80,7 @@ class AddressesController < BeautifulController
   end
 
   def destroy
-    redirect_to address_path, :flash => { :notice => "cant destroy addresses" }
+    redirect_to addresses_path, :flash => { :notice => "cant destroy addresses" }
   end
 
   private 

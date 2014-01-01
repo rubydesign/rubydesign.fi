@@ -23,7 +23,7 @@ describe OrdersController do
   # This should return the minimal set of attributes required to create a valid
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { FactoryGirl.attributes_for :order }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe OrdersController do
       it "assigns a newly created but unsaved order as @order" do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        post :create, {:order => {  }}, valid_session
+        post :create, {:order => {  :paid_on => ""}}, valid_session
         assigns(:order).should be_a_new(Order)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        post :create, {:order => {  }}, valid_session
+        post :create, {:order => {  :paid_on => ""}}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,16 +100,6 @@ describe OrdersController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested order" do
-        order = Order.create! valid_attributes
-        # Assuming there are no other orders in the database, this
-        # specifies that the Order created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Order.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => order.to_param, :order => { "these" => "params" }}, valid_session
-      end
-
       it "assigns the requested order as @order" do
         order = Order.create! valid_attributes
         put :update, {:id => order.to_param, :order => valid_attributes}, valid_session
@@ -128,7 +118,7 @@ describe OrdersController do
         order = Order.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        put :update, {:id => order.to_param, :order => {  }}, valid_session
+        put :update, {:id => order.to_param, :order => {  :paid_on => ""}}, valid_session
         assigns(:order).should eq(order)
       end
 
@@ -136,7 +126,7 @@ describe OrdersController do
         order = Order.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
-        put :update, {:id => order.to_param, :order => {  }}, valid_session
+        put :update, {:id => order.to_param, :order => {  :paid_on => ""}}, valid_session
         response.should render_template("edit")
       end
     end

@@ -7,11 +7,9 @@ FactoryGirl.define do
     total_tax 1.5
     shipping_price 1.5
     shipping_tax 1.5
-    basket ""
     email "MyString"
     paid_on "2013-12-26"
     shipped_on "2013-12-26"
-    paid_on "2013-12-26"
     canceled_on "2013-12-26"
     shipment_type "MyString"
   end

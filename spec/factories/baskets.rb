@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :basket do
-    string ""
+    name "Cart"
   end
 end

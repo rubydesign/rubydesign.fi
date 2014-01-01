@@ -23,7 +23,7 @@ describe SuppliersController do
   # This should return the minimal set of attributes required to create a valid
   # Supplier. As you add validations to Supplier, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { FactoryGirl.attributes_for :supplier }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe SuppliersController do
       it "assigns a newly created but unsaved supplier as @supplier" do
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
-        post :create, {:supplier => {  }}, valid_session
+        post :create, {:supplier => {  :name  => "" }}, valid_session
         assigns(:supplier).should be_a_new(Supplier)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
-        post :create, {:supplier => {  }}, valid_session
+        post :create, {:supplier => {  :name  => "" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,16 +100,6 @@ describe SuppliersController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested supplier" do
-        supplier = Supplier.create! valid_attributes
-        # Assuming there are no other suppliers in the database, this
-        # specifies that the Supplier created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Supplier.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => supplier.to_param, :supplier => { "these" => "params" }}, valid_session
-      end
-
       it "assigns the requested supplier as @supplier" do
         supplier = Supplier.create! valid_attributes
         put :update, {:id => supplier.to_param, :supplier => valid_attributes}, valid_session
@@ -128,7 +118,7 @@ describe SuppliersController do
         supplier = Supplier.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
-        put :update, {:id => supplier.to_param, :supplier => {  }}, valid_session
+        put :update, {:id => supplier.to_param, :supplier => {  :name  => "" }}, valid_session
         assigns(:supplier).should eq(supplier)
       end
 
@@ -136,7 +126,7 @@ describe SuppliersController do
         supplier = Supplier.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
-        put :update, {:id => supplier.to_param, :supplier => {  }}, valid_session
+        put :update, {:id => supplier.to_param, :supplier => {  :name  => "" }}, valid_session
         response.should render_template("edit")
       end
     end

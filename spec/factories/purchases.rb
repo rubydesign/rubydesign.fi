@@ -6,6 +6,5 @@ FactoryGirl.define do
     ordered_on "2013-12-26"
     received_on "2013-12-26"
     basket nil
-    supplier ""
   end
 end

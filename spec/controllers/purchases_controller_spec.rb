@@ -23,7 +23,7 @@ describe PurchasesController do
   # This should return the minimal set of attributes required to create a valid
   # Purchase. As you add validations to Purchase, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { FactoryGirl.attributes_for :purchase }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe PurchasesController do
       it "assigns a newly created but unsaved purchase as @purchase" do
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        post :create, {:purchase => {  }}, valid_session
+        post :create, {:purchase => {  :supplier_id => nil }}, valid_session
         assigns(:purchase).should be_a_new(Purchase)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        post :create, {:purchase => {  }}, valid_session
+        post :create, {:purchase => {  :supplier_id => nil }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,16 +100,6 @@ describe PurchasesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested purchase" do
-        purchase = Purchase.create! valid_attributes
-        # Assuming there are no other purchases in the database, this
-        # specifies that the Purchase created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Purchase.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => purchase.to_param, :purchase => { "these" => "params" }}, valid_session
-      end
-
       it "assigns the requested purchase as @purchase" do
         purchase = Purchase.create! valid_attributes
         put :update, {:id => purchase.to_param, :purchase => valid_attributes}, valid_session
@@ -128,7 +118,7 @@ describe PurchasesController do
         purchase = Purchase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        put :update, {:id => purchase.to_param, :purchase => {  }}, valid_session
+        put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
         assigns(:purchase).should eq(purchase)
       end
 
@@ -136,7 +126,7 @@ describe PurchasesController do
         purchase = Purchase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        put :update, {:id => purchase.to_param, :purchase => {  }}, valid_session
+        put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
         response.should render_template("edit")
       end
     end

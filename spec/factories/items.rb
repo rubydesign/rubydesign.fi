@@ -5,6 +5,6 @@ FactoryGirl.define do
     quantity 1
     price 1.5
     tax 1.5
-    product ""
+    product_id 0
   end
 end

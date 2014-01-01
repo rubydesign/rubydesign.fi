@@ -23,7 +23,7 @@ describe BasketsController do
   # This should return the minimal set of attributes required to create a valid
   # Basket. As you add validations to Basket, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { FactoryGirl.attributes_for :basket }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe BasketsController do
       it "assigns a newly created but unsaved basket as @basket" do
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
-        post :create, {:basket => {  }}, valid_session
+        post :create, {:basket => {  :name => "" }}, valid_session
         assigns(:basket).should be_a_new(Basket)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
-        post :create, {:basket => {  }}, valid_session
+        post :create, {:basket => {  :name => "" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,16 +100,6 @@ describe BasketsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested basket" do
-        basket = Basket.create! valid_attributes
-        # Assuming there are no other baskets in the database, this
-        # specifies that the Basket created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Basket.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => basket.to_param, :basket => { "these" => "params" }}, valid_session
-      end
-
       it "assigns the requested basket as @basket" do
         basket = Basket.create! valid_attributes
         put :update, {:id => basket.to_param, :basket => valid_attributes}, valid_session
@@ -128,7 +118,7 @@ describe BasketsController do
         basket = Basket.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
-        put :update, {:id => basket.to_param, :basket => {  }}, valid_session
+        put :update, {:id => basket.to_param, :basket => {  :name => "" }}, valid_session
         assigns(:basket).should eq(basket)
       end
 
@@ -136,7 +126,7 @@ describe BasketsController do
         basket = Basket.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
-        put :update, {:id => basket.to_param, :basket => {  }}, valid_session
+        put :update, {:id => basket.to_param, :basket => {  :name => "" }}, valid_session
         response.should render_template("edit")
       end
     end
