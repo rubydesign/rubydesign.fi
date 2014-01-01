@@ -2,18 +2,9 @@
 
 FactoryGirl.define do
   factory :product do
-    price 1.5
-    cost 1.5
-    weight 1.5
-    name "MyString"
-    description "MyText"
-    link "MyString"
-    ean "MyString"
-    tax 1.5
-    properties "MyString"
-    scode "MyString"
-    product nil
-    category nil
-    supplier nil
+    price 10
+    name "prod"
+#    link "prod"
+    tax 23
   end
 end

@@ -1,7 +1,7 @@
 # encoding : utf-8
 class ProductsController < BeautifulController
 
-  before_filter :load_product, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_product, :only => [:show, :edit, :update, :delete]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -105,7 +105,7 @@ class ProductsController < BeautifulController
   end
 
   def delete
-    @product.deleted_at = Time.now
+    @product.deleted_on = Time.now
     if @product.save
       redirect_to products_url , :flash => {:notice => "deleted"}
     else

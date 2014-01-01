@@ -17,6 +17,9 @@ class Product < ActiveRecord::Base
   has_attached_file :main_picture
   has_attached_file :extra_picture
 
+  # default product scope only lists non-deleted products
+  default_scope where(:deleted_on => nil)
+ 
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -27,17 +30,13 @@ class Product < ActiveRecord::Base
     order("#{attribute} #{direction}")
   }
 
-  # default product scope only lists non-deleted variants
-  scope :active, lambda { where(:deleted_on => nil) }
-  scope :deleted, lambda { where('deleted_on IS NOT NULL') }
-
   validates :price, :numericality => true 
   validates :cost, :numericality => true
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
  
   def generate_url_if_needed
-    if link.blank? && link != nil
+    if link.blank? && name != nil
       self.link = name.gsub(" " , "_").downcase
     end
     true
