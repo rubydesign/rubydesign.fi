@@ -28,7 +28,4 @@ class ProductGroup < ActiveRecord::Base
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
 
-  def self.permitted_attributes
-    return :product_group_id,:name,:link,:main_picture,:extra_picture
-  end
 end

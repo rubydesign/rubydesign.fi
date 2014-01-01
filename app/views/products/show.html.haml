@@ -1,62 +1,65 @@
 %h2
-  = t(:show, :default => "Show")
-  = t('app.models.product.bs_caption', :default => 'product')
+  = t(:show)
+  = t(:product)
 %p
   %b
-    = t(:picture) + ":"
+    = t(:main_picture) + ":"
   = image_tag @product.main_picture.url
+  %b
+    = t(:extra_picture) + ":"
+  = image_tag @product.extra_picture.url
 %p
   %b
-    = t('app.models.product.bs_attributes.price', :default => 'price') + ":"
+    = t(:price) + ":"
   = number_to_currency(@product.price)
 %p
   %b
-    = t('app.models.product.bs_attributes.cost', :default => 'cost') + ":"
+    = t(:cost) + ":"
   = number_to_currency(@product.cost)
 %p
   %b
-    = t('app.models.product.bs_attributes.weight', :default => 'weight') + ":"
+    = t(:weight) + ":"
   = @product.weight
 %p
   %b
-    = t('app.models.product.bs_attributes.name', :default => 'name') + ":"
+    = t(:name) + ":"
   = @product.name
 %p
   %b
-    = t('app.models.product.bs_attributes.description', :default => 'description') + ":"
+    = t(:description) + ":"
   = @product.description
 %p
   %b
-    = t('app.models.product.bs_attributes.link', :default => 'link') + ":"
+    = t(:link) + ":"
   = @product.link
 %p
   %b
-    = t('app.models.product.bs_attributes.ean', :default => 'ean') + ":"
+    = t(:ean) + ":"
   = @product.ean
 %p
   %b
-    = t('app.models.product.bs_attributes.tax', :default => 'tax') + ":"
+    = t(:tax) + ":"
   = @product.tax
 %p
   %b
-    = t('app.models.product.bs_attributes.properties', :default => 'properties') + ":"
+    = t(:properties) + ":"
   = @product.properties
 %p
   %b
-    = t('app.models.product.bs_attributes.scode', :default => 'scode') + ":"
+    = t(:scode) + ":"
   = @product.scode
 %p
   %b
-    = t('app.models.product.bs_attributes.product', :default => 'product') + ":"
+    = t(:product) + ":"
   = (@product.product.nil? ? "" : @product.product.caption)
 %p
   %b
-    = t('app.models.product.bs_attributes.product_group', :default => 'product_group') + ":"
+    = t(:product_group) + ":"
   = (@product.product_group.nil? ? "" : @product.product_group.caption)
 %p
   %b
-    = t('app.models.product.bs_attributes.supplier', :default => 'supplier') + ":"
-  = (@product.supplier.nil? ? "" : @product.supplier.caption)
+    = t(:supplier) + ":"
+  = (@product.supplier.nil? ? "" : @product.supplier.name)
 = link_to t(:edit), edit_product_path(@product), :class => "btn"
 = link_to t(:back), products_path, :class => "btn"
 = link_to t(:delete) , delete_product_path(@product), :class => "btn"

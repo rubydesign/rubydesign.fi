@@ -160,7 +160,7 @@ class ProductGroupsController < BeautifulController
   end
 
   def params_for_model
-    params.require(:product_group).permit(ProductGroup.permitted_attributes)
+    params.require(:product_group).permit(:product_group_id,:name,:link,:main_picture,:extra_picture)
   end
 end
 

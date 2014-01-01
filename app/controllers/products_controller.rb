@@ -120,7 +120,8 @@ class ProductsController < BeautifulController
   end
 
   def params_for_model
-    params.require(:product).permit(Product.permitted_attributes)
+    params.require(:product).permit(:price,:cost,:weight,:name,:description,:link,:ean,:tax,:properties,:scode,:product_id,:product_group_id,:supplier_id, :main_picture,:extra_picture
+)
   end
 end
 

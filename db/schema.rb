@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.integer  "product_group_id"
     t.string   "name"
     t.string   "description"
-    t.integer  "position"
+    t.integer  "position",                   default: 1
     t.string   "link"
     t.string   "main_picture_file_name"
     t.string   "main_picture_content_type"

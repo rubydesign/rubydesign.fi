@@ -48,7 +48,4 @@ class Product < ActiveRecord::Base
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
 
-  def self.permitted_attributes
-    return :price,:cost,:weight,:name,:description,:link,:ean,:tax,:properties,:scode,:product_id,:product_group_id,:supplier_id
-  end
 end
