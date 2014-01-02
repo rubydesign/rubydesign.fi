@@ -1,4 +1,4 @@
-= form_for(@supplier, :html => { :class => "form-horizontal" }) do |f|
+= simple_form_for(@supplier) do |f|
   - if @supplier.errors.any?
     #error_explanation
       %h2
@@ -8,12 +8,11 @@
         - @supplier.errors.full_messages.each do |msg|
           %li= msg
   .control-group
-    = f.label :name, t('app.models.supplier.bs_attributes.name', :default => 'name').capitalize, :class => "control-label"
+    = f.label :name, t(:name), :class => "control-label"
     .controls
       = f.text_field :name
-  .control-group
-    = f.label :address, t('app.models.supplier.bs_attributes.address', :default => 'address').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :address
+  = f.simple_fields_for @address do |af|
+    =render "addresses/form_fields" ,:f => af
   .form-actions
     = f.submit :class => "btn btn-primary"
+    

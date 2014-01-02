@@ -32,9 +32,10 @@ describe AddressesController do
 
   describe "GET index" do
     it "assigns all addresses as @addresses" do
+      before = Address.count
       address = Address.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:addresses).should eq([address])
+      Address.count.should be before + 1
     end
   end
 

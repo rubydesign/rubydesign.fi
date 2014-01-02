@@ -13,8 +13,12 @@
               = check_box_tag :checkall, ''
             %th{column_style("supplier", "name")}
               =sorting_header("supplier", "name", "")
-            %th{column_style("supplier", "address")}
-              =sorting_header("supplier", "address", "")
+            %th{column_style("supplier", "first_name")}
+              =t :first_name
+            %th{column_style("supplier", "last_name")}
+              =t :last_name
+            %th{column_style("supplier", "country")}
+              =t :country
             %th{:colspan => "3"}
               %label.checkbox
                 = check_box_tag :checkallelt, 'all'
@@ -25,11 +29,21 @@
               %td= check_box_tag "ids[]",supplier.id, false, :class => 'cbbatch'
               %td{column_style("supplier", "name")}
                 =supplier.name
-              %td{column_style("supplier", "address")}
-                =supplier.address
-              %td= link_to '<i class="icon-search"></i>'.html_safe, supplier_path(supplier), :title => t(:show, :default => "Show")
-              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_supplier_path(supplier), :title => t(:edit)
-              %td= link_to '<i class="icon-remove"></i>'.html_safe, supplier_path(supplier), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
+              %td{column_style("supplier", "address_first_name")}
+                =supplier.address.first_name
+              %td{column_style("supplier", "address_last_name")}
+                =supplier.address.last_name
+              %td{column_style("supplier", "address_country")}
+                =supplier.address.country
+              %td
+                = link_to supplier_path(supplier), :title => t(:show) do 
+                  %i.icon-search
+              %td
+                = link_to edit_supplier_path(supplier), :title => t(:edit) do
+                  %i.icon-pencil
+              %td
+                = link_to supplier_path(supplier), :method => :delete, :title => t(:destroy) do
+                  %i.icon-remove
       .btn-toolbar
         .btn-group
           - clean_params
@@ -46,6 +60,6 @@
   .span3
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("supplier", "name", f, "Name")
-      = ransack_field("supplier", "id", f, "Id")
+      = ransack_field("supplier", "address_country", f, "Country")
       = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
       = link_to  t(:cancel, :default => "Cancel"), suppliers_path(:nosearch => "ok"), :class => "btn"
