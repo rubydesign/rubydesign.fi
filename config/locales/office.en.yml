@@ -6,13 +6,17 @@ en:
   basket: Basket
   baskets: Baskets
   back: Back
+  country: Country
   description: Description
   destroy: Destroy
   edit: Edit
   editing: Editing
+  first_name: First Name
   items: Items
+  last_name: Last Name
   name: Name
   new: New
+  next: Next
   order: Order
   orders: Orders
   parent: Parent

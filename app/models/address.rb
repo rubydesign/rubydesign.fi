@@ -10,6 +10,10 @@ class Address < ActiveRecord::Base
     order("#{attribute} #{direction}")
   }
 
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :street1, :presence => true
+  validates :postcode, :presence => true
 
   # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
   def caption
