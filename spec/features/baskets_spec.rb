@@ -8,4 +8,19 @@ describe "Baskets" do
       page.should_not have_css(".translation_missing")
     end
   end
+  describe "new baskets" do
+    it "should render" do
+      visit new_basket_path
+      status_code.should be 200
+      page.should_not have_css(".translation_missing")
+    end
+  end
+  describe "edit baskets" do
+    it "should render" do
+      basket = create :basket
+      visit edit_basket_path basket
+      status_code.should be 200
+      page.should_not have_css(".translation_missing")
+    end
+  end
 end

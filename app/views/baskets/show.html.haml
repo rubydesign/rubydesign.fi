@@ -1,9 +1,9 @@
 %h2
-  = t(:show, :default => "Show")
-  = t('app.models.basket.bs_caption', :default => 'basket')
+  = t(:basket)
 %p
   %b
-    = t('app.models.basket.bs_attributes.string', :default => 'string') + ":"
-  = @basket.string
+    = t(:name) + ":" +  @basket.name.to_s
 = link_to t(:edit), edit_basket_path(@basket), :class => "btn"
 = link_to t(:back), baskets_path, :class => "btn"
+= link_to basket_path(basket), :data => { :confirm => t(:are_you_sure }, :method => :delete, :title => t(:destroy) do
+  %i.icon-remove

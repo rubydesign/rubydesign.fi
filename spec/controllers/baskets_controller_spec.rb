@@ -32,15 +32,16 @@ describe BasketsController do
 
   describe "GET index" do
     it "assigns all baskets as @baskets" do
-      basket = Basket.create! valid_attributes
+      count_before = Basket.count
+      basket = create :basket
       get :index, {}, valid_session
-      assigns(:baskets).should eq([basket])
+      assigns(:baskets).count.should be count_before + 1   
     end
   end
 
   describe "GET show" do
     it "assigns the requested basket as @basket" do
-      basket = Basket.create! valid_attributes
+      basket = create :basket
       get :show, {:id => basket.to_param}, valid_session
       assigns(:basket).should eq(basket)
     end
@@ -55,7 +56,7 @@ describe BasketsController do
 
   describe "GET edit" do
     it "assigns the requested basket as @basket" do
-      basket = Basket.create! valid_attributes
+      basket = create :basket
       get :edit, {:id => basket.to_param}, valid_session
       assigns(:basket).should eq(basket)
     end
@@ -101,13 +102,13 @@ describe BasketsController do
   describe "PUT update" do
     describe "with valid params" do
       it "assigns the requested basket as @basket" do
-        basket = Basket.create! valid_attributes
+        basket = create :basket
         put :update, {:id => basket.to_param, :basket => valid_attributes}, valid_session
         assigns(:basket).should eq(basket)
       end
 
       it "redirects to the basket" do
-        basket = Basket.create! valid_attributes
+        basket = create :basket
         put :update, {:id => basket.to_param, :basket => valid_attributes}, valid_session
         response.should redirect_to(basket)
       end
@@ -115,7 +116,7 @@ describe BasketsController do
 
     describe "with invalid params" do
       it "assigns the basket as @basket" do
-        basket = Basket.create! valid_attributes
+        basket = create :basket
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
         put :update, {:id => basket.to_param, :basket => {  :name => "" }}, valid_session
@@ -123,7 +124,7 @@ describe BasketsController do
       end
 
       it "re-renders the 'edit' template" do
-        basket = Basket.create! valid_attributes
+        basket = create :basket
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
         put :update, {:id => basket.to_param, :basket => {  :name => "" }}, valid_session
@@ -134,14 +135,14 @@ describe BasketsController do
 
   describe "DELETE destroy" do
     it "destroys the requested basket" do
-      basket = Basket.create! valid_attributes
+      basket = create :basket
       expect {
         delete :destroy, {:id => basket.to_param}, valid_session
       }.to change(Basket, :count).by(-1)
     end
 
     it "redirects to the baskets list" do
-      basket = Basket.create! valid_attributes
+      basket = create :basket
       delete :destroy, {:id => basket.to_param}, valid_session
       response.should redirect_to(baskets_url)
     end

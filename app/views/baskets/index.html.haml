@@ -21,10 +21,9 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= check_box_tag "ids[]",basket.id, false, :class => 'cbbatch'
               %td{column_style("basket", "string")}
-                =basket.string
+                =basket.name.to_s
               %td= link_to '<i class="icon-search"></i>'.html_safe, basket_path(basket), :title => t(:show, :default => "Show")
               %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_basket_path(basket), :title => t(:edit)
-              %td= link_to '<i class="icon-remove"></i>'.html_safe, basket_path(basket), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
       .btn-toolbar
         .btn-group
           - clean_params

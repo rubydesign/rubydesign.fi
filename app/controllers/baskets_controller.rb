@@ -160,7 +160,7 @@ class BasketsController < BeautifulController
   end
 
   def params_for_model
-    params.require(:basket).permit(Basket.permitted_attributes)
+    params.require(:basket).permit(:name , :item_attributes)
   end
 end
 
