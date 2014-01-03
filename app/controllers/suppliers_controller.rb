@@ -29,8 +29,7 @@ class SuppliersController < BeautifulController
   end
 
   def create
-    @supplier = Supplier.create(:name => params[:supplier][:name])
-    @supplier.build_address(params_for_address)
+    @supplier = Supplier.create(params_for_supplier)
     if @supplier.save
       redirect_to supplier_path(@supplier), :flash => { :notice => t(:create_success, :model => "supplier") }
     else
@@ -39,8 +38,7 @@ class SuppliersController < BeautifulController
   end
 
   def update
-    @supplier.name = params[:supplier][:name] if params[:supplier]
-    @address.update_attributes params_for_address
+    @supplier.update_attributes params_for_supplier
     if @supplier.save
       redirect_to supplier_path(@supplier), :flash => { :notice => t(:update_success, :model => "supplier") }
     else
@@ -57,12 +55,10 @@ class SuppliersController < BeautifulController
   
   def load_supplier
     @supplier = Supplier.find(params[:id])
-    @address = @supplier.address || @supplier.build_address
   end
 
-  def params_for_address
-    pam = params[:supplier][:address]
-    pam.permit(:first_name,:last_name, :street1, :street2, :postcode, :country) if pam
+  def params_for_supplier
+    params.require(:supplier).permit!
   end
 end
 

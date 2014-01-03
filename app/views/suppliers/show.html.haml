@@ -6,21 +6,21 @@
     = t(:name) + ":" +  @supplier.name
 %p
   %b
-    = t(:first_name) + ":" + @address.first_name
+    = t(:first_name) + ":" + @supplier.address.first_name
 %p
   %b
-    = t(:last_name) + ":" +  @address.last_name
+    = t(:last_name) + ":" +  @supplier.address.last_name
 %p
   %b
-    = t(:street1) + ":" +  @address.street1
+    = t(:street1) + ":" +  @supplier.address.street1
 %p
   %b
-    = t(:street2) + ":" +  @address.street2
+    = t(:street2) + ":" +  @supplier.address.street2
 %p
   %b
-    = t(:postcode) + ":" + @address.postcode
+    = t(:postcode) + ":" + @supplier.address.postcode
 %p
   %b
-    = t(:country) + ":" + @address.country
+    = t(:country) + ":" + @supplier.address.country
 = link_to t(:edit), edit_supplier_path(@supplier), :class => "btn"
 = link_to t(:back), suppliers_path, :class => "btn"

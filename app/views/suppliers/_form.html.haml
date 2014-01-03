@@ -1,4 +1,4 @@
-= simple_form_for(@supplier) do |f|
+= form_for(@supplier) do |f|
   - if @supplier.errors.any?
     #error_explanation
       %h2
@@ -11,8 +11,7 @@
     = f.label :name, t(:name), :class => "control-label"
     .controls
       = f.text_field :name
-  = f.simple_fields_for @address do |af|
-    =render "addresses/form_fields" ,:f => af
+  = render "addresses/form_fields" ,:f => f
   .form-actions
     = f.submit :class => "btn btn-primary"
     

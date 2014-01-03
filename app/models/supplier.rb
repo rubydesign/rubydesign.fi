@@ -1,6 +1,7 @@
 class Supplier < ActiveRecord::Base
   has_many :products, :dependent => :nullify
-  belongs_to :address , :validate => true
+  belongs_to :address , :validate => true ,  autosave: true
+  accepts_nested_attributes_for :address
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -16,7 +17,6 @@ class Supplier < ActiveRecord::Base
   def caption
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
-
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
