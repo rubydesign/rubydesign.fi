@@ -4,15 +4,11 @@
   = link_to t(:basket), baskets_path
 %li{:class => params[:controller] == "orders" && "active" }
   = link_to t(:orders), orders_path
-%li{:class => params[:controller] == "items" && "active" }
-  = link_to t(:items), items_path
 %li{:class => params[:controller] == "categories" && "active" }
   = link_to t(:categories), categories_path
 %li{:class => params[:controller] == "products" && "active" }
   = link_to t(:products), products_path
 %li{:class => params[:controller] == "users" && "active" }
   = link_to t(:users), users_path
-%li{:class => params[:controller] == "addresses" && "active" }
-  = link_to t(:addresses), addresses_path
 %li{:class => params[:controller] == "suppliers" && "active" }
   = link_to t(:suppliers), suppliers_path
