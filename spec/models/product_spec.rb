@@ -6,7 +6,7 @@ describe Product do
     pro.save.should be false
   end
   it "factory is ok" do 
-    pro = Product.new FactoryGirl.attributes_for :product
+    pro = Product.new attributes_for :product
     pro.save.should be true
   end
 end
