@@ -61,8 +61,5 @@
       = ransack_field("product", "properties", f, "Properties")
       = ransack_field("product", "scode", f, "Scode")
       = ransack_field("product", "inventory", f, "Inventory")
-      = ransack_field("product", "product_id", f, "Product")
-      = ransack_field("product", "category_id", f, "Product_group")
-      = ransack_field("product", "supplier_id", f, "Supplier")
       = f.submit t(:filter), :class => "btn btn-primary"
       = link_to  t(:cancel), products_path(:filter => "ok"), :class => "btn"

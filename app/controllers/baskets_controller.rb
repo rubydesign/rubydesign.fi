@@ -15,24 +15,6 @@ class BasketsController < BeautifulController
       @basket_scope = @basket_scope.send(params[:scope])
     end
     @baskets = @basket_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json{
-        render :json => @basket_scope.to_a
-      }
-      format.csv{
-        require 'csv'
-        csvstr = CSV.generate do |csv|
-          csv << Basket.attribute_names
-          @basket_scope.to_a.each{ |o|
-            csv << Basket.attribute_names.map{ |a| o[a] }
-          }
-        end 
-        render :text => csvstr
-      }
-    end
   end
 
   def show

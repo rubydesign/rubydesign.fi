@@ -38,6 +38,5 @@
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("user", "email", f, "Email")
       = ransack_field("user", "name", f, "Name")
-      = ransack_field("user", "id", f, "Id")
       = f.submit t(:filter), :class => "btn btn-primary"
       = link_to  t(:cancel), users_path(:filter => "ok"), :class => "btn"

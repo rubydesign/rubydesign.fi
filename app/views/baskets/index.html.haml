@@ -30,7 +30,7 @@
   .span3
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:items)
-      = f.label :items_product_name_cont , t(:name_contains)
-      = f.text_field :items_product_name_cont 
+      = f.label :name_cont , t(:name_contains)
+      = f.text_field :items_product_name_cont
       = f.submit t(:filter), :class => "btn btn-primary"
       = link_to  t(:cancel), baskets_path, :class => :btn
