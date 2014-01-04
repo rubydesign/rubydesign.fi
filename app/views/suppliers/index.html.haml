@@ -43,16 +43,7 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @suppliers,                            |
-            :inner_window => 0,                                  |
-            :outer_window => 0,                                  |
-            :previous_label => t(:prev), |
-            :next_label => t(:next)          |
-        .btn-group.pull-right
-          = link_to suppliers_path(:format => :csv), :class => "btn" do
-            %i.icon-download CSV
-          = link_to suppliers_path(:format => :json), :class => "btn" do
-            %i.icon-download JSON 
+          = will_paginate @suppliers
   .span3
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("supplier", "name", f, "Name")

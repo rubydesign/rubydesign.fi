@@ -14,9 +14,11 @@ en:
   edit: Edit
   editing: Editing
   first_name: First Name
+  filter: Filter
   items: Items
   last_name: Last Name
   name: Name
+  name_contains: Name contains
   new: New
   next: Next
   order: Order

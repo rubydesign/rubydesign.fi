@@ -26,18 +26,11 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @baskets,                              |
-            :inner_window => 0,                                  |
-            :outer_window => 0,                                  |
-            :previous_label => t(:prev), |
-            :next_label => t(:next)          |
-        .btn-group.pull-right
-          = link_to baskets_path(:format => :csv), :class => "btn" do
-            %i.icon-download CSV 
-          = link_to baskets_path(:format => :json), :class => "btn" do
-            %i.icon-download JSON 
+          = will_paginate @baskets
   .span3
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("basket", "name", f, "String")
+      .search_heading= t(:items)
+      = f.label :items_product_name_cont , t(:name_contains)
+      = f.text_field :items_product_name_cont 
       = f.submit t(:filter), :class => "btn btn-primary"
       = link_to  t(:cancel), baskets_path, :class => :btn

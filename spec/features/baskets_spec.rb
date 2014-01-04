@@ -6,6 +6,7 @@ describe "Baskets" do
       visit baskets_path
       status_code.should be 200
       page.should_not have_css(".translation_missing")
+      page.should_not have_text("translation_missing")
     end
   end
   describe "new baskets" do
