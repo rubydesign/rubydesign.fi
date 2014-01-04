@@ -61,5 +61,5 @@
       = ransack_field("purchase", "received_on", f, "Received_on")
       = ransack_field("purchase", "basket_id", f, "Basket")
       = ransack_field("purchase", "supplier_id", f, "Supplier")
-      = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
-      = link_to  t(:cancel, :default => "Cancel"), purchases_path(:nosearch => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "btn btn-primary"
+      = link_to  t(:cancel, :default => "Cancel"), purchases_path(::filter => "ok"), :class => "btn"

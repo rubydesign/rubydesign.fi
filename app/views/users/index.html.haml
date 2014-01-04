@@ -48,5 +48,5 @@
       = ransack_field("user", "email", f, "Email")
       = ransack_field("user", "name", f, "Name")
       = ransack_field("user", "id", f, "Id")
-      = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
-      = link_to  t(:cancel, :default => "Cancel"), users_path(:nosearch => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "btn btn-primary"
+      = link_to  t(:cancel, :default => "Cancel"), users_path(::filter => "ok"), :class => "btn"

@@ -59,9 +59,6 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    chardinjs-rails (0.1.2)
-      sass-rails (>= 3.2)
-      thor (~> 0.14)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -254,7 +251,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)
   capybara
-  chardinjs-rails
   coffee-rails
   database_cleaner (= 1.0.1)
   db_fixtures_dump

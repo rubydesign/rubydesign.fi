@@ -77,17 +77,13 @@
             %i.icon-download JSON 
   .span3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
+      = #ransack_field("bucket item", "quantity", f, "Quantity")
       = ransack_field("order", "ordered_on", f, "Ordered_on")
       = ransack_field("order", "total_price", f, "Total_price")
-      = ransack_field("order", "total_tax", f, "Total_tax")
-      = ransack_field("order", "shipping_price", f, "Shipping_price")
-      = ransack_field("order", "shipping_tax", f, "Shipping_tax")
-      = ransack_field("order", "basket_id", f, "Basket")
       = ransack_field("order", "email", f, "Email")
       = ransack_field("order", "paid_on", f, "Paid_on")
       = ransack_field("order", "shipped_on", f, "Shipped_on")
       = ransack_field("order", "paid_on", f, "Paid_on")
       = ransack_field("order", "canceled_on", f, "Canceled_on")
-      = ransack_field("order", "shipment_type", f, "Shipment_type")
-      = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
-      = link_to  t(:cancel, :default => "Cancel"), orders_path(:nosearch => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "btn btn-primary"
+      = link_to  t(:cancel, :default => "Cancel"), orders_path(::filter => "ok"), :class => "btn"

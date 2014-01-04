@@ -6,15 +6,6 @@ class BeautifulController < ApplicationController
   def dashboard
   end
 
-  # Call in AJAX
-  def select_fields
-    model_sym = params[:model_sym].to_sym
-
-    do_select_fields(model_sym)
-
-    render :nothing => true
-  end
-
   def do_sort_and_paginate(model_sym)
     # Sort
     session[:sorting] ||= {}
@@ -24,7 +15,6 @@ class BeautifulController < ApplicationController
     
     # Search and Filter
     session[:search] ||= {}
-    session[:search][model_sym] = nil if not params[:nosearch].blank?
     params[:page] = 1 if not params[:q].nil?
     params[:q] ||= session[:search][model_sym]
     session[:search][model_sym] = params[:q] if params[:skip_save_search].blank?

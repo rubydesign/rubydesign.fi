@@ -57,5 +57,5 @@
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("supplier", "name", f, "Name")
       = ransack_field("supplier", "address_country", f, "Country")
-      = f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary"
-      = link_to  t(:cancel, :default => "Cancel"), suppliers_path(:nosearch => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "btn btn-primary"
+      = link_to  t(:cancel, :default => "Cancel"), suppliers_path(::filter => "ok"), :class => "btn"
