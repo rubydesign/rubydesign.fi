@@ -44,9 +44,17 @@ class BasketsController < BeautifulController
   end
 
   def edit
-    prod = Product.find_by_ean params[:ean]
-    @basket.add_product prod
-    redirect_to :action => :show
+    ean = params[:ean]
+    prod = Product.find_by_ean ean
+    if(prod)
+      @basket.add_product prod
+      redirect_to :action => :show
+    else
+      session[:search] ||= {}
+      session[:search][:product] =  {"name_cont"=> ean}
+      session[:basket] = true
+      redirect_to :action => :index , :controller => :products
+    end
   end
   
   def create

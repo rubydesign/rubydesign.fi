@@ -8,27 +8,13 @@ class ProductsController < BeautifulController
 
   def index
     do_sort_and_paginate(:product)
-    
-    @q = Product.search(
-      params[:q]
-    )
-
-    @product_scope = @q.result(
-      :distinct => true
-    ).sorting(
-      params[:sorting]
-    )
-    
+    @q = Product.search( params[:q] )
+    @product_scope = @q.result(:distinct => true).sorting(params[:sorting])
     @product_scope_for_scope = @product_scope.dup
-    
     unless params[:scope].blank?
       @product_scope = @product_scope.send(params[:scope])
     end
-    
-    @products = @product_scope.paginate(
-      :page => params[:page],
-      :per_page => 20
-    ).to_a
+    @products = @product_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
 
     respond_to do |format|
       format.html{

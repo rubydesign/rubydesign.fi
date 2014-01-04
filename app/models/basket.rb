@@ -21,6 +21,7 @@ class Basket < ActiveRecord::Base
   end
 
   def add_product prod
+    return unless prod
     exists = items.where(:product_id => prod.id ).limit(1).first
     if exists
       exists.quantity += 1
