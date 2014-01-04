@@ -77,7 +77,6 @@
             %i.icon-download JSON 
   .span3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = #ransack_field("bucket item", "quantity", f, "Quantity")
       = ransack_field("order", "ordered_on", f, "Ordered_on")
       = ransack_field("order", "total_price", f, "Total_price")
       = ransack_field("order", "email", f, "Email")
@@ -86,4 +85,4 @@
       = ransack_field("order", "paid_on", f, "Paid_on")
       = ransack_field("order", "canceled_on", f, "Canceled_on")
       = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel, :default => "Cancel"), orders_path(::filter => "ok"), :class => "btn"
+      = link_to  t(:cancel), orders_path(:filter => "ok"), :class => "btn"

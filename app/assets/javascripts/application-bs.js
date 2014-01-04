@@ -12,11 +12,8 @@
 //= require bootstrap-colorpicker
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
-//= require bootstrap-datetimepicker-for-beautiful-scaffold
-//= require jquery.jstree
 //= require jquery-barcode
 //= require beautiful_scaffold
-//= require fixed_menu
 
 function initPage(){
     bs_init();

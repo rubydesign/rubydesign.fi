@@ -57,7 +57,7 @@
       = ransack_field("category", "name", f, "Name")
       = ransack_field("category", "description", f, "Description")
       = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel, :default => "Cancel"), categories_path(::filter => "ok"), :class => "btn"
+      = link_to  t(:cancel), categories_path(:filter => "ok"), :class => "btn"
     %hr
     - Category.where(:category_id => nil).each do |group|
       = render "treeview" , :group => group
