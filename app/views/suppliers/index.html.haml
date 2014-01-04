@@ -26,7 +26,6 @@
         %tbody
           - @suppliers.each do |supplier|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= check_box_tag "ids[]",supplier.id, false, :class => 'cbbatch'
               %td{column_style("supplier", "name")}
                 =supplier.name
               %td{column_style("supplier", "address_first_name")}

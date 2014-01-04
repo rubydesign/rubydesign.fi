@@ -114,45 +114,6 @@ class UsersController < BeautifulController
     end
   end
 
-  def batch
-    attr_or_method, value = params[:actionprocess].split(".")
-
-    @users = []    
-    
-    User.transaction do
-      if params[:checkallelt] == "all" then
-        # Selected with filter and search
-        do_sort_and_paginate(:user)
-
-        @users = User.search(
-          params[:q]
-        ).result(
-          :distinct => true
-        )
-      else
-        # Selected elements
-        @users = User.find(params[:ids].to_a)
-      end
-
-      @users.each{ |user|
-        if not User.columns_hash[attr_or_method].nil? and
-               User.columns_hash[attr_or_method].type == :boolean then
-         user.update_attribute(attr_or_method, boolean(value))
-         user.save
-        else
-          case attr_or_method
-          # Set here your own batch processing
-          # user.save
-          when "destroy" then
-            user.destroy
-          end
-        end
-      }
-    end
-    
-    redirect_to :back
-  end
-
   private 
   
   def load_user

@@ -114,45 +114,6 @@ class PurchasesController < BeautifulController
     end
   end
 
-  def batch
-    attr_or_method, value = params[:actionprocess].split(".")
-
-    @purchases = []    
-    
-    Purchase.transaction do
-      if params[:checkallelt] == "all" then
-        # Selected with filter and search
-        do_sort_and_paginate(:purchase)
-
-        @purchases = Purchase.search(
-          params[:q]
-        ).result(
-          :distinct => true
-        )
-      else
-        # Selected elements
-        @purchases = Purchase.find(params[:ids].to_a)
-      end
-
-      @purchases.each{ |purchase|
-        if not Purchase.columns_hash[attr_or_method].nil? and
-               Purchase.columns_hash[attr_or_method].type == :boolean then
-         purchase.update_attribute(attr_or_method, boolean(value))
-         purchase.save
-        else
-          case attr_or_method
-          # Set here your own batch processing
-          # purchase.save
-          when "destroy" then
-            purchase.destroy
-          end
-        end
-      }
-    end
-    
-    redirect_to :back
-  end
-
   private 
   
   def load_purchase

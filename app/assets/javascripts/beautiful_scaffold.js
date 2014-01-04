@@ -64,11 +64,6 @@ function bs_init(){
         });
     });
 
-    // Processing
-    $('#checkall').click(function(){
-        $('.cbbatch').attr('checked', ($(this).attr('checked') != undefined));
-    });
-
     // Filter columns
     $('#filter-columns').on('click', function(){
         var return_json = [];

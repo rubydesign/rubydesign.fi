@@ -114,45 +114,6 @@ class CategoriesController < BeautifulController
     end
   end
 
-  def batch
-    attr_or_method, value = params[:actionprocess].split(".")
-
-    @categories = []    
-    
-    Category.transaction do
-      if params[:checkallelt] == "all" then
-        # Selected with filter and search
-        do_sort_and_paginate(:category)
-
-        @categories = Category.search(
-          params[:q]
-        ).result(
-          :distinct => true
-        )
-      else
-        # Selected elements
-        @categories = Category.find(params[:ids].to_a)
-      end
-
-      @categories.each{ |category|
-        if not Category.columns_hash[attr_or_method].nil? and
-               Category.columns_hash[attr_or_method].type == :boolean then
-         category.update_attribute(attr_or_method, boolean(value))
-         category.save
-        else
-          case attr_or_method
-          # Set here your own batch processing
-          # category.save
-          when "destroy" then
-            category.destroy
-          end
-        end
-      }
-    end
-    
-    redirect_to :back
-  end
-
   private 
   
   def load_category

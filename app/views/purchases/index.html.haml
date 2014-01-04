@@ -28,7 +28,6 @@
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= check_box_tag "ids[]",purchase.id, false, :class => 'cbbatch'
               %td{column_style("purchase", "name")}
                 =purchase.name
               %td{column_style("purchase", "ordered_on")}

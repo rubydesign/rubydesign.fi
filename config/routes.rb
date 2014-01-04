@@ -4,7 +4,6 @@ OfficeClerk::Application.routes.draw do
   match "purchases/search_and_filter" => "purchases#index", :via => [:get, :post], :as => :search_purchases
   resources :purchases do
     collection do
-      post :batch
     end
     member do
     end
@@ -21,7 +20,6 @@ OfficeClerk::Application.routes.draw do
   match "orders/search_and_filter" => "orders#index", :via => [:get, :post], :as => :search_orders
   resources :orders do
     collection do
-      post :batch
     end
     member do
     end
@@ -38,7 +36,6 @@ OfficeClerk::Application.routes.draw do
   match "categories/search_and_filter" => "categories#index", :via => [:get, :post], :as => :search_categories
   resources :categories do
     collection do
-      post :batch
     end
     member do
     end
@@ -47,7 +44,6 @@ OfficeClerk::Application.routes.draw do
   match "products/search_and_filter" => "products#index", :via => [:get, :post], :as => :search_products
   resources :products do
     collection do
-      post :batch
     end
     member do
       post :delete
@@ -57,7 +53,6 @@ OfficeClerk::Application.routes.draw do
   match "users/search_and_filter" => "users#index", :via => [:get, :post], :as => :search_users
   resources :users do
     collection do
-      post :batch
     end
     member do
     end
@@ -69,7 +64,6 @@ OfficeClerk::Application.routes.draw do
   match "suppliers/search_and_filter" => "suppliers#index", :via => [:get, :post], :as => :search_suppliers
   resources :suppliers do
     collection do
-      post :batch
     end
     member do
     end

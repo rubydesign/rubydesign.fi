@@ -114,45 +114,6 @@ class OrdersController < BeautifulController
     end
   end
 
-  def batch
-    attr_or_method, value = params[:actionprocess].split(".")
-
-    @orders = []    
-    
-    Order.transaction do
-      if params[:checkallelt] == "all" then
-        # Selected with filter and search
-        do_sort_and_paginate(:order)
-
-        @orders = Order.search(
-          params[:q]
-        ).result(
-          :distinct => true
-        )
-      else
-        # Selected elements
-        @orders = Order.find(params[:ids].to_a)
-      end
-
-      @orders.each{ |order|
-        if not Order.columns_hash[attr_or_method].nil? and
-               Order.columns_hash[attr_or_method].type == :boolean then
-         order.update_attribute(attr_or_method, boolean(value))
-         order.save
-        else
-          case attr_or_method
-          # Set here your own batch processing
-          # order.save
-          when "destroy" then
-            order.destroy
-          end
-        end
-      }
-    end
-    
-    redirect_to :back
-  end
-
   private 
   
   def load_order

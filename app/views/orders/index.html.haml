@@ -40,7 +40,6 @@
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= check_box_tag "ids[]",order.id, false, :class => 'cbbatch'
               %td{column_style("order", "ordered_on")}
                 = order.ordered_on
               %td{column_style("order", "total_price")} 
