@@ -1,35 +1,20 @@
 # encoding : utf-8
 class BasketsController < BeautifulController
 
-  before_filter :load_basket, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_basket, :only => [:show, :edit, :update, :destroy , :find]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
 
   def index
     do_sort_and_paginate(:basket)
-    
-    @q = Basket.search(
-      params[:q]
-    )
-
-    @basket_scope = @q.result(
-      :distinct => true
-    ).sorting(
-      params[:sorting]
-    )
-    
+    @q = Basket.search( params[:q])
+    @basket_scope = @q.result( :distinct => true ).sorting( params[:sorting])
     @basket_scope_for_scope = @basket_scope.dup
-    
     unless params[:scope].blank?
       @basket_scope = @basket_scope.send(params[:scope])
     end
-    
-    @baskets = @basket_scope.paginate(
-      :page => params[:page],
-      :per_page => 20
-    ).to_a
-
+    @baskets = @basket_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
     respond_to do |format|
       format.html{
         render
@@ -51,106 +36,39 @@ class BasketsController < BeautifulController
   end
 
   def show
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @basket }
-    end
   end
 
   def new
-    @basket = Basket.new
-
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @basket }
-    end
+    @basket = Basket.create! :name => "cart"
+    render "show"
   end
 
   def edit
-    
+    prod = Product.find_by_ean params[:ean]
+    @basket.add_product prod
+    redirect_to :action => :show
   end
-
+  
   def create
-    @basket = Basket.create(params_for_model)
-
-    respond_to do |format|
-      if @basket.save
-        format.html {
-          redirect_to basket_path(@basket), :flash => { :notice => t(:create_success, :model => "basket") }
-        }
-        format.json { render :json => @basket, :status => :created, :location => @basket }
-      else
-        format.html {
-          render :action => "new"
-        }
-        format.json { render :json => @basket.errors, :status => :unprocessable_entity }
-      end
+    @basket = Basket.create(params_for_basket)
+    if @basket.save
+      redirect_to basket_path(@basket), :flash => { :notice => t(:create_success, :model => "basket") }
+    else
+      render :action => "new"
     end
   end
 
   def update
-
-    respond_to do |format|
-      if @basket.update_attributes(params_for_model)
-        format.html { redirect_to basket_path(@basket), :flash => { :notice => t(:update_success, :model => "basket") }}
-        format.json { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @basket.errors, :status => :unprocessable_entity }
-      end
+    if @basket.update_attributes(params_for_basket)
+      redirect_to basket_path(@basket), :flash => { :notice => t(:update_success, :model => "basket") }
+    else
+      render :action => "show" 
     end
   end
 
   def destroy
     @basket.destroy
-
-    respond_to do |format|
-      format.html { redirect_to baskets_url }
-      format.json { head :ok }
-    end
-  end
-
-  def batch
-    attr_or_method, value = params[:actionprocess].split(".")
-
-    @baskets = []    
-    
-    Basket.transaction do
-      if params[:checkallelt] == "all" then
-        # Selected with filter and search
-        do_sort_and_paginate(:basket)
-
-        @baskets = Basket.search(
-          params[:q]
-        ).result(
-          :distinct => true
-        )
-      else
-        # Selected elements
-        @baskets = Basket.find(params[:ids].to_a)
-      end
-
-      @baskets.each{ |basket|
-        if not Basket.columns_hash[attr_or_method].nil? and
-               Basket.columns_hash[attr_or_method].type == :boolean then
-         basket.update_attribute(attr_or_method, boolean(value))
-         basket.save
-        else
-          case attr_or_method
-          # Set here your own batch processing
-          # basket.save
-          when "destroy" then
-            basket.destroy
-          end
-        end
-      }
-    end
-    
-    redirect_to :back
+    redirect_to baskets_url 
   end
 
   private 
@@ -159,8 +77,8 @@ class BasketsController < BeautifulController
     @basket = Basket.find(params[:id])
   end
 
-  def params_for_model
-    params.require(:basket).permit(:name , :item_attributes)
+  def params_for_basket
+    params.require(:basket).permit(:name , :items_attributes => [:quantity , :price , :id] )
   end
 end
 

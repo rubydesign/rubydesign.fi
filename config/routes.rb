@@ -13,7 +13,6 @@ OfficeClerk::Application.routes.draw do
   match "baskets/search_and_filter" => "baskets#index", :via => [:get, :post], :as => :search_baskets
   resources :baskets do
     collection do
-      post :batch
     end
     member do
     end
@@ -31,7 +30,6 @@ OfficeClerk::Application.routes.draw do
   match "items/search_and_filter" => "items#index", :via => [:get, :post], :as => :search_items
   resources :items do
     collection do
-      post :batch
     end
     member do
     end

@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :basket
+  belongs_to :product
+  
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]

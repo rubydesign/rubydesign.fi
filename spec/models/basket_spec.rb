@@ -9,4 +9,15 @@ describe Basket do
     b = Basket.new 
     b.save.should be false
   end
+  it "adds a product and updates the quantity" do
+    b = create :basket
+    b.items.length.should be 0
+    product = create :product
+    b.add_product product
+    b.items.length.should be 1
+    b.items.first.quantity.should be 1
+    b.add_product product
+    b.items.length.should be 1
+    b.items.first.quantity.should be 2
+  end
 end
