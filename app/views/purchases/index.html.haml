@@ -9,8 +9,6 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th
-              = check_box_tag :checkall, ''
             %th{column_style("purchase", "name")}
               =sorting_header("purchase", "name", "")
             %th{column_style("purchase", "ordered_on")}
@@ -23,7 +21,6 @@
               =sorting_header("purchase", "supplier", "")
             %th{:colspan => "3"}
               %label.checkbox
-                = check_box_tag :checkallelt, 'all'
                 = pluralize(@purchase_scope.count, "purchase")
         %tbody
           - @purchases.each do |purchase|

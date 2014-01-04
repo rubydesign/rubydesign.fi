@@ -17,7 +17,6 @@
             %th{column_style("category", "category_id")}=t( "parent")
             %th{:colspan => "3"}
               %label.checkbox
-                = check_box_tag :checkallelt, 'all'
                 = pluralize(@category_scope.count, "category")
         %tbody
           - @categories.each do |category|
