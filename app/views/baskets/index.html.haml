@@ -40,4 +40,4 @@
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("basket", "name", f, "String")
       = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel), baskets_path, :cl:filterbtn"
+      = link_to  t(:cancel), baskets_path, :class => :btn
