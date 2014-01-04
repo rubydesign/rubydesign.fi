@@ -1,8 +1,0 @@
-%h2
-  = t(:new)
-  = t(:address)
-= form_for(@address, :html => { :class => "form-horizontal" }) do |f|
-  = render 'form_fields'
-  .form-actions
-    = f.submit :class => "btn btn-primary"
-= link_to t(:back), addresses_path, :class => "btn"
