@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  belongs_to :basket
+  belongs_to :basket , :touch => true
   belongs_to :product
   
   scope :sorting, lambda{ |options|

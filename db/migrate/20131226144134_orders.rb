@@ -1,18 +1,16 @@
 class Orders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.date :ordered_on
-      t.float :total_price
-      t.float :total_tax
-      t.float :shipping_price
-      t.float :shipping_tax
-      t.references :basket
-      t.string :email
-      t.date :paid_on
-      t.date :shipped_on
-      t.date :paid_on
-      t.date :canceled_on
-      t.string :shipment_type
+      t.string      :number
+      t.string      :email
+      t.date        :ordered_on
+      t.references  :basket
+      t.date        :paid_on
+      t.date        :canceled_on
+      t.date        :shipped_on
+      t.string      :shipment_type
+      t.float       :shipping_price , :default => 0
+      t.float       :shipping_tax   , :default => 0
 
       t.timestamps
     end

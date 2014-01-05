@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  belongs_to :basket , :autosave => true
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -14,7 +15,9 @@ class Order < ActiveRecord::Base
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
 
-  def self.permitted_attributes
-    return :ordered_on,:total_price,:total_tax,:shipping_price,:shipping_tax,:basket_id,:email,:paid_on,:shipped_on,:paid_on,:canceled_on,:shipment_type
+  def self.for_basket b
+    order = create! :basket => b
+    b.set_order order
+    order
   end
 end

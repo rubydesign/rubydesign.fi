@@ -8,6 +8,9 @@ en:
   baskets: Baskets
   back: Back
   cancel: Cancel
+  category: Product Category
+  category_id: Product Line
+  categories: Product Categories
   country: Country
   description: Description
   destroy: Destroy
@@ -17,6 +20,8 @@ en:
   filter: Filter
   items: Items
   last_name: Last Name
+  link: Url name
+  make_order: Make Order
   name: Name
   name_contains: Name contains
   new: New
@@ -30,16 +35,13 @@ en:
   price: Price
   product: Product
   products: Products
-  category: Product Category
-  category_id: Product Line
-  categories: Product Categories
   purchases: Purchases
   quantity: Quantity
   suppliers: Suppliers
   show: Show
   update_success: Successfully updated
-  link: Url name
   tax: Vat
+  total: Total
   treeview: Treeview
   users: Users
   

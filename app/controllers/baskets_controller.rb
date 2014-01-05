@@ -1,14 +1,14 @@
 # encoding : utf-8
 class BasketsController < BeautifulController
 
-  before_filter :load_basket, :only => [:show, :edit, :update, :destroy , :find]
+  before_filter :load_basket, :only => [:show, :edit, :update, :destroy , :order]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
 
   def index
     do_sort_and_paginate(:basket)
-    @q = Basket.search( params[:q])
+    @q = Basket.search( params[:q] , :include => {:items => :product} )
     @basket_scope = @q.result( :distinct => true ).sorting( params[:sorting])
     @basket_scope_for_scope = @basket_scope.dup
     unless params[:scope].blank?
@@ -19,7 +19,13 @@ class BasketsController < BeautifulController
 
   def show
   end
-
+  
+  #as an action this order is mean as a verb, ie order this basket
+  def order
+    order = Order.for_basket @basket
+    redirect_to :action => :show , :controller => :orders , :id => order.id
+  end
+  
   def new
     @basket = Basket.create! :name => "cart"
     render "show"

@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
 
   create_table "baskets", force: true do |t|
     t.string   "name"
+    t.decimal  "total_price", default: 0.0
+    t.decimal  "total_tax",   default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,9 +51,9 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   end
 
   create_table "items", force: true do |t|
-    t.integer  "quantity"
-    t.float    "price"
-    t.float    "tax"
+    t.integer  "quantity",   default: 1
+    t.float    "price",      default: 0.0
+    t.float    "tax",        default: 0.0
     t.integer  "product_id"
     t.integer  "basket_id"
     t.datetime "created_at"
@@ -60,8 +62,6 @@ ActiveRecord::Schema.define(version: 20131226151332) do
 
   create_table "orders", force: true do |t|
     t.date     "ordered_on"
-    t.float    "total_price"
-    t.float    "total_tax"
     t.float    "shipping_price"
     t.float    "shipping_tax"
     t.integer  "basket_id"
@@ -76,6 +76,9 @@ ActiveRecord::Schema.define(version: 20131226151332) do
 
   create_table "products", force: true do |t|
     t.float    "price"
+    t.string   "name"
+    t.string   "link"
+    t.text     "description"
     t.string   "main_picture_file_name"
     t.string   "main_picture_content_type"
     t.integer  "main_picture_file_size"
@@ -86,14 +89,11 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "extra_picture_updated_at"
     t.float    "cost",                       default: 0.0
     t.float    "weight",                     default: 0.1
-    t.string   "name"
-    t.text     "description"
-    t.string   "link"
-    t.string   "ean"
-    t.float    "tax"
+    t.string   "ean",                        default: ""
+    t.float    "tax",                        default: 0.0
     t.integer  "inventory",                  default: 0
-    t.string   "properties"
-    t.string   "scode"
+    t.string   "properties",                 default: ""
+    t.string   "scode",                      default: ""
     t.date     "deleted_on"
     t.integer  "product_id"
     t.integer  "category_id"

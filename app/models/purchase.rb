@@ -1,6 +1,6 @@
 class Purchase < ActiveRecord::Base
   
-  belongs_to :bucket #wording is wrong, but thats ar for you. should be has_one, but the key is here
+  belongs_to :basket #wording is wrong, but thats ar for you. should be has_one, but the key is here
   
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]

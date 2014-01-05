@@ -27,9 +27,9 @@
                 =user.name
               %td{column_style("user", "address")}
                 =user.address
-              %td= link_to '<i class="icon-search"></i>'.html_safe, user_path(user), :title => t(:show, :default => "Show")
-              %td= link_to '<i class="icon-pencil"></i>'.html_safe, edit_user_path(user), :title => t(:edit)
-              %td= link_to '<i class="icon-remove"></i>'.html_safe, user_path(user), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
+              %td= link_to '%i.icon-search.html_safe, user_path(user), :title => t(:show, :default => "Show")
+              %td= link_to %i.icon-pencil edit_user_path(user), :title => t(:edit)
+              %td= link_to %i.icon-remove user_path(user), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy")
       .btn-toolbar
         .btn-group
           - clean_params

@@ -2,6 +2,9 @@
   %p
     = label_tag @basket.name
     = text_field_tag :ean
+    ______________
+    - if@basket.isa :cart 
+      = link_to t(:make_order), order_basket_path(@basket), :class => "btn"
   %div
     - if @basket.errors.any?
       #error_explanation
@@ -29,9 +32,18 @@
           = f.simple_fields_for :items , item do |iform|
             %td= iform.text_field :quantity
             %td= iform.text_field :price
+      %tr
+        %td{:colspan => 3}
+        %td 
+          = t(:tax)
+          = @basket.total_tax
+          _________
+          = t(:total)
+          = @basket.total_price
+
             
   .form-actions
     = f.submit :class => "btn btn-primary"
-    
-= link_to t(:back), baskets_path, :class => "btn"
-= link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn"
+    ____________________
+    = link_to t(:back), baskets_path, :class => "btn"
+    = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn"

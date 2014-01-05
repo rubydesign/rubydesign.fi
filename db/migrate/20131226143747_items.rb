@@ -1,9 +1,9 @@
 class Items < ActiveRecord::Migration
   def change
     create_table :items do |t|
-      t.integer     :quantity
-      t.float       :price
-      t.float       :tax
+      t.integer     :quantity , :default => 1
+      t.float       :price , :default => 0
+      t.float       :tax , :default => 0
       t.references  :product
       t.references  :basket
 

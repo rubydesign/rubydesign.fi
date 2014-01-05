@@ -20,11 +20,6 @@ require 'spec_helper'
 
 describe OrdersController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Order. As you add validations to Order, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for :order }
-
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # OrdersController. Be sure to keep this updated too.
@@ -32,7 +27,7 @@ describe OrdersController do
 
   describe "GET index" do
     it "assigns all orders as @orders" do
-      order = Order.create! valid_attributes
+      order = create :order
       get :index, {}, valid_session
       assigns(:orders).should eq([order])
     end
@@ -40,7 +35,7 @@ describe OrdersController do
 
   describe "GET show" do
     it "assigns the requested order as @order" do
-      order = Order.create! valid_attributes
+      order = create :order
       get :show, {:id => order.to_param}, valid_session
       assigns(:order).should eq(order)
     end
@@ -55,7 +50,7 @@ describe OrdersController do
 
   describe "GET edit" do
     it "assigns the requested order as @order" do
-      order = Order.create! valid_attributes
+      order = create :order
       get :edit, {:id => order.to_param}, valid_session
       assigns(:order).should eq(order)
     end
@@ -65,18 +60,18 @@ describe OrdersController do
     describe "with valid params" do
       it "creates a new Order" do
         expect {
-          post :create, {:order => valid_attributes}, valid_session
+          post :create, {:order => attributes_for(:order)}, valid_session
         }.to change(Order, :count).by(1)
       end
 
       it "assigns a newly created order as @order" do
-        post :create, {:order => valid_attributes}, valid_session
+        post :create, {:order => attributes_for(:order)}, valid_session
         assigns(:order).should be_a(Order)
         assigns(:order).should be_persisted
       end
 
       it "redirects to the created order" do
-        post :create, {:order => valid_attributes}, valid_session
+        post :create, {:order => attributes_for(:order)}, valid_session
         response.should redirect_to(Order.last)
       end
     end
@@ -101,47 +96,33 @@ describe OrdersController do
   describe "PUT update" do
     describe "with valid params" do
       it "assigns the requested order as @order" do
-        order = Order.create! valid_attributes
-        put :update, {:id => order.to_param, :order => valid_attributes}, valid_session
+        order = create :order
+        put :update, {:id => order.to_param, :order => attributes_for(:order)}, valid_session
         assigns(:order).should eq(order)
-      end
-
-      it "redirects to the order" do
-        order = Order.create! valid_attributes
-        put :update, {:id => order.to_param, :order => valid_attributes}, valid_session
-        response.should redirect_to(order)
       end
     end
 
     describe "with invalid params" do
       it "assigns the order as @order" do
-        order = Order.create! valid_attributes
+        order = create :order
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
         put :update, {:id => order.to_param, :order => {  :paid_on => ""}}, valid_session
         assigns(:order).should eq(order)
-      end
-
-      it "re-renders the 'edit' template" do
-        order = Order.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Order.any_instance.stub(:save).and_return(false)
-        put :update, {:id => order.to_param, :order => {  :paid_on => ""}}, valid_session
-        response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested order" do
-      order = Order.create! valid_attributes
+      order = create :order
       expect {
         delete :destroy, {:id => order.to_param}, valid_session
       }.to change(Order, :count).by(-1)
     end
 
     it "redirects to the orders list" do
-      order = Order.create! valid_attributes
+      order = create :order
       delete :destroy, {:id => order.to_param}, valid_session
       response.should redirect_to(orders_url)
     end

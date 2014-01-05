@@ -14,6 +14,7 @@ OfficeClerk::Application.routes.draw do
     collection do
     end
     member do
+      get :order 
     end
   end
 
