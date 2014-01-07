@@ -1,8 +1,12 @@
 %h2
   = t(:products)
 %p
-  = link_to  new_product_path, :class => "btn" do 
-    %i.icon-plus= t(:new) + ' ' + t(:product)
+  .btn-toolbar
+    = link_to  new_product_path, :class => "btn" do 
+      %i.icon-plus= t(:new) + ' ' + t(:product)
+    .btn-group 
+      - clean_params
+      = will_paginate @products
 .row-fluid
   .span9
     %div
@@ -45,10 +49,6 @@
                 = link_to edit_product_path(product), :title => t(:edit) do
                   %i.icon-pencil
               %td
-      .btn-toolbar
-        .btn-group
-          - clean_params
-          = will_paginate @products
   .span3
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("product", "name", f, "Name")
