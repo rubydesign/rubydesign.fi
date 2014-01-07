@@ -5,7 +5,8 @@ class Addresses < ActiveRecord::Migration
       t.string :last_name
       t.string :street1
       t.string :street2
-      t.string :postcode
+      t.string :city
+      t.string :phone
       t.string :country
 
       t.timestamps

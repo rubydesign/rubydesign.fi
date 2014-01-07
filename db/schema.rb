@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "last_name"
     t.string   "street1"
     t.string   "street2"
-    t.string   "postcode"
+    t.string   "city"
+    t.string   "phone"
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,15 +62,16 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   end
 
   create_table "orders", force: true do |t|
-    t.date     "ordered_on"
-    t.float    "shipping_price"
-    t.float    "shipping_tax"
-    t.integer  "basket_id"
+    t.string   "number"
     t.string   "email"
+    t.date     "ordered_on"
+    t.integer  "basket_id"
     t.date     "paid_on"
-    t.date     "shipped_on"
     t.date     "canceled_on"
+    t.date     "shipped_on"
     t.string   "shipment_type"
+    t.float    "shipping_price", default: 0.0
+    t.float    "shipping_tax",   default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "extra_picture_content_type"
     t.integer  "extra_picture_file_size"
     t.datetime "extra_picture_updated_at"
+    t.boolean  "online",                     default: false
     t.float    "cost",                       default: 0.0
     t.float    "weight",                     default: 0.1
     t.string   "ean",                        default: ""

@@ -7,7 +7,8 @@ class Products < ActiveRecord::Migration
       t.text        :description
       t.attachment  :main_picture
       t.attachment  :extra_picture
-      t.float       :cost ,          :default => 0.0
+      t.boolean     :online ,       :default => false
+      t.float       :cost ,         :default => 0.0
       t.float       :weight ,       :default => 0.1
       t.string      :ean,           :default => ""
       t.float       :tax,           :default => 0.0
