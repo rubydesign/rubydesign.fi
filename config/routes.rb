@@ -70,7 +70,8 @@ OfficeClerk::Application.routes.draw do
     end
   end
 
-  root :to => 'beautiful#dashboard'
+#  root :to => 'beautiful#dashboard'
+  root :to => 'shop#group'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 

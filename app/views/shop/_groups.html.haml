@@ -1,6 +1,10 @@
-%nav#groups.sidebar-item
-  -@groups.each do |group|
-    /    %h6.group= group.name
-    %ul.group-list
-      %li
-        %a{href: group.link}= group.name
+-@groups.each do |group|
+  /    %h6.group= group.name
+  %ul.group-list
+    %li
+      %a{href: group.link}= group.name
+    - group.categories.each do |g|
+      %ul.group-list
+        %li
+          %a{href: group_path(g.link)}= g.name
+      
