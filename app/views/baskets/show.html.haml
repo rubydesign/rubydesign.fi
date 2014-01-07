@@ -27,8 +27,8 @@
     %tbody
       - @basket.items.each do |item|
         %tr{:class => "line-#{cycle("1","2")}"}
-          %td= image_tag item.product.main_picture.url
-          %td= item.product.name
+          %td= image_tag item.product.main_picture.url if item.product
+          %td= item.product.name if item.product
           = f.simple_fields_for :items , item do |iform|
             %td= iform.text_field :quantity
             %td= iform.text_field :price
@@ -45,5 +45,9 @@
   .form-actions
     = f.submit :class => "btn btn-primary"
     ____________________
-    = link_to t(:back), baskets_path, :class => "btn"
+    - if@basket.isa :cart 
+      = link_to t(:back), baskets_path, :class => "btn"
+    - else
+      = link_to t(:to_order), order_path(@basket.order), :class => "btn"
+      
     = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn"
