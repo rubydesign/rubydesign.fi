@@ -1,0 +1,86 @@
+---
+web:
+  id: 1
+  name: Luomukosmetiikka
+  link: web
+  category_id: 
+korut:
+  id: 7
+  name: Korut
+  link: korut
+  category_id: 27
+gourmet:
+  id: 13
+  name: Gourmet
+  link: gourmet
+  category_id: 39
+valaisimet:
+  id: 14
+  name: Valaisimet
+  link: valaisimet
+  category_id: 39
+sisustustuotteet:
+  id: 15
+  name: Sisustustuotteet
+  link: sisustustuotteet
+  category_id: 27
+laukut:
+  id: 20
+  name: Laukut
+  link: laukut
+  category_id: 27
+muut:
+  id: 27
+  name: Muut
+  link: muut
+  category_id: 39
+hiustenhoito:
+  id: 30
+  name: Hiustenhoito
+  link: hiustenhoito
+  category_id: 1
+vartalonhoito:
+  id: 31
+  name: Vartalonhoito
+  link: vartalonhoito
+  category_id: 1
+Kasvojenhoito:
+  id: 32
+  name: Kasvojenhoito
+  link: Kasvojenhoito
+  category_id: 1
+luomu-parfyymit:
+  id: 34
+  name: Luomuparfyymit
+  link: luomu-parfyymit
+  category_id: 1
+aromasprayt:
+  id: 35
+  name: Aromasprayt
+  link: aromasprayt
+  category_id: 1
+huonesprayt:
+  id: 36
+  name: Huonesprayt
+  link: huonesprayt
+  category_id: 1
+aloe-shea:
+  id: 38
+  name: Aloe Shea
+  link: aloe-shea
+  category_id: 1
+sisustus:
+  id: 39
+  name: Sisustus
+  link: sisustus
+  category_id: 
+miehille:
+  id: 40
+  name: Miehille
+  link: miehille
+  category_id: 1
+vaatteet:
+  id: 41
+  name: Vaatteet
+  link: vaatteet
+  category_id: 39
