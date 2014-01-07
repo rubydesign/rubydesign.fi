@@ -8,14 +8,13 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
-gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'devise'
 gem 'simple_form'
 gem "haml"
 gem "will_paginate"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
-gem "twitter-bootstrap-rails"
+gem "foundation-rails"
 gem 'db_fixtures_dump'
 gem "paperclip"
 
