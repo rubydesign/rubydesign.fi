@@ -26,11 +26,11 @@
               %td{column_style("supplier", "name")}
                 =supplier.name
               %td{column_style("supplier", "address_first_name")}
-                =supplier.address.first_name
+                =supplier.address.first_name if supplier.address
               %td{column_style("supplier", "address_last_name")}
-                =supplier.address.last_name
+                =supplier.address.last_name if supplier.address
               %td{column_style("supplier", "address_country")}
-                =supplier.address.country
+                =supplier.address.country if supplier.address
               %td
                 = link_to supplier_path(supplier), :title => t(:show) do 
                   %i.icon-search
