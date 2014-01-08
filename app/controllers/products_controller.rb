@@ -1,5 +1,5 @@
 # encoding : utf-8
-class ProductsController < BeautifulController
+class ProductsController < AdminController
 
   before_filter :load_product, :only => [:show, :edit, :update, :delete]
 

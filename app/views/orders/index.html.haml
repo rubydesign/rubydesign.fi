@@ -7,8 +7,8 @@
     .btn-group
       - clean_params
       = will_paginate @orders
-.row-fluid
-  .span9
+.row
+  .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -53,7 +53,7 @@
             %i.icon-download CSV 
           = link_to orders_path(:format => :json), :class => "btn" do
             %i.icon-download JSON 
-  .span3
+  .medium-3.columns
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("order", "ordered_on", f, "Ordered_on")
       = ransack_field("order", "basket_total_price", f, "Total_price")

@@ -1,5 +1,5 @@
 # encoding : utf-8
-module BeautifulHelper
+module AdminHelper
 
   def column_style(model_name, field_name, display_default = 'table-cell', other_css = "")
     return :style => "display:table-cell;" + other_css

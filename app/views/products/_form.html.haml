@@ -8,7 +8,7 @@
         %ul
           - @product.errors.full_messages.each do |msg|
             %li= msg
-    .span6
+    .medium-6.columns
       .control-group
         = f.label :name, t(:name), :class => "control-label"
         .controls
@@ -25,7 +25,7 @@
         = f.label :category, t(:category), :class => "control-label"
         .controls
           = f.collection_select :category_id, Category.all, :id, :caption, :include_blank => true
-    .span3
+    .medium-3.columns
       .control-group
         = f.label :link, t(:link), :class => "control-label"
         .controls

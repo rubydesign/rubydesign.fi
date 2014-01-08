@@ -7,8 +7,8 @@
     .btn-group 
       - clean_params
       = will_paginate @products
-.row-fluid
-  .span9
+.row
+  .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -49,7 +49,7 @@
                 = link_to edit_product_path(product), :title => t(:edit) do
                   %i.icon-pencil
               %td
-  .span3
+  .medium-3.columns
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("product", "name", f, "Name")
       = ransack_field("product", "description", f, "Description")

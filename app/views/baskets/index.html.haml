@@ -4,8 +4,8 @@
   = link_to new_basket_path, :class => "btn" do
     %i.icon-plus
     = t(:new) + ' ' + t(:basket)
-.row-fluid
-  .span9
+.row
+  .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -38,7 +38,7 @@
         .btn-group
           - clean_params
           = will_paginate @baskets
-  .span3
+  .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:items)
       = f.label :name_cont , t(:name_contains)

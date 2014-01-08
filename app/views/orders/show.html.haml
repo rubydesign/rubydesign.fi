@@ -1,7 +1,7 @@
 %h2
   = t(:show)
   = t(:order)
-.span4
+.medium-4.columns
   %p
     %b
       = t(:ordered_on) + ":" + @order.ordered_on
@@ -20,7 +20,7 @@
   %p
     %b
       = t(:email) + ":" + @order.email
-.span4
+.medium-4.columns
   %p
     %b
       = t(:paid_on) + ":" + @order.paid_on
@@ -36,7 +36,7 @@
   %p
     %b
       = t(:shipment_type) + ":" + @order.shipment_type
-.span10
+.medium-10.columns
   %table.table.table-striped.table-bordered.table-condensed
     %thead
       %tr
@@ -63,6 +63,6 @@
           = @order.basket.total_price
   
   
-.span12
+.medium-12.columns
   = link_to t(:edit), edit_order_path(@order), :class => "btn"
   = link_to t(:back), orders_path, :class => "btn"

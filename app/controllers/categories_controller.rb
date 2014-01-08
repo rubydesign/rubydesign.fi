@@ -1,5 +1,5 @@
 # encoding : utf-8
-class CategoriesController < BeautifulController
+class CategoriesController < AdminController
 
   before_filter :load_category, :only => [:show, :edit, :update, :destroy]
 

@@ -1,5 +1,5 @@
 # encoding : utf-8
-class PurchasesController < BeautifulController
+class PurchasesController < AdminController
 
   before_filter :load_purchase, :only => [:show, :edit, :update, :destroy]
 

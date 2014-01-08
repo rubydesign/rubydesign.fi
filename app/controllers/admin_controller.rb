@@ -1,7 +1,7 @@
 # encoding : utf-8
-class BeautifulController < ApplicationController
+class AdminController < ApplicationController
   
-  layout "beautiful_layout"
+  layout "admin"
 
   def dashboard
   end

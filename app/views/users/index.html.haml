@@ -3,8 +3,8 @@
   = t('app.models.user.bs_caption_plural', :default => 'user')
 %p
   = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.user.bs_caption', :default => 'user'), new_user_path, :class => "btn"
-.row-fluid
-  .span9
+.row
+  .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -40,7 +40,7 @@
         .btn-group
           - clean_params
           = will_paginate @users
-  .span3
+  .medium-3.columns
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("user", "email", f, "Email")
       = ransack_field("user", "name", f, "Name")

@@ -1,5 +1,5 @@
 # encoding : utf-8
-class BasketsController < BeautifulController
+class BasketsController < AdminController
 
   before_filter :load_basket, :only => [:show, :edit, :update, :destroy , :order]
 

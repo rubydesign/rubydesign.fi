@@ -18,15 +18,15 @@
   %body#product-details
     #header.container
       .header.row.container
-        %nav.nav-bar.span12
+        %nav.nav-bar.medium-12.columns
           %ul#nav-bar.inline
             %li#link-to-cart
               %a.empty{href: "/cart"} Ostoskori: (tyhjä)
             %li#link-to-login
               %a{href: "/login"} kirjaudu
-      .container.span12
+      .container.medium-12.columns
         = render "menu"
-        .span3
+        .medium-3.columns
           %nav#groups.sidebar-item
             =render "groups"
           %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}

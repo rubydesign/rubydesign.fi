@@ -1,8 +1,8 @@
-.span8
+.medium-8.columns
   %div
     %ul#products.inline.product-listing
       -@products.each do |product|
-        %li.columns.span3.secondary
+        %li.columns.medium-3.columns.secondary
           .h3= product.name
           .product-image
             %a{:href => prod_path( :id => product.link )}

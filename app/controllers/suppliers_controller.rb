@@ -1,5 +1,5 @@
 # encoding : utf-8
-class SuppliersController < BeautifulController
+class SuppliersController < AdminController
 
   before_filter :load_supplier, :only => [:show, :edit, :update, :destroy]
 

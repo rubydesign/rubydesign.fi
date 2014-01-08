@@ -1,7 +1,7 @@
 .content.span7
   .product-title-h1
     %h1.product-title Cinnamon Apple Spices
-  .span3
+  .medium-3.columns
     .picture
       .row
         #product-images
@@ -21,7 +21,7 @@
               %tr.odd
                 %td
                   %strong= @product.supplier.name 
-  .span3
+  .medium-3.columns
     .row
       #product-description
         %div
@@ -29,7 +29,7 @@
         #cart-form
           %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
             #inside-product-cart-form
-              .span4
+              .medium-4.columns
                 #product-price
                   %h6.product-section-title Hinta
                   %div

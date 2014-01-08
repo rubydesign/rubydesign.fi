@@ -1,5 +1,5 @@
 # encoding : utf-8
-class UsersController < BeautifulController
+class UsersController < AdminController
 
   before_filter :load_user, :only => [:show, :edit, :update, :destroy]
 

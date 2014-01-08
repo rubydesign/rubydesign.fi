@@ -3,8 +3,8 @@
 %p
   = link_to new_category_path , :class => "btn" do
     %i.icon-plus=  t( :new) + " " + t(:category)
-.row-fluid
-  .span9
+.row
+  .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -43,7 +43,7 @@
         .btn-group
           - clean_params
           = will_paginate @categories
-  .span3
+  .medium-3.columns
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("category", "name", f, "Name")
       = ransack_field("category", "description", f, "Description")

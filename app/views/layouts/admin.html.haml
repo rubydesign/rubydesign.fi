@@ -1,0 +1,42 @@
+!!!
+%html{:lang => (I18n.locale || I18n.default_locale)}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Office Clerk
+    %meta{:content => "Office Clerk", :name => "description"}
+    = stylesheet_link_tag "admin"
+    = javascript_include_tag "admin"
+    = csrf_meta_tags
+    = yield :head
+  %body{:style => ""}
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "/groups"}= t(:shop)
+      %section.top-bar-section
+        / Right Nav Section
+        %ul.right
+          %li
+            %a{href: "#"} logout
+        / Left Nav Section
+        %ul.left
+          %li
+            &nbsp;
+          %li
+            &nbsp;
+          = render :partial => "layouts/admin_menu"
+    %br/
+    .row
+      .medium-12.columns
+        - if not flash[:notice].blank? then
+          .alert.alert-info
+            %a.close{"data-dismiss" => "alert", :href => "#"} ×
+            %h4.alert-heading Info :
+            = flash[:notice]
+        - if not flash[:error].blank? then
+          .alert.alert-error
+            %a.close{"data-dismiss" => "alert", :href => "#"} ×
+            %h4.alert-heading Error :
+            = flash[:error]
+        = yield
