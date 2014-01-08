@@ -1,12 +1,11 @@
 %h2
   = t(:products)
 %p
-  .btn-toolbar
-    = link_to  new_product_path, :class => "btn" do 
-      %i.icon-plus= t(:new) + ' ' + t(:product)
-    .btn-group 
-      - clean_params
-      = will_paginate @products
+  %dl.sub-nav
+    %dd
+      = link_to  t(:new) + ' ' + t(:product) , new_product_path
+    %dd
+      = will_paginate @products , renderer: FoundationPagination::Rails
 .row
   .medium-9.columns
     %div

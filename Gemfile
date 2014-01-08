@@ -15,6 +15,7 @@ gem "will_paginate"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
 gem "foundation-rails"
+gem 'will_paginate-foundation'
 gem 'db_fixtures_dump'
 gem "paperclip"
 

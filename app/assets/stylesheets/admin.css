@@ -8,11 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require reset
  *= require datepicker
  *= require timepicker
  *= require admin-scaffold
  *= require colorpicker
  *= require admin_foundation
+ *= require_self
  */
+
+.top-bar{
+}
+.top-bar-section li a:not(.button){
+}
