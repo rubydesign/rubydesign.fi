@@ -31,9 +31,7 @@
                   = item.product.name if item.product # maybe thumbs
                   %br
               %td= basket.total_price
-              %td
-                = link_to basket_path(basket), :title => t(:show) do
-                  %i.icon-search
+              %td= link_to t(:show) , basket_path(basket), :title => t(:show)
       .btn-toolbar
         .btn-group
           - clean_params

@@ -31,15 +31,9 @@
                 =supplier.address.last_name if supplier.address
               %td{column_style("supplier", "address_country")}
                 =supplier.address.country if supplier.address
-              %td
-                = link_to supplier_path(supplier), :title => t(:show) do 
-                  %i.icon-search
-              %td
-                = link_to edit_supplier_path(supplier), :title => t(:edit) do
-                  %i.icon-pencil
-              %td
-                = link_to supplier_path(supplier), :method => :delete, :title => t(:destroy) do
-                  %i.icon-remove
+              %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
+              %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
+              %td= link_to t(:destroy) , supplier_path(supplier), :method => :delete, :title => t(:destroy)
       .btn-toolbar
         .btn-group
           - clean_params

@@ -30,15 +30,9 @@
                 =category.link
               %td{column_style("category", "category_id")}
                 = Category.find(category.category_id).name if category.category_id 
-              %td 
-                =link_to category_path(category), :title => t(:show) do 
-                  %i.icon-search
-              %td
-                = link_to edit_category_path(category), :title => t(:edit) do
-                  %i.icon-pencil
-              %td
-                =link_to category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) do
-                  %i.icon-remove
+              %td= link_to t(:show), category_path(category), :title => t(:show)
+              %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
+              %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
       .btn-toolbar
         .btn-group
           - clean_params

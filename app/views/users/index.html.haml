@@ -27,14 +27,9 @@
                 =user.name
               %td{column_style("user", "address")}
                 =user.address
-              %td
-                = link_to user_path(user), :title => t(:show) do
-                  %i.icon-search
-              %td
-                = link_to edit_user_path(user), :title => t(:edit) do 
-                  %i.icon-pencil
-              %td
-                = link_to user_path(user), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) do
+              %td= link_to t(:show) , user_path(user), :title => t(:show)
+              %td= link_to t(:edit), edit_user_path(user), :title => t(:edit)
+              %td= link_to user_path(user), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) do
                   %i.icon-remove
       .btn-toolbar
         .btn-group
