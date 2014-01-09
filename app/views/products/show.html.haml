@@ -1,7 +1,9 @@
-%h2
-  = @product.name
-  %small
-    = @product.online ? "online" : "not online"
+-if @product.line?
+  =render "line"
+-elsif @product.line_item?
+  %h3
+    Item of Product Line 
+    = link_to @product.product.name , product_path( @product.product)
 .row
   .medium-6.columns
     .medium-6.columns
@@ -65,7 +67,7 @@
     %p
       %b
         = t(:product) + ":"
-      = (@product.product.nil? ? "" : @product.product.caption)
+      = (@product.product.nil? ? "" : @product.product.name)
     %p
       %b
         = t(:category) + ":"

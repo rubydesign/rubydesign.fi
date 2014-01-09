@@ -1,0 +1,23 @@
+%h2
+  Product Line
+  = @product.name
+  %small
+    = @product.online ? "online" : "not online"
+%table
+  %tbody
+    %tr.line-1
+      %td=t("name")
+      - @product.products.each do |product|
+        %td=link_to product.name , product_path(product)
+    %tr.line-2
+      %td=t("ean")
+      - @product.products.each do |product|
+        %td=product.ean
+    %tr.line-1
+      %td=t("price")
+      - @product.products.each do |product|
+        %td=number_to_currency(product.price)
+    %tr.line-2
+      %td=t("inventory")
+      - @product.products.each do |product|
+        %td=product.inventory

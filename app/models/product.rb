@@ -42,9 +42,17 @@ class Product < ActiveRecord::Base
     true
   end
     
-  # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
-  def caption
-    (self["name"] || self["label"] || self["description"] || "##{id}")
+  #this product represents a product line (ie is not sellable in itself)
+  def line?
+    !line_item? and !products.empty?
   end
 
+  #this product is an item of a product line (so is sellable)
+  def line_item?
+    self.product_id != nil
+  end
+  
+  def sellable?
+    !line?
+  end
 end
