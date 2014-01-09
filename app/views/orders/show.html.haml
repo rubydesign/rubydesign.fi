@@ -66,3 +66,4 @@
 .medium-12.columns
   = link_to t(:edit), edit_order_path(@order), :class => "btn"
   = link_to t(:back), orders_path, :class => "btn"
+  = link_to t(:destroy) , order_path(order), :data => { :confirm => t(:are_you_sure }, :method => :delete, :title => t(:destroy)

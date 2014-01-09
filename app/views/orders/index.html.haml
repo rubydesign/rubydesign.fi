@@ -21,7 +21,7 @@
               = sorting_header("order", "email", "")
             %th{column_style("order", "state")}
               = sorting_header("order", "state", "")
-            %th{:colspan => "3"}
+            %th{:colspan => "2"}
               %label.checkbox
                 = pluralize(@order_scope.count, "order")
         %tbody
@@ -36,14 +36,9 @@
               %td{column_style("order", "status")}
                 = order.paid_on
               %td
-                = link_to order_path(order), :title => t(:show, :default => "Show") do
-                  %i.icon-search
+                = link_to t(:show) , order_path(order), :title => t(:show)
               %td
-                = link_to edit_order_path(order), :title => t(:edit) do 
-                  %i.icon-pencil
-              %td
-                = link_to order_path(order), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy") do
-                  %i.icon-remove
+                = link_to t(:edit) , edit_order_path(order), :title => t(:edit)
       .btn-toolbar
         .btn-group
           - clean_params
