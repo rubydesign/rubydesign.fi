@@ -22,5 +22,5 @@
 %p
   %b
     = t(:country) + ":" + @supplier.address.country if @supplier.address
-= link_to t(:edit), edit_supplier_path(@supplier), :class => "btn"
-= link_to t(:back), suppliers_path, :class => "btn"
+= link_to t(:edit), edit_supplier_path(@supplier), :class => "admin-button"
+= link_to t(:back), suppliers_path, :class => "admin-button"

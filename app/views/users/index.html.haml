@@ -2,7 +2,7 @@
   = t(:listing, :default => "Listing")
   = t('app.models.user.bs_caption_plural', :default => 'user')
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.user.bs_caption', :default => 'user'), new_user_path, :class => "btn"
+  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.user.bs_caption', :default => 'user'), new_user_path, :class => "admin-button"
 .row
   .medium-9.columns
     %div
@@ -44,5 +44,5 @@
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("user", "email", f, "Email")
       = ransack_field("user", "name", f, "Name")
-      = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel), users_path(:filter => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "submit-button"
+      = link_to  t(:cancel), users_path(:filter => "ok"), :class => "admin-button"

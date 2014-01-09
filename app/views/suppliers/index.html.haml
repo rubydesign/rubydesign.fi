@@ -2,7 +2,7 @@
   = t(:listing, :default => "Listing")
   = t('app.models.supplier.bs_caption_plural', :default => 'supplier')
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), new_supplier_path, :class => "btn"
+  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), new_supplier_path, :class => "admin-button"
 .row
   .medium-9.columns
     %div
@@ -48,5 +48,5 @@
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("supplier", "name", f, "Name")
       = ransack_field("supplier", "address_country", f, "Country")
-      = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel), suppliers_path(:filter => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "submit-button"
+      = link_to  t(:cancel), suppliers_path(:filter => "ok"), :class => "admin-button"

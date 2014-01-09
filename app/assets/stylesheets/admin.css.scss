@@ -15,6 +15,19 @@
  *= require colorpicker
  */
 
+// configuartion of zurb has to go before its import
+
 $topbar-bg: #9F83D8;
 
-@import "admin_foundation.scss"
+@import "admin_foundation.scss";
+
+// new classes using zurb go after the import
+
+.admin-button { 
+  $button-radius: rem-calc(10);
+  @include button(rem-calc(10), green, true, false, false, false);
+};
+.submit-button { 
+  @include button(rem-calc(15), orange, true, false, false, false);
+  $button-radius: rem-calc(15);
+};

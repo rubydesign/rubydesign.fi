@@ -1,7 +1,7 @@
 %h2
   = t(:categories)
 %p
-  = link_to new_category_path , :class => "btn" do
+  = link_to new_category_path , :class => "admin-button" do
     %i.icon-plus=  t( :new) + " " + t(:category)
 .row
   .medium-9.columns
@@ -47,8 +47,8 @@
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("category", "name", f, "Name")
       = ransack_field("category", "description", f, "Description")
-      = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel), categories_path(:filter => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "submit-button"
+      = link_to  t(:cancel), categories_path(:filter => "ok"), :class => "admin-button"
     %hr
     - Category.where(:category_id => nil).each do |group|
       = render "treeview" , :group => group

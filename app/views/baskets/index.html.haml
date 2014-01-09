@@ -1,7 +1,7 @@
 %h2
   = t(:baskets)
 %p
-  = link_to new_basket_path, :class => "btn" do
+  = link_to new_basket_path, :class => "admin-button" do
     %i.icon-plus
     = t(:new) + ' ' + t(:basket)
 .row
@@ -43,5 +43,5 @@
       .search_heading= t(:items)
       = f.label :name_cont , t(:name_contains)
       = f.text_field :items_product_name_cont
-      = f.submit t(:filter), :class => "btn btn-primary"
+      = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), baskets_path, :class => :btn

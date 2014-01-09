@@ -54,7 +54,7 @@
       %tr
         %td{:colspan => 2}
           %b
-            = link_to t(:basket) , basket_path(@order.basket) , :class => "btn"
+            = link_to t(:basket) , basket_path(@order.basket) , :class => "admin-button"
         %td 
           = t(:tax)
           = @order.basket.total_tax
@@ -64,6 +64,6 @@
   
   
 .medium-12.columns
-  = link_to t(:edit), edit_order_path(@order), :class => "btn"
-  = link_to t(:back), orders_path, :class => "btn"
-  = link_to t(:destroy) , order_path(order), :data => { :confirm => t(:are_you_sure }, :method => :delete, :title => t(:destroy)
+  = link_to t(:edit), edit_order_path(@order), :class => "admin-button"
+  = link_to t(:back), orders_path, :class => "admin-button"
+  = link_to t(:destroy) , order_path(@order), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "admin-button"

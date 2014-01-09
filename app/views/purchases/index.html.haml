@@ -2,7 +2,7 @@
   = t(:listing, :default => "Listing")
   = t('app.models.purchase.bs_caption_plural', :default => 'purchase')
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.purchase.bs_caption', :default => 'purchase'), new_purchase_path, :class => "btn"
+  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.purchase.bs_caption', :default => 'purchase'), new_purchase_path, :class => "admin-button"
 .row
   .medium-9.columns
     %div
@@ -56,5 +56,5 @@
       = ransack_field("purchase", "name", f, "Name")
       = ransack_field("purchase", "ordered_on", f, "Ordered_on")
       = ransack_field("purchase", "received_on", f, "Received_on")
-      = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel), purchases_path(:filter => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "submit-button"
+      = link_to  t(:cancel), purchases_path(:filter => "ok"), :class => "admin-button"

@@ -2,7 +2,7 @@
   = t(:orders)
 %p
   .btn-toolbar
-    = link_to new_order_path , :class => "btn" do
+    = link_to new_order_path , :class => "admin-button" do
       %i.icon-plus=  t( :new) + " " + t(:order)
     .btn-group
       - clean_params
@@ -44,9 +44,9 @@
           - clean_params
           = paginate @orders
         .btn-group.pull-right
-          = link_to orders_path(:format => :csv), :class => "btn" do
+          = link_to orders_path(:format => :csv), :class => "admin-button" do
             %i.icon-download CSV 
-          = link_to orders_path(:format => :json), :class => "btn" do
+          = link_to orders_path(:format => :json), :class => "admin-button" do
             %i.icon-download JSON 
   .medium-3.columns
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
@@ -57,5 +57,5 @@
       = ransack_field("order", "shipped_on", f, "Shipped_on")
       = ransack_field("order", "paid_on", f, "Paid_on")
       = ransack_field("order", "canceled_on", f, "Canceled_on")
-      = f.submit t(:filter), :class => "btn btn-primary"
-      = link_to  t(:cancel), orders_path(:filter => "ok"), :class => "btn"
+      = f.submit t(:filter), :class => "submit-button"
+      = link_to  t(:cancel), orders_path(:filter => "ok"), :class => "admin-button"

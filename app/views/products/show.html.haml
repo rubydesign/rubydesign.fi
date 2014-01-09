@@ -4,6 +4,7 @@
   %h3
     Item of Product Line 
     = link_to @product.product.name , product_path( @product.product)
+    = @product.name
 .row
   .medium-6.columns
     .medium-6.columns
@@ -35,9 +36,9 @@
         %b
           = t(:inventory) + ":"
         = @product.inventory
-    = link_to t(:edit), edit_product_path(@product), :class => "btn"
-    = link_to t(:back), products_path, :class => "btn"
-    = link_to t(:delete) , delete_product_path(@product), :class => "btn"
+    = link_to t(:edit), edit_product_path(@product), :class => "admin-button"
+    = link_to t(:back), products_path, :class => "admin-button"
+    = link_to t(:delete) , delete_product_path(@product), :class => "admin-button"
 
   .medium-6.columns
     %p
@@ -60,14 +61,6 @@
       %b
         = t(:tax) + ":"
       = @product.tax
-    %p
-      %b
-        = t(:properties) + ":"
-      = @product.properties
-    %p
-      %b
-        = t(:product) + ":"
-      = (@product.product.nil? ? "" : @product.product.name)
     %p
       %b
         = t(:category) + ":"
