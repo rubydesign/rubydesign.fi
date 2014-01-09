@@ -1,69 +1,76 @@
 %h2
-  = t(:show)
-  = t(:product)
-%p
-  %b
-    = t(:main_picture) + ":"
-  = image_tag @product.main_picture.url
-  %b
-    = t(:extra_picture) + ":"
-  = image_tag @product.extra_picture.url
-%p
-  %b
-    = t(:price) + ":"
-  = number_to_currency(@product.price)
-%p
-  %b
-    = t(:cost) + ":"
-  = number_to_currency(@product.cost)
-%p
-  %b
-    = t(:weight) + ":"
-  = @product.weight
-%p
-  %b
-    = t(:inventory) + ":"
-  = @product.inventory
-%p
-  %b
-    = t(:name) + ":"
   = @product.name
-%p
-  %b
-    = t(:description) + ":"
-  = @product.description
-%p
-  %b
-    = t(:link) + ":"
-  = @product.link
-%p
-  %b
-    = t(:ean) + ":"
-  = @product.ean
-%p
-  %b
-    = t(:tax) + ":"
-  = @product.tax
-%p
-  %b
-    = t(:properties) + ":"
-  = @product.properties
-%p
-  %b
-    = t(:scode) + ":"
-  = @product.scode
-%p
-  %b
-    = t(:product) + ":"
-  = (@product.product.nil? ? "" : @product.product.caption)
-%p
-  %b
-    = t(:category) + ":"
-  = (@product.category.nil? ? "" : @product.category.caption)
-%p
-  %b
-    = t(:supplier) + ":"
-  = (@product.supplier.nil? ? "" : @product.supplier.name)
-= link_to t(:edit), edit_product_path(@product), :class => "btn"
-= link_to t(:back), products_path, :class => "btn"
-= link_to t(:delete) , delete_product_path(@product), :class => "btn"
+  %small
+    = @product.online ? "online" : "not online"
+.row
+  .medium-6.columns
+    .medium-6.columns
+      %p
+        %b
+          = t(:main_picture) + ":"
+        %br
+        = image_tag @product.main_picture.url
+    .medium-6.columns
+      %p
+        %b
+          = t(:extra_picture) + ":"
+        %br
+        = image_tag @product.extra_picture.url
+    .medium-6
+      %p
+        %b
+          = t(:price) + ":"
+        = number_to_currency(@product.price)
+      %p
+        %b
+          = t(:cost) + ":"
+        = number_to_currency(@product.cost)
+      %p
+        %b
+          = t(:weight) + ":"
+        = @product.weight
+      %p
+        %b
+          = t(:inventory) + ":"
+        = @product.inventory
+    = link_to t(:edit), edit_product_path(@product), :class => "btn"
+    = link_to t(:back), products_path, :class => "btn"
+    = link_to t(:delete) , delete_product_path(@product), :class => "btn"
+
+  .medium-6.columns
+    %p
+      %b
+        = t(:description) + ":"
+      = @product.description
+    %p
+      %b
+        = t(:link) + ":"
+      = @product.link
+    %p
+      %b
+        = t(:ean) + ":"
+      = @product.ean
+    %p
+      %b
+        = t(:scode) + ":"
+      = @product.scode
+    %p
+      %b
+        = t(:tax) + ":"
+      = @product.tax
+    %p
+      %b
+        = t(:properties) + ":"
+      = @product.properties
+    %p
+      %b
+        = t(:product) + ":"
+      = (@product.product.nil? ? "" : @product.product.caption)
+    %p
+      %b
+        = t(:category) + ":"
+      = (@product.category.nil? ? "" : @product.category.caption)
+    %p
+      %b
+        = t(:supplier) + ":"
+      = (@product.supplier.nil? ? "" : @product.supplier.name)

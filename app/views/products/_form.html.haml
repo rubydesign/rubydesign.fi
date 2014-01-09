@@ -10,6 +10,10 @@
             %li= msg
     .medium-6.columns
       .control-group
+        = f.label :online, t(:online), :class => "control-label"
+        .controls
+          = f.check_box :online
+      .control-group
         = f.label :name, t(:name), :class => "control-label"
         .controls
           = f.text_field :name
@@ -25,6 +29,18 @@
         = f.label :category, t(:category), :class => "control-label"
         .controls
           = f.collection_select :category_id, Category.all, :id, :caption, :include_blank => true
+      .control-group
+        = f.label :main_picture, t(:picture), :class => "control-label"
+        = image_tag @product.main_picture.url
+        .controls
+          = f.file_field :main_picture
+      .control-group
+        = f.label :extra_picture, t(:picture), :class => "control-label"
+        = image_tag @product.extra_picture.url
+        .controls
+          = f.file_field :extra_picture
+      .form-actions
+        = f.submit :class => "button primary"
     .medium-3.columns
       .control-group
         = f.label :link, t(:link), :class => "control-label"
@@ -34,13 +50,13 @@
         = f.label :price, t(:price), :class => "control-label"
         .controls
           .input-prepend
-            %span.add-on €
+            %span.add-on
             = f.text_field :price
       .control-group
         = f.label :cost, t(:cost), :class => "control-label"
         .controls
           .input-prepend
-            %span.add-on €
+            %span.add-on
             = f.text_field :cost
       .control-group
         = f.label :weight, t(:weight), :class => "control-label"
@@ -62,15 +78,3 @@
         = f.label :scode, t(:scode), :class => "control-label"
         .controls
           = f.text_field :scode
-      .control-group
-        = f.label :main_picture, t(:picture), :class => "control-label"
-        = image_tag @product.main_picture.url
-        .controls
-          = f.file_field :main_picture
-      .control-group
-        = f.label :extra_picture, t(:picture), :class => "control-label"
-        = image_tag @product.extra_picture.url
-        .controls
-          = f.file_field :extra_picture
-      .form-actions
-        = f.submit :class => "btn btn-primary"
