@@ -39,7 +39,7 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @users
+          = paginate @users
   .medium-3.columns
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("user", "email", f, "Email")

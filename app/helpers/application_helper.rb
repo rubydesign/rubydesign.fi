@@ -11,4 +11,12 @@ module ApplicationHelper
     HTML
     html.html_safe
   end
+
+  # change the default link renderer for will_paginate and add global options
+  def paginate(collection , options = {})
+    #options = options.merge defaults 
+    options[:renderer] = FoundationPagination::Rails
+    will_paginate collection, options
+  end
+
 end

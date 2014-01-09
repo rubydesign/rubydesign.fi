@@ -37,7 +37,7 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @baskets
+          = paginate @baskets
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:items)

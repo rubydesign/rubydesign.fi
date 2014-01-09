@@ -5,7 +5,7 @@
     %dd
       = link_to  t(:new) + ' ' + t(:product) , new_product_path
     %dd
-      = will_paginate @products , renderer: FoundationPagination::Rails
+      = paginate @products 
 .row
   .medium-9.columns
     %div
@@ -43,10 +43,10 @@
                 =product.inventory
               %td 
                 = link_to  product_path(product), :title => t(:show) do 
-                  %i.icon-search
+                  = t(:show)
               %td 
                 = link_to edit_product_path(product), :title => t(:edit) do
-                  %i.icon-pencil
+                  =t(:edit)
               %td
   .medium-3.columns
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :post do |f|

@@ -6,7 +6,7 @@
       %i.icon-plus=  t( :new) + " " + t(:order)
     .btn-group
       - clean_params
-      = will_paginate @orders
+      = paginate @orders
 .row
   .medium-9.columns
     %div
@@ -47,7 +47,7 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @orders
+          = paginate @orders
         .btn-group.pull-right
           = link_to orders_path(:format => :csv), :class => "btn" do
             %i.icon-download CSV 

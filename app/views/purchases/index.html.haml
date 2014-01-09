@@ -50,7 +50,7 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @purchases
+          = paginate @purchases
   .medium-3.columns
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("purchase", "name", f, "Name")

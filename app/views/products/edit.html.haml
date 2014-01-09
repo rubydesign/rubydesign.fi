@@ -1,5 +1,6 @@
 %h2
   = t(:editing, :default => 'Editing')
   = t('app.models.product.bs_caption', :default => 'product')
+  ________________________
+  = link_to t(:cancel), products_path, :class => "cancel"
 = render 'form'
-= link_to t(:back), products_path, :class => "btn"

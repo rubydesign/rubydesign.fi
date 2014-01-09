@@ -42,7 +42,7 @@
       .btn-toolbar
         .btn-group
           - clean_params
-          = will_paginate @categories
+          = paginate @categories
   .medium-3.columns
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("category", "name", f, "Name")
