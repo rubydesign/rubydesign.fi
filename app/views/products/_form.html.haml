@@ -9,72 +9,34 @@
           - @product.errors.full_messages.each do |msg|
             %li= msg
     .medium-6.columns
-      .control-group
-        = f.label :online, t(:online), :class => "control-label"
-        .controls
-          = f.check_box :online
-      .control-group
-        = f.label :name, t(:name), :class => "control-label"
-        .controls
-          = f.text_field :name
-      .control-group
-        = f.label :description, t(:description), :class => "control-label"
-        .controls
-          = f.text_area :description, :rows => 10 , :cols => 40
-      .control-group
-        = f.label :supplier, t(:supplier), :class => "control-label"
-        .controls
-          = f.collection_select :supplier_id, Supplier.all, :id, :caption, :include_blank => true
-      .control-group
-        = f.label :category, t(:category), :class => "control-label"
-        .controls
-          = f.collection_select :category_id, Category.all, :id, :caption, :include_blank => true
-      .control-group
-        = f.label :main_picture, t(:picture), :class => "control-label"
+      .controls
+        = f.check_box :online
+      .controls
+        = f.text_field :name
+      .controls
+        = f.text_area :description, :rows => 10 , :cols => 40
+      .controls
+        = f.collection_select :supplier_id, Supplier.all, :id, :caption, :include_blank => true
+      .controls
+        = f.collection_select :category_id, Category.all, :id, :caption, :include_blank => true
+      .controls
         = image_tag @product.main_picture.url
-        .controls
-          = f.file_field :main_picture
+        = f.file_field :main_picture
       .control-group
-        = f.label :extra_picture, t(:picture), :class => "control-label"
         = image_tag @product.extra_picture.url
-        .controls
-          = f.file_field :extra_picture
+        = f.file_field :extra_picture
       .form-actions
-        = f.submit :class => "button primary"
+        = f.submit :class => "submit-button"
     .medium-3.columns
-      .control-group
-        = f.label :link, t(:link), :class => "control-label"
-        .controls
-          = f.text_field :link 
-      .control-group
-        = f.label :price, t(:price), :class => "control-label"
-        .controls
-          .input-prepend
-            %span.add-on
-            = f.text_field :price
-      .control-group
-        = f.label :cost, t(:cost), :class => "control-label"
-        .controls
-          .input-prepend
-            %span.add-on
-            = f.text_field :cost
-      .control-group
-        = f.label :weight, t(:weight), :class => "control-label"
-        .controls
-          = f.text_field :weight
-      .control-group
-        = f.label :ean, t(:ean), :class => "control-label"
-        .controls
-          = f.text_field :ean
-      .control-group
-        = f.label :tax, t(:tax), :class => "control-label"
-        .controls
-          = f.text_field :tax
-      .control-group
-        = f.label :properties, t(:properties), :class => "control-label"
-        .controls
-          = f.text_field :properties
-      .control-group
-        = f.label :scode, t(:scode), :class => "control-label"
-        .controls
-          = f.text_field :scode
+      .controls
+        = f.text_field :link 
+      .controls
+        = f.text_field :price
+      .controls
+        = f.text_field :weight
+      .controls
+        = f.text_field :ean
+      .controls
+        = f.text_field :tax
+      .controls
+        = f.text_field :scode
