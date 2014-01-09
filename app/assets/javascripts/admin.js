@@ -4,6 +4,8 @@
 //= require turbolinks
 //= require jquery-barcode
 //= require admin_scaffold
+//= require foundation
+//= require_self
 
 function initPage(){
     bs_init();

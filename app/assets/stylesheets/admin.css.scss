@@ -13,11 +13,8 @@
  *= require timepicker
  *= require admin-scaffold
  *= require colorpicker
- *= require admin_foundation
- *= require_self
  */
 
-.top-bar{
-}
-.top-bar-section li a:not(.button){
-}
+$topbar-bg: #9F83D8;
+
+@import "admin_foundation.scss"
