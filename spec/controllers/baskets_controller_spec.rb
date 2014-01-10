@@ -16,7 +16,7 @@ describe BasketsController do
       count_before = Basket.count
       basket = create :basket
       get :index, {}, valid_session
-      assigns(:baskets).count.should be count_before + 1   
+      assigns(:basket_scope).count.should be count_before + 1
     end
   end
 

@@ -27,9 +27,10 @@ describe OrdersController do
 
   describe "GET index" do
     it "assigns all orders as @orders" do
-      order = create :order
+      count_before = Order.count
+      basket = create :order
       get :index, {}, valid_session
-      assigns(:orders).should eq([order])
+      assigns(:order_scope).count.should be count_before + 1
     end
   end
 

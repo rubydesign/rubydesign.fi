@@ -13,7 +13,7 @@ class Address < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :street1, :presence => true
-  validates :postcode, :presence => true
+  validates :city, :presence => true
 
   # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
   def caption
@@ -21,6 +21,6 @@ class Address < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :first_name,:last_name,:street1,:street2,:postcode,:country
+    return :first_name,:last_name,:street1,:street2,:city,:country
   end
 end
