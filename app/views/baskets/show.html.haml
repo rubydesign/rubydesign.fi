@@ -48,6 +48,6 @@
     - if@basket.isa :cart 
       = link_to t(:back), baskets_path, :class => "admin-button"
     - else
-      = link_to t(:to_order), order_path(@basket.order), :class => "admin-button"
+      = link_to t(:to_order), edit_order_path(@basket.order), :class => "admin-button"
       
     = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "admin-button"

@@ -100,7 +100,7 @@ module AdminHelper
         response += f.text_field(
             (name_field + "_dp_gt").to_sym,
             :value => (begin params[:q][(name_field + "_dp_gt").to_sym] rescue '' end),
-            :class => "span9 dpicker",
+            :class => "span9 datepicker",
             "data-id" => ("q_" + name_field + "_gteq"))
         response += '<span class="add-on"><i class="icon-calendar"></i></span>'
         response += '</div>'
@@ -129,7 +129,7 @@ module AdminHelper
         response += f.text_field(
             (name_field + "_dp_lt").to_sym,
             :value => (begin params[:q][(name_field + "_dp_lt").to_sym] rescue '' end),
-            :class => "span9 dpicker",
+            :class => "span9 datepicker",
             "data-id" => ("q_" + name_field + "_lteq"))
         response += '<span class="add-on"><i class="icon-calendar"></i></span>'
         response += '</div>'

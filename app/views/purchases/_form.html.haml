@@ -18,7 +18,7 @@
         %input#purchase_ordered_on_3i{:name => "purchase[ordered_on(3i)]", :type => "hidden", :value => begin @purchase.ordered_on.day rescue "" end}/
         %input#purchase_ordered_on_2i{:name => "purchase[ordered_on(2i)]", :type => "hidden", :value => begin @purchase.ordered_on.mon rescue "" end}/
         %input#purchase_ordered_on_1i{:name => "purchase[ordered_on(1i)]", :type => "hidden", :value => begin @purchase.ordered_on.year rescue "" end}/
-        = f.text_field :ordered_on, :class => "dpicker"
+        = f.text_field :ordered_on, :class => "datepicker"
         %span.add-on
           %i.icon-calendar
   .control-group
@@ -28,7 +28,7 @@
         %input#purchase_received_on_3i{:name => "purchase[received_on(3i)]", :type => "hidden", :value => begin @purchase.received_on.day rescue "" end}/
         %input#purchase_received_on_2i{:name => "purchase[received_on(2i)]", :type => "hidden", :value => begin @purchase.received_on.mon rescue "" end}/
         %input#purchase_received_on_1i{:name => "purchase[received_on(1i)]", :type => "hidden", :value => begin @purchase.received_on.year rescue "" end}/
-        = f.text_field :received_on, :class => "dpicker"
+        = f.text_field :received_on, :class => "datepicker"
         %span.add-on
           %i.icon-calendar
   .control-group

@@ -7,6 +7,10 @@
 //= require foundation
 //= require_self
 
+$(function() {
+   $( ".datepicker" ).datepicker( { dateFormat: 'dd/mm/yy' });
+ });
+ 
 function initPage(){
     bs_init();
 }

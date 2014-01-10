@@ -30,7 +30,6 @@
                   x
                   = item.product.name if item.product # maybe thumbs
                   %br
-              %td= basket.total_price
               %td= link_to t(:show) , basket_path(basket), :title => t(:show)
       .btn-toolbar
         .btn-group
@@ -39,7 +38,6 @@
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:items)
-      = f.label :name_cont , t(:name_contains)
-      = f.text_field :items_product_name_cont
+      = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
       = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), baskets_path, :class => :btn
+      = link_to  t(:cancel), baskets_path, :class => "admin-button"

@@ -7,79 +7,25 @@
       %ul
         - @order.errors.full_messages.each do |msg|
           %li= msg
-  .control-group
-    = f.label :ordered_on, t('app.models.order.bs_attributes.ordered_on', :default => 'ordered_on').capitalize, :class => "control-label"
-    .controls
-      .input-append
-        %input#order_ordered_on_3i{:name => "order[ordered_on(3i)]", :type => "hidden", :value => begin @order.ordered_on.day rescue "" end}/
-        %input#order_ordered_on_2i{:name => "order[ordered_on(2i)]", :type => "hidden", :value => begin @order.ordered_on.mon rescue "" end}/
-        %input#order_ordered_on_1i{:name => "order[ordered_on(1i)]", :type => "hidden", :value => begin @order.ordered_on.year rescue "" end}/
-        = f.text_field :ordered_on, :class => "dpicker"
-        %span.add-on
-          %i.icon-calendar
-  .control-group
-    = f.label :total_price, t('app.models.order.bs_attributes.total_price', :default => 'total_price').capitalize, :class => "control-label"
-  .control-group
-    = f.label :shipping_price, t('app.models.order.bs_attributes.shipping_price', :default => 'shipping_price').capitalize, :class => "control-label"
-    .controls
-      .input-prepend
-        %span.add-on €
-        = f.text_field :shipping_price
-  .control-group
-    = f.label :shipping_tax, t('app.models.order.bs_attributes.shipping_tax', :default => 'shipping_tax').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :shipping_tax
-  .control-group
-    = f.label :basket, t('app.models.order.bs_attributes.basket', :default => 'basket').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :basket_id
-  .control-group
-    = f.label :email, t('app.models.order.bs_attributes.email', :default => 'email').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :email
-  .control-group
-    = f.label :paid_on, t('app.models.order.bs_attributes.paid_on', :default => 'paid_on').capitalize, :class => "control-label"
-    .controls
-      .input-append
-        %input#order_paid_on_3i{:name => "order[paid_on(3i)]", :type => "hidden", :value => begin @order.paid_on.day rescue "" end}/
-        %input#order_paid_on_2i{:name => "order[paid_on(2i)]", :type => "hidden", :value => begin @order.paid_on.mon rescue "" end}/
-        %input#order_paid_on_1i{:name => "order[paid_on(1i)]", :type => "hidden", :value => begin @order.paid_on.year rescue "" end}/
-        = f.text_field :paid_on, :class => "dpicker"
-        %span.add-on
-          %i.icon-calendar
-  .control-group
-    = f.label :shipped_on, t('app.models.order.bs_attributes.shipped_on', :default => 'shipped_on').capitalize, :class => "control-label"
-    .controls
-      .input-append
-        %input#order_shipped_on_3i{:name => "order[shipped_on(3i)]", :type => "hidden", :value => begin @order.shipped_on.day rescue "" end}/
-        %input#order_shipped_on_2i{:name => "order[shipped_on(2i)]", :type => "hidden", :value => begin @order.shipped_on.mon rescue "" end}/
-        %input#order_shipped_on_1i{:name => "order[shipped_on(1i)]", :type => "hidden", :value => begin @order.shipped_on.year rescue "" end}/
-        = f.text_field :shipped_on, :class => "dpicker"
-        %span.add-on
-          %i.icon-calendar
-  .control-group
-    = f.label :paid_on, t('app.models.order.bs_attributes.paid_on', :default => 'paid_on').capitalize, :class => "control-label"
-    .controls
-      .input-append
-        %input#order_paid_on_3i{:name => "order[paid_on(3i)]", :type => "hidden", :value => begin @order.paid_on.day rescue "" end}/
-        %input#order_paid_on_2i{:name => "order[paid_on(2i)]", :type => "hidden", :value => begin @order.paid_on.mon rescue "" end}/
-        %input#order_paid_on_1i{:name => "order[paid_on(1i)]", :type => "hidden", :value => begin @order.paid_on.year rescue "" end}/
-        = f.text_field :paid_on, :class => "dpicker"
-        %span.add-on
-          %i.icon-calendar
-  .control-group
-    = f.label :canceled_on, t('app.models.order.bs_attributes.canceled_on', :default => 'canceled_on').capitalize, :class => "control-label"
-    .controls
-      .input-append
-        %input#order_canceled_on_3i{:name => "order[canceled_on(3i)]", :type => "hidden", :value => begin @order.canceled_on.day rescue "" end}/
-        %input#order_canceled_on_2i{:name => "order[canceled_on(2i)]", :type => "hidden", :value => begin @order.canceled_on.mon rescue "" end}/
-        %input#order_canceled_on_1i{:name => "order[canceled_on(1i)]", :type => "hidden", :value => begin @order.canceled_on.year rescue "" end}/
-        = f.text_field :canceled_on, :class => "dpicker"
-        %span.add-on
-          %i.icon-calendar
-  .control-group
-    = f.label :shipment_type, t('app.models.order.bs_attributes.shipment_type', :default => 'shipment_type').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :shipment_type
+  .controls
+    = f.text_field :ordered_on, :class => "datepicker"
+  .controls
+    = f.text_field :shipping_price
+  .controls
+    = f.text_field :shipping_tax
+  .controls
+    = f.text_field :basket_id
+  .controls
+    = f.text_field :email
+  .controls
+    = f.text_field :paid_on, :class => "datepicker"
+  .controls
+    = f.text_field :shipped_on, :class => "datepicker"
+  .controls
+    = f.text_field :paid_on, :class => "datepicker"
+  .controls
+    = f.text_field :canceled_on, :class => "datepicker"
+  .controls
+    = f.text_field :shipment_type
   .form-actions
     = f.submit :class => "submit-button"

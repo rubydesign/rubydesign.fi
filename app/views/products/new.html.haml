@@ -1,8 +1,6 @@
 .row
   %h2
-    = t(:new, :default => 'New')
-    = t('app.models.product.bs_caption', :default => 'product')
-    ________________________
-    = link_to t(:cancel), products_path, :class => "cancel"
+    = t(:new)
+    = t(:product)
 
 = render 'form'
