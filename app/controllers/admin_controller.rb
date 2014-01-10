@@ -3,9 +3,6 @@ class AdminController < ApplicationController
   
   layout "admin"
 
-  def dashboard
-  end
-
   def do_sort_and_paginate(model_sym)
     # Sort
     session[:sorting] ||= {}
