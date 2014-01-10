@@ -12,6 +12,8 @@ db/*.sqlite3
 # configuration file introduced in Rails 4.1
 /config/secrets.yml
 
+.localeapp
+
 # various artifacts
 **.war
 *.rbc
@@ -66,3 +68,4 @@ public/main_pictures/
 
 # vim artifacts
 **.swp
+.localeapp

@@ -28,6 +28,9 @@ group :development do
   gem 'guard-rspec'
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem "jeweler", "> 1.6.4"
+  gem 'i18n-spec'
+  gem 'localeapp'
 end
 group :development, :test do
   gem 'factory_girl_rails'
