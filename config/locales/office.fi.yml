@@ -1,0 +1,62 @@
+fi:
+  actions: toimipiteet
+  address: osoite
+  addresses: osoiteet
+  are_you_sure: oletko varma
+  back: takaisin
+  basket: lista
+  baskets: listat
+  cancel: perutaa
+  categories: ryhmät
+  category: ryhmä
+  category_id: ryhmä
+  country: maa
+  create_success: 
+  description: kuvaus
+  destroy: posta
+  edit: muokaa
+  editing: muokamassa
+  filter: suodata
+  first_name: Etunimi
+  items: 
+  last_name: Sukunimi
+  link: linkki
+  make_order: Luo tilaus
+  name: nimi
+  name_contains: nimi sisäsätä
+  new: uusi
+  next: seurava
+  order: tilaus
+  orders: tilaukset
+  parent: tuotelinja
+  picture: kuva
+  position: paikka
+  prev: edellinen
+  price: hinta
+  product: tuote
+  products: tuoteet
+  purchases: osto tilauksia
+  quantity: määrä
+  shop: kauppa
+  show: näytää
+  suppliers: Tuotajat
+  tax: alv
+  total: yhteensä
+  treeview: 
+  update_success: 
+  users: käytäjät
+  will_paginate:
+    next_label: seurava
+    page_gap: ' '
+    previous_label: seurava
+  errors:
+    messages:
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
+      confirmation_period_expired: pitää vahvistaa %{period} kuluessa, ole hyvä ja pyydä uusi
+      expired: on vanhentunut, pyydä uutta.
+      not_found: ei löytynyt
+      not_locked: ei ollut lukittu
+      not_saved:
+        one: '1 virhe esti %{resource} tallentamisen:'
+        other: '%{count} virhettä esti %{resource} tallentamisen:'
+  
