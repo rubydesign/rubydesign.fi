@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_order, :only => [:show, :edit, :update, :destroy , :print]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -23,6 +23,12 @@ class OrdersController < AdminController
   def show
   end
 
+  def print
+    template = params[:template] || "receipt"
+    eval "@#{template} = true"
+    render  template , :layout => false
+  end
+  
   def new
     @order = Order.new
     @order.build_basket :name => "cart"

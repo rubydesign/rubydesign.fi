@@ -10,9 +10,13 @@ class Order < ActiveRecord::Base
     order("#{attribute} #{direction}")
   }
 
-  # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
-  def caption
-    (self["name"] || self["label"] || self["description"] || "##{id}")
+  def total_price
+    basket.total_price + shipping_price
+  end
+
+  #should be an array later (different rates)
+  def total_tax
+    basket.total_tax + shipping_tax*shipping_price
   end
 
   def self.for_basket b

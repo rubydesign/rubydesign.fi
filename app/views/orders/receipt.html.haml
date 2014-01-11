@@ -1,0 +1,69 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Receipt
+    = stylesheet_link_tag "html-receipt"
+  %body{onload: "self.prnt()"}
+    .receipt
+      #header
+        = image_tag "receipt-logo.gif"
+        %br/
+        %br/
+        .shop
+          Auringosta Itään, Kuusta Länteen
+        .info
+          Fredrikinkatu 19 (Viiskulma)
+          %br/
+          00120 Helsinki
+      .info
+        11. tammikuuta 2014 /  Tilaus R201316801
+        %br/
+      .wrapper
+        .line_items
+          %table.line_items
+            %colgroup
+              %col/
+              %col/
+              %col.price/
+              %col.qty/
+              %col.total/
+            %tbody
+              %tr
+                %td.sku.bold
+                %td.desc.bold= t(:description)
+                %td.price.bold= t(:price)
+                %td.qty.bold= t(:quantity)
+                %td.total.bold= t(:total)
+              - @order.basket.items.each do |i|
+                %tr
+                  %td.cell
+                  %td.cell= i.product.name
+                  %td.cell.price= i.price
+                  %td.cell.qty= i.quantity
+                  %td.cell.total= i.total
+        .spacer
+           
+        .totals
+          %table.totals
+            %tbody
+              %tr
+                %td.cel1.bold
+                  %strong= t(:order_total)
+                %td.cel2.cell{align: "right"}
+                  %strong
+                    %span#summary-order-total= @order.total_price
+              %tr
+                %td.cel1
+                %td.cel2
+              %tr.total
+                %td.cel1.bold
+                  Alv14 14.0%:
+                %td.cel2.cell{align: "right"}= @order.total_tax
+      .footer
+        %br/
+        www.auringostaitaan.fi
+        %br/
+        info@www.auringostaitaan.fi
+        %br/
+        puh 09- 621 7001

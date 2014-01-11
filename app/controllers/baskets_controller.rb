@@ -130,8 +130,8 @@ class BasketsController < AdminController
     end
     as = params[:as]
     num = 0 
-    prods = @order.line_items.count
-    @order.line_items.each do |item |
+    prods = @order.basket.items.count
+    @order.basket.items.each do |item |
       variant = item.variant
       num += item.quantity
       if as
@@ -141,7 +141,7 @@ class BasketsController < AdminController
       end
       variant.save!
     end
-    @order.line_items.clear
+    @order.basket.items.clear
     flash.notice = "Total of #{num} items #{as ? 'inventoried': 'added'} for #{prods} products "     
     redirect_to :action => :show 
   end

@@ -12,9 +12,8 @@ class Item < ActiveRecord::Base
     order("#{attribute} #{direction}")
   }
 
-  # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
-  def caption
-    (self["name"] || self["label"] || self["description"] || "##{id}")
+  def total
+    self.price * self.quantity
   end
 
   #relation of price to product price down from 100 %
