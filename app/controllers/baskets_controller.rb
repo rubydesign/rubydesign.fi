@@ -1,7 +1,7 @@
 # encoding : utf-8
 class BasketsController < AdminController
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :print]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -18,25 +18,14 @@ class BasketsController < AdminController
   end
 
   def print
-    unless @order.payment_ids.empty?
-      @order.payments.first.delete unless @order.payments.first.amount == @order.total
-    end
-    if @order.payment_ids.empty?
-      payment = Spree::Payment.new
-      payment.payment_method = Spree::PaymentMethod.find_by_type_and_environment( "Spree::PaymentMethod::Check" , Rails.env)
-      payment.amount = @order.total 
-      payment.order = @order 
-      payment.save!
-      payment.capture!
-    end
-    @order.state = "complete"
-    @order.completed_at = Time.now
-    @order.create_tax_charge!
-    @order.finalize!
-    @order.save!
-    url = SpreePos::Config[:pos_printing]
-    url = url.sub("number" , @order.number.to_s)
-    redirect_to url
+    order = @basket.order
+    order = Order.for_basket(@basket) unless order
+    order.paid_on    = Date.today unless order.paid_on
+    order.shipped_on = Date.today unless order.shipped_on
+    order.shipping_price = 0 unless order.shipping_price
+    order.shipping_tax   = 0 unless order.shipping_tax
+    order.save!
+    redirect_to :action => :print , :controller => :orders , :id => order.id
   end
 
   def show

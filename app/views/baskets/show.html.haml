@@ -1,3 +1,12 @@
+:javascript
+  <!--
+  var newwindow;
+  function poptastic(url)
+  { 
+    newwindow=window.open(url,'Print','width=600,left=200,top=50,toolbar=no,status=no');
+    if (window.focus) {newwindow.focus()}
+  }
+  //-->
 .row
   .large-12.columns
     %h2
@@ -55,7 +64,7 @@
         .large-2.column
           = link_to t(:make_order), order_basket_path(@basket), :class => "admin-button"
         .large-2.column
-          = link_to t(:print_order), print_basket_path(@basket), :class => "admin-button"
+          = link_to t(:print_order), "javascript:poptastic('#{print_basket_path(@basket)}');" , :class => "admin-button"
       - else
         .large-2.column
           = link_to t(:to_order), order_path(@basket.order), :class => "admin-button"
