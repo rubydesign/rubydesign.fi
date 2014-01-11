@@ -1,7 +1,7 @@
 # encoding : utf-8
 class BasketsController < AdminController
 
-  before_filter :load_basket, :only => [:show, :edit, :update, :destroy , :order]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -15,6 +15,28 @@ class BasketsController < AdminController
       @basket_scope = @basket_scope.send(params[:scope])
     end
     @baskets = @basket_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
+  end
+
+  def print
+    unless @order.payment_ids.empty?
+      @order.payments.first.delete unless @order.payments.first.amount == @order.total
+    end
+    if @order.payment_ids.empty?
+      payment = Spree::Payment.new
+      payment.payment_method = Spree::PaymentMethod.find_by_type_and_environment( "Spree::PaymentMethod::Check" , Rails.env)
+      payment.amount = @order.total 
+      payment.order = @order 
+      payment.save!
+      payment.capture!
+    end
+    @order.state = "complete"
+    @order.completed_at = Time.now
+    @order.create_tax_charge!
+    @order.finalize!
+    @order.save!
+    url = SpreePos::Config[:pos_printing]
+    url = url.sub("number" , @order.number.to_s)
+    redirect_to url
   end
 
   def show
@@ -32,17 +54,45 @@ class BasketsController < AdminController
   end
 
   def edit
-    ean = params[:ean]
-    prod = Product.find_by_ean ean
-    if(prod)
-      @basket.add_product prod
-      redirect_to :action => :show
-    else
-      session[:search] ||= {}
-      session[:search][:product] =  {"name_cont"=> ean}
-      session[:basket] = true
-      redirect_to :action => :index , :controller => :products
+    if pid = params[:add]
+      item = @basket.items.find { |item| item.id.to_s == pid }
+      item.quantity += 1
+      item.save
+#      flash.notice = t('product_added')
     end
+    if pid = params[:delete]
+      item = @basket.items.find { |item| item.id.to_s == pid }
+      item.quantity -= 1
+      if item.quantity == 0
+        @basket.items.delete item
+      else
+        item.save
+      end
+#      flash.notice = t('item_removed') 
+    end
+    if discount = params[:discount]
+      if i_id = params[:item]
+        item = @order.line_items.find { |line_item| line_item.id.to_s == i_id }
+        item_discount( item , discount )
+      else
+        @basket.items.each do |item|
+          item_discount( item , discount )
+        end
+      end
+    end
+    if ean = params[:ean]
+      prod = Product.find_by_ean ean
+      if(prod)
+        @basket.add_product prod
+      else
+        session[:search] ||= {}
+        session[:search][:product] =  {"name_cont"=> ean}
+        session[:basket] = true
+        redirect_to :action => :index , :controller => :products
+        return
+      end
+    end
+    redirect_to  :action => :show
   end
   
   def create
@@ -67,7 +117,12 @@ class BasketsController < AdminController
     redirect_to baskets_url 
   end
 
-  private 
+  private
+
+  def item_discount item , discount
+    item.price = item.product.price * ( 1.0 - discount.to_f/100.0 )
+    item.save!
+  end
   
   def load_basket
     @basket = Basket.find(params[:id])

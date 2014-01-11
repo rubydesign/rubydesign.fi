@@ -17,6 +17,12 @@ class Item < ActiveRecord::Base
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
 
+  #relation of price to product price down from 100 %
+  def discount
+    return 0 unless product.price and product.price != 0
+    (100 - (price/product.price)*100).round(0)
+  end
+  
   def self.permitted_attributes
     return :basket_id,:quantity,:price,:tax,:product_id
   end

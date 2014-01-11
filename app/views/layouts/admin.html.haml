@@ -24,8 +24,8 @@
           %li
           = render :partial => "layouts/admin_menu"
     %br/
-    .row
-      .medium-12.columns
+    .row.content
+      .large-12.column
         - if not flash[:notice].blank? then
           .alert.alert-info
             %a.close{"data-dismiss" => "alert", :href => "#"} ×
