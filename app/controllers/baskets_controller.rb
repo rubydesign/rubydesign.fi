@@ -80,6 +80,11 @@ class BasketsController < AdminController
         end
       end
     end
+    if p_id = params[:product]
+      prod = Product.find p_id
+      #errors ?
+      @basket.add_product prod
+    end
     if ean = params[:ean]
       prod = Product.find_by_ean ean
       if(prod)
@@ -87,7 +92,7 @@ class BasketsController < AdminController
       else
         session[:search] ||= {}
         session[:search][:product] =  {"name_cont"=> ean}
-        session[:basket] = true
+        session[:basket] = @basket.id
         redirect_to :action => :index , :controller => :products
         return
       end
@@ -126,6 +131,7 @@ class BasketsController < AdminController
   
   def load_basket
     @basket = Basket.find(params[:id])
+    session[:basket] = nil # used to change links on product page, null when we come back
   end
 
   def params_for_basket

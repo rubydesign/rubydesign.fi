@@ -41,8 +41,11 @@
                 =product.properties
               %td{column_style("product", "inventory")}
                 =product.inventory
-              %td= link_to t(:show) , product_path(product), :title => t(:show)
-              %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
+              -if session[:basket]
+                %td= link_to t(:add_to_basket) , edit_basket_path(:id => session[:basket] , :product => product.id)
+              -else
+                %td= link_to t(:show) , product_path(product), :title => t(:show)
+                %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
   .medium-3.columns
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = ransack_field("product", "name", f, "Name")
