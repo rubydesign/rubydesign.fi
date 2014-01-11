@@ -6,7 +6,7 @@
   .small-5.columns
     = form_tag edit_basket_path(@basket) , :method => :get do |f|
       = label_tag :ean
-      = text_field_tag :ean
+      = text_field_tag :ean , "" , :autofocus => true
   .small-5.columns
     = t(:discount )
     = form_tag edit_basket_path(@basket) , :method => :get do
@@ -32,7 +32,8 @@
             = f.simple_fields_for :items , item do |iform|
               %td= iform.text_field :quantity , :label => false
               %td= iform.text_field :price , :label => false
-            %td= item.discount
+            %td
+              = select_tag("discount" , options_for_select( [item.discount,0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => "window.location.href='edit?item=#{item.id}&discount=' + this.value"  )
             %td
               = link_to t(:delete) , edit_basket_path(:delete => item.id) 
               = link_to t(:add) , edit_basket_path(:add => item.id) 

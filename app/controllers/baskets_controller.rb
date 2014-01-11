@@ -72,7 +72,7 @@ class BasketsController < AdminController
     end
     if discount = params[:discount]
       if i_id = params[:item]
-        item = @order.line_items.find { |line_item| line_item.id.to_s == i_id }
+        item = @basket.items.find { |item| item.id.to_s == i_id }
         item_discount( item , discount )
       else
         @basket.items.each do |item|
@@ -120,6 +120,30 @@ class BasketsController < AdminController
   def destroy
     @basket.destroy
     redirect_to baskets_url 
+  end
+
+  def inventory
+    if @order.state == "complete"
+      flash[:error] = "Order was already completed (printed), please start with a new customer to add inventory"
+      redirect_to :action => :show 
+      return
+    end
+    as = params[:as]
+    num = 0 
+    prods = @order.line_items.count
+    @order.line_items.each do |item |
+      variant = item.variant
+      num += item.quantity
+      if as
+        variant.on_hand = item.quantity
+      else
+        variant.on_hand += item.quantity
+      end
+      variant.save!
+    end
+    @order.line_items.clear
+    flash.notice = "Total of #{num} items #{as ? 'inventoried': 'added'} for #{prods} products "     
+    redirect_to :action => :show 
   end
 
   private
