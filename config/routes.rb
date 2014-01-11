@@ -1,57 +1,57 @@
 OfficeClerk::Application.routes.draw do
   resources :shops
 
-  match "purchases/search_and_filter" => "purchases#index", :via => [:get, :post], :as => :search_purchases
   resources :purchases do
     collection do
+      match "search" => "purchases#index", :via => [:get, :post]
     end
     member do
     end
   end
 
-  match "baskets/search_and_filter" => "baskets#index", :via => [:get, :post], :as => :search_baskets
   resources :baskets do
     collection do
+      match "search" => "baskets#index", :via => [:get, :post]
     end
     member do
       get :order 
     end
   end
 
-  match "orders/search_and_filter" => "orders#index", :via => [:get, :post], :as => :search_orders
   resources :orders do
     collection do
+      match "search" => "orders#index", :via => [:get, :post]
     end
     member do
     end
   end
 
-  match "items/search_and_filter" => "items#index", :via => [:get, :post], :as => :search_items
   resources :items do
     collection do
+      match "search" => "items#index", :via => [:get, :post]
     end
     member do
     end
   end
 
-  match "categories/search_and_filter" => "categories#index", :via => [:get, :post], :as => :search_categories
   resources :categories do
     collection do
+      match "search" => "categories#index", :via => [:get, :post]
     end
     member do
     end
   end
 
-  match "products/search_and_filter" => "products#index", :via => [:get, :post], :as => :search_products
   resources :products do
     collection do
+      match "search" => "products#index", :via => [:get, :post]
     end
     member do
       post :delete
     end
   end
 
-  match "users/search_and_filter" => "users#index", :via => [:get, :post], :as => :search_users
+  match "users/search" => "users#index", :via => [:get, :post]
   resources :users do
     collection do
     end
@@ -59,12 +59,15 @@ OfficeClerk::Application.routes.draw do
     end
   end
 
-  match "addresses/search_and_filter" => "addresses#index", :via => [:get, :post], :as => :search_addresses
-  resources :addresses 
-
-  match "suppliers/search_and_filter" => "suppliers#index", :via => [:get, :post], :as => :search_suppliers
+  resources :addresses do
+    collection do
+      match "search" => "addresses#index", :via => [:get, :post]
+    end
+  end
+  
   resources :suppliers do
     collection do
+      match "search" => "suppliers#index", :via => [:get, :post]
     end
     member do
     end
