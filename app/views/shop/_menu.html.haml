@@ -1,4 +1,5 @@
-.nav-bar
-                    
-  - @menu.each do |link , text|
-    %a{ :href => link}= text + "            "
+%nav.top-bar
+  %ul
+    - @menu.each do |link , text|
+      %li
+        %a{ :href => link}= text + "            "

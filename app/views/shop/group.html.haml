@@ -1,14 +1,17 @@
-.medium-8.columns
-  %div
-    %ul#products.inline.product-listing
-      -@products.each do |product|
-        %li.columns.medium-3.columns.secondary
-          .h3= product.name
+%div
+  %ul#products.inline.product-listing.no-bullet
+    -@products.each do |product|
+      %li.medium-3.columns
+        .product-container
           .product-image
             %a{:href => prod_path( :id => product.link )}
-              =image_tag product.main_picture.url(:list) if product.main_picture
-          .product-name
-            %a.info{:href => prod_path( :id => product.link )}
-              %span.price.selling
-                = product.price
-                €
+              %img{ :src => "/assets/hihih.jpg"}
+          .product-fact
+            .product-name
+              = product.name
+            .product-price
+              %a.info{:href => prod_path( :id => product.link )}
+                %span.price.selling
+                  = product.price
+                  €
+          
