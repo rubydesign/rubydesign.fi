@@ -84,6 +84,8 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.0.2)
+    facet_for (0.1.6)
+      ransack
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.3.0)
@@ -256,6 +258,7 @@ DEPENDENCIES
   db_fixtures_dump
   devise
   email_spec
+  facet_for
   factory_girl_rails
   foundation-rails
   foundation_rails_helper

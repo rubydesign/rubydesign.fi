@@ -19,6 +19,7 @@ gem 'will_paginate-foundation'
 gem 'foundation_rails_helper'
 gem 'db_fixtures_dump'
 gem "paperclip"
+gem 'facet_for'
 
 group :development do
   gem 'better_errors'
