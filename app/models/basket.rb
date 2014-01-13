@@ -17,11 +17,6 @@ class Basket < ActiveRecord::Base
   validates :name, :presence => true
   accepts_nested_attributes_for :items
 
-  # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
-  def caption
-    (self["name"] || self["label"] || self["description"] || "##{id}")
-  end
-
   def cache_totals
     self.total_price = items.sum{ |i| i.price * i.quantity}
     self.total_tax   = items.inject(0){|sum,i| sum + i.tax * i.quantity * i.price / 100.0}

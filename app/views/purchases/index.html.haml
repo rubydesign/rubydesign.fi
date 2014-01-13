@@ -33,7 +33,7 @@
                 =purchase.received_on
               %td{column_style("purchase", "basket")}
               - if not purchase.basket_id.nil? then
-                = link_to purchase.basket.caption, basket_path(purchase.basket_id)
+                = link_to purchase.basket.name, basket_path(purchase.basket_id)
               - else
                 = t(:any, :default => "Any")
               %td{column_style("purchase", "supplier")}

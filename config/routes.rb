@@ -53,9 +53,9 @@ OfficeClerk::Application.routes.draw do
     end
   end
 
-  match "users/search" => "users#index", :via => [:get, :post]
   resources :users do
     collection do
+      match "search" => "users#index", :via => [:get, :post]
     end
     member do
     end

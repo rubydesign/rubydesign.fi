@@ -13,10 +13,6 @@ class Supplier < ActiveRecord::Base
   }
   validates :name, :presence => true
 
-  # You can OVERRIDE this method used in model form and search form (in belongs_to relation)
-  def caption
-    (self["name"] || self["label"] || self["description"] || "##{id}")
-  end
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
