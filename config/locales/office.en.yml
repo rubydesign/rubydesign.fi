@@ -12,6 +12,7 @@ en:
   category_id: Product Line
   categories: Product Categories
   country: Country
+  discount: Discount
   description: Description
   destroy: Destroy
   edit: Edit
@@ -33,6 +34,7 @@ en:
   position: Position
   prev: Previous
   price: Price
+  print_order: Print Order
   product: Product
   products: Products
   purchases: Purchases

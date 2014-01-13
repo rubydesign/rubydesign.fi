@@ -65,7 +65,7 @@
     %p
       %b
         = t(:category) + ":"
-      = (@product.category.nil? ? "" : @product.category.caption)
+      = (@product.category.nil? ? "" : @product.category.name)
     %p
       %b
         = t(:supplier) + ":"

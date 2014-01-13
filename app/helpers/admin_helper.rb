@@ -5,12 +5,6 @@ module AdminHelper
     return :style => "display:table-cell;" + other_css
   end
 
-  def dropdown_submenu(link_caption, &block)
-    the_link = link_to((link_caption + ' <b class="caret"></b>').html_safe, "#", :class => "dropdown-toggle", "data-toggle" => "dropdown")
-    contents = (block_given?) ? content_tag_string(:ul, capture(&block), :class => "dropdown-menu") : ''
-    content_tag_string :li, the_link + contents, :class => "dropdown"
-  end
-
   def sorting_header(model_name, attribute_name, namespace)
     attr    = nil
     sort    = nil
@@ -62,7 +56,7 @@ module AdminHelper
 
     ar_model = model_name.camelize.constantize
 
-    default_caption = caption
+    default_caption = nil
     if default_caption.blank? then
       default_caption = attribute_name.capitalize
       if is_belongs_to_column?(default_caption) then
@@ -240,11 +234,4 @@ module AdminHelper
     "app.models.#{model}.bs_attributes.#{attr}"
   end
 
-  def i18n_translate_path_model(model)
-    "app.models.#{model}.bs_caption"
-  end
-
-  def i18n_translate_path_model_plural(model)
-    "app.models.#{model}.bs_caption_plural"
-  end
 end

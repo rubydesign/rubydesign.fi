@@ -16,7 +16,7 @@
 %p
   %b
     = t('app.models.purchase.bs_attributes.basket', :default => 'basket') + ":"
-  = (@purchase.basket.nil? ? "" : @purchase.basket.caption)
+  = (@purchase.basket.nil? ? "" : @purchase.basket.name)
 %p
   %b
     = t('app.models.purchase.bs_attributes.supplier', :default => 'supplier') + ":"
