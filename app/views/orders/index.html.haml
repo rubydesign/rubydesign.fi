@@ -30,7 +30,7 @@
               %td{column_style("order", "ordered_on")}
                 = order.ordered_on
               %td{column_style("order", "total_price")} 
-                = number_to_currency(order.basket.total_price)
+                = euros(order.basket.total_price)
               %td{column_style("order", "email")}
                 = order.email
               %td{column_style("order", "status")}

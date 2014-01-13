@@ -138,7 +138,7 @@ class BasketsController < AdminController
   private
 
   def item_discount item , discount
-    item.price = item.product.price * ( 1.0 - discount.to_f/100.0 )
+    item.price = (item.product.price * ( 1.0 - discount.to_f/100.0 )).round(2)
     item.save!
   end
   

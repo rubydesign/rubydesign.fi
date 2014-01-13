@@ -27,7 +27,7 @@
               %td{column_style("basket", "created_at")}
                 =basket.created_at.to_date.to_s
               %td
-                =basket.total_price
+                = euros basket.total_price
               %td
                 - basket.items.each do |item| #should break at 5 and do the rest as tooltip
                   = item.quantity

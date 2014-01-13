@@ -6,13 +6,13 @@
       = t(:ordered_on) + ":" + @order.ordered_on
   %p
     %b
-      = t(:total_price) + ":" +  number_to_currency(@order.basket.total_price)
+      = t(:total_price) + ":" +  euros(@order.basket.total_price)
   %p
     %b
-      = t(:total_tax) + ":" + number_to_currency(@order.basket.total_tax)
+      = t(:total_tax) + ":" + euros(@order.basket.total_tax)
   %p
     %b
-      = t(:shipping_price) + ":" + number_to_currency(@order.shipping_price)
+      = t(:shipping_price) + ":" + euros(@order.shipping_price)
   %p
     %b
       = t(:shipping_tax) + ":" + @order.shipping_tax.to_s
@@ -49,7 +49,7 @@
           %td= image_tag item.product.main_picture.url if item.product
           %td= item.product.name if item.product
           %td= item.quantity
-          %td= item.price
+          %td= euros item.price
       %tr
         %td{:colspan => 2}
           %b
@@ -59,7 +59,7 @@
           = @order.basket.total_tax
         %td 
           = t(:total)
-          = @order.basket.total_price
+          = euros @order.basket.total_price
   
   
 .medium-12.columns

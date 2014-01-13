@@ -39,9 +39,9 @@
                 %tr
                   %td.cell
                   %td.cell= i.product.name
-                  %td.cell.price= i.price
+                  %td.cell.price= euros i.price
                   %td.cell.qty= i.quantity
-                  %td.cell.total= i.total
+                  %td.cell.total= euros i.total
         .spacer
            
         .totals
@@ -52,7 +52,7 @@
                   %strong= t(:order_total)
                 %td.cel2.cell{align: "right"}
                   %strong
-                    %span#summary-order-total= @order.total_price
+                    %span#summary-order-total= euros @order.total_price
               %tr
                 %td.cel1
                 %td.cel2

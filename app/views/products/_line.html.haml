@@ -12,7 +12,7 @@
     %tr.line-2
       %td=t("price")
       - @product.products.each do |product|
-        %td=number_to_currency(product.price)
+        %td=euros(product.price)
     %tr.line-1
       %td=t("inventory")
       - @product.products.each do |product|

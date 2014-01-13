@@ -23,11 +23,11 @@
       %p
         %b
           = t(:price) + ":"
-        = number_to_currency(@product.price)
+        = euros(@product.price)
       %p
         %b
           = t(:cost) + ":"
-        = number_to_currency(@product.cost)
+        = euros(@product.cost)
       %p
         %b
           = t(:weight) + ":"
