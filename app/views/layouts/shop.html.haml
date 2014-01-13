@@ -16,26 +16,36 @@
     %meta{content: "authenticity_token", name: "csrf-param"}
     %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
   %body#product-details
-    #header.container
-      .header.row.container
-        %nav.nav-bar.medium-12.columns
-          %ul#nav-bar.inline
+    %header.row
+      %nav.top-bar{"data-topbar" => ""}
+        %section.top-bar-section
+          %ul.left
+            %li 
+              %img{src: "/assets/shop/header.gif"}/
+              
+          %ul.right
             %li#link-to-cart
               %a.empty{href: "/cart"} Ostoskori: (tyhjä)
             %li#link-to-login
-              %a{href: "/login"} kirjaudu
-      .container.medium-12.columns
-        = render "menu"
-        .medium-3.columns
-          %nav#groups.sidebar-item
-            =render "groups"
-          %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
-            %div{style: "margin:0;padding:0;display:inline"}
-              %input{name: "utf8", type: "hidden", value: "✓"}/
-            %input#keywords{name: "keywords", placeholder: "Etsi", type: "search"}
-            %input{type: "submit", value: "Etsi"}/
-        = yield
-      %div{id: "footer container"}
+              %a{href: "/login"} Kirjaudu
+            %li
+              %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
+                %div{style: "margin:0;padding:0;display:inline"}
+                  %input{name: "utf8", type: "hidden", value: "✓"}/
+                %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "12"}
+              
+    .row
+      .large-12.columns.main-image
+        %img{src: "/assets/koe.jpg"}/
+        = render "sub"
+
+    .row
+      .large-12.columns
+        = yield  
+
+      
+    .row
+      %div{id: "footer"}
         .left
           Suunnittelu ja toteutus Ruby Design    
           %br/
@@ -43,14 +53,15 @@
           %a{href: "http://rubyclerks.com/"} RubyClerks
         .right{align: "right"}
           %b> AURINGOSTA ITÄÄN, KUUSTA LÄNTEEN
-           | Fredrikinkatu 19 (Viiskulma), Helsinki
           %br/
-          puh +358- (0)9- 621 7001 | Y-tunnus 2380478-1 | 
-    :javascript
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          Fredrikinkatu 19 (Viiskulma), Helsinki
+          %br/
+          puh +358- (0)9- 621 7001 | Y-tunnus 2380478-1
+      :javascript
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-12603339-1', 'auringostaitaan.fi');
-      ga('send', 'pageview');
+        ga('create', 'UA-12603339-1', 'auringostaitaan.fi');
+        ga('send', 'pageview');

@@ -3,14 +3,109 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*
  */
-@import "shop_foundation" ;
+ 
+$topbar-bg: #108BAD;
+$highlight: #108BAD;
 
-.header {
-  height: 180px;
-  background: transparent image-url('shop/header.gif') top center no-repeat ;
+#footer {
+  padding-top: 6px;
+  padding-left: 18px; padding-right: 18px;
+  font-size: .8em;
+	line-height: 15
+	0%;
+	strong, b {
+    color: highlight;
+  }  
 }
 
+.main-image {
+  padding-top: 15px;
+}
 
 body {
-  background: #fff url("shop/tausta.jpg") top left repeat-x;
+  font-family: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
 }
+
+.menus {
+  padding: 8px;
+  margin: 0 auto;
+}
+
+.product-image {
+  padding: 8px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.product-container {
+  min-height: 250px;
+}
+
+.product-fact {
+  text-align: center;
+  border: 1px dotted #007bd2;
+	font: .8em/120% "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+	padding: 4px 4px 6px;
+	width: 80%;
+  
+}
+
+.product-name {
+	padding-bottom: 3px;
+}
+  
+.product-price {
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 150%;
+  border-top: 1px solid #588ebf;
+	width: 80%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+@import "shop_foundation" ;
+
+
+.submenu {
+  padding: 8px;
+  text-align: center;
+  img {
+  padding: 8px;
+  }
+}
+
+.submenu-container {
+  position: relative;
+  margin: 0 auto;
+  }
+
+.submenu-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+	margin-top: 10px;
+}
+.submenu-image2 {
+  position: absolute;
+  left: 60;
+  top: 0;
+	margin-top: 10px;
+}
+
+
+.submenu-text {
+  width: 325px;
+  height: 65px;
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  top: 190px;
+  background: black;
+  /* fallback color */
+  background: rgba(0, 0, 0, 0.3);
+	padding: 6px;
+}
+
