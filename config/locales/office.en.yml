@@ -46,6 +46,7 @@ en:
   tax: Vat
   total: Total
   treeview: Treeview
+  type: Type
   users: Users
   will_paginate:
     previous_label: "&#8592; Previous"

@@ -16,9 +16,9 @@
       .controls
         = f.text_area :description, :rows => 10 , :cols => 40
       .controls
-        = f.collection_select :supplier_id, Supplier.all, :id, :caption, :include_blank => true
+        = f.collection_select :supplier_id, Supplier.all, :id, :name, :include_blank => true
       .controls
-        = f.collection_select :category_id, Category.all, :id, :caption, :include_blank => true
+        = f.collection_select :category_id, Category.all, :id, :name, :include_blank => true
       .controls
         = image_tag @product.main_picture.url
         = f.file_field :main_picture
