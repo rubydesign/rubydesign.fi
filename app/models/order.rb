@@ -1,14 +1,5 @@
 class Order < ActiveRecord::Base
   belongs_to :basket , :autosave => true
-  scope :sorting, lambda{ |options|
-    attribute = options[:attribute]
-    direction = options[:sorting]
-
-    attribute ||= "id"
-    direction ||= "DESC"
-
-    order("#{attribute} #{direction}")
-  }
 
   def total_price
     basket.total_price + shipping_price

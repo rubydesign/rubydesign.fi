@@ -20,16 +20,6 @@ class Product < ActiveRecord::Base
   # default product scope only lists non-deleted products
   default_scope {where(:deleted_on => nil)}
  
-  scope :sorting, lambda{ |options|
-    attribute = options[:attribute]
-    direction = options[:sorting]
-
-    attribute ||= "id"
-    direction ||= "DESC"
-
-    order("#{attribute} #{direction}")
-  }
-
   validates :price, :numericality => true 
   validates :cost, :numericality => true
   validates :name, :presence => true
@@ -47,6 +37,10 @@ class Product < ActiveRecord::Base
     !line_item? and !products.empty?
   end
 
+  def full_name
+    raise "error" unless line_item?
+    product.name + ":" + self.name
+  end
   #this product is an item of a product line (so is sellable)
   def line_item?
     self.product_id != nil

@@ -4,16 +4,6 @@ class Basket < ActiveRecord::Base
   has_many :items, autosave: true
   before_save :cache_totals
   
-  scope :sorting, lambda{ |options|
-    attribute = options[:attribute]
-    direction = options[:sorting]
-
-    attribute ||= "id"
-    direction ||= "DESC"
-
-    order("#{attribute} #{direction}")
-  }
-
   validates :name, :presence => true
   accepts_nested_attributes_for :items
 
