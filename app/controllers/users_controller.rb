@@ -7,11 +7,7 @@ class UsersController < AdminController
   #authorize_resource
 
   def index
-    do_sort_and_paginate(:user)
-    
-    @q = User.search(
-      params[:q]
-    )
+    @q = User.search params[:q]
 
     @user_scope = @q.result(:distinct => true)
     
