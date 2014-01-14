@@ -33,7 +33,7 @@
               %td{column_style("category", "picture")}
                 = image_tag product.main_picture.url
               %td{column_style("product", "ean")}
-                =product.ean
+                = product.line? ? "#{product.products.count} #{t(:items)}" : product.ean
               %td{column_style("product", "name")}
                 = link_to product_path(product), :title => t(:show) do 
                   =product.line_item? ? product.full_name : product.name
@@ -62,4 +62,4 @@
       = f.facet_for("scode")
       = f.facet_for("inventory")
       = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), products_path(:filter => "ok"), :class => "admin-button"
+      = link_to  t(:cancel), products_path, :class => "admin-button"

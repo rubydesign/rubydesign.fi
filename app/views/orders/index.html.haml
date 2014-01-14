@@ -56,4 +56,4 @@
       = f.facet_for("paid_on")
       = f.facet_for("canceled_on")
       = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), orders_path(:filter => "ok"), :class => "admin-button"
+      = link_to  t(:cancel), orders_path, :class => "admin-button"

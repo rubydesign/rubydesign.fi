@@ -42,7 +42,7 @@
       = f.facet_for("name")
       = f.facet_for("description")
       = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), categories_path(:filter => "ok"), :class => "admin-button"
+      = link_to  t(:cancel), categories_path, :class => "admin-button"
     %hr
     - Category.where(:category_id => nil).each do |group|
       = render "treeview" , :group => group

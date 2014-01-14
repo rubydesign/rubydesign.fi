@@ -39,4 +39,4 @@
       = f.facet_for("email")
       = f.facet_for("name")
       = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), users_path(:filter => "ok"), :class => "admin-button"
+      = link_to  t(:cancel), users_path, :class => "admin-button"
