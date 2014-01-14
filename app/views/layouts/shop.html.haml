@@ -21,8 +21,11 @@
         %section.top-bar-section
           %ul.left
             %li 
-              %img{src: "/assets/shop/header.gif"}/
-              
+              %img{src: "/assets/shop/valk3.png"}/
+            %li 
+              %img{src: "/assets/shop/valk.png"}/
+            
+                        
           %ul.right
             %li#link-to-cart
               %a.empty{href: "/cart"} Ostoskori: (tyhjä)
@@ -33,12 +36,10 @@
                 %div{style: "margin:0;padding:0;display:inline"}
                   %input{name: "utf8", type: "hidden", value: "✓"}/
                 %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "12"}
-              
+    
     .row
-      .large-12.columns.main-image
-        %img{src: "/assets/koe.jpg"}/
-        = render "sub"
-
+      %img{src: "/assets/shop/header.jpg"}/
+              
     .row
       .large-12.columns
         = yield  
