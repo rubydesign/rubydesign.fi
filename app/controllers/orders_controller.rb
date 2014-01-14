@@ -9,7 +9,7 @@ class OrdersController < AdminController
   def index
     do_sort_and_paginate(:order)
     @q = Order.search(params[:q])
-    @order_scope = @q.result( :distinct => true).sorting(params[:sorting])
+    @order_scope = @q.result( :distinct => true)
     @order_scope_for_scope = @order_scope.dup
     
     unless params[:scope].blank?

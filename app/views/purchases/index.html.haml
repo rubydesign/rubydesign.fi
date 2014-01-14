@@ -47,8 +47,8 @@
           = paginate @purchases
   .medium-3.columns
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("purchase", "name", f, "Name")
-      = ransack_field("purchase", "ordered_on", f, "Ordered_on")
-      = ransack_field("purchase", "received_on", f, "Received_on")
+      = f.facet_for("name")
+      = f.facet_for("ordered_on")
+      = f.facet_for("received_on")
       = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), purchases_path(:filter => "ok"), :class => "admin-button"
+      = link_to  t(:cancel), purchases_path, :class => "admin-button"

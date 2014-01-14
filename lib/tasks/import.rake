@@ -23,7 +23,27 @@ namespace :db do
       file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.main_picture_file_name}"].first
       next unless file
       p.main_picture =  File.open file
-      puts file
+      puts "Main " + file
+      unless p.extra_picture_file_name.blank?
+        file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.extra_picture_file_name}"].first
+        if file
+          p.extra_picture =  File.open file
+          puts "Extra " + file
+        end
+      end
+      #line prices that have gone askew in time
+      if p.line?
+        prices = p.products.collect{|u| u.price }
+        if(p.price < prices.min) or (p.price > prices.max)
+          p.price = prices.min 
+        end
+      end
+      #prices rounded  to 5 cent 
+      if p.price 
+        p.price = (((p.price % 1.0)/5.0).round(2)*5 + (p.price - p.price % 1.0)).round(2)
+      else
+        p.price = 0.0
+      end
       p.save!
     end
   end

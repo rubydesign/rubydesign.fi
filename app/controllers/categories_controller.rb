@@ -13,11 +13,7 @@ class CategoriesController < AdminController
       params[:q]
     )
 
-    @category_scope = @q.result(
-      :distinct => true
-    ).sorting(
-      params[:sorting]
-    )
+    @category_scope = @q.result(:distinct => true)
     
     @category_scope_for_scope = @category_scope.dup
     

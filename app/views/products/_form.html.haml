@@ -19,12 +19,14 @@
         = f.collection_select :supplier_id, Supplier.all, :id, :name, :include_blank => true
       .controls
         = f.collection_select :category_id, Category.all, :id, :name, :include_blank => true
-      .controls
-        = image_tag @product.main_picture.url
-        = f.file_field :main_picture
-      .control-group
-        = image_tag @product.extra_picture.url
-        = f.file_field :extra_picture
+      .medium-6.columns
+        .controls
+          = image_tag @product.main_picture.url(:thumb)
+          = f.file_field :main_picture
+      .medium-6.columns
+        .control-group
+          = image_tag @product.extra_picture.url(:product)
+          = f.file_field :extra_picture
       .form-actions
         = f.submit :class => "submit-button"
         = link_to t(:cancel), products_path, :class => "admin-button"

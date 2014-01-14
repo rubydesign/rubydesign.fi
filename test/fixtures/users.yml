@@ -8,6 +8,7 @@ pasanenj@ovi.com:
   last_sign_in_at: 2011-11-06 18:49:08.000000000 Z
   current_sign_in_ip: 88.192.116.166
   last_sign_in_ip: 88.192.116.166
+  created_at: 2011-11-06 18:49:08.000000000 Z
   address_id: 
 mlk.rissanen@gmail.com:
   email: mlk.rissanen@gmail.com
@@ -18,6 +19,7 @@ mlk.rissanen@gmail.com:
   last_sign_in_at: 2011-11-27 11:11:55.000000000 Z
   current_sign_in_ip: 85.76.108.77
   last_sign_in_ip: 85.76.108.77
+  created_at: 2011-11-16 18:32:11.000000000 Z
   address_id: 
 hannaholma@gmail.com:
   email: hannaholma@gmail.com
@@ -28,6 +30,7 @@ hannaholma@gmail.com:
   last_sign_in_at: 2013-08-14 12:20:55.000000000 Z
   current_sign_in_ip: 85.76.18.82
   last_sign_in_ip: 85.76.106.150
+  created_at: 2011-09-18 12:27:37.000000000 Z
   address_id: 
 raisa@villataika.fi:
   email: raisa@villataika.fi
@@ -38,6 +41,7 @@ raisa@villataika.fi:
   last_sign_in_at: 2013-08-06 09:22:00.000000000 Z
   current_sign_in_ip: 85.76.97.207
   last_sign_in_ip: 188.238.181.107
+  created_at: 2011-10-24 08:06:00.000000000 Z
   address_id: 
 pirita.pauni@gmail.com:
   email: pirita.pauni@gmail.com
@@ -48,16 +52,18 @@ pirita.pauni@gmail.com:
   last_sign_in_at: 2013-08-15 11:50:53.000000000 Z
   current_sign_in_ip: 85.76.18.82
   last_sign_in_ip: 85.76.97.45
+  created_at: 2011-10-24 08:06:39.000000000 Z
   address_id: 
 torsten@villataika.fi:
   email: torsten@villataika.fi
   encrypted_password: 4634bcd677115c82393ba3955d4f782c163cf7070d3246ed833c663b9385a082ea7cc2a23c11754753955dd21206703f0a2926075ffe6fb131ff9626db4fb629
   remember_created_at: 
-  sign_in_count: 220
-  current_sign_in_at: 2013-08-16 07:53:08.000000000 Z
-  last_sign_in_at: 2013-07-07 08:30:39.000000000 Z
-  current_sign_in_ip: 85.76.99.115
-  last_sign_in_ip: 85.76.122.135
+  sign_in_count: 221
+  current_sign_in_at: 2014-01-11 08:07:47.850475000 Z
+  last_sign_in_at: 2013-08-16 07:53:08.000000000 Z
+  current_sign_in_ip: 127.0.0.1
+  last_sign_in_ip: 85.76.99.115
+  created_at: 2010-01-01 13:36:41.000000000 Z
   address_id: 63
 minnaj@iki.fi:
   email: minnaj@iki.fi
@@ -68,6 +74,7 @@ minnaj@iki.fi:
   last_sign_in_at: 2013-08-15 14:45:53.000000000 Z
   current_sign_in_ip: 85.76.18.82
   last_sign_in_ip: 85.76.108.79
+  created_at: 2011-10-24 08:07:09.000000000 Z
   address_id: 
 sanna.siniketo@sofigate.com:
   email: sanna.siniketo@sofigate.com
@@ -78,6 +85,7 @@ sanna.siniketo@sofigate.com:
   last_sign_in_at: 2011-11-28 16:11:36.000000000 Z
   current_sign_in_ip: 80.220.120.176
   last_sign_in_ip: 80.220.120.176
+  created_at: 2011-11-28 16:11:36.000000000 Z
   address_id: 
 torsten.ruger@gmail.com:
   email: torsten.ruger@gmail.com
@@ -88,6 +96,7 @@ torsten.ruger@gmail.com:
   last_sign_in_at: 2011-12-04 16:44:05.000000000 Z
   current_sign_in_ip: 91.150.20.117
   last_sign_in_ip: 91.150.20.117
+  created_at: 2011-12-04 16:44:05.000000000 Z
   address_id: 
 natali.sayenko@pp.inet.fi:
   email: natali.sayenko@pp.inet.fi
@@ -98,6 +107,7 @@ natali.sayenko@pp.inet.fi:
   last_sign_in_at: 2012-04-22 13:12:50.000000000 Z
   current_sign_in_ip: 84.251.187.213
   last_sign_in_ip: 80.223.140.228
+  created_at: 2011-12-26 18:32:40.000000000 Z
   address_id: 
 pia.rehell@gmail.com:
   email: pia.rehell@gmail.com
@@ -108,6 +118,7 @@ pia.rehell@gmail.com:
   last_sign_in_at: 2012-01-12 16:56:23.000000000 Z
   current_sign_in_ip: 88.112.207.18
   last_sign_in_ip: 88.112.207.18
+  created_at: 2012-01-12 16:56:23.000000000 Z
   address_id: 
 Maria@salongwellness.fi:
   email: Maria@salongwellness.fi
@@ -118,6 +129,7 @@ Maria@salongwellness.fi:
   last_sign_in_at: 2012-01-12 21:37:40.000000000 Z
   current_sign_in_ip: 88.195.122.179
   last_sign_in_ip: 88.195.122.179
+  created_at: 2012-01-12 21:37:40.000000000 Z
   address_id: 
 meemi.luoma@luukku.com:
   email: meemi.luoma@luukku.com
@@ -128,6 +140,7 @@ meemi.luoma@luukku.com:
   last_sign_in_at: 2012-01-27 14:33:23.000000000 Z
   current_sign_in_ip: 94.199.118.97
   last_sign_in_ip: 94.199.118.97
+  created_at: 2012-01-27 14:33:23.000000000 Z
   address_id: 
 markus.janhunen@iki.fi:
   email: markus.janhunen@iki.fi
@@ -138,6 +151,7 @@ markus.janhunen@iki.fi:
   last_sign_in_at: 2013-03-09 14:10:21.000000000 Z
   current_sign_in_ip: 188.238.58.73
   last_sign_in_ip: 91.150.16.79
+  created_at: 2010-01-03 09:46:51.000000000 Z
   address_id: 7
 kaisuberg@hotmail.com:
   email: kaisuberg@hotmail.com
@@ -148,6 +162,7 @@ kaisuberg@hotmail.com:
   last_sign_in_at: 2012-02-04 19:51:21.000000000 Z
   current_sign_in_ip: 85.23.21.23
   last_sign_in_ip: 85.23.21.23
+  created_at: 2012-02-04 19:51:21.000000000 Z
   address_id: 
 tarja.luoto@nsn.com:
   email: tarja.luoto@nsn.com
@@ -158,6 +173,7 @@ tarja.luoto@nsn.com:
   last_sign_in_at: 
   current_sign_in_ip: 
   last_sign_in_ip: 
+  created_at: 2012-02-09 06:01:42.000000000 Z
   address_id: 
 tiina.gronroos@wippies.fi:
   email: tiina.gronroos@wippies.fi
@@ -168,6 +184,7 @@ tiina.gronroos@wippies.fi:
   last_sign_in_at: 2012-02-25 22:08:54.000000000 Z
   current_sign_in_ip: 82.181.28.236
   last_sign_in_ip: 82.181.28.236
+  created_at: 2012-02-01 21:21:49.000000000 Z
   address_id: 
 outiritvanen@netti.fi:
   email: outiritvanen@netti.fi
@@ -178,6 +195,7 @@ outiritvanen@netti.fi:
   last_sign_in_at: 2012-03-20 17:05:55.000000000 Z
   current_sign_in_ip: 91.154.240.104
   last_sign_in_ip: 91.154.240.104
+  created_at: 2012-03-20 17:05:55.000000000 Z
   address_id: 
 irene.alaranta@pp.inet.fi:
   email: irene.alaranta@pp.inet.fi
@@ -188,6 +206,7 @@ irene.alaranta@pp.inet.fi:
   last_sign_in_at: 2012-04-22 05:41:44.000000000 Z
   current_sign_in_ip: 192.89.123.41
   last_sign_in_ip: 192.89.123.41
+  created_at: 2012-04-22 05:41:44.000000000 Z
   address_id: 
 leija100@gmail.com:
   email: leija100@gmail.com
@@ -198,6 +217,7 @@ leija100@gmail.com:
   last_sign_in_at: 2012-05-31 13:44:05.000000000 Z
   current_sign_in_ip: 91.156.16.62
   last_sign_in_ip: 91.156.16.62
+  created_at: 2012-05-31 13:44:05.000000000 Z
   address_id: 
 miiagranlund@hotmail.com:
   email: miiagranlund@hotmail.com
@@ -208,6 +228,7 @@ miiagranlund@hotmail.com:
   last_sign_in_at: 2012-06-19 12:35:35.000000000 Z
   current_sign_in_ip: 212.226.59.184
   last_sign_in_ip: 212.226.40.129
+  created_at: 2012-06-07 23:36:18.000000000 Z
   address_id: 
 sinivaisanen@hotmail.com:
   email: sinivaisanen@hotmail.com
@@ -218,6 +239,7 @@ sinivaisanen@hotmail.com:
   last_sign_in_at: 2012-06-27 18:32:58.000000000 Z
   current_sign_in_ip: 88.112.19.98
   last_sign_in_ip: 88.112.19.98
+  created_at: 2012-06-27 18:32:58.000000000 Z
   address_id: 
 latva.johanna@gmail.com:
   email: latva.johanna@gmail.com
@@ -228,6 +250,7 @@ latva.johanna@gmail.com:
   last_sign_in_at: 2012-07-04 09:25:29.000000000 Z
   current_sign_in_ip: 91.152.0.132
   last_sign_in_ip: 91.152.0.132
+  created_at: 2012-07-04 09:25:29.000000000 Z
   address_id: 
 arttu@arsti.la:
   email: arttu@arsti.la
@@ -238,6 +261,7 @@ arttu@arsti.la:
   last_sign_in_at: 2012-07-21 20:07:59.000000000 Z
   current_sign_in_ip: 88.114.236.244
   last_sign_in_ip: 88.114.236.244
+  created_at: 2012-07-21 20:07:59.000000000 Z
   address_id: 
 minna.koskinen@aalto.fi:
   email: minna.koskinen@aalto.fi
@@ -248,6 +272,7 @@ minna.koskinen@aalto.fi:
   last_sign_in_at: 2012-08-13 05:27:41.000000000 Z
   current_sign_in_ip: 82.181.218.61
   last_sign_in_ip: 82.181.218.61
+  created_at: 2012-08-13 05:27:41.000000000 Z
   address_id: 
 hanna.m.k.siisiainen@student.jyu.fi:
   email: hanna.m.k.siisiainen@student.jyu.fi
@@ -258,6 +283,7 @@ hanna.m.k.siisiainen@student.jyu.fi:
   last_sign_in_at: 2012-08-24 13:58:02.000000000 Z
   current_sign_in_ip: 62.78.191.210
   last_sign_in_ip: 62.78.191.210
+  created_at: 2012-08-18 20:27:07.000000000 Z
   address_id: 
 sekarotu.mika@gmail.com:
   email: sekarotu.mika@gmail.com
@@ -268,6 +294,7 @@ sekarotu.mika@gmail.com:
   last_sign_in_at: 2012-08-20 18:49:14.000000000 Z
   current_sign_in_ip: 80.220.108.36
   last_sign_in_ip: 80.220.108.36
+  created_at: 2012-08-20 18:49:14.000000000 Z
   address_id: 
 pia.setala@kolumbus.fi:
   email: pia.setala@kolumbus.fi
@@ -278,6 +305,7 @@ pia.setala@kolumbus.fi:
   last_sign_in_at: 2012-09-03 09:53:26.000000000 Z
   current_sign_in_ip: 91.158.6.17
   last_sign_in_ip: 91.158.6.17
+  created_at: 2012-09-03 09:53:26.000000000 Z
   address_id: 
 silandert@gmail.com:
   email: silandert@gmail.com
@@ -288,6 +316,7 @@ silandert@gmail.com:
   last_sign_in_at: 2012-09-28 07:18:16.000000000 Z
   current_sign_in_ip: 212.226.74.253
   last_sign_in_ip: 212.226.74.253
+  created_at: 2012-09-28 07:18:16.000000000 Z
   address_id: 
 ekimi@suomi24.fi:
   email: ekimi@suomi24.fi
@@ -298,6 +327,7 @@ ekimi@suomi24.fi:
   last_sign_in_at: 2012-10-28 16:57:24.000000000 Z
   current_sign_in_ip: 212.226.57.141
   last_sign_in_ip: 212.226.75.25
+  created_at: 2012-10-28 16:57:24.000000000 Z
   address_id: 
 kaisa7@gmail.com:
   email: kaisa7@gmail.com
@@ -308,6 +338,7 @@ kaisa7@gmail.com:
   last_sign_in_at: 2012-11-16 09:24:42.000000000 Z
   current_sign_in_ip: 193.211.67.11
   last_sign_in_ip: 193.211.67.11
+  created_at: 2012-11-16 09:24:42.000000000 Z
   address_id: 
 toni.kokkila@gmail.com:
   email: toni.kokkila@gmail.com
@@ -318,6 +349,7 @@ toni.kokkila@gmail.com:
   last_sign_in_at: 2012-12-13 13:07:30.000000000 Z
   current_sign_in_ip: 91.157.185.72
   last_sign_in_ip: 91.157.185.72
+  created_at: 2012-12-13 13:07:30.000000000 Z
   address_id: 
 kristiina.matttila@gmail.com:
   email: kristiina.matttila@gmail.com
@@ -328,6 +360,7 @@ kristiina.matttila@gmail.com:
   last_sign_in_at: 2013-01-21 12:36:48.000000000 Z
   current_sign_in_ip: 83.150.82.32
   last_sign_in_ip: 83.150.82.32
+  created_at: 2013-01-10 14:44:16.000000000 Z
   address_id: 
 keppister@gmail.com:
   email: keppister@gmail.com
@@ -338,4 +371,5 @@ keppister@gmail.com:
   last_sign_in_at: 2013-01-22 08:42:59.000000000 Z
   current_sign_in_ip: 62.44.214.111
   last_sign_in_ip: 62.44.214.111
+  created_at: 2013-01-22 08:24:29.000000000 Z
   address_id: 

@@ -4,15 +4,6 @@ class Category < ActiveRecord::Base
   has_attached_file :main_picture
   has_attached_file :extra_picture
 
-  scope :sorting, lambda{ |options|
-    attribute = options[:attribute]
-    direction = options[:sorting]
-
-    attribute ||= "id"
-    direction ||= "DESC"
-
-    order("#{attribute} #{direction}")
-  }
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
  

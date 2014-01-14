@@ -9,7 +9,7 @@ class SuppliersController < AdminController
   def index
     do_sort_and_paginate(:supplier)
     @q = Supplier.search( params[:q] )
-    @supplier_scope = @q.result( :distinct => true ).sorting( params[:sorting] )
+    @supplier_scope = @q.result( :distinct => true )
     @supplier_scope_for_scope = @supplier_scope.dup
     unless params[:scope].blank?
       @supplier_scope = @supplier_scope.send(params[:scope])
