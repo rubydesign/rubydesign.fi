@@ -23,7 +23,14 @@ namespace :db do
       file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.main_picture_file_name}"].first
       next unless file
       p.main_picture =  File.open file
-      puts file
+      puts "Main " + file
+      unless p.extra_picture_file_name.blank?
+        file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.extra_picture_file_name}"].first
+        if file
+          p.extra_picture =  File.open file
+          puts "Extra " + file
+        end
+      end
       p.save!
     end
   end
