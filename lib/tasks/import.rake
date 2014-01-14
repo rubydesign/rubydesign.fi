@@ -31,6 +31,19 @@ namespace :db do
           puts "Extra " + file
         end
       end
+      #line prices that have gone askew in time
+      if p.line?
+        prices = p.products.collect{|u| u.price }
+        if(p.price < prices.min) or (p.price > prices.max)
+          p.price = prices.min 
+        end
+      end
+      #prices rounded  to 5 cent 
+      if p.price 
+        p.price = (((p.price % 1.0)/5.0).round(2)*5 + (p.price - p.price % 1.0)).round(2)
+      else
+        p.price = 0.0
+      end
       p.save!
     end
   end
