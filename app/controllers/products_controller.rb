@@ -48,10 +48,12 @@ class ProductsController < AdminController
   end
 
   def delete
-    @product.deleted_on = Time.now
+    @product.delete
     if @product.save
+      puts "deleted"
       redirect_to products_url , :flash => {:notice => "deleted"}
     else
+      puts "not deleted"
       redirect_to products_url , :flash => {:notice => "error"}
     end      
   end

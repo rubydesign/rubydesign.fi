@@ -23,15 +23,23 @@ class Product < ActiveRecord::Base
   validates :price, :numericality => true 
   validates :cost, :numericality => true
   validates :name, :presence => true
-  validates :link, presence: true, :if => :generate_url_if_needed
+
+  before_save :generate_url_if_needed
  
   def generate_url_if_needed
-    if link.blank? && name != nil
+    if link.blank? && name != nil && deleted_on == nil
       self.link = name.gsub(" " , "_").downcase
     end
     true
   end
-    
+
+  def delete
+    self.deleted_on = Date.today
+    self.link = ""
+    products.each {|p| p.delete}
+    self
+  end
+
   #this product represents a product line (ie is not sellable in itself)
   def line?
     !line_item? and !products.empty?
