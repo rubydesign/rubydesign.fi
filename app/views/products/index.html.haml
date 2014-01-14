@@ -1,9 +1,12 @@
 %h2
-  = t(:products)
+  - if params[:basket]
+    = t(:choose_product_for_basket)
+  -else
+    = t(:products)
 %p
   %dl.sub-nav
     %dd
-      = link_to  t(:new) + ' ' + t(:product) , new_product_path
+      = link_to  t(:new) + ' ' + t(:product) , new_product_path  unless params[:basket]
     %dd
       = paginate @products 
 .row
@@ -51,7 +54,9 @@
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
       - if params[:basket]
         = hidden_field_tag :basket , params[:basket]
-      = f.facet_for("name")
+        = f.text_field :name_or_product_name_cont , :label =>  "product or product item name"
+      -else
+        = f.text_field :name_cont , :label => "product or product line name"
       = f.facet_for("description")
       = f.facet_for :price , :class => "control-group" 
       = f.facet_for("weight")
