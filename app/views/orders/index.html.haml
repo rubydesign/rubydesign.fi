@@ -48,12 +48,12 @@
             %i.icon-download JSON 
   .medium-3.columns
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("order", "ordered_on", f, "Ordered_on")
-      = ransack_field("order", "basket_total_price", f, "Total_price")
-      = ransack_field("order", "email", f, "Email")
-      = ransack_field("order", "paid_on", f, "Paid_on")
-      = ransack_field("order", "shipped_on", f, "Shipped_on")
-      = ransack_field("order", "paid_on", f, "Paid_on")
-      = ransack_field("order", "canceled_on", f, "Canceled_on")
+      = f.facet_for("ordered_on")
+      = f.facet_for("basket_total_price")
+      = f.facet_for("email")
+      = f.facet_for("paid_on")
+      = f.facet_for("shipped_on")
+      = f.facet_for("paid_on")
+      = f.facet_for("canceled_on")
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), orders_path(:filter => "ok"), :class => "admin-button"

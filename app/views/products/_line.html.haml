@@ -8,7 +8,9 @@
     %tr.line-1
       %td=t("name")
       - @product.products.each do |product|
-        %td=link_to product.name , product_path(product)
+        %td
+          = image_tag product.main_picture.url(:thumb)
+          =link_to product.name , product_path(product)
     %tr.line-2
       %td=t("price")
       - @product.products.each do |product|

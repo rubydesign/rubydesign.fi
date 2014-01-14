@@ -23,40 +23,43 @@
               =sorting_header("product", "properties", "")
             %th{column_style("product", "inventory")}
               =sorting_header("product", "inventory", "")
-            %th{:colspan => "2"}
+            %th
               %label.checkbox
                 = pluralize(@product_scope.count, "product")
         %tbody
           - @products.each do |product|
+          -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
               %td{column_style("category", "picture")}
                 = image_tag product.main_picture.url
               %td{column_style("product", "ean")}
                 =product.ean
               %td{column_style("product", "name")}
-                =product.name
+                = link_to product_path(product), :title => t(:show) do 
+                  =product.line_item? ? product.full_name : product.name
               %td{column_style("product", "price")}
                 =euros(product.price)
               %td{column_style("product", "properties")}
                 =product.properties
               %td{column_style("product", "inventory")}
                 =product.inventory
-              -if session[:basket]
-                %td= link_to t(:add_to_basket) , edit_basket_path(:id => session[:basket] , :product => product.id)
+              -if params[:basket]
+                %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :product => product.id)
               -else
-                %td= link_to t(:show) , product_path(product), :title => t(:show)
                 %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
   .medium-3.columns
-    = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("product", "name", f, "Name")
-      = ransack_field("product", "description", f, "Description")
-      = ransack_field("product", "price", f, "Price")
-      = ransack_field("product", "weight", f, "Weight")
-      = ransack_field("product", "link", f, "Url name")
-      = ransack_field("product", "ean", f, "Ean")
-      = ransack_field("product", "tax", f, "Tax")
-      = ransack_field("product", "properties", f, "Properties")
-      = ransack_field("product", "scode", f, "Scode")
-      = ransack_field("product", "inventory", f, "Inventory")
+    = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
+      - if params[:basket]
+        = hidden_field_tag :basket , params[:basket]
+      = f.facet_for("name")
+      = f.facet_for("description")
+      = f.facet_for :price , :class => "control-group" 
+      = f.facet_for("weight")
+      = f.facet_for("link")
+      = f.facet_for("ean")
+      = f.facet_for("tax")
+      = f.facet_for("properties")
+      = f.facet_for("scode")
+      = f.facet_for("inventory")
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), products_path(:filter => "ok"), :class => "admin-button"

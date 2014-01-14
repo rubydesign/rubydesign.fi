@@ -36,7 +36,7 @@
           = paginate @users
   .medium-3.columns
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = ransack_field("user", "email", f, "Email")
-      = ransack_field("user", "name", f, "Name")
+      = f.facet_for("email")
+      = f.facet_for("name")
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), users_path(:filter => "ok"), :class => "admin-button"
