@@ -49,7 +49,7 @@ OfficeClerk::Application.routes.draw do
       match "search" => "products#index", :via => [:get, :post]
     end
     member do
-      post :delete
+      get :delete
     end
   end
 

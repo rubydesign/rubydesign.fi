@@ -29,9 +29,8 @@ module OfficeClerk
     end
     config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '100x100>', :product  => '600x600>' },
                                 :default_style => :list,
-                                :url => "/images/:id/:style/:basename.:extension",
-                                :path => ":rails_root/public/images/:id/:style/:basename.:extension" ,
-                                :default_url => "/assets/missing.png"      }
+                                :url => "/images/:id/:style_:basename.:extension",
+                                :default_url => "/assets/missing/:style.png"      }
 
     # FOG example see more in paperclip docs  {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
     
