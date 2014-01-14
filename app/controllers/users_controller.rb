@@ -13,11 +13,7 @@ class UsersController < AdminController
       params[:q]
     )
 
-    @user_scope = @q.result(
-      :distinct => true
-    ).sorting(
-      params[:sorting]
-    )
+    @user_scope = @q.result(:distinct => true)
     
     @user_scope_for_scope = @user_scope.dup
     

@@ -13,11 +13,7 @@ class PurchasesController < AdminController
       params[:q]
     )
 
-    @purchase_scope = @q.result(
-      :distinct => true
-    ).sorting(
-      params[:sorting]
-    )
+    @purchase_scope = @q.result(:distinct => true)
     
     @purchase_scope_for_scope = @purchase_scope.dup
     

@@ -9,7 +9,7 @@ class BasketsController < AdminController
   def index
     do_sort_and_paginate(:basket)
     @q = Basket.search( params[:q] , :include => {:items => :product} )
-    @basket_scope = @q.result( :distinct => true ).sorting( params[:sorting])
+    @basket_scope = @q.result( :distinct => true )
     @basket_scope_for_scope = @basket_scope.dup
     unless params[:scope].blank?
       @basket_scope = @basket_scope.send(params[:scope])
@@ -79,10 +79,9 @@ class BasketsController < AdminController
       if(prod)
         @basket.add_product prod
       else
-        session[:search] ||= {}
-        session[:search][:product] =  {"name_cont"=> ean}
-        session[:basket] = @basket.id
-        redirect_to :action => :index , :controller => :products
+        # stor the basket in the session ( or the url ???)
+        redirect_to :action => :index, :controller => :products, :q => {"name_cont"=> ean},:basket => @basket.id
+
         return
       end
     end
