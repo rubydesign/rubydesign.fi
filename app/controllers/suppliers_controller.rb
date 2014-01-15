@@ -7,7 +7,6 @@ class SuppliersController < AdminController
   #authorize_resource
 
   def index
-    do_sort_and_paginate(:supplier)
     @q = Supplier.search( params[:q] )
     @supplier_scope = @q.result( :distinct => true )
     @supplier_scope_for_scope = @supplier_scope.dup

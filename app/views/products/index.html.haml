@@ -1,9 +1,12 @@
 %h2
-  = t(:products)
+  - if params[:basket]
+    = t(:choose_product_for_basket)
+  -else
+    = t(:products)
 %p
   %dl.sub-nav
     %dd
-      = link_to  t(:new) + ' ' + t(:product) , new_product_path
+      = link_to  t(:new) + ' ' + t(:product) , new_product_path  unless params[:basket]
     %dd
       = paginate @products 
 .row
@@ -19,8 +22,8 @@
               =sorting_header("product", "name", "")
             %th{column_style("product", "price")}
               =sorting_header("product", "price", "")
-            %th{column_style("product", "properties")}
-              =sorting_header("product", "properties", "")
+            %th{column_style("product", "supplier")}
+              =sorting_header("product", "supplier category", "")
             %th{column_style("product", "inventory")}
               =sorting_header("product", "inventory", "")
             %th
@@ -39,8 +42,10 @@
                   =product.line_item? ? product.full_name : product.name
               %td{column_style("product", "price")}
                 =euros(product.price)
-              %td{column_style("product", "properties")}
-                =product.properties
+              %td{column_style("product", "supplier")}
+                =product.supplier.name if product.supplier
+                %br
+                =product.category.name if product.category
               %td{column_style("product", "inventory")}
                 =product.inventory
               -if params[:basket]
@@ -49,17 +54,21 @@
                 %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
   .medium-3.columns
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
+      .search_heading= t(:name)
       - if params[:basket]
         = hidden_field_tag :basket , params[:basket]
-      = f.facet_for("name")
+        = f.text_field :name_or_product_name_cont , :label =>  "product or product item name"
+      -else
+        = f.text_field :name_cont , :label => "product or product line name"
       = f.facet_for("description")
       = f.facet_for :price , :class => "control-group" 
       = f.facet_for("weight")
       = f.facet_for("link")
       = f.facet_for("ean")
       = f.facet_for("tax")
-      = f.facet_for("properties")
       = f.facet_for("scode")
       = f.facet_for("inventory")
+      = f.facet_for("supplier")
+      = f.facet_for("category")
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), products_path, :class => "admin-button"

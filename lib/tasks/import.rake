@@ -13,6 +13,7 @@ namespace :db do
   task :fix => :environment do
     Product.all.each do |p|
       props = YAML.load p.properties
+      #Tuoteryhmä .. if not set before,, and delete both
       supplier = props["Valmistaja"]
       if supplier
         p.supplier = Supplier.find_or_create_by_name supplier

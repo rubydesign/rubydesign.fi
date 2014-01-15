@@ -7,7 +7,6 @@ class BasketsController < AdminController
   #authorize_resource
 
   def index
-    do_sort_and_paginate(:basket)
     @q = Basket.search( params[:q] , :include => {:items => :product} )
     @basket_scope = @q.result( :distinct => true )
     @basket_scope_for_scope = @basket_scope.dup
@@ -80,7 +79,7 @@ class BasketsController < AdminController
         @basket.add_product prod
       else
         # stor the basket in the session ( or the url ???)
-        redirect_to :action => :index, :controller => :products, :q => {"name_cont"=> ean},:basket => @basket.id
+        redirect_to :action => :index, :controller => :products, :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
 
         return
       end

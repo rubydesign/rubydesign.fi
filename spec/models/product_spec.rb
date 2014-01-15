@@ -17,4 +17,13 @@ describe Product do
     pro = Product.new
     pro.save.should be false
   end
+  it "deletes" do
+    pro = create :product
+    on = Product.find pro.id
+    on.id.should be pro.id
+    on.delete
+    on.save.should be true
+    on = Product.where(:id => pro.id).first
+    on.should be nil    
+  end
 end

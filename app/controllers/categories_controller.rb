@@ -7,11 +7,7 @@ class CategoriesController < AdminController
   #authorize_resource
 
   def index
-    do_sort_and_paginate(:category)
-    
-    @q = Category.search(
-      params[:q]
-    )
+    @q = Category.search(params[:q])
 
     @category_scope = @q.result(:distinct => true)
     

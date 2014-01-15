@@ -6,12 +6,8 @@ class PurchasesController < AdminController
   # Uncomment for check abilities with CanCan
   #authorize_resource
 
-  def index
-    do_sort_and_paginate(:purchase)
-    
-    @q = Purchase.search(
-      params[:q]
-    )
+  def index    
+    @q = Purchase.search params[:q]
 
     @purchase_scope = @q.result(:distinct => true)
     

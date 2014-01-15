@@ -7,9 +7,8 @@ class ProductsController < AdminController
   #authorize_resource
 
   def index
-    do_sort_and_paginate(:product)
     param = params[:q] || {}
-    param.merge!(:product_id_null => 1) unless params[:basket]
+    param.merge!(:product_id_null => 1)    unless( params[:basket])
     @q = Product.search( param )
     @product_scope = @q.result(:distinct => true)
     @product_scope_for_scope = @product_scope.dup
@@ -50,10 +49,8 @@ class ProductsController < AdminController
   def delete
     @product.delete
     if @product.save
-      puts "deleted"
       redirect_to products_url , :flash => {:notice => "deleted"}
     else
-      puts "not deleted"
       redirect_to products_url , :flash => {:notice => "error"}
     end      
   end
