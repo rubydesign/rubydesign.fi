@@ -19,6 +19,7 @@ class ShopController < ApplicationController
 
   def page
     template = params[:id]
+    @products = Product.all.limit(20)
     render template
   end
   private

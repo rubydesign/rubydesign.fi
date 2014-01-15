@@ -2,7 +2,9 @@ en:
   actions: Actions
   address: Adress
   addresses: Adresses
+  add_inventory: Add Inventory
   are_you_sure: Are you sure?
+  as_inventory: As Inventory
   create_success: Successfully created
   basket: Basket
   baskets: Baskets
@@ -23,6 +25,7 @@ en:
   last_name: Last Name
   link: Link
   make_order: Make Order
+  make_purchase: Make Purchase
   name: Name
   name_contains: Name contains
   new: New
