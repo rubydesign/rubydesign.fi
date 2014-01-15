@@ -17,4 +17,11 @@ describe Product do
     pro = Product.new
     pro.save.should be false
   end
+  it "deletes" do
+    pro = create :product
+    on = Product.find pro.id
+    on.id.should be pro.id
+    on = Product.find pro.id
+    on.should be nil    
+  end
 end

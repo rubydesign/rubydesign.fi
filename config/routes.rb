@@ -15,6 +15,7 @@ OfficeClerk::Application.routes.draw do
     end
     member do
       get :order 
+      get :purchase 
       get :print
     end
   end
