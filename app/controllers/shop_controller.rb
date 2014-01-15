@@ -18,6 +18,7 @@ class ShopController < ApplicationController
   end
 
   def page
+    @products = Product.all.limit(50)
     template = params[:id]
     render template
   end
