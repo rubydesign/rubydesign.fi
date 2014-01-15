@@ -1,13 +1,14 @@
-%div
-  %ul#products.inline.product-listing.no-bullet
-    -@products.each do |product|
-      %li.medium-3.columns
-        .product-container
-          .product-image
-            %a{:href => prod_path( :id => product.link )}
-              =image_tag product.main_picture.url(:list) if product.main_picture
-          .product-name
-            %a.info{:href => prod_path( :id => product.link )}
-              %span.price.selling
-                = euros product.price
-                €
+.row
+  .large-12.columns
+    .large-2.columns
+    .large-5.columns
+      .menu-wrapper.menu-left
+        %a{href: "/page/lista"} 
+          %img{src: "/assets/shop/menu-1.jpg"}/
+          %h3 Luonnonkosmetiikka
+
+    .large-5.columns    
+      .menu-wrapper.menu-right
+        %a{href: "/page/lista"} 
+          %img{src: "/assets/shop/menu-2.jpg"}/
+          %h3 Sisustus
