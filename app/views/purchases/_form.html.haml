@@ -10,8 +10,8 @@
   .control-group
     = f.text_field :name
   .control-group
-    = f.text_field :ordered_on, :class => "datepicker"
+    = f.date_field :ordered_on
   .control-group
-    = f.text_field :received_on, :class => "datepicker"
+    = f.date_field :received_on
   .form-actions
     = f.submit :class => "submit-button"

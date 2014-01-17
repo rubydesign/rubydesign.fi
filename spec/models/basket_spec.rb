@@ -5,10 +5,6 @@ describe Basket do
     b = Basket.new attributes_for :basket
     b.save.should be true
   end
-  it "validates" do 
-    b = Basket.new 
-    b.save.should be false
-  end
   it "adds a product and updates the quantity" do
     b = create :basket
     b.items.length.should be 0

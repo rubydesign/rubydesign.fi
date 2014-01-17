@@ -9,7 +9,9 @@ en:
   basket: Basket
   baskets: Baskets
   back: Back
+  between: " between"
   cancel: Cancel
+  canceled_on: Canceled on
   category: Product Category
   category_id: Product Line
   categories: Product Categories
@@ -35,6 +37,7 @@ en:
   ordered_on: Ordered On
   orders: Orders
   parent: Parent
+  paid_on: Paid on
   picture: Picture
   position: Position
   prev: Previous
@@ -48,6 +51,7 @@ en:
   received_on: Received On
   receive: Receive
   received: Received
+  shipped_on: Shipped on
   suppliers: Suppliers
   shop: Shop
   show: Show

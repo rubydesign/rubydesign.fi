@@ -3,7 +3,7 @@
 .medium-4.columns
   %p
     %b
-      = t(:ordered_on) + ":" + @order.ordered_on
+      = t(:ordered_on) + ":" + @order.ordered_on.to_s
   %p
     %b
       = t(:total_price) + ":" +  euros(@order.basket.total_price)
@@ -22,16 +22,13 @@
 .medium-4.columns
   %p
     %b
-      = t(:paid_on) + ":" + @order.paid_on
+      = t(:paid_on) + ":" + @order.paid_on.to_s
   %p
     %b
-      = t(:shipped_on) + ":" + @order.shipped_on
+      = t(:shipped_on) + ":" + @order.shipped_on.to_s
   %p
     %b
-      = t(:paid_on) + ":" + @order.paid_on
-  %p
-    %b
-      = t(:canceled_on) + ":" + @order.canceled_on
+      = t(:canceled_on) + ":" + @order.canceled_on.to_s
   %p
     %b
       = t(:shipment_type) + ":" + @order.shipment_type

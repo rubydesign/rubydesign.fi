@@ -1,7 +1,7 @@
 class Purchase < ActiveRecord::Base
   
-  belongs_to :basket #wording is wrong, but thats ar for you. should be has_one, but the key is here
-
+  has_one :basket , :as => :kori ,  :autosave => true
+  
   def order!
     ordered_on = Date.today
     save!

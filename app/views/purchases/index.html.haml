@@ -29,8 +29,8 @@
               %td{column_style("purchase", "received_on")}
                 =purchase.received_on
               %td{column_style("purchase", "basket")}
-                - if not purchase.basket_id.nil? then
-                  = link_to purchase.basket.name, basket_path(purchase.basket_id)
+                - if not purchase.basket.nil? then
+                  = link_to t(:basket), basket_path(purchase.basket)
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
               %td= link_to t(:edit) , edit_purchase_path(purchase), :title => t(:edit)
               %td= link_to t(:destroy) ,purchase_path(purchase), :data => { :confirm => t(:are_you_sure)}, :method => :delete, :title => t(:destroy)
@@ -41,7 +41,11 @@
   .medium-3.columns
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("name")
-      = f.facet_for("ordered_on")
-      = f.facet_for("received_on")
+      = f.label t(:ordered_on) + t(:between)
+      = f.date_field :ordered_on_gt
+      = f.date_field :ordered_on_lt 
+      = f.label t(:received_on) + t(:between)
+      = f.date_field :received_on_gt 
+      = f.date_field :received_on_lt 
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), purchases_path, :class => "admin-button"

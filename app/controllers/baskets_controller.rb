@@ -46,7 +46,7 @@ class BasketsController < AdminController
   end
   
   def new
-    @basket = Basket.create! :name => "cart"
+    @basket = Basket.create!
     render "show"
   end
 
@@ -155,7 +155,7 @@ class BasketsController < AdminController
   end
 
   def params_for_basket
-    params.require(:basket).permit(:name , :items_attributes => [:quantity , :price , :id] )
+    params.require(:basket).permit( :items_attributes => [:quantity , :price , :id] )
   end
 end
 

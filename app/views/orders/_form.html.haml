@@ -8,23 +8,21 @@
         - @order.errors.full_messages.each do |msg|
           %li= msg
   .controls
-    = f.text_field :ordered_on, :class => "datepicker"
+    = f.date_field :ordered_on
   .controls
     = f.text_field :shipping_price
   .controls
     = f.text_field :shipping_tax
   .controls
-    = f.text_field :basket_id
-  .controls
     = f.text_field :email
   .controls
-    = f.text_field :paid_on, :class => "datepicker"
+    = f.date_field :paid_on
   .controls
-    = f.text_field :shipped_on, :class => "datepicker"
+    = f.date_field :shipped_on
   .controls
-    = f.text_field :paid_on, :class => "datepicker"
+    = f.date_field :paid_on
   .controls
-    = f.text_field :canceled_on, :class => "datepicker"
+    = f.date_field :canceled_on
   .controls
     = f.text_field :shipment_type
   .form-actions

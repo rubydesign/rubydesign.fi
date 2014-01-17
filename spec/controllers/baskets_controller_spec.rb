@@ -85,7 +85,7 @@ describe BasketsController do
         basket = create :basket
         # Trigger the behavior that occurs when invalid params are submitted
         Basket.any_instance.stub(:save).and_return(false)
-        put :update, {:id => basket.to_param, :basket => {  :name => "" }}, valid_session
+        put :update, {:id => basket.to_param, :basket => { :some => :thing_to_stop_erros  }}, valid_session
         assigns(:basket).should eq(basket)
       end
 

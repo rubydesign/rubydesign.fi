@@ -10,8 +10,6 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th{column_style("basket", "name")}
-              =sorting_header("basket", "name", "")
             %th{column_style("basket", "created_at")}
               =sorting_header("basket", "created_at", "")
             %th= t(:total)
@@ -22,8 +20,6 @@
         %tbody
           - @baskets.each do |basket|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td{column_style("basket", "name")}
-                =basket.name.to_s
               %td{column_style("basket", "created_at")}
                 =basket.created_at.to_date.to_s
               %td
@@ -42,7 +38,7 @@
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:type)
-      = f.select :name_cont, ["" , "cart" , "order" , "purchase"] 
+      = f.select :kori_type_eq, ["" , "Order" , "Purchase"] 
       .search_heading= t(:items)
       = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
       = f.submit t(:filter), :class => "submit-button"

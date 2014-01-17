@@ -1,17 +1,17 @@
 class Basket < ActiveRecord::Base
-  has_one :purchase
-  has_one :order
+
+  belongs_to :kori, polymorphic: true  #kori is basket in finnish
+  
   has_many :items, autosave: true
   before_save :cache_totals
   
-  validates :name, :presence => true
   accepts_nested_attributes_for :items
 
   def quantity
     items.sum(:quantity)
   end
   def cache_totals
-    self.total_price = items.sum{ |i| i.price * i.quantity}
+    self.total_price = items.to_a.sum{ |i| i.price * i.quantity}
   end
   def touch
     cache_totals
@@ -19,22 +19,12 @@ class Basket < ActiveRecord::Base
     super
   end
   def set_order o
-    self.name = "order " + o.id.to_s
+    self.kori = o
     save!
-  end
-  def order
-    return nil unless isa :order
-    order_id = name.split.last
-    Order.find order_id
   end
   def set_purchase o
-    self.name = "purchase " + o.id.to_s
+    self.kori = o
     save!
-  end
-  def purchase
-    return nil unless isa :purchase
-    purchase_id = name.split.last
-    Purchase.find purchase_id
   end
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price
@@ -58,11 +48,12 @@ class Basket < ActiveRecord::Base
   
   #type is one of order purchase , user or cart depending on who "owns" the basket
   def type
-    name.split.first.downcase
+    self.kori_type
   end
   
   def isa typ
-    self.type == typ.to_s
+    return typ == :cart  if self.type == nil
+    self.type.downcase == typ.to_s
   end
   
   def suppliers
