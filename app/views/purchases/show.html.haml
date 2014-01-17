@@ -1,25 +1,21 @@
 %h2
-  = t(:show, :default => "Show")
-  = t('app.models.purchase.bs_caption', :default => 'purchase')
+  = t(:show)
+  = t(:purchase)
 %p
   %b
-    = t('app.models.purchase.bs_attributes.name', :default => 'name') + ":"
-  = @purchase.name
+    = t(:name) + ":" + @purchase.name
 %p
   %b
-    = t('app.models.purchase.bs_attributes.ordered_on', :default => 'ordered_on') + ":"
-  = @purchase.ordered_on
+    = t(:ordered_on) + ":" + @purchase.ordered_on.to_s
 %p
   %b
-    = t('app.models.purchase.bs_attributes.received_on', :default => 'received_on') + ":"
-  = @purchase.received_on
+    = t(:received_on) + ":" + @purchase.received_on.to_s
+
+= render "baskets/small" , :basket => @purchase.basket  
+
 %p
   %b
-    = t('app.models.purchase.bs_attributes.basket', :default => 'basket') + ":"
-  = (@purchase.basket.nil? ? "" : @purchase.basket.name)
-%p
-  %b
-    = t('app.models.purchase.bs_attributes.supplier', :default => 'supplier') + ":"
-  = @purchase.supplier
+    = t(:suppliers) + ":"
+  = @purchase.basket.suppliers.collect {|s| s.name }.join
 = link_to t(:edit), edit_purchase_path(@purchase), :class => "admin-button"
 = link_to t(:back), purchases_path, :class => "admin-button"

@@ -70,8 +70,8 @@
           = link_to t(:print_order), "javascript:poptastic('#{print_basket_path(@basket)}');" , :class => "admin-button"
       - else
         .large-2.column
-          = link_to t(:to_order), order_path(@basket.order), :class => "admin-button"
+          = link_to t(:to_order), order_path(@basket.order), :class => "admin-button" if @basket.isa(:order)
         .large-2.column
-          = link_to t(:print_order), print_order_path(@basket.order), :class => "admin-button"
+          = link_to t(:print_order), print_order_path(@basket.order), :class => "admin-button" if @basket.isa(:order)
       .large-2.column
         = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "admin-button"

@@ -31,6 +31,7 @@ en:
   new: New
   next: Next
   order: Order
+  ordered_on: Ordered On
   orders: Orders
   parent: Parent
   picture: Picture
@@ -40,8 +41,10 @@ en:
   print_order: Print Order
   product: Product
   products: Products
+  purchase: Purchase
   purchases: Purchases
   quantity: Quantity
+  received_on: Received On
   suppliers: Suppliers
   shop: Shop
   show: Show

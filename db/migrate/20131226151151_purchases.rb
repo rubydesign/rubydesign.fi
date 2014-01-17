@@ -5,7 +5,6 @@ class Purchases < ActiveRecord::Migration
       t.date :ordered_on
       t.date :received_on
       t.references :basket, index: true
-      t.references :supplier
 
       t.timestamps
     end

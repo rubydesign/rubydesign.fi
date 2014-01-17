@@ -1,8 +1,7 @@
 %h2
-  = t(:listing, :default => "Listing")
-  = t('app.models.purchase.bs_caption_plural', :default => 'purchase')
+  = t(:purchases)
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.purchase.bs_caption', :default => 'purchase'), new_purchase_path, :class => "admin-button"
+  = link_to t(:new) + ' ' + t(:purchase), new_purchase_path, :class => "admin-button"
 .row
   .medium-9.columns
     %div
@@ -17,8 +16,6 @@
               =sorting_header("purchase", "received_on", "")
             %th{column_style("purchase", "basket")}
               =sorting_header("purchase", "basket_id", "")
-            %th{column_style("purchase", "supplier")}
-              =sorting_header("purchase", "supplier", "")
             %th{:colspan => "3"}
               %label.checkbox
                 = pluralize(@purchase_scope.count, "purchase")
@@ -32,12 +29,8 @@
               %td{column_style("purchase", "received_on")}
                 =purchase.received_on
               %td{column_style("purchase", "basket")}
-              - if not purchase.basket_id.nil? then
-                = link_to purchase.basket.name, basket_path(purchase.basket_id)
-              - else
-                = t(:any, :default => "Any")
-              %td{column_style("purchase", "supplier")}
-                =purchase.supplier
+                - if not purchase.basket_id.nil? then
+                  = link_to purchase.basket.name, basket_path(purchase.basket_id)
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
               %td= link_to t(:edit) , edit_purchase_path(purchase), :title => t(:edit)
               %td= link_to t(:destroy) ,purchase_path(purchase), :data => { :confirm => t(:are_you_sure)}, :method => :delete, :title => t(:destroy)

@@ -13,11 +13,5 @@
     = f.text_field :ordered_on, :class => "datepicker"
   .control-group
     = f.text_field :received_on, :class => "datepicker"
-  .control-group
-    = f.label :basket, t(:basket), :class => "control-label"
-    .controls
-      = f.collection_select :basket_id, Basket.all, :id, :name, :include_blank => true
-  .control-group
-    = f.text_field :supplier
   .form-actions
     = f.submit :class => "submit-button"
