@@ -64,8 +64,6 @@
         .large-2.column
           = link_to t(:make_order), order_basket_path(@basket), :class => "admin-button"
           = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "admin-button"
-          = link_to t(:add_inventory), purchase_basket_path(@basket), :class => "admin-button"
-          = link_to t(:as_inventory), purchase_basket_path(@basket), :class => "admin-button"
         .large-2.column
           = link_to t(:print_order), "javascript:poptastic('#{print_basket_path(@basket)}');" , :class => "admin-button"
       - else

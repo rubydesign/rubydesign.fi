@@ -7,6 +7,9 @@ class Basket < ActiveRecord::Base
   validates :name, :presence => true
   accepts_nested_attributes_for :items
 
+  def quantity
+    items.sum(:quantity)
+  end
   def cache_totals
     self.total_price = items.sum{ |i| i.price * i.quantity}
   end
@@ -33,13 +36,35 @@ class Basket < ActiveRecord::Base
     purchase_id = name.split.last
     Purchase.find purchase_id
   end
+  # receiving the goods means that the item quantity is added to the stock (product.inventory)
+  # also we change the price to the products cost price
+  def receive!
+    sum = 0
+    self.items.each do |item|
+      item.product.inventory += item.quantity
+      sum += item.quantity
+      item.price = item.product.cost
+      item.product.save!
+      item.save!
+    end
+    sum
+  end
+  #inventoying the basket means setting the item quantity as the stock
+  #we actually change the basket for it to be a relative change (so as to look like a receive)
+  def inventory!
+    self.items.each { |item| item.quantity -= item.product.inventory  }
+    self.receive!
+  end
+  
   #type is one of order purchase , user or cart depending on who "owns" the basket
   def type
     name.split.first.downcase
   end
+  
   def isa typ
     self.type == typ.to_s
   end
+  
   def suppliers
     ss = items.collect{|i| i.product.supplier if i.product}
     ss.uniq!

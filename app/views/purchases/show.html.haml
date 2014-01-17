@@ -3,7 +3,7 @@
   = t(:purchase)
 %p
   %b
-    = t(:name) + ":" + @purchase.name
+    = t(:name) + ":" + @purchase.name.to_s
 %p
   %b
     -if @purchase.ordered_on
@@ -16,6 +16,7 @@
       = t(:received) + " : " + @purchase.received_on.to_s
     -else
       = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "admin-button"
+      = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "admin-button"
 
 = render "baskets/small" , :basket => @purchase.basket  
 

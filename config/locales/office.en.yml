@@ -22,6 +22,7 @@ en:
   first_name: First Name
   filter: Filter
   items: Items
+  inventorized: Inventorized
   last_name: Last Name
   link: Link
   make_order: Make Order

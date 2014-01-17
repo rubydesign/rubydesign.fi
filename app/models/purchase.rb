@@ -8,16 +8,17 @@ class Purchase < ActiveRecord::Base
   end
   
   def receive!
-    ordered_on = Date.today unless ordered_on 
-    received_on = Date.today
-    sum = 0
-    basket.items.each do |item|
-      item.product.inventory += item.quantity
-      sum += item.quantity
-      item.product.save!
-    end
-    save!
-    sum
+    self.ordered_on = Date.today unless ordered_on 
+    self.received_on = Date.today
+    self.save!
+    basket.receive!
+  end
+  
+  def inventory!
+    self.ordered_on = Date.today unless ordered_on 
+    self.received_on = Date.today
+    self.save!
+    basket.inventory!
   end
   
   def self.for_basket b

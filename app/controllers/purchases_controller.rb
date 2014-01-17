@@ -1,7 +1,7 @@
 # encoding : utf-8
 class PurchasesController < AdminController
 
-  before_filter :load_purchase, :only => [:show, :edit, :update, :destroy , :order , :receive]
+  before_filter :load_purchase, :only => [:show, :edit, :update, :destroy , :order , :receive , :inventory]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -27,6 +27,12 @@ class PurchasesController < AdminController
     redirect_to purchase_path(@purchase), :flash => { :notice => [t(:received) ,items ,t(:items)].join(" ") }
   end
   
+  # receive the stuff (ie add to inventory)
+  def inventory
+    items = @purchase.inventory!
+    redirect_to purchase_path(@purchase), :flash => { :notice => [t(:inventorized) ,items ,t(:items)].join(" ") }
+  end
+
   def new
     @purchase = Purchase.new
   end

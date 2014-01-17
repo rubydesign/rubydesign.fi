@@ -8,6 +8,7 @@ OfficeClerk::Application.routes.draw do
     member do
       get :order
       get :receive
+      get :inventory
     end
   end
 
