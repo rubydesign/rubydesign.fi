@@ -7,10 +7,8 @@
       %ul
         - @supplier.errors.full_messages.each do |msg|
           %li= msg
-  .control-group
-    = f.label :name, t(:name), :class => "control-label"
-    .controls
-      = f.text_field :name
+  .controls
+    = f.text_field :name
   = render "addresses/form_fields" ,:f => f
   .form-actions
     = f.submit :class => "submit-button"

@@ -11,29 +11,17 @@
     = f.label :category, t(:category), :class => "control-label"
     .controls
       = f.collection_select(:category_id, Category.all, :id, :name, :prompt => 'Select')
-  .control-group
-    = f.label :name, t(:name), :class => "control-label"
     .controls
       = f.text_field :name
-  .control-group
-    = f.label :description, t(:description), :class => "control-label"
     .controls
       = f.text_field :description
-  .control-group
-    = f.label :position, t(:position), :class => "control-label"
     .controls
       = f.text_field :position
-  .control-group
-    = f.label :link, t(:link), :class => "control-label"
     .controls
       = f.text_field :link
-  .control-group
-    = f.label :picture, t(:picture), :class => "control-label"
     = image_tag @category.main_picture.url
     .controls
       = f.file_field :main_picture
-  .control-group
-    = f.label :picture, t(:picture), :class => "control-label"
     = image_tag @category.extra_picture.url
     .controls
       = f.file_field :extra_picture
