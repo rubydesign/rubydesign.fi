@@ -16,16 +16,12 @@
         %thead
           %tr
             %th{column_style("category", "main_picture")}=t( "picture")
-            %th{column_style("product", "ean")}
-              =sorting_header("product", "ean", "")
-            %th{column_style("product", "name")}
-              =sorting_header("product", "name", "")
-            %th{column_style("product", "price")}
-              =sorting_header("product", "price", "")
+            %th= sort_link @q, :ean
+            %th= sort_link @q, :name
+            %th= sort_link @q, :price
             %th{column_style("product", "supplier")}
               =sorting_header("product", "supplier category", "")
-            %th{column_style("product", "inventory")}
-              =sorting_header("product", "inventory", "")
+            %th= sort_link @q, :inventory
             %th
               %label.checkbox
                 = pluralize(@product_scope.count, "product")
@@ -62,11 +58,8 @@
         = f.text_field :name_cont , :label => "product or product line name"
       = f.facet_for("description")
       = f.facet_for :price , :class => "control-group" 
-      = f.facet_for("weight")
-      = f.facet_for("online")
       = f.facet_for("link")
       = f.facet_for("ean")
-      = f.facet_for("tax")
       = f.facet_for("scode")
       = f.facet_for("inventory")
       = f.facet_for("supplier")

@@ -1,18 +1,19 @@
 %h2
   = t(:baskets)
 %p
-  = link_to new_basket_path, :class => "admin-button" do
-    %i.icon-plus
-    = t(:new) + ' ' + t(:basket)
+  %dl.sub-nav
+    %dd
+      = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
+    %dd
+      = paginate @baskets
 .row
   .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th{column_style("basket", "created_at")}
-              =sorting_header("basket", "created_at", "")
-            %th= t(:total)
+            %th= sort_link @q, :created_at
+            %th= sort_link @q, :total_price
             %th= t(:items)
             %th
               %label.checkbox
@@ -31,15 +32,14 @@
                   = item.product.name if item.product # maybe thumbs
                   %br
               %td= link_to t(:show) , basket_path(basket), :title => t(:show)
-      .btn-toolbar
-        .btn-group
-          - clean_params
-          = paginate @baskets
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:type)
       = f.select :kori_type_eq, ["" , "Order" , "Purchase"] 
       .search_heading= t(:items)
       = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
+      .search_heading= t(:total_price) + " " + t(:between)
+      = f.text_field :total_price_gt
+      = f.text_field :total_price_lt
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), baskets_path, :class => "admin-button"
