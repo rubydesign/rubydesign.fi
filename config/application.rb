@@ -27,7 +27,7 @@ module OfficeClerk
     end
     config.after_initialize do
     end
-    config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '100x100>', :product  => '600x600>' },
+    config.paperclip_defaults =  {  :styles => {:thumb => '48x48!', :list => '130x130!', :product  => '600x600>' },
                                 :default_style => :list,
                                 :url => "/images/:id/:style_:basename.:extension",
                                 :default_url => "/assets/missing/:style.png"      }

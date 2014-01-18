@@ -62,6 +62,7 @@ en:
   update_success: Successfully updated
   tax: Vat
   total: Total
+  total_price: Total Price
   treeview: Treeview
   type: Type
   user: User
