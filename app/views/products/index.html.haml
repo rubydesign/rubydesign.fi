@@ -19,8 +19,7 @@
             %th= sort_link @q, :ean
             %th= sort_link @q, :name
             %th= sort_link @q, :price
-            %th{column_style("product", "supplier")}
-              =sorting_header("product", "supplier category", "")
+            %th=t(:supplier) + " " + t(:category)
             %th= sort_link @q, :inventory
             %th
               %label.checkbox
@@ -39,7 +38,7 @@
               %td{column_style("product", "price")}
                 =euros(product.price)
               %td{column_style("product", "supplier")}
-                =product.supplier.name if product.supplier
+                =product.supplier.supplier_name if product.supplier
                 %br
                 =product.category.name if product.category
               %td{column_style("product", "inventory")}

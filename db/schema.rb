@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   end
 
   create_table "suppliers", force: true do |t|
-    t.string   "name"
+    t.string   "supplier_name"
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"

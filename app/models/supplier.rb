@@ -5,4 +5,8 @@ class Supplier < ActiveRecord::Base
 
   validates :supplier_name, :presence => true
 
+  def whole_address
+    [ name , street , city , country , phone ].join(" ")
+  end
+
 end
