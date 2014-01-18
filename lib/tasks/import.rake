@@ -10,7 +10,7 @@ namespace :db do
   end
 
   desc "fix pics and suppliers"
-  task :fix => :environment do
+  task :fix_orders => :environment do
     Order.all.each do |order|
       del = false
       del = true if order.created_at.year < 2012
@@ -32,36 +32,45 @@ namespace :db do
     end
   end
 
+  desc "fix pics"
+  task :fix_pictures => :environment do
+    Product.all.each do |p|
+      next if p.main_picture_file_name.blank?
+      next if p.main_picture_file_size
+      file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.main_picture_file_name}"].first
+      next unless file
+      f1 = File.open file
+      f2 = nil
+      p.main_picture =  f1
+      puts "Main " + file
+      unless p.extra_picture_file_name.blank?
+        file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.extra_picture_file_name}"].first
+        if file
+          f2 =  File.open file
+          p.extra_picture = f2
+          puts "Extra " + file
+        end
+      end
+      p.save!
+      f1.close
+      f2.close if f2
+    end
+  end
   desc "fix pics and suppliers"
-  task :fix => :environment do
-    Product.all.reverse.each do |p|
+  task :fix_products => :environment do
+    Product.all.each do |p|
+      puts p.name
       props = p.properties
       #Tuoteryhmä .. if not set before,, and delete both
       supplier = props["Valmistaja"]
       unless supplier.blank?
         p.supplier = Supplier.find_or_create_by_supplier_name supplier
-        p.save!
       end
       group = props["Tuoteryhmä"]
       if !p.category and !group.blank?
         p.category = Category.find_or_create_by_name group
-        p.save!
       end
       p.properties = ""
-      p.save
-      next if p.main_picture_file_name.blank?
-      next if p.main_picture_file_size
-      file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.main_picture_file_name}"].first
-      next unless file
-      p.main_picture =  File.open file
-      puts "Main " + file
-      unless p.extra_picture_file_name.blank?
-        file = Dir["/Users/raisa/kauppa/public/spree/products/*/original/#{p.extra_picture_file_name}"].first
-        if file
-          p.extra_picture =  File.open file
-          puts "Extra " + file
-        end
-      end
       #line prices that have gone askew in time
       if p.line?
         prices = p.products.collect{|u| u.price }
