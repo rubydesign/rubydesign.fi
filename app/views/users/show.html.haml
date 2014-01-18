@@ -1,17 +1,14 @@
-%h2
-  = t(:show, :default => "Show")
-  = t('app.models.user.bs_caption', :default => 'user')
+%h2= t(:user) + " : " + t(:email) 
 %p
-  %b
-    = t('app.models.user.bs_attributes.email', :default => 'email') + ":"
-  = @user.email
+  %b= t(:address)
 %p
-  %b
-    = t('app.models.user.bs_attributes.name', :default => 'name') + ":"
-  = @user.name
+  %b= t(:name) + " : " + @user.name.to_s
 %p
-  %b
-    = t('app.models.user.bs_attributes.address', :default => 'address') + ":"
-  = @user.address
+  %b= t(:street) + " : " + @user.street.to_s
+%p
+  %b= t(:city) + " : " + @user.city.to_s
+%p
+  %b= t(:phone) + " : " + @user.phone.to_s
+
 = link_to t(:edit), edit_user_path(@user), :class => "admin-button"
 = link_to t(:back), users_path, :class => "admin-button"

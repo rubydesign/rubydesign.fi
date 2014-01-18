@@ -135,9 +135,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
-    t.integer  "basket_id"
-    t.integer  "address_id"
+    t.text     "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

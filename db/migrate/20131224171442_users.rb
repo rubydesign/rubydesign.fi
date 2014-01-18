@@ -20,9 +20,7 @@ class Users < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       #Clerk
-      t.string :name
-      t.references :basket
-      t.references :address
+      t.text :address
 
       t.timestamps
     end

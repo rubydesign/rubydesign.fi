@@ -15,12 +15,14 @@ en:
   category: Product Category
   category_id: Product Line
   categories: Product Categories
+  city: City
   country: Country
   discount: Discount
   description: Description
   destroy: Destroy
   edit: Edit
   editing: Editing
+  email: Email
   first_name: First Name
   filter: Filter
   items: Items
@@ -39,6 +41,7 @@ en:
   parent: Parent
   paid_on: Paid on
   picture: Picture
+  phone: Phone
   position: Position
   prev: Previous
   price: Price
@@ -55,11 +58,13 @@ en:
   suppliers: Suppliers
   shop: Shop
   show: Show
+  street: Street
   update_success: Successfully updated
   tax: Vat
   total: Total
   treeview: Treeview
   type: Type
+  user: User
   users: Users
   will_paginate:
     previous_label: "&#8592; Previous"
