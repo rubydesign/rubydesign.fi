@@ -1,41 +1,51 @@
-.content.span7
+.content.product-info
   .product-title-h1
     %h1.product-title Cinnamon Apple Spices
-  .medium-3.columns
-    .picture
+  .row
+    .medium-1.columns
+      %img{src: "spacer.gif"}/
+    .medium-3.columns
+      .picture
+        .row
+          #product-images
+            #main-image
+              =image_tag @product.main_picture.url(:product)
+            #thumbnails
+              / no need for thumnails unless there is more then one image
+              %ul#product-thumbnails.thumbnails.inline
+                %li#tmb-3.tmb-all
+          %div
+            %h6.product-section-title Ominaisuudet
+            %table#product-properties.table-display
+              %tbody
+                %tr.even
+                  %td
+                    %strong= @product.category.name if @product.category
+                %tr.odd
+                  %td
+                    %strong= @product.supplier.name if  @product.supplier
+    .medium-6.columns
       .row
-        #product-images
-          #main-image
-            =image_tag @product.main_picture.url(:product)
-          #thumbnails
-            / no need for thumnails unless there is more then one image
-            %ul#product-thumbnails.thumbnails.inline
-              %li#tmb-3.tmb-all
-        %div
-          %h6.product-section-title Ominaisuudet
-          %table#product-properties.table-display
-            %tbody
-              %tr.even
-                %td
-                  %strong= @product.category.name
-              %tr.odd
-                %td
-                  %strong= @product.supplier.name 
-  .medium-3.columns
-    .row
-      #product-description
-        %div
-          = @product.description
-        #cart-form
-          %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
-            #inside-product-cart-form
-              .medium-4.columns
-                #product-price
-                  %h6.product-section-title Hinta
-                  %div
-                    %span.price.selling= euros @product.price
-                    €
+        #product-description
+          %div
+            = @product.description
+          #cart-form
+            %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
+              #inside-product-cart-form
+                .row
+                  .medium-1.columns
+                    #product-price
+                      %h6.product-section-title Hinta   
+                  .medium-2.columns
+                    %div
+                       
+                      %span.price.selling= euros @product.price
+                  .medium-9.columns
+                    
                 .add-to-cart
-                  %input#variants_3.title{max: "1", min: "1", name: "variants[3]", type: "number", value: "1"}
-                  %button#add-to-cart-button.large.primary{type: "submit"}
+                  %input#variants_3.title{max: "1", min: "1", name: "variants[3]", type: "number", value: "1", size: "5"}
+                  %button#add-to-cart-button.medium.primary{type: "submit"}
                     Lisää ostoskoriin
+    .medium-1.columns
+    
+                    
