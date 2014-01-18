@@ -1,6 +1,8 @@
 class Order < ActiveRecord::Base
   has_one :basket , :as => :kori , :autosave => true
 
+  store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
+
   def total_price
     basket.total_price + shipping_price
   end
