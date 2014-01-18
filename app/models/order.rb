@@ -10,9 +10,4 @@ class Order < ActiveRecord::Base
     basket.total_tax + shipping_tax*shipping_price
   end
 
-  def self.for_basket b
-    order = create! :basket => b
-    b.set_order order
-    order
-  end
 end

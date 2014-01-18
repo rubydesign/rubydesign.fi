@@ -6,7 +6,7 @@
 %p
   %dl.sub-nav
     %dd
-      = link_to  t(:new) + ' ' + t(:product) , new_product_path  unless params[:basket]
+      = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "admin-button" unless params[:basket]
     %dd
       = paginate @products 
 .row
