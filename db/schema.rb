@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "shipment_type"
     t.float    "shipping_price", default: 0.0
     t.float    "shipping_tax",   default: 0.0
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -119,7 +120,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
 
   create_table "suppliers", force: true do |t|
     t.string   "name"
-    t.integer  "address_id"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -135,7 +136,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.text     "address"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

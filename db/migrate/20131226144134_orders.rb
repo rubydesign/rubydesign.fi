@@ -10,6 +10,7 @@ class Orders < ActiveRecord::Migration
       t.string      :shipment_type
       t.float       :shipping_price , :default => 0
       t.float       :shipping_tax   , :default => 0
+      t.string      :address
 
       t.timestamps
     end

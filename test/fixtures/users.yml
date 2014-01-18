@@ -9,7 +9,6 @@ pasanenj@ovi.com:
   current_sign_in_ip: 88.192.116.166
   last_sign_in_ip: 88.192.116.166
   created_at: 2011-11-06 18:49:08.000000000 Z
-  address_id: 
 mlk.rissanen@gmail.com:
   email: mlk.rissanen@gmail.com
   encrypted_password: 829a9fc1579118a66c3c07d0508d457419af70db1637a31dc011e7aff533f0e9d33ed1a766f785a6b522d6cba14d92893c80919d049bac81f8dda583789ab85a
@@ -20,7 +19,6 @@ mlk.rissanen@gmail.com:
   current_sign_in_ip: 85.76.108.77
   last_sign_in_ip: 85.76.108.77
   created_at: 2011-11-16 18:32:11.000000000 Z
-  address_id: 
 hannaholma@gmail.com:
   email: hannaholma@gmail.com
   encrypted_password: 2a2146e9d5b2badf02731c56b6de41ff96cf921426b8690f2023400da44d0e70eff3c714e7a090cedbb3d9d50c0001af3214802687f8e2d22bfef52606444114
@@ -31,7 +29,6 @@ hannaholma@gmail.com:
   current_sign_in_ip: 85.76.18.82
   last_sign_in_ip: 85.76.106.150
   created_at: 2011-09-18 12:27:37.000000000 Z
-  address_id: 
 raisa@villataika.fi:
   email: raisa@villataika.fi
   encrypted_password: 2687dd72bb98a22f5e9d42db3c85bbea7e22ff13fbc0e9f428613d90aeb49ef2fee17af670f069758e3cc01688cc1d91110cf8285e8df14c496c7bc2f816f727
@@ -42,7 +39,6 @@ raisa@villataika.fi:
   current_sign_in_ip: 85.76.97.207
   last_sign_in_ip: 188.238.181.107
   created_at: 2011-10-24 08:06:00.000000000 Z
-  address_id: 
 pirita.pauni@gmail.com:
   email: pirita.pauni@gmail.com
   encrypted_password: fded65022027a9622d158f3a38b3a201ae4575ab86d7565c00721ac8a81b31329cdda858a0a14ffc2f41424d04d4419bb289ccba1f402ed18eb883d4e8393c19
@@ -53,7 +49,6 @@ pirita.pauni@gmail.com:
   current_sign_in_ip: 85.76.18.82
   last_sign_in_ip: 85.76.97.45
   created_at: 2011-10-24 08:06:39.000000000 Z
-  address_id: 
 torsten@villataika.fi:
   email: torsten@villataika.fi
   encrypted_password: 4634bcd677115c82393ba3955d4f782c163cf7070d3246ed833c663b9385a082ea7cc2a23c11754753955dd21206703f0a2926075ffe6fb131ff9626db4fb629
@@ -64,7 +59,8 @@ torsten@villataika.fi:
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 85.76.99.115
   created_at: 2010-01-01 13:36:41.000000000 Z
-  address_id: 63
+  address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
+    Antskog","phone":"0407308052"}'
 minnaj@iki.fi:
   email: minnaj@iki.fi
   encrypted_password: 69ae03f477eb01d4da5233a1d1b6cdde196d7d31d5d44b7b0967b338becf979e840e686d835225548254cb70377ccfca4fc9e30d6241966c64612de15a3b2e01
@@ -75,7 +71,6 @@ minnaj@iki.fi:
   current_sign_in_ip: 85.76.18.82
   last_sign_in_ip: 85.76.108.79
   created_at: 2011-10-24 08:07:09.000000000 Z
-  address_id: 
 sanna.siniketo@sofigate.com:
   email: sanna.siniketo@sofigate.com
   encrypted_password: 26cb9f671108c9b5c9f1ec1aa0ace34bbb440b195c565877d9856a17a2f106274911fd5c453b1c00b0ed02d2111e71d310e6638bbbdd6a7d7fe81dc2039c4075
@@ -86,7 +81,6 @@ sanna.siniketo@sofigate.com:
   current_sign_in_ip: 80.220.120.176
   last_sign_in_ip: 80.220.120.176
   created_at: 2011-11-28 16:11:36.000000000 Z
-  address_id: 
 torsten.ruger@gmail.com:
   email: torsten.ruger@gmail.com
   encrypted_password: dfc52be266beef90726934406f647890a6c7bf08fdd2293eaeaebf1eccfdd04de8d32200471c7c244ff5a562fb26888e16f9c7941ba2a45cb21c7ca34271820b
@@ -97,7 +91,6 @@ torsten.ruger@gmail.com:
   current_sign_in_ip: 91.150.20.117
   last_sign_in_ip: 91.150.20.117
   created_at: 2011-12-04 16:44:05.000000000 Z
-  address_id: 
 natali.sayenko@pp.inet.fi:
   email: natali.sayenko@pp.inet.fi
   encrypted_password: 54b5ac1bbcc0c71b759be3138ecc4591ba0d5be1309ac79bc2820c29528e8747f0bf93c4ada38b4d20126e40455abf8fd582a6b4865be407a7623e8c3aec7303
@@ -108,7 +101,6 @@ natali.sayenko@pp.inet.fi:
   current_sign_in_ip: 84.251.187.213
   last_sign_in_ip: 80.223.140.228
   created_at: 2011-12-26 18:32:40.000000000 Z
-  address_id: 
 pia.rehell@gmail.com:
   email: pia.rehell@gmail.com
   encrypted_password: 524667403526330779b7fc08c9f597b35ee579d6c3fa10a294bc7699dde2e573dc115c8408845c8e7a64d16b759edbc8c514f0426e319eb98eac44ddeef4ba3a
@@ -119,7 +111,6 @@ pia.rehell@gmail.com:
   current_sign_in_ip: 88.112.207.18
   last_sign_in_ip: 88.112.207.18
   created_at: 2012-01-12 16:56:23.000000000 Z
-  address_id: 
 Maria@salongwellness.fi:
   email: Maria@salongwellness.fi
   encrypted_password: ab08d78322773d10df2c14e9e5e0116e6c1a2bb5e160f72bfadda289e6b5662ab05946afc1c51d04150d08035a645e199804dca4b1c4f287ddca4387d4cf0c80
@@ -130,7 +121,6 @@ Maria@salongwellness.fi:
   current_sign_in_ip: 88.195.122.179
   last_sign_in_ip: 88.195.122.179
   created_at: 2012-01-12 21:37:40.000000000 Z
-  address_id: 
 meemi.luoma@luukku.com:
   email: meemi.luoma@luukku.com
   encrypted_password: 37a0653101294ecc99fd7a79b6a06490ad37b8cc6d2e2198501fc558019968a3e177705c18de91ee6b0d523e074ba91b8b080ef78cbe48b42f877613f2b84ecd
@@ -141,7 +131,6 @@ meemi.luoma@luukku.com:
   current_sign_in_ip: 94.199.118.97
   last_sign_in_ip: 94.199.118.97
   created_at: 2012-01-27 14:33:23.000000000 Z
-  address_id: 
 markus.janhunen@iki.fi:
   email: markus.janhunen@iki.fi
   encrypted_password: e4ec276736c66acabbd06d91cc9b782a1b36b01e03ad81ad155831f3a57d6c645dea61ebf6149fb6cf7dcdfd422b0ebbbe7088164426d3f9410460a66b1580df
@@ -152,7 +141,6 @@ markus.janhunen@iki.fi:
   current_sign_in_ip: 188.238.58.73
   last_sign_in_ip: 91.150.16.79
   created_at: 2010-01-03 09:46:51.000000000 Z
-  address_id: 7
 kaisuberg@hotmail.com:
   email: kaisuberg@hotmail.com
   encrypted_password: ba75a71d0c82469a80360f58bdec6487910a1f46d7913696ea0d8335b2d1352238a950def6daa720da0324a2c25e5958de04674c725ce453cf0bb2b239bf35c4
@@ -163,7 +151,6 @@ kaisuberg@hotmail.com:
   current_sign_in_ip: 85.23.21.23
   last_sign_in_ip: 85.23.21.23
   created_at: 2012-02-04 19:51:21.000000000 Z
-  address_id: 
 tarja.luoto@nsn.com:
   email: tarja.luoto@nsn.com
   encrypted_password: fca372d820dc66aa2abc16c4cb54ef5c84da6d6d676080b8eb7da0b5f6a34ccedb3ef10bdc9b86c8deecad88be10bed674f04e0f279469f67514d11f45234d10
@@ -174,7 +161,6 @@ tarja.luoto@nsn.com:
   current_sign_in_ip: 
   last_sign_in_ip: 
   created_at: 2012-02-09 06:01:42.000000000 Z
-  address_id: 
 tiina.gronroos@wippies.fi:
   email: tiina.gronroos@wippies.fi
   encrypted_password: 381c6f75f5156a1a36ac163f41755ee94f13d5efdfa536cbcdbdd6432d0733e6a5e3456669705d5840824bc0099c64175cc0d4d72655fe333c232e123a454a61
@@ -185,7 +171,6 @@ tiina.gronroos@wippies.fi:
   current_sign_in_ip: 82.181.28.236
   last_sign_in_ip: 82.181.28.236
   created_at: 2012-02-01 21:21:49.000000000 Z
-  address_id: 
 outiritvanen@netti.fi:
   email: outiritvanen@netti.fi
   encrypted_password: ee1a129dcebbacb77bee15b0dac85a7018cc74a42c4cdb1ccd753dceb08f3161c79be86852923c8c71c3f5beec47bdc4b4100b98c84a0ac448c9034c0178e3fc
@@ -196,7 +181,6 @@ outiritvanen@netti.fi:
   current_sign_in_ip: 91.154.240.104
   last_sign_in_ip: 91.154.240.104
   created_at: 2012-03-20 17:05:55.000000000 Z
-  address_id: 
 irene.alaranta@pp.inet.fi:
   email: irene.alaranta@pp.inet.fi
   encrypted_password: 7b1f2c0b420c25cfd1e41d6b5f375c6fbb786fb9e4524b0ac5e36baf0d1b9ec64a73f2b71a4b0bc69993edb8b8f0369b7fc016916a5cba3bbebe6326a6912bc9
@@ -207,7 +191,6 @@ irene.alaranta@pp.inet.fi:
   current_sign_in_ip: 192.89.123.41
   last_sign_in_ip: 192.89.123.41
   created_at: 2012-04-22 05:41:44.000000000 Z
-  address_id: 
 leija100@gmail.com:
   email: leija100@gmail.com
   encrypted_password: b03e197d8e21bbf3eeb691850c0c5730b57dbd3d0443330f29593a4b574bd05761f73428c7102794441dde565aef97fa3a43a778002e9d099edb575aabf27517
@@ -218,7 +201,6 @@ leija100@gmail.com:
   current_sign_in_ip: 91.156.16.62
   last_sign_in_ip: 91.156.16.62
   created_at: 2012-05-31 13:44:05.000000000 Z
-  address_id: 
 miiagranlund@hotmail.com:
   email: miiagranlund@hotmail.com
   encrypted_password: 1e0e674a8531b41982f71e79eaff486aa3bbe54336b714b927c5f1816c3875e0977f879e1d1591ea08970396781b313a842eeb713288c1a99e1deaed8085b517
@@ -229,7 +211,6 @@ miiagranlund@hotmail.com:
   current_sign_in_ip: 212.226.59.184
   last_sign_in_ip: 212.226.40.129
   created_at: 2012-06-07 23:36:18.000000000 Z
-  address_id: 
 sinivaisanen@hotmail.com:
   email: sinivaisanen@hotmail.com
   encrypted_password: 83cc0f467b655d2a6b5c5ce1592e3e09344630f53ee81a9b0d0c2c28a8b6647e0c64fa80bd3f63a50730b250a3cec9ce7de96c41d6a323a0e6b336fcc9816ea4
@@ -240,7 +221,6 @@ sinivaisanen@hotmail.com:
   current_sign_in_ip: 88.112.19.98
   last_sign_in_ip: 88.112.19.98
   created_at: 2012-06-27 18:32:58.000000000 Z
-  address_id: 
 latva.johanna@gmail.com:
   email: latva.johanna@gmail.com
   encrypted_password: 3d4afaa47dcc42c07c201d89e784f7e0444cc7afabbda9409b2bebb759ce05aaa08025e44716911cb10c5e658d66e950cac9edbe0b0396e37a95cfae7d172dc5
@@ -251,7 +231,6 @@ latva.johanna@gmail.com:
   current_sign_in_ip: 91.152.0.132
   last_sign_in_ip: 91.152.0.132
   created_at: 2012-07-04 09:25:29.000000000 Z
-  address_id: 
 arttu@arsti.la:
   email: arttu@arsti.la
   encrypted_password: 52c2d0f2b224ef7450e7c644afd0f8f41ce3c52e3abe4bb15259947724b513a6ff1c05ca373ddf35eba15514abbf82aeba88a4f9fc0eecb9f7621c6c5cd16e1f
@@ -262,7 +241,6 @@ arttu@arsti.la:
   current_sign_in_ip: 88.114.236.244
   last_sign_in_ip: 88.114.236.244
   created_at: 2012-07-21 20:07:59.000000000 Z
-  address_id: 
 minna.koskinen@aalto.fi:
   email: minna.koskinen@aalto.fi
   encrypted_password: 33b74ac266400902f44420711edd5862340e271cc9618ad9724f5dc9ddba997132ddb4d25c957400a27a27303fb3c0dcddcd5d4a310bafae524ada12539af914
@@ -273,7 +251,6 @@ minna.koskinen@aalto.fi:
   current_sign_in_ip: 82.181.218.61
   last_sign_in_ip: 82.181.218.61
   created_at: 2012-08-13 05:27:41.000000000 Z
-  address_id: 
 hanna.m.k.siisiainen@student.jyu.fi:
   email: hanna.m.k.siisiainen@student.jyu.fi
   encrypted_password: 561b4c254df4afe91172cc2d16a92dfc23f2e33fa5d5a38dc1bebf6a0d93b15a09738dba39e4a06a18499d6de212785ac56a9a9d472bb0957b6ba645b3271d3c
@@ -284,7 +261,6 @@ hanna.m.k.siisiainen@student.jyu.fi:
   current_sign_in_ip: 62.78.191.210
   last_sign_in_ip: 62.78.191.210
   created_at: 2012-08-18 20:27:07.000000000 Z
-  address_id: 
 sekarotu.mika@gmail.com:
   email: sekarotu.mika@gmail.com
   encrypted_password: ab83849091145254c06837e82d1937441cbf430d4c7c29bd3f36d93c6fbeb7b563ebbab0c7761f5921c515bf7db4efa729e7e6c0067ee9dc4b0c3ba73ad91a9d
@@ -295,7 +271,6 @@ sekarotu.mika@gmail.com:
   current_sign_in_ip: 80.220.108.36
   last_sign_in_ip: 80.220.108.36
   created_at: 2012-08-20 18:49:14.000000000 Z
-  address_id: 
 pia.setala@kolumbus.fi:
   email: pia.setala@kolumbus.fi
   encrypted_password: b4aa35af4c2eedaffe6d2a1556949fe37b95cd161145654443d1fb0852e50dd296ea37210f3979c6e6bcc6e086dad023a5edbcb984084f7a0ee5ca25867a74e6
@@ -306,7 +281,6 @@ pia.setala@kolumbus.fi:
   current_sign_in_ip: 91.158.6.17
   last_sign_in_ip: 91.158.6.17
   created_at: 2012-09-03 09:53:26.000000000 Z
-  address_id: 
 silandert@gmail.com:
   email: silandert@gmail.com
   encrypted_password: cf4804b43c81152c7effa537c5cd394210f8eee8169a0b08327ae070a8e4bb067f9dd91b6a87ca465f2a8caf17a7e29e6a3ca3c46efb7ea08561d86628c5e70e
@@ -317,7 +291,6 @@ silandert@gmail.com:
   current_sign_in_ip: 212.226.74.253
   last_sign_in_ip: 212.226.74.253
   created_at: 2012-09-28 07:18:16.000000000 Z
-  address_id: 
 ekimi@suomi24.fi:
   email: ekimi@suomi24.fi
   encrypted_password: 2f636deb45b1d168efb40e548a004533a6caabd9e133fb856adc25354069dbbbd8fdea9ca08737bcdbf2ae34f2b27759e91140cfd77eb3ff68f0abb17ee696f3
@@ -328,7 +301,6 @@ ekimi@suomi24.fi:
   current_sign_in_ip: 212.226.57.141
   last_sign_in_ip: 212.226.75.25
   created_at: 2012-10-28 16:57:24.000000000 Z
-  address_id: 
 kaisa7@gmail.com:
   email: kaisa7@gmail.com
   encrypted_password: c84496a02bf8182914dc7b37b72ba69f7f82410d65e299e608f80dc06329913ade2edd4e984fd40585afa4236d678fb690ca787a2881f156d878d3a04a67d23a
@@ -339,7 +311,6 @@ kaisa7@gmail.com:
   current_sign_in_ip: 193.211.67.11
   last_sign_in_ip: 193.211.67.11
   created_at: 2012-11-16 09:24:42.000000000 Z
-  address_id: 
 toni.kokkila@gmail.com:
   email: toni.kokkila@gmail.com
   encrypted_password: abed05b554d304b3b8adc9eb1aa018e66adbb35498fa5bc1cbb9a03215101031d2e4d5d8862d866f6461ea5926bc001d93076f8a116ca47d9558515148d7923a
@@ -350,7 +321,6 @@ toni.kokkila@gmail.com:
   current_sign_in_ip: 91.157.185.72
   last_sign_in_ip: 91.157.185.72
   created_at: 2012-12-13 13:07:30.000000000 Z
-  address_id: 
 kristiina.matttila@gmail.com:
   email: kristiina.matttila@gmail.com
   encrypted_password: 3bb7be4cf1cf4a8d0d6c28000323566fa3a0256227e7de450e822d191447a2cddc2b5530b12ff5ca26feb14e7b0b5135534024759ff9f2ef79c9ae344110030f
@@ -361,7 +331,6 @@ kristiina.matttila@gmail.com:
   current_sign_in_ip: 83.150.82.32
   last_sign_in_ip: 83.150.82.32
   created_at: 2013-01-10 14:44:16.000000000 Z
-  address_id: 
 keppister@gmail.com:
   email: keppister@gmail.com
   encrypted_password: 6b8642f98cac0a06bea34d6e766e215afc7c149289aa903048ff5eeb7b3f1ef9b64919c29611c10abfde6b7c91d926fdc687146abc94709d52ab8b52a63bdabc
@@ -372,4 +341,3 @@ keppister@gmail.com:
   current_sign_in_ip: 62.44.214.111
   last_sign_in_ip: 62.44.214.111
   created_at: 2013-01-22 08:24:29.000000000 Z
-  address_id: 
