@@ -30,7 +30,7 @@ class OrdersController < AdminController
   
   def new
     @order = Order.new
-    @order.build_basket :name => "cart"
+    @order.build_basket 
   end
 
   def edit
@@ -39,7 +39,7 @@ class OrdersController < AdminController
 
   def create
     @order = Order.create(params_for_model)
-    @order.build_basket(:name => "cart") unless @order.basket
+    @order.build_basket() unless @order.basket
     if @order.save
       redirect_to order_path(@order), :flash => { :notice => t(:create_success, :model => "order") }
     else

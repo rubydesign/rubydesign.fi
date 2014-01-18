@@ -6,6 +6,9 @@ OfficeClerk::Application.routes.draw do
       match "search" => "purchases#index", :via => [:get, :post]
     end
     member do
+      get :order
+      get :receive
+      get :inventory
     end
   end
 

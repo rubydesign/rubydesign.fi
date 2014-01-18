@@ -10,14 +10,8 @@
   .control-group
     = f.text_field :name
   .control-group
-    = f.text_field :ordered_on, :class => "datepicker"
+    = f.date_field :ordered_on
   .control-group
-    = f.text_field :received_on, :class => "datepicker"
-  .control-group
-    = f.label :basket, t(:basket), :class => "control-label"
-    .controls
-      = f.collection_select :basket_id, Basket.all, :id, :name, :include_blank => true
-  .control-group
-    = f.text_field :supplier
+    = f.date_field :received_on
   .form-actions
     = f.submit :class => "submit-button"

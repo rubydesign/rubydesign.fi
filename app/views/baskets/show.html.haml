@@ -10,7 +10,7 @@
 .row
   .large-12.columns
     %h2
-      = @basket.name
+      = @basket.kori_type.to_s
 .row
   .small-5.columns
     = form_tag edit_basket_path(@basket) , :method => :get do |f|
@@ -58,20 +58,22 @@
     .row.form-actions
       .large-4.column
         = f.submit :class => "submit-button"
+      .large-2.column
+        = link_to t(:back), baskets_path, :class => "admin-button"
       - if @basket.isa :cart 
-        .large-2.column
-          = link_to t(:back), baskets_path, :class => "admin-button"
         .large-2.column
           = link_to t(:make_order), order_basket_path(@basket), :class => "admin-button"
           = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "admin-button"
-          = link_to t(:add_inventory), purchase_basket_path(@basket), :class => "admin-button"
-          = link_to t(:as_inventory), purchase_basket_path(@basket), :class => "admin-button"
         .large-2.column
           = link_to t(:print_order), "javascript:poptastic('#{print_basket_path(@basket)}');" , :class => "admin-button"
-      - else
+      - elsif @basket.isa(:order)
         .large-2.column
-          = link_to t(:to_order), order_path(@basket.order), :class => "admin-button"
+          = link_to t(:to_order), order_path(@basket.kori), :class => "admin-button" 
         .large-2.column
-          = link_to t(:print_order), print_order_path(@basket.order), :class => "admin-button"
+          = link_to t(:print_order), print_order_path(@basket.kori), :class => "admin-button"
+      - elsif @basket.isa(:purchase)
+        .large-2.column
+          = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "admin-button" 
+        
       .large-2.column
         = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "admin-button"

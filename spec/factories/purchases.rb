@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :purchase do
-    name "MyString"
+    name "purchase"
     ordered_on "2013-12-26"
     received_on "2013-12-26"
-    basket nil
+    basket
   end
 end

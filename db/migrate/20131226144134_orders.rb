@@ -4,7 +4,6 @@ class Orders < ActiveRecord::Migration
       t.string      :number
       t.string      :email
       t.date        :ordered_on
-      t.references  :basket
       t.date        :paid_on
       t.date        :canceled_on
       t.date        :shipped_on

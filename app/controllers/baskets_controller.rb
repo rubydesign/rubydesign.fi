@@ -1,7 +1,7 @@
 # encoding : utf-8
 class BasketsController < AdminController
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :print]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :print, :purchase]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -32,12 +32,21 @@ class BasketsController < AdminController
   
   #as an action this order is mean as a verb, ie order this basket
   def order
+    redirect_to :action => :show    if @basket.items.empty?
     order = Order.for_basket @basket
     redirect_to :action => :show , :controller => :orders , :id => order.id
   end
   
+  def purchase
+    redirect_to :action => :show    if @basket.items.empty?
+    name = "purchase"
+    #if inventory -> "inventory" etc
+    purchase = Purchase.for_basket @basket
+    redirect_to :action => :show , :controller => :purchases , :id => purchase.id
+  end
+  
   def new
-    @basket = Basket.create! :name => "cart"
+    @basket = Basket.create!
     render "show"
   end
 
@@ -146,7 +155,7 @@ class BasketsController < AdminController
   end
 
   def params_for_basket
-    params.require(:basket).permit(:name , :items_attributes => [:quantity , :price , :id] )
+    params.require(:basket).permit( :items_attributes => [:quantity , :price , :id] )
   end
 end
 

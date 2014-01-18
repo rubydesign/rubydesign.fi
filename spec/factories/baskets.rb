@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :basket do
-    name "Cart"
+    sequence(:id)
   end
 end

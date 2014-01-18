@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   end
 
   create_table "baskets", force: true do |t|
-    t.string   "name"
+    t.integer  "kori_id"
+    t.string   "kori_type"
     t.decimal  "total_price", default: 0.0
     t.decimal  "total_tax",   default: 0.0
     t.datetime "created_at"
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "number"
     t.string   "email"
     t.date     "ordered_on"
-    t.integer  "basket_id"
     t.date     "paid_on"
     t.date     "canceled_on"
     t.date     "shipped_on"
@@ -113,13 +113,9 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "name"
     t.date     "ordered_on"
     t.date     "received_on"
-    t.integer  "basket_id"
-    t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "purchases", ["basket_id"], name: "index_purchases_on_basket_id"
 
   create_table "suppliers", force: true do |t|
     t.string   "name"

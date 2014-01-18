@@ -22,8 +22,7 @@
           - @categories.each do |category|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td{column_style("category", "picture")}
-                = image_tag category.main_picture.url
-                = image_tag category.extra_picture.url
+                = image_tag category.main_picture.url(:thumb)
               %td{column_style("category", "name")}
                 =category.name
               %td{column_style("category", "link")}

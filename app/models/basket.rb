@@ -1,14 +1,17 @@
 class Basket < ActiveRecord::Base
-  has_one :purchase
-  has_one :order
+
+  belongs_to :kori, polymorphic: true  #kori is basket in finnish
+  
   has_many :items, autosave: true
   before_save :cache_totals
   
-  validates :name, :presence => true
   accepts_nested_attributes_for :items
 
+  def quantity
+    items.sum(:quantity)
+  end
   def cache_totals
-    self.total_price = items.sum{ |i| i.price * i.quantity}
+    self.total_price = items.to_a.sum{ |i| i.price * i.quantity}
   end
   def touch
     cache_totals
@@ -16,22 +19,49 @@ class Basket < ActiveRecord::Base
     super
   end
   def set_order o
-    self.name = "order " + o.id.to_s
+    self.kori = o
     save!
   end
-  def order
-    return nil unless isa :order
-    order_id = name.split.last
-    Order.find order_id
+  def set_purchase o
+    self.kori = o
+    save!
   end
-  #type is one of order purchase , user or cart depending on who "owns" the basket
-  def type
-    name.split.first.downcase
+  # receiving the goods means that the item quantity is added to the stock (product.inventory)
+  # also we change the price to the products cost price
+  def receive!
+    sum = 0
+    self.items.each do |item|
+      item.product.inventory += item.quantity
+      sum += item.quantity
+      item.price = item.product.cost
+      item.product.save!
+      item.save!
+    end
+    sum
   end
-  def isa typ
-    self.type == typ.to_s
+  #inventoying the basket means setting the item quantity as the stock
+  #we actually change the basket for it to be a relative change (so as to look like a receive)
+  def inventory!
+    self.items.each { |item| item.quantity -= item.product.inventory  }
+    self.receive!
   end
   
+  #type is one of order purchase , user or cart depending on who "owns" the basket
+  def type
+    self.kori_type
+  end
+  
+  def isa typ
+    return typ == :cart  if self.type == nil
+    self.type.downcase == typ.to_s
+  end
+  
+  def suppliers
+    ss = items.collect{|i| i.product.supplier if i.product}
+    ss.uniq!
+    ss.delete(nil)
+    ss
+  end
   #when adding a product (with quantity) we ensure there is only one item for each product
   def add_product prod , quant = 1
     return unless prod

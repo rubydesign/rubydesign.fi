@@ -7,17 +7,11 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  .control-group
-    = f.label :email, t('app.models.user.bs_attributes.email', :default => 'email').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :email
-  .control-group
-    = f.label :name, t('app.models.user.bs_attributes.name', :default => 'name').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :name
-  .control-group
-    = f.label :address, t('app.models.user.bs_attributes.address', :default => 'address').capitalize, :class => "control-label"
-    .controls
-      = f.text_field :address
+  .controls
+    = f.text_field :email
+  .controls
+    = f.text_field :name
+  .controls
+    = f.text_field :address
   .form-actions
     = f.submit :class => "submit-button"

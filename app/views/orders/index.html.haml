@@ -48,12 +48,20 @@
             %i.icon-download JSON 
   .medium-3.columns
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for("ordered_on")
-      = f.facet_for("basket_total_price")
+      = f.label t(:ordered_on) + t(:between)
+      = f.date_field :ordered_on_gt 
+      = f.date_field :ordered_on_lt 
+      = f.label t(:total) + t(:between)
+      = f.text_field :basket_total_price_lt 
       = f.facet_for("email")
-      = f.facet_for("paid_on")
-      = f.facet_for("shipped_on")
-      = f.facet_for("paid_on")
-      = f.facet_for("canceled_on")
+      = f.label t(:paid_on) + t(:between)
+      = f.date_field :paid_on_gt 
+      = f.date_field :paid_on_lt 
+      = f.label t(:shipped_on) + t(:between)
+      = f.date_field :shipped_on_gt 
+      = f.date_field :shipped_on_lt 
+      = f.label t(:canceled_on) + t(:between)
+      = f.date_field :canceled_on_gt 
+      = f.date_field :canceled_on_lt 
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), orders_path, :class => "admin-button"

@@ -8,7 +8,7 @@ describe "Purchases" do
       page.should_not have_css(".translation_missing")
     end
   end
-  it "creates a new group" do
+  it "creates a new purchases" do
     visit new_purchase_path
     status_code.should be 200
     page.should_not have_css(".translation_missing")

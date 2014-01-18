@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  belongs_to :basket , :autosave => true
+  has_one :basket , :as => :kori , :autosave => true
 
   def total_price
     basket.total_price + shipping_price

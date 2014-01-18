@@ -32,9 +32,10 @@ describe PurchasesController do
 
   describe "GET index" do
     it "assigns all purchases as @purchases" do
-      purchase = Purchase.create! valid_attributes
+      count_before = Purchase.count
+      purchase = create :purchase
       get :index, {}, valid_session
-      assigns(:purchases).should eq([purchase])
+      assigns(:purchases).count.should be count_before + 1
     end
   end
 
