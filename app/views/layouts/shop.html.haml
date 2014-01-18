@@ -10,7 +10,6 @@
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1", name: "viewport"}
     %meta{content: "Sisustus, Lifestyle, luomukosmetiikka , luonnonkosmetiikka , farfalla", name: "keywords"}
-    %meta{content: "Saat mausteisen herkkujuoman lisäämällä jauhetta kuumaan tai kylmään omenamehuun. Jauheet ovat riittoisia ja lisäaineettomia. Yhdestä purkista voit saada 20L valmista juomaa. Valmistusaineet: sokeri, kaneli, neilikka, muskottisose.", name: "description"}
     = stylesheet_link_tag "shop"
     = javascript_include_tag "shop"
     %meta{content: "authenticity_token", name: "csrf-param"}
@@ -21,24 +20,24 @@
         %section.top-bar-section
           %ul.left
             %li 
-              %img{src: "/assets/shop/valk3.png"}/
+              %img{src: "/assets/shop/logo.png"}/
             %li 
               %img{src: "/assets/shop/valk.png"}/
-            
-                        
+          %ul.right
+            %li.search
+              %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
+                %div{style: "margin:0;padding:0;display:inline"}
+                  %input{name: "utf8", type: "hidden", value: "✓"}/
+                %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "12"}
           %ul.right
             %li#link-to-cart
               %a.empty{href: "/cart"} Ostoskori: (tyhjä)
             %li#link-to-login
               %a{href: "/login"} Kirjaudu
-            %li
-              %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
-                %div{style: "margin:0;padding:0;display:inline"}
-                  %input{name: "utf8", type: "hidden", value: "✓"}/
-                %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "12"}
     
     .row
-      %img{src: "/assets/shop/header.jpg"}/
+      .banner
+        %img{src: "/assets/shop/kansi.jpg"}/
               
     .row
       .large-12.columns

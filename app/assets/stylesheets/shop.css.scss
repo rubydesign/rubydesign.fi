@@ -7,18 +7,29 @@
 $topbar-bg: #108BAD;
 $highlight: #108BAD;
 
+@import "shop_foundation" ;
+
+.top-bar-section ul {
+    background: #ffffff;
+    }
+
+.top-bar-section form {
+    background-color: highlight;
+    padding-right: 5px;
+}
+
+
 #footer {
   padding-top: 6px;
   padding-left: 18px; padding-right: 18px;
   font-size: .8em;
-	line-height: 15
-	0%;
+	line-height: 150%;
 	strong, b {
-    color: highlight;
+  color: highlight;
   }  
 }
 
-.main-image {
+.banner {
   padding-top: 15px;
 }
 
@@ -66,7 +77,7 @@ body {
 }
 
   .product-image img {
-	width: 140px;
+	width: 130px;
 }
 
 .product-container {
@@ -106,7 +117,35 @@ body {
 	margin: 0 auto;
 }
 
-@import "shop_foundation" ;
+h1.product-title {
+	font-size: 2.3rem;
+	color: #108BAD;
+}
+
+.product-info, #product-details {
+  font-family: "Open Sans";
+}
+
+#product-description {
+	line-height: 120%;
+	border-bottom: 1px dotted #007bd2;
+	margin-top: 10px;
+}
+
+#inside-product-cart-form {
+	margin-top: 12px;
+}
+
+h6.product-section-title {
+font-weight: 500;
+margin-top: 0.1rem;
+}
+
+span.price.selling {
+  color: #108BAD;
+	margin-left: 4px;
+	margin-top: 0.3rem;
+}
 
 
 .submenu {
