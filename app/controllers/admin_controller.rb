@@ -3,10 +3,13 @@ class AdminController < ApplicationController
   
   layout "admin"
 
-  def boolean(string)
-    return true if string == true || string =~ (/(true|t|yes|y|1)$/i)
-    return false if string == false || string.nil? || string =~ (/(false|f|no|n|0)$/i)
-    raise ArgumentError.new("invalid value for Boolean: \"#{string}\"")
+  before_filter :clean_search , :only => [:index , :search]
+  
+  def clean_search
+    q = params[:q]
+    return unless q
+    q.keys.each do |key|
+      q.delete(key) if q[key].blank?
+    end
   end
-
 end
