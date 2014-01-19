@@ -1,37 +1,38 @@
 fi:
-  actions: Toimipiteet
+  actions: Toimenpiteet
+  add: Lisää
   address: Osoite
   addresses: Osoiteet
   are_you_sure: oletko varma
-  back: takaisin
-  basket: Kori
-  basket_total_price: Yhteensä
-  baskets: Korit
+  back: Takaisin
+  basket: Ostoskori
+  baskets: Ostoskorit
   between: välillä
-  cancel: Perutaa
-  canceled_on: perutettu
+  cancel: Peruuta
+  canceled_on: peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
   city: Kaupunki
-  create_success: luottu
+  create_success: Luotu
   create: Luo
   created_at: luottu
   cost: Kustannus
-  country: maa
+  country: Maa
   create_success: 
-  description: kuvaus
-  destroy: posta
-  discount: alennus
-  edit: muokaa
-  editing: muokamassa
+  description: Kuvaus
+  delete: Poista
+  destroy: Poista
+  discount: Alennus
+  edit: Muokkaa
+  editing: Muokkaamassa
   email: s-posti
   extra_picture: Toinen kuva
   picture2: Toinen kuva
   filter: Hae
   first_name: Etunimi
-  items: Tuoteet
-  item: tuote
-  inventory: Inventario
+  items: Tuotteet
+  item: Tuote
+  inventory: Inventaario
   last_name: Sukunimi
   link: linkki
   main_picture: Kuva
@@ -49,17 +50,18 @@ fi:
   paid_on: maksettu
   parent: Tuoteryhmä
   phone: Puhelin
-  picture: kuva
-  position: paikka
+  picture: Kuva
+  position: Paikka
   prev: edellinen
-  price: hinta
+  price: Hinta
+  price_between: Hinta haarukka
   product: Tuote
   product_line: Tuotelinja
   products: Tuoteet
   print_order: Tuolsta
-  purchases: Sisäostoksiä
-  purchase: Sisäostos
-  quantity: määrä
+  purchases: Sisäänostot
+  purchase: Sisäänosto
+  quantity: Määrä
   received: tullut
   scode: Tuottajatunnus
   shipped_on: Lähetetty
@@ -68,28 +70,39 @@ fi:
   shop: kauppa
   show: näytää
   street: Katu
-  supplier: Tuotaja
-  suppliers: Tuotajat
+  supplier: Tuottaja
+  suppliers: Tuottajat
   tax: alv
   tax_rate: Veroprosentti
-  title: titeli
+  title: Titteli
   total: yhteensä
   total_tax: Verot
-  total_price: yhteensä
+  total_price: Yhteensä
   treeview: 
-  type: Tyypi
-  update_success: 
-  users: Käytäjät
-  user: Käytäjä
+  type: Laji
+  update_success: Päivitetty 
+  users: Käyttäjät
+  user: Käyttäjä
   weight: Paino
   will_paginate:
-    next_label: seurava
+    next_label: seuraava
     page_gap: ' '
     previous_label: edellinen
   activerecord:
     models:
+      order: Tilaus
+      basket: &basket
       product: Tuote
     attributes:
+      basket:
+        created_at: Luotu
+        total_price: Hinta
+      supplier:
+        supplier_name: Tuottaja
+        name: Nimi
+        street: Katu
+        city: Kaupunki
+        phone: Puhelin
       product:
         online: Netissä
         description: Kuvaus

@@ -71,8 +71,8 @@
     %p
       %b
         = t(:category) + ":"
-      = (@product.category.nil? ? "" : @product.category.name)
+      = link_to_if @product.category , @product.category.name ,category_path(@product.category)
     %p
       %b
         = t(:supplier) + ":"
-      = (@product.supplier.nil? ? "" : @product.supplier.supplier_name)
+      = link_to_if @product.supplier , @product.supplier.supplier_name ,supplier_path(@product.supplier)

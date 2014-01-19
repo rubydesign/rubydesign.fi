@@ -26,18 +26,7 @@
       = t(:picture) + ":"
     = image_tag @category.extra_picture.url
 
-%h3= @category.products.count.to_s + " " + t(:products)
-.row
-  %table.table.table-striped.table-bordered.table-condensed
-    %tbody
-      - @category.products.in_groups_of(3).each do |array|
-        %tr{:class => "line-#{cycle("1","2")}"}
-          -array.each do |product|
-            -next unless product
-            %td= image_tag product.main_picture.url(:thumb)
-            %td
-              = link_to product_path(product), :title => t(:show) do 
-                =product.line_item? ? product.full_name : product.name
+=render "products/triple" , :products => @category.products
 
 = link_to t(:edit), edit_category_path(@category), :class => "admin-button"
 = link_to t(:back), categories_path, :class => "admin-button"

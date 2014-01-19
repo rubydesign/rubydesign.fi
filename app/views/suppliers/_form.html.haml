@@ -8,7 +8,7 @@
         - @supplier.errors.full_messages.each do |msg|
           %li= msg
   .controls
-    = f.text_field :name
+    = f.text_field :supplier_name
   = render "addresses/form_fields" ,:f => f
   .form-actions
     = f.submit :class => "submit-button"

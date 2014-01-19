@@ -60,6 +60,11 @@ namespace :db do
   task :fix_products => :environment do
     Product.all.each do |p|
       puts p.name
+      if p.ean.blank?
+        p.ean = p.scode
+        p.scode = ""
+      end
+      p.scode = "" if p.ean == p.scode
       props = p.properties
       #Tuoteryhmä .. if not set before,, and delete both
       supplier = props["Valmistaja"]
