@@ -8,12 +8,13 @@ fi:
   basket_total_price: Yhteensä
   baskets: Korit
   between: välillä
-  cancel: perutaa
+  cancel: Perutaa
   canceled_on: perutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
   city: Kaupunki
   create_success: luottu
+  create: Luo
   created_at: luottu
   cost: Kustannus
   country: maa
@@ -25,7 +26,8 @@ fi:
   editing: muokamassa
   email: s-posti
   extra_picture: Toinen kuva
-  filter: suodata
+  picture2: Toinen kuva
+  filter: Hae
   first_name: Etunimi
   items: Tuoteet
   item: tuote
@@ -35,8 +37,8 @@ fi:
   main_picture: Kuva
   make_order: Luo tilaus
   make_purchase: Luo Ostos
-  name: nimi
-  name_contains: nimi sisäsätä
+  name: Nimi
+  name_contains: Nimi sisäsätä
   new: Uusi
   next: seurava
   not_online: ei netissä
@@ -69,7 +71,7 @@ fi:
   supplier: Tuotaja
   suppliers: Tuotajat
   tax: alv
-  tax_percent: Veroprosentti
+  tax_rate: Veroprosentti
   title: titeli
   total: yhteensä
   total_tax: Verot
@@ -84,6 +86,17 @@ fi:
     next_label: seurava
     page_gap: ' '
     previous_label: edellinen
+  activerecord:
+    models:
+      product: Tuote
+    attributes:
+      product:
+        online: Netissä
+        description: Kuvaus
+        price: Hinta
+        weight: Paino
+        tax: Veroprosentti
+        scode: Tuottajatunnus
   errors:
     messages:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
@@ -94,4 +107,5 @@ fi:
       not_saved:
         one: '1 virhe esti %{resource} tallentamisen:'
         other: '%{count} virhettä esti %{resource} tallentamisen:'
+      not_a_number: Ei ole numero
   
