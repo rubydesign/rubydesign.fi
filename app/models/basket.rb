@@ -18,14 +18,6 @@ class Basket < ActiveRecord::Base
     save
     super
   end
-  def set_order o
-    self.kori = o
-    save!
-  end
-  def set_purchase o
-    self.kori = o
-    save!
-  end
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price
   def receive!

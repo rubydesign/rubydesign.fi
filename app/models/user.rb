@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  belongs_to :address
-  belongs_to :basket
 
-  def self.permitted_attributes
-    return :email,:name
+  has_many :basket
+
+  store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
+
+  def whole_address
+    [ name , street , city , phone ].join(" ")
   end
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

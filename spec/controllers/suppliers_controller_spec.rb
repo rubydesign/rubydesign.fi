@@ -24,9 +24,7 @@ describe SuppliersController do
   # Supplier. As you add validations to Supplier, be sure to
   # adjust the attributes here as well.
   let(:supplier_attributes) do
-     sup = attributes_for :supplier 
-     sup[:address_attributes] = attributes_for :address
-     {:supplier => sup}
+     {:supplier => attributes_for(:supplier)}
    end
 
   # This should return the minimal set of values that should be in the session

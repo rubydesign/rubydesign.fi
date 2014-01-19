@@ -21,7 +21,6 @@ class SuppliersController < AdminController
 
   def new
     @supplier = Supplier.new
-    @supplier.build_address
   end
 
   def edit

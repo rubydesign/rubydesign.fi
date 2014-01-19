@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :supplier do
-    name "MyString"
-    association :address, :strategy => :build
+    supplier_name "MyString"
   end
 end

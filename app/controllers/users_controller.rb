@@ -8,102 +8,45 @@ class UsersController < AdminController
 
   def index
     @q = User.search params[:q]
-
     @user_scope = @q.result(:distinct => true)
-    
-    @user_scope_for_scope = @user_scope.dup
-    
-    unless params[:scope].blank?
-      @user_scope = @user_scope.send(params[:scope])
-    end
-    
-    @users = @user_scope.paginate(
-      :page => params[:page],
-      :per_page => 20
-    ).to_a
-
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json{
-        render :json => @user_scope.to_a
-      }
-      format.csv{
-        require 'csv'
-        csvstr = CSV.generate do |csv|
-          csv << User.attribute_names
-          @user_scope.to_a.each{ |o|
-            csv << User.attribute_names.map{ |a| o[a] }
-          }
-        end 
-        render :text => csvstr
-      }
-    end
+    @users = @user_scope.paginate( :page => params[:page],:per_page => 20).to_a
   end
 
   def show
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @user }
-    end
   end
 
   def new
     @user = User.new
-
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @user }
-    end
   end
 
-  def edit
-    
+  def edit    
   end
 
   def create
     @user = User.create(params_for_model)
-
-    respond_to do |format|
-      if @user.save
-        format.html {
-          redirect_to user_path(@user), :flash => { :notice => t(:create_success, :model => "user") }
-        }
-        format.json { render :json => @user, :status => :created, :location => @user }
-      else
-        format.html {
-          render :action => "new"
-        }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to user_path(@user), :flash => { :notice => t(:create_success, :model => "user") }
+    else
+      render :action => "new"
     end
   end
 
   def update
-
-    respond_to do |format|
-      if @user.update_attributes(params_for_model)
-        format.html { redirect_to user_path(@user), :flash => { :notice => t(:update_success, :model => "user") }}
-        format.json { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
-      end
+    pars = params_for_model
+    if pars["password"].blank? and pars["password_confirmation"].blank?
+      pars.delete("password")
+      pars.delete("password_confirmation")
+    end
+    if @user.update_attributes(pars)
+      redirect_to user_path(@user), :flash => { :notice => t(:update_success, :model => "user") }
+    else
+      render :action => "edit" 
     end
   end
 
   def destroy
     @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :ok }
-    end
+    redirect_to users_url 
   end
 
   private 
@@ -113,7 +56,7 @@ class UsersController < AdminController
   end
 
   def params_for_model
-    params.require(:user).permit(User.permitted_attributes)
+    params.require(:user).permit( :email,:name , :street , :city , :phone ,:password, :password_confirmation)
   end
 end
 

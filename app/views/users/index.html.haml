@@ -9,12 +9,9 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th{column_style("user", "email")}
-              =sorting_header("user", "email", "")
-            %th{column_style("user", "name")}
-              =sorting_header("user", "name", "")
+            %th=sort_link @q, :email
             %th{column_style("user", "address")}
-              =sorting_header("user", "address", "")
+              =t(:address)
             %th{:colspan => "3"}
               %label.checkbox
                 = pluralize(@user_scope.count, "user")
@@ -23,20 +20,17 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td{column_style("user", "email")}
                 =user.email
-              %td{column_style("user", "name")}
-                =user.name
               %td{column_style("user", "address")}
-                =user.address
+                =user.whole_address
               %td= link_to t(:show) , user_path(user), :title => t(:show)
               %td= link_to t(:edit), edit_user_path(user), :title => t(:edit)
               %td= link_to t(:destroy) , user_path(user), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
       .btn-toolbar
         .btn-group
-          - clean_params
           = paginate @users
   .medium-3.columns
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("email")
-      = f.facet_for("name")
+      = f.facet_for("address")
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), users_path, :class => "admin-button"

@@ -1,6 +1,8 @@
 class Order < ActiveRecord::Base
   has_one :basket , :as => :kori , :autosave => true
 
+  store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
+
   def total_price
     basket.total_price + shipping_price
   end
@@ -10,9 +12,4 @@ class Order < ActiveRecord::Base
     basket.total_tax + shipping_tax*shipping_price
   end
 
-  def self.for_basket b
-    order = create! :basket => b
-    b.set_order order
-    order
-  end
 end

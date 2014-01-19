@@ -33,7 +33,7 @@ class BasketsController < AdminController
   #as an action this order is mean as a verb, ie order this basket
   def order
     redirect_to :action => :show    if @basket.items.empty?
-    order = Order.for_basket @basket
+    order = Order.create! :basket => @basket
     redirect_to :action => :show , :controller => :orders , :id => order.id
   end
   
@@ -41,7 +41,7 @@ class BasketsController < AdminController
     redirect_to :action => :show    if @basket.items.empty?
     name = "purchase"
     #if inventory -> "inventory" etc
-    purchase = Purchase.for_basket @basket
+    purchase = Purchase.create! :basket => @basket
     redirect_to :action => :show , :controller => :purchases , :id => purchase.id
   end
   

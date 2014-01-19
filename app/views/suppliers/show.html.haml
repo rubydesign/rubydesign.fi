@@ -3,24 +3,24 @@
   = t(:supplier)
 %p
   %b
-    = t(:name) + ":" +  @supplier.name
+    = t(:name) + ":" +  @supplier.supplier_name
+
+%h3= t(:contact)
 %p
   %b
-    = t(:first_name) + ":" + @supplier.address.first_name if @supplier.address
+    = t(:name) + ":" +  @supplier.name.to_s
 %p
   %b
-    = t(:last_name) + ":" +  @supplier.address.last_name if @supplier.address
+    = t(:street) + ":" +  @supplier.street.to_s
 %p
   %b
-    = t(:street1) + ":" +  @supplier.address.street1 if @supplier.address
+    = t(:city) + ":" + @supplier.city.to_s
 %p
   %b
-    = t(:street2) + ":" +  @supplier.address.street2 if @supplier.address
+    = t(:phone) + ":" +  @supplier.phone.to_s
 %p
   %b
-    = t(:city) + ":" + @supplier.address.city if @supplier.address
-%p
-  %b
-    = t(:country) + ":" + @supplier.address.country if @supplier.address
+    = t(:country) + ":" + @supplier.country.to_s
+    
 = link_to t(:edit), edit_supplier_path(@supplier), :class => "admin-button"
 = link_to t(:back), suppliers_path, :class => "admin-button"

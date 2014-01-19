@@ -21,10 +21,4 @@ class Purchase < ActiveRecord::Base
     basket.inventory!
   end
   
-  def self.for_basket b
-    purchase = create! :basket => b
-    b.set_purchase purchase
-    purchase
-  end
-
 end
