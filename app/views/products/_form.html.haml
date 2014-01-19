@@ -1,6 +1,6 @@
 %div
   = form_for(@product, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
-    = hidden_field_tag "product[product_id]" , params[:parent_id] if params[:parent_id]
+    = f.hidden_field( :product_id) if @product.product_id
     - if @product.errors.any?
       #error_explanation
         %h2
