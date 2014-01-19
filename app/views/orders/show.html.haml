@@ -31,7 +31,7 @@
       = t(:canceled_on) + ":" + @order.canceled_on.to_s
   %p
     %b
-      = t(:shipment_type) + ":" + @order.shipment_type
+      = t(:shipment_type) + ":" + @order.shipment_type.to_s
 
 = render "baskets/small" , :basket => @order.basket  
   

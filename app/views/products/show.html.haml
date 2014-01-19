@@ -2,7 +2,8 @@
   =render "line"
 -elsif @product.line_item?
   %h3
-    Item of Product Line 
+    = t(:product)
+    = t(:product_line)
     = link_to @product.product.name , product_path( @product.product)
     = @product.name
 -elsif
@@ -65,7 +66,7 @@
       = @product.scode
     %p
       %b
-        = t(:tax) + ":"
+        = t(:tax_percent) + ":"
       = @product.tax
     %p
       %b

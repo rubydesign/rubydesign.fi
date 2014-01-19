@@ -1,8 +1,8 @@
 %h2
-  Product Line
+  = t(:product_line)
   = @product.name
   %small
-    = @product.online ? "online" : "not online"
+    = @product.online ? t(:online) : t(:not_online)
 %table
   %tbody
     %tr.line-1

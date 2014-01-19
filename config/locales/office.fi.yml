@@ -1,54 +1,89 @@
 fi:
-  actions: toimipiteet
-  address: osoite
-  addresses: osoiteet
+  actions: Toimipiteet
+  address: Osoite
+  addresses: Osoiteet
   are_you_sure: oletko varma
   back: takaisin
-  basket: lista
-  baskets: listat
+  basket: Kori
+  basket_total_price: Yhteensä
+  baskets: Korit
+  between: välillä
   cancel: perutaa
-  categories: ryhmät
-  category: ryhmä
-  category_id: ryhmä
+  canceled_on: perutettu
+  categories: Tuoteryhmät
+  category: Tuoteryhmä
+  city: Kaupunki
+  create_success: luottu
+  created_at: luottu
+  cost: Kustannus
   country: maa
   create_success: 
   description: kuvaus
   destroy: posta
+  discount: alennus
   edit: muokaa
   editing: muokamassa
+  email: s-posti
+  extra_picture: Toinen kuva
   filter: suodata
   first_name: Etunimi
-  items: 
+  items: Tuoteet
+  item: tuote
+  inventory: Inventario
   last_name: Sukunimi
   link: linkki
+  main_picture: Kuva
   make_order: Luo tilaus
+  make_purchase: Luo Ostos
   name: nimi
   name_contains: nimi sisäsätä
-  new: uusi
+  new: Uusi
   next: seurava
-  order: tilaus
-  orders: tilaukset
-  parent: tuotelinja
+  not_online: ei netissä
+  online: Netissä
+  order: Tilaus
+  ordered_on: tilattu
+  orders: Tilaukset
+  paid_on: maksettu
+  parent: Tuoteryhmä
+  phone: Puhelin
   picture: kuva
   position: paikka
   prev: edellinen
   price: hinta
-  product: tuote
-  products: tuoteet
-  purchases: osto tilauksia
+  product: Tuote
+  product_line: Tuotelinja
+  products: Tuoteet
+  print_order: Tuolsta
+  purchases: Sisäostoksiä
+  purchase: Sisäostos
   quantity: määrä
+  received: tullut
+  scode: Tuottajatunnus
+  shipped_on: Lähetetty
+  shipping_price: Lähetyksen hinta
+  shipment_type: Lähetyksen tapa
   shop: kauppa
   show: näytää
+  street: Katu
+  supplier: Tuotaja
   suppliers: Tuotajat
   tax: alv
+  tax_percent: Veroprosentti
+  title: titeli
   total: yhteensä
+  total_tax: Verot
+  total_price: yhteensä
   treeview: 
+  type: Tyypi
   update_success: 
-  users: käytäjät
+  users: Käytäjät
+  user: Käytäjä
+  weight: Paino
   will_paginate:
     next_label: seurava
     page_gap: ' '
-    previous_label: seurava
+    previous_label: edellinen
   errors:
     messages:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen

@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+
   has_many :products, :dependent => :nullify
   has_many :categories, :dependent => :nullify
   has_attached_file :main_picture

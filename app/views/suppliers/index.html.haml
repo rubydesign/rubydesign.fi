@@ -31,7 +31,7 @@
           = paginate @suppliers
   .medium-3.columns
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for("name")
-      = f.facet_for("address_country")
+      = f.facet_for("supplier_name")
+      = f.facet_for("address")
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), suppliers_path, :class => "admin-button"

@@ -26,7 +26,7 @@
               %td{column_style("order", "ordered_on")}
                 = order.ordered_on
               %td{column_style("order", "total_price")} 
-                = euros(order.basket.total_price)
+                = euros(order.basket.total_price) if order.basket
               %td{column_style("order", "email")}
                 = order.email
               %td{column_style("order", "status")}
