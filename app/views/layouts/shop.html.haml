@@ -16,29 +16,23 @@
     %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
   %body#product-details
     %header.row
-      %nav.top-bar{"data-topbar" => ""}
-        %section.top-bar-section
-          %ul.left
-            %li 
-              %img{src: "/assets/shop/logo.png"}/
-            %li 
-              %img{src: "/assets/shop/valk.png"}/
-          %ul.right
-            %li.search
-              %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
-                %div{style: "margin:0;padding:0;display:inline"}
-                  %input{name: "utf8", type: "hidden", value: "✓"}/
-                %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "12"}
-          %ul.right
-            %li#link-to-cart
-              %a.empty{href: "/cart"} Ostoskori: (tyhjä)
-            %li#link-to-login
-              %a{href: "/login"} Kirjaudu
-    
-    .row
-      .banner
-        %img{src: "/assets/shop/kansi.jpg"}/
-              
+      .logo
+        .row
+          .medium-8.columns
+          .medium-4.columns
+            %nav.top-bar{"data-topbar" => ""}
+              %section.top-bar-section
+                %ul.right
+                  %li.search
+                    %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
+                      %div{style: "margin:0;padding:0;display:inline"}
+                        %input{name: "utf8", type: "hidden", value: "✓"}/
+                      %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "7"}
+                %ul.right
+                  %li#link-to-cart
+                    %a.empty{href: "/cart"} Ostoskori: (tyhjä)
+                  %li#link-to-login
+                    %a{href: "/login"} Kirjaudu              
     .row
       .large-12.columns
         = yield  

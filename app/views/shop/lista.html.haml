@@ -4,13 +4,16 @@
       %li.medium-3.columns
         .product-container
           .product-image
-            %a{:href => prod_path( :id => product.link )}
-              =image_tag product.main_picture.url , :width => "120"
-          .product-fact
-            .product-name
-              = product.name
-            .product-price
+            .square-image
+              %a{:href => prod_path( :id => product.link )}
+                =image_tag product.main_picture.url
+            .product-fact
               %a.info{:href => prod_path( :id => product.link )}
-                %span.price.selling
-                  = product.price
-                  €
+                %h5.product-name
+                  = product.name
+                  %span.price.selling
+                    = product.price
+                    €
+          
+
+                

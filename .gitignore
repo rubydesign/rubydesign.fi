@@ -8,6 +8,7 @@ db/*.sqlite3
 /db/*.sqlite3-journal
 /log/*
 /tmp/*
+.ruby-version
 
 # configuration file introduced in Rails 4.1
 /config/secrets.yml

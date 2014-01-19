@@ -12,6 +12,11 @@ $highlight: #108BAD;
 .top-bar-section ul {
     background: #ffffff;
     }
+    
+.logo {
+  	background-image: url(shop/kansi.jpg);
+  	height: 300px;
+}   
 
 .top-bar-section form {
     background-color: highlight;
@@ -43,17 +48,8 @@ body {
 }
 
 .menu-wrapper {
-  margin-left: 100px;
 	position: relative;
-	margin: 13px;
-}
-
-.menu-left {
-  left: 100px;
-}
-
-.menu-right {
-  left: -100px;
+	margin-top: 25px;
 }
 
 .menu-wrapper h3 {
@@ -66,45 +62,69 @@ body {
   /* fallback color */
   background: rgba(0, 0, 0, 0.5);
   margin: 0px;
-	width: 325px;
+	width: 460px;
 }
+
+.pun h3 {
+  background: rgba(70,3,21,0.25);
+	text-shadow: black 1px 1px 03px;
+}
+
+.sin h3 {
+  background: rgba(0,90,49,0.22); }
+
+.vaal h3 {
+  background: rgba(0, 0, 0, 0.2); }
 
 .product-image {
-  padding: 8px;
-  margin-left:auto;
-  margin-right:auto;
-  height: 170px;
+  padding-top: 8px;
+  height: 200px;
+  text-align: center;
+  position: relative; }
+
+.product-image p {
+  position: absolute;
+  left: 25px;
+  bottom: 48px;
+  padding: 2px;
+  color: white;
+  background: black;
+  /* fallback color */
+  background: rgba(0, 0, 0, 0.3);
+  margin: 0px;
+	width: 120px;
+	text-align: center;
 }
 
-  .product-image img {
-	width: 130px;
-}
-
+.square-image {
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px; 
+  height: 150px;
+  }
+  
 .product-container {
-  border: 1px dotted #007bd2;
-  box-shadow: 3px 3px 2px #d4e1e6;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 15px;
-	padding: 5px;
-	width: 85%;
-	height: 270px;
-}
+  padding: 5px 0 0;
+  height: 220px;
+  background-color: rgba(212,232,255,0.2); }
+  
 
 .product-fact {
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-	font: .9em/120% "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
-	padding: 4px 4px 6px;
-	width: 80%;
-  
+  background-color: rgba(213,223,255,0.8);
+	height: 49px;
+	position: absolute;
+	bottom: -17px;
+	padding-right: 3px;
+	padding-left: 3px;
+	width: 100%;
+	margin-bottom: 3px;
 }
 
-.product-name {
-	padding-bottom: 3px;
+h5.product-name {
+	line-height: 120%;
 }
   
 .product-price {
