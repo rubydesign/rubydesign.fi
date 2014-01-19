@@ -1,8 +1,13 @@
+.row
+  .large-6.column
+    %h2
+      = t(:suppliers)
+  .large-6.column
+    = link_to  t(:new) + ' ' + t(:category) , new_category_path , :class => "admin-button"
+%p
+  = paginate @categories
 %h2
   = t(:categories)
-%p
-  = link_to new_category_path , :class => "admin-button" do
-    %i.icon-plus=  t( :new) + " " + t(:category)
 .row
   .medium-9.columns
     %div
@@ -29,9 +34,6 @@
                 = Category.find(category.category_id).name if category.category_id 
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
               %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
-      .btn-toolbar
-        .btn-group
-          = paginate @categories
   .medium-3.columns
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("name")

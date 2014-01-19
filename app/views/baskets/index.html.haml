@@ -1,11 +1,11 @@
-%h2
-  = t(:baskets)
+.row
+  .large-6.column
+    %h2
+      = t(:baskets)
+  .large-6.column
+    = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
 %p
-  %dl.sub-nav
-    %dd
-      = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
-    %dd
-      = paginate @baskets
+  = paginate @baskets
 .row
   .medium-9.columns
     %div
@@ -17,7 +17,7 @@
             %th= t(:items)
             %th
               %label.checkbox
-                = pluralize(@basket_scope.count, "basket")
+                = @basket_scope.count.to_s + " " + t("baskets")
         %tbody
           - @baskets.each do |basket|
             %tr{:class => "line-#{cycle("1","2")}"}

@@ -1,8 +1,11 @@
-%h2
-  = t(:listing, :default => "Listing")
-  = t('app.models.supplier.bs_caption_plural', :default => 'supplier')
+.row
+  .large-6.column
+    %h2
+      = t(:suppliers)
+  .large-6.column
+    = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "admin-button"
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.supplier.bs_caption', :default => 'supplier'), new_supplier_path, :class => "admin-button"
+  = paginate @supplier
 .row
   .medium-9.columns
     %div
@@ -26,9 +29,6 @@
               %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
               %td= link_to t(:destroy) , supplier_path(supplier), :method => :delete, :title => t(:destroy)
-      .btn-toolbar
-        .btn-group
-          = paginate @suppliers
   .medium-3.columns
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("supplier_name")

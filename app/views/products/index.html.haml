@@ -1,14 +1,15 @@
-%h2
-  - if params[:basket]
-    = t(:choose_product_for_basket)
-  -else
-    = t(:products)
+.row
+  .large-6.column
+    %h2
+      - if params[:basket]
+        = t(:choose_product_for_basket)
+      -else
+        = t(:products)
+  .large-6.column
+    = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "admin-button" unless params[:basket]
 %p
-  %dl.sub-nav
-    %dd
-      = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "admin-button" unless params[:basket]
-    %dd
-      = paginate @products 
+  = paginate @supplier
+
 .row
   .medium-9.columns
     %div

@@ -1,11 +1,7 @@
 %h2
   = t(:orders)
 %p
-  .btn-toolbar
-    = link_to new_order_path , :class => "admin-button" do
-      %i.icon-plus=  t( :new) + " " + t(:order)
-    .btn-group
-      = paginate @orders
+  = paginate @orders
 .row
   .medium-9.columns
     %div

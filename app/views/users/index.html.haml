@@ -1,8 +1,11 @@
-%h2
-  = t(:listing, :default => "Listing")
-  = t('app.models.user.bs_caption_plural', :default => 'user')
+.row
+  .large-6.column
+    %h2
+      = t(:users)
+  .large-6.column
+    = link_to  t(:new) + ' ' + t(:user) , new_user_path , :class => "admin-button"
 %p
-  = link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.user.bs_caption', :default => 'user'), new_user_path, :class => "admin-button"
+  = paginate @users
 .row
   .medium-9.columns
     %div
@@ -25,9 +28,6 @@
               %td= link_to t(:show) , user_path(user), :title => t(:show)
               %td= link_to t(:edit), edit_user_path(user), :title => t(:edit)
               %td= link_to t(:destroy) , user_path(user), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
-      .btn-toolbar
-        .btn-group
-          = paginate @users
   .medium-3.columns
     = search_form_for @q, :url => search_users_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("email")
