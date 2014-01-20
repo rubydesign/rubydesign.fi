@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
 
   store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
 
-  default_scope { order('created_at DESC') } 
+  default_scope { order('created_at DESC').includes(:basket) } 
 
   def total_price
     basket.total_price + shipping_price

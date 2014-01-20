@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :order do
     shipping_tax 0
+    basket
   end
 end

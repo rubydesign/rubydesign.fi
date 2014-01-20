@@ -59,7 +59,7 @@ describe BasketsController do
 
       it "redirects to the created basket" do
         post :create, {:basket => attributes_for(:basket)}, valid_session
-        response.should redirect_to(Basket.last)
+        response.should redirect_to(Basket.first)
       end
     end
 

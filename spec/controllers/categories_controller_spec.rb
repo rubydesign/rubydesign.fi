@@ -71,7 +71,7 @@ describe CategoriesController do
 
       it "redirects to the created category" do
         post :create, {:category =>  attributes_for(:category)}, valid_session
-        response.should redirect_to(Category.last)
+        response.should redirect_to(Category.unscoped.last)
       end
     end
 

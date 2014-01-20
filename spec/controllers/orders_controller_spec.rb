@@ -73,7 +73,7 @@ describe OrdersController do
 
       it "redirects to the created order" do
         post :create, {:order => attributes_for(:order)}, valid_session
-        response.should redirect_to(Order.last)
+        response.should redirect_to(Order.first)
       end
     end
 

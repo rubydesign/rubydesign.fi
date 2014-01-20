@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
   has_attached_file :extra_picture
 
   # default product scope only lists non-deleted products
-  default_scope {where(:deleted_on => nil).order('created_at DESC') } 
+  default_scope {where(:deleted_on => nil).order('created_at DESC').includes(:supplier , :category) } 
  
   validates :price, :numericality => true 
   validates :cost, :numericality => true

@@ -54,7 +54,7 @@
         = f.text_field :name_cont 
       = f.facet_for(:description , :label => t(:description))
       = f.facet_for(:price , :label => t(:price_between) )
-      = f.facet_for(:ean , :label => t(:ean)  )
+      = f.facet_for(:ean )
       = f.facet_for(:scode, :label => t(:scode) )
       = f.facet_for(:inventory, :label => t(:inventory) )
       = f.label t(:supplier)

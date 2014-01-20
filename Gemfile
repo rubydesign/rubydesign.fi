@@ -29,7 +29,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-  gem "i18n_sync"
+#  gem "i18n_sync"
   gem 'quiet_assets'
   gem 'rails_layout'
 #  gem "jeweler", "> 1.6.4"

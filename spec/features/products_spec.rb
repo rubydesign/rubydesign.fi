@@ -27,7 +27,7 @@ describe "Products" do
       fill_in "product_price", :with => ''
       click_button( 'Create Product')
       status_code.should be 200
-      expect(page).to have_content "error"
+      expect(page).to have_content "not a number"
     end
   end
   describe "edit product" do

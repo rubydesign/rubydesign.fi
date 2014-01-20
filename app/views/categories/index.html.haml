@@ -32,7 +32,7 @@
               %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
   .medium-3.columns
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for(:name , :label => t(:nimi))
+      = f.facet_for(:name , :label => t(:name))
       = f.facet_for(:description , :label => t(:description))
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), categories_path, :class => "admin-button"

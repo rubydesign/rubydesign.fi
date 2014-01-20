@@ -25,9 +25,10 @@ module OfficeClerk
       g.view_specs false
       g.helper_specs false
     end
+    I18n.enforce_available_locales = false
+#    I18n.default_locale = :fi
     config.after_initialize do
     end
-    I18n.default_locale = "fi"
     config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '130x130>', :product  => '600x600>' },
                                 :default_style => :list,
                                 :url => "/images/:id/:style_:basename.:extension",
