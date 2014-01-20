@@ -1,6 +1,9 @@
 %h2
-  = t(:editing, :default => 'Editing')
-  = t('app.models.product.bs_caption', :default => 'product')
-  ________________________
-  = link_to t(:cancel), products_path, :class => "cancel"
+  = t(:editing).capitalize
+  -if @product.line?
+    =t(:product_line).downcase
+  -else
+    = t(:product)
+  = @product.name.to_s
+  
 = render 'form'

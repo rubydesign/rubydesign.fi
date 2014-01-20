@@ -1,36 +1,28 @@
 %h2
   = t(:purchases)
-%p
-  = link_to t(:new) + ' ' + t(:purchase), new_purchase_path, :class => "admin-button"
 .row
   .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th{column_style("purchase", "name")}
-              =sorting_header("purchase", "name", "")
-            %th{column_style("purchase", "ordered_on")}
-              =sorting_header("purchase", "ordered_on", "")
-            %th{column_style("purchase", "received_on")}
-              =sorting_header("purchase", "received_on", "")
-            %th{column_style("purchase", "basket")}
-              =sorting_header("purchase", "basket_id", "")
+            %th= sort_link @q, :name
+            %th= sort_link @q, :ordered_on
+            %th= sort_link @q, :received_on
+            %th=t  "basket"
             %th{:colspan => "3"}
               %label.checkbox
-                = pluralize(@purchase_scope.count, "purchase")
+                = @purchase_scope.count.to_s + " " +  t(:purchases)
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td{column_style("purchase", "name")}
-                =purchase.name
-              %td{column_style("purchase", "ordered_on")}
-                =purchase.ordered_on
-              %td{column_style("purchase", "received_on")}
-                =purchase.received_on
-              %td{column_style("purchase", "basket")}
+              %td=purchase.name
+              %td=purchase.ordered_on
+              %td=purchase.received_on
+              %td
                 - if not purchase.basket.nil? then
-                  = link_to t(:basket), basket_path(purchase.basket)
+                  = link_to basket_path(purchase.basket) do
+                    = "#{purchase.basket.items.count}  #{t(:items)} /  #{purchase.basket.total_price} €" 
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
               %td= link_to t(:edit) , edit_purchase_path(purchase), :title => t(:edit)
               %td= link_to t(:destroy) ,purchase_path(purchase), :data => { :confirm => t(:are_you_sure)}, :method => :delete, :title => t(:destroy)
@@ -39,11 +31,11 @@
           = paginate @purchases
   .medium-3.columns
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for("name")
-      = f.label t(:ordered_on) + t(:between)
+      = f.facet_for("name" , :label => t(:name))
+      = f.label t(:ordered_on) + " " + t(:between)
       = f.date_field :ordered_on_gt
       = f.date_field :ordered_on_lt 
-      = f.label t(:received_on) + t(:between)
+      = f.label t(:received_on) + " "  +t(:between)
       = f.date_field :received_on_gt 
       = f.date_field :received_on_lt 
       = f.submit t(:filter), :class => "submit-button"

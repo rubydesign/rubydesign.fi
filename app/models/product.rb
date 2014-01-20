@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
   has_attached_file :extra_picture
 
   # default product scope only lists non-deleted products
-  default_scope {where(:deleted_on => nil)}
+  default_scope {where(:deleted_on => nil).order('created_at DESC') } 
  
   validates :price, :numericality => true 
   validates :cost, :numericality => true
@@ -47,8 +47,11 @@ class Product < ActiveRecord::Base
   end
 
   def full_name
-    raise "error" unless line_item?
-    product.name + ":" + self.name
+    if line_item?
+      product.name + " : " + self.name
+    else
+      self.name
+    end
   end
   #this product is an item of a product line (so is sellable)
   def line_item?

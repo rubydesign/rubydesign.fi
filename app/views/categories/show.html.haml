@@ -1,28 +1,30 @@
-%h2
-  = t(:category)
-%p
-  %b
-    = t(:category_id) + ":"
-  = @category.category_id
-%p
-  %b
-    = t(:name) + ":"
-  = @category.name
-%p
-  %b
-    = t(:description) + ":"
-  = @category.description
-%p
-  %b
-    = t(:link) + ":"
-  = @category.link
-%p
-  %b
-    = t(:picture) + ":"
-  = image_tag @category.main_picture.url
-%p
-  %b
-    = t(:picture) + ":"
-  = image_tag @category.extra_picture.url
+.large-6.column
+  %h2
+    = t(:category)
+    = @category.name
+  -if @category.category_id
+    %h3
+      = "( " + @category.category.name + " )"
+      
+
+  %p
+    %b
+      = t(:description) + " : "
+    = @category.description
+.large-6.column
+  %p
+    %b
+      = t(:link) + " : "
+    = @category.link
+  %p
+    %b
+      = t(:picture) + " : "
+    = image_tag @category.main_picture.url
+    %b
+      = t(:picture) + " : "
+    = image_tag @category.extra_picture.url
+
+=render "products/triple" , :products => @category.products
+
 = link_to t(:edit), edit_category_path(@category), :class => "admin-button"
 = link_to t(:back), categories_path, :class => "admin-button"

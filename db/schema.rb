@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226151332) do
+ActiveRecord::Schema.define(version: 20140120093514) do
 
   create_table "addresses", force: true do |t|
     t.string   "first_name"
@@ -34,23 +34,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "updated_at"
   end
 
-  create_table "categories", force: true do |t|
-    t.integer  "category_id"
-    t.string   "name"
-    t.string   "description"
-    t.integer  "position",                   default: 1
-    t.string   "link"
-    t.string   "main_picture_file_name"
-    t.string   "main_picture_content_type"
-    t.integer  "main_picture_file_size"
-    t.datetime "main_picture_updated_at"
-    t.string   "extra_picture_file_name"
-    t.string   "extra_picture_content_type"
-    t.integer  "extra_picture_file_size"
-    t.datetime "extra_picture_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "categories" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "items", force: true do |t|
     t.integer  "quantity",   default: 1

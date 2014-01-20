@@ -1,0 +1,12 @@
+%h3= products.count.to_s + " " + t(:products)
+.row
+  %table.table.table-striped.table-bordered.table-condensed
+    %tbody
+      - products.in_groups_of(3).each do |array|
+        %tr{:class => "line-#{cycle("1","2")}"}
+          -array.each do |product|
+            -next unless product
+            %td= image_tag product.main_picture.url(:thumb)
+            %td
+              = link_to product_path(product), :title => t(:show) do 
+                = product.full_name

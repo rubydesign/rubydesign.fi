@@ -10,7 +10,7 @@
 .row
   .large-12.columns
     %h2
-      = @basket.kori_type.to_s
+      = t(@basket.kori_type.downcase)  if @basket.kori_type
 .row
   .small-5.columns
     = form_tag edit_basket_path(@basket) , :method => :get do |f|
@@ -48,8 +48,8 @@
         %tr
           %td{:colspan => 4}
           %td 
-            = t(:tax)
-            = @basket.total_tax
+            = t(:count)
+            = @basket.items.count
           %td 
             = t(:total)
             = euros @basket.total_price

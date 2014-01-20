@@ -1,5 +1,7 @@
 class Basket < ActiveRecord::Base
 
+  default_scope { order('created_at DESC') } 
+
   belongs_to :kori, polymorphic: true  #kori is basket in finnish
   
   has_many :items, autosave: true

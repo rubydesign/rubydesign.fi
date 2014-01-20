@@ -1,39 +1,36 @@
 %div
   = form_for(@product, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
-    - if @product.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@product.errors.count, "error")
-          prohibited this product from being saved:
-        %ul
-          - @product.errors.full_messages.each do |msg|
-            %li= msg
+    = f.hidden_field( :product_id) if @product.product_id
     .medium-6.columns
       .controls
         = f.check_box :online
       .controls
         = f.text_field :name
       .controls
-        = f.text_area :description, :rows => 10 , :cols => 40
+        = f.text_area :description, :rows => 10 , :cols => 40 
       .controls
-        = f.collection_select :supplier_id, Supplier.all, :id, :name, :include_blank => true
+        = f.collection_select :supplier_id, Supplier.all, :id, :supplier_name, :include_blank => true
       .controls
         = f.collection_select :category_id, Category.all, :id, :name, :include_blank => true
       .medium-6.columns
         .controls
           = image_tag @product.main_picture.url(:thumb)
-          = f.file_field :main_picture
+          = f.file_field :main_picture , :label => t(:main_picture)
       .medium-6.columns
         .control-group
           = image_tag @product.extra_picture.url(:product)
-          = f.file_field :extra_picture
+          = f.file_field :extra_picture , :label => t(:extra_picture)
       .form-actions
-        = f.submit :class => "submit-button"
-        = link_to t(:cancel), products_path, :class => "admin-button"
+        = f.submit :class => "submit-button" 
+        -if @product.product_id
+          = link_to t(:cancel), product_path(@product.product), :class => "admin-button"
+        -else
+          = link_to t(:cancel), products_path, :class => "admin-button"
 
     .medium-3.columns
-      .controls
-        = f.text_field :link 
+      - unless @product.product_id
+        .controls
+          = f.text_field :link
       .controls
         = f.text_field :price
       .controls

@@ -1,27 +1,27 @@
-%h2
-  = t(:baskets)
+.row
+  .large-6.column
+    %h2
+      = t(:baskets)
+  .large-6.column
+    = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
 %p
-  %dl.sub-nav
-    %dd
-      = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
-    %dd
-      = paginate @baskets
+  = paginate @baskets
 .row
   .medium-9.columns
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th= sort_link @q, :created_at
+            %th= sort_link @q, :created_at 
             %th= sort_link @q, :total_price
             %th= t(:items)
             %th
               %label.checkbox
-                = pluralize(@basket_scope.count, "basket")
+                = @basket_scope.count.to_s + " " + t("baskets")
         %tbody
           - @baskets.each do |basket|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td{column_style("basket", "created_at")}
+              %td
                 =basket.created_at.to_date.to_s
               %td
                 = euros basket.total_price
@@ -35,10 +35,10 @@
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:type)
-      = f.select :kori_type_eq, ["" , "Order" , "Purchase"] 
+      = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]] 
       .search_heading= t(:items)
       = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
-      .search_heading= t(:total_price) + " " + t(:between)
+      .search_heading= t(:price_between)
       = f.text_field :total_price_gt
       = f.text_field :total_price_lt
       = f.submit t(:filter), :class => "submit-button"

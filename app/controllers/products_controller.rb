@@ -23,10 +23,10 @@ class ProductsController < AdminController
 
   def new
     @product = Product.new
+    @product.product_id = params[:parent_id] if params[:parent_id]
   end
 
   def edit
-    
   end
 
   def create

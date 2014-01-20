@@ -17,8 +17,7 @@ class BasketsController < AdminController
   end
 
   def print
-    order = @basket.order
-    order = Order.for_basket(@basket) unless order
+    order = @basket.kori || Order.new( :basket => @basket )
     order.paid_on    = Date.today unless order.paid_on
     order.shipped_on = Date.today unless order.shipped_on
     order.shipping_price = 0 unless order.shipping_price

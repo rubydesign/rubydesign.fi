@@ -1,7 +1,8 @@
 class Categories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
-      t.references :category
+      t.references  :category
+      t.boolean     :online, :default => false
       t.string      :name
       t.string      :description
       t.integer     :position , :default => 1
