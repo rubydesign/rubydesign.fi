@@ -46,9 +46,11 @@ fi:
       supplier: Tuottaja
       user: Käyttäjä
   add: Lisää
+  add_inventory: "TODO Add Inventory"
   address: Osoite
   addresses: Osoiteet
   are_you_sure: "oletko varma"
+  as_inventory: "TODO As Inventory"
   back: Takaisin
   basket: Ostoskori
   baskets: Ostoskorit
@@ -57,6 +59,7 @@ fi:
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
+  category_id: "TODO Product Line"
   city: Kaupunki
   cost: Kustannus
   count: Määrä
@@ -85,6 +88,7 @@ fi:
   extra_picture: "Toinen kuva"
   filter: Hae
   first_name: Etunimi
+  inventorized: "TODO Inventorized"
   inventory: Inventaario
   item: Tuote
   items: Tuotteet
@@ -121,6 +125,7 @@ fi:
   purchase: Sisäänosto
   purchases: Sisäänostot
   quantity: Määrä
+  receive: "TODO Receive"
   received: Vastaanotettu
   received_on: Vastaanotettu
   scode: Tuottajatunnus
