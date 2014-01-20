@@ -5,7 +5,7 @@ describe "Suppliers" do
     it "lists suppliers" do
       visit suppliers_path
       status_code.should be 200
-      page.should_not have_css(".translation_missing")
+      translates page
     end
   end
 end

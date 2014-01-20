@@ -5,7 +5,7 @@ describe "Baskets" do
     it "lists baskets" do
       visit baskets_path
       status_code.should be 200
-      page.should_not have_css(".translation_missing")
+      translates page
       page.should_not have_text("translation_missing")
     end
   end
@@ -13,7 +13,7 @@ describe "Baskets" do
     it "should render" do
       visit new_basket_path
       status_code.should be 200
-      page.should_not have_css(".translation_missing")
+      translates page
     end
   end
   describe "edit baskets" do
@@ -21,7 +21,7 @@ describe "Baskets" do
       basket = create :basket
       visit edit_basket_path basket
       status_code.should be 200
-      page.should_not have_css(".translation_missing")
+      translates page
     end
   end
 end

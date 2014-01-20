@@ -13,7 +13,7 @@
 .row
   .medium-9.columns
     %div
-      %table.table.table-striped.table-bordered.table-condensed
+      %table.talbe.table-striped.table-bordered.table-condensed
         %thead
           %tr
             %th=t( "picture")
@@ -29,17 +29,17 @@
           - @products.each do |product|
           -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= image_tag product.main_picture.url
-              %td= product.line? ? "#{product.products.count} #{t(:items)}" : product.ean
-              %td
+              %td.image= image_tag product.main_picture.url
+              %td.ean= product.line? ? "#{product.products.count} #{t(:items)}" : product.ean
+              %td.name
                 = link_to product_path(product), :title => t(:show) do 
                   =product.full_name 
-              %td=euros(product.price)
-              %td
+              %td.price=euros(product.price)
+              %td.supplier
                 =product.supplier.supplier_name if product.supplier
                 %br
                 =product.category.name if product.category
-              %td=product.inventory
+              %td.inventory=product.inventory
               -if params[:basket]
                 %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :product => product.id)
               -else
