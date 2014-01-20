@@ -74,17 +74,6 @@ fi:
   edit: Muokkaa
   editing: Muokkaamassa
   email: S-posti
-  errors: 
-    messages: 
-      already_confirmed: "on jo vahvistettu, yritä kirjautua sisään uudelleen"
-      confirmation_period_expired: "pitää vahvistaa %{period} kuluessa, ole hyvä ja pyydä uusi"
-      expired: "on vanhentunut, pyydä uutta."
-      not_a_number: "Ei ole numero"
-      not_found: "ei löytynyt"
-      not_locked: "ei ollut lukittu"
-      not_saved: 
-        one: "1 virhe esti %{resource} tallentamisen:"
-        other: "%{count} virhettä esti %{resource} tallentamisen:"
   extra_picture: "Toinen kuva"
   filter: Hae
   first_name: Etunimi
