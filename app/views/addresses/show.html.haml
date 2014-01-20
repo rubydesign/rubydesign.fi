@@ -1,23 +1,23 @@
 %h2
-  = t(:show, :default => "Show")
-  = t('app.models.address.bs_caption', :default => 'address')
+  = t(:show)
+  = t(:address)
 %p
   %b
-    = t(:first_name) + ":" + @address.first_name
+    = t(:first_name) + " : " + @address.first_name
 %p
   %b
-    = t(:last_name) + ":" +  @address.last_name
+    = t(:last_name) + " : " +  @address.last_name
 %p
   %b
-    = t(:street1) + ":" +  @address.street1
+    = t(:street1) + " : " +  @address.street1
 %p
   %b
-    = t(:street2) + ":" +  @address.street2
+    = t(:street2) + " : " +  @address.street2
 %p
   %b
-    = t(:city) + ":" + @address.city
+    = t(:city) + " : " + @address.city
 %p
   %b
-    = t(:country) + ":" + @address.country
+    = t(:country) + " : " + @address.country
 = link_to t(:edit), edit_address_path(@address), :class => "admin-button"
 = link_to t(:back), addresses_path, :class => "admin-button"

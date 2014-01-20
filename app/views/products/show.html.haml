@@ -16,31 +16,31 @@
     .medium-6.columns
       %p
         %b
-          = t(:main_picture) + ":"
+          = t(:main_picture) + " : "
         %br
         = image_tag @product.main_picture.url
     .medium-6.columns
       %p
         %b
-          = t(:extra_picture) + ":"
+          = t(:extra_picture) + " : "
         %br
         = image_tag @product.extra_picture.url
     .medium-6
       %p
         %b
-          = t(:price) + ":"
+          = t(:price) + " : "
         = euros(@product.price)
       %p
         %b
-          = t(:cost) + ":"
+          = t(:cost) + " : "
         = euros(@product.cost)
       %p
         %b
-          = t(:weight) + ":"
+          = t(:weight) + " : "
         = @product.weight
       %p
         %b
-          = t(:inventory) + ":"
+          = t(:inventory) + " : "
         = @product.inventory
     = link_to t(:edit), edit_product_path(@product), :class => "admin-button"
     = link_to t(:back), products_path, :class => "admin-button"
@@ -50,29 +50,29 @@
   .medium-6.columns
     %p
       %b
-        = t(:description) + ":"
+        = t(:description) + " : "
       = @product.description
     %p
       %b
-        = t(:link) + ":"
+        = t(:link) + " : "
       = @product.link
     %p
       %b
-        = t(:ean) + ":"
+        = t(:ean) + " : "
       = @product.ean
     %p
       %b
-        = t(:scode) + ":"
+        = t(:scode) + " : "
       = @product.scode
     %p
       %b
-        = t(:tax_percent) + ":"
+        = t(:tax_percent) + " : "
       = @product.tax
     %p
       %b
-        = t(:category) + ":"
+        = t(:category) + " : "
       = link_to_if @product.category , @product.category.name ,category_path(@product.category)
     %p
       %b
-        = t(:supplier) + ":"
+        = t(:supplier) + " : "
       = link_to_if @product.supplier , @product.supplier.supplier_name ,supplier_path(@product.supplier)

@@ -3,7 +3,7 @@
   = t(:purchase)
 %p
   %b
-    = t(:name) + ":" + @purchase.name.to_s
+    = t(:name) + " : " + @purchase.name.to_s
 %p
   %b
     -if @purchase.ordered_on
@@ -22,6 +22,6 @@
 
 %p
   %b
-    = t(:suppliers) + ":"
+    = t(:suppliers) + " : "
   = @purchase.basket.suppliers.collect {|s| s.name }.join
 = link_to t(:back), purchases_path, :class => "admin-button"

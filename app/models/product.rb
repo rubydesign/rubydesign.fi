@@ -47,8 +47,11 @@ class Product < ActiveRecord::Base
   end
 
   def full_name
-    raise "error" unless line_item?
-    product.name + ":" + self.name
+    if line_item?
+      product.name + " : " + self.name
+    else
+      self.name
+    end
   end
   #this product is an item of a product line (so is sellable)
   def line_item?

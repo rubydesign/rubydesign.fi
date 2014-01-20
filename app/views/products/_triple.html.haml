@@ -9,4 +9,4 @@
             %td= image_tag product.main_picture.url(:thumb)
             %td
               = link_to product_path(product), :title => t(:show) do 
-                =product.line_item? ? product.full_name : product.name
+                = product.full_name

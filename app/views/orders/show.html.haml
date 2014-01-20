@@ -3,35 +3,32 @@
 .medium-4.columns
   %p
     %b
-      = t(:ordered_on) + ":" + @order.ordered_on.to_s
+      = t(:ordered_on) + " : " + @order.ordered_on.to_s
   %p
     %b
-      = t(:total_price) + ":" +  euros(@order.basket.total_price)
+      = t(:total_price) + " : " +  euros(@order.basket.total_price)
   %p
     %b
-      = t(:total_tax) + ":" + euros(@order.basket.total_tax)
+      = t(:total_tax) + " : " + euros(@order.basket.total_tax)
   %p
     %b
-      = t(:shipping_price) + ":" + euros(@order.shipping_price)
+      = t(:shipping_price) + " : " + euros(@order.shipping_price)
   %p
     %b
-      = t(:shipping_tax) + ":" + @order.shipping_tax.to_s
-  %p
-    %b
-      = t(:email) + ":" + @order.email.to_s
+      = t(:email) + " : " + @order.email.to_s
 .medium-4.columns
   %p
     %b
-      = t(:paid_on) + ":" + @order.paid_on.to_s
+      = t(:paid_on) + " : " + @order.paid_on.to_s
   %p
     %b
-      = t(:shipped_on) + ":" + @order.shipped_on.to_s
+      = t(:shipped_on) + " : " + @order.shipped_on.to_s
   %p
     %b
-      = t(:canceled_on) + ":" + @order.canceled_on.to_s
+      = t(:canceled_on) + " : " + @order.canceled_on.to_s
   %p
     %b
-      = t(:shipment_type) + ":" + @order.shipment_type.to_s
+      = t(:shipment_type) + " : " + @order.shipment_type.to_s
 
 = render "baskets/small" , :basket => @order.basket  
   

@@ -1,25 +1,27 @@
 .large-6.column
   %h2
     = t(:category)
+    = @category.name
+  -if @category.category_id
+    %h3
+      = "( " + @category.category.name + " )"
+      
+
   %p
     %b
-      = t(:name) + ":"
-    = @category.name
+      = t(:description) + " : "
+    = @category.description
 .large-6.column
   %p
     %b
-      = t(:description) + ":"
-    = @category.description
-  %p
-    %b
-      = t(:link) + ":"
+      = t(:link) + " : "
     = @category.link
   %p
     %b
-      = t(:picture) + ":"
+      = t(:picture) + " : "
     = image_tag @category.main_picture.url
     %b
-      = t(:picture) + ":"
+      = t(:picture) + " : "
     = image_tag @category.extra_picture.url
 
 =render "products/triple" , :products => @category.products

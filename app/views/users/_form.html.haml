@@ -18,7 +18,7 @@
   .controls
     = f.text_field :phone
   -unless @user.new_record?
-    =f.label "may be blank (won't change)"
+    =f.label t(:may_be_blank)
   .controls
     = f.password_field :password
   .controls

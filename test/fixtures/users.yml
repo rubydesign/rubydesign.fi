@@ -59,8 +59,8 @@ torsten@villataika.fi:
   current_sign_in_ip: 127.0.0.1
   last_sign_in_ip: 85.76.99.115
   created_at: 2010-01-01 13:36:41.000000000 Z
-  address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
-    Antskog","phone":"0407308052"}'
+  address: '{"name" : "Torsten R\u00fcger","street" : "Fiskarsintie 513 ","city" : "10480
+    Antskog","phone" : "0407308052"}'
 minnaj@iki.fi:
   email: minnaj@iki.fi
   encrypted_password: 69ae03f477eb01d4da5233a1d1b6cdde196d7d31d5d44b7b0967b338becf979e840e686d835225548254cb70377ccfca4fc9e30d6241966c64612de15a3b2e01
