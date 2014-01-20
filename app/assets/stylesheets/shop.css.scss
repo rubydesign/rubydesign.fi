@@ -6,6 +6,7 @@
  
 $topbar-bg: #108BAD;
 $highlight: #108BAD;
+$open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
 
 @import "shop_foundation" ;
 
@@ -15,7 +16,7 @@ $highlight: #108BAD;
     
 .logo {
   	background-image: url(shop/kansi.jpg);
-  	height: 300px;
+  	height: 270px;
 }   
 
 .top-bar-section form {
@@ -25,7 +26,7 @@ $highlight: #108BAD;
 
 
 #footer {
-  padding-top: 6px;
+  padding-top: 30px;
   padding-left: 18px; padding-right: 18px;
   font-size: .8em;
 	line-height: 150%;
@@ -39,7 +40,7 @@ $highlight: #108BAD;
 }
 
 body {
-  font-family: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-family: $open;
 }
 
 .menus {
@@ -60,22 +61,51 @@ body {
   color: #FFF;
   background: black;
   /* fallback color */
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(70,3,21,0.25);
+	text-shadow: black 1px 1px 03px;
   margin: 0px;
 	width: 460px;
 }
 
-.pun h3 {
+.menu-wrapper h4 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 7px;
+  color: #FFF;
+  background: black;
+  /* fallback color */
   background: rgba(70,3,21,0.25);
 	text-shadow: black 1px 1px 03px;
+  margin: 0px;
+	width: 100%;
 }
 
-.sin h3 {
-  background: rgba(0,90,49,0.22); }
+.intro {
+  padding-top: 20px;
+}
 
-.vaal h3 {
-  background: rgba(0, 0, 0, 0.2); }
+.intro p {
+  font-size: .8em;
+	line-height: 130%;
+	margin-bottom: 12px;
+}
 
+.intro2 p {
+  font-size: .7em;
+	line-height: 130%;
+	margin-bottom: 12px;
+}
+
+.intro2 img {
+  width: 150px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+  
 .product-image {
   padding-top: 8px;
   height: 200px;
