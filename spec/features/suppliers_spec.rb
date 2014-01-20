@@ -4,8 +4,7 @@ describe "Suppliers" do
   describe "GET /suppliers" do
     it "lists suppliers" do
       visit suppliers_path
-      status_code.should be 200
-      translates page
+      should_translate page
     end
   end
 end

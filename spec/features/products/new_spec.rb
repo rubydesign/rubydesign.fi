@@ -7,18 +7,15 @@ describe "new product" do
     fill_in "product_price", :with => '12'
   end
   it "renders" do
-    status_code.should be 200
-    translates page
+    should_translate page
   end
   it "submits ok" do
     click_button( 'Create Product')
-    status_code.should be 200
     expect(page).to have_content I18n.t(:create_success)
   end
   it "redirects ok" do
     fill_in "product_price", :with => ''
     click_button( 'Create Product')
-    status_code.should be 200
     expect(page).to have_content "not a number"
   end
 end
