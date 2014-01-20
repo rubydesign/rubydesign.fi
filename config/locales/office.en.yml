@@ -5,47 +5,47 @@ en:
   activerecord: 
     attributes: 
       basket: 
-        created_at: Luotu
-        total_price: Hinta
+        created_at: Created
+        total_price: Price
       order: 
-        email: S-posti
-        ordered_on: Tilattu
+        email: Email
+        ordered_on: Orded on
       product: 
-        description: Kuvaus
-        inventory: Inventaario
-        name: Nimi
-        online: Netissä
-        price: Hinta
-        scode: Tuottajatunnus
-        tax: Veroprosentti
-        weight: Paino
+        description: Description
+        inventory: Inventory
+        name: Name
+        online: online
+        price: Price
+        scode: Supplier code
+        tax: Tax rate
+        weight: Weight
       purchase: 
-        name: Nimi
-        ordered_on: Tilattu
-        received_on: Vastanottu
+        name: Name
+        ordered_on: Ordered on
+        received_on: Received on
       supplier: 
-        city: Kaupunki
-        name: Nimi
-        phone: Puhelin
-        street: Osoite
-        supplier_name: Tuottaja
+        city: City
+        name: Name
+        phone: Phone
+        street: Street
+        supplier_name: Supplier
       user: 
-        city: Kaupunki
-        email: S-posti
-        name: Nimi
-        password: Salasana
-        password_confirmation: "Vahvista salasana"
-        phone: Puhelin
-        street: Osoite
+        city: City
+        email: Email
+        name: Name
+        password: Passord
+        password_confirmation: Password confirmation
+        phone: Phone
+        street: Street
     models: 
-      basket: Ostoskori
-      category: Tuoteryhmä
-      order: Tilaus
-      product: Tuote
-      purchase: Sisäänosto
-      supplier: Tuottaja
-      user: Käyttäjä
-  add: Lisää
+      basket: Cart
+      category: Product group
+      order: Order
+      product: Product
+      purchase: Purchase
+      supplier: Supplier
+      user: User
+  add: Add
   add_inventory: "Add Inventory"
   address: Adress
   addresses: Adresses
@@ -61,12 +61,12 @@ en:
   category: "Product Category"
   category_id: "Product Line"
   city: City
-  cost: Kustannus
+  cost: Cost
   count: Määrä
   country: Country
-  create: Luo
+  create: Create
   create_success: "Successfully created"
-  created_at: luottu
+  created_at: Created
   delete: Poista
   description: Description
   destroy: Destroy
@@ -74,37 +74,26 @@ en:
   edit: Edit
   editing: Editing
   email: Email
-  errors: 
-    messages: 
-      already_confirmed: "on jo vahvistettu, yritä kirjautua sisään uudelleen"
-      confirmation_period_expired: "pitää vahvistaa %{period} kuluessa, ole hyvä ja pyydä uusi"
-      expired: "on vanhentunut, pyydä uutta."
-      not_a_number: "Ei ole numero"
-      not_found: "ei löytynyt"
-      not_locked: "ei ollut lukittu"
-      not_saved: 
-        one: "1 virhe esti %{resource} tallentamisen:"
-        other: "%{count} virhettä esti %{resource} tallentamisen:"
-  extra_picture: "Toinen kuva"
+  extra_picture: "Extra picture"
   filter: Filter
   first_name: "First Name"
   inventorized: Inventorized
-  inventory: Inventaario
-  item: Tuote
+  inventory: Inventory
+  item: Item
   items: Items
   last_name: "Last Name"
   link: Link
-  login: "Kirjaudu sisään"
-  logout: "Kirjaudu ulos"
+  login: "Log in"
+  logout: "Log out"
   main_picture: Kuva
   make_order: "Make Order"
   make_purchase: "Make Purchase"
-  may_be_blank: "Voi jättää tyhjäksi"
+  may_be_blank: "May be blank"
   name: Name
   name_contains: "Name contains"
   new: New
   next: Next
-  not_online: "ei netissä"
+  not_online: "not online"
   online: Netissä
   order: Order
   ordered_on: "Ordered On"
@@ -113,14 +102,14 @@ en:
   parent: Parent
   phone: Phone
   picture: Picture
-  picture2: "Toinen kuva"
+  picture2: "Picture 2"
   position: Position
   prev: Previous
   price: Price
-  price_between: "Hinta haarukka"
+  price_between: "Price between"
   print_order: "Print Order"
   product: Product
-  product_line: Tuotelinja
+  product_line: Product Line
   products: Products
   purchase: Purchase
   purchases: Purchases
@@ -128,10 +117,10 @@ en:
   receive: Receive
   received: Received
   received_on: "Received On"
-  scode: Tuottajatunnus
-  shipment_type: "Lähetyksen tapa"
+  scode: Supplier code
+  shipment_type: "Shipment type"
   shipped_on: "Shipped on"
-  shipping_price: "Lähetyksen hinta"
+  shipping_price: "Shipment price"
   shop: Shop
   show: Show
   state: Tila
@@ -139,16 +128,16 @@ en:
   supplier: Supplier
   suppliers: Suppliers
   tax: Vat
-  tax_rate: Veroprosentti
+  tax_rate: Vat rate
   total: Total
   total_price: "Total Price"
-  total_tax: Verot
+  total_tax: Taxes
   treeview: ~
   type: Type
   update_success: "Successfully updated"
   user: User
   users: Users
-  weight: Paino
+  weight: Weight
   will_paginate: 
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
