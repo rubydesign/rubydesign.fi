@@ -24,10 +24,28 @@ describe "Baskets" do
     end
   end
   describe "edit baskets" do
-    it "renders" do
-      basket = create :basket
-      visit edit_basket_path basket
+    before :each do 
+      @basket = create :basket_with_item
+      visit edit_basket_path @basket
       should_translate page
+    end
+    it "renders item too" do
+      td = find(".table").find(".name")
+      td.should have_content(@basket.items.first.product.name)
+    end
+    it "goes to order" do
+      click_on I18n.t(:make_order)
+      should_translate page
+      find("h2").should have_content(I18n.t(:order))
+    end
+    it "goes to purchase" do
+      click_on I18n.t(:make_purchase)
+      should_translate page
+      find("h2").should have_content(I18n.t(:purchase))
+    end
+    it "finds print link" do
+      page.should have_content(I18n.t(:print_order))
+      find(".print_order").should have_content(I18n.t(:print_order))
     end
   end
 end
