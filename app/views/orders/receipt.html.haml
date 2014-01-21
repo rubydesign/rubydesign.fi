@@ -2,9 +2,9 @@
 %html
   %head
     %meta{:charset => "utf-8"}/
-    %title Receipt
+    %title= t(:receipt)
     = stylesheet_link_tag "html-receipt"
-  %body{onload: "self.prnt()"}
+  %body{onload: "self.print()"}
     .receipt
       #header
         = image_tag "receipt-logo.gif"

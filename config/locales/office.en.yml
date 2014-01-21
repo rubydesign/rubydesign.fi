@@ -105,6 +105,7 @@ en:
   picture: Picture
   picture2: "Picture 2"
   position: Position
+  print: Print
   prev: Previous
   price: Price
   price_between: "Price between"
@@ -118,6 +119,7 @@ en:
   receive: Receive
   received: Received
   received_on: "Received On"
+  search: Search
   scode: "Supplier code"
   shipment_type: "Shipment type"
   shipped_on: "Shipped on"

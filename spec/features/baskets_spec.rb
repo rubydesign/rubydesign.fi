@@ -15,10 +15,12 @@ describe "Baskets" do
     it "adds product" do
       ean = "123456Z"
       p = create :product , :ean => ean
-      fill_in "ean" , :with => "#{ean}\n"
-      click_on ".ean_button"
+      within ".ean_form" do
+        fill_in "ean" , :with => "#{ean}"
+        click_on "Search"
+      end
       td = find(".table").find(".name")
-      td.content.should_be p.name
+      td.should have_content(p.name)
     end
   end
   describe "edit baskets" do
