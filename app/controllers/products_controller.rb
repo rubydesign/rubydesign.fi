@@ -52,11 +52,11 @@ class ProductsController < AdminController
       redirect_to products_url , :flash => {:notice => "deleted"}
     else
       redirect_to products_url , :flash => {:notice => "error"}
-    end      
+    end
   end
-  
-  private 
-  
+
+  private
+
   def load_product
     @product = Product.find(params[:id])
   end

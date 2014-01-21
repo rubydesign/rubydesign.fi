@@ -20,7 +20,7 @@
               %td
                 - if not purchase.basket.nil? then
                   = link_to basket_path(purchase.basket) do
-                    = "#{purchase.basket.items.count}  #{t(:items)} /  #{purchase.basket.total_price} €" 
+                    = "#{purchase.basket.items.count}  #{t(:items)} /  #{purchase.basket.total_price} €"
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
               %td= link_to t(:destroy) ,purchase_path(purchase), :data => { :confirm => t(:are_you_sure)}, :method => :delete, :title => t(:destroy)
       .btn-toolbar
@@ -31,9 +31,9 @@
       = f.facet_for("name" , :label => t(:name))
       = f.label t(:ordered_on) + " " + t(:between)
       = f.date_field :ordered_on_gt
-      = f.date_field :ordered_on_lt 
+      = f.date_field :ordered_on_lt
       = f.label t(:received_on) + " "  +t(:between)
-      = f.date_field :received_on_gt 
-      = f.date_field :received_on_lt 
+      = f.date_field :received_on_gt
+      = f.date_field :received_on_lt
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), purchases_path, :class => "admin-button"

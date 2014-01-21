@@ -26,17 +26,17 @@
           = paginate @orders
         .btn-group.pull-right
           = link_to orders_path(:format => :csv), :class => "admin-button" do
-            %i.icon-download CSV 
+            %i.icon-download CSV
           = link_to orders_path(:format => :json), :class => "admin-button" do
-            %i.icon-download JSON 
+            %i.icon-download JSON
   .medium-3.columns
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.label t(:ordered_on) + " " + t(:between)
       = f.date_field :ordered_on_gteq
       = f.date_field :ordered_on_lteq
       = f.label t(:total) + t(:between)
-      = f.text_field :basket_total_price_lteq 
-      = f.text_field :basket_total_price_gteq 
+      = f.text_field :basket_total_price_lteq
+      = f.text_field :basket_total_price_gteq
       = f.facet_for(:email , :label => t(:email))
       = f.label t(:paid_on) + " " + t(:between)
       = f.date_field :paid_on_gteq

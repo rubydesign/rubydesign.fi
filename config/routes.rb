@@ -17,8 +17,8 @@ OfficeClerk::Application.routes.draw do
       match "search" => "baskets#index", :via => [:get, :post]
     end
     member do
-      get :order 
-      get :purchase 
+      get :order
+      get :purchase
       get :print
     end
   end
@@ -70,7 +70,7 @@ OfficeClerk::Application.routes.draw do
       match "search" => "addresses#index", :via => [:get, :post]
     end
   end
-  
+
   resources :suppliers do
     collection do
       match "search" => "suppliers#index", :via => [:get, :post]

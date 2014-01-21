@@ -10,13 +10,13 @@ class CategoriesController < AdminController
     @q = Category.search(params[:q])
 
     @category_scope = @q.result(:distinct => true)
-    
+
     @category_scope_for_scope = @category_scope.dup
-    
+
     unless params[:scope].blank?
       @category_scope = @category_scope.send(params[:scope])
     end
-    
+
     @categories = @category_scope.paginate(
       :page => params[:page],
       :per_page => 20
@@ -36,7 +36,7 @@ class CategoriesController < AdminController
           @category_scope.to_a.each{ |o|
             csv << Category.attribute_names.map{ |a| o[a] }
           }
-        end 
+        end
         render :text => csvstr
       }
     end
@@ -63,7 +63,7 @@ class CategoriesController < AdminController
   end
 
   def edit
-    
+
   end
 
   def create
@@ -106,8 +106,8 @@ class CategoriesController < AdminController
     end
   end
 
-  private 
-  
+  private
+
   def load_category
     @category = Category.find(params[:id])
   end

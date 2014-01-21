@@ -3,7 +3,7 @@ class ShopController < ApplicationController
 
   layout "shop"
 
-  
+
   def product
     @product = Product.where(:link => params[:id]).first
     redirect_to :action => :group unless @product

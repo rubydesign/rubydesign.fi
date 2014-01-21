@@ -30,8 +30,8 @@
     %b
       = t(:shipment_type) + " : " + @order.shipment_type.to_s
 
-= render "baskets/small" , :basket => @order.basket  
-  
+= render "baskets/small" , :basket => @order.basket
+
 .medium-12.columns
   = link_to t(:back), orders_path, :class => "admin-button"
   = link_to t(:print), print_order_path(@order), :class => "admin-button"

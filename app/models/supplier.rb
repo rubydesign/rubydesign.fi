@@ -1,7 +1,7 @@
 class Supplier < ActiveRecord::Base
-  
-  default_scope { order('supplier_name') } 
-  
+
+  default_scope { order('supplier_name') }
+
   has_many :products, :dependent => :nullify
 
   store :address, accessors: [ :name , :street , :city , :country , :phone ] , coder: JSON

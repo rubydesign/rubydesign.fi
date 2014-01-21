@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 describe "GET /products" do
-  before :each do 
-     visit products_path 
+  before :each do
+     visit products_path
    end
   it "lists products" do
     should_translate page
   end
 end
 describe "product filtering" do
-  before :each do 
+  before :each do
     20.times { create :product }
-    visit products_path 
+    visit products_path
    end
   it "filters by price" do
     fill_in "q_price_gteq", :with => '10'

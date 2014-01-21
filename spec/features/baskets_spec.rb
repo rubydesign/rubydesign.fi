@@ -24,7 +24,7 @@ describe "Baskets" do
     end
   end
   describe "edit baskets" do
-    before :each do 
+    before :each do
       @basket = create :basket_with_item
       visit edit_basket_path @basket
       should_translate page

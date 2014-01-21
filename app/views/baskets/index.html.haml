@@ -12,7 +12,7 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th= sort_link @q, :created_at 
+            %th= sort_link @q, :created_at
             %th= sort_link @q, :total_price
             %th= t(:items)
             %th
@@ -35,7 +35,7 @@
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:type)
-      = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]] 
+      = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]]
       .search_heading= t(:items)
       = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
       .search_heading= t(:price_between)

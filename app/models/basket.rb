@@ -1,12 +1,12 @@
 class Basket < ActiveRecord::Base
 
-  default_scope { order('created_at DESC') } 
+  default_scope { order('created_at DESC') }
 
   belongs_to :kori, polymorphic: true  #kori is basket in finnish
-  
+
   has_many :items, autosave: true
   before_save :cache_totals
-  
+
   accepts_nested_attributes_for :items
 
   def quantity
@@ -39,17 +39,17 @@ class Basket < ActiveRecord::Base
     self.items.each { |item| item.quantity -= item.product.inventory  }
     self.receive!
   end
-  
+
   #type is one of order purchase , user or cart depending on who "owns" the basket
   def type
     self.kori_type
   end
-  
+
   def isa typ
     return typ == :cart  if self.type == nil
     self.type.downcase == typ.to_s
   end
-  
+
   def suppliers
     ss = items.collect{|i| i.product.supplier if i.product}
     ss.uniq!
