@@ -29,9 +29,9 @@ module OfficeClerk
 #    I18n.default_locale = :fi
     config.after_initialize do
     end
-    config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '130x130>', :product  => '600x600>' },
+    config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '150x150>', :product  => '600x600>' },
                                 :default_style => :list,
-                                :url => "/images/:id/:style_:basename.:extension",
+                                :url => "/images/:id/:style/:basename.:extension",
                                 :default_url => "/assets/missing/:style.png"      }
 
     # FOG example see more in paperclip docs  {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
