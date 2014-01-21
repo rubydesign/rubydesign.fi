@@ -13,13 +13,6 @@ describe "Orders" do
       should_translate page
     end
   end
-  describe "edit order" do
-    it "should render" do
-      order = create :order
-      visit edit_order_path order
-      should_translate page
-    end
-  end
   describe "show order" do
     it "should render" do
       order = create :order

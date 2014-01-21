@@ -12,9 +12,7 @@
             %th= sort_link @q, :basket_total_price
             %th= sort_link @q, :email
             %th= t(:state)
-            %th{:colspan => "2"}
-              %label.checkbox
-                = @order_scope.count.to_s + " " + t(:orders)
+            %th= @order_scope.count.to_s + " " + t(:orders)
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
@@ -23,7 +21,6 @@
               %td= order.email
               %td= order.paid_on
               %td= link_to t(:show) , order_path(order), :title => t(:show)
-              %td= link_to t(:edit) , edit_order_path(order), :title => t(:edit)
       .btn-toolbar
         .btn-group
           = paginate @orders

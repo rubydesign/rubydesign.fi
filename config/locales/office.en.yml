@@ -63,7 +63,7 @@ en:
   category_id: "Product Line"
   city: City
   cost: Cost
-  count: Määrä
+  count: Count
   country: Country
   create: Create
   create_success: "Successfully created"

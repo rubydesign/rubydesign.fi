@@ -11,11 +11,6 @@ describe "Purchases" do
     visit new_purchase_path
     should_translate page
   end
-  it "edit" do
-    @purchase = create(:purchase)
-    visit edit_purchase_path(@purchase)
-    should_translate page
-  end
   it "shows" do
     @purchase = create(:purchase)
     visit purchase_path(@purchase)
