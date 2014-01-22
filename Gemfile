@@ -22,6 +22,8 @@ gem 'db_fixtures_dump'
 gem "paperclip"
 gem 'facet_for' 
 gem 'rails-i18n'
+gem "barby"
+gem "chunky_png"
 
 group :development do
   gem 'better_errors'

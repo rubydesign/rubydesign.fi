@@ -46,6 +46,7 @@
     = link_to t(:back), products_path, :class => "admin-button"
     = link_to t(:delete) , delete_product_path(@product), :class => "admin-button"
     = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "admin-button"
+    = link_to t(:barcode) , barcode_product_path( @product), :class => "admin-button"
 
   .medium-6.columns
     %p
