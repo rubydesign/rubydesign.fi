@@ -18,4 +18,13 @@ describe Basket do
     b.add_product nil
     b.items.first.quantity.should be 2
   end
+  it "calculates tax" do
+    basket = create :basket
+    basket.items << create( :item2)
+    basket.items << create(:item22)
+    basket.items.length.should be 2
+    taxes = basket.taxes
+    taxes[5.0].should be 1.0
+    taxes[10.0].should be 4.0
+  end
 end

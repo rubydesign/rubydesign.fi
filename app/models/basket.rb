@@ -5,20 +5,29 @@ class Basket < ActiveRecord::Base
   belongs_to :kori, polymorphic: true  #kori is basket in finnish
 
   has_many :items, autosave: true
-  before_save :cache_totals
+  before_save :cache_total
 
   accepts_nested_attributes_for :items
 
   def quantity
     items.sum(:quantity)
   end
-  def cache_totals
+  def cache_total
     self.total_price = items.to_a.sum{ |i| i.price * i.quantity}
   end
   def touch
-    cache_totals
+    cache_total
     save
     super
+  end
+  
+  #return a hash of rate => amount
+  def taxes
+    taxes = Hash.new(0.0)
+    items.each do |item|
+      taxes[item.tax] += item.tax_amount
+    end
+    taxes
   end
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price

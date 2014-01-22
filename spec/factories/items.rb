@@ -3,8 +3,15 @@
 FactoryGirl.define do
   factory :item do
     quantity 1
-    price 1.5
-    tax 1.5
+    price 10
+    tax 5
     product
+    factory :item2 do
+      price 20
+      factory :item22 do
+        quantity 2
+        tax 10
+      end
+    end
   end
 end

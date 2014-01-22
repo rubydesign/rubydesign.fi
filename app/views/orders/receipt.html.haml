@@ -1,10 +1,10 @@
 !!!
 %html
   %head
-    %meta{:charset => "utf-8"}/
+    %meta{:charset => "utf-8"}
     %title= t(:receipt)
     = stylesheet_link_tag "html-receipt"
-  %body{onload: "self.print()"}
+  %body{onload: "self.prin()"}
     .receipt
       #header
         = image_tag "receipt-logo.gif"
@@ -56,10 +56,11 @@
               %tr
                 %td.cel1
                 %td.cel2
-              %tr.total
-                %td.cel1.bold
-                  Alv14 14.0%:
-                %td.cel2.cell{align: "right"}= @order.total_tax
+              -@order.taxes.each do |tax_rate , amount|
+                %tr.total
+                  %td.cel1.bold
+                    = t(:vat) + " " + tax_rate.to_s + " % "
+                  %td.cel2.cell{align: "right"}= amount
       .footer
         %br/
         www.auringostaitaan.fi
