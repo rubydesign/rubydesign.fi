@@ -4,7 +4,7 @@ require 'prawn'
 require 'prawn/measurement_extensions'
 require 'barby/barcode/code_128'
 require 'barby/barcode/ean_13'
-require 'barby/outputter/png_outputter'
+require 'barby/outputter/prawn_outputter'
 
 class ProductsController < AdminController
 
@@ -65,32 +65,22 @@ class ProductsController < AdminController
   # loads of ways to create barcodes nowadays, this is a bit older. 
   # Used to be html but moved to pdf for better layout control
   def barcode
-    pdf = Prawn::Document.new( :page_size => [ 54.mm , 25.mm ] , :margin => 1.mm )
-    name = @product.full_name
-    pdf.text( name )
-    price = @product.price 
-    pdf.text( "#{price} €"  , :align => :right )
-    if barcode = barcode_pdf
-      pdf.image( StringIO.new( barcode.to_png(:xdim => 5)) , :width => 50.mm , 
-            :height => 10.mm , :at => [ 0 , 10.mm])
+    pdf = Prawn::Document.new( :page_size => [ 54.mm , 25.mm ] , :margin => 2.mm )
+    pdf.text( @product.full_name  , :align => :left )
+    pdf.text( "#{@product.price} € "  , :align => :right , :padding => 5.mm)
+    code = @product.ean.blank? ?  @product.scode : @product.ean
+    unless code.blank?
+      if code.length == 12
+        aBarcode =  ::Barby::EAN13.new( code )
+      else
+        aBarcode = ::Barby::Code128B.new( code  )
+      end
+      aBarcode.annotate_pdf(pdf, :width => 45.mm , :height => 10.mm , :at => [ 0 , 10.mm])
     end
-    send_data pdf.render , :type => "application/pdf" , :filename => "#{name}.pdf"
+    send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.full_name}.pdf"
   end
   
   private
-
-  #get the barby barcode object from the id, or nil if something goes wrong
-  def barcode_pdf
-    code = nil
-    code = @product.ean
-    code = @product.scode if code.blank?
-    return nil if code.blank?
-    if code.length == 12
-      return ::Barby::EAN13.new( code )
-    else
-      return ::Barby::Code128B.new( code  )
-    end
-  end
   
   def load_product
     @product = Product.find(params[:id])
