@@ -3,6 +3,6 @@
     = link_to "#{group.name} (#{group.products.count})" , category_path(group), :title => t(:edit)
     - ar = Category.where(:category_id => group.id)
     - ar = ar.order("position") if Category.column_names.include?("position")
-    - for g in ar.all
+    - ar.each do |g|
       = render "treeview" , :group => g
 
