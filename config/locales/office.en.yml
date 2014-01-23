@@ -97,6 +97,7 @@ en:
   not_online: "not online"
   online: Netissä
   order: Order
+  order_number: Number
   ordered_on: "Ordered On"
   orders: Orders
   paid_on: "Paid on"
@@ -126,7 +127,7 @@ en:
   shipping_price: "Shipment price"
   shop: Shop
   show: Show
-  state: Tila
+  state: State
   street: Street
   supplier: Supplier
   suppliers: Suppliers
@@ -135,7 +136,7 @@ en:
   total: Total
   total_price: "Total Price"
   total_tax: Taxes
-  treeview: ~
+  treeview: Treeview
   type: Type
   update_success: "Successfully updated"
   user: User
