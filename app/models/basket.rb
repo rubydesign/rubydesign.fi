@@ -1,24 +1,33 @@
 class Basket < ActiveRecord::Base
 
-  default_scope { order('created_at DESC') } 
+  default_scope { order('created_at DESC') }
 
   belongs_to :kori, polymorphic: true  #kori is basket in finnish
-  
+
   has_many :items, autosave: true
-  before_save :cache_totals
-  
+  before_save :cache_total
+
   accepts_nested_attributes_for :items
 
   def quantity
     items.sum(:quantity)
   end
-  def cache_totals
+  def cache_total
     self.total_price = items.to_a.sum{ |i| i.price * i.quantity}
   end
   def touch
-    cache_totals
+    cache_total
     save
     super
+  end
+  
+  #return a hash of rate => amount
+  def taxes
+    taxes = Hash.new(0.0)
+    items.each do |item|
+      taxes[item.tax] += item.tax_amount
+    end
+    taxes
   end
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price
@@ -39,17 +48,17 @@ class Basket < ActiveRecord::Base
     self.items.each { |item| item.quantity -= item.product.inventory  }
     self.receive!
   end
-  
+
   #type is one of order purchase , user or cart depending on who "owns" the basket
   def type
     self.kori_type
   end
-  
+
   def isa typ
     return typ == :cart  if self.type == nil
     self.type.downcase == typ.to_s
   end
-  
+
   def suppliers
     ss = items.collect{|i| i.product.supplier if i.product}
     ss.uniq!

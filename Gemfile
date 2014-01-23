@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'devise'
+gem "devise-i18n"
 gem 'simple_form'
 gem "haml"
 gem "will_paginate"
@@ -21,6 +22,8 @@ gem 'db_fixtures_dump'
 gem "paperclip"
 gem 'facet_for' 
 gem 'rails-i18n'
+gem "barby"
+gem "chunky_png"
 
 group :development do
   gem 'better_errors'
@@ -28,6 +31,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
+#  gem "i18n_sync"
   gem 'quiet_assets'
   gem 'rails_layout'
 #  gem "jeweler", "> 1.6.4"

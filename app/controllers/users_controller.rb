@@ -19,7 +19,7 @@ class UsersController < AdminController
     @user = User.new
   end
 
-  def edit    
+  def edit
   end
 
   def create
@@ -40,17 +40,17 @@ class UsersController < AdminController
     if @user.update_attributes(pars)
       redirect_to user_path(@user), :flash => { :notice => t(:update_success, :model => "user") }
     else
-      render :action => "edit" 
+      render :action => "edit"
     end
   end
 
   def destroy
     @user.destroy
-    redirect_to users_url 
+    redirect_to users_url
   end
 
-  private 
-  
+  private
+
   def load_user
     @user = User.find(params[:id])
   end

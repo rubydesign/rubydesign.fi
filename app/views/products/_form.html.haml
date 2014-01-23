@@ -7,7 +7,7 @@
       .controls
         = f.text_field :name
       .controls
-        = f.text_area :description, :rows => 10 , :cols => 40 
+        = f.text_area :description, :rows => 10 , :cols => 40
       .controls
         = f.collection_select :supplier_id, Supplier.all, :id, :supplier_name, :include_blank => true
       .controls
@@ -21,7 +21,7 @@
           = image_tag @product.extra_picture.url(:product)
           = f.file_field :extra_picture , :label => t(:extra_picture)
       .form-actions
-        = f.submit :class => "submit-button" 
+        = f.submit :class => "submit-button"
         -if @product.product_id
           = link_to t(:cancel), product_path(@product.product), :class => "admin-button"
         -else

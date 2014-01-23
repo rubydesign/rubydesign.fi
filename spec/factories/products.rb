@@ -3,7 +3,7 @@
 FactoryGirl.define do
   #minimal product
   factory :product do
-    name "best product"
-    price 10
+    sequence( :name) { |n| "product #{n}" }
+    sequence :price , 10
   end
 end

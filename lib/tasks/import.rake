@@ -12,6 +12,7 @@ namespace :db do
   desc "fix pics and suppliers"
   task :fix_orders => :environment do
     Order.all.each do |order|
+      puts "order #{order.number}"
       del = false
       del = true if order.created_at.year < 2012
       order.basket.items.each do |item|
@@ -59,7 +60,7 @@ namespace :db do
   desc "fix pics and suppliers"
   task :fix_products => :environment do
     Product.all.each do |p|
-      puts p.name
+      puts p.full_name
       if p.ean.blank?
         p.ean = p.scode
         p.scode = ""

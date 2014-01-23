@@ -28,14 +28,14 @@ class BasketsController < AdminController
 
   def show
   end
-  
+
   #as an action this order is mean as a verb, ie order this basket
   def order
     redirect_to :action => :show    if @basket.items.empty?
     order = Order.create! :basket => @basket
     redirect_to :action => :show , :controller => :orders , :id => order.id
   end
-  
+
   def purchase
     redirect_to :action => :show    if @basket.items.empty?
     name = "purchase"
@@ -43,7 +43,7 @@ class BasketsController < AdminController
     purchase = Purchase.create! :basket => @basket
     redirect_to :action => :show , :controller => :purchases , :id => purchase.id
   end
-  
+
   def new
     @basket = Basket.create!
     render "show"
@@ -64,7 +64,7 @@ class BasketsController < AdminController
       else
         item.save
       end
-#      flash.notice = t('item_removed') 
+#      flash.notice = t('item_removed')
     end
     if discount = params[:discount]
       if i_id = params[:item]
@@ -94,7 +94,7 @@ class BasketsController < AdminController
     end
     redirect_to  :action => :show
   end
-  
+
   def create
     @basket = Basket.create(params_for_basket)
     if @basket.save
@@ -108,23 +108,23 @@ class BasketsController < AdminController
     if @basket.update_attributes(params_for_basket)
       redirect_to basket_path(@basket), :flash => { :notice => t(:update_success, :model => "basket") }
     else
-      render :action => "show" 
+      render :action => "show"
     end
   end
 
   def destroy
     @basket.destroy
-    redirect_to baskets_url 
+    redirect_to baskets_url
   end
 
   def inventory
     if @order.state == "complete"
       flash[:error] = "Order was already completed (printed), please start with a new customer to add inventory"
-      redirect_to :action => :show 
+      redirect_to :action => :show
       return
     end
     as = params[:as]
-    num = 0 
+    num = 0
     prods = @order.basket.items.count
     @order.basket.items.each do |item |
       variant = item.variant
@@ -137,8 +137,8 @@ class BasketsController < AdminController
       variant.save!
     end
     @order.basket.items.clear
-    flash.notice = "Total of #{num} items #{as ? 'inventoried': 'added'} for #{prods} products "     
-    redirect_to :action => :show 
+    flash.notice = "Total of #{num} items #{as ? 'inventoried': 'added'} for #{prods} products "
+    redirect_to :action => :show
   end
 
   private
@@ -147,7 +147,7 @@ class BasketsController < AdminController
     item.price = (item.product.price * ( 1.0 - discount.to_f/100.0 )).round(2)
     item.save!
   end
-  
+
   def load_basket
     @basket = Basket.find(params[:id])
     session[:basket] = nil # used to change links on product page, null when we come back

@@ -6,7 +6,7 @@ class PurchasesController < AdminController
   # Uncomment for check abilities with CanCan
   #authorize_resource
 
-  def index    
+  def index
     @q = Purchase.search params[:q]
     @purchase_scope = @q.result(:distinct => true)
     @purchases = @purchase_scope.paginate( :page => params[:page],:per_page => 20 ).to_a
@@ -26,7 +26,7 @@ class PurchasesController < AdminController
     items = @purchase.receive!
     redirect_to purchase_path(@purchase), :flash => { :notice => [t(:received) ,items ,t(:items)].join(" ") }
   end
-  
+
   # receive the stuff (ie add to inventory)
   def inventory
     items = @purchase.inventory!
@@ -38,7 +38,7 @@ class PurchasesController < AdminController
   end
 
   def edit
-    
+
   end
 
   def create
@@ -63,8 +63,8 @@ class PurchasesController < AdminController
     redirect_to purchases_url
   end
 
-  private 
-  
+  private
+
   def load_purchase
     @purchase = Purchase.find(params[:id])
   end

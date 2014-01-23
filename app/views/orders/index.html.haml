@@ -12,9 +12,7 @@
             %th= sort_link @q, :basket_total_price
             %th= sort_link @q, :email
             %th= t(:state)
-            %th{:colspan => "2"}
-              %label.checkbox
-                = @order_scope.count.to_s + " " + t(:orders)
+            %th= @order_scope.count.to_s + " " + t(:orders)
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
@@ -23,23 +21,22 @@
               %td= order.email
               %td= order.paid_on
               %td= link_to t(:show) , order_path(order), :title => t(:show)
-              %td= link_to t(:edit) , edit_order_path(order), :title => t(:edit)
       .btn-toolbar
         .btn-group
           = paginate @orders
         .btn-group.pull-right
           = link_to orders_path(:format => :csv), :class => "admin-button" do
-            %i.icon-download CSV 
+            %i.icon-download CSV
           = link_to orders_path(:format => :json), :class => "admin-button" do
-            %i.icon-download JSON 
+            %i.icon-download JSON
   .medium-3.columns
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.label t(:ordered_on) + " " + t(:between)
       = f.date_field :ordered_on_gteq
       = f.date_field :ordered_on_lteq
       = f.label t(:total) + t(:between)
-      = f.text_field :basket_total_price_lteq 
-      = f.text_field :basket_total_price_gteq 
+      = f.text_field :basket_total_price_lteq
+      = f.text_field :basket_total_price_gteq
       = f.facet_for(:email , :label => t(:email))
       = f.label t(:paid_on) + " " + t(:between)
       = f.date_field :paid_on_gteq

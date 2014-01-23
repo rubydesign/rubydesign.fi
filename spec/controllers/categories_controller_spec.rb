@@ -21,7 +21,7 @@ require 'spec_helper'
 describe CategoriesController do
 
   # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in CategoriesController. 
+  # in order to pass any filters (e.g. authentication) defined in CategoriesController.
   let(:valid_session) { {} }
 
   describe "GET index" do
@@ -71,7 +71,7 @@ describe CategoriesController do
 
       it "redirects to the created category" do
         post :create, {:category =>  attributes_for(:category)}, valid_session
-        response.should redirect_to(Category.last)
+        response.should redirect_to(Category.unscoped.last)
       end
     end
 
@@ -94,7 +94,7 @@ describe CategoriesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      
+
       it "assigns the requested category as @category" do
         category = create :category
         put :update, {:id => category.to_param, :category =>  attributes_for(:category)}, valid_session

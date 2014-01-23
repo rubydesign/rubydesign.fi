@@ -30,9 +30,9 @@
     %b
       = t(:shipment_type) + " : " + @order.shipment_type.to_s
 
-= render "baskets/small" , :basket => @order.basket  
-  
+= render "baskets/small" , :basket => @order.basket
+
 .medium-12.columns
-  = link_to t(:edit), edit_order_path(@order), :class => "admin-button"
   = link_to t(:back), orders_path, :class => "admin-button"
-  = link_to t(:destroy) , order_path(@order), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "admin-button"
+  = link_to t(:print), print_order_path(@order), :class => "admin-button"
+  = link_to t(:destroy) , order_path(@order), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "admin-button warning"

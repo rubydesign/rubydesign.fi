@@ -80,7 +80,7 @@ describe SuppliersController do
 
       it "redirects to the created supplier" do
         post :create, supplier_attributes , valid_session
-        response.should redirect_to(Supplier.last)
+        response.should redirect_to(Supplier.unscoped.last)
       end
     end
 

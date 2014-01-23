@@ -17,14 +17,16 @@ module OfficeClerk
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
-      
+
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
-      
-      
+
+
       g.view_specs false
       g.helper_specs false
     end
+    I18n.enforce_available_locales = false
+#    I18n.default_locale = :fi
     config.after_initialize do
     end
     config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '150x150>', :product  => '600x600>' },
@@ -33,7 +35,7 @@ module OfficeClerk
                                 :default_url => "/assets/missing/:style.png"      }
 
     # FOG example see more in paperclip docs  {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

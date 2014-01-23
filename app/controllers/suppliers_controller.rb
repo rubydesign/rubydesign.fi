@@ -46,11 +46,11 @@ class SuppliersController < AdminController
 
   def destroy
 #    @supplier.deleted_at = Time.now
-    redirect_to suppliers_url 
+    redirect_to suppliers_url
   end
 
-  private 
-  
+  private
+
   def load_supplier
     @supplier = Supplier.find(params[:id])
   end

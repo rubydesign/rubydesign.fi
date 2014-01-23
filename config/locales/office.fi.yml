@@ -1,9 +1,56 @@
-fi:
+
+--- 
+fi: 
   actions: Toimenpiteet
+  activerecord: 
+    attributes: 
+      basket: 
+        created_at: Luotu
+        total_price: Hinta
+      order: 
+        email: S-posti
+        ordered_on: Tilattu
+      product: 
+        description: Kuvaus
+        inventory: Inventaario
+        name: Nimi
+        online: Netissä
+        price: Hinta
+        scode: Tuottajatunnus
+        tax: Veroprosentti
+        weight: Paino
+      purchase: 
+        name: Nimi
+        ordered_on: Tilattu
+        received_on: Vastanottu
+      supplier: 
+        city: Kaupunki
+        name: Nimi
+        phone: Puhelin
+        street: Osoite
+        supplier_name: Tuottaja
+      user: 
+        city: Kaupunki
+        email: S-posti
+        name: Nimi
+        password: Salasana
+        password_confirmation: "Vahvista salasana"
+        phone: Puhelin
+        street: Osoite
+    models: 
+      basket: Ostoskori
+      category: Tuoteryhmä
+      order: Tilaus
+      product: Tuote
+      purchase: Sisäänosto
+      supplier: Tuottaja
+      user: Käyttäjä
   add: Lisää
+  add_inventory: "TODO Add Inventory"
   address: Osoite
   addresses: Osoiteet
-  are_you_sure: oletko varma
+  are_you_sure: "oletko varma"
+  as_inventory: "TODO As Inventory"
   back: Takaisin
   basket: Ostoskori
   baskets: Ostoskorit
@@ -12,41 +59,41 @@ fi:
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
+  category_id: "TODO Product Line"
   city: Kaupunki
-  create_success: Luotu
-  create: Luo
-  created_at: luottu
   cost: Kustannus
   count: Määrä
   country: Maa
-  create_success: Luotu onnistuneesti
-  description: Kuvaus
+  create: Luo
+  create_success: "Luotu onnistuneesti"
+  created_at: luottu
   delete: Poista
+  description: Kuvaus
   destroy: Poista
   discount: Alennus
   edit: Muokkaa
   editing: Muokkaamassa
   email: S-posti
-  extra_picture: Toinen kuva
-  picture2: Toinen kuva
+  extra_picture: "Toinen kuva"
   filter: Hae
   first_name: Etunimi
-  items: Tuotteet
-  item: Tuote
+  inventorized: "TODO Inventorized"
   inventory: Inventaario
+  item: Tuote
+  items: Tuotteet
   last_name: Sukunimi
   link: linkki
-  login: Kirjaudu sisään
-  logout: Kirjaudu ulos
+  login: "Kirjaudu sisään"
+  logout: "Kirjaudu ulos"
   main_picture: Kuva
-  make_order: Luo tilaus
-  make_purchase: Luo Ostos
-  may_be_blank: Voi jättää tyhjäksi
+  make_order: "Luo tilaus"
+  make_purchase: "Luo Ostos"
+  may_be_blank: "Voi jättää tyhjäksi"
   name: Nimi
-  name_contains: Nimi sisältää
+  name_contains: "Nimi sisältää"
   new: Uusi
   next: seurava
-  not_online: ei netissä
+  not_online: "ei netissä"
   online: Netissä
   order: Tilaus
   ordered_on: Tilattu
@@ -55,23 +102,25 @@ fi:
   parent: Tuoteryhmä
   phone: Puhelin
   picture: Kuva
+  picture2: "Toinen kuva"
   position: Paikka
   prev: edellinen
   price: Hinta
-  price_between: Hinta haarukka
+  price_between: "Hinta haarukka"
+  print_order: Tuolsta
   product: Tuote
   product_line: Tuotelinja
   products: Tuotteet
-  print_order: Tuolsta
-  purchases: Sisäänostot
   purchase: Sisäänosto
+  purchases: Sisäänostot
   quantity: Määrä
+  receive: "TODO Receive"
   received: Vastaanotettu
   received_on: Vastaanotettu
   scode: Tuottajatunnus
+  shipment_type: "Lähetyksen tapa"
   shipped_on: Lähetetty
-  shipping_price: Lähetyksen hinta
-  shipment_type: Lähetyksen tapa
+  shipping_price: "Lähetyksen hinta"
   shop: Kauppa
   show: Näytä
   state: Tila
@@ -81,70 +130,15 @@ fi:
   tax: Alv
   tax_rate: Veroprosentti
   total: yhteensä
-  total_tax: Verot
   total_price: Yhteensä
-  treeview: 
+  total_tax: Verot
+  treeview: ~
   type: Laji
-  update_success: Päivitetty 
-  users: Käyttäjät
+  update_success: Päivitetty
   user: Käyttäjä
+  users: Käyttäjät
   weight: Paino
-  will_paginate:
+  will_paginate: 
     next_label: seuraava
-    page_gap: ' '
+    page_gap: " "
     previous_label: edellinen
-  activerecord:
-    models:
-      order: Tilaus
-      basket: Ostoskori
-      product: Tuote
-      purchase: Sisäänosto
-      category: Tuoteryhmä
-      supplier: Tuottaja
-      user: Käyttäjä
-    attributes:
-      basket:
-        created_at: Luotu
-        total_price: Hinta
-      purchase:
-        name: Nimi
-        ordered_on: Tilattu
-        received_on: Vastanottu
-      product:
-        name: Nimi
-        inventory: Inventaario
-        online: Netissä
-        description: Kuvaus
-        price: Hinta
-        weight: Paino
-        tax: Veroprosentti
-        scode: Tuottajatunnus
-      supplier:
-        supplier_name: Tuottaja
-        name: Nimi
-        street: Osoite
-        city: Kaupunki
-        phone: Puhelin
-      order:
-        email: S-posti
-        ordered_on: Tilattu
-      user:
-        email: S-posti
-        name: Nimi
-        phone: Puhelin
-        street: Osoite
-        city: Kaupunki
-        password: Salasana
-        password_confirmation: Vahvista salasana
-  errors:
-    messages:
-      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
-      confirmation_period_expired: pitää vahvistaa %{period} kuluessa, ole hyvä ja pyydä uusi
-      expired: on vanhentunut, pyydä uutta.
-      not_found: ei löytynyt
-      not_locked: ei ollut lukittu
-      not_saved:
-        one: '1 virhe esti %{resource} tallentamisen:'
-        other: '%{count} virhettä esti %{resource} tallentamisen:'
-      not_a_number: Ei ole numero
-  

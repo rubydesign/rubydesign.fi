@@ -9,12 +9,12 @@ FactoryGirl.define do
     # required if the Devise Confirmable module is used
     # confirmed_at Time.now
   end
-  
+
   factory :admin_user do
     name 'Admin User'
     email 'torsten@villataika.fi'
     password 'password'
     password_confirmation 'password'
   end
-  
+
 end

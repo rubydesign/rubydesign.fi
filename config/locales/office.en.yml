@@ -1,75 +1,147 @@
-en:
+
+--- 
+en: 
   actions: Actions
+  activerecord: 
+    attributes: 
+      basket: 
+        created_at: Created
+        total_price: Price
+      order: 
+        email: Email
+        ordered_on: "Ordered on"
+      product: 
+        description: Description
+        inventory: Inventory
+        name: Name
+        ean: Ean
+        online: online
+        price: Price
+        scode: "Supplier code"
+        tax: "Tax rate"
+        weight: Weight
+      purchase: 
+        name: Name
+        ordered_on: "Ordered on"
+        received_on: "Received on"
+      supplier: 
+        city: City
+        name: Name
+        phone: Phone
+        street: Street
+        supplier_name: Supplier
+      user: 
+        city: City
+        email: Email
+        name: Name
+        password: Passord
+        password_confirmation: "Password confirmation"
+        phone: Phone
+        street: Street
+    models: 
+      basket: Cart
+      category: "Product group"
+      order: Order
+      product: Product
+      purchase: Purchase
+      supplier: Supplier
+      user: User
+  add: Add
+  add_inventory: "Add Inventory"
   address: Adress
   addresses: Adresses
-  add_inventory: Add Inventory
-  are_you_sure: Are you sure?
-  as_inventory: As Inventory
-  create_success: Successfully created
+  are_you_sure: "Are you sure?"
+  as_inventory: "As Inventory"
+  back: Back
   basket: Basket
   baskets: Baskets
-  back: Back
   between: " between"
   cancel: Cancel
-  canceled_on: Canceled on
-  category: Product Category
-  category_id: Product Line
-  categories: Product Categories
+  canceled_on: "Canceled on"
+  categories: "Product Categories"
+  category: "Product Category"
+  category_id: "Product Line"
   city: City
+  cost: Cost
+  count: Count
   country: Country
-  discount: Discount
+  create: Create
+  create_success: "Successfully created"
+  created_at: Created
+  delete: Poista
   description: Description
   destroy: Destroy
+  discount: Discount
   edit: Edit
   editing: Editing
   email: Email
-  first_name: First Name
+  extra_picture: "Extra picture"
   filter: Filter
-  items: Items
+  first_name: "First Name"
   inventorized: Inventorized
-  last_name: Last Name
+  inventory: Inventory
+  item: Item
+  items: Items
+  last_name: "Last Name"
   link: Link
-  make_order: Make Order
-  make_purchase: Make Purchase
+  login: "Log in"
+  logout: "Log out"
+  main_picture: Kuva
+  make_order: "Make Order"
+  make_purchase: "Make Purchase"
+  may_be_blank: "May be blank"
   name: Name
-  name_contains: Name contains
+  name_contains: "Name contains"
   new: New
   next: Next
+  not_online: "not online"
+  online: Netissä
   order: Order
-  ordered_on: Ordered On
+  ordered_on: "Ordered On"
   orders: Orders
+  paid_on: "Paid on"
   parent: Parent
-  paid_on: Paid on
-  picture: Picture
   phone: Phone
+  picture: Picture
+  picture2: "Picture 2"
   position: Position
+  print: Print
   prev: Previous
   price: Price
-  print_order: Print Order
+  price_between: "Price between"
+  print_order: "Print Order"
   product: Product
+  product_line: "Product Line"
   products: Products
   purchase: Purchase
   purchases: Purchases
   quantity: Quantity
-  received_on: Received On
   receive: Receive
   received: Received
-  shipped_on: Shipped on
-  supplier: Supplier
-  suppliers: Suppliers
+  received_on: "Received On"
+  search: Search
+  scode: "Supplier code"
+  shipment_type: "Shipment type"
+  shipped_on: "Shipped on"
+  shipping_price: "Shipment price"
   shop: Shop
   show: Show
+  state: Tila
   street: Street
-  update_success: Successfully updated
+  supplier: Supplier
+  suppliers: Suppliers
   tax: Vat
+  tax_rate: "Vat rate"
   total: Total
-  total_price: Total Price
-  treeview: Treeview
+  total_price: "Total Price"
+  total_tax: Taxes
+  treeview: ~
   type: Type
+  update_success: "Successfully updated"
   user: User
   users: Users
-  will_paginate:
-    previous_label: "&#8592; Previous"
+  weight: Weight
+  will_paginate: 
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
-    
+    previous_label: "&#8592; Previous"

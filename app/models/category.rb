@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-  default_scope { order('name') } 
+  default_scope { order('name') }
 
   has_many :products, :dependent => :nullify
   has_many :categories, :dependent => :nullify
@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
- 
+
   def generate_url_if_needed
     if link.blank? && name != nil
       self.link = name.gsub(" " , "_").downcase
