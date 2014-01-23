@@ -84,3 +84,8 @@
   name: Vaatteet
   link: vaatteet
   category_id: 39
+42:
+  id: 42
+  name: Öljyt
+  link: oljyt
+  category_id: 1
