@@ -1,8 +1,7 @@
 %h2
   = t(:product_line)
   = @product.name
-  %small
-    = @product.online ? t(:online) : t(:not_online)
+  = render "online" , :object => @product
 %table
   %tbody
     %tr.line-1

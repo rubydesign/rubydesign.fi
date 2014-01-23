@@ -6,11 +6,12 @@
     = t(:product_line)
     = link_to @product.product.name , product_path( @product.product)
     = @product.name
+    = render "online" , :object => @product
 -elsif
   %h3
     Product:
     = @product.name
-
+    = render "online" , :object => @product
 .row
   .medium-6.columns
     .medium-6.columns

@@ -8,58 +8,15 @@ class CategoriesController < AdminController
 
   def index
     @q = Category.search(params[:q])
-
     @category_scope = @q.result(:distinct => true)
-
-    @category_scope_for_scope = @category_scope.dup
-
-    unless params[:scope].blank?
-      @category_scope = @category_scope.send(params[:scope])
-    end
-
-    @categories = @category_scope.paginate(
-      :page => params[:page],
-      :per_page => 20
-    ).to_a
-
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json{
-        render :json => @category_scope.to_a
-      }
-      format.csv{
-        require 'csv'
-        csvstr = CSV.generate do |csv|
-          csv << Category.attribute_names
-          @category_scope.to_a.each{ |o|
-            csv << Category.attribute_names.map{ |a| o[a] }
-          }
-        end
-        render :text => csvstr
-      }
-    end
+    @categories = @category_scope.paginate( :page => params[:page],:per_page => 20).to_a
   end
 
   def show
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @category }
-    end
   end
 
   def new
     @category = Category.new
-
-    respond_to do |format|
-      format.html{
-        render
-      }
-      format.json { render :json => @category }
-    end
   end
 
   def edit
@@ -68,42 +25,35 @@ class CategoriesController < AdminController
 
   def create
     @category = Category.create(params_for_model)
-
-    respond_to do |format|
-      if @category.save
-        format.html {
-          redirect_to category_path(@category), :flash => { :notice => t(:create_success, :model => "category") }
-        }
-        format.json { render :json => @category, :status => :created, :location => @category }
-      else
-        format.html {
-          render :action => "new"
-        }
-        format.json { render :json => @category.errors, :status => :unprocessable_entity }
-      end
+    if @category.save
+      redirect_to category_path(@category), :flash => { :notice => t(:create_success, :model => "category") }
+    else
+      render :action => "new"
     end
   end
 
   def update
-
-    respond_to do |format|
-      if @category.update_attributes(params_for_model)
-        format.html { redirect_to category_path(@category), :flash => { :notice => t(:update_success, :model => "category") }}
-        format.json { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @category.errors, :status => :unprocessable_entity }
+    online = @category.online
+    if @category.update_attributes(params_for_model)
+      notice = t(:update_success, :model => "category")
+      if @category.online != online
+        count = 0
+        @category.products.each do |prod|
+          prod.online = @category.online
+          prod.save
+          count += 1
+        end
+        notice += "<br> #{count} " + t(:products) + " " + (@category.online ? t(:made_online) : t(:made_offline))
       end
+      redirect_to category_path(@category), :flash => { :notice => notice }
+    else
+      render :action => "edit" 
     end
   end
 
   def destroy
     @category.destroy
-
-    respond_to do |format|
-      format.html { redirect_to categories_url }
-      format.json { head :ok }
-    end
+    redirect_to categories_url 
   end
 
   private
@@ -113,7 +63,7 @@ class CategoriesController < AdminController
   end
 
   def params_for_model
-    params.require(:category).permit(:category_id,:name,:link,:main_picture,:extra_picture)
+    params.require(:category).permit(:category_id,:name,:link,:main_picture,:extra_picture,:position, :online, :description)
   end
 end
 

@@ -75,9 +75,11 @@ en:
   edit: Edit
   editing: Editing
   email: Email
+  error: Error
   extra_picture: "Extra picture"
   filter: Filter
   first_name: "First Name"
+  info: Info
   inventorized: Inventorized
   inventory: Inventory
   item: Item
@@ -86,6 +88,8 @@ en:
   link: Link
   login: "Log in"
   logout: "Log out"
+  made_offline: taken offline
+  made_online: made online
   main_picture: Kuva
   make_order: "Make Order"
   make_purchase: "Make Purchase"

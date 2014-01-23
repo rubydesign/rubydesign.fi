@@ -7,23 +7,32 @@
       %ul
         - @category.errors.full_messages.each do |msg|
           %li= msg
-  .control-group
-    = f.label :category, t(:category), :class => "control-label"
-    .controls
-      = f.collection_select(:category_id, Category.all, :id, :name, :prompt => 'Select')
-    .controls
-      = f.text_field :name
-    .controls
-      = f.text_field :description
-    .controls
-      = f.text_field :position
-    .controls
-      = f.text_field :link
-    = image_tag @category.main_picture.url
-    .controls
-      = f.file_field :main_picture
-    = image_tag @category.extra_picture.url
-    .controls
-      = f.file_field :extra_picture
-  .form-actions
-    = f.submit :class => "submit-button"
+  .row
+    .large-6.column
+      .control-group
+        = f.label :category, t(:category), :class => "control-label"
+        .controls
+          = f.collection_select(:category_id, Category.all, :id, :name, :prompt => 'Select')
+        .controls
+          = f.text_field :name
+        .controls
+          = f.text_field :position
+        .controls
+          = f.text_field :link
+    .large-6.column
+      .control-group
+        .controls
+          = f.check_box :online
+        .controls
+          = f.text_area :description
+      .row
+        .large-6.column
+          = image_tag @category.main_picture.url
+          .controls
+            = f.file_field :main_picture
+        .large-6.column
+          = image_tag @category.extra_picture.url
+          .controls
+            = f.file_field :extra_picture
+    .form-actions
+      = f.submit :class => "submit-button"
