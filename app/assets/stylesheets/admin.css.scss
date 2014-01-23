@@ -9,10 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require reset
- *= require datepicker
- *= require timepicker
- *= require admin-scaffold
- *= require colorpicker
  */
 
 // configuartion of zurb has to go before its import
@@ -23,6 +19,12 @@ $topbar-bg: #9F83D8;
 
 // new classes using zurb go after the import
 
+.alert-notice {
+  background-color: #00FFEB;
+};
+.alert-error {
+  background-color: red;
+};
 .admin-button { 
   $button-radius: rem-calc(10);
   @include button(rem-calc(10), green, true, false, false, false);
