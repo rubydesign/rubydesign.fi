@@ -20751,7 +20751,7 @@
   kori_id: 3980
   kori_type: Order
   id: 3980
-  total_price: 36.95
+  total_price: 37.25
   created_at: 2012-02-17 13:09:06.000000000 Z
 3981:
   kori_id: 3981
@@ -23613,7 +23613,7 @@
   kori_id: 4801
   kori_type: Order
   id: 4801
-  total_price: 57.0
+  total_price: 57.46
   created_at: 2012-05-28 14:43:14.000000000 Z
 4802:
   kori_id: 4802
@@ -27803,12 +27803,6 @@
   id: 7982
   total_price: 64.0
   created_at: 2012-09-22 12:48:37.000000000 Z
-8015:
-  kori_id: 8015
-  kori_type: Order
-  id: 8015
-  total_price: 12.8
-  created_at: 2012-09-24 10:31:29.000000000 Z
 8016:
   kori_id: 8016
   kori_type: Order
@@ -37013,9 +37007,3819 @@
   id: 16232
   total_price: 36.0
   created_at: 2013-08-17 11:32:46.000000000 Z
-16239:
-  kori_id: 16239
+16244:
+  kori_id: 16244
   kori_type: Order
-  id: 16239
-  total_price: 13.6
-  created_at: 2013-08-18 11:50:42.729552000 Z
+  id: 16244
+  total_price: 23.5
+  created_at: 2013-08-19 08:09:47.000000000 Z
+16251:
+  kori_id: 16251
+  kori_type: Order
+  id: 16251
+  total_price: 4.9
+  created_at: 2013-08-19 11:52:47.000000000 Z
+16254:
+  kori_id: 16254
+  kori_type: Order
+  id: 16254
+  total_price: 250.0
+  created_at: 2013-08-19 12:59:16.000000000 Z
+16257:
+  kori_id: 16257
+  kori_type: Order
+  id: 16257
+  total_price: 8.5
+  created_at: 2013-08-19 14:18:23.000000000 Z
+16271:
+  kori_id: 16271
+  kori_type: Order
+  id: 16271
+  total_price: 48.0
+  created_at: 2013-08-20 09:38:04.000000000 Z
+16274:
+  kori_id: 16274
+  kori_type: Order
+  id: 16274
+  total_price: 11.8
+  created_at: 2013-08-20 10:13:52.000000000 Z
+16278:
+  kori_id: 16278
+  kori_type: Order
+  id: 16278
+  total_price: 12.0
+  created_at: 2013-08-20 10:41:35.000000000 Z
+16283:
+  kori_id: 16283
+  kori_type: Order
+  id: 16283
+  total_price: 15.0
+  created_at: 2013-08-20 12:00:16.000000000 Z
+16290:
+  kori_id: 16290
+  kori_type: Order
+  id: 16290
+  total_price: 148.37
+  created_at: 2013-08-20 13:42:16.000000000 Z
+16293:
+  kori_id: 16293
+  kori_type: Order
+  id: 16293
+  total_price: 59.36
+  created_at: 2013-08-20 13:47:27.000000000 Z
+16294:
+  kori_id: 16294
+  kori_type: Order
+  id: 16294
+  total_price: 72.25
+  created_at: 2013-08-20 14:12:11.000000000 Z
+16296:
+  kori_id: 16296
+  kori_type: Order
+  id: 16296
+  total_price: 8.960000000000001
+  created_at: 2013-08-20 14:33:25.000000000 Z
+16304:
+  kori_id: 16304
+  kori_type: Order
+  id: 16304
+  total_price: 118.35
+  created_at: 2013-08-21 10:20:25.000000000 Z
+16308:
+  kori_id: 16308
+  kori_type: Order
+  id: 16308
+  total_price: 34.0
+  created_at: 2013-08-21 11:17:25.000000000 Z
+16309:
+  kori_id: 16309
+  kori_type: Order
+  id: 16309
+  total_price: 35.0
+  created_at: 2013-08-21 11:20:41.000000000 Z
+16332:
+  kori_id: 16332
+  kori_type: Order
+  id: 16332
+  total_price: 46.0
+  created_at: 2013-08-22 11:19:00.000000000 Z
+16337:
+  kori_id: 16337
+  kori_type: Order
+  id: 16337
+  total_price: 25.6
+  created_at: 2013-08-22 12:23:52.000000000 Z
+16338:
+  kori_id: 16338
+  kori_type: Order
+  id: 16338
+  total_price: 11.8
+  created_at: 2013-08-22 13:14:20.000000000 Z
+16354:
+  kori_id: 16354
+  kori_type: Order
+  id: 16354
+  total_price: 23.0
+  created_at: 2013-08-22 14:11:24.000000000 Z
+16356:
+  kori_id: 16356
+  kori_type: Order
+  id: 16356
+  total_price: 12.0
+  created_at: 2013-08-22 14:25:17.000000000 Z
+16357:
+  kori_id: 16357
+  kori_type: Order
+  id: 16357
+  total_price: 25.52
+  created_at: 2013-08-22 14:31:27.000000000 Z
+16358:
+  kori_id: 16358
+  kori_type: Order
+  id: 16358
+  total_price: 49.3
+  created_at: 2013-08-22 14:38:18.000000000 Z
+16361:
+  kori_id: 16361
+  kori_type: Order
+  id: 16361
+  total_price: 15.0
+  created_at: 2013-08-22 14:53:54.000000000 Z
+16365:
+  kori_id: 16365
+  kori_type: Order
+  id: 16365
+  total_price: 5.5
+  created_at: 2013-08-22 15:33:05.000000000 Z
+16366:
+  kori_id: 16366
+  kori_type: Order
+  id: 16366
+  total_price: 12.95
+  created_at: 2013-08-22 15:38:54.000000000 Z
+16383:
+  kori_id: 16383
+  kori_type: Order
+  id: 16383
+  total_price: 17.0
+  created_at: 2013-08-23 11:59:10.000000000 Z
+16394:
+  kori_id: 16394
+  kori_type: Order
+  id: 16394
+  total_price: 24.51
+  created_at: 2013-08-23 12:49:07.000000000 Z
+16398:
+  kori_id: 16398
+  kori_type: Order
+  id: 16398
+  total_price: 13.8
+  created_at: 2013-08-23 14:17:36.000000000 Z
+16399:
+  kori_id: 16399
+  kori_type: Order
+  id: 16399
+  total_price: 25.6
+  created_at: 2013-08-23 14:24:11.000000000 Z
+16410:
+  kori_id: 16410
+  kori_type: Order
+  id: 16410
+  total_price: 28.95
+  created_at: 2013-08-24 07:34:36.000000000 Z
+16417:
+  kori_id: 16417
+  kori_type: Order
+  id: 16417
+  total_price: 157.0
+  created_at: 2013-08-24 08:54:49.000000000 Z
+16419:
+  kori_id: 16419
+  kori_type: Order
+  id: 16419
+  total_price: 15.8
+  created_at: 2013-08-24 09:17:13.000000000 Z
+16420:
+  kori_id: 16420
+  kori_type: Order
+  id: 16420
+  total_price: 15.11
+  created_at: 2013-08-24 09:21:14.000000000 Z
+16421:
+  kori_id: 16421
+  kori_type: Order
+  id: 16421
+  total_price: 63.75
+  created_at: 2013-08-24 09:23:15.000000000 Z
+16423:
+  kori_id: 16423
+  kori_type: Order
+  id: 16423
+  total_price: 23.5
+  created_at: 2013-08-24 09:27:56.000000000 Z
+16450:
+  kori_id: 16450
+  kori_type: Order
+  id: 16450
+  total_price: 13.8
+  created_at: 2013-08-26 08:15:19.000000000 Z
+16463:
+  kori_id: 16463
+  kori_type: Order
+  id: 16463
+  total_price: 62.0
+  created_at: 2013-08-26 11:44:26.000000000 Z
+16465:
+  kori_id: 16465
+  kori_type: Order
+  id: 16465
+  total_price: 25.6
+  created_at: 2013-08-26 12:12:58.000000000 Z
+16468:
+  kori_id: 16468
+  kori_type: Order
+  id: 16468
+  total_price: 10.4
+  created_at: 2013-08-26 13:08:22.000000000 Z
+16470:
+  kori_id: 16470
+  kori_type: Order
+  id: 16470
+  total_price: 4.3
+  created_at: 2013-08-26 13:40:33.000000000 Z
+16473:
+  kori_id: 16473
+  kori_type: Order
+  id: 16473
+  total_price: 80.76000000000001
+  created_at: 2013-08-27 09:27:37.000000000 Z
+16478:
+  kori_id: 16478
+  kori_type: Order
+  id: 16478
+  total_price: 25.0
+  created_at: 2013-08-27 13:24:27.000000000 Z
+16480:
+  kori_id: 16480
+  kori_type: Order
+  id: 16480
+  total_price: 59.45
+  created_at: 2013-08-27 13:28:34.000000000 Z
+16481:
+  kori_id: 16481
+  kori_type: Order
+  id: 16481
+  total_price: 13.8
+  created_at: 2013-08-27 13:56:36.000000000 Z
+16485:
+  kori_id: 16485
+  kori_type: Order
+  id: 16485
+  total_price: 12.0
+  created_at: 2013-08-27 14:23:47.000000000 Z
+16491:
+  kori_id: 16491
+  kori_type: Order
+  id: 16491
+  total_price: 25.99
+  created_at: 2013-08-27 15:01:40.000000000 Z
+16503:
+  kori_id: 16503
+  kori_type: Order
+  id: 16503
+  total_price: 11.8
+  created_at: 2013-08-28 08:03:23.000000000 Z
+16507:
+  kori_id: 16507
+  kori_type: Order
+  id: 16507
+  total_price: 32.92
+  created_at: 2013-08-28 11:53:46.000000000 Z
+16520:
+  kori_id: 16520
+  kori_type: Order
+  id: 16520
+  total_price: 36.0
+  created_at: 2013-08-29 10:08:12.000000000 Z
+16523:
+  kori_id: 16523
+  kori_type: Order
+  id: 16523
+  total_price: 160.0
+  created_at: 2013-08-29 10:17:37.000000000 Z
+16524:
+  kori_id: 16524
+  kori_type: Order
+  id: 16524
+  total_price: 12.0
+  created_at: 2013-08-29 10:28:10.000000000 Z
+16541:
+  kori_id: 16541
+  kori_type: Order
+  id: 16541
+  total_price: 27.7
+  created_at: 2013-08-29 12:48:51.000000000 Z
+16551:
+  kori_id: 16551
+  kori_type: Order
+  id: 16551
+  total_price: 12.0
+  created_at: 2013-08-30 08:10:47.000000000 Z
+16555:
+  kori_id: 16555
+  kori_type: Order
+  id: 16555
+  total_price: 115.0
+  created_at: 2013-08-30 09:55:35.000000000 Z
+16562:
+  kori_id: 16562
+  kori_type: Order
+  id: 16562
+  total_price: 97.95
+  created_at: 2013-08-30 11:07:53.000000000 Z
+16564:
+  kori_id: 16564
+  kori_type: Order
+  id: 16564
+  total_price: 34.9
+  created_at: 2013-08-30 11:28:25.000000000 Z
+16572:
+  kori_id: 16572
+  kori_type: Order
+  id: 16572
+  total_price: 35.01
+  created_at: 2013-08-30 13:22:42.000000000 Z
+16574:
+  kori_id: 16574
+  kori_type: Order
+  id: 16574
+  total_price: 89.0
+  created_at: 2013-08-30 13:33:47.000000000 Z
+16575:
+  kori_id: 16575
+  kori_type: Order
+  id: 16575
+  total_price: 59.0
+  created_at: 2013-08-30 14:16:59.000000000 Z
+16590:
+  kori_id: 16590
+  kori_type: Order
+  id: 16590
+  total_price: 137.01
+  created_at: 2013-08-31 07:55:32.000000000 Z
+16591:
+  kori_id: 16591
+  kori_type: Order
+  id: 16591
+  total_price: 13.9
+  created_at: 2013-08-31 08:10:17.000000000 Z
+16594:
+  kori_id: 16594
+  kori_type: Order
+  id: 16594
+  total_price: 15.9
+  created_at: 2013-08-31 11:47:17.000000000 Z
+16603:
+  kori_id: 16603
+  kori_type: Order
+  id: 16603
+  total_price: 24.0
+  created_at: 2013-09-02 08:11:47.000000000 Z
+16604:
+  kori_id: 16604
+  kori_type: Order
+  id: 16604
+  total_price: 45.01
+  created_at: 2013-09-02 09:12:22.000000000 Z
+16606:
+  kori_id: 16606
+  kori_type: Order
+  id: 16606
+  total_price: 12.0
+  created_at: 2013-09-02 09:20:40.000000000 Z
+16611:
+  kori_id: 16611
+  kori_type: Order
+  id: 16611
+  total_price: 13.8
+  created_at: 2013-09-02 10:20:30.000000000 Z
+16614:
+  kori_id: 16614
+  kori_type: Order
+  id: 16614
+  total_price: 49.8
+  created_at: 2013-09-02 11:24:21.000000000 Z
+16616:
+  kori_id: 16616
+  kori_type: Order
+  id: 16616
+  total_price: 17.0
+  created_at: 2013-09-02 12:46:32.000000000 Z
+16629:
+  kori_id: 16629
+  kori_type: Order
+  id: 16629
+  total_price: 4.7
+  created_at: 2013-09-03 11:10:55.000000000 Z
+16633:
+  kori_id: 16633
+  kori_type: Order
+  id: 16633
+  total_price: 12.0
+  created_at: 2013-09-03 11:18:39.000000000 Z
+16635:
+  kori_id: 16635
+  kori_type: Order
+  id: 16635
+  total_price: 24.51
+  created_at: 2013-09-03 11:41:02.000000000 Z
+16637:
+  kori_id: 16637
+  kori_type: Order
+  id: 16637
+  total_price: 45.05
+  created_at: 2013-09-03 11:43:11.000000000 Z
+16638:
+  kori_id: 16638
+  kori_type: Order
+  id: 16638
+  total_price: 60.0
+  created_at: 2013-09-03 12:51:56.000000000 Z
+16639:
+  kori_id: 16639
+  kori_type: Order
+  id: 16639
+  total_price: 10.0
+  created_at: 2013-09-03 14:07:22.000000000 Z
+16641:
+  kori_id: 16641
+  kori_type: Order
+  id: 16641
+  total_price: 22.94
+  created_at: 2013-09-03 15:11:14.000000000 Z
+16652:
+  kori_id: 16652
+  kori_type: Order
+  id: 16652
+  total_price: 2.9
+  created_at: 2013-09-04 09:53:03.000000000 Z
+16654:
+  kori_id: 16654
+  kori_type: Order
+  id: 16654
+  total_price: 10.0
+  created_at: 2013-09-04 10:24:43.000000000 Z
+16656:
+  kori_id: 16656
+  kori_type: Order
+  id: 16656
+  total_price: 19.9
+  created_at: 2013-09-04 11:22:56.000000000 Z
+16666:
+  kori_id: 16666
+  kori_type: Order
+  id: 16666
+  total_price: 12.0
+  created_at: 2013-09-04 13:00:58.000000000 Z
+16668:
+  kori_id: 16668
+  kori_type: Order
+  id: 16668
+  total_price: 24.0
+  created_at: 2013-09-04 13:44:10.000000000 Z
+16673:
+  kori_id: 16673
+  kori_type: Order
+  id: 16673
+  total_price: 44.95
+  created_at: 2013-09-04 14:14:11.000000000 Z
+16677:
+  kori_id: 16677
+  kori_type: Order
+  id: 16677
+  total_price: 27.0
+  created_at: 2013-09-04 14:48:24.000000000 Z
+16682:
+  kori_id: 16682
+  kori_type: Order
+  id: 16682
+  total_price: 67.5
+  created_at: 2013-09-05 09:12:55.000000000 Z
+16685:
+  kori_id: 16685
+  kori_type: Order
+  id: 16685
+  total_price: 105.0
+  created_at: 2013-09-05 10:57:00.000000000 Z
+16689:
+  kori_id: 16689
+  kori_type: Order
+  id: 16689
+  total_price: 13.8
+  created_at: 2013-09-05 12:06:16.000000000 Z
+16691:
+  kori_id: 16691
+  kori_type: Order
+  id: 16691
+  total_price: 27.8
+  created_at: 2013-09-05 12:27:41.000000000 Z
+16697:
+  kori_id: 16697
+  kori_type: Order
+  id: 16697
+  total_price: 56.0
+  created_at: 2013-09-05 13:32:00.000000000 Z
+16709:
+  kori_id: 16709
+  kori_type: Order
+  id: 16709
+  total_price: 30.45
+  created_at: 2013-09-06 10:37:00.000000000 Z
+16711:
+  kori_id: 16711
+  kori_type: Order
+  id: 16711
+  total_price: 48.35
+  created_at: 2013-09-06 11:11:27.000000000 Z
+16712:
+  kori_id: 16712
+  kori_type: Order
+  id: 16712
+  total_price: 31.8
+  created_at: 2013-09-06 11:20:24.000000000 Z
+16721:
+  kori_id: 16721
+  kori_type: Order
+  id: 16721
+  total_price: 7.9
+  created_at: 2013-09-06 14:49:46.000000000 Z
+16727:
+  kori_id: 16727
+  kori_type: Order
+  id: 16727
+  total_price: 162.15
+  created_at: 2013-09-07 10:52:36.000000000 Z
+16729:
+  kori_id: 16729
+  kori_type: Order
+  id: 16729
+  total_price: 40.1
+  created_at: 2013-09-07 11:09:37.000000000 Z
+16731:
+  kori_id: 16731
+  kori_type: Order
+  id: 16731
+  total_price: 13.8
+  created_at: 2013-09-07 11:45:36.000000000 Z
+16733:
+  kori_id: 16733
+  kori_type: Order
+  id: 16733
+  total_price: 10.0
+  created_at: 2013-09-07 11:49:01.000000000 Z
+16741:
+  kori_id: 16741
+  kori_type: Order
+  id: 16741
+  total_price: 23.0
+  created_at: 2013-09-09 09:36:38.000000000 Z
+16742:
+  kori_id: 16742
+  kori_type: Order
+  id: 16742
+  total_price: 10.44
+  created_at: 2013-09-09 09:39:24.000000000 Z
+16744:
+  kori_id: 16744
+  kori_type: Order
+  id: 16744
+  total_price: 2.9
+  created_at: 2013-09-09 09:42:15.000000000 Z
+16745:
+  kori_id: 16745
+  kori_type: Order
+  id: 16745
+  total_price: 83.55
+  created_at: 2013-09-09 10:19:18.000000000 Z
+16746:
+  kori_id: 16746
+  kori_type: Order
+  id: 16746
+  total_price: 3.95
+  created_at: 2013-09-09 10:41:55.000000000 Z
+16747:
+  kori_id: 16747
+  kori_type: Order
+  id: 16747
+  total_price: 9.5
+  created_at: 2013-09-09 10:49:34.000000000 Z
+16752:
+  kori_id: 16752
+  kori_type: Order
+  id: 16752
+  total_price: 34.9
+  created_at: 2013-09-09 11:19:48.000000000 Z
+16753:
+  kori_id: 16753
+  kori_type: Order
+  id: 16753
+  total_price: 22.95
+  created_at: 2013-09-09 11:45:41.000000000 Z
+16759:
+  kori_id: 16759
+  kori_type: Order
+  id: 16759
+  total_price: 2.9
+  created_at: 2013-09-09 14:00:50.000000000 Z
+16778:
+  kori_id: 16778
+  kori_type: Order
+  id: 16778
+  total_price: 13.8
+  created_at: 2013-09-10 12:44:57.000000000 Z
+16793:
+  kori_id: 16793
+  kori_type: Order
+  id: 16793
+  total_price: 24.9
+  created_at: 2013-09-10 16:13:39.000000000 Z
+16798:
+  kori_id: 16798
+  kori_type: Order
+  id: 16798
+  total_price: 3.51
+  created_at: 2013-09-10 16:35:21.000000000 Z
+16805:
+  kori_id: 16805
+  kori_type: Order
+  id: 16805
+  total_price: 17.9
+  created_at: 2013-09-11 08:14:33.000000000 Z
+16807:
+  kori_id: 16807
+  kori_type: Order
+  id: 16807
+  total_price: 17.9
+  created_at: 2013-09-11 08:51:20.000000000 Z
+16814:
+  kori_id: 16814
+  kori_type: Order
+  id: 16814
+  total_price: 41.4
+  created_at: 2013-09-11 12:53:13.000000000 Z
+16815:
+  kori_id: 16815
+  kori_type: Order
+  id: 16815
+  total_price: 42.94
+  created_at: 2013-09-11 13:09:10.000000000 Z
+16819:
+  kori_id: 16819
+  kori_type: Order
+  id: 16819
+  total_price: 107.25
+  created_at: 2013-09-11 14:36:22.000000000 Z
+16823:
+  kori_id: 16823
+  kori_type: Order
+  id: 16823
+  total_price: 0.0
+  created_at: 2013-09-11 15:04:22.000000000 Z
+16824:
+  kori_id: 16824
+  kori_type: Order
+  id: 16824
+  total_price: 4.8
+  created_at: 2013-09-11 15:37:51.000000000 Z
+16825:
+  kori_id: 16825
+  kori_type: Order
+  id: 16825
+  total_price: 16.0
+  created_at: 2013-09-11 15:38:56.000000000 Z
+16832:
+  kori_id: 16832
+  kori_type: Order
+  id: 16832
+  total_price: 12.0
+  created_at: 2013-09-11 17:42:47.000000000 Z
+16840:
+  kori_id: 16840
+  kori_type: Order
+  id: 16840
+  total_price: 30.45
+  created_at: 2013-09-12 10:15:56.000000000 Z
+16846:
+  kori_id: 16846
+  kori_type: Order
+  id: 16846
+  total_price: 15.01
+  created_at: 2013-09-12 11:17:30.000000000 Z
+16854:
+  kori_id: 16854
+  kori_type: Order
+  id: 16854
+  total_price: 34.4
+  created_at: 2013-09-12 13:43:44.000000000 Z
+16862:
+  kori_id: 16862
+  kori_type: Order
+  id: 16862
+  total_price: 12.0
+  created_at: 2013-09-12 14:22:05.000000000 Z
+16863:
+  kori_id: 16863
+  kori_type: Order
+  id: 16863
+  total_price: 13.8
+  created_at: 2013-09-12 14:48:27.000000000 Z
+16865:
+  kori_id: 16865
+  kori_type: Order
+  id: 16865
+  total_price: 12.0
+  created_at: 2013-09-12 14:55:45.000000000 Z
+16867:
+  kori_id: 16867
+  kori_type: Order
+  id: 16867
+  total_price: 32.0
+  created_at: 2013-09-12 15:08:31.000000000 Z
+16876:
+  kori_id: 16876
+  kori_type: Order
+  id: 16876
+  total_price: 5.9
+  created_at: 2013-09-13 08:34:26.000000000 Z
+16883:
+  kori_id: 16883
+  kori_type: Order
+  id: 16883
+  total_price: 35.0
+  created_at: 2013-09-13 10:42:48.000000000 Z
+16884:
+  kori_id: 16884
+  kori_type: Order
+  id: 16884
+  total_price: 18.0
+  created_at: 2013-09-13 10:53:53.000000000 Z
+16887:
+  kori_id: 16887
+  kori_type: Order
+  id: 16887
+  total_price: 2.9
+  created_at: 2013-09-13 11:28:00.000000000 Z
+16892:
+  kori_id: 16892
+  kori_type: Order
+  id: 16892
+  total_price: 14.94
+  created_at: 2013-09-13 12:33:19.000000000 Z
+16899:
+  kori_id: 16899
+  kori_type: Order
+  id: 16899
+  total_price: 45.0
+  created_at: 2013-09-13 15:33:34.000000000 Z
+16910:
+  kori_id: 16910
+  kori_type: Order
+  id: 16910
+  total_price: 24.0
+  created_at: 2013-09-14 08:21:15.000000000 Z
+16920:
+  kori_id: 16920
+  kori_type: Order
+  id: 16920
+  total_price: 155.0
+  created_at: 2013-09-16 10:22:41.000000000 Z
+16923:
+  kori_id: 16923
+  kori_type: Order
+  id: 16923
+  total_price: 17.9
+  created_at: 2013-09-16 11:43:23.000000000 Z
+16924:
+  kori_id: 16924
+  kori_type: Order
+  id: 16924
+  total_price: 250.75
+  created_at: 2013-09-16 11:50:21.000000000 Z
+16934:
+  kori_id: 16934
+  kori_type: Order
+  id: 16934
+  total_price: 203.52
+  created_at: 2013-09-17 07:56:40.000000000 Z
+16943:
+  kori_id: 16943
+  kori_type: Order
+  id: 16943
+  total_price: 12.0
+  created_at: 2013-09-17 10:07:49.000000000 Z
+16948:
+  kori_id: 16948
+  kori_type: Order
+  id: 16948
+  total_price: 12.0
+  created_at: 2013-09-17 11:52:18.000000000 Z
+16949:
+  kori_id: 16949
+  kori_type: Order
+  id: 16949
+  total_price: 13.8
+  created_at: 2013-09-17 12:23:46.000000000 Z
+16955:
+  kori_id: 16955
+  kori_type: Order
+  id: 16955
+  total_price: 17.0
+  created_at: 2013-09-17 13:28:10.000000000 Z
+16957:
+  kori_id: 16957
+  kori_type: Order
+  id: 16957
+  total_price: 45.0
+  created_at: 2013-09-17 14:11:38.000000000 Z
+16958:
+  kori_id: 16958
+  kori_type: Order
+  id: 16958
+  total_price: 12.95
+  created_at: 2013-09-17 14:44:26.000000000 Z
+16968:
+  kori_id: 16968
+  kori_type: Order
+  id: 16968
+  total_price: 12.6
+  created_at: 2013-09-18 09:42:12.000000000 Z
+16970:
+  kori_id: 16970
+  kori_type: Order
+  id: 16970
+  total_price: 12.0
+  created_at: 2013-09-18 09:44:33.000000000 Z
+16972:
+  kori_id: 16972
+  kori_type: Order
+  id: 16972
+  total_price: 19.8
+  created_at: 2013-09-18 10:50:27.000000000 Z
+16975:
+  kori_id: 16975
+  kori_type: Order
+  id: 16975
+  total_price: 153.0
+  created_at: 2013-09-18 11:39:08.000000000 Z
+16989:
+  kori_id: 16989
+  kori_type: Order
+  id: 16989
+  total_price: 35.0
+  created_at: 2013-09-19 08:23:22.000000000 Z
+16992:
+  kori_id: 16992
+  kori_type: Order
+  id: 16992
+  total_price: 46.5
+  created_at: 2013-09-19 09:13:49.000000000 Z
+17004:
+  kori_id: 17004
+  kori_type: Order
+  id: 17004
+  total_price: 20.9
+  created_at: 2013-09-19 13:11:47.000000000 Z
+17008:
+  kori_id: 17008
+  kori_type: Order
+  id: 17008
+  total_price: 360.0
+  created_at: 2013-09-19 13:53:23.000000000 Z
+17017:
+  kori_id: 17017
+  kori_type: Order
+  id: 17017
+  total_price: 12.0
+  created_at: 2013-09-19 15:00:46.000000000 Z
+17032:
+  kori_id: 17032
+  kori_type: Order
+  id: 17032
+  total_price: 34.4
+  created_at: 2013-09-20 11:59:08.000000000 Z
+17041:
+  kori_id: 17041
+  kori_type: Order
+  id: 17041
+  total_price: 24.0
+  created_at: 2013-09-20 14:17:39.000000000 Z
+17044:
+  kori_id: 17044
+  kori_type: Order
+  id: 17044
+  total_price: 2.9
+  created_at: 2013-09-20 18:13:40.000000000 Z
+17054:
+  kori_id: 17054
+  kori_type: Order
+  id: 17054
+  total_price: 12.0
+  created_at: 2013-09-21 09:22:52.000000000 Z
+17071:
+  kori_id: 17071
+  kori_type: Order
+  id: 17071
+  total_price: 225.0
+  created_at: 2013-09-23 08:18:05.000000000 Z
+17075:
+  kori_id: 17075
+  kori_type: Order
+  id: 17075
+  total_price: 145.0
+  created_at: 2013-09-23 10:23:26.000000000 Z
+17080:
+  kori_id: 17080
+  kori_type: Order
+  id: 17080
+  total_price: 12.0
+  created_at: 2013-09-23 13:33:40.000000000 Z
+17087:
+  kori_id: 17087
+  kori_type: Order
+  id: 17087
+  total_price: 33.4
+  created_at: 2013-09-23 15:14:03.000000000 Z
+17096:
+  kori_id: 17096
+  kori_type: Order
+  id: 17096
+  total_price: 200.0
+  created_at: 2013-09-24 08:58:53.000000000 Z
+17099:
+  kori_id: 17099
+  kori_type: Order
+  id: 17099
+  total_price: 24.0
+  created_at: 2013-09-24 11:17:30.000000000 Z
+17104:
+  kori_id: 17104
+  kori_type: Order
+  id: 17104
+  total_price: 8.5
+  created_at: 2013-09-24 13:07:06.000000000 Z
+17117:
+  kori_id: 17117
+  kori_type: Order
+  id: 17117
+  total_price: 40.0
+  created_at: 2013-09-25 09:55:48.000000000 Z
+17122:
+  kori_id: 17122
+  kori_type: Order
+  id: 17122
+  total_price: 20.0
+  created_at: 2013-09-25 12:16:52.000000000 Z
+17130:
+  kori_id: 17130
+  kori_type: Order
+  id: 17130
+  total_price: 39.84
+  created_at: 2013-09-25 14:25:39.000000000 Z
+17141:
+  kori_id: 17141
+  kori_type: Order
+  id: 17141
+  total_price: 18.9
+  created_at: 2013-09-26 09:08:08.000000000 Z
+17143:
+  kori_id: 17143
+  kori_type: Order
+  id: 17143
+  total_price: 4.6
+  created_at: 2013-09-26 09:49:14.000000000 Z
+17151:
+  kori_id: 17151
+  kori_type: Order
+  id: 17151
+  total_price: 4.5
+  created_at: 2013-09-26 14:40:28.000000000 Z
+17152:
+  kori_id: 17152
+  kori_type: Order
+  id: 17152
+  total_price: 20.0
+  created_at: 2013-09-26 15:35:23.000000000 Z
+17163:
+  kori_id: 17163
+  kori_type: Order
+  id: 17163
+  total_price: 9.720000000000001
+  created_at: 2013-09-27 08:35:31.000000000 Z
+17164:
+  kori_id: 17164
+  kori_type: Order
+  id: 17164
+  total_price: 78.75
+  created_at: 2013-09-27 10:01:22.000000000 Z
+17165:
+  kori_id: 17165
+  kori_type: Order
+  id: 17165
+  total_price: 37.8
+  created_at: 2013-09-27 10:41:18.000000000 Z
+17168:
+  kori_id: 17168
+  kori_type: Order
+  id: 17168
+  total_price: 39.0
+  created_at: 2013-09-27 11:09:21.000000000 Z
+17190:
+  kori_id: 17190
+  kori_type: Order
+  id: 17190
+  total_price: 21.0
+  created_at: 2013-09-28 10:48:27.000000000 Z
+17201:
+  kori_id: 17201
+  kori_type: Order
+  id: 17201
+  total_price: 12.75
+  created_at: 2013-09-30 12:15:52.000000000 Z
+17202:
+  kori_id: 17202
+  kori_type: Order
+  id: 17202
+  total_price: 2.9
+  created_at: 2013-09-30 12:27:23.000000000 Z
+17205:
+  kori_id: 17205
+  kori_type: Order
+  id: 17205
+  total_price: 12.8
+  created_at: 2013-09-30 13:12:23.000000000 Z
+17207:
+  kori_id: 17207
+  kori_type: Order
+  id: 17207
+  total_price: 22.29
+  created_at: 2013-09-30 13:55:14.000000000 Z
+17208:
+  kori_id: 17208
+  kori_type: Order
+  id: 17208
+  total_price: 2.9
+  created_at: 2013-09-30 14:58:19.000000000 Z
+17212:
+  kori_id: 17212
+  kori_type: Order
+  id: 17212
+  total_price: 68.0
+  created_at: 2013-10-01 08:28:26.000000000 Z
+17221:
+  kori_id: 17221
+  kori_type: Order
+  id: 17221
+  total_price: 10.2
+  created_at: 2013-10-01 14:24:14.000000000 Z
+17222:
+  kori_id: 17222
+  kori_type: Order
+  id: 17222
+  total_price: 25.01
+  created_at: 2013-10-01 14:29:34.000000000 Z
+17231:
+  kori_id: 17231
+  kori_type: Order
+  id: 17231
+  total_price: 10.0
+  created_at: 2013-10-02 09:11:08.000000000 Z
+17233:
+  kori_id: 17233
+  kori_type: Order
+  id: 17233
+  total_price: 8.41
+  created_at: 2013-10-02 09:51:22.000000000 Z
+17234:
+  kori_id: 17234
+  kori_type: Order
+  id: 17234
+  total_price: 27.7
+  created_at: 2013-10-02 10:23:43.000000000 Z
+17237:
+  kori_id: 17237
+  kori_type: Order
+  id: 17237
+  total_price: 4.8
+  created_at: 2013-10-02 10:54:57.000000000 Z
+17238:
+  kori_id: 17238
+  kori_type: Order
+  id: 17238
+  total_price: 4.8
+  created_at: 2013-10-02 11:24:23.000000000 Z
+17242:
+  kori_id: 17242
+  kori_type: Order
+  id: 17242
+  total_price: 35.01
+  created_at: 2013-10-02 11:36:29.000000000 Z
+17244:
+  kori_id: 17244
+  kori_type: Order
+  id: 17244
+  total_price: 245.0
+  created_at: 2013-10-02 11:53:59.000000000 Z
+17263:
+  kori_id: 17263
+  kori_type: Order
+  id: 17263
+  total_price: 12.0
+  created_at: 2013-10-03 09:01:57.000000000 Z
+17278:
+  kori_id: 17278
+  kori_type: Order
+  id: 17278
+  total_price: 6.2
+  created_at: 2013-10-03 15:25:53.000000000 Z
+17281:
+  kori_id: 17281
+  kori_type: Order
+  id: 17281
+  total_price: 36.0
+  created_at: 2013-10-04 08:32:15.000000000 Z
+17284:
+  kori_id: 17284
+  kori_type: Order
+  id: 17284
+  total_price: 105.0
+  created_at: 2013-10-04 09:41:18.000000000 Z
+17289:
+  kori_id: 17289
+  kori_type: Order
+  id: 17289
+  total_price: 79.0
+  created_at: 2013-10-04 10:51:55.000000000 Z
+17296:
+  kori_id: 17296
+  kori_type: Order
+  id: 17296
+  total_price: 32.0
+  created_at: 2013-10-04 12:26:11.000000000 Z
+17305:
+  kori_id: 17305
+  kori_type: Order
+  id: 17305
+  total_price: 12.95
+  created_at: 2013-10-05 10:03:09.000000000 Z
+17309:
+  kori_id: 17309
+  kori_type: Order
+  id: 17309
+  total_price: 12.0
+  created_at: 2013-10-05 11:38:26.000000000 Z
+17310:
+  kori_id: 17310
+  kori_type: Order
+  id: 17310
+  total_price: 15.9
+  created_at: 2013-10-05 11:44:30.000000000 Z
+17318:
+  kori_id: 17318
+  kori_type: Order
+  id: 17318
+  total_price: 40.14
+  created_at: 2013-10-05 12:15:46.000000000 Z
+17322:
+  kori_id: 17322
+  kori_type: Order
+  id: 17322
+  total_price: 17.9
+  created_at: 2013-10-05 12:19:00.000000000 Z
+17326:
+  kori_id: 17326
+  kori_type: Order
+  id: 17326
+  total_price: 118.4
+  created_at: 2013-10-05 12:35:38.000000000 Z
+17337:
+  kori_id: 17337
+  kori_type: Order
+  id: 17337
+  total_price: 35.1
+  created_at: 2013-10-07 10:32:23.000000000 Z
+17338:
+  kori_id: 17338
+  kori_type: Order
+  id: 17338
+  total_price: 20.0
+  created_at: 2013-10-07 11:21:34.000000000 Z
+17346:
+  kori_id: 17346
+  kori_type: Order
+  id: 17346
+  total_price: 30.5
+  created_at: 2013-10-07 13:22:28.000000000 Z
+17377:
+  kori_id: 17377
+  kori_type: Order
+  id: 17377
+  total_price: 95.01000000000001
+  created_at: 2013-10-08 10:43:36.000000000 Z
+17381:
+  kori_id: 17381
+  kori_type: Order
+  id: 17381
+  total_price: 12.0
+  created_at: 2013-10-08 13:02:00.000000000 Z
+17382:
+  kori_id: 17382
+  kori_type: Order
+  id: 17382
+  total_price: 26.0
+  created_at: 2013-10-08 13:42:40.000000000 Z
+17396:
+  kori_id: 17396
+  kori_type: Order
+  id: 17396
+  total_price: 12.0
+  created_at: 2013-10-09 09:05:06.000000000 Z
+17411:
+  kori_id: 17411
+  kori_type: Order
+  id: 17411
+  total_price: 4.5
+  created_at: 2013-10-09 11:19:12.000000000 Z
+17425:
+  kori_id: 17425
+  kori_type: Order
+  id: 17425
+  total_price: 10.5
+  created_at: 2013-10-10 11:00:36.000000000 Z
+17448:
+  kori_id: 17448
+  kori_type: Order
+  id: 17448
+  total_price: 27.9
+  created_at: 2013-10-11 13:08:19.000000000 Z
+17458:
+  kori_id: 17458
+  kori_type: Order
+  id: 17458
+  total_price: 38.0
+  created_at: 2013-10-12 08:17:03.000000000 Z
+17459:
+  kori_id: 17459
+  kori_type: Order
+  id: 17459
+  total_price: 25.0
+  created_at: 2013-10-12 08:25:52.000000000 Z
+17467:
+  kori_id: 17467
+  kori_type: Order
+  id: 17467
+  total_price: 65.2
+  created_at: 2013-10-12 11:05:18.000000000 Z
+17469:
+  kori_id: 17469
+  kori_type: Order
+  id: 17469
+  total_price: 12.0
+  created_at: 2013-10-12 11:45:34.000000000 Z
+17482:
+  kori_id: 17482
+  kori_type: Order
+  id: 17482
+  total_price: 31.4
+  created_at: 2013-10-14 09:18:50.000000000 Z
+17485:
+  kori_id: 17485
+  kori_type: Order
+  id: 17485
+  total_price: 18.9
+  created_at: 2013-10-14 09:37:16.000000000 Z
+17493:
+  kori_id: 17493
+  kori_type: Order
+  id: 17493
+  total_price: 92.0
+  created_at: 2013-10-14 13:54:37.000000000 Z
+17499:
+  kori_id: 17499
+  kori_type: Order
+  id: 17499
+  total_price: 20.0
+  created_at: 2013-10-14 15:53:54.000000000 Z
+17502:
+  kori_id: 17502
+  kori_type: Order
+  id: 17502
+  total_price: 45.0
+  created_at: 2013-10-14 16:21:06.000000000 Z
+17509:
+  kori_id: 17509
+  kori_type: Order
+  id: 17509
+  total_price: 10.0
+  created_at: 2013-10-15 08:57:48.000000000 Z
+17515:
+  kori_id: 17515
+  kori_type: Order
+  id: 17515
+  total_price: 4.87
+  created_at: 2013-10-15 10:47:13.000000000 Z
+17519:
+  kori_id: 17519
+  kori_type: Order
+  id: 17519
+  total_price: 250.0
+  created_at: 2013-10-15 14:56:13.000000000 Z
+17525:
+  kori_id: 17525
+  kori_type: Order
+  id: 17525
+  total_price: 20.8
+  created_at: 2013-10-16 08:21:52.000000000 Z
+17527:
+  kori_id: 17527
+  kori_type: Order
+  id: 17527
+  total_price: 4.5
+  created_at: 2013-10-16 11:46:46.000000000 Z
+17529:
+  kori_id: 17529
+  kori_type: Order
+  id: 17529
+  total_price: 20.0
+  created_at: 2013-10-16 12:44:29.000000000 Z
+17531:
+  kori_id: 17531
+  kori_type: Order
+  id: 17531
+  total_price: 30.5
+  created_at: 2013-10-16 12:52:54.000000000 Z
+17532:
+  kori_id: 17532
+  kori_type: Order
+  id: 17532
+  total_price: 27.8
+  created_at: 2013-10-16 13:22:37.000000000 Z
+17534:
+  kori_id: 17534
+  kori_type: Order
+  id: 17534
+  total_price: 94.98999999999999
+  created_at: 2013-10-16 13:50:38.000000000 Z
+17538:
+  kori_id: 17538
+  kori_type: Order
+  id: 17538
+  total_price: 34.19
+  created_at: 2013-10-17 08:12:19.000000000 Z
+17552:
+  kori_id: 17552
+  kori_type: Order
+  id: 17552
+  total_price: 10.5
+  created_at: 2013-10-17 13:37:07.000000000 Z
+17556:
+  kori_id: 17556
+  kori_type: Order
+  id: 17556
+  total_price: 45.0
+  created_at: 2013-10-17 14:00:28.000000000 Z
+17561:
+  kori_id: 17561
+  kori_type: Order
+  id: 17561
+  total_price: 12.0
+  created_at: 2013-10-17 15:20:27.000000000 Z
+17562:
+  kori_id: 17562
+  kori_type: Order
+  id: 17562
+  total_price: 22.4
+  created_at: 2013-10-17 15:25:56.000000000 Z
+17569:
+  kori_id: 17569
+  kori_type: Order
+  id: 17569
+  total_price: 52.4
+  created_at: 2013-10-18 08:31:26.000000000 Z
+17570:
+  kori_id: 17570
+  kori_type: Order
+  id: 17570
+  total_price: 17.99
+  created_at: 2013-10-18 08:44:49.000000000 Z
+17576:
+  kori_id: 17576
+  kori_type: Order
+  id: 17576
+  total_price: 12.2
+  created_at: 2013-10-18 09:42:18.000000000 Z
+17583:
+  kori_id: 17583
+  kori_type: Order
+  id: 17583
+  total_price: 43.1
+  created_at: 2013-10-18 13:43:58.000000000 Z
+17584:
+  kori_id: 17584
+  kori_type: Order
+  id: 17584
+  total_price: 14.9
+  created_at: 2013-10-18 13:45:52.000000000 Z
+17585:
+  kori_id: 17585
+  kori_type: Order
+  id: 17585
+  total_price: 43.0
+  created_at: 2013-10-18 14:11:21.000000000 Z
+17588:
+  kori_id: 17588
+  kori_type: Order
+  id: 17588
+  total_price: 295.0
+  created_at: 2013-10-18 14:41:22.000000000 Z
+17600:
+  kori_id: 17600
+  kori_type: Order
+  id: 17600
+  total_price: 41.3
+  created_at: 2013-10-19 09:19:46.000000000 Z
+17605:
+  kori_id: 17605
+  kori_type: Order
+  id: 17605
+  total_price: 49.0
+  created_at: 2013-10-19 10:28:24.000000000 Z
+17608:
+  kori_id: 17608
+  kori_type: Order
+  id: 17608
+  total_price: 83.0
+  created_at: 2013-10-19 11:10:05.000000000 Z
+17612:
+  kori_id: 17612
+  kori_type: Order
+  id: 17612
+  total_price: 12.0
+  created_at: 2013-10-19 12:10:57.000000000 Z
+17625:
+  kori_id: 17625
+  kori_type: Order
+  id: 17625
+  total_price: 50.8
+  created_at: 2013-10-21 08:15:05.000000000 Z
+17627:
+  kori_id: 17627
+  kori_type: Order
+  id: 17627
+  total_price: 241.0
+  created_at: 2013-10-21 08:20:24.000000000 Z
+17636:
+  kori_id: 17636
+  kori_type: Order
+  id: 17636
+  total_price: 313.0
+  created_at: 2013-10-21 13:55:20.000000000 Z
+17644:
+  kori_id: 17644
+  kori_type: Order
+  id: 17644
+  total_price: 12.0
+  created_at: 2013-10-22 10:22:52.000000000 Z
+17646:
+  kori_id: 17646
+  kori_type: Order
+  id: 17646
+  total_price: 99.90000000000001
+  created_at: 2013-10-22 10:24:59.000000000 Z
+17647:
+  kori_id: 17647
+  kori_type: Order
+  id: 17647
+  total_price: 32.7
+  created_at: 2013-10-22 10:35:08.000000000 Z
+17651:
+  kori_id: 17651
+  kori_type: Order
+  id: 17651
+  total_price: 135.01
+  created_at: 2013-10-22 11:22:24.000000000 Z
+17672:
+  kori_id: 17672
+  kori_type: Order
+  id: 17672
+  total_price: 48.0
+  created_at: 2013-10-23 11:44:47.000000000 Z
+17677:
+  kori_id: 17677
+  kori_type: Order
+  id: 17677
+  total_price: 66.84999999999999
+  created_at: 2013-10-23 16:20:43.000000000 Z
+17680:
+  kori_id: 17680
+  kori_type: Order
+  id: 17680
+  total_price: 16.9
+  created_at: 2013-10-23 16:52:35.000000000 Z
+17691:
+  kori_id: 17691
+  kori_type: Order
+  id: 17691
+  total_price: 25.5
+  created_at: 2013-10-24 10:29:46.000000000 Z
+17705:
+  kori_id: 17705
+  kori_type: Order
+  id: 17705
+  total_price: 13.0
+  created_at: 2013-10-24 13:10:23.000000000 Z
+17727:
+  kori_id: 17727
+  kori_type: Order
+  id: 17727
+  total_price: 57.0
+  created_at: 2013-10-25 07:59:21.000000000 Z
+17763:
+  kori_id: 17763
+  kori_type: Order
+  id: 17763
+  total_price: 43.19
+  created_at: 2013-10-28 11:51:47.000000000 Z
+17764:
+  kori_id: 17764
+  kori_type: Order
+  id: 17764
+  total_price: 265.0
+  created_at: 2013-10-28 11:56:23.000000000 Z
+17777:
+  kori_id: 17777
+  kori_type: Order
+  id: 17777
+  total_price: 59.3
+  created_at: 2013-10-28 14:45:57.000000000 Z
+17792:
+  kori_id: 17792
+  kori_type: Order
+  id: 17792
+  total_price: 18.0
+  created_at: 2013-10-29 09:36:36.000000000 Z
+17795:
+  kori_id: 17795
+  kori_type: Order
+  id: 17795
+  total_price: 335.05
+  created_at: 2013-10-29 10:20:55.000000000 Z
+17798:
+  kori_id: 17798
+  kori_type: Order
+  id: 17798
+  total_price: 14.1
+  created_at: 2013-10-29 10:45:25.000000000 Z
+17802:
+  kori_id: 17802
+  kori_type: Order
+  id: 17802
+  total_price: 42.4
+  created_at: 2013-10-29 11:58:05.000000000 Z
+17831:
+  kori_id: 17831
+  kori_type: Order
+  id: 17831
+  total_price: 24.0
+  created_at: 2013-10-30 09:23:27.000000000 Z
+17856:
+  kori_id: 17856
+  kori_type: Order
+  id: 17856
+  total_price: 77.0
+  created_at: 2013-10-31 14:32:35.000000000 Z
+17865:
+  kori_id: 17865
+  kori_type: Order
+  id: 17865
+  total_price: 16.5
+  created_at: 2013-10-31 15:08:09.000000000 Z
+17874:
+  kori_id: 17874
+  kori_type: Order
+  id: 17874
+  total_price: 24.9
+  created_at: 2013-11-01 09:05:51.000000000 Z
+17876:
+  kori_id: 17876
+  kori_type: Order
+  id: 17876
+  total_price: 29.2
+  created_at: 2013-11-01 11:39:50.000000000 Z
+17877:
+  kori_id: 17877
+  kori_type: Order
+  id: 17877
+  total_price: 12.0
+  created_at: 2013-11-01 12:32:36.000000000 Z
+17889:
+  kori_id: 17889
+  kori_type: Order
+  id: 17889
+  total_price: 11.5
+  created_at: 2013-11-01 15:33:01.000000000 Z
+17890:
+  kori_id: 17890
+  kori_type: Order
+  id: 17890
+  total_price: 23.5
+  created_at: 2013-11-01 15:49:53.000000000 Z
+17917:
+  kori_id: 17917
+  kori_type: Order
+  id: 17917
+  total_price: 13.2
+  created_at: 2013-11-04 12:37:07.000000000 Z
+17923:
+  kori_id: 17923
+  kori_type: Order
+  id: 17923
+  total_price: 35.5
+  created_at: 2013-11-04 15:24:55.000000000 Z
+17927:
+  kori_id: 17927
+  kori_type: Order
+  id: 17927
+  total_price: 24.6
+  created_at: 2013-11-04 17:13:47.000000000 Z
+17933:
+  kori_id: 17933
+  kori_type: Order
+  id: 17933
+  total_price: 41.0
+  created_at: 2013-11-05 11:05:54.000000000 Z
+17941:
+  kori_id: 17941
+  kori_type: Order
+  id: 17941
+  total_price: 108.8
+  created_at: 2013-11-05 13:56:40.000000000 Z
+17957:
+  kori_id: 17957
+  kori_type: Order
+  id: 17957
+  total_price: 49.0
+  created_at: 2013-11-06 09:32:43.000000000 Z
+17965:
+  kori_id: 17965
+  kori_type: Order
+  id: 17965
+  total_price: 12.0
+  created_at: 2013-11-06 12:52:26.000000000 Z
+17973:
+  kori_id: 17973
+  kori_type: Order
+  id: 17973
+  total_price: 70.0
+  created_at: 2013-11-07 10:46:05.000000000 Z
+17979:
+  kori_id: 17979
+  kori_type: Order
+  id: 17979
+  total_price: 57.4
+  created_at: 2013-11-07 12:10:52.000000000 Z
+17990:
+  kori_id: 17990
+  kori_type: Order
+  id: 17990
+  total_price: 12.0
+  created_at: 2013-11-07 14:16:21.000000000 Z
+17994:
+  kori_id: 17994
+  kori_type: Order
+  id: 17994
+  total_price: 108.49
+  created_at: 2013-11-07 14:38:31.000000000 Z
+18028:
+  kori_id: 18028
+  kori_type: Order
+  id: 18028
+  total_price: 144.0
+  created_at: 2013-11-08 16:18:17.000000000 Z
+18038:
+  kori_id: 18038
+  kori_type: Order
+  id: 18038
+  total_price: 4.6
+  created_at: 2013-11-09 09:28:56.000000000 Z
+18039:
+  kori_id: 18039
+  kori_type: Order
+  id: 18039
+  total_price: 165.0
+  created_at: 2013-11-09 09:35:55.000000000 Z
+18041:
+  kori_id: 18041
+  kori_type: Order
+  id: 18041
+  total_price: 24.0
+  created_at: 2013-11-09 09:39:28.000000000 Z
+18053:
+  kori_id: 18053
+  kori_type: Order
+  id: 18053
+  total_price: 12.0
+  created_at: 2013-11-09 13:11:12.000000000 Z
+18070:
+  kori_id: 18070
+  kori_type: Order
+  id: 18070
+  total_price: 4.31
+  created_at: 2013-11-11 09:49:31.000000000 Z
+18081:
+  kori_id: 18081
+  kori_type: Order
+  id: 18081
+  total_price: 12.0
+  created_at: 2013-11-11 15:01:13.000000000 Z
+18083:
+  kori_id: 18083
+  kori_type: Order
+  id: 18083
+  total_price: 270.01
+  created_at: 2013-11-11 15:35:09.000000000 Z
+18085:
+  kori_id: 18085
+  kori_type: Order
+  id: 18085
+  total_price: 12.0
+  created_at: 2013-11-11 16:02:42.000000000 Z
+18095:
+  kori_id: 18095
+  kori_type: Order
+  id: 18095
+  total_price: 54.7
+  created_at: 2013-11-12 08:59:21.000000000 Z
+18097:
+  kori_id: 18097
+  kori_type: Order
+  id: 18097
+  total_price: 48.0
+  created_at: 2013-11-12 11:40:33.000000000 Z
+18100:
+  kori_id: 18100
+  kori_type: Order
+  id: 18100
+  total_price: 16.9
+  created_at: 2013-11-12 12:50:30.000000000 Z
+18124:
+  kori_id: 18124
+  kori_type: Order
+  id: 18124
+  total_price: 24.0
+  created_at: 2013-11-13 12:12:15.000000000 Z
+18126:
+  kori_id: 18126
+  kori_type: Order
+  id: 18126
+  total_price: 16.5
+  created_at: 2013-11-13 13:43:00.000000000 Z
+18129:
+  kori_id: 18129
+  kori_type: Order
+  id: 18129
+  total_price: 195.0
+  created_at: 2013-11-13 15:16:22.000000000 Z
+18130:
+  kori_id: 18130
+  kori_type: Order
+  id: 18130
+  total_price: 46.4
+  created_at: 2013-11-13 15:32:35.000000000 Z
+18138:
+  kori_id: 18138
+  kori_type: Order
+  id: 18138
+  total_price: 10.0
+  created_at: 2013-11-14 10:20:07.000000000 Z
+18148:
+  kori_id: 18148
+  kori_type: Order
+  id: 18148
+  total_price: 12.0
+  created_at: 2013-11-14 12:23:54.000000000 Z
+18162:
+  kori_id: 18162
+  kori_type: Order
+  id: 18162
+  total_price: 24.0
+  created_at: 2013-11-14 16:00:13.000000000 Z
+18167:
+  kori_id: 18167
+  kori_type: Order
+  id: 18167
+  total_price: 7.9
+  created_at: 2013-11-15 09:28:43.000000000 Z
+18170:
+  kori_id: 18170
+  kori_type: Order
+  id: 18170
+  total_price: 38.0
+  created_at: 2013-11-15 10:46:59.000000000 Z
+18171:
+  kori_id: 18171
+  kori_type: Order
+  id: 18171
+  total_price: 48.0
+  created_at: 2013-11-15 10:58:05.000000000 Z
+18173:
+  kori_id: 18173
+  kori_type: Order
+  id: 18173
+  total_price: 5.7
+  created_at: 2013-11-15 11:02:05.000000000 Z
+18175:
+  kori_id: 18175
+  kori_type: Order
+  id: 18175
+  total_price: 12.0
+  created_at: 2013-11-15 11:03:04.000000000 Z
+18182:
+  kori_id: 18182
+  kori_type: Order
+  id: 18182
+  total_price: 206.51
+  created_at: 2013-11-15 12:58:47.000000000 Z
+18188:
+  kori_id: 18188
+  kori_type: Order
+  id: 18188
+  total_price: 48.0
+  created_at: 2013-11-15 13:28:05.000000000 Z
+18191:
+  kori_id: 18191
+  kori_type: Order
+  id: 18191
+  total_price: 24.0
+  created_at: 2013-11-15 14:21:30.000000000 Z
+18192:
+  kori_id: 18192
+  kori_type: Order
+  id: 18192
+  total_price: 27.2
+  created_at: 2013-11-15 14:25:57.000000000 Z
+18193:
+  kori_id: 18193
+  kori_type: Order
+  id: 18193
+  total_price: 28.1
+  created_at: 2013-11-15 14:30:45.000000000 Z
+18196:
+  kori_id: 18196
+  kori_type: Order
+  id: 18196
+  total_price: 17.3
+  created_at: 2013-11-15 15:28:22.000000000 Z
+18198:
+  kori_id: 18198
+  kori_type: Order
+  id: 18198
+  total_price: 59.6
+  created_at: 2013-11-15 15:30:27.000000000 Z
+18202:
+  kori_id: 18202
+  kori_type: Order
+  id: 18202
+  total_price: 24.0
+  created_at: 2013-11-16 09:38:43.000000000 Z
+18204:
+  kori_id: 18204
+  kori_type: Order
+  id: 18204
+  total_price: 19.3
+  created_at: 2013-11-16 11:04:46.000000000 Z
+18208:
+  kori_id: 18208
+  kori_type: Order
+  id: 18208
+  total_price: 37.99
+  created_at: 2013-11-16 11:18:56.000000000 Z
+18211:
+  kori_id: 18211
+  kori_type: Order
+  id: 18211
+  total_price: 12.0
+  created_at: 2013-11-16 11:55:14.000000000 Z
+18212:
+  kori_id: 18212
+  kori_type: Order
+  id: 18212
+  total_price: 12.0
+  created_at: 2013-11-16 12:07:46.000000000 Z
+18214:
+  kori_id: 18214
+  kori_type: Order
+  id: 18214
+  total_price: 24.2
+  created_at: 2013-11-16 13:01:48.000000000 Z
+18219:
+  kori_id: 18219
+  kori_type: Order
+  id: 18219
+  total_price: 20.4
+  created_at: 2013-11-16 16:43:14.000000000 Z
+18231:
+  kori_id: 18231
+  kori_type: Order
+  id: 18231
+  total_price: 10.5
+  created_at: 2013-11-18 09:47:52.000000000 Z
+18237:
+  kori_id: 18237
+  kori_type: Order
+  id: 18237
+  total_price: 15.5
+  created_at: 2013-11-18 13:21:10.000000000 Z
+18240:
+  kori_id: 18240
+  kori_type: Order
+  id: 18240
+  total_price: 200.5
+  created_at: 2013-11-18 14:09:29.000000000 Z
+18273:
+  kori_id: 18273
+  kori_type: Order
+  id: 18273
+  total_price: 32.0
+  created_at: 2013-11-19 13:54:44.000000000 Z
+18277:
+  kori_id: 18277
+  kori_type: Order
+  id: 18277
+  total_price: 135.0
+  created_at: 2013-11-19 14:27:55.000000000 Z
+18278:
+  kori_id: 18278
+  kori_type: Order
+  id: 18278
+  total_price: 12.0
+  created_at: 2013-11-19 14:32:38.000000000 Z
+18279:
+  kori_id: 18279
+  kori_type: Order
+  id: 18279
+  total_price: 27.02
+  created_at: 2013-11-19 14:35:58.000000000 Z
+18286:
+  kori_id: 18286
+  kori_type: Order
+  id: 18286
+  total_price: 4.31
+  created_at: 2013-11-19 16:47:59.000000000 Z
+18298:
+  kori_id: 18298
+  kori_type: Order
+  id: 18298
+  total_price: 154.91
+  created_at: 2013-11-20 11:06:42.000000000 Z
+18299:
+  kori_id: 18299
+  kori_type: Order
+  id: 18299
+  total_price: 18.0
+  created_at: 2013-11-20 12:34:39.000000000 Z
+18300:
+  kori_id: 18300
+  kori_type: Order
+  id: 18300
+  total_price: 32.0
+  created_at: 2013-11-20 12:38:19.000000000 Z
+18301:
+  kori_id: 18301
+  kori_type: Order
+  id: 18301
+  total_price: 10.5
+  created_at: 2013-11-20 12:40:22.000000000 Z
+18302:
+  kori_id: 18302
+  kori_type: Order
+  id: 18302
+  total_price: 26.8
+  created_at: 2013-11-20 12:42:48.000000000 Z
+18305:
+  kori_id: 18305
+  kori_type: Order
+  id: 18305
+  total_price: 5.5
+  created_at: 2013-11-20 12:49:48.000000000 Z
+18307:
+  kori_id: 18307
+  kori_type: Order
+  id: 18307
+  total_price: 86.76000000000001
+  created_at: 2013-11-20 17:42:57.000000000 Z
+18326:
+  kori_id: 18326
+  kori_type: Order
+  id: 18326
+  total_price: 400.0
+  created_at: 2013-11-21 13:11:36.000000000 Z
+18343:
+  kori_id: 18343
+  kori_type: Order
+  id: 18343
+  total_price: 12.8
+  created_at: 2013-11-22 09:13:15.000000000 Z
+18346:
+  kori_id: 18346
+  kori_type: Order
+  id: 18346
+  total_price: 45.0
+  created_at: 2013-11-22 10:09:09.000000000 Z
+18360:
+  kori_id: 18360
+  kori_type: Order
+  id: 18360
+  total_price: 53.0
+  created_at: 2013-11-22 12:39:39.000000000 Z
+18362:
+  kori_id: 18362
+  kori_type: Order
+  id: 18362
+  total_price: 48.0
+  created_at: 2013-11-22 13:22:24.000000000 Z
+18366:
+  kori_id: 18366
+  kori_type: Order
+  id: 18366
+  total_price: 12.0
+  created_at: 2013-11-22 14:03:51.000000000 Z
+18372:
+  kori_id: 18372
+  kori_type: Order
+  id: 18372
+  total_price: 71.90000000000001
+  created_at: 2013-11-22 14:56:21.000000000 Z
+18389:
+  kori_id: 18389
+  kori_type: Order
+  id: 18389
+  total_price: 134.0
+  created_at: 2013-11-23 11:05:30.000000000 Z
+18392:
+  kori_id: 18392
+  kori_type: Order
+  id: 18392
+  total_price: 34.9
+  created_at: 2013-11-23 11:12:11.000000000 Z
+18401:
+  kori_id: 18401
+  kori_type: Order
+  id: 18401
+  total_price: 12.0
+  created_at: 2013-11-23 12:44:57.000000000 Z
+18405:
+  kori_id: 18405
+  kori_type: Order
+  id: 18405
+  total_price: 10.5
+  created_at: 2013-11-23 13:44:30.000000000 Z
+18411:
+  kori_id: 18411
+  kori_type: Order
+  id: 18411
+  total_price: 17.4
+  created_at: 2013-11-23 15:46:10.000000000 Z
+18420:
+  kori_id: 18420
+  kori_type: Order
+  id: 18420
+  total_price: 49.0
+  created_at: 2013-11-25 10:13:09.000000000 Z
+18423:
+  kori_id: 18423
+  kori_type: Order
+  id: 18423
+  total_price: 47.3
+  created_at: 2013-11-25 11:55:54.000000000 Z
+18440:
+  kori_id: 18440
+  kori_type: Order
+  id: 18440
+  total_price: 56.0
+  created_at: 2013-11-25 16:30:09.000000000 Z
+18443:
+  kori_id: 18443
+  kori_type: Order
+  id: 18443
+  total_price: 24.0
+  created_at: 2013-11-26 09:04:16.000000000 Z
+18446:
+  kori_id: 18446
+  kori_type: Order
+  id: 18446
+  total_price: 6.49
+  created_at: 2013-11-26 12:29:24.000000000 Z
+18449:
+  kori_id: 18449
+  kori_type: Order
+  id: 18449
+  total_price: 13.2
+  created_at: 2013-11-26 12:57:21.000000000 Z
+18464:
+  kori_id: 18464
+  kori_type: Order
+  id: 18464
+  total_price: 17.5
+  created_at: 2013-11-27 11:00:02.000000000 Z
+18467:
+  kori_id: 18467
+  kori_type: Order
+  id: 18467
+  total_price: 44.2
+  created_at: 2013-11-27 12:51:38.000000000 Z
+18468:
+  kori_id: 18468
+  kori_type: Order
+  id: 18468
+  total_price: 18.6
+  created_at: 2013-11-27 13:55:25.000000000 Z
+18470:
+  kori_id: 18470
+  kori_type: Order
+  id: 18470
+  total_price: 165.0
+  created_at: 2013-11-27 14:40:14.000000000 Z
+18475:
+  kori_id: 18475
+  kori_type: Order
+  id: 18475
+  total_price: 24.0
+  created_at: 2013-11-27 16:01:12.000000000 Z
+18484:
+  kori_id: 18484
+  kori_type: Order
+  id: 18484
+  total_price: 52.1
+  created_at: 2013-11-28 08:21:39.000000000 Z
+18486:
+  kori_id: 18486
+  kori_type: Order
+  id: 18486
+  total_price: 32.0
+  created_at: 2013-11-28 09:09:55.000000000 Z
+18489:
+  kori_id: 18489
+  kori_type: Order
+  id: 18489
+  total_price: 48.0
+  created_at: 2013-11-28 10:44:35.000000000 Z
+18494:
+  kori_id: 18494
+  kori_type: Order
+  id: 18494
+  total_price: 172.42
+  created_at: 2013-11-28 10:48:17.000000000 Z
+18495:
+  kori_id: 18495
+  kori_type: Order
+  id: 18495
+  total_price: 452.75
+  created_at: 2013-11-28 10:55:16.000000000 Z
+18500:
+  kori_id: 18500
+  kori_type: Order
+  id: 18500
+  total_price: 13.2
+  created_at: 2013-11-28 11:19:11.000000000 Z
+18504:
+  kori_id: 18504
+  kori_type: Order
+  id: 18504
+  total_price: 18.83
+  created_at: 2013-11-28 11:34:29.000000000 Z
+18511:
+  kori_id: 18511
+  kori_type: Order
+  id: 18511
+  total_price: 12.0
+  created_at: 2013-11-28 14:45:54.000000000 Z
+18514:
+  kori_id: 18514
+  kori_type: Order
+  id: 18514
+  total_price: 45.0
+  created_at: 2013-11-29 09:09:05.000000000 Z
+18519:
+  kori_id: 18519
+  kori_type: Order
+  id: 18519
+  total_price: 179.0
+  created_at: 2013-11-29 11:58:29.000000000 Z
+18521:
+  kori_id: 18521
+  kori_type: Order
+  id: 18521
+  total_price: 240.0
+  created_at: 2013-11-29 12:05:04.000000000 Z
+18523:
+  kori_id: 18523
+  kori_type: Order
+  id: 18523
+  total_price: 66.84999999999999
+  created_at: 2013-11-29 14:19:27.000000000 Z
+18525:
+  kori_id: 18525
+  kori_type: Order
+  id: 18525
+  total_price: 12.0
+  created_at: 2013-11-29 14:55:48.000000000 Z
+18527:
+  kori_id: 18527
+  kori_type: Order
+  id: 18527
+  total_price: 12.0
+  created_at: 2013-11-29 15:00:47.000000000 Z
+18530:
+  kori_id: 18530
+  kori_type: Order
+  id: 18530
+  total_price: 16.2
+  created_at: 2013-11-29 15:51:24.000000000 Z
+18540:
+  kori_id: 18540
+  kori_type: Order
+  id: 18540
+  total_price: 61.1
+  created_at: 2013-11-30 09:45:50.000000000 Z
+18541:
+  kori_id: 18541
+  kori_type: Order
+  id: 18541
+  total_price: 15.0
+  created_at: 2013-11-30 09:48:05.000000000 Z
+18542:
+  kori_id: 18542
+  kori_type: Order
+  id: 18542
+  total_price: 77.0
+  created_at: 2013-11-30 10:14:19.000000000 Z
+18543:
+  kori_id: 18543
+  kori_type: Order
+  id: 18543
+  total_price: 24.0
+  created_at: 2013-11-30 10:52:34.000000000 Z
+18546:
+  kori_id: 18546
+  kori_type: Order
+  id: 18546
+  total_price: 23.0
+  created_at: 2013-11-30 15:31:25.000000000 Z
+18553:
+  kori_id: 18553
+  kori_type: Order
+  id: 18553
+  total_price: 24.0
+  created_at: 2013-12-02 09:04:30.000000000 Z
+18560:
+  kori_id: 18560
+  kori_type: Order
+  id: 18560
+  total_price: 40.09
+  created_at: 2013-12-02 12:55:20.000000000 Z
+18563:
+  kori_id: 18563
+  kori_type: Order
+  id: 18563
+  total_price: 10.4
+  created_at: 2013-12-02 13:14:59.000000000 Z
+18567:
+  kori_id: 18567
+  kori_type: Order
+  id: 18567
+  total_price: 39.61
+  created_at: 2013-12-02 14:22:26.000000000 Z
+18569:
+  kori_id: 18569
+  kori_type: Order
+  id: 18569
+  total_price: 6.49
+  created_at: 2013-12-02 15:03:05.000000000 Z
+18576:
+  kori_id: 18576
+  kori_type: Order
+  id: 18576
+  total_price: 34.9
+  created_at: 2013-12-03 08:56:57.000000000 Z
+18579:
+  kori_id: 18579
+  kori_type: Order
+  id: 18579
+  total_price: 101.1
+  created_at: 2013-12-03 10:44:08.000000000 Z
+18580:
+  kori_id: 18580
+  kori_type: Order
+  id: 18580
+  total_price: 71.09999999999999
+  created_at: 2013-12-03 11:07:15.000000000 Z
+18605:
+  kori_id: 18605
+  kori_type: Order
+  id: 18605
+  total_price: 12.0
+  created_at: 2013-12-04 13:41:10.000000000 Z
+18606:
+  kori_id: 18606
+  kori_type: Order
+  id: 18606
+  total_price: 4.4
+  created_at: 2013-12-04 13:49:05.000000000 Z
+18614:
+  kori_id: 18614
+  kori_type: Order
+  id: 18614
+  total_price: 21.0
+  created_at: 2013-12-04 15:41:02.000000000 Z
+18618:
+  kori_id: 18618
+  kori_type: Order
+  id: 18618
+  total_price: 38.0
+  created_at: 2013-12-05 09:24:02.000000000 Z
+18621:
+  kori_id: 18621
+  kori_type: Order
+  id: 18621
+  total_price: 123.15
+  created_at: 2013-12-05 09:39:15.000000000 Z
+18622:
+  kori_id: 18622
+  kori_type: Order
+  id: 18622
+  total_price: 12.0
+  created_at: 2013-12-05 09:58:58.000000000 Z
+18627:
+  kori_id: 18627
+  kori_type: Order
+  id: 18627
+  total_price: 14.6
+  created_at: 2013-12-05 11:16:05.000000000 Z
+18628:
+  kori_id: 18628
+  kori_type: Order
+  id: 18628
+  total_price: 80.0
+  created_at: 2013-12-05 11:18:00.000000000 Z
+18631:
+  kori_id: 18631
+  kori_type: Order
+  id: 18631
+  total_price: 133.3
+  created_at: 2013-12-05 12:22:30.000000000 Z
+18635:
+  kori_id: 18635
+  kori_type: Order
+  id: 18635
+  total_price: 278.0
+  created_at: 2013-12-05 13:24:51.000000000 Z
+18643:
+  kori_id: 18643
+  kori_type: Order
+  id: 18643
+  total_price: 38.0
+  created_at: 2013-12-05 15:35:16.000000000 Z
+18647:
+  kori_id: 18647
+  kori_type: Order
+  id: 18647
+  total_price: 79.0
+  created_at: 2013-12-05 16:35:31.000000000 Z
+18648:
+  kori_id: 18648
+  kori_type: Order
+  id: 18648
+  total_price: 31.0
+  created_at: 2013-12-05 16:43:52.000000000 Z
+18661:
+  kori_id: 18661
+  kori_type: Order
+  id: 18661
+  total_price: 13.2
+  created_at: 2013-12-07 09:47:44.000000000 Z
+18662:
+  kori_id: 18662
+  kori_type: Order
+  id: 18662
+  total_price: 114.0
+  created_at: 2013-12-07 09:53:32.000000000 Z
+18665:
+  kori_id: 18665
+  kori_type: Order
+  id: 18665
+  total_price: 13.45
+  created_at: 2013-12-07 10:09:59.000000000 Z
+18668:
+  kori_id: 18668
+  kori_type: Order
+  id: 18668
+  total_price: 45.9
+  created_at: 2013-12-07 10:55:49.000000000 Z
+18669:
+  kori_id: 18669
+  kori_type: Order
+  id: 18669
+  total_price: 12.0
+  created_at: 2013-12-07 11:11:02.000000000 Z
+18681:
+  kori_id: 18681
+  kori_type: Order
+  id: 18681
+  total_price: 29.7
+  created_at: 2013-12-07 12:38:43.000000000 Z
+18688:
+  kori_id: 18688
+  kori_type: Order
+  id: 18688
+  total_price: 12.0
+  created_at: 2013-12-07 13:56:21.000000000 Z
+18699:
+  kori_id: 18699
+  kori_type: Order
+  id: 18699
+  total_price: 29.99
+  created_at: 2013-12-09 09:19:08.000000000 Z
+18701:
+  kori_id: 18701
+  kori_type: Order
+  id: 18701
+  total_price: 19.0
+  created_at: 2013-12-09 11:01:29.000000000 Z
+18706:
+  kori_id: 18706
+  kori_type: Order
+  id: 18706
+  total_price: 30.0
+  created_at: 2013-12-09 12:44:35.000000000 Z
+18707:
+  kori_id: 18707
+  kori_type: Order
+  id: 18707
+  total_price: 12.0
+  created_at: 2013-12-09 12:45:02.000000000 Z
+18709:
+  kori_id: 18709
+  kori_type: Order
+  id: 18709
+  total_price: 5.9
+  created_at: 2013-12-09 13:47:09.000000000 Z
+18712:
+  kori_id: 18712
+  kori_type: Order
+  id: 18712
+  total_price: 8.0
+  created_at: 2013-12-09 14:57:39.000000000 Z
+18718:
+  kori_id: 18718
+  kori_type: Order
+  id: 18718
+  total_price: 6.5
+  created_at: 2013-12-10 10:36:41.000000000 Z
+18721:
+  kori_id: 18721
+  kori_type: Order
+  id: 18721
+  total_price: 11.5
+  created_at: 2013-12-10 12:02:35.000000000 Z
+18724:
+  kori_id: 18724
+  kori_type: Order
+  id: 18724
+  total_price: 247.9
+  created_at: 2013-12-10 12:08:44.000000000 Z
+18727:
+  kori_id: 18727
+  kori_type: Order
+  id: 18727
+  total_price: 24.0
+  created_at: 2013-12-10 12:40:09.000000000 Z
+18736:
+  kori_id: 18736
+  kori_type: Order
+  id: 18736
+  total_price: 7.9
+  created_at: 2013-12-11 09:50:39.000000000 Z
+18738:
+  kori_id: 18738
+  kori_type: Order
+  id: 18738
+  total_price: 60.0
+  created_at: 2013-12-11 11:18:26.000000000 Z
+18739:
+  kori_id: 18739
+  kori_type: Order
+  id: 18739
+  total_price: 44.5
+  created_at: 2013-12-11 11:25:59.000000000 Z
+18741:
+  kori_id: 18741
+  kori_type: Order
+  id: 18741
+  total_price: 12.0
+  created_at: 2013-12-11 11:29:08.000000000 Z
+18742:
+  kori_id: 18742
+  kori_type: Order
+  id: 18742
+  total_price: 19.9
+  created_at: 2013-12-11 11:52:38.000000000 Z
+18744:
+  kori_id: 18744
+  kori_type: Order
+  id: 18744
+  total_price: 12.0
+  created_at: 2013-12-11 13:07:29.000000000 Z
+18745:
+  kori_id: 18745
+  kori_type: Order
+  id: 18745
+  total_price: 148.4
+  created_at: 2013-12-11 13:07:53.000000000 Z
+18752:
+  kori_id: 18752
+  kori_type: Order
+  id: 18752
+  total_price: 25.6
+  created_at: 2013-12-11 15:28:51.000000000 Z
+18756:
+  kori_id: 18756
+  kori_type: Order
+  id: 18756
+  total_price: 69.0
+  created_at: 2013-12-12 09:05:06.000000000 Z
+18758:
+  kori_id: 18758
+  kori_type: Order
+  id: 18758
+  total_price: 4.2
+  created_at: 2013-12-12 09:33:09.000000000 Z
+18759:
+  kori_id: 18759
+  kori_type: Order
+  id: 18759
+  total_price: 12.0
+  created_at: 2013-12-12 09:51:59.000000000 Z
+18764:
+  kori_id: 18764
+  kori_type: Order
+  id: 18764
+  total_price: 89.0
+  created_at: 2013-12-12 11:39:32.000000000 Z
+18767:
+  kori_id: 18767
+  kori_type: Order
+  id: 18767
+  total_price: 69.0
+  created_at: 2013-12-12 12:55:46.000000000 Z
+18769:
+  kori_id: 18769
+  kori_type: Order
+  id: 18769
+  total_price: 14.3
+  created_at: 2013-12-12 15:24:25.000000000 Z
+18771:
+  kori_id: 18771
+  kori_type: Order
+  id: 18771
+  total_price: 12.0
+  created_at: 2013-12-12 16:03:42.000000000 Z
+18775:
+  kori_id: 18775
+  kori_type: Order
+  id: 18775
+  total_price: 111.0
+  created_at: 2013-12-13 11:29:52.000000000 Z
+18777:
+  kori_id: 18777
+  kori_type: Order
+  id: 18777
+  total_price: 31.9
+  created_at: 2013-12-13 12:28:42.000000000 Z
+18778:
+  kori_id: 18778
+  kori_type: Order
+  id: 18778
+  total_price: 122.0
+  created_at: 2013-12-13 12:38:16.000000000 Z
+18781:
+  kori_id: 18781
+  kori_type: Order
+  id: 18781
+  total_price: 49.0
+  created_at: 2013-12-13 14:16:22.000000000 Z
+18784:
+  kori_id: 18784
+  kori_type: Order
+  id: 18784
+  total_price: 11.5
+  created_at: 2013-12-13 14:53:09.000000000 Z
+18785:
+  kori_id: 18785
+  kori_type: Order
+  id: 18785
+  total_price: 13.2
+  created_at: 2013-12-13 14:57:56.000000000 Z
+18793:
+  kori_id: 18793
+  kori_type: Order
+  id: 18793
+  total_price: 375.0
+  created_at: 2013-12-14 09:17:04.000000000 Z
+18795:
+  kori_id: 18795
+  kori_type: Order
+  id: 18795
+  total_price: 15.01
+  created_at: 2013-12-14 09:39:18.000000000 Z
+18797:
+  kori_id: 18797
+  kori_type: Order
+  id: 18797
+  total_price: 6.5
+  created_at: 2013-12-14 11:28:52.000000000 Z
+18799:
+  kori_id: 18799
+  kori_type: Order
+  id: 18799
+  total_price: 17.9
+  created_at: 2013-12-14 11:37:47.000000000 Z
+18801:
+  kori_id: 18801
+  kori_type: Order
+  id: 18801
+  total_price: 16.4
+  created_at: 2013-12-14 12:57:38.000000000 Z
+18803:
+  kori_id: 18803
+  kori_type: Order
+  id: 18803
+  total_price: 22.8
+  created_at: 2013-12-14 14:04:16.000000000 Z
+18811:
+  kori_id: 18811
+  kori_type: Order
+  id: 18811
+  total_price: 381.59
+  created_at: 2013-12-16 10:04:59.000000000 Z
+18812:
+  kori_id: 18812
+  kori_type: Order
+  id: 18812
+  total_price: 56.05
+  created_at: 2013-12-16 10:34:37.000000000 Z
+18813:
+  kori_id: 18813
+  kori_type: Order
+  id: 18813
+  total_price: 12.0
+  created_at: 2013-12-16 10:39:39.000000000 Z
+18814:
+  kori_id: 18814
+  kori_type: Order
+  id: 18814
+  total_price: 11.0
+  created_at: 2013-12-16 10:40:32.000000000 Z
+18815:
+  kori_id: 18815
+  kori_type: Order
+  id: 18815
+  total_price: 81.0
+  created_at: 2013-12-16 11:13:32.000000000 Z
+18818:
+  kori_id: 18818
+  kori_type: Order
+  id: 18818
+  total_price: 59.9
+  created_at: 2013-12-16 13:02:40.000000000 Z
+18819:
+  kori_id: 18819
+  kori_type: Order
+  id: 18819
+  total_price: 8.5
+  created_at: 2013-12-16 13:12:44.000000000 Z
+18820:
+  kori_id: 18820
+  kori_type: Order
+  id: 18820
+  total_price: 21.3
+  created_at: 2013-12-16 13:15:30.000000000 Z
+18824:
+  kori_id: 18824
+  kori_type: Order
+  id: 18824
+  total_price: 24.9
+  created_at: 2013-12-16 14:17:51.000000000 Z
+18826:
+  kori_id: 18826
+  kori_type: Order
+  id: 18826
+  total_price: 18.0
+  created_at: 2013-12-16 14:28:21.000000000 Z
+18827:
+  kori_id: 18827
+  kori_type: Order
+  id: 18827
+  total_price: 90.0
+  created_at: 2013-12-16 14:34:45.000000000 Z
+18830:
+  kori_id: 18830
+  kori_type: Order
+  id: 18830
+  total_price: 88.09999999999999
+  created_at: 2013-12-16 15:32:42.000000000 Z
+18837:
+  kori_id: 18837
+  kori_type: Order
+  id: 18837
+  total_price: 12.0
+  created_at: 2013-12-17 08:15:44.000000000 Z
+18841:
+  kori_id: 18841
+  kori_type: Order
+  id: 18841
+  total_price: 79.90000000000001
+  created_at: 2013-12-17 12:38:54.000000000 Z
+18842:
+  kori_id: 18842
+  kori_type: Order
+  id: 18842
+  total_price: 190.0
+  created_at: 2013-12-17 13:08:29.000000000 Z
+18843:
+  kori_id: 18843
+  kori_type: Order
+  id: 18843
+  total_price: 218.79
+  created_at: 2013-12-17 13:16:05.000000000 Z
+18848:
+  kori_id: 18848
+  kori_type: Order
+  id: 18848
+  total_price: 16.19
+  created_at: 2013-12-17 14:50:46.000000000 Z
+18849:
+  kori_id: 18849
+  kori_type: Order
+  id: 18849
+  total_price: 70.40000000000001
+  created_at: 2013-12-17 14:54:38.000000000 Z
+18851:
+  kori_id: 18851
+  kori_type: Order
+  id: 18851
+  total_price: 4.3
+  created_at: 2013-12-17 15:00:00.000000000 Z
+18855:
+  kori_id: 18855
+  kori_type: Order
+  id: 18855
+  total_price: 45.0
+  created_at: 2013-12-17 16:10:28.000000000 Z
+18859:
+  kori_id: 18859
+  kori_type: Order
+  id: 18859
+  total_price: 51.9
+  created_at: 2013-12-17 19:44:51.000000000 Z
+18864:
+  kori_id: 18864
+  kori_type: Order
+  id: 18864
+  total_price: 12.0
+  created_at: 2013-12-18 08:32:08.000000000 Z
+18865:
+  kori_id: 18865
+  kori_type: Order
+  id: 18865
+  total_price: 49.95
+  created_at: 2013-12-18 09:14:26.000000000 Z
+18867:
+  kori_id: 18867
+  kori_type: Order
+  id: 18867
+  total_price: 4.2
+  created_at: 2013-12-18 09:23:26.000000000 Z
+18870:
+  kori_id: 18870
+  kori_type: Order
+  id: 18870
+  total_price: 7.9
+  created_at: 2013-12-18 09:51:16.000000000 Z
+18873:
+  kori_id: 18873
+  kori_type: Order
+  id: 18873
+  total_price: 32.0
+  created_at: 2013-12-18 11:39:44.000000000 Z
+18875:
+  kori_id: 18875
+  kori_type: Order
+  id: 18875
+  total_price: 16.6
+  created_at: 2013-12-18 12:18:51.000000000 Z
+18877:
+  kori_id: 18877
+  kori_type: Order
+  id: 18877
+  total_price: 94.5
+  created_at: 2013-12-18 12:21:18.000000000 Z
+18878:
+  kori_id: 18878
+  kori_type: Order
+  id: 18878
+  total_price: 7.9
+  created_at: 2013-12-18 12:29:27.000000000 Z
+18882:
+  kori_id: 18882
+  kori_type: Order
+  id: 18882
+  total_price: 48.6
+  created_at: 2013-12-18 12:51:38.000000000 Z
+18886:
+  kori_id: 18886
+  kori_type: Order
+  id: 18886
+  total_price: 55.9
+  created_at: 2013-12-18 14:08:24.000000000 Z
+18890:
+  kori_id: 18890
+  kori_type: Order
+  id: 18890
+  total_price: 11.95
+  created_at: 2013-12-18 14:46:50.000000000 Z
+18891:
+  kori_id: 18891
+  kori_type: Order
+  id: 18891
+  total_price: 123.0
+  created_at: 2013-12-18 15:06:14.000000000 Z
+18892:
+  kori_id: 18892
+  kori_type: Order
+  id: 18892
+  total_price: 4.3
+  created_at: 2013-12-18 15:19:22.000000000 Z
+18893:
+  kori_id: 18893
+  kori_type: Order
+  id: 18893
+  total_price: 75.0
+  created_at: 2013-12-18 15:37:45.000000000 Z
+18896:
+  kori_id: 18896
+  kori_type: Order
+  id: 18896
+  total_price: 16.9
+  created_at: 2013-12-18 17:00:10.000000000 Z
+18897:
+  kori_id: 18897
+  kori_type: Order
+  id: 18897
+  total_price: 23.4
+  created_at: 2013-12-18 17:01:18.000000000 Z
+18902:
+  kori_id: 18902
+  kori_type: Order
+  id: 18902
+  total_price: 108.55
+  created_at: 2013-12-18 17:12:37.000000000 Z
+18907:
+  kori_id: 18907
+  kori_type: Order
+  id: 18907
+  total_price: 7.9
+  created_at: 2013-12-19 08:14:21.000000000 Z
+18908:
+  kori_id: 18908
+  kori_type: Order
+  id: 18908
+  total_price: 13.0
+  created_at: 2013-12-19 08:40:22.000000000 Z
+18909:
+  kori_id: 18909
+  kori_type: Order
+  id: 18909
+  total_price: 7.9
+  created_at: 2013-12-19 08:44:09.000000000 Z
+18912:
+  kori_id: 18912
+  kori_type: Order
+  id: 18912
+  total_price: 7.9
+  created_at: 2013-12-19 10:28:13.000000000 Z
+18914:
+  kori_id: 18914
+  kori_type: Order
+  id: 18914
+  total_price: 12.0
+  created_at: 2013-12-19 11:58:55.000000000 Z
+18915:
+  kori_id: 18915
+  kori_type: Order
+  id: 18915
+  total_price: 30.5
+  created_at: 2013-12-19 11:59:40.000000000 Z
+18916:
+  kori_id: 18916
+  kori_type: Order
+  id: 18916
+  total_price: 165.0
+  created_at: 2013-12-19 12:18:20.000000000 Z
+18917:
+  kori_id: 18917
+  kori_type: Order
+  id: 18917
+  total_price: 35.21
+  created_at: 2013-12-19 12:23:37.000000000 Z
+18919:
+  kori_id: 18919
+  kori_type: Order
+  id: 18919
+  total_price: 15.0
+  created_at: 2013-12-19 12:29:36.000000000 Z
+18920:
+  kori_id: 18920
+  kori_type: Order
+  id: 18920
+  total_price: 54.2
+  created_at: 2013-12-19 12:30:45.000000000 Z
+18921:
+  kori_id: 18921
+  kori_type: Order
+  id: 18921
+  total_price: 26.0
+  created_at: 2013-12-19 12:33:46.000000000 Z
+18926:
+  kori_id: 18926
+  kori_type: Order
+  id: 18926
+  total_price: 66.0
+  created_at: 2013-12-19 12:46:35.000000000 Z
+18934:
+  kori_id: 18934
+  kori_type: Order
+  id: 18934
+  total_price: 21.2
+  created_at: 2013-12-19 13:33:12.000000000 Z
+18940:
+  kori_id: 18940
+  kori_type: Order
+  id: 18940
+  total_price: 15.8
+  created_at: 2013-12-19 15:06:03.000000000 Z
+18942:
+  kori_id: 18942
+  kori_type: Order
+  id: 18942
+  total_price: 22.9
+  created_at: 2013-12-19 15:24:44.000000000 Z
+18943:
+  kori_id: 18943
+  kori_type: Order
+  id: 18943
+  total_price: 30.49
+  created_at: 2013-12-19 15:26:57.000000000 Z
+18944:
+  kori_id: 18944
+  kori_type: Order
+  id: 18944
+  total_price: 96.48999999999999
+  created_at: 2013-12-19 15:45:56.000000000 Z
+18945:
+  kori_id: 18945
+  kori_type: Order
+  id: 18945
+  total_price: 14.8
+  created_at: 2013-12-19 15:58:29.000000000 Z
+18947:
+  kori_id: 18947
+  kori_type: Order
+  id: 18947
+  total_price: 6.2
+  created_at: 2013-12-19 16:16:27.000000000 Z
+18948:
+  kori_id: 18948
+  kori_type: Order
+  id: 18948
+  total_price: 10.8
+  created_at: 2013-12-19 17:12:02.000000000 Z
+18955:
+  kori_id: 18955
+  kori_type: Order
+  id: 18955
+  total_price: 23.4
+  created_at: 2013-12-20 08:39:07.000000000 Z
+18957:
+  kori_id: 18957
+  kori_type: Order
+  id: 18957
+  total_price: 74.7
+  created_at: 2013-12-20 09:13:31.000000000 Z
+18959:
+  kori_id: 18959
+  kori_type: Order
+  id: 18959
+  total_price: 7.9
+  created_at: 2013-12-20 10:56:18.000000000 Z
+18960:
+  kori_id: 18960
+  kori_type: Order
+  id: 18960
+  total_price: 91.7
+  created_at: 2013-12-20 10:59:01.000000000 Z
+18964:
+  kori_id: 18964
+  kori_type: Order
+  id: 18964
+  total_price: 357.0
+  created_at: 2013-12-20 12:03:31.000000000 Z
+18968:
+  kori_id: 18968
+  kori_type: Order
+  id: 18968
+  total_price: 55.7
+  created_at: 2013-12-20 12:32:28.000000000 Z
+18970:
+  kori_id: 18970
+  kori_type: Order
+  id: 18970
+  total_price: 32.4
+  created_at: 2013-12-20 13:02:06.000000000 Z
+18971:
+  kori_id: 18971
+  kori_type: Order
+  id: 18971
+  total_price: 49.8
+  created_at: 2013-12-20 13:06:39.000000000 Z
+18975:
+  kori_id: 18975
+  kori_type: Order
+  id: 18975
+  total_price: 14.6
+  created_at: 2013-12-20 14:16:51.000000000 Z
+18976:
+  kori_id: 18976
+  kori_type: Order
+  id: 18976
+  total_price: 12.0
+  created_at: 2013-12-20 14:20:19.000000000 Z
+18978:
+  kori_id: 18978
+  kori_type: Order
+  id: 18978
+  total_price: 13.41
+  created_at: 2013-12-20 14:37:36.000000000 Z
+18980:
+  kori_id: 18980
+  kori_type: Order
+  id: 18980
+  total_price: 19.5
+  created_at: 2013-12-20 15:03:00.000000000 Z
+18985:
+  kori_id: 18985
+  kori_type: Order
+  id: 18985
+  total_price: 12.0
+  created_at: 2013-12-20 15:46:40.000000000 Z
+18993:
+  kori_id: 18993
+  kori_type: Order
+  id: 18993
+  total_price: 12.0
+  created_at: 2013-12-21 08:04:23.000000000 Z
+18997:
+  kori_id: 18997
+  kori_type: Order
+  id: 18997
+  total_price: 7.9
+  created_at: 2013-12-21 09:36:14.000000000 Z
+18999:
+  kori_id: 18999
+  kori_type: Order
+  id: 18999
+  total_price: 34.2
+  created_at: 2013-12-21 09:49:12.000000000 Z
+19001:
+  kori_id: 19001
+  kori_type: Order
+  id: 19001
+  total_price: 12.0
+  created_at: 2013-12-21 10:10:15.000000000 Z
+19004:
+  kori_id: 19004
+  kori_type: Order
+  id: 19004
+  total_price: 14.6
+  created_at: 2013-12-21 10:28:13.000000000 Z
+19005:
+  kori_id: 19005
+  kori_type: Order
+  id: 19005
+  total_price: 22.0
+  created_at: 2013-12-21 10:34:04.000000000 Z
+19006:
+  kori_id: 19006
+  kori_type: Order
+  id: 19006
+  total_price: 35.0
+  created_at: 2013-12-21 10:34:47.000000000 Z
+19007:
+  kori_id: 19007
+  kori_type: Order
+  id: 19007
+  total_price: 24.0
+  created_at: 2013-12-21 10:41:57.000000000 Z
+19008:
+  kori_id: 19008
+  kori_type: Order
+  id: 19008
+  total_price: 48.4
+  created_at: 2013-12-21 10:51:52.000000000 Z
+19012:
+  kori_id: 19012
+  kori_type: Order
+  id: 19012
+  total_price: 24.0
+  created_at: 2013-12-21 11:35:23.000000000 Z
+19014:
+  kori_id: 19014
+  kori_type: Order
+  id: 19014
+  total_price: 325.0
+  created_at: 2013-12-21 11:51:31.000000000 Z
+19016:
+  kori_id: 19016
+  kori_type: Order
+  id: 19016
+  total_price: 33.1
+  created_at: 2013-12-21 13:00:37.000000000 Z
+19017:
+  kori_id: 19017
+  kori_type: Order
+  id: 19017
+  total_price: 6.5
+  created_at: 2013-12-21 13:03:35.000000000 Z
+19019:
+  kori_id: 19019
+  kori_type: Order
+  id: 19019
+  total_price: 50.6
+  created_at: 2013-12-21 13:19:47.000000000 Z
+19021:
+  kori_id: 19021
+  kori_type: Order
+  id: 19021
+  total_price: 78.84999999999999
+  created_at: 2013-12-21 13:38:39.000000000 Z
+19035:
+  kori_id: 19035
+  kori_type: Order
+  id: 19035
+  total_price: 7.9
+  created_at: 2013-12-22 11:06:27.000000000 Z
+19038:
+  kori_id: 19038
+  kori_type: Order
+  id: 19038
+  total_price: 44.5
+  created_at: 2013-12-22 11:53:16.000000000 Z
+19040:
+  kori_id: 19040
+  kori_type: Order
+  id: 19040
+  total_price: 5.6
+  created_at: 2013-12-22 13:03:50.000000000 Z
+19045:
+  kori_id: 19045
+  kori_type: Order
+  id: 19045
+  total_price: 7.5
+  created_at: 2013-12-22 16:06:24.000000000 Z
+19046:
+  kori_id: 19046
+  kori_type: Order
+  id: 19046
+  total_price: 4.2
+  created_at: 2013-12-22 16:06:49.000000000 Z
+19049:
+  kori_id: 19049
+  kori_type: Order
+  id: 19049
+  total_price: 25.01
+  created_at: 2013-12-23 08:19:26.000000000 Z
+19051:
+  kori_id: 19051
+  kori_type: Order
+  id: 19051
+  total_price: 12.0
+  created_at: 2013-12-23 08:27:31.000000000 Z
+19052:
+  kori_id: 19052
+  kori_type: Order
+  id: 19052
+  total_price: 22.0
+  created_at: 2013-12-23 09:07:45.000000000 Z
+19054:
+  kori_id: 19054
+  kori_type: Order
+  id: 19054
+  total_price: 47.01
+  created_at: 2013-12-23 09:10:02.000000000 Z
+19055:
+  kori_id: 19055
+  kori_type: Order
+  id: 19055
+  total_price: 46.4
+  created_at: 2013-12-23 09:25:08.000000000 Z
+19056:
+  kori_id: 19056
+  kori_type: Order
+  id: 19056
+  total_price: 66.84999999999999
+  created_at: 2013-12-23 09:28:10.000000000 Z
+19061:
+  kori_id: 19061
+  kori_type: Order
+  id: 19061
+  total_price: 23.4
+  created_at: 2013-12-23 10:24:43.000000000 Z
+19063:
+  kori_id: 19063
+  kori_type: Order
+  id: 19063
+  total_price: 7.9
+  created_at: 2013-12-23 10:42:46.000000000 Z
+19064:
+  kori_id: 19064
+  kori_type: Order
+  id: 19064
+  total_price: 58.0
+  created_at: 2013-12-23 10:45:21.000000000 Z
+19066:
+  kori_id: 19066
+  kori_type: Order
+  id: 19066
+  total_price: 12.0
+  created_at: 2013-12-23 10:51:09.000000000 Z
+19068:
+  kori_id: 19068
+  kori_type: Order
+  id: 19068
+  total_price: 35.7
+  created_at: 2013-12-23 11:02:11.000000000 Z
+19070:
+  kori_id: 19070
+  kori_type: Order
+  id: 19070
+  total_price: 12.0
+  created_at: 2013-12-23 11:34:14.000000000 Z
+19071:
+  kori_id: 19071
+  kori_type: Order
+  id: 19071
+  total_price: 7.9
+  created_at: 2013-12-23 11:36:17.000000000 Z
+19078:
+  kori_id: 19078
+  kori_type: Order
+  id: 19078
+  total_price: 20.0
+  created_at: 2013-12-23 13:35:27.000000000 Z
+19079:
+  kori_id: 19079
+  kori_type: Order
+  id: 19079
+  total_price: 42.9
+  created_at: 2013-12-23 13:43:23.000000000 Z
+19082:
+  kori_id: 19082
+  kori_type: Order
+  id: 19082
+  total_price: 23.1
+  created_at: 2013-12-23 14:02:14.000000000 Z
+19083:
+  kori_id: 19083
+  kori_type: Order
+  id: 19083
+  total_price: 12.0
+  created_at: 2013-12-23 14:06:18.000000000 Z
+19084:
+  kori_id: 19084
+  kori_type: Order
+  id: 19084
+  total_price: 13.9
+  created_at: 2013-12-23 14:48:08.000000000 Z
+19087:
+  kori_id: 19087
+  kori_type: Order
+  id: 19087
+  total_price: 2.3
+  created_at: 2013-12-23 15:55:50.000000000 Z
+19088:
+  kori_id: 19088
+  kori_type: Order
+  id: 19088
+  total_price: 51.2
+  created_at: 2013-12-23 16:33:12.000000000 Z
+19093:
+  kori_id: 19093
+  kori_type: Order
+  id: 19093
+  total_price: 59.0
+  created_at: 2013-12-24 07:54:31.000000000 Z
+19116:
+  kori_id: 19116
+  kori_type: Order
+  id: 19116
+  total_price: 18.9
+  created_at: 2013-12-27 12:44:09.000000000 Z
+19126:
+  kori_id: 19126
+  kori_type: Order
+  id: 19126
+  total_price: 14.2
+  created_at: 2013-12-28 09:07:52.000000000 Z
+19130:
+  kori_id: 19130
+  kori_type: Order
+  id: 19130
+  total_price: 210.76
+  created_at: 2013-12-28 11:44:10.000000000 Z
+19131:
+  kori_id: 19131
+  kori_type: Order
+  id: 19131
+  total_price: 104.6
+  created_at: 2013-12-28 12:52:46.000000000 Z
+19132:
+  kori_id: 19132
+  kori_type: Order
+  id: 19132
+  total_price: 17.3
+  created_at: 2013-12-28 12:57:10.000000000 Z
+19133:
+  kori_id: 19133
+  kori_type: Order
+  id: 19133
+  total_price: 255.91
+  created_at: 2013-12-28 12:58:16.000000000 Z
+19142:
+  kori_id: 19142
+  kori_type: Order
+  id: 19142
+  total_price: 67.0
+  created_at: 2013-12-30 08:49:32.000000000 Z
+19144:
+  kori_id: 19144
+  kori_type: Order
+  id: 19144
+  total_price: 31.0
+  created_at: 2013-12-30 10:27:12.000000000 Z
+19146:
+  kori_id: 19146
+  kori_type: Order
+  id: 19146
+  total_price: 19.0
+  created_at: 2013-12-30 10:43:10.000000000 Z
+19148:
+  kori_id: 19148
+  kori_type: Order
+  id: 19148
+  total_price: 28.1
+  created_at: 2013-12-30 13:06:05.000000000 Z
+19150:
+  kori_id: 19150
+  kori_type: Order
+  id: 19150
+  total_price: 10.8
+  created_at: 2013-12-30 14:35:05.000000000 Z
+19152:
+  kori_id: 19152
+  kori_type: Order
+  id: 19152
+  total_price: 12.0
+  created_at: 2013-12-30 16:00:05.000000000 Z
+19157:
+  kori_id: 19157
+  kori_type: Order
+  id: 19157
+  total_price: 12.0
+  created_at: 2013-12-31 13:22:33.000000000 Z
+19158:
+  kori_id: 19158
+  kori_type: Order
+  id: 19158
+  total_price: 12.0
+  created_at: 2013-12-31 13:25:01.000000000 Z
+19160:
+  kori_id: 19160
+  kori_type: Order
+  id: 19160
+  total_price: 14.7
+  created_at: 2013-12-31 14:40:23.000000000 Z
+19170:
+  kori_id: 19170
+  kori_type: Order
+  id: 19170
+  total_price: 34.9
+  created_at: 2014-01-02 10:12:03.000000000 Z
+19173:
+  kori_id: 19173
+  kori_type: Order
+  id: 19173
+  total_price: 4.5
+  created_at: 2014-01-02 10:38:32.000000000 Z
+19177:
+  kori_id: 19177
+  kori_type: Order
+  id: 19177
+  total_price: 18.9
+  created_at: 2014-01-02 14:18:37.000000000 Z
+19179:
+  kori_id: 19179
+  kori_type: Order
+  id: 19179
+  total_price: 27.9
+  created_at: 2014-01-02 14:20:20.000000000 Z
+19180:
+  kori_id: 19180
+  kori_type: Order
+  id: 19180
+  total_price: 16.4
+  created_at: 2014-01-02 14:23:13.000000000 Z
+19186:
+  kori_id: 19186
+  kori_type: Order
+  id: 19186
+  total_price: 30.0
+  created_at: 2014-01-03 09:01:52.000000000 Z
+19189:
+  kori_id: 19189
+  kori_type: Order
+  id: 19189
+  total_price: 12.0
+  created_at: 2014-01-03 09:57:45.000000000 Z
+19193:
+  kori_id: 19193
+  kori_type: Order
+  id: 19193
+  total_price: 95.0
+  created_at: 2014-01-03 11:39:33.000000000 Z
+19197:
+  kori_id: 19197
+  kori_type: Order
+  id: 19197
+  total_price: 9.800000000000001
+  created_at: 2014-01-03 16:27:25.000000000 Z
+19202:
+  kori_id: 19202
+  kori_type: Order
+  id: 19202
+  total_price: 26.3
+  created_at: 2014-01-04 09:23:25.000000000 Z
+19205:
+  kori_id: 19205
+  kori_type: Order
+  id: 19205
+  total_price: 18.2
+  created_at: 2014-01-04 11:43:23.000000000 Z
+19208:
+  kori_id: 19208
+  kori_type: Order
+  id: 19208
+  total_price: 16.2
+  created_at: 2014-01-04 13:13:47.000000000 Z
+19209:
+  kori_id: 19209
+  kori_type: Order
+  id: 19209
+  total_price: 19.4
+  created_at: 2014-01-04 13:28:58.000000000 Z
+19223:
+  kori_id: 19223
+  kori_type: Order
+  id: 19223
+  total_price: 12.0
+  created_at: 2014-01-07 10:22:46.000000000 Z
+19228:
+  kori_id: 19228
+  kori_type: Order
+  id: 19228
+  total_price: 70.2
+  created_at: 2014-01-07 15:23:46.000000000 Z
+19234:
+  kori_id: 19234
+  kori_type: Order
+  id: 19234
+  total_price: 7.0
+  created_at: 2014-01-08 09:42:53.000000000 Z
+19241:
+  kori_id: 19241
+  kori_type: Order
+  id: 19241
+  total_price: 35.01
+  created_at: 2014-01-08 11:49:37.000000000 Z
+19243:
+  kori_id: 19243
+  kori_type: Order
+  id: 19243
+  total_price: 12.0
+  created_at: 2014-01-08 13:18:23.000000000 Z
+19244:
+  kori_id: 19244
+  kori_type: Order
+  id: 19244
+  total_price: 97.8
+  created_at: 2014-01-08 13:20:11.000000000 Z
+19253:
+  kori_id: 19253
+  kori_type: Order
+  id: 19253
+  total_price: 228.0
+  created_at: 2014-01-09 12:00:01.000000000 Z
+19256:
+  kori_id: 19256
+  kori_type: Order
+  id: 19256
+  total_price: 20.7
+  created_at: 2014-01-09 12:06:34.000000000 Z
+19259:
+  kori_id: 19259
+  kori_type: Order
+  id: 19259
+  total_price: 5.0
+  created_at: 2014-01-09 12:52:19.000000000 Z
+19261:
+  kori_id: 19261
+  kori_type: Order
+  id: 19261
+  total_price: 32.4
+  created_at: 2014-01-09 14:02:45.000000000 Z
+19267:
+  kori_id: 19267
+  kori_type: Order
+  id: 19267
+  total_price: 12.0
+  created_at: 2014-01-10 11:53:35.000000000 Z
+19269:
+  kori_id: 19269
+  kori_type: Order
+  id: 19269
+  total_price: 32.9
+  created_at: 2014-01-10 12:29:38.000000000 Z
+19271:
+  kori_id: 19271
+  kori_type: Order
+  id: 19271
+  total_price: 18.9
+  created_at: 2014-01-10 12:48:02.000000000 Z
+19277:
+  kori_id: 19277
+  kori_type: Order
+  id: 19277
+  total_price: 45.41
+  created_at: 2014-01-11 09:08:07.000000000 Z
+19279:
+  kori_id: 19279
+  kori_type: Order
+  id: 19279
+  total_price: 275.0
+  created_at: 2014-01-11 10:28:51.000000000 Z
+19281:
+  kori_id: 19281
+  kori_type: Order
+  id: 19281
+  total_price: 13.2
+  created_at: 2014-01-11 11:04:51.000000000 Z
+19283:
+  kori_id: 19283
+  kori_type: Order
+  id: 19283
+  total_price: 11.64
+  created_at: 2014-01-11 11:41:38.000000000 Z
+19285:
+  kori_id: 19285
+  kori_type: Order
+  id: 19285
+  total_price: 7.9
+  created_at: 2014-01-11 12:37:39.000000000 Z
+19295:
+  kori_id: 19295
+  kori_type: Order
+  id: 19295
+  total_price: 42.85
+  created_at: 2014-01-13 09:07:48.000000000 Z
+19296:
+  kori_id: 19296
+  kori_type: Order
+  id: 19296
+  total_price: 12.0
+  created_at: 2014-01-13 10:07:03.000000000 Z
+19298:
+  kori_id: 19298
+  kori_type: Order
+  id: 19298
+  total_price: 12.04
+  created_at: 2014-01-13 10:55:39.000000000 Z
+19299:
+  kori_id: 19299
+  kori_type: Order
+  id: 19299
+  total_price: 11.52
+  created_at: 2014-01-13 13:28:31.000000000 Z
+19302:
+  kori_id: 19302
+  kori_type: Order
+  id: 19302
+  total_price: 58.0
+  created_at: 2014-01-13 15:03:22.000000000 Z
+19303:
+  kori_id: 19303
+  kori_type: Order
+  id: 19303
+  total_price: 28.0
+  created_at: 2014-01-13 15:10:02.000000000 Z
+19313:
+  kori_id: 19313
+  kori_type: Order
+  id: 19313
+  total_price: 8.5
+  created_at: 2014-01-14 09:52:40.000000000 Z
+19314:
+  kori_id: 19314
+  kori_type: Order
+  id: 19314
+  total_price: 6.2
+  created_at: 2014-01-14 11:16:20.000000000 Z
+19320:
+  kori_id: 19320
+  kori_type: Order
+  id: 19320
+  total_price: 2.4
+  created_at: 2014-01-14 15:16:20.000000000 Z
+19326:
+  kori_id: 19326
+  kori_type: Order
+  id: 19326
+  total_price: 22.4
+  created_at: 2014-01-15 11:07:27.000000000 Z
+19330:
+  kori_id: 19330
+  kori_type: Order
+  id: 19330
+  total_price: 12.0
+  created_at: 2014-01-15 12:10:50.000000000 Z
+19331:
+  kori_id: 19331
+  kori_type: Order
+  id: 19331
+  total_price: 12.0
+  created_at: 2014-01-15 12:11:39.000000000 Z
+19334:
+  kori_id: 19334
+  kori_type: Order
+  id: 19334
+  total_price: 17.99
+  created_at: 2014-01-15 15:10:33.000000000 Z
+19335:
+  kori_id: 19335
+  kori_type: Order
+  id: 19335
+  total_price: 170.5
+  created_at: 2014-01-15 15:30:05.000000000 Z
+19337:
+  kori_id: 19337
+  kori_type: Order
+  id: 19337
+  total_price: 28.2
+  created_at: 2014-01-15 15:52:58.000000000 Z
+19345:
+  kori_id: 19345
+  kori_type: Order
+  id: 19345
+  total_price: 77.87
+  created_at: 2014-01-16 13:37:54.000000000 Z
+19353:
+  kori_id: 19353
+  kori_type: Order
+  id: 19353
+  total_price: 7.0
+  created_at: 2014-01-17 10:50:20.000000000 Z
+19367:
+  kori_id: 19367
+  kori_type: Order
+  id: 19367
+  total_price: 11.0
+  created_at: 2014-01-18 10:46:46.000000000 Z
+19370:
+  kori_id: 19370
+  kori_type: Order
+  id: 19370
+  total_price: 49.0
+  created_at: 2014-01-18 12:14:29.000000000 Z
+19372:
+  kori_id: 19372
+  kori_type: Order
+  id: 19372
+  total_price: 3.57
+  created_at: 2014-01-18 12:35:35.000000000 Z
+19374:
+  kori_id: 19374
+  kori_type: Order
+  id: 19374
+  total_price: 48.7
+  created_at: 2014-01-18 12:46:23.000000000 Z
+19376:
+  kori_id: 19376
+  kori_type: Order
+  id: 19376
+  total_price: 22.0
+  created_at: 2014-01-18 13:19:04.000000000 Z
+19387:
+  kori_id: 19387
+  kori_type: Order
+  id: 19387
+  total_price: 11.0
+  created_at: 2014-01-20 09:14:02.000000000 Z
+19389:
+  kori_id: 19389
+  kori_type: Order
+  id: 19389
+  total_price: 246.7
+  created_at: 2014-01-20 11:57:16.000000000 Z
+19393:
+  kori_id: 19393
+  kori_type: Order
+  id: 19393
+  total_price: 95.8
+  created_at: 2014-01-20 12:43:57.000000000 Z
+19395:
+  kori_id: 19395
+  kori_type: Order
+  id: 19395
+  total_price: 15.0
+  created_at: 2014-01-20 13:11:43.000000000 Z
+19399:
+  kori_id: 19399
+  kori_type: Order
+  id: 19399
+  total_price: 11.8
+  created_at: 2014-01-20 14:47:53.000000000 Z
+19412:
+  kori_id: 19412
+  kori_type: Order
+  id: 19412
+  total_price: 96.40000000000001
+  created_at: 2014-01-21 13:10:06.000000000 Z
+19413:
+  kori_id: 19413
+  kori_type: Order
+  id: 19413
+  total_price: 4.9
+  created_at: 2014-01-21 13:12:38.000000000 Z
+19414:
+  kori_id: 19414
+  kori_type: Order
+  id: 19414
+  total_price: 4.9
+  created_at: 2014-01-21 13:21:33.000000000 Z
+19415:
+  kori_id: 19415
+  kori_type: Order
+  id: 19415
+  total_price: 20.0
+  created_at: 2014-01-21 13:59:13.000000000 Z
+19416:
+  kori_id: 19416
+  kori_type: Order
+  id: 19416
+  total_price: 12.0
+  created_at: 2014-01-21 14:23:37.000000000 Z
+19420:
+  kori_id: 19420
+  kori_type: Order
+  id: 19420
+  total_price: 42.6
+  created_at: 2014-01-21 15:11:28.000000000 Z
+19424:
+  kori_id: 19424
+  kori_type: Order
+  id: 19424
+  total_price: 14.3
+  created_at: 2014-01-22 10:05:04.000000000 Z
+19426:
+  kori_id: 19426
+  kori_type: Order
+  id: 19426
+  total_price: 20.18
+  created_at: 2014-01-22 10:26:34.000000000 Z
