@@ -18,10 +18,12 @@ namespace :db do
       order.basket.items.each do |item|
         if item.product
           item.price *= (100.0 + item.product.tax ) / 100.0
+          item.tax = item.product.tax
+          item.tax = 24.0 if item.tax < 0.1
         else
           del = true
         end
-        item.save! unless del
+        del ? item.delete :  item.save! 
       end
       if(del)
         order.basket.delete
@@ -85,9 +87,9 @@ namespace :db do
         end
         p.inventory = p.products.sum(&:inventory)
       end
-      #prices rounded  to 5 cent 
+      #prices rounded  to 5 cent (in finland that is the smallest coin)
       if p.price 
-        p.price = (((p.price % 1.0)/5.0).round(2)*5 + (p.price - p.price % 1.0)).round(2)
+        p.price = ((p.price / 5.0).round(2)*5.0).round(2)
       else
         p.price = 0.0
       end
