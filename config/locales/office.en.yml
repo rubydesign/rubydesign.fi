@@ -12,9 +12,9 @@ en:
         ordered_on: "Ordered on"
       product: 
         description: Description
+        ean: Ean
         inventory: Inventory
         name: Name
-        ean: Ean
         online: online
         price: Price
         scode: "Supplier code"
@@ -88,8 +88,8 @@ en:
   link: Link
   login: "Log in"
   logout: "Log out"
-  made_offline: taken offline
-  made_online: made online
+  made_offline: "taken offline"
+  made_online: "made online"
   main_picture: Kuva
   make_order: "Make Order"
   make_purchase: "Make Purchase"
@@ -99,7 +99,7 @@ en:
   new: New
   next: Next
   not_online: "not online"
-  online: Netissä
+  online: Online
   order: Order
   order_number: Number
   ordered_on: "Ordered On"
@@ -110,10 +110,10 @@ en:
   picture: Picture
   picture2: "Picture 2"
   position: Position
-  print: Print
   prev: Previous
   price: Price
   price_between: "Price between"
+  print: Print
   print_order: "Print Order"
   product: Product
   product_line: "Product Line"
@@ -125,8 +125,8 @@ en:
   receive: Receive
   received: Received
   received_on: "Received On"
-  search: Search
   scode: "Supplier code"
+  search: Search
   shipment_type: "Shipment type"
   shipped_on: "Shipped on"
   shipping_price: "Shipment price"
