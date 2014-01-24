@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '1.9.3'
 gem 'rails'
 gem 'sqlite3'
 gem 'sass-rails'
@@ -25,7 +25,8 @@ gem 'rails-i18n'
 gem "barby"
 gem "chunky_png"
 
-gem "thin"
+gem "therubyracer" 
+gem "libv8" , "3.16.14.3"
 
 group :development do
   gem 'better_errors'

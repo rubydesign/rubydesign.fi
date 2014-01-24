@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#encoding "utf-8"
 module ApplicationHelper
   include FoundationRailsHelper::FlashHelper
 
