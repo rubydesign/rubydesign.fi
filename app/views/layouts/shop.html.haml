@@ -12,6 +12,7 @@
     %meta{content: "Sisustus, Lifestyle, luomukosmetiikka , luonnonkosmetiikka , farfalla", name: "keywords"}
     = stylesheet_link_tag "shop"
     = javascript_include_tag "shop"
+    = csrf_meta_tags
     %meta{content: "authenticity_token", name: "csrf-param"}
     %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
   %body#product-details
@@ -32,7 +33,7 @@
                   %li#link-to-cart
                     %a.empty{href: "/cart"} Ostoskori: (tyhjä)
                   %li#link-to-login
-                    %a{href: "/login"} Kirjaudu
+                    %a{href: "/users/sign_in"} Kirjaudu
     .row
       .large-12.columns
         = yield

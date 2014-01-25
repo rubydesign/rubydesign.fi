@@ -1,6 +1,8 @@
 # encoding : utf-8
 class AdminController < ApplicationController
 
+  before_filter :authenticate_user!
+
   layout "admin"
 
   before_filter :clean_search , :only => [:index , :search]

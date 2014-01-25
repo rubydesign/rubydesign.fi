@@ -1,6 +1,10 @@
 OfficeClerk::Application.routes.draw do
   resources :shops
 
+  root :to => 'shop#group'
+
+  devise_for :users, :controllers => {  :sessions => "sessions"  , :registrations => "registrations"}
+
   resources :purchases do
     collection do
       match "search" => "purchases#index", :via => [:get, :post]
@@ -79,11 +83,7 @@ OfficeClerk::Application.routes.draw do
     member do
     end
   end
-
-  root :to => 'shop#group'
-
-  devise_for :users, :controllers => {:registrations => "registrations"}
-
+  
   #shop
   get 'group/:id' => 'shop#group', :as => :group
   get 'prod/:id' => 'shop#product', :as => :prod

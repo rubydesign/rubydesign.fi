@@ -20,8 +20,9 @@ class Users < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       #Clerk
-      t.string :address
-
+      t.string  :address
+      t.boolean :admin , :default => false
+      t.string :password_salt #for migrating 
       t.timestamps
     end
 
