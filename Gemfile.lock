@@ -43,6 +43,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     barby (0.5.1)
+    bcrypt-ruby (3.1.2)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -269,6 +270,7 @@ PLATFORMS
 
 DEPENDENCIES
   barby
+  bcrypt-ruby
   better_errors
   binding_of_caller
   capybara

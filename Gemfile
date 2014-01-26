@@ -22,6 +22,7 @@ gem 'facet_for'
 gem 'rails-i18n'
 gem "barby"
 gem "chunky_png"
+gem "bcrypt-ruby"
 
 gem "therubyracer" 
 gem "libv8" , "3.16.14.3"
