@@ -25,9 +25,19 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
+  def update_user
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to root_url, :notice => "Your profile has been updated."
+    else
+      render :action => 'edit'
+    end
+  end
+  
   def create_user
     @user = User.new(params[:user])
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_url, :notice => "Signed up!"
     else
       render "new"
