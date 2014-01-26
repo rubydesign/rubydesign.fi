@@ -19,7 +19,7 @@ namespace :db do
         if item.product
           item.price *= (100.0 + item.product.tax ) / 100.0
           item.tax = item.product.tax
-          item.tax = 24.0 if item.tax < 0.1
+          item.tax = 24.0 if item.tax < 0.1   #this "should" be the default system tax
         else
           del = true
         end

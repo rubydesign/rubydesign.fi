@@ -12,5 +12,7 @@ class Categories < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :categories, :link,                :unique => true
+
   end
 end

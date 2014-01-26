@@ -3,8 +3,18 @@ OfficeClerk::Application.routes.draw do
 
   root :to => 'shop#group'
 
-  devise_for :users, :controllers => {  :sessions => "sessions"  , :registrations => "registrations"}
+  get "sign_out" => "sessions#destroy", :as => "sign_out"
+  get "sign_in"  => "sessions#new",     :as => "sign_in"
+  get "sign_up" => "sessios#new_user", :as => "sign_up"
+#  root :to => "users#new"
 
+  resources :sessions do
+    member do
+      get :new_user
+      get :create_user
+    end
+  end
+  
   resources :purchases do
     collection do
       match "search" => "purchases#index", :via => [:get, :post]

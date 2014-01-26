@@ -3,6 +3,10 @@
 module ApplicationHelper
   include FoundationRailsHelper::FlashHelper
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  
   def euros price
     price ? number_to_currency(price , :precision => 2 , :unit => "€") : 0.0
   end
