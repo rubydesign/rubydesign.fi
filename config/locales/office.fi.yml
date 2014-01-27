@@ -1,16 +1,15 @@
-
---- 
-fi: 
+---
+fi:
   actions: Toimenpiteet
-  activerecord: 
-    attributes: 
-      basket: 
+  activerecord:
+    attributes:
+      basket:
         created_at: Luotu
         total_price: Hinta
-      order: 
+      order:
         email: S-posti
         ordered_on: Tilattu
-      product: 
+      product:
         description: Kuvaus
         ean: Ean
         inventory: Inventaario
@@ -20,25 +19,25 @@ fi:
         scode: Tuottajatunnus
         tax: Veroprosentti
         weight: Paino
-      purchase: 
+      purchase:
         name: Nimi
         ordered_on: Tilattu
-        received_on: Vastanottu
-      supplier: 
+        received_on: Vastaanotettu
+      supplier:
         city: Kaupunki
         name: Nimi
         phone: Puhelin
         street: Osoite
         supplier_name: Tuottaja
-      user: 
+      user:
         city: Kaupunki
         email: S-posti
         name: Nimi
         password: Salasana
-        password_confirmation: "Vahvista salasana"
+        password_confirmation: Vahvista salasana
         phone: Puhelin
         street: Osoite
-    models: 
+    models:
       basket: Ostoskori
       category: Tuoteryhmä
       order: Tilaus
@@ -47,107 +46,138 @@ fi:
       supplier: Tuottaja
       user: Käyttäjä
   add: Lisää
-  add_inventory: "TODO Add Inventory"
+  add_inventory: Lisää inventaarioon
+  add_to_basket: Lisää ostoskoriin
   address: Osoite
   addresses: Osoiteet
-  are_you_sure: "oletko varma"
-  as_inventory: "TODO As Inventory"
+  admin: Admin
+  are_you_sure: Oletko varma
+  as_inventory: Inventaarioon
   back: Takaisin
+  barcode: Viivakoodi
   basket: Ostoskori
   baskets: Ostoskorit
   between: haarukka
   cancel: Peruuta
   canceled_on: Peruutettu
-  categories: Tuoteryhmät
+  categories: Tuotryhmät
   category: Tuoteryhmä
-  category_id: "TODO Product Line"
+  choose_product_for_basket: Valitse tuote ostoskoriin
   city: Kaupunki
+  contact: Kontaktihenkilö
   cost: Kustannus
   count: Määrä
   country: Maa
   create: Luo
-  create_success: "Luotu onnistuneesti"
-  created_at: luottu
+  create_success: Luotu onnistuneesti
+  created_at: Luotu
   delete: Poista
   description: Kuvaus
   destroy: Poista
   discount: Alennus
+  ean: Ean
   edit: Muokkaa
   editing: Muokkaamassa
   email: S-posti
   error: Virhe
-  extra_picture: "Toinen kuva"
+  extra_picture: Toinen kuva
   filter: Hae
   first_name: Etunimi
   info: Info
-  inventorized: "TODO Inventorized"
+  inventorized: Inventoitu
   inventory: Inventaario
   item: Tuote
+  item_removed: Tuote poistettu
   items: Tuotteet
   last_name: Sukunimi
   link: linkki
-  login: "Kirjaudu sisään"
-  logout: "Kirjaudu ulos"
-  made_offline: "poistettu netistä"
-  made_online: "laitettu nettiin"
+  login: Kirjaudu sisään
+  logout: Kirjaudu ulos
+  made_offline: poistettu netistä
+  made_online: laitettu nettiin
   main_picture: Kuva
-  make_order: "Luo tilaus"
-  make_purchase: "Luo Ostos"
-  may_be_blank: "Voi jättää tyhjäksi"
+  make_order: Luo tilaus
+  make_purchase: Luo Ostos
+  may_be_blank: Voi jättää tyhjäksi
   name: Nimi
-  name_contains: "Nimi sisältää"
+  name_contains: Nimi sisältää
   new: Uusi
-  next: seurava
-  not_online: "ei netissä"
+  new_item: Uusi tuote
+  next: seuraava
+  not_online: ei netissä
   online: Netissä
   order: Tilaus
   order_number: Tilauksen numero
+  order_total: Loppusumma
+  ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
   paid_on: Maksettu
   parent: Tuoteryhmä
   phone: Puhelin
   picture: Kuva
-  picture2: "Toinen kuva"
+  picture2: Toinen kuva
   position: Paikka
   prev: edellinen
   price: Hinta
-  price_between: "Hinta haarukka"
+  price_between: Hinta haarukka
   print: Tulosta
-  print_order: Tuolsta
+  print_order: Tulosta
   product: Tuote
+  product_added: Tuote lisätty
   product_line: Tuotelinja
   products: Tuotteet
   purchase: Sisäänosto
   purchases: Sisäänostot
   quantity: Määrä
   receipt: Kuitti
-  receive: "Ota vastaan"
+  receive: Ota vastaan
   received: Vastaanotettu
   received_on: Vastaanotettu
   scode: Tuottajatunnus
   search: Hae
-  shipment_type: "Lähetyksen tapa"
+  shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty
-  shipping_price: "Lähetyksen hinta"
+  shipping_price: Lähetyksen hinta
   shop: Kauppa
   show: Näytä
+  sign_in: Kirjaudu sisään
+  sign_in_invalid: Sposti tai salasana virheellinen
+  sign_out: Kirjaudu ulos
+  sign_up: Luo tili
+  signed_in: Sisäänkirjautunut
+  signed_out: Uloskirjautunut
+  simple_form:
+    error_notification:
+      default_message: 'Tarkista uudelleen:'
+    no: Ei
+    required:
+      mark: '*'
+      text: required
+    yes: Kyllä
   state: Tila
-  street: Katu
+  street: Osoite
+  street1: Osoite1
+  street2: Osoite2
   supplier: Tuottaja
   suppliers: Tuottajat
   tax: Alv
+  tax_percent: Veroprosentti
   tax_rate: Veroprosentti
+  to_order: Tilaa
+  to_purchase: To purchase
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot
-  treeview: ~
+  treeview: Treeview
   type: Laji
-  update_success: Päivitetty
+  update_success: Päivitetty onnistuneesti
+  updated: Päivitetty
   user: Käyttäjä
   users: Käyttäjät
+  vat: alv
   weight: Paino
-  will_paginate: 
+  will_paginate:
     next_label: seuraava
-    page_gap: " "
+    page_gap: '&hellip;'
     previous_label: edellinen
