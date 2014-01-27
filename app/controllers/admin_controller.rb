@@ -10,7 +10,7 @@ class AdminController < ApplicationController
   def require_admin
     user = current_user
     return if user and user.admin
-    redirect_to root_url
+    redirect_to sign_in_url
   end
   
   def clean_search
