@@ -9,10 +9,6 @@ class SuppliersController < AdminController
   def index
     @q = Supplier.search( params[:q] )
     @supplier_scope = @q.result( :distinct => true )
-    @supplier_scope_for_scope = @supplier_scope.dup
-    unless params[:scope].blank?
-      @supplier_scope = @supplier_scope.send(params[:scope])
-    end
     @suppliers = @supplier_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
   end
 

@@ -1,11 +1,16 @@
 .row
-  .large-6.column
-    %h2
-      = t(:suppliers)
-  .large-6.column
-    = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "admin-button"
-%p
-  = paginate @supplier
+  .large-9.column
+    .row
+      .large-8.column
+        %h2
+          = t(:suppliers)
+      .large-4.column
+        = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "admin-button"
+    .row
+      %p
+        = paginate @suppliers
+  .large-3.column
+    = image_tag "admin/suppliers.jpg"
 .row
   .medium-9.columns
     %div
