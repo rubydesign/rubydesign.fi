@@ -8,4 +8,4 @@ data:
   # a list of {key pattern => file} routes, matched top to bottom
   write:
     # this is the default catch-all:
-    - 'config/locales/%{locale}.yml' # path is short for ['*', path]
+    - 'config/locales/office.%{locale}.yml' # path is short for ['*', path]
