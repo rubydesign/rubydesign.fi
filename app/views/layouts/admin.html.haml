@@ -18,10 +18,11 @@
         / Right Nav Section
         %ul.right
           %li
-          - if user_signed_in?
-            %li= link_to t(:logout), destroy_user_session_path, :method=>'delete'
+          - if current_user
+            %li= link_to current_user.email , edit_user_path(current_user)
+            %li= link_to t(:sign_out), sign_out_path
           - else
-            %li= link_to t(:login), new_user_session_path
+            %li= link_to t(:sign_in), sign_in_path
         / Left Nav Section
         %ul.left
           %li

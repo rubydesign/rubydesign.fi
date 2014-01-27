@@ -3,9 +3,6 @@ class BasketsController < AdminController
 
   before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :print, :purchase]
 
-  # Uncomment for check abilities with CanCan
-  #authorize_resource
-
   def index
     @q = Basket.search( params[:q] , :include => {:items => :product} )
     @basket_scope = @q.result( :distinct => true )

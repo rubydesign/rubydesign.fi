@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-#encoding "utf-8"
+#encoding: "utf-8"
 module ApplicationHelper
   include FoundationRailsHelper::FlashHelper
-
+  
   def euros price
     price ? number_to_currency(price , :precision => 2 , :unit => "€") : 0.0
   end

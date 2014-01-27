@@ -1,0 +1,11 @@
+base_locale: en
+locales: [fi]
+data:
+  # a list of file globs to read from per-locale
+  read: 
+    # add this one to also read from namespaced files, e.g. simple_form.en.yml:
+    - 'config/locales/*.%{locale}.yml'
+  # a list of {key pattern => file} routes, matched top to bottom
+  write:
+    # this is the default catch-all:
+    - 'config/locales/office.%{locale}.yml' # path is short for ['*', path]

@@ -12,7 +12,7 @@
     %meta{content: "Sisustus, Lifestyle, luomukosmetiikka , luonnonkosmetiikka , farfalla", name: "keywords"}
     = stylesheet_link_tag "shop"
     = javascript_include_tag "shop"
-    %meta{content: "authenticity_token", name: "csrf-param"}
+    = csrf_meta_tags
     %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
   %body#product-details
     %header.row
@@ -31,9 +31,33 @@
                 %ul.right
                   %li#link-to-cart
                     %a.empty{href: "/cart"} Ostoskori: (tyhjä)
-                  %li#link-to-login
-                    %a{href: "/login"} Kirjaudu
-                  %li=Rails.env.to_s
+                  - if current_user
+                    %li
+                      = t(:signed_in) 
+                      = current_user.email
+                      = link_to (:sign_out), sign_out_path
+                  - else
+                    %li
+                      = link_to t(:sign_up), sign_up_path
+                    %li
+                      = link_to t(:sign_in), sign_in_path
+    .row.content
+      .large-12.column.alert
+        - if not flash[:notice].blank? then
+          .alert-notice.row
+            .large-3.column
+              .alert-heading= t(:info) + " :"
+            .large-9.column
+              .alert-message!= flash[:notice]
+      .large-12.column.alert
+        - if not flash[:error].blank? then
+          .alert-error.row
+            .large-3.column
+              .alert-heading= t(:info) + " :"
+            .large-9.column
+              .alert-message!= flash[:notice]
+      
+
     .row
       .large-12.columns
         = yield
