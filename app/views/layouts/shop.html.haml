@@ -33,6 +33,7 @@
                     %a.empty{href: "/cart"} Ostoskori: (tyhjä)
                   %li#link-to-login
                     %a{href: "/login"} Kirjaudu
+                  %li=Rails.env.to_s
     .row
       .large-12.columns
         = yield

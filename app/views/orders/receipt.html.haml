@@ -18,7 +18,8 @@
           %br/
           00120 Helsinki
       .info
-        =l(@order.ordered_on.to_date) 
+        - date = @order.ordered_on || @order.created_at
+        =l(date.to_date) 
         /
         =t(:order)
         =@order.number
