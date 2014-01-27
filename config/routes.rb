@@ -98,4 +98,7 @@ OfficeClerk::Application.routes.draw do
   get 'group/:id' => 'shop#group', :as => :group
   get 'prod/:id' => 'shop#product', :as => :prod
   get 'page/:id' => 'shop#page', :as => :page
+  
+  #anoying php hackers
+  get "/:any(/:other(/:are/(/:ignored))).php" => "shop#page"
 end
