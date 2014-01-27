@@ -23,6 +23,7 @@ gem 'rails-i18n'
 gem "barby"
 gem "chunky_png"
 gem "bcrypt-ruby"
+gem "valid_email" , :require => 'valid_email/email_validator' #no mx checking
 
 gem "therubyracer" 
 gem "libv8" , "3.16.14.3"

@@ -19,6 +19,7 @@
         %ul.right
           %li
           - if current_user
+            %li= link_to current_user.email , edit_user_path(current_user)
             %li= link_to t(:sign_out), sign_out_path
           - else
             %li= link_to t(:sign_in), sign_in_path

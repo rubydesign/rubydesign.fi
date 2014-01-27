@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   after_create :prepare_password
   validates_uniqueness_of :email
-  validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+  validates :email, :presence => true, :email => true
 
   store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
 
