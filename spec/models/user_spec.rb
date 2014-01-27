@@ -154,7 +154,7 @@ describe User do
   it "should generate password hash and salt on create" do
     user = new_user
     user.save!
-    user.password_hash.should_not be_nil
+    user.encrypted_password.should_not be_nil
     user.password_salt.should_not be_nil
   end
 

@@ -6,12 +6,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
 
-
-
-
-
   store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
-  store :password, accessors: [ :encrypted_password , :password_salt ] , coder: JSON
 
   def whole_address
     [ name , street , city , phone ].join(" ")
@@ -36,13 +31,13 @@ class User < ActiveRecord::Base
     20.times { encrypted = Digest::SHA512.hexdigest(encrypted) }
     encrypted
   end
+
   private
 
   def prepare_password
     unless password.blank?
       self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = encrypt_password(password)
+      self.encrypted_password = encrypt_password(password)
     end
   end
- 
 end

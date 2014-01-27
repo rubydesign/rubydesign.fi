@@ -3,9 +3,10 @@ class Users < ActiveRecord::Migration
     create_table(:users) do |t|
       t.string :email,              :null => false, :default => ""
       t.boolean :admin , :default => false
-      
-      #these two are json attributes, so can be added to easily
-      t.string :password 
+      t.string :encrypted_password
+      t.string :password_salt
+
+      #this is a json attribute, so anything can be added to the class easily
       t.string  :address
       t.timestamps
     end

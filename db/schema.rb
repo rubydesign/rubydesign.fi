@@ -118,9 +118,10 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",      default: "",    null: false
-    t.boolean  "admin",      default: false
-    t.string   "password"
+    t.string   "email",              default: "",    null: false
+    t.boolean  "admin",              default: false
+    t.string   "encrypted_password"
+    t.string   "password_salt"
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
