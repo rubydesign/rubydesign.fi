@@ -28,6 +28,7 @@ gem "therubyracer"
 gem "libv8" , "3.16.14.3"
 
 group :development do
+  gem "migrate_spree", :path => "../migrate_spree"
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
