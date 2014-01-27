@@ -86,8 +86,12 @@ en:
   items: Items
   last_name: "Last Name"
   link: Link
-  login: "Log in"
-  logout: "Log out"
+  sign_in: "Log in"
+  sign_in_invalid: "Invalid email or password"
+  signed_in: "Logged in"
+  signed_out: "Logged out"
+  sign_up: "Sign up"
+  sign_out: "Log out"
   made_offline: "taken offline"
   made_online: "made online"
   main_picture: Kuva
