@@ -29,7 +29,7 @@
           - @products.each do |product|
           -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td.image= image_tag product.main_picture.url
+              %td.image= image_tag product.main_picture.url(:thumb)
               %td.ean= product.line? ? "#{product.products.count} #{t(:items)}" : product.ean
               %td.name
                 = link_to product_path(product), :title => t(:show) do
