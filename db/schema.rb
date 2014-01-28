@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.integer  "quantity",   default: 1
     t.float    "price",      default: 0.0
     t.float    "tax",        default: 0.0
+    t.string   "name"
     t.integer  "product_id"
     t.integer  "basket_id"
     t.datetime "created_at"
@@ -72,7 +73,10 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.date     "paid_on"
     t.date     "canceled_on"
     t.date     "shipped_on"
+    t.string   "payment_type"
+    t.string   "payment_info"
     t.string   "shipment_type"
+    t.string   "shipment_info"
     t.float    "shipping_price", default: 0.0
     t.float    "shipping_tax",   default: 0.0
     t.string   "address"
@@ -99,6 +103,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "ean",                        default: ""
     t.float    "tax",                        default: 0.0
     t.integer  "inventory",                  default: 0
+    t.integer  "stock_level",                default: 0
     t.string   "properties",                 default: ""
     t.string   "scode",                      default: ""
     t.date     "deleted_on"

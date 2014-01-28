@@ -34,7 +34,7 @@
   link: cinnamon-apple-spice
   scode: P-92998
   cost: 4.0
-  inventory: -1
+  inventory: 1
   tax: 14.0
   category_id: 13
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"FeuerGlas"}'
@@ -451,7 +451,7 @@
   link: korvanappi-swarovski-8mm
   scode: P-93528
   cost: 2.71
-  inventory: 13
+  inventory: 12
   tax: 24.0
   category_id: 7
   properties: '{"Tuoteryhm\u00e4":"Korut","Valmistaja":"Khaosan"}'
@@ -3199,7 +3199,7 @@
   link: kirkastava-kasvovesi
   scode: P-95387
   cost: 14.3
-  inventory: 3
+  inventory: 2
   tax: 24.0
   category_id: 32
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -3268,7 +3268,7 @@
   link: matta-paeivae-ja-yoevoide
   scode: P-95396
   cost: 18.7
-  inventory: 2
+  inventory: 1
   tax: 24.0
   category_id: 32
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -3410,7 +3410,7 @@
   link: anti-age-paeivaevoide
   scode: P-95403
   cost: 24.95
-  inventory: 3
+  inventory: 2
   tax: 24.0
   category_id: 32
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -3991,7 +3991,7 @@
   link: security-turvallisuuden-tunne
   scode: P-95428
   cost: 7.3
-  inventory: 1
+  inventory: 0
   tax: 24.0
   category_id: 36
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -4197,7 +4197,7 @@
   link: hellaevarainen-villiruusu-shampoo-50
   scode: P-95446
   cost: 2.4
-  inventory: 4
+  inventory: 3
   tax: 24.0
   category_id: 30
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -4433,7 +4433,7 @@
   link: aura
   scode: 'P-95543  '
   cost: 26.95
-  inventory: 0
+  inventory: 1
   tax: 24.0
   category_id: 34
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -5056,7 +5056,7 @@
   link: sencha-vihreae-tee
   scode: P-95016
   cost: 1.26
-  inventory: 2
+  inventory: 3
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
@@ -5071,7 +5071,7 @@
   link: oriental-spice-blend
   scode: P-95017
   cost: 2.07
-  inventory: 4
+  inventory: 2
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
@@ -7423,7 +7423,7 @@
   link: dream-kynttilae-l-dot-valkoinen
   scode: P-94912
   cost: 2.47
-  inventory: 5
+  inventory: 3
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Kynttil\u00e4t","Valmistaja":"Boltze"}'
   online: false
@@ -7557,7 +7557,7 @@
   link: darjeeling-second-flush
   scode: P-94924
   cost: 1.72
-  inventory: -1
+  inventory: 1
   tax: 14.0
   category_id: 13
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
@@ -7684,7 +7684,7 @@
   link: earl-grey-superior
   scode: P-94927
   cost: 1.47
-  inventory: 7
+  inventory: 6
   tax: 14.0
   category_id: 13
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
@@ -7781,7 +7781,7 @@
   link: south-sea-magic
   scode: P-94929
   cost: 1.44
-  inventory: 4
+  inventory: 3
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
@@ -7970,7 +7970,7 @@
   link: gingerbread-rooibos
   scode: P-94934
   cost: 1.72
-  inventory: 5
+  inventory: 4
   tax: 14.0
   category_id: 13
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
@@ -33067,7 +33067,7 @@
   link: ekokassi
   scode: '9337259002648'
   cost: 3.45
-  inventory: 1
+  inventory: 11
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   main_picture_file_name: BL.B4_bag.jpg
@@ -33135,7 +33135,7 @@
   link: ekokassi
   scode: '9337259001771'
   cost: 3.45
-  inventory: 3
+  inventory: 6
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   main_picture_file_name: lb.b2_bag_2.jpg
@@ -33152,7 +33152,7 @@
   link: ekokassi
   scode: '9337259001788'
   cost: 3.45
-  inventory: 4
+  inventory: 7
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   main_picture_file_name: lb.b3_bag_2.jpg
@@ -33169,7 +33169,7 @@
   link: ekokassi
   scode: LB.B1
   cost: 3.45
-  inventory: 4
+  inventory: 7
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   main_picture_file_name: lb.b1_bag_2.jpg
@@ -33303,7 +33303,7 @@
   link: ekokassi
   scode: LB.B5
   cost: 3.45
-  inventory: 2
+  inventory: 5
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -33401,7 +33401,7 @@
   link: ekokassi
   scode: '9337259001795'
   cost: 3.45
-  inventory: 5
+  inventory: 8
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   main_picture_file_name: lb.b4_bag_2.jpg
@@ -54427,7 +54427,7 @@
   link: arizona-1
   scode: '510104'
   cost: 22.0
-  inventory: -1
+  inventory: 0
   tax: 24.0
   properties: '{"Valmistaja":"Kaszer","Tuoteryhm\u00e4":"Laukut"}'
   main_picture_file_name: arizonax.jpg
@@ -55197,7 +55197,7 @@
   link: apollon-tumma-suklaa
   scode: ''
   cost: 3.97
-  inventory: 4
+  inventory: 3
   tax: 14.0
   category_id: 13
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"FeuerGlas"}'
@@ -60756,7 +60756,7 @@
   link: ekokassi
   scode: '9337259003881'
   cost: 3.45
-  inventory: 2
+  inventory: 12
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -60772,7 +60772,7 @@
   link: ekokassi
   scode: '9337259003904'
   cost: 3.45
-  inventory: 5
+  inventory: 15
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -60804,7 +60804,7 @@
   link: ekokassi
   scode: '9337259003836'
   cost: 3.45
-  inventory: 0
+  inventory: 28
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -61392,7 +61392,7 @@
   link: dailypleasure-kauneusoljy
   scode: ''
   cost: 10.5
-  inventory: 3
+  inventory: 2
   tax: 24.0
   category_id: 31
   properties: '{"Valmistaja":"Farfalla","Tuoteryhm\u00e4":"Luonnonkosmetiikka"}'
@@ -61434,7 +61434,7 @@
   link: dailypleasure-deo-spray
   scode: ''
   cost: 8.449999999999999
-  inventory: 2
+  inventory: 1
   tax: 24.0
   category_id: 31
   properties: '{"Valmistaja":"Farfalla","Tuoteryhm\u00e4":"Luonnonkosmetiikka"}'
@@ -66733,7 +66733,7 @@
   created_at: 2012-10-04 13:27:52.000000000 Z
   link: teepussit-m
   scode: '5701352000216'
-  inventory: 5
+  inventory: 4
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"none","Valmistaja":"D&B"}'
   online: false
@@ -67706,7 +67706,7 @@
   created_at: 2012-11-05 12:06:03.000000000 Z
   link: teepurkki-babushka-100g
   scode: M-502
-  inventory: 1
+  inventory: 0
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Keitti\u00f6esineet"}'
   main_picture_file_name: babushka.jpg
@@ -67871,7 +67871,7 @@
   created_at: 2012-11-12 15:02:29.000000000 Z
   link: kermainen-mansikka-luomu-rooibos
   scode: '4009636202532'
-  inventory: 4
+  inventory: 0
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -67886,7 +67886,7 @@
   created_at: 2012-11-12 15:04:32.000000000 Z
   link: luomu-earl-grey
   scode: '4009636023373'
-  inventory: 2
+  inventory: 1
   tax: 14.0
   category_id: 13
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
@@ -67903,7 +67903,7 @@
   created_at: 2012-11-12 15:11:00.000000000 Z
   link: kermainen-persikka
   scode: '4009636025537'
-  inventory: 4
+  inventory: 3
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -67950,7 +67950,7 @@
   created_at: 2012-11-15 13:28:27.000000000 Z
   link: herkullinen-uuniomena-musta-tee
   scode: '4009636022451'
-  inventory: 3
+  inventory: 1
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -68133,7 +68133,7 @@
   created_at: 2012-11-21 10:24:02.000000000 Z
   link: lapacho-appelsiini-vanilja-yrttitee
   scode: '4009636165721'
-  inventory: 3
+  inventory: 0
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -68281,7 +68281,7 @@
   created_at: 2012-11-23 16:40:26.000000000 Z
   link: luomu-arganoljy
   scode: '7612534030519'
-  inventory: 2
+  inventory: 1
   tax: 24.0
   category_id: 42
   properties: '{"Valmistaja":"Farfalla","Tuoteryhm\u00e4":"Luonnonkosmetiikka"}'
@@ -69266,7 +69266,7 @@
   created_at: 2012-12-19 13:30:20.000000000 Z
   link: aromaspray-refresh
   scode: '7612534103114'
-  inventory: 3
+  inventory: 2
   tax: 24.0
   category_id: 35
   properties: '{"Valmistaja":"Farfalla","Tuoteryhm\u00e4":"Luonnonkosmetiikka"}'
@@ -69328,7 +69328,7 @@
   created_at: 2012-12-19 13:39:04.000000000 Z
   link: aromaspray-wellbeing
   scode: '7612534103138'
-  inventory: 4
+  inventory: 3
   tax: 24.0
   category_id: 35
   properties: '{"Tuoteryhm\u00e4":"Luonnonkosmetiikka","Valmistaja":"Farfalla"}'
@@ -69496,7 +69496,7 @@
   created_at: 2013-01-02 15:09:51.000000000 Z
   link: tropical-sencha-maustettu-vihrea-ananastee
   scode: '4009636022109'
-  inventory: 2
+  inventory: 1
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
@@ -71131,7 +71131,7 @@
   link: ekokassi
   scode: '9337259000514'
   cost: 3.45
-  inventory: 2
+  inventory: 5
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -71147,7 +71147,7 @@
   link: ekokassi
   scode: '9337259000521'
   cost: 3.45
-  inventory: 2
+  inventory: 5
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -71163,7 +71163,7 @@
   link: ekokassi
   scode: '9337259000552'
   cost: 3.45
-  inventory: 0
+  inventory: 3
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -71179,7 +71179,7 @@
   link: ekokassi
   scode: '9337259000545'
   cost: 3.45
-  inventory: 4
+  inventory: 7
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -71195,7 +71195,7 @@
   link: ekokassi
   scode: '9337259000538'
   cost: 3.45
-  inventory: 2
+  inventory: 5
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -73341,7 +73341,7 @@
   created_at: 2013-07-15 13:11:41.000000000 Z
   link: kevaan-henkays-vihrea-valkoinen-tee-1
   scode: '4009636180076'
-  inventory: 3
+  inventory: 2
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
@@ -75749,7 +75749,7 @@
   created_at: 2013-10-15 11:41:21.000000000 Z
   link: pikkulaukku-glocky
   scode: 4035358062444-GL
-  inventory: 2
+  inventory: 1
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Belly Mode"}'
   online: false
@@ -76750,7 +76750,7 @@
   link: glow-s
   scode: 4023107138120-S
   cost: 3.0
-  inventory: 1
+  inventory: 0
   tax: 24.0
   properties: '{"Valmistaja":"Bell Arte","Tuoteryhm\u00e4":"Koristeesineet"}'
   online: false
@@ -77160,7 +77160,7 @@
   created_at: 2013-11-05 12:43:21.000000000 Z
   link: mango-inkivaari-yrttitee
   scode: ''
-  inventory: 3
+  inventory: 1
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"gourmet","Valmistaja":"D&B"}'
   online: false
@@ -77174,7 +77174,7 @@
   created_at: 2013-11-05 12:46:53.000000000 Z
   link: makea-viettelys-rooibostee
   scode: ''
-  inventory: 1
+  inventory: 0
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"gourmet","Valmistaja":"D&B"}'
   online: false
@@ -77597,7 +77597,7 @@
   created_at: 2013-11-12 12:43:25.000000000 Z
   link: rooibos-athena
   scode: '4009636025742'
-  inventory: 2
+  inventory: 1
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
@@ -77933,7 +77933,7 @@
   created_at: 2013-12-05 09:54:21.000000000 Z
   link: tummalla-suklaalla-kuorrutetut-viikunat
   scode: '10010013'
-  inventory: -4
+  inventory: 1
   tax: 24.0
   properties: '{}'
   online: false
@@ -77949,7 +77949,7 @@
   created_at: 2013-12-05 10:47:09.000000000 Z
   link: vihrea-tee-sencha-mangon-vuosituhat
   scode: ''
-  inventory: 2
+  inventory: 1
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -77995,7 +77995,7 @@
   created_at: 2013-12-05 12:07:38.000000000 Z
   link: hedelmatee-happy-colada
   scode: ''
-  inventory: 1
+  inventory: 2
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -78088,7 +78088,7 @@
   link: ekokassi
   scode: '9337259004185'
   cost: 3.45
-  inventory: 3
+  inventory: 4
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78104,7 +78104,7 @@
   link: ekokassi
   scode: '9337259004161'
   cost: 3.45
-  inventory: 3
+  inventory: 6
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78120,7 +78120,7 @@
   link: ekokassi
   scode: '9337259004178'
   cost: 3.45
-  inventory: 5
+  inventory: 8
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78136,7 +78136,7 @@
   link: ekokassi
   scode: '9337259004208'
   cost: 3.45
-  inventory: 4
+  inventory: 7
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78152,7 +78152,7 @@
   link: ekokassi
   scode: '9337259004192'
   cost: 3.45
-  inventory: 3
+  inventory: 6
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78168,7 +78168,7 @@
   link: ekokassi
   scode: '9337259004253'
   cost: 3.45
-  inventory: 3
+  inventory: 5
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78184,7 +78184,7 @@
   link: ekokassi
   scode: '9337259004222'
   cost: 3.45
-  inventory: 3
+  inventory: 6
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78200,7 +78200,7 @@
   link: ekokassi
   scode: '9337259004277'
   cost: 3.45
-  inventory: 2
+  inventory: 5
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78216,7 +78216,7 @@
   link: ekokassi
   scode: '9337259004239'
   cost: 3.45
-  inventory: 3
+  inventory: 6
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78232,7 +78232,7 @@
   link: ekokassi
   scode: '9337259004246'
   cost: 3.45
-  inventory: 1
+  inventory: 4
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Laukut","Valmistaja":"Envirosax"}'
   online: false
@@ -78378,7 +78378,7 @@
   created_at: 2013-12-11 12:00:04.000000000 Z
   link: luomusuklaa-mayan-pepper-chai
   scode: ''
-  inventory: 11
+  inventory: 10
   tax: 24.0
   properties: '{}'
   online: false
@@ -78462,7 +78462,7 @@
   created_at: 2013-12-11 16:52:06.000000000 Z
   link: belgialainen-suklaa-1
   scode: P-376
-  inventory: 25
+  inventory: 23
   tax: 24.0
   properties: '{}'
   online: false
@@ -78890,7 +78890,7 @@
   created_at: 2013-12-14 13:21:48.000000000 Z
   link: mausteinen-kaakao
   scode: '3474340088078'
-  inventory: 3
+  inventory: 2
   tax: 14.0
   properties: '{}'
   online: false
@@ -79297,7 +79297,7 @@
   created_at: 2013-12-21 10:23:36.000000000 Z
   link: karibian-suudelma
   scode: '4009636152189'
-  inventory: 3
+  inventory: 1
   tax: 24.0
   properties: '{"Valmistaja":"D&B","Tuoteryhm\u00e4":"Gourmet"}'
   online: false
@@ -79311,7 +79311,7 @@
   created_at: 2013-12-21 11:03:36.000000000 Z
   link: rooibos-mango-mansikka-bambu
   scode: '4009636025100'
-  inventory: 0
+  inventory: 2
   tax: 24.0
   properties: '{"Tuoteryhm\u00e4":"Gourmet","Valmistaja":"D&B"}'
   online: false
