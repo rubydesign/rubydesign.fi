@@ -1,10 +1,16 @@
+ require 'bcrypt'
+ 
 class Clerk < ActiveRecord::Base
   PEPPER = "0bfa9e2cb4a5efd0d976518a3d82e345060547913d2fd1dd2f32b0c8dbbbb5d3dc20b86d0fed31aca9513bccdf51643700ea277d9c64d9ce8ef886bf39293453"
   has_many :basket
 
+  attr_accessor :password , :password_confirmation
+
   after_create :prepare_password
+  validates_presence_of :password, :on => :create
   validates_uniqueness_of :email
   validates :email, :presence => true, :email => true
+  validates_confirmation_of :password
 
   store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
 

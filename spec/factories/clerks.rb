@@ -7,13 +7,8 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     # confirmed_at Time.now
+    factory :admin do
+      admin true
+    end
   end
-
-  factory :admin_clerk do
-    name 'Admin Clerk'
-    email 'torsten@villataika.fi'
-    password 'password'
-    password_confirmation 'password'
-  end
-
 end
