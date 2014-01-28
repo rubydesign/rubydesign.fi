@@ -72,7 +72,8 @@ class Basket < ActiveRecord::Base
     if exists
       exists.quantity += quant
     else
-      exists = items.new :quantity => quant , :product => prod , :price => prod.price , :tax => prod.tax
+      exists = items.new :quantity => quant , :product => prod , :price => prod.price , 
+                         :tax => prod.tax , :name => prod.full_name
     end
     exists.save!
     reload

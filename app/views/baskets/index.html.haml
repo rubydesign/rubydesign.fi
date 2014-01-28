@@ -34,7 +34,7 @@
                 - basket.items.each do |item| #should break at 5 and do the rest as tooltip
                   = item.quantity
                   x
-                  = item.product.name if item.product # maybe thumbs
+                  = item.name
                   %br
               %td= link_to t(:show) , basket_path(basket), :title => t(:show)
   .medium-3.columns

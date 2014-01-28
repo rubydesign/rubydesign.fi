@@ -4,6 +4,7 @@ class Items < ActiveRecord::Migration
       t.integer     :quantity , :default => 1
       t.float       :price , :default => 0
       t.float       :tax , :default => 0
+      t.string      :name
       t.references  :product
       t.references  :basket
 
