@@ -4,21 +4,25 @@ markus.janhunen@iki.fi:
   encrypted_password: e4ec276736c66acabbd06d91cc9b782a1b36b01e03ad81ad155831f3a57d6c645dea61ebf6149fb6cf7dcdfd422b0ebbbe7088164426d3f9410460a66b1580df
   password_salt: arpjiqGNFjsUeqCg3Qxw
   created_at: 2010-01-03 09:46:51.000000000 Z
+  admin: true
 pirita.pauni@gmail.com:
   email: pirita.pauni@gmail.com
   encrypted_password: fded65022027a9622d158f3a38b3a201ae4575ab86d7565c00721ac8a81b31329cdda858a0a14ffc2f41424d04d4419bb289ccba1f402ed18eb883d4e8393c19
   password_salt: Gfi9ozcQqyJNeMoiTXhJ
   created_at: 2011-10-24 08:06:39.000000000 Z
+  admin: true
 hannaholma@gmail.com:
   email: hannaholma@gmail.com
   encrypted_password: 2a2146e9d5b2badf02731c56b6de41ff96cf921426b8690f2023400da44d0e70eff3c714e7a090cedbb3d9d50c0001af3214802687f8e2d22bfef52606444114
   password_salt: q6YzY3QKHAyipsgGHid6
   created_at: 2011-09-18 12:27:37.000000000 Z
+  admin: true
 minnaj@iki.fi:
   email: minnaj@iki.fi
   encrypted_password: 69ae03f477eb01d4da5233a1d1b6cdde196d7d31d5d44b7b0967b338becf979e840e686d835225548254cb70377ccfca4fc9e30d6241966c64612de15a3b2e01
   password_salt: Uqc2smVjwsXzcjsdmsnf
   created_at: 2011-10-24 08:07:09.000000000 Z
+  admin: true
 pasanenj@ovi.com:
   email: pasanenj@ovi.com
   encrypted_password: 9942a6b264f5528f01dbb9f66c0191c99abe7936c02e43311f5832dace3e60bba5ec43827d6c7ae659643fd02cd1106fcd16190d2c6ced0cc17206a240029b1c
@@ -30,6 +34,7 @@ raisa@villataika.fi:
   encrypted_password: 2687dd72bb98a22f5e9d42db3c85bbea7e22ff13fbc0e9f428613d90aeb49ef2fee17af670f069758e3cc01688cc1d91110cf8285e8df14c496c7bc2f816f727
   password_salt: iyEb5P5fRTkSxVKR8wrV
   created_at: 2011-10-24 08:06:00.000000000 Z
+  admin: true
 mlk.rissanen@gmail.com:
   email: mlk.rissanen@gmail.com
   encrypted_password: 829a9fc1579118a66c3c07d0508d457419af70db1637a31dc011e7aff533f0e9d33ed1a766f785a6b522d6cba14d92893c80919d049bac81f8dda583789ab85a
@@ -43,6 +48,7 @@ torsten@villataika.fi:
   created_at: 2010-01-01 13:36:41.000000000 Z
   address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
     Antskog","phone":"0407308052"}'
+  admin: true
 sanna.siniketo@sofigate.com:
   email: sanna.siniketo@sofigate.com
   encrypted_password: 26cb9f671108c9b5c9f1ec1aa0ace34bbb440b195c565877d9856a17a2f106274911fd5c453b1c00b0ed02d2111e71d310e6638bbbdd6a7d7fe81dc2039c4075
@@ -270,6 +276,7 @@ anne.pulliainen@gmail.com:
   encrypted_password: f3f08837403aa64d1eea78ad7d3cf7b751a607179ac683d78a7595c53400eb8090fcd71337a1b484e310ad88971b7253b77fdc24bb2d38ac9f3ed15455689e1a
   password_salt: 6CB2bCnMQpZTStR399Q2
   created_at: 2011-09-18 12:27:02.000000000 Z
+  admin: true
 anna.smura@Gmail.com:
   email: anna.smura@Gmail.com
   encrypted_password: ad41b7f96668c364da46d5aceefc1afa0419da681939213bf6e2e21fa5330a19b0f6283e1e17a1c39cc8edc34aebcfa1651309beefa8c514a32c41e76333ddb3
