@@ -7,7 +7,10 @@ class Orders < ActiveRecord::Migration
       t.date        :paid_on
       t.date        :canceled_on
       t.date        :shipped_on
+      t.string      :payment_type
+      t.string      :payment_info
       t.string      :shipment_type
+      t.string      :shipment_info
       t.float       :shipping_price , :default => 0
       t.float       :shipping_tax   , :default => 0
       t.string      :address
