@@ -13,6 +13,7 @@ class Products < ActiveRecord::Migration
       t.string      :ean,           :default => ""
       t.float       :tax,           :default => 0.0
       t.integer     :inventory ,    :default => 0
+      t.integer     :stock_level ,  :default => 0
       t.string      :properties,    :default => ""
       t.string      :scode,         :default => ""
       t.date        :deleted_on
