@@ -7,6 +7,9 @@
 $topbar-bg: #108BAD;
 $highlight: #108BAD;
 $open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+$secondary-color: #c7e1df;
+$crumb-bg: lighten($secondary-color, 2%);
+$crumb-border-style: none;
 
 @import "shop_foundation" ;
 
@@ -16,7 +19,7 @@ $open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
     
 .logo {
   	background-image: url(shop/kansi.jpg);
-  	height: 270px;
+  	height: 250px;
 }   
 
 .top-bar-section form {
@@ -54,6 +57,7 @@ body {
 }
 
 .menu-wrapper h3 {
+  font-size: 1.45rem;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -64,7 +68,7 @@ body {
   background: rgba(70,3,21,0.25);
 	text-shadow: black 1px 1px 03px;
   margin: 0px;
-	width: 460px;
+	width: 100%;
 }
 
 .menu-wrapper h4 {
@@ -97,12 +101,17 @@ body {
 	margin-bottom: 12px;
 }
 
-.intro2 img {
+.intro2, .intro3 img {
   width: 150px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+.intro3 p {
+  font-size: .8em;
+	line-height: 130%;
+	margin-bottom: 12px;
+}
 
 
   
@@ -177,6 +186,7 @@ h1.product-title {
 }
 
 #product-description {
+  font-size: 0.9rem;
 	line-height: 120%;
 	border-bottom: 1px dotted #007bd2;
 	margin-top: 10px;
@@ -238,5 +248,9 @@ span.price.selling {
   /* fallback color */
   background: rgba(0, 0, 0, 0.3);
 	padding: 6px;
+}
+
+.bread {
+  margin-top: 12;
 }
 
