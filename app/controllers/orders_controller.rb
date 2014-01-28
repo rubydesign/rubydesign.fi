@@ -68,7 +68,7 @@ class OrdersController < AdminController
   end
 
   def params_for_model
-    params.require(:order).permit(:ordered_on,:shipping_price,:shipping_tax,:basket_id,:email,:paid_on,:shipped_on,:paid_on,:canceled_on,:shipment_type)
+    params.require(:order).permit(:ordered_on,:shipment_price,:shipment_tax,:basket_id,:email,:paid_on,:shipped_on,:paid_on,:canceled_on,:shipment_type)
   end
 end
 

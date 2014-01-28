@@ -17,8 +17,8 @@ class BasketsController < AdminController
     order = @basket.kori || Order.new( :basket => @basket )
     order.paid_on    = Date.today unless order.paid_on
     order.shipped_on = Date.today unless order.shipped_on
-    order.shipping_price = 0 unless order.shipping_price
-    order.shipping_tax   = 0 unless order.shipping_tax
+    order.shipment_price = 0 unless order.shipment_price
+    order.shipment_tax   = 0 unless order.shipment_tax
     order.save!
     redirect_to :action => :print , :controller => :orders , :id => order.id
   end

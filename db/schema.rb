@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "payment_info"
     t.string   "shipment_type"
     t.string   "shipment_info"
-    t.float    "shipping_price", default: 0.0
-    t.float    "shipping_tax",   default: 0.0
+    t.float    "shipment_price", default: 0.0
+    t.float    "shipment_tax",   default: 0.0
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"

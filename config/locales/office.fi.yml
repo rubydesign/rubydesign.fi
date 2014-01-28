@@ -138,7 +138,7 @@ fi:
   search: Hae
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty
-  shipping_price: Lähetyksen hinta
+  shipment_price: Lähetyksen hinta
   shop: Kauppa
   show: Näytä
   sign_in: Kirjaudu sisään
