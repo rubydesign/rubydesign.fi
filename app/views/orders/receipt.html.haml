@@ -27,24 +27,10 @@
       .wrapper
         .line_items
           %table.line_items
-            %colgroup
-              %col/
-              %col/
-              %col.price/
-              %col.qty/
-              %col.total/
             %tbody
-              %tr
-                %td.sku.bold
-                %td.desc.bold= t(:description)
-                %td.price.bold= t(:price)
-                %td.qty.bold= t(:quantity)
-                %td.total.bold= t(:total)
               - @order.basket.items.each do |i|
                 %tr
-                  %td.cell
                   %td.cell= i.product.name
-                  %td.cell.price= euros i.price
                   %td.cell.qty= i.quantity
                   %td.cell.total= euros i.total
         .spacer
@@ -65,7 +51,7 @@
                 %tr.total
                   %td.cel1.bold
                     = t(:vat) + " " + tax_rate.to_s + " % "
-                  %td.cel2.cell{align: "right"}= amount
+                  %td.cel2.cell{align: "right"}= euros amount
       .footer
         %br/
         www.auringostaitaan.fi
