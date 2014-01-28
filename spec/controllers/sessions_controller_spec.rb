@@ -10,16 +10,16 @@ describe SessionsController do
   end
 
   it "create action should render new template when authentication is invalid" do
-    User.stubs(:authenticate).returns(nil)
+    Clerk.stubs(:authenticate).returns(nil)
     post :create
     response.should render_template(:new)
-    session['user_id'].should be_nil
+    session['clerk_id'].should be_nil
   end
 
   it "create action should redirect when authentication is valid" do
-    User.stubs(:authenticate).returns(User.first)
+    Clerk.stubs(:authenticate).returns(Clerk.first)
     post :create
     response.should redirect_to(root_url)
-    session['user_id'].should == User.first.id
+    session['clerk_id'].should == Clerk.first.id
   end
 end

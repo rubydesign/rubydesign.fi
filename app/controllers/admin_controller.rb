@@ -8,8 +8,8 @@ class AdminController < ApplicationController
   before_filter :require_admin
   
   def require_admin
-    user = current_user
-    return if user and user.admin
+    clerk = current_clerk
+    return if clerk and clerk.admin
     redirect_to sign_in_url
   end
   

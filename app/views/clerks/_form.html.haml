@@ -1,11 +1,11 @@
-= form_for(@user, :html => { :class => "form-horizontal" }) do |f|
-  - if @user.errors.any?
+= form_for(@clerk, :html => { :class => "form-horizontal" }) do |f|
+  - if @clerk.errors.any?
     #error_explanation
       %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being saved:
+        = pluralize(@clerk.errors.count, "error")
+        prohibited this clerk from being saved:
       %ul
-        - @user.errors.full_messages.each do |msg|
+        - @clerk.errors.full_messages.each do |msg|
           %li= msg
   .controls
     = f.check_box :admin
@@ -19,7 +19,7 @@
     = f.text_field :city
   .controls
     = f.text_field :phone
-  -unless @user.new_record?
+  -unless @clerk.new_record?
     =f.label t(:may_be_blank)
   .controls
     = f.password_field :password

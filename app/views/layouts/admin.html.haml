@@ -18,8 +18,8 @@
         / Right Nav Section
         %ul.right
           %li
-          - if current_user
-            %li= link_to current_user.email , edit_user_path(current_user)
+          - if current_clerk
+            %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
             %li= link_to t(:sign_out), sign_out_path
           - else
             %li= link_to t(:sign_in), sign_in_path

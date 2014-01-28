@@ -1,6 +1,6 @@
-class Users < ActiveRecord::Migration
+class Clerks < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    create_table(:clerks) do |t|
       t.string :email,              :null => false, :default => ""
       t.boolean :admin , :default => false
       t.string :encrypted_password
@@ -10,6 +10,6 @@ class Users < ActiveRecord::Migration
       t.string  :address
       t.timestamps
     end
-    add_index :users, :email,                :unique => true
+    add_index :clerks, :email,                :unique => true
   end
 end

@@ -1,22 +1,22 @@
 require 'spec_helper'
 
-describe User  do
+describe Clerk  do
   it "lists product groups" do
-    visit users_path
+    visit clerks_path
     should_translate page
   end
   it "creates a new group" do
-    visit new_user_path
+    visit new_clerk_path
     should_translate page
   end
   it "edit" do
-    @user = create(:user)
-    visit edit_user_path(@user)
+    @clerk = create(:clerk)
+    visit edit_clerk_path(@clerk)
     should_translate page
   end
   it "shows" do
-    @user = create(:user)
-    visit user_path(@user)
+    @clerk = create(:clerk)
+    visit clerk_path(@clerk)
     should_translate page
   end
 end

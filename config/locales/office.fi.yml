@@ -29,7 +29,7 @@ fi:
         phone: Puhelin
         street: Osoite
         supplier_name: Tuottaja
-      user:
+      clerk:
         city: Kaupunki
         email: S-posti
         name: Nimi
@@ -44,7 +44,7 @@ fi:
       product: Tuote
       purchase: Sisäänosto
       supplier: Tuottaja
-      user: Käyttäjä
+      clerk: Käyttäjä
   add: Lisää
   add_inventory: Lisää inventaarioon
   add_to_basket: Lisää ostoskoriin
@@ -173,8 +173,8 @@ fi:
   type: Laji
   update_success: Päivitetty onnistuneesti
   updated: Päivitetty
-  user: Käyttäjä
-  users: Käyttäjät
+  clerk: Käyttäjä
+  clerks: Käyttäjät
   vat: alv
   weight: Paino
   will_paginate:

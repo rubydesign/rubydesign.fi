@@ -1,0 +1,19 @@
+%h2
+  = t(:clerk) + " : " + @clerk.email
+  -if @clerk.admin
+    (
+    =t(:admin) 
+    )
+%p
+  %b= t(:address)
+%p
+  %b= t(:name) + " : " + @clerk.name.to_s
+%p
+  %b= t(:street) + " : " + @clerk.street.to_s
+%p
+  %b= t(:city) + " : " + @clerk.city.to_s
+%p
+  %b= t(:phone) + " : " + @clerk.phone.to_s
+
+= link_to t(:edit), edit_clerk_path(@clerk), :class => "admin-button"
+= link_to t(:back), clerks_path, :class => "admin-button"

@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20131226151332) do
 
   add_index "categories", ["link"], name: "index_categories_on_link", unique: true
 
+  create_table "clerks", force: true do |t|
+    t.string   "email",              default: "",    null: false
+    t.boolean  "admin",              default: false
+    t.string   "encrypted_password"
+    t.string   "password_salt"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clerks", ["email"], name: "index_clerks_on_email", unique: true
+
   create_table "items", force: true do |t|
     t.integer  "quantity",   default: 1
     t.float    "price",      default: 0.0
@@ -116,17 +128,5 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "users", force: true do |t|
-    t.string   "email",              default: "",    null: false
-    t.boolean  "admin",              default: false
-    t.string   "encrypted_password"
-    t.string   "password_salt"
-    t.string   "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

@@ -1,7 +1,0 @@
-%h2
-  = t(:new)
-  = t(:user)
-  -if @user.admin
-    =t(:admin) 
-= render 'form'
-= link_to t(:back), users_path, :class => "admin-button"

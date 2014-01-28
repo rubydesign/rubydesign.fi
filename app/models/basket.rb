@@ -49,7 +49,7 @@ class Basket < ActiveRecord::Base
     self.receive!
   end
 
-  #type is one of order purchase , user or cart depending on who "owns" the basket
+  #type is one of order purchase , clerk or cart depending on who "owns" the basket
   def type
     self.kori_type
   end

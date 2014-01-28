@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Clerk < ActiveRecord::Base
   PEPPER = "0bfa9e2cb4a5efd0d976518a3d82e345060547913d2fd1dd2f32b0c8dbbbb5d3dc20b86d0fed31aca9513bccdf51643700ea277d9c64d9ce8ef886bf39293453"
   has_many :basket
 

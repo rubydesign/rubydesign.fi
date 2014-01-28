@@ -5,13 +5,13 @@ OfficeClerk::Application.routes.draw do
 
   get "sign_out" => "sessions#destroy", :as => "sign_out"
   get "sign_in"  => "sessions#new",     :as => "sign_in"
-  get "sign_up" => "sessios#new_user", :as => "sign_up"
-#  root :to => "users#new"
+  get "sign_up" => "sessios#new_clerk", :as => "sign_up"
+#  root :to => "clerks#new"
 
   resources :sessions do
     member do
-      get :new_user
-      get :create_user
+      get :new_clerk
+      get :create_clerk
     end
   end
   
@@ -72,9 +72,9 @@ OfficeClerk::Application.routes.draw do
     end
   end
 
-  resources :users do
+  resources :clerks do
     collection do
-      match "search" => "users#index", :via => [:get, :post]
+      match "search" => "clerks#index", :via => [:get, :post]
     end
     member do
     end
