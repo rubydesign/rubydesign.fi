@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-gem "rb-readline"
 
 gem 'rails'
 gem 'sqlite3'
+
+#ui
 gem 'sass-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'turbolinks'
+
+# template
 gem 'simple_form'
 gem "haml"
 gem "will_paginate"
@@ -18,20 +18,29 @@ gem "prawn"
 gem "foundation-rails"
 gem 'will_paginate-foundation'
 gem 'foundation_rails_helper'
-gem 'db_fixtures_dump'
+
 gem "paperclip"
 gem 'facet_for' 
+gem 'turbolinks'
 gem 'rails-i18n'
+
 gem "barby"
 gem "chunky_png"
 gem "bcrypt-ruby"
+
+#misc
 gem "valid_email" , :require => 'valid_email/email_validator' #no mx checking
 
+#asset / production reelated
 gem "therubyracer" 
 gem "libv8" , "3.16.14.3"
+gem "rb-readline"
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails'
 
 group :development do
   gem "migrate_spree", :path => "../migrate_spree"
+  gem 'db_fixtures_dump'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
