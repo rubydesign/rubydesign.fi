@@ -175,7 +175,7 @@ fi:
   updated: Päivitetty
   clerk: Käyttäjä
   clerks: Käyttäjät
-  vat: Alv
+  vat:  Alv
   weight: Paino
   will_paginate:
     next_label: seuraava

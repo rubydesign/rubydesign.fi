@@ -173,7 +173,7 @@ en:
   updated: Updated
   clerk: User
   clerks: Users
-  vat: Vat
+  vat:  Vat
   weight: Weight
   will_paginate:
     next_label: Next &#8594;
