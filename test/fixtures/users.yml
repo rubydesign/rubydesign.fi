@@ -1,423 +1,361 @@
 ---
-pasanenj@ovi.com:
-  email: pasanenj@ovi.com
-  encrypted_password: 9942a6b264f5528f01dbb9f66c0191c99abe7936c02e43311f5832dace3e60bba5ec43827d6c7ae659643fd02cd1106fcd16190d2c6ced0cc17206a240029b1c
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2011-11-06 18:49:08.000000000 Z
-  last_sign_in_at: 2011-11-06 18:49:08.000000000 Z
-  current_sign_in_ip: 88.192.116.166
-  last_sign_in_ip: 88.192.116.166
-  created_at: 2011-11-06 18:49:08.000000000 Z
-mlk.rissanen@gmail.com:
-  email: mlk.rissanen@gmail.com
-  encrypted_password: 829a9fc1579118a66c3c07d0508d457419af70db1637a31dc011e7aff533f0e9d33ed1a766f785a6b522d6cba14d92893c80919d049bac81f8dda583789ab85a
-  remember_created_at: 
-  sign_in_count: 7
-  current_sign_in_at: 2011-11-27 13:37:39.000000000 Z
-  last_sign_in_at: 2011-11-27 11:11:55.000000000 Z
-  current_sign_in_ip: 85.76.108.77
-  last_sign_in_ip: 85.76.108.77
-  created_at: 2011-11-16 18:32:11.000000000 Z
-hannaholma@gmail.com:
-  email: hannaholma@gmail.com
-  encrypted_password: 2a2146e9d5b2badf02731c56b6de41ff96cf921426b8690f2023400da44d0e70eff3c714e7a090cedbb3d9d50c0001af3214802687f8e2d22bfef52606444114
-  remember_created_at: 
-  sign_in_count: 554
-  current_sign_in_at: 2014-01-22 12:47:04.000000000 Z
-  last_sign_in_at: 2014-01-20 09:12:10.000000000 Z
-  current_sign_in_ip: 85.76.75.56
-  last_sign_in_ip: 85.76.131.200
-  created_at: 2011-09-18 12:27:37.000000000 Z
-raisa@villataika.fi:
-  email: raisa@villataika.fi
-  encrypted_password: 2687dd72bb98a22f5e9d42db3c85bbea7e22ff13fbc0e9f428613d90aeb49ef2fee17af670f069758e3cc01688cc1d91110cf8285e8df14c496c7bc2f816f727
-  remember_created_at: 
-  sign_in_count: 218
-  current_sign_in_at: 2014-01-07 16:21:20.000000000 Z
-  last_sign_in_at: 2014-01-03 09:01:29.000000000 Z
-  current_sign_in_ip: 91.150.19.42
-  last_sign_in_ip: 85.76.166.132
-  created_at: 2011-10-24 08:06:00.000000000 Z
-pirita.pauni@gmail.com:
-  email: pirita.pauni@gmail.com
-  encrypted_password: fded65022027a9622d158f3a38b3a201ae4575ab86d7565c00721ac8a81b31329cdda858a0a14ffc2f41424d04d4419bb289ccba1f402ed18eb883d4e8393c19
-  remember_created_at: 
-  sign_in_count: 734
-  current_sign_in_at: 2014-01-22 09:24:12.000000000 Z
-  last_sign_in_at: 2014-01-21 15:36:03.000000000 Z
-  current_sign_in_ip: 85.76.75.56
-  last_sign_in_ip: 85.76.135.153
-  created_at: 2011-10-24 08:06:39.000000000 Z
-torsten@villataika.fi:
-  email: torsten@villataika.fi
-  encrypted_password: 4634bcd677115c82393ba3955d4f782c163cf7070d3246ed833c663b9385a082ea7cc2a23c11754753955dd21206703f0a2926075ffe6fb131ff9626db4fb629
-  remember_created_at: 
-  sign_in_count: 224
-  current_sign_in_at: 2013-12-21 13:33:59.000000000 Z
-  last_sign_in_at: 2013-12-12 09:54:52.000000000 Z
-  current_sign_in_ip: 85.76.169.71
-  last_sign_in_ip: 85.76.2.125
-  created_at: 2010-01-01 13:36:41.000000000 Z
-  address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
-    Antskog","phone":"0407308052"}'
-minnaj@iki.fi:
-  email: minnaj@iki.fi
-  encrypted_password: 69ae03f477eb01d4da5233a1d1b6cdde196d7d31d5d44b7b0967b338becf979e840e686d835225548254cb70377ccfca4fc9e30d6241966c64612de15a3b2e01
-  remember_created_at: 
-  sign_in_count: 538
-  current_sign_in_at: 2014-01-21 08:48:45.000000000 Z
-  last_sign_in_at: 2014-01-20 14:02:49.000000000 Z
-  current_sign_in_ip: 85.76.131.200
-  last_sign_in_ip: 85.76.131.200
-  created_at: 2011-10-24 08:07:09.000000000 Z
-sanna.siniketo@sofigate.com:
-  email: sanna.siniketo@sofigate.com
-  encrypted_password: 26cb9f671108c9b5c9f1ec1aa0ace34bbb440b195c565877d9856a17a2f106274911fd5c453b1c00b0ed02d2111e71d310e6638bbbdd6a7d7fe81dc2039c4075
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2011-11-28 16:11:36.000000000 Z
-  last_sign_in_at: 2011-11-28 16:11:36.000000000 Z
-  current_sign_in_ip: 80.220.120.176
-  last_sign_in_ip: 80.220.120.176
-  created_at: 2011-11-28 16:11:36.000000000 Z
-torsten.ruger@gmail.com:
-  email: torsten.ruger@gmail.com
-  encrypted_password: dfc52be266beef90726934406f647890a6c7bf08fdd2293eaeaebf1eccfdd04de8d32200471c7c244ff5a562fb26888e16f9c7941ba2a45cb21c7ca34271820b
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2011-12-04 16:44:05.000000000 Z
-  last_sign_in_at: 2011-12-04 16:44:05.000000000 Z
-  current_sign_in_ip: 91.150.20.117
-  last_sign_in_ip: 91.150.20.117
-  created_at: 2011-12-04 16:44:05.000000000 Z
-natali.sayenko@pp.inet.fi:
-  email: natali.sayenko@pp.inet.fi
-  encrypted_password: 54b5ac1bbcc0c71b759be3138ecc4591ba0d5be1309ac79bc2820c29528e8747f0bf93c4ada38b4d20126e40455abf8fd582a6b4865be407a7623e8c3aec7303
-  remember_created_at: 2012-07-27 17:27:40.000000000 Z
-  sign_in_count: 9
-  current_sign_in_at: 2012-07-27 17:27:40.000000000 Z
-  last_sign_in_at: 2012-04-22 13:12:50.000000000 Z
-  current_sign_in_ip: 84.251.187.213
-  last_sign_in_ip: 80.223.140.228
-  created_at: 2011-12-26 18:32:40.000000000 Z
-pia.rehell@gmail.com:
-  email: pia.rehell@gmail.com
-  encrypted_password: 524667403526330779b7fc08c9f597b35ee579d6c3fa10a294bc7699dde2e573dc115c8408845c8e7a64d16b759edbc8c514f0426e319eb98eac44ddeef4ba3a
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-01-12 16:56:23.000000000 Z
-  last_sign_in_at: 2012-01-12 16:56:23.000000000 Z
-  current_sign_in_ip: 88.112.207.18
-  last_sign_in_ip: 88.112.207.18
-  created_at: 2012-01-12 16:56:23.000000000 Z
-Maria@salongwellness.fi:
-  email: Maria@salongwellness.fi
-  encrypted_password: ab08d78322773d10df2c14e9e5e0116e6c1a2bb5e160f72bfadda289e6b5662ab05946afc1c51d04150d08035a645e199804dca4b1c4f287ddca4387d4cf0c80
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-01-12 21:37:40.000000000 Z
-  last_sign_in_at: 2012-01-12 21:37:40.000000000 Z
-  current_sign_in_ip: 88.195.122.179
-  last_sign_in_ip: 88.195.122.179
-  created_at: 2012-01-12 21:37:40.000000000 Z
-meemi.luoma@luukku.com:
-  email: meemi.luoma@luukku.com
-  encrypted_password: 37a0653101294ecc99fd7a79b6a06490ad37b8cc6d2e2198501fc558019968a3e177705c18de91ee6b0d523e074ba91b8b080ef78cbe48b42f877613f2b84ecd
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-01-27 14:33:23.000000000 Z
-  last_sign_in_at: 2012-01-27 14:33:23.000000000 Z
-  current_sign_in_ip: 94.199.118.97
-  last_sign_in_ip: 94.199.118.97
-  created_at: 2012-01-27 14:33:23.000000000 Z
 markus.janhunen@iki.fi:
   email: markus.janhunen@iki.fi
   encrypted_password: e4ec276736c66acabbd06d91cc9b782a1b36b01e03ad81ad155831f3a57d6c645dea61ebf6149fb6cf7dcdfd422b0ebbbe7088164426d3f9410460a66b1580df
-  remember_created_at: 
-  sign_in_count: 197
-  current_sign_in_at: 2013-12-31 17:48:31.000000000 Z
-  last_sign_in_at: 2013-12-12 18:24:50.000000000 Z
-  current_sign_in_ip: 91.150.21.131
-  last_sign_in_ip: 188.238.177.146
+  password_salt: arpjiqGNFjsUeqCg3Qxw
   created_at: 2010-01-03 09:46:51.000000000 Z
+pirita.pauni@gmail.com:
+  email: pirita.pauni@gmail.com
+  encrypted_password: fded65022027a9622d158f3a38b3a201ae4575ab86d7565c00721ac8a81b31329cdda858a0a14ffc2f41424d04d4419bb289ccba1f402ed18eb883d4e8393c19
+  password_salt: Gfi9ozcQqyJNeMoiTXhJ
+  created_at: 2011-10-24 08:06:39.000000000 Z
+hannaholma@gmail.com:
+  email: hannaholma@gmail.com
+  encrypted_password: 2a2146e9d5b2badf02731c56b6de41ff96cf921426b8690f2023400da44d0e70eff3c714e7a090cedbb3d9d50c0001af3214802687f8e2d22bfef52606444114
+  password_salt: q6YzY3QKHAyipsgGHid6
+  created_at: 2011-09-18 12:27:37.000000000 Z
+minnaj@iki.fi:
+  email: minnaj@iki.fi
+  encrypted_password: 69ae03f477eb01d4da5233a1d1b6cdde196d7d31d5d44b7b0967b338becf979e840e686d835225548254cb70377ccfca4fc9e30d6241966c64612de15a3b2e01
+  password_salt: Uqc2smVjwsXzcjsdmsnf
+  created_at: 2011-10-24 08:07:09.000000000 Z
+pasanenj@ovi.com:
+  email: pasanenj@ovi.com
+  encrypted_password: 9942a6b264f5528f01dbb9f66c0191c99abe7936c02e43311f5832dace3e60bba5ec43827d6c7ae659643fd02cd1106fcd16190d2c6ced0cc17206a240029b1c
+  password_salt: dFujkncL5yY49msWs4V6
+  created_at: 2011-11-06 18:49:08.000000000 Z
+  address: '{"name":"Juha Pasanen","street":"Ilveksenkatu 3 ","city":"80130 Joensuu","phone":"0442933022"}'
+raisa@villataika.fi:
+  email: raisa@villataika.fi
+  encrypted_password: 2687dd72bb98a22f5e9d42db3c85bbea7e22ff13fbc0e9f428613d90aeb49ef2fee17af670f069758e3cc01688cc1d91110cf8285e8df14c496c7bc2f816f727
+  password_salt: iyEb5P5fRTkSxVKR8wrV
+  created_at: 2011-10-24 08:06:00.000000000 Z
+mlk.rissanen@gmail.com:
+  email: mlk.rissanen@gmail.com
+  encrypted_password: 829a9fc1579118a66c3c07d0508d457419af70db1637a31dc011e7aff533f0e9d33ed1a766f785a6b522d6cba14d92893c80919d049bac81f8dda583789ab85a
+  password_salt: qkJjUbExPyb5ws8qMCp9
+  created_at: 2011-11-16 18:32:11.000000000 Z
+  address: '{"name":"Marja-Leena Rissanen","street":"Kirkkotie 9 ","city":"58700 Sulkava","phone":"0404136436"}'
+torsten@villataika.fi:
+  email: torsten@villataika.fi
+  encrypted_password: 4634bcd677115c82393ba3955d4f782c163cf7070d3246ed833c663b9385a082ea7cc2a23c11754753955dd21206703f0a2926075ffe6fb131ff9626db4fb629
+  password_salt: gWdsWNOIADUEDiNWcL7J
+  created_at: 2010-01-01 13:36:41.000000000 Z
+  address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
+    Antskog","phone":"0407308052"}'
+sanna.siniketo@sofigate.com:
+  email: sanna.siniketo@sofigate.com
+  encrypted_password: 26cb9f671108c9b5c9f1ec1aa0ace34bbb440b195c565877d9856a17a2f106274911fd5c453b1c00b0ed02d2111e71d310e6638bbbdd6a7d7fe81dc2039c4075
+  password_salt: 6Co21pKCScpj2imez4pq
+  created_at: 2011-11-28 16:11:36.000000000 Z
+  address: '{"name":"Sanna Siniketo","street":"Kaskelanrinne 11 a ","city":"01200
+    Vantaa","phone":"040-5916678"}'
+torsten.ruger@gmail.com:
+  email: torsten.ruger@gmail.com
+  encrypted_password: dfc52be266beef90726934406f647890a6c7bf08fdd2293eaeaebf1eccfdd04de8d32200471c7c244ff5a562fb26888e16f9c7941ba2a45cb21c7ca34271820b
+  password_salt: T4kf74vi54V9P9rGtpH8
+  created_at: 2011-12-04 16:44:05.000000000 Z
+  address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
+    Antskog","phone":"358407308052"}'
+natali.sayenko@pp.inet.fi:
+  email: natali.sayenko@pp.inet.fi
+  encrypted_password: 54b5ac1bbcc0c71b759be3138ecc4591ba0d5be1309ac79bc2820c29528e8747f0bf93c4ada38b4d20126e40455abf8fd582a6b4865be407a7623e8c3aec7303
+  password_salt: K9PbsFUd3pv3huN52ENg
+  created_at: 2011-12-26 18:32:40.000000000 Z
+  address: '{"name":"Natalia Sayenko","street":"Kelhostenkuja 7 A1 ","city":"44150
+    \u00c4\u00e4nekoski","phone":"0468115607"}'
+pia.rehell@gmail.com:
+  email: pia.rehell@gmail.com
+  encrypted_password: 524667403526330779b7fc08c9f597b35ee579d6c3fa10a294bc7699dde2e573dc115c8408845c8e7a64d16b759edbc8c514f0426e319eb98eac44ddeef4ba3a
+  password_salt: gQ3hUGPoqSerSxy35AFn
+  created_at: 2012-01-12 16:56:23.000000000 Z
+  address: '{"name":"Pia Rehell","street":"Laurilantie 29 ","city":"11710 Riihim\u00e4ki","phone":"0414349176"}'
+Maria@salongwellness.fi:
+  email: Maria@salongwellness.fi
+  encrypted_password: ab08d78322773d10df2c14e9e5e0116e6c1a2bb5e160f72bfadda289e6b5662ab05946afc1c51d04150d08035a645e199804dca4b1c4f287ddca4387d4cf0c80
+  password_salt: Z2ysYbxjsDJEd4WBR5eQ
+  created_at: 2012-01-12 21:37:40.000000000 Z
+  address: '{"name":"Maria fagerstr\u00f6m","street":"Stabsgatan 15 B ","city":"10300
+    KARJAA","phone":"040-4159279"}'
+meemi.luoma@luukku.com:
+  email: meemi.luoma@luukku.com
+  encrypted_password: 37a0653101294ecc99fd7a79b6a06490ad37b8cc6d2e2198501fc558019968a3e177705c18de91ee6b0d523e074ba91b8b080ef78cbe48b42f877613f2b84ecd
+  password_salt: 9KzJUwqBxsecJ5rUkfda
+  created_at: 2012-01-27 14:33:23.000000000 Z
+  address: '{"name":"Mervi Luoma","street":"Em\u00e4nn\u00e4ntie 5 A 5 ","city":"76130
+    Pieks\u00e4m\u00e4ki","phone":"0505695398"}'
 kaisuberg@hotmail.com:
   email: kaisuberg@hotmail.com
   encrypted_password: ba75a71d0c82469a80360f58bdec6487910a1f46d7913696ea0d8335b2d1352238a950def6daa720da0324a2c25e5958de04674c725ce453cf0bb2b239bf35c4
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-02-04 19:51:21.000000000 Z
-  last_sign_in_at: 2012-02-04 19:51:21.000000000 Z
-  current_sign_in_ip: 85.23.21.23
-  last_sign_in_ip: 85.23.21.23
+  password_salt: NgsyYWzCG1qpiVkCN4qN
   created_at: 2012-02-04 19:51:21.000000000 Z
+  address: '{"name":"Kaisu Berg","street":"Kullervontie 2 A 1 ","city":"90570 oulu","phone":"040-7510242"}'
 tarja.luoto@nsn.com:
   email: tarja.luoto@nsn.com
   encrypted_password: fca372d820dc66aa2abc16c4cb54ef5c84da6d6d676080b8eb7da0b5f6a34ccedb3ef10bdc9b86c8deecad88be10bed674f04e0f279469f67514d11f45234d10
-  remember_created_at: 
-  sign_in_count: 0
-  current_sign_in_at: 
-  last_sign_in_at: 
-  current_sign_in_ip: 
-  last_sign_in_ip: 
+  password_salt: RfAZ1BvidnX5yXeaJhC4
   created_at: 2012-02-09 06:01:42.000000000 Z
+  address: '{"name":"Tarja Luoto","street":"Riihikatu 3 ","city":"37150 Nokia","phone":"050
+    487 7496"}'
 tiina.gronroos@wippies.fi:
   email: tiina.gronroos@wippies.fi
   encrypted_password: 381c6f75f5156a1a36ac163f41755ee94f13d5efdfa536cbcdbdd6432d0733e6a5e3456669705d5840824bc0099c64175cc0d4d72655fe333c232e123a454a61
-  remember_created_at: 
-  sign_in_count: 3
-  current_sign_in_at: 2012-03-01 22:15:59.000000000 Z
-  last_sign_in_at: 2012-02-25 22:08:54.000000000 Z
-  current_sign_in_ip: 82.181.28.236
-  last_sign_in_ip: 82.181.28.236
+  password_salt: djBkxzdpTVsskAhx3pEL
   created_at: 2012-02-01 21:21:49.000000000 Z
+  address: '{"name":"tiina gr\u00f6nroos","street":"siltavoudintie 15 A 4 ","city":"00640
+    helsinki","phone":"0440961961"}'
 outiritvanen@netti.fi:
   email: outiritvanen@netti.fi
   encrypted_password: ee1a129dcebbacb77bee15b0dac85a7018cc74a42c4cdb1ccd753dceb08f3161c79be86852923c8c71c3f5beec47bdc4b4100b98c84a0ac448c9034c0178e3fc
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-03-20 17:05:55.000000000 Z
-  last_sign_in_at: 2012-03-20 17:05:55.000000000 Z
-  current_sign_in_ip: 91.154.240.104
-  last_sign_in_ip: 91.154.240.104
+  password_salt: zge2Vfhh5MEh5ugHznSc
   created_at: 2012-03-20 17:05:55.000000000 Z
+  address: '{"name":"Outi Ritvanen","street":"Kaartokatu 17-19 D 48 ","city":"70620
+    Kuopio","phone":"0503239815"}'
 irene.alaranta@pp.inet.fi:
   email: irene.alaranta@pp.inet.fi
   encrypted_password: 7b1f2c0b420c25cfd1e41d6b5f375c6fbb786fb9e4524b0ac5e36baf0d1b9ec64a73f2b71a4b0bc69993edb8b8f0369b7fc016916a5cba3bbebe6326a6912bc9
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-04-22 05:41:44.000000000 Z
-  last_sign_in_at: 2012-04-22 05:41:44.000000000 Z
-  current_sign_in_ip: 192.89.123.41
-  last_sign_in_ip: 192.89.123.41
+  password_salt: 4Fmsw9EeET6spGPpJoZk
   created_at: 2012-04-22 05:41:44.000000000 Z
+  address: '{"name":"irene alaranta","street":"porvoontie 144 ","city":"07600 myrskyl\u00e4","phone":"0505606859"}'
 leija100@gmail.com:
   email: leija100@gmail.com
   encrypted_password: b03e197d8e21bbf3eeb691850c0c5730b57dbd3d0443330f29593a4b574bd05761f73428c7102794441dde565aef97fa3a43a778002e9d099edb575aabf27517
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-05-31 13:44:05.000000000 Z
-  last_sign_in_at: 2012-05-31 13:44:05.000000000 Z
-  current_sign_in_ip: 91.156.16.62
-  last_sign_in_ip: 91.156.16.62
+  password_salt: CJyoiLjndEx57iapsL6X
   created_at: 2012-05-31 13:44:05.000000000 Z
+  address: '{"name":"Janita Leinonen","street":"Karhum\u00e4enkuja 4 b 13 ","city":"03100
+    nummela","phone":"0503008783"}'
 miiagranlund@hotmail.com:
   email: miiagranlund@hotmail.com
   encrypted_password: 1e0e674a8531b41982f71e79eaff486aa3bbe54336b714b927c5f1816c3875e0977f879e1d1591ea08970396781b313a842eeb713288c1a99e1deaed8085b517
-  remember_created_at: 
-  sign_in_count: 4
-  current_sign_in_at: 2012-08-26 18:38:19.000000000 Z
-  last_sign_in_at: 2012-06-19 12:35:35.000000000 Z
-  current_sign_in_ip: 212.226.59.184
-  last_sign_in_ip: 212.226.40.129
+  password_salt: Kbw3zUiKRoWDxXBKWhNh
   created_at: 2012-06-07 23:36:18.000000000 Z
+  address: '{"name":"Miirage Anlund","street":"Somewhere ","city":"10020 Else","phone":"0400
+    840 110"}'
 sinivaisanen@hotmail.com:
   email: sinivaisanen@hotmail.com
   encrypted_password: 83cc0f467b655d2a6b5c5ce1592e3e09344630f53ee81a9b0d0c2c28a8b6647e0c64fa80bd3f63a50730b250a3cec9ce7de96c41d6a323a0e6b336fcc9816ea4
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-06-27 18:32:58.000000000 Z
-  last_sign_in_at: 2012-06-27 18:32:58.000000000 Z
-  current_sign_in_ip: 88.112.19.98
-  last_sign_in_ip: 88.112.19.98
+  password_salt: F8zSS6ND36U8KBXyTSzJ
   created_at: 2012-06-27 18:32:58.000000000 Z
+  address: '{"name":"Sini V\u00e4is\u00e4nen","street":"Pohjoinen Lintuvaarantie 6
+    B 9 ","city":"02660 Espoo","phone":"0405718272"}'
 latva.johanna@gmail.com:
   email: latva.johanna@gmail.com
   encrypted_password: 3d4afaa47dcc42c07c201d89e784f7e0444cc7afabbda9409b2bebb759ce05aaa08025e44716911cb10c5e658d66e950cac9edbe0b0396e37a95cfae7d172dc5
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-07-04 09:25:29.000000000 Z
-  last_sign_in_at: 2012-07-04 09:25:29.000000000 Z
-  current_sign_in_ip: 91.152.0.132
-  last_sign_in_ip: 91.152.0.132
+  password_salt: PXJyisZxvUoPuzFzwGcs
   created_at: 2012-07-04 09:25:29.000000000 Z
+  address: '{"name":"Johanna Latva","street":"Kyr\u00f6nlahdentie 819 Karhe","city":"39340  Yl\u00f6j\u00e4rvi","phone":"0408279180"}'
 arttu@arsti.la:
   email: arttu@arsti.la
   encrypted_password: 52c2d0f2b224ef7450e7c644afd0f8f41ce3c52e3abe4bb15259947724b513a6ff1c05ca373ddf35eba15514abbf82aeba88a4f9fc0eecb9f7621c6c5cd16e1f
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-07-21 20:07:59.000000000 Z
-  last_sign_in_at: 2012-07-21 20:07:59.000000000 Z
-  current_sign_in_ip: 88.114.236.244
-  last_sign_in_ip: 88.114.236.244
+  password_salt: B1VJD4mvRNKXYyuhx3T6
   created_at: 2012-07-21 20:07:59.000000000 Z
+  address: '{"name":"Arttu Arstila","street":"El\u00e4inl\u00e4\u00e4k\u00e4rinkatu
+    3 A 7 ","city":"00580 Helsinki","phone":"050-3660248"}'
 minna.koskinen@aalto.fi:
   email: minna.koskinen@aalto.fi
   encrypted_password: 33b74ac266400902f44420711edd5862340e271cc9618ad9724f5dc9ddba997132ddb4d25c957400a27a27303fb3c0dcddcd5d4a310bafae524ada12539af914
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-08-13 05:27:41.000000000 Z
-  last_sign_in_at: 2012-08-13 05:27:41.000000000 Z
-  current_sign_in_ip: 82.181.218.61
-  last_sign_in_ip: 82.181.218.61
+  password_salt: jHMV6xGixHqjsN9CxEVH
   created_at: 2012-08-13 05:27:41.000000000 Z
+  address: '{"name":"Minna Koskinen","street":"Porthaninkatu 5 A 26 ","city":"00530
+    Helsinki","phone":"0407650163"}'
 hanna.m.k.siisiainen@student.jyu.fi:
   email: hanna.m.k.siisiainen@student.jyu.fi
   encrypted_password: 561b4c254df4afe91172cc2d16a92dfc23f2e33fa5d5a38dc1bebf6a0d93b15a09738dba39e4a06a18499d6de212785ac56a9a9d472bb0957b6ba645b3271d3c
-  remember_created_at: 
-  sign_in_count: 13
-  current_sign_in_at: 2012-08-30 04:25:09.000000000 Z
-  last_sign_in_at: 2012-08-24 13:58:02.000000000 Z
-  current_sign_in_ip: 62.78.191.210
-  last_sign_in_ip: 62.78.191.210
+  password_salt: trHYG56pEtJqJsbE9rJq
   created_at: 2012-08-18 20:27:07.000000000 Z
+  address: '{"name":"Hanna-Miia Siisi\u00e4inen","street":"Hietalahdenkatu 12 A 20
+    ","city":"00180 Helsinki","phone":"0417420269"}'
 sekarotu.mika@gmail.com:
   email: sekarotu.mika@gmail.com
   encrypted_password: ab83849091145254c06837e82d1937441cbf430d4c7c29bd3f36d93c6fbeb7b563ebbab0c7761f5921c515bf7db4efa729e7e6c0067ee9dc4b0c3ba73ad91a9d
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-08-20 18:49:14.000000000 Z
-  last_sign_in_at: 2012-08-20 18:49:14.000000000 Z
-  current_sign_in_ip: 80.220.108.36
-  last_sign_in_ip: 80.220.108.36
+  password_salt: b4UxYsbkXq1Wh3pDBwXb
   created_at: 2012-08-20 18:49:14.000000000 Z
+  address: '{"name":"Mika Kamesaki","street":"Mets\u00e4nhoitajankuja 5, B, 12 ","city":"01370
+    Vantaa","phone":"0401978259"}'
 pia.setala@kolumbus.fi:
   email: pia.setala@kolumbus.fi
   encrypted_password: b4aa35af4c2eedaffe6d2a1556949fe37b95cd161145654443d1fb0852e50dd296ea37210f3979c6e6bcc6e086dad023a5edbcb984084f7a0ee5ca25867a74e6
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-09-03 09:53:26.000000000 Z
-  last_sign_in_at: 2012-09-03 09:53:26.000000000 Z
-  current_sign_in_ip: 91.158.6.17
-  last_sign_in_ip: 91.158.6.17
+  password_salt: 6TEyRSmHD5ZaD2hHwFqW
   created_at: 2012-09-03 09:53:26.000000000 Z
+  address: '{"name":"pia set\u00e4l\u00e4","street":"apollonkatu 11 b A 3 ","city":"00100
+    Helsinki","phone":"050-3442603"}'
 silandert@gmail.com:
   email: silandert@gmail.com
   encrypted_password: cf4804b43c81152c7effa537c5cd394210f8eee8169a0b08327ae070a8e4bb067f9dd91b6a87ca465f2a8caf17a7e29e6a3ca3c46efb7ea08561d86628c5e70e
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-09-28 07:18:16.000000000 Z
-  last_sign_in_at: 2012-09-28 07:18:16.000000000 Z
-  current_sign_in_ip: 212.226.74.253
-  last_sign_in_ip: 212.226.74.253
+  password_salt: JsYmiE3AqheN3QcuwFrC
   created_at: 2012-09-28 07:18:16.000000000 Z
+  address: '{"name":"Towa Silander","street":"Bymossav\u00e4gen 32 ","city":"65410
+    Sundom","phone":"0503250785"}'
 ekimi@suomi24.fi:
   email: ekimi@suomi24.fi
   encrypted_password: 2f636deb45b1d168efb40e548a004533a6caabd9e133fb856adc25354069dbbbd8fdea9ca08737bcdbf2ae34f2b27759e91140cfd77eb3ff68f0abb17ee696f3
-  remember_created_at: 2012-11-13 18:39:58.000000000 Z
-  sign_in_count: 2
-  current_sign_in_at: 2012-11-13 18:39:58.000000000 Z
-  last_sign_in_at: 2012-10-28 16:57:24.000000000 Z
-  current_sign_in_ip: 212.226.57.141
-  last_sign_in_ip: 212.226.75.25
+  password_salt: DqhtxMgewj3Sp1WtzpTd
   created_at: 2012-10-28 16:57:24.000000000 Z
+  address: '{"name":"erja-leena mukkala","street":"honkakatu 4 a ","city":"38700 kankaanp\u00e4\u00e4","phone":"0500327214"}'
 kaisa7@gmail.com:
   email: kaisa7@gmail.com
   encrypted_password: e9954cdd6ba093b377d44ff540f94ae6e56606c0717ca76fdd84b83d54435f1505211fc70f0036d365ef4f61f53d89d5f5320d735f923fa89a5d77c57c838850
-  remember_created_at: 
-  sign_in_count: 2
-  current_sign_in_at: 2013-11-28 08:21:08.000000000 Z
-  last_sign_in_at: 2012-11-16 09:24:42.000000000 Z
-  current_sign_in_ip: 194.157.70.133
-  last_sign_in_ip: 193.211.67.11
+  password_salt: fkpkbjQs3DGcq2h3TxZu
   created_at: 2012-11-16 09:24:42.000000000 Z
+  address: '{"name":"Kaisa Hartzell","street":"Pikipolku 1 D ","city":"00670 Helsinki","phone":"0445760581"}'
 toni.kokkila@gmail.com:
   email: toni.kokkila@gmail.com
   encrypted_password: abed05b554d304b3b8adc9eb1aa018e66adbb35498fa5bc1cbb9a03215101031d2e4d5d8862d866f6461ea5926bc001d93076f8a116ca47d9558515148d7923a
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2012-12-13 13:07:30.000000000 Z
-  last_sign_in_at: 2012-12-13 13:07:30.000000000 Z
-  current_sign_in_ip: 91.157.185.72
-  last_sign_in_ip: 91.157.185.72
+  password_salt: vE3QWANqQP1cTkzP1ysH
   created_at: 2012-12-13 13:07:30.000000000 Z
+  address: '{"name":"Toni Kokkila","street":"Viertolantie 12 A 1 ","city":"11120 Riihim\u00e4ki","phone":"3584402689674"}'
 kristiina.matttila@gmail.com:
   email: kristiina.matttila@gmail.com
   encrypted_password: 3bb7be4cf1cf4a8d0d6c28000323566fa3a0256227e7de450e822d191447a2cddc2b5530b12ff5ca26feb14e7b0b5135534024759ff9f2ef79c9ae344110030f
-  remember_created_at: 
-  sign_in_count: 3
-  current_sign_in_at: 2013-01-29 11:01:00.000000000 Z
-  last_sign_in_at: 2013-01-21 12:36:48.000000000 Z
-  current_sign_in_ip: 83.150.82.32
-  last_sign_in_ip: 83.150.82.32
+  password_salt: 7p2zd2xNB8op5HVCnJVN
   created_at: 2013-01-10 14:44:16.000000000 Z
+  address: '{"name":"kristiina mattila","street":"nuolialantie 31-33 c 12 ","city":"33900
+    Tampere","phone":"0408286951"}'
 keppister@gmail.com:
   email: keppister@gmail.com
   encrypted_password: 6b8642f98cac0a06bea34d6e766e215afc7c149289aa903048ff5eeb7b3f1ef9b64919c29611c10abfde6b7c91d926fdc687146abc94709d52ab8b52a63bdabc
-  remember_created_at: 
-  sign_in_count: 5
-  current_sign_in_at: 2013-01-23 13:59:35.000000000 Z
-  last_sign_in_at: 2013-01-22 08:42:59.000000000 Z
-  current_sign_in_ip: 62.44.214.111
-  last_sign_in_ip: 62.44.214.111
+  password_salt: nfuJFoUQ6zFqm4KWqXYh
   created_at: 2013-01-22 08:24:29.000000000 Z
+  address: '{"name":"Pekka Hein\u00e4nen","street":"Pekarinkatu 4 ","city":"15680
+    Lahti","phone":"0407483264"}'
 masaskariwl@gmail.com:
   email: masaskariwl@gmail.com
   encrypted_password: 82be2ef97094cbde4f5384128a1da9979bed4ef2ec083d5a5a70882487afdd3e0f57f372a9d15c28b105f758324caeb7d4ab9cfbe8db8a75970d7872373207fc
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-10-07 10:37:11.000000000 Z
-  last_sign_in_at: 2013-10-07 10:37:11.000000000 Z
-  current_sign_in_ip: 94.22.102.5
-  last_sign_in_ip: 94.22.102.5
+  password_salt: ePxNxTsxayVzW992EEq1
   created_at: 2013-10-07 10:37:11.000000000 Z
+  address: '{"name":"Mona Paulin","street":"Nygatan 14 ","city":"66600 V\u00f6r\u00e5","phone":"0505875315"}'
 saijavatanen@gmail.com:
   email: saijavatanen@gmail.com
   encrypted_password: 53ad19790104d221b7cf035ed94bc125c379c78d36244999387978cf4fd908cf55638344916d6fe74f70951d9d2257e49c00327588a4ac0211b4146b0f1ad8ff
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-11-04 17:14:36.000000000 Z
-  last_sign_in_at: 2013-11-04 17:14:36.000000000 Z
-  current_sign_in_ip: 188.238.46.202
-  last_sign_in_ip: 188.238.46.202
+  password_salt: oxrmeSwpYzHqeJ2sqzDa
   created_at: 2013-11-04 17:14:36.000000000 Z
+  address: '{"name":"Saija Vatanen","street":"Karnaistenkatu 43 C 41 ","city":"08100
+    Lohja","phone":"0458805111"}'
 kirsi.riepponen@gmail.com:
   email: kirsi.riepponen@gmail.com
   encrypted_password: 6190a1db1f54361f40180cb6000445ab8e7425977752f4c1321863120de8c115970f9b91efbe0c3d7dfa500ec5303785578e958df73f8b97416a666744d09188
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-11-16 16:44:02.000000000 Z
-  last_sign_in_at: 2013-11-16 16:44:02.000000000 Z
-  current_sign_in_ip: 80.223.232.91
-  last_sign_in_ip: 80.223.232.91
+  password_salt: GcFyxJ8NFXuQFNa2r9y8
   created_at: 2013-11-16 16:44:02.000000000 Z
+  address: '{"name":"Kirsi Riepponen","street":"Pes\u00e4puunkatu 14 ","city":"53850
+    Lappeenranta","phone":"0451442114"}'
 helena.lahde@luukku.com:
   email: helena.lahde@luukku.com
   encrypted_password: 88524eda190e81a1c83160c28979d5884e7768128b67ab24699936c057307063b94be9b768c9791eeddc06df2f4069298234ceabeb6ab0c164761533e7c269aa
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-11-20 11:09:57.000000000 Z
-  last_sign_in_at: 2013-11-20 11:09:57.000000000 Z
-  current_sign_in_ip: 188.238.4.1
-  last_sign_in_ip: 188.238.4.1
+  password_salt: ap8NVzw5sePaKPWFchD7
   created_at: 2013-11-20 11:09:57.000000000 Z
+  address: '{"name":"Helena L\u00e4hde","street":"Ainonsola 2 A 5 ","city":"60120
+    Sein\u00e4joki","phone":"0465852813"}'
 anne.mahlamaki@ehox.fi:
   email: anne.mahlamaki@ehox.fi
   encrypted_password: 36b35057b7def37e4e559597b4c5f231bdcc99df563cf9cd0d224e78eb1ea6b3d426c73a82a5b408c1052da61f7a1d2acdf9cdb02853763eda5d8bc7f0450865
-  remember_created_at: 
-  sign_in_count: 5
-  current_sign_in_at: 2013-11-26 20:19:20.000000000 Z
-  last_sign_in_at: 2013-11-22 17:42:14.000000000 Z
-  current_sign_in_ip: 88.195.175.245
-  last_sign_in_ip: 88.195.175.245
+  password_salt: zyF5qiGfqmzrMMkHWTsK
   created_at: 2013-11-20 13:09:48.000000000 Z
+  address: '{"name":"Anne Mahlam\u00e4ki","street":"Lavam\u00e4entie 275 ","city":"21310
+    Vahto","phone":"0503450763"}'
 krislau@dnainternet.net:
   email: krislau@dnainternet.net
   encrypted_password: b1240e45c0f0e72f8f5c6c04ae2fcd95d5f50bc483346d726a8701d5f5c5b92f9ada1b143595e4432b85f75fb6e18172a84d77092d022a5141e5f7ac7e38a0d4
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-12-03 09:06:52.000000000 Z
-  last_sign_in_at: 2013-12-03 09:06:52.000000000 Z
-  current_sign_in_ip: 217.140.190.222
-  last_sign_in_ip: 217.140.190.222
+  password_salt: tGyzkgCn2eskWda1wZos
   created_at: 2013-12-03 09:06:52.000000000 Z
-tarja@steinway.int.fi:
-  email: tarja@steinway.int.fi
-  encrypted_password: 098ec37dddf3199a2782455afc4e1242a983d6d9bf3fa02973efd0fd009b1a866a439ce9e4fbddc414c012c1c9ca28a03fae2d11b18a19dcb78fc2376b376ee0
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-12-05 09:52:25.000000000 Z
-  last_sign_in_at: 2013-12-05 09:52:25.000000000 Z
-  current_sign_in_ip: 87.100.204.64
-  last_sign_in_ip: 87.100.204.64
-  created_at: 2013-12-05 09:52:22.000000000 Z
+  address: '{"name":"Krista Haataja","street":"Pirttim\u00e4entie 7 ","city":"14200
+    Turenki","phone":"0400704625"}'
 haapaniemi.essi@gmail.com:
   email: haapaniemi.essi@gmail.com
   encrypted_password: 90a0474a2df7163cfd64bd8755f951ea18bc96a444a14f952ac41264d41ffa0e46628eafeb3a866a91dadd496aa5e4257571b330f873bd96f740e3e8e4b89865
-  remember_created_at: 
-  sign_in_count: 1
-  current_sign_in_at: 2013-12-17 19:49:05.000000000 Z
-  last_sign_in_at: 2013-12-17 19:49:05.000000000 Z
-  current_sign_in_ip: 78.27.80.76
-  last_sign_in_ip: 78.27.80.76
+  password_salt: AZsNJ7U4UUxKYdTnX52r
   created_at: 2013-12-17 19:49:05.000000000 Z
+  address: '{"name":"Essi Haapaniemi","street":"Turkintie 8 ","city":"16100 Uusikyl\u00e4","phone":"0504635356"}'
+anne.pulliainen@gmail.com:
+  email: anne.pulliainen@gmail.com
+  encrypted_password: f3f08837403aa64d1eea78ad7d3cf7b751a607179ac683d78a7595c53400eb8090fcd71337a1b484e310ad88971b7253b77fdc24bb2d38ac9f3ed15455689e1a
+  password_salt: 6CB2bCnMQpZTStR399Q2
+  created_at: 2011-09-18 12:27:02.000000000 Z
+anna.smura@Gmail.com:
+  email: anna.smura@Gmail.com
+  encrypted_password: ad41b7f96668c364da46d5aceefc1afa0419da681939213bf6e2e21fa5330a19b0f6283e1e17a1c39cc8edc34aebcfa1651309beefa8c514a32c41e76333ddb3
+  password_salt: 4HzxDxMxyymrxwUqnypP
+  created_at: 2011-12-27 14:13:49.000000000 Z
+  address: '{"name":"Anna-Karin Smura","street":"Porokyl\u00e4nkatu 29 as 1 ","city":"75530
+    Nurmes","phone":"0503246363"}'
+avalonia81@gmail.com:
+  email: avalonia81@gmail.com
+  encrypted_password: 294566d4c319fa1d8348a8b1180b10a33cc5f6386c229ed39b370aa7fd38ee07e131dbb96d019d902ed19f83e82ef5dcee31f7841ae6e1e375ba498d67760ed6
+  password_salt: H5ispXpFa7qayRqisTuZ
+  created_at: 2011-12-27 20:21:54.000000000 Z
+  address: '{"name":"Johanna Meri","street":"Aleksanterinkatu 6 F 6 ","city":"Tampere
+    33100","phone":"0445285308"}'
+katja.vuori@educlusterfinland.fi:
+  email: katja.vuori@educlusterfinland.fi
+  encrypted_password: 3bd09e8065c09628a0c34a493fbf68944660aac8671906ccc201ead0ad72bcfeaa3c9245bd97ce5b169d7ad534345fef721bc4843c83afe396c6df8c41487c47
+  password_salt: 4QJ7sqHWwxbqeHcP9sSR
+  created_at: 2012-01-05 13:51:29.000000000 Z
+auliv@yahoo.com:
+  email: auliv@yahoo.com
+  encrypted_password: 6684c13101b1b52880f55b2779874aa6834f0896646184e71bbd6116311c9c91d6d4bded66cb1d8d8762fdf7c7c1f2467b22b09256f0fb593910355b78cba61c
+  password_salt: QL1yHAojJztcpkn5Ksnw
+  created_at: 2012-02-13 10:22:45.000000000 Z
+  address: '{"name":"Auli Varis","street":"Kalevankatu 17 C 29 ","city":"80110 Joensuu","phone":"040-7677865"}'
+sari.sikio@hotmail.com:
+  email: sari.sikio@hotmail.com
+  encrypted_password: 16c2f99c956540f6af5005d173639ebfe30f785ff2a97aea56526ceabb9e4658caa4932427e8ff11261b6d1e329484c32e57416438bdd1f98dd65da49854831d
+  password_salt: rQ8FmHMgL4QqyLC3kTDq
+  created_at: 2012-03-01 05:27:34.000000000 Z
+  address: '{"name":"Sari Siki\u00f6","street":"Naavatie 22 ","city":"54120 Pulp","phone":"0403022608"}'
+june.fi@hotmail.com:
+  email: june.fi@hotmail.com
+  encrypted_password: c5102e351d4522ca255d6b27b4cf296622025a0e63bfda576dd06853b60387fca7336f0662c39e51202e5b75db4f50e482f69d3b6a52560dac029438fc2ddfc9
+  password_salt: rhxhzEP8yUWp5p37AW4b
+  created_at: 2012-05-05 16:24:43.000000000 Z
+torsten.rueger@villataika.fi:
+  email: torsten.rueger@villataika.fi
+  encrypted_password: 54c192176711405534e647715480c90a9690612adca3eed212f1299dc94e37fc759eb3381e3dc7f6c0b05ec403b260413bc02eeb6ca8e40638ff3d8e7d320a45
+  password_salt: Jpp5EKoUp3biVEePJBJg
+  created_at: 2012-06-30 06:28:04.000000000 Z
+  address: '{"name":"Torsten R\u00fcger","street":"Fiskarsintie 513 ","city":"10480
+    Antskog","phone":"358407308052"}'
+testie@mailmetrash.com:
+  email: testie@mailmetrash.com
+  encrypted_password: 6ce8448d084747aac0a224c04a80b04cca8b4bbc2facff8db105f8e8f628e7835eb1bae77abd80f001a646279675aeb0475f6bb721c02174ee1a5e090b95140a
+  password_salt: uX4CkikYeDPMxb3S5USE
+  created_at: 2012-08-14 15:50:35.000000000 Z
+aino.jarvi@iloteho.fi:
+  email: aino.jarvi@iloteho.fi
+  encrypted_password: ced8b738cec45e6bde780fb2c96ccae58762278681ff7b916a1310c4b4ad1f1d6e713671a4b1113ecbd69e4c549661d0f9214edbb1f61863f44372a3cc43aa7b
+  password_salt: Gh1A1SGgM97VJwrRqwKU
+  created_at: 2012-10-01 09:23:52.000000000 Z
+  address: '{"name":"Aino J\u00e4rvi","street":"Piilipuuntie 36 ","city":"04480 Haarajoki","phone":"040-7096452"}'
+hanna.niura@live.fi:
+  email: hanna.niura@live.fi
+  encrypted_password: 1c92ecacc90152598f9971018d9f9ee80f9326a58e6ae1a40137797758b3cf589f769e5a54aa0323e34824ed1dfe7b2fb19bb498f228d2105c5a5ccc9ab47dd3
+  password_salt: L6RTfxd8yGkDCsmPs1Hp
+  created_at: 2013-01-16 10:22:51.000000000 Z
+  address: '{"name":"Hanna Niura","street":"Lukutuvankuja 5 B ","city":"37560 Lemp\u00e4\u00e4l\u00e4","phone":"0409614970"}'
+hrheinir@gmail.com:
+  email: hrheinir@gmail.com
+  encrypted_password: cfc5067d4981c8663076da561fbb8486c40e4eae33ab989834cef9b79626f3adc764cc9adf26cd678f2bb9acf6a6b204b2e985a307246226be34833a0a78daa7
+  password_salt: sCnbqFDD1y7aXS4cqV5x
+  created_at: 2013-05-24 12:31:50.000000000 Z
+tiina.thilman1@gmail.com:
+  email: tiina.thilman1@gmail.com
+  encrypted_password: f08cf11cc13f49b7d6e2b7716394d93e7b00007ce99a996f9d81ba43ecff8b9c283bd469b95d8a6344a2d502b6106248b792d5e896de34629cbf64d378b54846
+  password_salt: wGp9aBNDDHzVqz4Vyktp
+  created_at: 2013-09-05 10:20:59.000000000 Z
+niklas.luokkala@gmail.com:
+  email: niklas.luokkala@gmail.com
+  encrypted_password: 73985ec6e0e1cc9a95250ef46615facf5e210059e8d09b1fbfb640440e5de0d7cf39eb67cb9144e0ecac3165f11d78356ed19dc1448cfc0c3452bc204bdb6d2d
+  password_salt: QiigYkPzHnZzf2zTJ4G5
+  created_at: 2013-10-15 16:30:22.000000000 Z
+  address: '{"name":"Niklas Luokkala","street":"Peltokulma 10 A 1 ","city":"01690
+    VANTAA","phone":"0407356711"}'
+tarja@steinway.int.fi:
+  email: tarja@steinway.int.fi
+  encrypted_password: 098ec37dddf3199a2782455afc4e1242a983d6d9bf3fa02973efd0fd009b1a866a439ce9e4fbddc414c012c1c9ca28a03fae2d11b18a19dcb78fc2376b376ee0
+  password_salt: scykioGDWb6ZRviTCUKd
+  created_at: 2013-12-05 09:52:22.000000000 Z
+merivirta.niina@luukku.com:
+  email: merivirta.niina@luukku.com
+  encrypted_password: 36f91cd5217c69ab259d6f3937f026fe57fcc560b1695bdae21bebb3bb5ec7878799a0887fc9ca38880b105cbaed80fceb76535231203eedb51e43156e37c2f5
+  password_salt: R8rAYbt22zswKvCpaSQf
+  created_at: 2014-01-15 20:14:29.000000000 Z
+  address: '{"name":"niina merivirta","street":"Ajom\u00e4entie 103 31400","city":"31400
+    Somero","phone":"358405451518"}'

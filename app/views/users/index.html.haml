@@ -1,11 +1,16 @@
 .row
-  .large-6.column
-    %h2
-      = t(:users)
-  .large-6.column
-    = link_to  t(:new) + ' ' + t(:user) , new_user_path , :class => "admin-button"
-%p
-  = paginate @users
+  .large-9.column
+    .row
+      .large-8.column
+        %h2
+          = t(:users)
+      .large-4.column
+        = link_to  t(:new) + ' ' + t(:user) , new_user_path , :class => "admin-button"
+    .row
+      %p
+        = paginate @users
+  .large-3.column
+    = image_tag "admin/users.jpg"
 .row
   .medium-9.columns
     %div

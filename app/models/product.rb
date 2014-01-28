@@ -11,7 +11,7 @@
 
 class Product < ActiveRecord::Base
   has_many :products, :dependent => :nullify
-  store :properties, accessors: [ :color, :homepage ] #later , coder: JSON
+  store :properties, accessors: [ :color, :size , :model_number ] , coder: JSON
   belongs_to :product
   belongs_to :category
   belongs_to :supplier

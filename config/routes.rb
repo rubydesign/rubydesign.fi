@@ -1,6 +1,20 @@
 OfficeClerk::Application.routes.draw do
   resources :shops
 
+  root :to => 'shop#group'
+
+  get "sign_out" => "sessions#destroy", :as => "sign_out"
+  get "sign_in"  => "sessions#new",     :as => "sign_in"
+  get "sign_up" => "sessios#new_user", :as => "sign_up"
+#  root :to => "users#new"
+
+  resources :sessions do
+    member do
+      get :new_user
+      get :create_user
+    end
+  end
+  
   resources :purchases do
     collection do
       match "search" => "purchases#index", :via => [:get, :post]
@@ -79,13 +93,12 @@ OfficeClerk::Application.routes.draw do
     member do
     end
   end
-
-  root :to => 'shop#group'
-
-  devise_for :users, :controllers => {:registrations => "registrations"}
-
+  
   #shop
   get 'group/:id' => 'shop#group', :as => :group
   get 'prod/:id' => 'shop#product', :as => :prod
   get 'page/:id' => 'shop#page', :as => :page
+  
+  #anoying php hackers
+  get "/:any(/:other(/:are/(/:ignored))).php" => "shop#page"
 end

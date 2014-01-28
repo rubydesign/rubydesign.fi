@@ -5,7 +5,7 @@
     %title= t(:receipt)
     = stylesheet_link_tag "html-receipt"
     = stylesheet_link_tag "html-receipt" , :media => "print"
-  %body{onload: "self.prin()"}
+  %body{onload: "self.print()"}
     .receipt
       #header
         = image_tag "receipt-logo.gif"
@@ -18,7 +18,11 @@
           %br/
           00120 Helsinki
       .info
-        11. tammikuuta 2014 /  Tilaus R201316801
+        - date = @order.ordered_on || @order.created_at
+        =l(date.to_date) 
+        /
+        =t(:order)
+        =@order.number
         %br/
       .wrapper
         .line_items

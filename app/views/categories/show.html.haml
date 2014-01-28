@@ -2,6 +2,7 @@
   %h2
     = t(:category)
     = @category.name
+    = render "products/online" , :object => @category
   -if @category.category_id
     %h3
       = "( " + @category.category.name + " )"

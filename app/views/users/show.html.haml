@@ -1,4 +1,9 @@
-%h2= t(:user) + " : " + t(:email)
+%h2
+  = t(:user) + " : " + @user.email
+  -if @user.admin
+    (
+    =t(:admin) 
+    )
 %p
   %b= t(:address)
 %p

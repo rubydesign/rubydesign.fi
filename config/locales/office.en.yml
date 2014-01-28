@@ -1,148 +1,181 @@
-
---- 
-en: 
+---
+en:
   actions: Actions
-  activerecord: 
-    attributes: 
-      basket: 
+  activerecord:
+    attributes:
+      basket:
         created_at: Created
         total_price: Price
-      order: 
+      order:
         email: Email
-        ordered_on: "Ordered on"
-      product: 
+        ordered_on: Ordered on
+      product:
         description: Description
+        ean: Ean
         inventory: Inventory
         name: Name
-        ean: Ean
         online: online
         price: Price
-        scode: "Supplier code"
-        tax: "Tax rate"
+        scode: Supplier code
+        tax: Tax rate
         weight: Weight
-      purchase: 
+      purchase:
         name: Name
-        ordered_on: "Ordered on"
-        received_on: "Received on"
-      supplier: 
+        ordered_on: Ordered on
+        received_on: Received on
+      supplier:
         city: City
         name: Name
         phone: Phone
         street: Street
         supplier_name: Supplier
-      user: 
+      user:
         city: City
         email: Email
         name: Name
         password: Passord
-        password_confirmation: "Password confirmation"
+        password_confirmation: Password confirmation
         phone: Phone
         street: Street
-    models: 
+    models:
       basket: Cart
-      category: "Product group"
+      category: Product group
       order: Order
       product: Product
       purchase: Purchase
       supplier: Supplier
       user: User
   add: Add
-  add_inventory: "Add Inventory"
+  add_inventory: Add Inventory
+  add_to_basket: Add to basket
   address: Adress
   addresses: Adresses
-  are_you_sure: "Are you sure?"
-  as_inventory: "As Inventory"
+  admin: Admin
+  are_you_sure: Are you sure?
+  as_inventory: As Inventory
   back: Back
+  barcode: Barcode
   basket: Basket
   baskets: Baskets
-  between: " between"
+  between: ' between'
   cancel: Cancel
-  canceled_on: "Canceled on"
-  categories: "Product Categories"
-  category: "Product Category"
-  category_id: "Product Line"
+  canceled_on: Canceled on
+  categories: Product Categories
+  category: Product Category
+  choose_product_for_basket: Choose product for basket
   city: City
+  contact: Contact
   cost: Cost
   count: Count
   country: Country
   create: Create
-  create_success: "Successfully created"
+  create_success: Successfully created
   created_at: Created
   delete: Poista
   description: Description
   destroy: Destroy
   discount: Discount
+  ean: Ean
   edit: Edit
   editing: Editing
   email: Email
-  extra_picture: "Extra picture"
+  error: Error
+  extra_picture: Extra picture
   filter: Filter
-  first_name: "First Name"
+  first_name: First Name
+  info: Info
   inventorized: Inventorized
   inventory: Inventory
   item: Item
+  item_removed: Item removed
   items: Items
-  last_name: "Last Name"
+  last_name: Last Name
   link: Link
-  login: "Log in"
-  logout: "Log out"
+  made_offline: taken offline
+  made_online: made online
   main_picture: Kuva
-  make_order: "Make Order"
-  make_purchase: "Make Purchase"
-  may_be_blank: "May be blank"
+  make_order: Make Order
+  make_purchase: Make Purchase
+  may_be_blank: May be blank
   name: Name
-  name_contains: "Name contains"
+  name_contains: Name contains
   new: New
+  new_item: New item
   next: Next
-  not_online: "not online"
-  online: Netissä
+  not_online: not online
+  online: Online
   order: Order
   order_number: Number
-  ordered_on: "Ordered On"
+  order_total: Order total
+  ordered: Ordered
+  ordered_on: Ordered On
   orders: Orders
-  paid_on: "Paid on"
+  paid_on: Paid on
   parent: Parent
   phone: Phone
   picture: Picture
-  picture2: "Picture 2"
+  picture2: Picture 2
   position: Position
-  print: Print
   prev: Previous
   price: Price
-  price_between: "Price between"
-  print_order: "Print Order"
+  price_between: Price between
+  print: Print
+  print_order: Print Order
   product: Product
-  product_line: "Product Line"
+  product_added: Product added
+  product_line: Product Line
   products: Products
   purchase: Purchase
   purchases: Purchases
   quantity: Quantity
+  receipt: Receit
   receive: Receive
   received: Received
-  received_on: "Received On"
+  received_on: Received On
+  scode: Supplier code
   search: Search
-  scode: "Supplier code"
-  shipment_type: "Shipment type"
-  shipped_on: "Shipped on"
-  shipping_price: "Shipment price"
+  shipment_type: Shipment type
+  shipped_on: Shipped on
+  shipping_price: Shipment price
   shop: Shop
   show: Show
+  sign_in: Log in
+  sign_in_invalid: Invalid email or password
+  sign_out: Log out
+  sign_up: Sign up
+  signed_in: Logged in
+  signed_out: Logged out
+  simple_form:
+    error_notification:
+      default_message: 'Please review the problems below:'
+    'no': 'No'
+    required:
+      mark: '*'
+      text: required
+    'yes': 'Yes'
   state: State
   street: Street
+  street1: Street1
+  street2: Street2
   supplier: Supplier
   suppliers: Suppliers
   tax: Vat
-  tax_rate: "Vat rate"
+  tax_percent: Tax percent
+  tax_rate: Vat rate
+  to_order: To order
+  to_purchase: To purchase
   total: Total
-  total_price: "Total Price"
+  total_price: Total Price
   total_tax: Taxes
   treeview: Treeview
   type: Type
-  update_success: "Successfully updated"
+  update_success: Successfully updated
+  updated: Updated
   user: User
   users: Users
+  vat: Vat
   weight: Weight
-  will_paginate: 
-    next_label: "Next &#8594;"
-    page_gap: "&hellip;"
-    previous_label: "&#8592; Previous"
+  will_paginate:
+    next_label: Next &#8594;
+    page_gap: '&hellip;'
+    previous_label: '&#8592; Previous'

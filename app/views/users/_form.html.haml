@@ -8,6 +8,8 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
   .controls
+    = f.check_box :admin
+  .controls
     = f.text_field :email
   .controls
     = f.text_field :name

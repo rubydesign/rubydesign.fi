@@ -18,24 +18,28 @@
         / Right Nav Section
         %ul.right
           %li
-          - if user_signed_in?
-            %li= link_to t(:logout), destroy_user_session_path, :method=>'delete'
+          - if current_user
+            %li= link_to current_user.email , edit_user_path(current_user)
+            %li= link_to t(:sign_out), sign_out_path
           - else
-            %li= link_to t(:login), new_user_session_path
+            %li= link_to t(:sign_in), sign_in_path
         / Left Nav Section
         %ul.left
           %li
           = render :partial => "layouts/admin_menu"
     .row.content
-      .large-12.column
+      .large-12.column.alert
         - if not flash[:notice].blank? then
-          .alert.alert-info
-            %a.close{"data-dismiss" => "alert", :href => "#"} ×
-            %h4.alert-heading Info :
-            = flash[:notice]
+          .alert-notice.row
+            .large-3.column
+              .alert-heading= t(:info) + " :"
+            .large-9.column
+              .alert-message!= flash[:notice]
+      .large-12.column.alert
         - if not flash[:error].blank? then
-          .alert.alert-error
-            %a.close{"data-dismiss" => "alert", :href => "#"} ×
-            %h4.alert-heading Error :
-            = flash[:error]
+          .alert-error.row
+            .large-3.column
+              .alert-heading= t(:info) + " :"
+            .large-9.column
+              .alert-message!= flash[:notice]
         = yield

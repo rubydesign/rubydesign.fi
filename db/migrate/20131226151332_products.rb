@@ -1,9 +1,9 @@
 class Products < ActiveRecord::Migration
   def change
     create_table :products do |t|
-      t.float       :price
-      t.string      :name
-      t.string      :link
+      t.float       :price      , :null => false
+      t.string      :name       , :null => false
+      t.string      :link        
       t.text        :description
       t.attachment  :main_picture
       t.attachment  :extra_picture
@@ -21,5 +21,6 @@ class Products < ActiveRecord::Migration
       t.references  :supplier,       index: true
       t.timestamps
     end
+    add_index :products, :link
   end
 end

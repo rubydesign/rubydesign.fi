@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
+gem "rb-readline"
+
 gem 'rails'
 gem 'sqlite3'
 gem 'sass-rails'
@@ -8,8 +10,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
-gem 'devise'
-gem "devise-i18n"
 gem 'simple_form'
 gem "haml"
 gem "will_paginate"
@@ -24,16 +24,20 @@ gem 'facet_for'
 gem 'rails-i18n'
 gem "barby"
 gem "chunky_png"
+gem "bcrypt-ruby"
+gem "valid_email" , :require => 'valid_email/email_validator' #no mx checking
 
-gem "thin"
+gem "therubyracer" 
+gem "libv8" , "3.16.14.3"
 
 group :development do
+  gem "migrate_spree", :path => "../migrate_spree"
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-#  gem "i18n_sync"
+  gem "i18n-tasks"
   gem 'quiet_assets'
   gem 'rails_layout'
 #  gem "jeweler", "> 1.6.4"
