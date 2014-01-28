@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :clerk do
-    name 'Test Clerk'
-    email 'example@example.com'
+    sequence( :name) { |n| "Test Clerk#{n}" }
+    sequence( :email) { |n| "test#{n}@test.com" }
     password 'password'
     password_confirmation 'password'
     # confirmed_at Time.now

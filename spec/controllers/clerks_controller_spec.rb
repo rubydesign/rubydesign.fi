@@ -2,10 +2,14 @@ require 'spec_helper'
 
 describe ClerksController do
 
-  before (:each) do
-    @clerk = create(:clerk)
-    sign_in @clerk
-  end
+  before :all do
+    create :admin  unless Clerk.where(:admin => true).first
+  end  
+
+  # This should return the minimal set of values that should be in the session
+  # in order to pass any filters (e.g. authentication) defined in
+  # SuppliersController. Be sure to keep this updated too.
+  let(:valid_session) { { :clerk_email => Clerk.where(:admin => true).first.email } }
 
   render_views
 

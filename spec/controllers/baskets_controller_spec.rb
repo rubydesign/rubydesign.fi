@@ -9,7 +9,10 @@ describe BasketsController do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # BasketsController. Be sure to keep this updated.
-  let(:valid_session) { {} }
+  before :all do
+    create :admin  unless Clerk.where(:admin => true).first
+  end  
+  let(:valid_session) { { :clerk_email => Clerk.where(:admin => true).first.email } }
 
   describe "GET index" do
     it "assigns all baskets as @baskets" do

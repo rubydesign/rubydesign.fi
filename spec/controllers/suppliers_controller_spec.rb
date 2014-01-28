@@ -26,11 +26,14 @@ describe SuppliersController do
   let(:supplier_attributes) do
      {:supplier => attributes_for(:supplier)}
    end
+   before :all do
+     create :admin  unless Clerk.where(:admin => true).first
+   end  
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SuppliersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { :clerk_email => Clerk.where(:admin => true).first.email } }
 
   describe "GET index" do
     it "assigns all suppliers as @suppliers" do

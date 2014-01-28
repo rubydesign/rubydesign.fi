@@ -20,9 +20,14 @@ require 'spec_helper'
 
 describe CategoriesController do
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in CategoriesController.
-  let(:valid_session) { {} }
+  before :all do
+    create :admin  unless Clerk.where(:admin => true).first
+  end  
+
+ # This should return the minimal set of values that should be in the session
+ # in order to pass any filters (e.g. authentication) defined in
+ # SuppliersController. Be sure to keep this updated too.
+ let(:valid_session) { { :clerk_email => Clerk.where(:admin => true).first.email } }
 
   describe "GET index" do
     it "assigns all categories as @categories" do

@@ -25,10 +25,14 @@ describe ProductsController do
   # adjust the attributes here as well.
   let(:valid_attributes) { attributes_for :product }
 
+  before :all do
+    create :admin  unless Clerk.where(:admin => true).first
+  end  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # ProductsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  # SuppliersController. Be sure to keep this updated too.
+  let(:valid_session) { { :clerk_email => Clerk.where(:admin => true).first.email } }
 
   describe "GET index" do
     it "assigns all products as @products" do
