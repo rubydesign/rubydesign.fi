@@ -52,7 +52,7 @@ class BasketsController < AdminController
       item = @basket.items.find { |item| item.id.to_s == pid }
       item.quantity += 1
       item.save
-#      flash.notice = t('product_added')
+      flash.notice = t('product_added')
     end
     if pid = params[:delete]
       item = @basket.items.find { |item| item.id.to_s == pid }
@@ -62,7 +62,7 @@ class BasketsController < AdminController
       else
         item.save
       end
-#      flash.notice = t('item_removed')
+      flash.notice = t('item_removed')
     end
     if discount = params[:discount]
       if i_id = params[:item]
@@ -78,16 +78,22 @@ class BasketsController < AdminController
       prod = Product.find p_id
       #errors ?
       @basket.add_product prod
+      flash.notice = t('product_added')
     end
     if ean = params[:ean]
       prod = Product.find_by_ean ean
       if(prod)
         @basket.add_product prod
       else
-        # stor the basket in the session ( or the url ???)
-        redirect_to :action => :index, :controller => :products, :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
-
-        return
+        prod = Product.find_by_scode ean
+        if(prod)
+          @basket.add_product prod
+        else
+          # stor the basket in the session ( or the url ???)
+          redirect_to :action => :index, :controller => :products, 
+                :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
+          return
+        end
       end
     end
     redirect_to  :action => :show
