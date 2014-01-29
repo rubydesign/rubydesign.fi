@@ -36,7 +36,7 @@
                   x
                   = item.name
                   %br
-              %td= link_to t(:show) , basket_path(basket), :title => t(:show)
+              %td= basket_edit_link(basket)
   .medium-3.columns
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:type)
