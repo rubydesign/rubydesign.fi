@@ -50,10 +50,12 @@
 
 
     .row.form-actions
-      .large-4.column
+      .large-2.column
         = f.submit :class => "submit-button"
       .large-2.column
         = link_to t(:back), baskets_path, :class => "admin-button"
+      .large-2.column
+        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
       - if @basket.isa :cart
         .large-2.column
           - link_to t(:make_order), order_basket_path(@basket), :class => "admin-button make_order"
