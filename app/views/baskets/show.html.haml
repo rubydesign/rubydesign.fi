@@ -56,7 +56,7 @@
         = link_to t(:back), baskets_path, :class => "admin-button"
       - if @basket.isa :cart
         .large-2.column
-          = link_to t(:make_order), order_basket_path(@basket), :class => "admin-button make_order"
+          - link_to t(:make_order), order_basket_path(@basket), :class => "admin-button make_order"
           = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "admin-button make_purchase"
         .large-2.column{"data-no-turbolink" => true}
           = link_to t(:print_order), print_basket_path(@basket) , :target => "_blank" , :class => "admin-button print_order"
@@ -70,4 +70,4 @@
           = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "admin-button to_purchase"
 
       .large-2.column
-        = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "admin-button"
+        = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "admin-button" unless @basket.kori_type

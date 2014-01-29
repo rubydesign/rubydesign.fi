@@ -53,7 +53,7 @@ fi:
   admin: Admin
   are_you_sure: Oletko varma
   as_inventory: Inventaarioon
-  back: Takaisin
+  back: Listalle
   barcode: Viivakoodi
   basket: Ostoskori
   baskets: Ostoskorit
@@ -96,8 +96,8 @@ fi:
   made_offline: poistettu netistä
   made_online: laitettu nettiin
   main_picture: Kuva
-  make_order: Luo tilaus
-  make_purchase: Luo Ostos
+  make_order: Luo Tilaus
+  make_purchase: Luo Sisäänosto
   may_be_blank: Voi jättää tyhjäksi
   name: Nimi
   name_contains: Nimi sisältää
@@ -164,8 +164,8 @@ fi:
   tax: Alv
   tax_percent: Veroprosentti
   tax_rate: Veroprosentti
-  to_order: Tilaa
-  to_purchase: To purchase
+  to_order: Tilaukselle
+  to_purchase: Sisänostoksille
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot

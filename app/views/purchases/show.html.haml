@@ -16,7 +16,6 @@
       = t(:received) + " : " + @purchase.received_on.to_s
     -else
       = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "admin-button"
-      = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "admin-button"
 
 = render "baskets/small" , :basket => @purchase.basket
 
@@ -25,3 +24,8 @@
     = t(:suppliers) + " : "
   = @purchase.basket.suppliers.collect {|s| s.name }.join
 = link_to t(:back), purchases_path, :class => "admin-button"
+
+%h2{"style" => "color:red"}
+  = t(:inventory)
+  = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "admin-button"
+ 

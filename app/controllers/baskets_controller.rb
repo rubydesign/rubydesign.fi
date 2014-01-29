@@ -19,6 +19,7 @@ class BasketsController < AdminController
     order.shipped_on = Date.today unless order.shipped_on
     order.shipment_price = 0 unless order.shipment_price
     order.shipment_tax   = 0 unless order.shipment_tax
+    order.email = current_clerk.email
     order.save!
     redirect_to :action => :print , :controller => :orders , :id => order.id
   end
@@ -29,7 +30,7 @@ class BasketsController < AdminController
   #as an action this order is mean as a verb, ie order this basket
   def order
     redirect_to :action => :show    if @basket.items.empty?
-    order = Order.create! :basket => @basket
+    order = Order.create! :basket => @basket , :email => current_clerk.email , :orderd_on => Date.today
     redirect_to :action => :show , :controller => :orders , :id => order.id
   end
 
