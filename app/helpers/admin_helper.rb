@@ -9,7 +9,7 @@ module AdminHelper
       text = I18n.t(:order)
       link = order_path(basket.kori)
     when "Purchase"
-      text = I18n.t(:order)
+      text = I18n.t(:purchase)
       link = purchase_path(basket.kori)
     end
     return link_to text , link , options 
