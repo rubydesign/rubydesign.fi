@@ -75,7 +75,9 @@ class ProductsController < AdminController
       else
         aBarcode = ::Barby::Code128B.new( code  )
       end
-      aBarcode.annotate_pdf(pdf, :width => 45.mm , :height => 10.mm , :at => [ 0 , 10.mm])
+      pdf.image( StringIO.new( aBarcode.to_png(:xdim => 5)) , :width => 50.mm , 
+              :height => 10.mm , :at => [ 0 , 10.mm])
+      #aBarcode.annotate_pdf(pdf, :width => 45.mm , :height => 10.mm , :at => [ 0 , 10.mm])
     end
     send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.full_name}.pdf"
   end
