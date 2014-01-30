@@ -1,5 +1,4 @@
 
-//= require vendor/modernizr
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs

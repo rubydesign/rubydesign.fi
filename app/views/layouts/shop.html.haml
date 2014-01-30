@@ -13,34 +13,30 @@
     = stylesheet_link_tag "shop"
     = javascript_include_tag "shop"
     = csrf_meta_tags
-    %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
-  %body#product-details
-    %header.row
-      .logo
+  %body
+    %header.row.mainrow
+      .logo.column.large-12
         .row
           .medium-8.columns
           .medium-4.columns
             %nav.top-bar{"data-topbar" => ""}
+              %ul.title-area
+                %li.name
               %section.top-bar-section
                 %ul.right
-                  %li.search
-                    %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
-                      %div{style: "margin:0;padding:0;display:inline"}
-                        %input{name: "utf8", type: "hidden", value: "✓"}/
-                      %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "7"}
-                %ul.right
                   %li#link-to-cart
-                    %a.empty{href: "/cart"} Ostoskori: (tyhjä)
-                  - if current_clerk
-                    %li
-                      = t(:signed_in) 
-                      = current_clerk.email
-                      = link_to (:sign_out), sign_out_path
-                  - else
-                    %li
-                      = link_to t(:sign_up), sign_up_path
-                    %li
-                      = link_to t(:sign_in), sign_in_path
+                    %a{href: "/cart"}
+                      = t(:basket)
+                      = t(:empty)
+                  %li.has-dropdown
+                    %a{:href => "#"} 
+                      = current_clerk ? current_clerk.email : "Login"
+                    %ul.dropdown
+                      - if current_clerk
+                        %li= link_to t(:sign_out), sign_out_path
+                      - else
+                        %li= link_to t(:sign_up), sign_up_path
+                        %li= link_to t(:sign_in), sign_in_path
     .row.content
       .large-12.column.alert
         - if not flash[:notice].blank? then
