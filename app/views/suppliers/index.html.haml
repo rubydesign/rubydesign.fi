@@ -21,7 +21,7 @@
               =sort_link @q,  :supplier_name
             %th{column_style("supplier", "address")}
               =t :address
-            %th{:colspan => "3"}
+            %th{:colspan => "2"}
               %label.checkbox
                 = @supplier_scope.count.to_s + " " + t(:suppliers)
         %tbody
@@ -33,7 +33,6 @@
                 =supplier.whole_address
               %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
-              %td= link_to t(:destroy) , supplier_path(supplier), :method => :delete, :title => t(:destroy)
   .medium-3.columns
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("supplier_name" , :label => t(:name))

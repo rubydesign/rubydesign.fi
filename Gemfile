@@ -38,6 +38,9 @@ gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 
+#one wishes one would not need it. alas . . .
+gem 'rack-attack'
+
 group :development do
   gem "migrate_spree", :path => "../migrate_spree"
   gem 'db_fixtures_dump'

@@ -29,6 +29,7 @@ module OfficeClerk
     I18n.default_locale = :fi
     config.after_initialize do
     end
+    config.middleware.use Rack::Attack
     config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '150x150>', :product  => '600x600>' },
                                 :default_style => :list,
                                 :url => "/images/:id/:style/:basename.:extension",

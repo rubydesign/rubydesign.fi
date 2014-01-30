@@ -98,7 +98,7 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.4)
-    foundation-rails (5.0.2.0)
+    foundation-rails (5.0.3.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     foundation_rails_helper (0.4)
@@ -153,7 +153,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     paperclip (3.5.2)
@@ -182,6 +182,8 @@ GEM
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-attack (2.3.0)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -223,7 +225,7 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     ruby-rc4 (0.1.5)
-    sass (3.2.13)
+    sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -304,6 +306,7 @@ DEPENDENCIES
   paperclip
   prawn
   quiet_assets
+  rack-attack
   rails
   rails-i18n
   rails_layout
