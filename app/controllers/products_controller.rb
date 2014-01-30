@@ -4,7 +4,7 @@ require 'prawn'
 require 'prawn/measurement_extensions'
 require 'barby/barcode/code_128'
 require 'barby/barcode/ean_13'
-require 'barby/outputter/prawn_outputter'
+require 'barby/outputter/png_outputter'
 
 class ProductsController < AdminController
 
