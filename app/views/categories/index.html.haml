@@ -39,6 +39,9 @@
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for(:name , :label => t(:name))
       = f.facet_for(:description , :label => t(:description))
+      .search_heading
+        = t(:online_eq)
+        = f.check_box :online_eq
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), categories_path, :class => "admin-button"
     %hr
