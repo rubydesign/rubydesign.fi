@@ -51,20 +51,35 @@
                 %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
   .medium-3.columns
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
-      .search_heading= t(:name)
-      - if params[:basket]
-        = hidden_field_tag :basket , params[:basket]
-        = f.text_field :name_or_product_name_cont
-      -else
-        = f.text_field :name_cont
-      = f.facet_for(:description , :label => t(:description))
-      = f.facet_for(:price , :label => t(:price_between) )
-      = f.facet_for(:ean )
-      = f.facet_for(:scode, :label => t(:scode) )
-      = f.facet_for(:inventory, :label => t(:inventory) )
-      = f.label t(:supplier)
-      = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, :include_blank => true
-      = f.label t(:category)
-      = f.collection_select :category_id_eq, Category.all, :id, :name, :include_blank => true
+      .search_heading
+        = f.label(:online_eq)
+        = f.check_box :online_eq
+      .search_heading
+        = f.label(:name)
+        - if params[:basket]
+          = hidden_field_tag :basket , params[:basket]
+          = f.text_field :name_or_product_name_cont
+        -else
+          = f.text_field :name_cont
+      .search_heading
+        = f.label(:description)
+        = f.text_field :description
+      .search_heading
+        = f.label(:price_between)
+      .search_heading
+        = f.text_field :price_lt , :class => :small_left
+        = f.text_field :price_gt , :class => :small_right
+      .search_heading
+        = f.facet_for(:ean )
+      .search_heading
+        = f.facet_for(:scode, :label => t(:scode) )
+      .search_heading
+        = f.facet_for(:inventory, :label => t(:inventory) )
+      .search_heading
+        = f.label t(:supplier)
+        = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, :include_blank => true
+      .search_heading
+        = f.label t(:category)
+        = f.collection_select :category_id_eq, Category.all, :id, :name, :include_blank => true
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), products_path, :class => "admin-button"
