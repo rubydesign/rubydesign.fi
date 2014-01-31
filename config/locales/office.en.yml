@@ -6,6 +6,14 @@ en:
       basket:
         created_at: Created
         total_price: Price
+      clerk:
+        city: City
+        email: Email
+        name: Name
+        password: Passord
+        password_confirmation: Password confirmation
+        phone: Phone
+        street: Street
       order:
         email: Email
         ordered_on: Ordered on
@@ -29,22 +37,14 @@ en:
         phone: Phone
         street: Street
         supplier_name: Supplier
-      clerk:
-        city: City
-        email: Email
-        name: Name
-        password: Passord
-        password_confirmation: Password confirmation
-        phone: Phone
-        street: Street
     models:
       basket: Cart
       category: Product group
+      clerk: User
       order: Order
       product: Product
       purchase: Purchase
       supplier: Supplier
-      clerk: User
   add: Add
   add_inventory: Add Inventory
   add_to_basket: Add to basket
@@ -64,6 +64,8 @@ en:
   category: Product Category
   choose_product_for_basket: Choose product for basket
   city: City
+  clerk: User
+  clerks: Users
   contact: Contact
   cost: Cost
   count: Count
@@ -134,9 +136,9 @@ en:
   received_on: Received On
   scode: Supplier code
   search: Search
+  shipment_price: Shipment price
   shipment_type: Shipment type
   shipped_on: Shipped on
-  shipment_price: Shipment price
   shop: Shop
   show: Show
   sign_in: Log in
@@ -171,9 +173,7 @@ en:
   type: Type
   update_success: Successfully updated
   updated: Updated
-  clerk: User
-  clerks: Users
-  vat:  Vat
+  vat: Vat
   weight: Weight
   will_paginate:
     next_label: Next &#8594;

@@ -6,6 +6,14 @@ fi:
       basket:
         created_at: Luotu
         total_price: Hinta
+      clerk:
+        city: Kaupunki
+        email: S-posti
+        name: Nimi
+        password: Salasana
+        password_confirmation: Vahvista salasana
+        phone: Puhelin
+        street: Osoite
       order:
         email: S-posti
         ordered_on: Tilattu
@@ -29,22 +37,14 @@ fi:
         phone: Puhelin
         street: Osoite
         supplier_name: Tuottaja
-      clerk:
-        city: Kaupunki
-        email: S-posti
-        name: Nimi
-        password: Salasana
-        password_confirmation: Vahvista salasana
-        phone: Puhelin
-        street: Osoite
     models:
       basket: Ostoskori
       category: Tuoteryhmä
+      clerk: Käyttäjä
       order: Tilaus
       product: Tuote
       purchase: Sisäänosto
       supplier: Tuottaja
-      clerk: Käyttäjä
   add: Lisää
   add_inventory: Lisää inventaarioon
   add_to_basket: Lisää ostoskoriin
@@ -64,6 +64,8 @@ fi:
   category: Tuoteryhmä
   choose_product_for_basket: Valitse tuote ostoskoriin
   city: Kaupunki
+  clerk: Käyttäjä
+  clerks: Käyttäjät
   contact: Kontaktihenkilö
   cost: Kustannus
   count: Määrä
@@ -136,9 +138,9 @@ fi:
   received_on: Vastaanotettu
   scode: Tuottajatunnus
   search: Hae
+  shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty
-  shipment_price: Lähetyksen hinta
   shop: Kauppa
   show: Näytä
   sign_in: Kirjaudu sisään
@@ -150,11 +152,11 @@ fi:
   simple_form:
     error_notification:
       default_message: 'Tarkista uudelleen:'
-    no: Ei
+    'false': Ei
     required:
       mark: '*'
       text: required
-    yes: Kyllä
+    'true': Kyllä
   state: Tila
   street: Osoite
   street1: Osoite1
@@ -173,9 +175,7 @@ fi:
   type: Laji
   update_success: Päivitetty onnistuneesti
   updated: Päivitetty
-  clerk: Käyttäjä
-  clerks: Käyttäjät
-  vat:  Alv
+  vat: Alv
   weight: Paino
   will_paginate:
     next_label: seuraava
