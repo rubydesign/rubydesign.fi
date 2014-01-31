@@ -11,11 +11,10 @@
  *= require reset
  */
 
-// configuartion of zurb has to go before its import
 
 $topbar-bg: #6827EC;
 
-@import "admin_foundation.scss";
+@import "bootstrap";
 
 // new classes using zurb go after the import
 
@@ -27,9 +26,7 @@ $topbar-bg: #6827EC;
 };
 .admin-button { 
   $button-radius: rem-calc(10);
-  @include button(rem-calc(10), #87B624, true, false, false, false);
 };
 .submit-button { 
-  @include button(rem-calc(15), orange, true, false, false, false);
   $button-radius: rem-calc(15);
 };

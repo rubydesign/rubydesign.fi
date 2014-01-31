@@ -15,9 +15,7 @@ gem "haml"
 gem "will_paginate"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
-gem "foundation-rails"
-gem 'will_paginate-foundation'
-gem 'foundation_rails_helper'
+gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass', '~> 3.1.0'
 
 gem "paperclip"

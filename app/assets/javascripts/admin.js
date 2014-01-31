@@ -2,7 +2,6 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require turbolinks
-//= require foundation
 //= require_self
 
 $(function() {

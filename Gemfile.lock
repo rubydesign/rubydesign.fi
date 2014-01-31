@@ -100,12 +100,6 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.4)
-    foundation-rails (5.0.3.1)
-      railties (>= 3.1.0)
-      sass (>= 3.2.0)
-    foundation_rails_helper (0.4)
-      actionpack (>= 3.0)
-      railties (>= 3.0)
     guard (2.2.5)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -273,7 +267,7 @@ GEM
       activemodel
       mail
     will_paginate (3.0.5)
-    will_paginate-foundation (5.3.3)
+    will_paginate-bootstrap (1.0.0)
       will_paginate (>= 3.0.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -295,8 +289,6 @@ DEPENDENCIES
   email_spec
   facet_for
   factory_girl_rails
-  foundation-rails
-  foundation_rails_helper
   guard-bundler
   guard-rails
   guard-rspec
@@ -324,4 +316,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   valid_email
   will_paginate
-  will_paginate-foundation
+  will_paginate-bootstrap
