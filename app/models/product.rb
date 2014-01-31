@@ -20,6 +20,7 @@ class Product < ActiveRecord::Base
 
   # default product scope only lists non-deleted products
   default_scope {where(:deleted_on => nil).order('created_at DESC').includes(:supplier , :category) }
+  scope :online, -> { where(:online => true) }
 
   validates :price, :numericality => true
   validates :cost, :numericality => true
