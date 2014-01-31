@@ -4,14 +4,16 @@
 /*
  */
  
-$topbar-bg: #108BAD;
+
+$navbar-default-bg: #108BAD;
 $highlight: #108BAD;
 $open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
 $secondary-color: #c7e1df;
 $crumb-bg: lighten($secondary-color, 2%);
 $crumb-border-style: none;
 
-@import "shop_foundation" ;
+@import "bootstrap";
+
 
 .top-bar-section ul {
     background: #ffffff;
@@ -19,7 +21,9 @@ $crumb-border-style: none;
     
 .logo {
   	background-image: url(shop/kansi.jpg);
-  	height: 250px;
+  	background-repeat: no-repeat;
+    background-position: center center;
+    height: 250px;
 }   
 
 .top-bar-section form {

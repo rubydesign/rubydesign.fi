@@ -18,6 +18,7 @@ gem "prawn"
 gem "foundation-rails"
 gem 'will_paginate-foundation'
 gem 'foundation_rails_helper'
+gem 'bootstrap-sass', '~> 3.1.0'
 
 gem "paperclip"
 gem 'facet_for' 

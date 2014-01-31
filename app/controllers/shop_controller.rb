@@ -4,16 +4,27 @@ class ShopController < ApplicationController
   layout "shop"
 
   def product
-    @product = Product.online.where(:link => params[:id]).first
+    @product = Product.online.where(:link => params[:link]).first
     redirect_to :action => :group unless @product
     #error handling
 #    @group = Category.find(@product.category_id)
   end
 
   def group
-    @group = Category.online.where(:link => params[:id]).first
-    @group = Category.online.first unless @group
-    @products = @group.products
+    @group = Category.online.where(:link => params[:link]).first 
+    if @group and @group.categories.empty?
+      @products = @group.products
+      template = "product_group"
+    else
+      if @group
+        @groups = @group.categories
+        template = "subgroup"
+      else
+        @groups = Category.online.where( :category_id => nil )
+        template = "subgroup"
+      end
+    end
+    render template
   end
 
   def page
@@ -25,7 +36,6 @@ class ShopController < ApplicationController
   end
   private
     def load
-      @groups = Category.online.where( :category_id => nil )
       @menu =  {"/page/kotisivu" => "KOTISIVU" ,
                 "/group/start" => "VERKKOKAUPPA" ,
                 "/page/tuotteista" => "TUOTTEISTA",
