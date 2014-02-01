@@ -14,7 +14,7 @@ describe "product filtering" do
     visit products_path
    end
   it "filters by price" do
-    fill_in "q_price_gteq", :with => '10'
+    fill_in "q[price_lteq]", :with => '10'
     click_button( 'Filter')
   end
 end
