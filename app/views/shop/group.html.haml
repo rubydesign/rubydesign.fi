@@ -1,39 +1,9 @@
-.row
-  .large-4.columns
-    .menu-wrapper
-      %a{href: "/page/subgroup"}
-        %img{src: "/assets/shop/menu-vartalo.jpg"}/
-        %h3 Luonnonkosmetiikka
-
-  .large-4.columns
-    .menu-wrapper
-      %a{href: "/page/subgroup"}
-        %img{src: "/assets/shop/menu-gourmet.jpg"}/
-        %h3 Gourmet & Teet
-
-  .large-4.columns
-    .menu-wrapper
-      %a{href: "/page/subgroup"}
-        %img{src: "/assets/shop/menu-valaisin.jpg"}/
-        %h3 Sisustus & Korut
-
-
-.row
-  .large-4.columns
-    .menu-wrapper
-      %a{href: "/page/subgroup"}
-        %img{src: "/assets/shop/menu-laukut.jpg"}/
-        %h3 Laukut
-
-  .large-4.columns
-    .menu-wrapper
-      %a{href: "/page/subgroup"}
-        %img{src: "/assets/shop/menu-huonetuoksu.jpg"}/
-        %h3 Huonetuoksut
-
-  .large-4.columns
-    .menu-wrapper
-      %a{href: "/page/subgroup"}
-        %img{src: "/assets/shop/menu-vaatteet.jpg"}/
-        %h3 Vaatteet & Huivit
-
+- @groups.in_groups_of(3).each do |array|
+  .row
+    -array.each do |group|
+      .col-md-4
+        -next unless group
+        .menu-wrapper
+          =link_to shop_group_path(group.link) do
+            = image_tag group.main_picture.url(:product)
+            %h3= group.name

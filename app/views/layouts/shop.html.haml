@@ -13,74 +13,69 @@
     = stylesheet_link_tag "shop"
     = javascript_include_tag "shop"
     = csrf_meta_tags
-    %meta{content: "0w+bztg3XTZDCoGDp7vtiFKlqbIZTxMtry7UbAvq5M4=", name: "csrf-token"}
-  %body#product-details
-    %header.row
-      .logo
+  %body
+    .container-fluid
+      %header.logo
         .row
-          .medium-8.columns
-          .medium-4.columns
-            %nav.top-bar{"data-topbar" => ""}
-              %section.top-bar-section
-                %ul.right
-                  %li.search
-                    %form{"accept-charset" => "UTF-8", action: "/products", method: "get"}
-                      %div{style: "margin:0;padding:0;display:inline"}
-                        %input{name: "utf8", type: "hidden", value: "✓"}/
-                      %input#keywords{name: "keywords", placeholder: "Etsi", type: "search", size: "7"}
-                %ul.right
+          .col-md-8
+          .col-md-4
+            %nav.navbar.navbar-default{:role => "navigation"}
+              .container-fluid
+                %ul.nav.navbar-nav.navbar-right
                   %li#link-to-cart
-                    %a.empty{href: "/cart"} Ostoskori: (tyhjä)
-                  - if current_clerk
-                    %li
-                      = t(:signed_in) 
-                      = current_clerk.email
-                      = link_to (:sign_out), sign_out_path
-                  - else
-                    %li
-                      = link_to t(:sign_up), sign_up_path
-                    %li
-                      = link_to t(:sign_in), sign_in_path
-    .row.content
-      .large-12.column.alert
+                    %a{href: "/cart"}
+                      = t(:basket)
+                      = t(:empty)
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                      = current_clerk ? current_clerk.email : "Login"
+                      %b.caret
+                    %ul.dropdown-menu
+                      - if current_clerk
+                        %li= link_to t(:sign_out), sign_out_path
+                      - else
+                        %li= link_to t(:sign_up), sign_up_path
+                        %li= link_to t(:sign_in), sign_in_path
+      .row.content
         - if not flash[:notice].blank? then
-          .alert-notice.row
-            .large-3.column
-              .alert-heading= t(:info) + " :"
-            .large-9.column
-              .alert-message!= flash[:notice]
-      .large-12.column.alert
+          .col-md-12.alert
+            .alert-notice.row
+              .large-3.column
+                .alert-heading= t(:info) + " :"
+              .large-9.column
+                .alert-message!= flash[:notice]
         - if not flash[:error].blank? then
-          .alert-error.row
-            .large-3.column
-              .alert-heading= t(:info) + " :"
-            .large-9.column
-              .alert-message!= flash[:notice]
+          .col-md-12.alert
+            .alert-error.row
+              .large-3.column
+                .alert-heading= t(:info) + " :"
+              .large-9.column
+                .alert-message!= flash[:notice]
       
 
-    .row
-      .large-12.columns
-        = yield
+      .row
+        .col-md-12.columns
+          = yield
 
 
-    .row
-      %div{id: "footer"}
-        .left
-          Suunnittelu ja toteutus Ruby Design    
-          %br/
-          Powered by
-          %a{href: "http://rubyclerks.com/"} RubyClerks
-        .right{align: "right"}
-          %b> AURINGOSTA ITÄÄN, KUUSTA LÄNTEEN
-          %br/
-          Fredrikinkatu 19 (Viiskulma), Helsinki
-          %br/
-          puh +358- (0)9- 621 7001 | Y-tunnus 2380478-1
-      :javascript
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      .row
+        #footer
+          .left
+            Suunnittelu ja toteutus Ruby Design    
+            %br/
+            Powered by
+            %a{href: "http://rubyclerks.com/"} RubyClerks
+          .right{align: "right"}
+            %b> AURINGOSTA ITÄÄN, KUUSTA LÄNTEEN
+            %br/
+            Fredrikinkatu 19 (Viiskulma), Helsinki
+            %br/
+            puh +358- (0)9- 621 7001 | Y-tunnus 2380478-1
+        :javascript
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-12603339-1', 'auringostaitaan.fi');
-        ga('send', 'pageview');
+          ga('create', 'UA-12603339-1', 'auringostaitaan.fi');
+          ga('send', 'pageview');
