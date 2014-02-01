@@ -44,7 +44,7 @@
       .search_heading= t(:items)
       = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
       .search_heading= t(:price_between)
-      = f.text_field :total_price_gt
+      = f.text_field :total_price_gt , :class => "ffff"
       = f.text_field :total_price_lt
       = f.submit t(:filter), :class => "submit-button"
       = link_to  t(:cancel), baskets_path, :class => "admin-button"

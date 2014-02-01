@@ -42,4 +42,9 @@
               .alert-heading= t(:info) + " :"
             .large-9.column
               .alert-message!= flash[:notice]
+      .large-12.column
+        .row.space
+          %img{src: "spacer.gif"}/
+
         = yield
+      

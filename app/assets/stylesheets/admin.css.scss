@@ -13,7 +13,15 @@
 
 // configuartion of zurb has to go before its import
 
-$topbar-bg: #6827EC;
+$primary-color: #6827EC;
+$topbar-bg: $primary-color;
+$global-radius: 6px;
+$open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+
+$table-head-bg: scale-color($primary-color, $lightness: 75%);
+$table-bg: scale-color($primary-color, $lightness: 98%);
+$table-even-row-bg: scale-color($primary-color, $lightness: 90%);
+$table-border-color: scale-color($primary-color, $lightness: 75%);
 
 @import "admin_foundation.scss";
 
@@ -21,15 +29,45 @@ $topbar-bg: #6827EC;
 
 .alert-notice {
   background-color: #00FFEB;
-};
+  padding: 8px;
+  radius: $global-radius;
+}
+
 .alert-error {
   background-color: red;
-};
+}
 .admin-button { 
-  $button-radius: rem-calc(10);
-  @include button(rem-calc(10), #87B624, true, false, false, false);
-};
+  $button-radius: rem-calc(5);
+  @include button(rem-calc(5), #87B624, true, false, false, false);
+}
 .submit-button { 
   @include button(rem-calc(15), orange, true, false, false, false);
   $button-radius: rem-calc(15);
-};
+}
+
+body {
+  font-family: $open;
+}
+
+.new-button {
+  top: 15px;
+  text-align: right;  
+}
+
+div.pagination {
+margin-bottom: 7px;
+}
+
+ul.pagination {
+margin-left: 65px;
+margin-bottom: 7px;
+}
+
+ul.pagination li {
+  font-size: 0.8rem;
+  }
+  
+.admin-table  {
+font-size: 0.5rem;
+
+}

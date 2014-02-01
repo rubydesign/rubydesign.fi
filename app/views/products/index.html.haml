@@ -7,7 +7,7 @@
             = t(:choose_product_for_basket)
           -else
             = t(:products)
-      .large-4.column
+      .large-4.column.new-button
         = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "admin-button"
     .row
       %p
@@ -18,7 +18,7 @@
 .row
   .medium-9.columns
     %div
-      %table.talbe.table-striped.table-bordered.table-condensed
+      %table.table-striped.table-bordered.table-condensed.admin-table
         %thead
           %tr
             %th=t( "picture")
