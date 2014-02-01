@@ -79,6 +79,7 @@ fi:
   edit: Muokkaa
   editing: Muokkaamassa
   email: S-posti
+  empty: Empty
   error: Virhe
   extra_picture: Toinen kuva
   filter: Hae
@@ -106,6 +107,7 @@ fi:
   next: seuraava
   not_online: ei netissä
   online: Netissä
+  online_eq: Online?
   order: Tilaus
   order_number: Tilauksen numero
   order_total: Loppusumma
@@ -150,11 +152,11 @@ fi:
   simple_form:
     error_notification:
       default_message: 'Tarkista uudelleen:'
-    no: Ei
+    "no": Ei
     required:
       mark: '*'
       text: required
-    yes: Kyllä
+    "yes": Kyllä
   state: Tila
   street: Osoite
   street1: Osoite1
