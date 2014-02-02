@@ -40,21 +40,21 @@
         - if not flash[:notice].blank? then
           .col-md-12.alert
             .alert-notice.row
-              .large-3.column
+              .col-lg-3
                 .alert-heading= t(:info) + " :"
-              .large-9.column
+              .col-lg-9
                 .alert-message!= flash[:notice]
         - if not flash[:error].blank? then
           .col-md-12.alert
             .alert-error.row
-              .large-3.column
+              .col-lg-3
                 .alert-heading= t(:info) + " :"
-              .large-9.column
+              .col-lg-9
                 .alert-message!= flash[:notice]
       
 
       .row
-        .col-md-12.columns
+        .col-md-12
           = yield
 
 

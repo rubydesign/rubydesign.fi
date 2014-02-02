@@ -1,18 +1,18 @@
 .row
-  .large-9.column
+  .col-lg-9
     .row
-      .large-8.column
+      .col-lg-8
         %h2
           = t(:suppliers)
-      .large-4.column
+      .col-lg-4
         = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "admin-button"
     .row
       %p
         = paginate @suppliers
-  .large-3.column
+  .col-lg-3
     = image_tag "admin/suppliers.jpg"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -33,7 +33,7 @@
                 =supplier.whole_address
               %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("supplier_name" , :label => t(:name))
       = f.facet_for("address" , :label => t(:address))

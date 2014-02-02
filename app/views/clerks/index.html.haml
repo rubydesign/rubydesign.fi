@@ -1,18 +1,18 @@
 .row
-  .large-9.column
+  .col-lg-9
     .row
-      .large-8.column
+      .col-lg-8
         %h2
           = t(:clerks)
-      .large-4.column
+      .col-lg-4
         = link_to  t(:new) + ' ' + t(:clerk) , new_clerk_path , :class => "admin-button"
     .row
       %p
         = paginate @clerks
-  .large-3.column
+  .col-lg-3
     = image_tag "admin/clerks.jpg"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -32,7 +32,7 @@
                 =clerk.whole_address
               %td= link_to t(:show) , clerk_path(clerk), :title => t(:show)
               %td= link_to t(:edit), edit_clerk_path(clerk), :title => t(:edit)
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_clerks_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for(:email , :label => t(:email))
       = f.facet_for(:address , :label => t(:address))

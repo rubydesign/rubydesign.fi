@@ -1,16 +1,16 @@
 .row
-  .large-9.column
+  .col-lg-9
     .row
-      .large-8.column
+      .col-lg-8
         %h2
           = t(:purchases)
     .row
       %p
         = paginate @purchases
-  .large-3.column
+  .col-lg-3
     = image_tag "admin/purchases.jpg"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -34,7 +34,7 @@
       .btn-toolbar
         .btn-group
           = paginate @purchases
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("name" , :label => t(:name))
       = f.label t(:ordered_on) + " " + t(:between)

@@ -1,16 +1,16 @@
 .row
-  .large-9.column
+  .col-lg-9
     .row
-      .large-8.column
+      .col-lg-8
         %h2
           = t(:orders)
     .row
       %p
         = paginate @orders
-  .large-3.column
+  .col-lg-3
     = image_tag "admin/orders.jpg"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -38,7 +38,7 @@
             %i.icon-download CSV
           = link_to orders_path(:format => :json), :class => "admin-button" do
             %i.icon-download JSON
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.label t(:order_number)
       = f.text_field :number_cont

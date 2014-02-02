@@ -1,18 +1,18 @@
 .row
-  .large-9.column
+  .col-lg-9
     .row
-      .large-8.column
+      .col-lg-8
         %h2
           = t(:baskets)
-      .large-4.column
+      .col-lg-4
         = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
     .row
       %p
       = paginate @baskets
-  .large-3.column
+  .col-lg-3
     = image_tag "admin/baskets.jpg"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -37,7 +37,7 @@
                   = item.name
                   %br
               %td= basket_edit_link(basket)
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .search_heading= t(:type)
       = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]]

@@ -1,7 +1,7 @@
 %h2
   = t(:supplier) + " : " +  @supplier.supplier_name
 
-.large-6.column
+.col-lg-6
   %h3= t(:contact)
   %p
     %b
@@ -12,7 +12,7 @@
   %p
     %b
       = t(:city) + " : " + @supplier.city.to_s
-.large-6.column
+.col-lg-6
   %p
     %b
       = t(:phone) + " : " +  @supplier.phone.to_s

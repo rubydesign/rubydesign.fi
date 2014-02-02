@@ -13,20 +13,20 @@
     = @product.name
     = render "online" , :object => @product
 .row
-  .medium-6.columns
-    .medium-6.columns
+  .col-md-6
+    .col-md-6
       %p
         %b
           = t(:main_picture) + " : "
         %br
         = image_tag @product.main_picture.url
-    .medium-6.columns
+    .col-md-6
       %p
         %b
           = t(:extra_picture) + " : "
         %br
         = image_tag @product.extra_picture.url
-    .medium-6
+    .col-md-6
       %p
         %b
           = t(:price) + " : "
@@ -49,7 +49,7 @@
     = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "admin-button"
     = link_to t(:barcode) , barcode_product_path( @product), :class => "admin-button"
 
-  .medium-6.columns
+  .col-md-6
     %p
       %b
         = t(:description) + " : "

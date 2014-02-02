@@ -1,18 +1,18 @@
 .row
-  .large-9.column
+  .col-lg-9
     .row
-      .large-8.column
+      .col-lg-8
         %h2
           = t(:categories)
-      .large-4.column
+      .col-lg-4
         = link_to  t(:new) + ' ' + t(:category) , new_category_path , :class => "admin-button"
     .row
       %p
         = paginate @categories
-  .large-3.column
+  .col-lg-3
     = image_tag "admin/categories.jpg"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -35,7 +35,7 @@
               %td= Category.find(category.category_id).name if category.category_id
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
               %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for(:name , :label => t(:name))
       = f.facet_for(:description , :label => t(:description))
