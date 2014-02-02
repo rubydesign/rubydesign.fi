@@ -1,5 +1,7 @@
 ---
 en:
+  empty: Empty
+  online_eq: Online?
   actions: Actions
   activerecord:
     attributes:
@@ -73,7 +75,7 @@ en:
   create: Create
   create_success: Successfully created
   created_at: Created
-  delete: Poista
+  delete: Delete
   description: Description
   destroy: Destroy
   discount: Discount
@@ -95,7 +97,7 @@ en:
   link: Link
   made_offline: taken offline
   made_online: made online
-  main_picture: Kuva
+  main_picture: Main Picture
   make_order: Make Order
   make_purchase: Make Purchase
   may_be_blank: May be blank
@@ -147,14 +149,6 @@ en:
   sign_up: Sign up
   signed_in: Logged in
   signed_out: Logged out
-  simple_form:
-    error_notification:
-      default_message: 'Please review the problems below:'
-    'no': 'No'
-    required:
-      mark: '*'
-      text: required
-    'yes': 'Yes'
   state: State
   street: Street
   street1: Street1

@@ -7,7 +7,7 @@
             = t(:choose_product_for_basket)
           -else
             = t(:products)
-      .col-md-2
+      .col-md-2.new-button
         = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary"
     .row
       %p
@@ -18,7 +18,7 @@
 .row
   .col-md-9
     %div
-      %table.talbe.table-striped.table-bordered.table-condensed
+      %table.table-striped.table-bordered.table-condensed.admin-table
         %thead
           %tr
             %th=t( "picture")
@@ -67,8 +67,8 @@
       .search_heading
         = f.label(:price_between)
       .search_heading
-        = f.text_field :price_lt , :class => :small_left
-        = f.text_field :price_gt , :class => :small_right
+        = f.text_field :price_lteq , :class => :small_left
+        = f.text_field :price_gteq , :class => :small_right
       .search_heading
         = f.facet_for(:ean )
       .search_heading

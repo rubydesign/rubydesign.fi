@@ -16,14 +16,54 @@ $navbar-inverse-bg: #6827EC;
 $navbar-height:70px;
 body { padding-top: 80px; }
 
+$primary-color: #6827EC;
+$topbar-bg: $primary-color;
+$global-radius: 6px;
+$open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+
+$table-head-bg: scale-color($primary-color, $lightness: 75%);
+$table-bg: scale-color($primary-color, $lightness: 98%);
+$table-even-row-bg: scale-color($primary-color, $lightness: 90%);
+$table-border-color: scale-color($primary-color, $lightness: 75%);
+
+
 @import "bootstrap";
 
-// because of sticky navbar
 
 .alert-notice {
   background-color: #00FFEB;
-};
+  padding: 8px;
+  radius: $global-radius;
+}
+
 .alert-error {
   background-color: red;
 };
 
+
+body {
+  font-family: $open;
+}
+
+.new-button {
+  top: 15px;
+  text-align: right;  
+}
+
+div.pagination {
+margin-bottom: 7px;
+}
+
+ul.pagination {
+margin-left: 65px;
+margin-bottom: 7px;
+}
+
+ul.pagination li {
+  font-size: 0.8rem;
+  }
+  
+.admin-table  {
+font-size: 0.5rem;
+
+}
