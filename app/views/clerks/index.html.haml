@@ -1,16 +1,16 @@
 .row
   .col-lg-9
     .row
-      .col-lg-8
+      .col-lg-10
         %h2
           = t(:clerks)
-      .col-lg-4
-        = link_to  t(:new) + ' ' + t(:clerk) , new_clerk_path , :class => "admin-button"
+      .col-lg-2
+        = link_to  t(:new) + ' ' + t(:clerk) , new_clerk_path , :class => "btn btn-primary"
     .row
       %p
         = paginate @clerks
   .col-lg-3
-    = image_tag "admin/clerks.jpg"
+    = image_tag "admin/clerks.jpg" , :class => "img-responsive"
 .row
   .col-md-9
     %div
@@ -36,5 +36,5 @@
     = search_form_for @q, :url => search_clerks_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for(:email , :label => t(:email))
       = f.facet_for(:address , :label => t(:address))
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), clerks_path, :class => "admin-button"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), clerks_path, :class => "btn btn-primary"

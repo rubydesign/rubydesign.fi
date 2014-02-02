@@ -1,16 +1,16 @@
 .row
   .col-lg-9
     .row
-      .col-lg-8
+      .col-lg-10
         %h2
           = t(:baskets)
-      .col-lg-4
-        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
+      .col-lg-2
+        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
     .row
       %p
       = paginate @baskets
   .col-lg-3
-    = image_tag "admin/baskets.jpg"
+    = image_tag "admin/baskets.jpg" , :class => "img-responsive"
 .row
   .col-md-9
     %div
@@ -46,5 +46,5 @@
       .search_heading= t(:price_between)
       = f.text_field :total_price_gt
       = f.text_field :total_price_lt
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), baskets_path, :class => "admin-button"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), baskets_path, :class => "btn btn-primary"

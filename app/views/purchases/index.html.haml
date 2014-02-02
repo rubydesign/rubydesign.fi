@@ -1,14 +1,14 @@
 .row
   .col-lg-9
     .row
-      .col-lg-8
+      .col-lg-10
         %h2
           = t(:purchases)
     .row
       %p
         = paginate @purchases
   .col-lg-3
-    = image_tag "admin/purchases.jpg"
+    = image_tag "admin/purchases.jpg" , :class => "img-responsive"
 .row
   .col-md-9
     %div
@@ -43,5 +43,5 @@
       = f.label t(:received_on) + " "  +t(:between)
       = f.date_field :received_on_gt
       = f.date_field :received_on_lt
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), purchases_path, :class => "admin-button"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), purchases_path, :class => "btn btn-primary"

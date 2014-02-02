@@ -20,8 +20,8 @@
     %b
       = t(:country) + " : " + @supplier.country.to_s
 
-= link_to t(:edit), edit_supplier_path(@supplier), :class => "admin-button"
-= link_to t(:back), suppliers_path, :class => "admin-button"
+= link_to t(:edit), edit_supplier_path(@supplier), :class => "btn btn-primary"
+= link_to t(:back), suppliers_path, :class => "btn btn-primary"
 
 =render "products/triple" , :products => @supplier.products
 

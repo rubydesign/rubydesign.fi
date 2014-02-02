@@ -21,11 +21,11 @@
           = image_tag @product.extra_picture.url(:product)
           = f.file_field :extra_picture , :label => t(:extra_picture)
       .form-actions
-        = f.submit :class => "submit-button"
+        = f.submit :class => "btn btn-success"
         -if @product.product_id
-          = link_to t(:cancel), product_path(@product.product), :class => "admin-button"
+          = link_to t(:cancel), product_path(@product.product), :class => "btn btn-primary"
         -else
-          = link_to t(:cancel), products_path, :class => "admin-button"
+          = link_to t(:cancel), products_path, :class => "btn btn-primary"
 
     .col-md-3
       - unless @product.product_id

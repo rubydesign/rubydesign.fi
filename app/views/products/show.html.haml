@@ -43,11 +43,11 @@
         %b
           = t(:inventory) + " : "
         = @product.inventory
-    = link_to t(:edit), edit_product_path(@product), :class => "admin-button"
-    = link_to t(:back), products_path, :class => "admin-button"
-    = link_to t(:delete) , delete_product_path(@product), :class => "admin-button"
-    = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "admin-button"
-    = link_to t(:barcode) , barcode_product_path( @product), :class => "admin-button"
+    = link_to t(:edit), edit_product_path(@product), :class => "btn btn-primary"
+    = link_to t(:back), products_path, :class => "btn btn-primary"
+    = link_to t(:delete) , delete_product_path(@product), :class => "btn btn-primary"
+    = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
+    = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary"
 
   .col-md-6
     %p

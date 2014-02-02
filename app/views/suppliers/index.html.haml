@@ -1,16 +1,16 @@
 .row
   .col-lg-9
     .row
-      .col-lg-8
+      .col-lg-10
         %h2
           = t(:suppliers)
-      .col-lg-4
-        = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "admin-button"
+      .col-lg-2
+        = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "btn btn-primary"
     .row
       %p
         = paginate @suppliers
   .col-lg-3
-    = image_tag "admin/suppliers.jpg"
+    = image_tag "admin/suppliers.jpg" , :class => "img-responsive"
 .row
   .col-md-9
     %div
@@ -37,5 +37,5 @@
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       = f.facet_for("supplier_name" , :label => t(:name))
       = f.facet_for("address" , :label => t(:address))
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), suppliers_path, :class => "admin-button"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), suppliers_path, :class => "btn btn-primary"

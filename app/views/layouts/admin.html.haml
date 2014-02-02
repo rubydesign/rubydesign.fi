@@ -20,19 +20,20 @@
           %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
           %li= link_to t(:sign_out), sign_out_path
 
-    .row.content
-      .col-lg-12.alert
+    .container-fluid
+      .row.content
         - if not flash[:notice].blank? then
-          .alert-notice.row
-            .col-lg-3
-              .alert-heading= t(:info) + " :"
-            .col-lg-9
-              .alert-message!= flash[:notice]
-      .col-lg-12.alert
+          .col-lg-12.alert
+            .alert-notice.row
+              .col-lg-3
+                .alert-heading= t(:info) + " :"
+              .col-lg-9
+                .alert-message!= flash[:notice]
         - if not flash[:error].blank? then
-          .alert-error.row
-            .col-lg-3
-              .alert-heading= t(:info) + " :"
-            .col-lg-9
-              .alert-message!= flash[:notice]
-        = yield
+          .col-lg-12.alert
+            .alert-error.row
+              .col-lg-3
+                .alert-heading= t(:info) + " :"
+              .col-lg-9
+                .alert-message!= flash[:notice]
+      = yield
