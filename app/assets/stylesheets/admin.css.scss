@@ -12,11 +12,13 @@
  */
 
 
-$topbar-bg: #6827EC;
+$navbar-inverse-bg: #6827EC;
+$navbar-height:70px;
+body { padding-top: 80px; }
 
 @import "bootstrap";
 
-// new classes using zurb go after the import
+// because of sticky navbar
 
 .alert-notice {
   background-color: #00FFEB;

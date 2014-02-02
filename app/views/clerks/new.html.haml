@@ -1,6 +1,7 @@
 %h2
   = t(:new)
   = t(:clerk)
+  =@clerk.phone
   -if @clerk.admin
     =t(:admin) 
 = render 'form'

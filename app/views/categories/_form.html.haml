@@ -1,38 +1,27 @@
-= form_for(@category, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
-  - if @category.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@category.errors.count, "error")
-        prohibited this category from being saved:
-      %ul
-        - @category.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for(@category, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
   .row
     .col-md-6
-      .control-group
-        = f.label :category, t(:category), :class => "control-label"
-        .controls
-          = f.collection_select(:category_id, Category.all, :id, :name, :prompt => 'Select')
-        .controls
-          = f.text_field :name
-        .controls
-          = f.text_field :position
-        .controls
-          = f.text_field :link
+      = f.input :category do 
+        = f.select :category_id, Category.all.map { |c| [c.name, c.id ] }, :prompt => t(:select) 
+      = f.input :name
+      = f.input :position
     .col-md-6
-      .control-group
-        .controls
-          = f.check_box :online
-        .controls
-          = f.text_area :description
-      .row
-        .col-md-6
-          = image_tag @category.main_picture.url
-          .controls
-            = f.file_field :main_picture
-        .col-md-6
-          = image_tag @category.extra_picture.url
-          .controls
-            = f.file_field :extra_picture
-    .form-actions
+      = f.input :link
+      = f.input :online
+      = f.input :description , :as => :text , :rows => 10
+  .row
+    .col-md-6
+      = image_tag @category.main_picture.url
+    .col-md-6
+      = image_tag @category.extra_picture.url
+  .row
+    .col-md-6
+      = f.file_field :main_picture
+    .col-md-6
+      = f.file_field :extra_picture
+  .row
+    .col-md-3
       = f.submit :class => "btn btn-success"
+    .col-md-3
+      = link_to t(:back), categories_path, :class => "btn btn-primary"
+        

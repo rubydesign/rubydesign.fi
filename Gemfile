@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # template
-gem 'simple_form'
+gem 'simple_form' 
 gem "haml"
 gem "will_paginate"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
