@@ -1,5 +1,5 @@
 .row
-  .col-lg-9
+  .col-md-9
     - @groups.in_groups_of(3).each do |array|
       .row
         -array.each do |group|
@@ -10,7 +10,7 @@
                 = image_tag group.main_picture.url(:product)
                 %h3= group.name
     
-  .col-lg-3
+  .col-md-3
     .intro2
       = image_tag @group.main_picture.url
       %p.description= @group.description

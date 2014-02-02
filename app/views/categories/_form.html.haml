@@ -8,7 +8,7 @@
         - @category.errors.full_messages.each do |msg|
           %li= msg
   .row
-    .col-lg-6
+    .col-md-6
       .control-group
         = f.label :category, t(:category), :class => "control-label"
         .controls
@@ -19,18 +19,18 @@
           = f.text_field :position
         .controls
           = f.text_field :link
-    .col-lg-6
+    .col-md-6
       .control-group
         .controls
           = f.check_box :online
         .controls
           = f.text_area :description
       .row
-        .col-lg-6
+        .col-md-6
           = image_tag @category.main_picture.url
           .controls
             = f.file_field :main_picture
-        .col-lg-6
+        .col-md-6
           = image_tag @category.extra_picture.url
           .controls
             = f.file_field :extra_picture

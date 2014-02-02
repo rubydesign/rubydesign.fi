@@ -40,16 +40,16 @@
         - if not flash[:notice].blank? then
           .col-md-12.alert
             .alert-notice.row
-              .col-lg-3
+              .col-md-3
                 .alert-heading= t(:info) + " :"
-              .col-lg-9
+              .col-md-9
                 .alert-message!= flash[:notice]
         - if not flash[:error].blank? then
           .col-md-12.alert
             .alert-error.row
-              .col-lg-3
+              .col-md-3
                 .alert-heading= t(:info) + " :"
-              .col-lg-9
+              .col-md-9
                 .alert-message!= flash[:notice]
       
 

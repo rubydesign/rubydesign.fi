@@ -8,7 +8,7 @@
       %a{href: "#"} Kasvojenhoito
 
 .row
-  .col-lg-3
+  .col-md-3
     .menu-wrapper
       =link_to shop_group_path(@group.link) do
         = image_tag @group.main_picture.url(:list)
@@ -18,7 +18,7 @@
       = image_tag @group.extra_picture.url(:list)
       %p.description= @group.description
         
-  .col-lg-9
+  .col-md-9
     -@products.in_groups_of(3).each do |three|
       .row.product-listing
         -three.each do |product|
