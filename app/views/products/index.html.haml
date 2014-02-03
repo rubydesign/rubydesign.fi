@@ -7,18 +7,17 @@
             = t(:choose_product_for_basket)
           -else
             = t(:products)
+        .strip
+          = paginate @products
       .col-md-2.new-button
         = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary"
-    .row
-      %p
-        = paginate @products
   .col-md-3
     = image_tag "admin/products.jpg" , :class => "img-responsive"
 
 .row
   .col-md-9
     %div
-      %table.table-striped.table-bordered.table-condensed.admin-table
+      %table.table-striped.table-bordered.table-condensed
         %thead
           %tr
             %th=t( "picture")

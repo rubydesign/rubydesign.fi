@@ -50,17 +50,18 @@ body {
   text-align: right;  
 }
 
-div.pagination {
+.strip {
+  position:relative;
+  bottom:-48px;  
 margin-bottom: 7px;
 }
 
 ul.pagination {
-margin-left: 65px;
 margin-bottom: 7px;
 }
 
 ul.pagination li {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   }
   
 .admin-table  {
