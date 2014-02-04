@@ -36,12 +36,23 @@
           = paginate @purchases
   .col-md-3
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for("name" , :label => t(:name))
-      = f.label t(:ordered_on) + " " + t(:between)
-      = f.date_field :ordered_on_gt
-      = f.date_field :ordered_on_lt
-      = f.label t(:received_on) + " "  +t(:between)
-      = f.date_field :received_on_gt
-      = f.date_field :received_on_lt
+      .form-group
+        = f.text_field :name_cont , :placeholder =>  t(:name)
+      .row
+        .col-md-10
+          = f.label(:ordered_on)
+      .row
+        .col-md-5
+          = f.text_field :ordered_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :ordered_on_lteq , :class => "form-control datepicker"
+      .row
+        .col-md-10
+          = f.label(:received_on)
+      .row
+        .col-md-5
+          = f.text_field :received_on_gt , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :received_on_lt , :class => "form-control datepicker"
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), purchases_path, :class => "btn btn-primary"

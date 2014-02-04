@@ -34,7 +34,9 @@
               %td= link_to t(:edit), edit_clerk_path(clerk), :title => t(:edit)
   .col-md-3
     = search_form_for @q, :url => search_clerks_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for(:email , :label => t(:email))
-      = f.facet_for(:address , :label => t(:address))
+      .form-group
+        = f.text_field :email_cont , :placeholder =>  t(:email)
+      .form-group
+        = f.text_field :address_cont , :placeholder =>  t(:address)
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), clerks_path, :class => "btn btn-primary"

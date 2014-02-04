@@ -78,9 +78,13 @@
           = f.text_field :shipped_on_gteq , :class => "form-control datepicker"
         .col-md-5
           = f.text_field :shipped_on_lteq , :class => "form-control datepicker"
-      
-      = f.label t(:canceled_on) + " " + t(:between)
-      = f.date_field :canceled_on_gteq
-      = f.date_field :canceled_on_lteq
+      .row
+        .col-md-10
+          = f.label(:canceled_on)
+      .row
+        .col-md-5
+          = f.text_field :canceled_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :canceled_on_lteq , :class => "form-control datepicker"
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), orders_path, :class => "btn btn-primary"

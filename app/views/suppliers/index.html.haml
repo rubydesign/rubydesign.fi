@@ -35,7 +35,9 @@
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
   .col-md-3
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for("supplier_name" , :label => t(:name))
-      = f.facet_for("address" , :label => t(:address))
+      .form-group
+        = f.text_field :supplier_name_cont , :placeholder =>  t(:name)
+      .form-group
+        = f.text_field :address_cont , :placeholder =>  t(:address)
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), suppliers_path, :class => "btn btn-primary"

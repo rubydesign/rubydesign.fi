@@ -19,7 +19,6 @@ gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass', '~> 3.1.0'
 
 gem "paperclip"
-gem 'facet_for' 
 gem 'turbolinks'
 gem 'rails-i18n'
 
