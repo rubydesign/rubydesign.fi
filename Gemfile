@@ -60,7 +60,7 @@ group :test do
 #  gem "poltergeist"
 #  gem "phantomjs"
   gem 'capybara'
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner'
   gem 'email_spec'
 end
 

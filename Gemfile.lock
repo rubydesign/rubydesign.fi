@@ -78,7 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    database_cleaner (1.0.1)
+    database_cleaner (1.2.0)
     db_fixtures_dump (0.0.9)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
@@ -282,7 +282,7 @@ DEPENDENCIES
   capybara
   chunky_png
   coffee-rails
-  database_cleaner (= 1.0.1)
+  database_cleaner
   db_fixtures_dump
   email_spec
   factory_girl_rails
