@@ -10,8 +10,9 @@
                 = image_tag group.main_picture.url(:product)
                 %h3= group.name
     
-  .col-md-3
-    .intro2
-      = image_tag @group.main_picture.url
-      %p.description= @group.description
+  -if @group
+    .col-md-3
+      .intro2
+        = image_tag @group.main_picture.url
+        %p.description= @group.description
  
