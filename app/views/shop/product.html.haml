@@ -1,36 +1,35 @@
 .row  
-  %ul.breadcrumbs
+  %ol.breadcrumb
     %li
-      %a{href: "#"} Koti
+      %a{href: "/"} Koti
     %li
-      %a{href: "#"} Luonnonkosmetiikka
+      %a{href: "/group/farfalla"} Luonnonkosmetiikka
     %li
-      %a{href: "#"} Kasvojenhoito
+      %a{href: "/group/kasvohoito"} Kasvojenhoito
     %li.current
-      %a{href: "#"} Cinnamon Apple Spices
+      %a{href: "#"}= @product.name
     
-.content.product-info
+.row.content.product-info
   .product-title-h1
-    %h1.product-title Cinnamon Apple Spices
-  .row
-    .medium-1.columns
-      %img{src: "spacer.gif"}/
-    .medium-3.columns
+    %h1.product-title= @product.name
+    .col-md-1
+      =image_tag  "shop/spacer.gif"
+    .col-md-3
       .picture
         .row
           #product-images
             #main-image
               =image_tag @product.main_picture.url(:product)
           .row
-            .medium-3.columns
+            .col-md-3
               #product-price
                 %h6.product-section-title Hinta
-            .medium-9.columns    
+            .col-md-9    
               %div
                 %span.price.selling= euros @product.price
 
                 
-    .medium-6.columns
+    .col-md-6
       .row
         #product-description
           %div
@@ -40,11 +39,11 @@
               #inside-product-cart-form
                 .add-to-cart
                   .row
-                    .large-2.columns
+                    .col-md-2
                       %input#variants_3.title{max: "1", min: "1", name: "variants[3]", type: "number", value: "1"} 
-                    .large-10.columns
+                    .col-md-10
                       %button#add-to-cart-button.medium.primary{type: "submit"}
                         Lisää ostoskoriin
-    .medium-1.columns
+    .col-md-1
 
 

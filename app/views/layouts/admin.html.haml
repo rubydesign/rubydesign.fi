@@ -9,37 +9,34 @@
     = csrf_meta_tags
     = yield :head
   %body{:style => ""}
-    %nav.top-bar
-      %ul.title-area
-        %li.name
-          %h1
-            %a{href: "/group/xxx"}= t(:shop)
-      %section.top-bar-section
-        / Right Nav Section
-        %ul.right
+    .container-fluid
+      %nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse{role: "navigation"}
+        .navbar-header
+        %ul.nav.navbar-nav
           %li
-          - if current_clerk
-            %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
-            %li= link_to t(:sign_out), sign_out_path
-          - else
-            %li= link_to t(:sign_in), sign_in_path
-        / Left Nav Section
-        %ul.left
-          %li
+            %a{href: "/"}= t(:shop)
           = render :partial => "layouts/admin_menu"
-    .row.content
-      .large-12.column.alert
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
+          %li= link_to t(:sign_out), sign_out_path
+
+      .row.content
         - if not flash[:notice].blank? then
-          .alert-notice.row
-            .large-3.column
-              .alert-heading= t(:info) + " :"
-            .large-9.column
-              .alert-message!= flash[:notice]
-      .large-12.column.alert
+          .col-md-12.alert
+            .alert-notice.row
+              .col-md-3
+                .alert-heading= t(:info) + " :"
+              .col-md-9
+                .alert-message!= flash[:notice]
         - if not flash[:error].blank? then
-          .alert-error.row
-            .large-3.column
-              .alert-heading= t(:info) + " :"
-            .large-9.column
-              .alert-message!= flash[:notice]
-        = yield
+          .col-md-12.alert
+            .alert-error.row
+              .col-md-3
+                .alert-heading= t(:info) + " :"
+              .col-md-9
+                .alert-message!= flash[:notice]
+        .large-12.column
+          .row.space
+            =image_tag "shop/spacer.gif"
+
+      = yield

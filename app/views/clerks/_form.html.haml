@@ -1,29 +1,14 @@
-= form_for(@clerk, :html => { :class => "form-horizontal" }) do |f|
-  - if @clerk.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@clerk.errors.count, "error")
-        prohibited this clerk from being saved:
-      %ul
-        - @clerk.errors.full_messages.each do |msg|
-          %li= msg
-  .controls
-    = f.check_box :admin
-  .controls
-    = f.text_field :email
-  .controls
-    = f.text_field :name
-  .controls
-    = f.text_field :street
-  .controls
-    = f.text_field :city
-  .controls
-    = f.text_field :phone
-  -unless @clerk.new_record?
-    =f.label t(:may_be_blank)
-  .controls
-    = f.password_field :password
-  .controls
-    = f.password_field :password_confirmation
+= simple_form_for(@clerk, :html => { :class => "form-horizontal" }) do |f|
+  .row
+    = f.input :admin
+    = f.input :email
+    = f.input :name
+    = f.input :street
+    = f.input :city
+    = f.input :phone
+    -unless @clerk.new_record?
+      =f.label t(:may_be_blank)
+    = f.input :password
+    = f.input :password_confirmation
   .form-actions
-    = f.submit :class => "submit-button"
+    = f.submit :class => "btn btn-success"

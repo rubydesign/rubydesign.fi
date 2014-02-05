@@ -1,17 +1,5 @@
-= form_for(@purchase, :html => { :class => "form-horizontal" }) do |f|
-  - if @purchase.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@purchase.errors.count, "error")
-        prohibited this purchase from being saved:
-      %ul
-        - @purchase.errors.full_messages.each do |msg|
-          %li= msg
-  .control-group
-    = f.text_field :name
-  .control-group
-    = f.date_field :ordered_on
-  .control-group
-    = f.date_field :received_on
-  .form-actions
-    = f.submit :class => "submit-button"
+= simple_form_for(@purchase, :html => { :class => "form-horizontal" }) do |f|
+  = f.input :name
+  = f.input :ordered_on
+  = f.input :received_on
+  = f.submit :class => "btn btn-success"

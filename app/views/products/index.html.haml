@@ -1,24 +1,22 @@
 .row
-  .large-9.column
+  .col-md-9
     .row
-      .large-8.column
+      .col-md-10
         %h2
           - if params[:basket]
             = t(:choose_product_for_basket)
           -else
             = t(:products)
-      .large-4.column
-        = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "admin-button"
-    .row
-      %p
         = paginate @products
-  .large-3.column
-    = image_tag "admin/products.jpg"
+      .col-md-2
+        = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary"
+  .col-md-3
+    = image_tag "admin/products.jpg" , :class => "img-responsive"
 
 .row
-  .medium-9.columns
+  .col-md-9
     %div
-      %table.talbe.table-striped.table-bordered.table-condensed
+      %table.table-striped.table-bordered.table-condensed
         %thead
           %tr
             %th=t( "picture")
@@ -49,22 +47,39 @@
                 %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :product => product.id)
               -else
                 %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
-      .search_heading= t(:name)
-      - if params[:basket]
-        = hidden_field_tag :basket , params[:basket]
-        = f.text_field :name_or_product_name_cont
-      -else
-        = f.text_field :name_cont
-      = f.facet_for(:description , :label => t(:description))
-      = f.facet_for(:price , :label => t(:price_between) )
-      = f.facet_for(:ean )
-      = f.facet_for(:scode, :label => t(:scode) )
-      = f.facet_for(:inventory, :label => t(:inventory) )
-      = f.label t(:supplier)
-      = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, :include_blank => true
-      = f.label t(:category)
-      = f.collection_select :category_id_eq, Category.all, :id, :name, :include_blank => true
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), products_path, :class => "admin-button"
+      .form-group
+        - if params[:basket]
+          = hidden_field_tag :basket , params[:basket]
+          = f.text_field :name_or_product_name_cont, :class => "form-control" , :placeholder => t(:name)
+        -else
+          = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
+      .form-group
+        = f.text_field :description_cont , :class => "form-control" , :placeholder => t(:description)
+      .form-group
+        = f.text_field :ean_cont , :class => "form-control" , :placeholder => t(:ean)
+      .form-group
+        = f.text_field :scode_cont , :class => "form-control" , :placeholder => t(:scode)
+      .form-group.row
+        .col-md-3
+          = f.label(:price)
+        .col-md-4
+          = f.text_field :price_lteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :price_gteq , :class => "form-control"
+      .form-group.row
+        .col-md-3
+          = f.label(:inventory)
+        .col-md-4
+          = f.text_field :inventory_lteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :inventory_gteq , :class => "form-control"
+      .form-group
+        = f.label t(:supplier)
+        = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, :include_blank => true
+      .form-group
+        = f.label t(:category)
+        = f.collection_select :category_id_eq, Category.all, :id, :name, :include_blank => true
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), products_path, :class => "btn btn-primary"

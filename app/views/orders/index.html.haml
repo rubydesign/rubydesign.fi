@@ -1,16 +1,11 @@
 .row
-  .large-9.column
-    .row
-      .large-8.column
-        %h2
-          = t(:orders)
-    .row
-      %p
-        = paginate @orders
-  .large-3.column
-    = image_tag "admin/orders.jpg"
+  .col-md-9
+    %h2= t(:orders)
+    = paginate @orders
+  .col-md-3
+    = image_tag "admin/orders.jpg" , :class => "img-responsive"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -34,29 +29,62 @@
         .btn-group
           = paginate @orders
         .btn-group.pull-right
-          = link_to orders_path(:format => :csv), :class => "admin-button" do
+          = link_to orders_path(:format => :csv), :class => "btn btn-primary" do
             %i.icon-download CSV
-          = link_to orders_path(:format => :json), :class => "admin-button" do
+          = link_to orders_path(:format => :json), :class => "btn btn-primary" do
             %i.icon-download JSON
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.label t(:order_number)
-      = f.text_field :number_cont
-      = f.label t(:total) + t(:between)
-      = f.text_field :basket_total_price_lteq
-      = f.text_field :basket_total_price_gteq
-      = f.facet_for(:email , :label => t(:email))
-      = f.label t(:ordered_on) + " " + t(:between)
-      = f.date_field :ordered_on_gteq
-      = f.date_field :ordered_on_lteq
-      = f.label t(:paid_on) + " " + t(:between)
-      = f.date_field :paid_on_gteq
-      = f.date_field :paid_on_lteq
-      = f.label t(:shipped_on) + " " + t(:between)
-      = f.date_field :shipped_on_gteq
-      = f.date_field :shipped_on_lteq
-      = f.label t(:canceled_on) + " " + t(:between)
-      = f.date_field :canceled_on_gteq
-      = f.date_field :canceled_on_lteq
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), orders_path, :class => "admin-button"
+      .form-group
+        = f.text_field :number_cont , :placeholder =>  t(:order_number)
+      .form-group
+        = f.text_field(:email , :placeholder => t(:email))
+      .form-group.row
+        .col-md-3
+          = f.label(:total)
+        .col-md-4
+          = f.text_field :basket_total_price_lteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :basket_total_price_gteq , :class => "form-control"
+      .row
+        .col-md-10
+          = f.label(:ordered_on)
+      .row
+        .col-md-5
+          = f.text_field :ordered_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :ordered_on_lteq , :class => "form-control datepicker"
+      .row
+        .col-md-10
+          = f.label(:paid_on)
+      .row
+        .col-md-5
+          = f.text_field :paid_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :paid_on_lteq , :class => "form-control datepicker"
+      .row
+        .col-md-10
+          = f.label(:shipped_on)
+      .row
+        .col-md-5
+          = f.text_field :shipped_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :shipped_on_lteq , :class => "form-control datepicker"
+      .row
+        .col-md-10
+          = f.label(:shipped_on)
+      .row
+        .col-md-5
+          = f.text_field :shipped_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :shipped_on_lteq , :class => "form-control datepicker"
+      .row
+        .col-md-10
+          = f.label(:canceled_on)
+      .row
+        .col-md-5
+          = f.text_field :canceled_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :canceled_on_lteq , :class => "form-control datepicker"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), orders_path, :class => "btn btn-primary"

@@ -10,17 +10,15 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # template
-gem 'simple_form'
+gem 'simple_form' 
 gem "haml"
 gem "will_paginate"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
-gem "foundation-rails"
-gem 'will_paginate-foundation'
-gem 'foundation_rails_helper'
+gem 'will_paginate-bootstrap'
+gem 'bootstrap-sass', '~> 3.1.0'
 
 gem "paperclip"
-gem 'facet_for' 
 gem 'turbolinks'
 gem 'rails-i18n'
 
@@ -62,7 +60,7 @@ group :test do
 #  gem "poltergeist"
 #  gem "phantomjs"
   gem 'capybara'
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner'
   gem 'email_spec'
 end
 

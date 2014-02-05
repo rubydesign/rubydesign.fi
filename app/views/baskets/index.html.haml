@@ -1,18 +1,15 @@
 .row
-  .large-9.column
+  .col-md-9
     .row
-      .large-8.column
-        %h2
-          = t(:baskets)
-      .large-4.column
-        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
-    .row
-      %p
-      = paginate @baskets
-  .large-3.column
-    = image_tag "admin/baskets.jpg"
+      .col-md-10
+        %h2= t(:baskets)
+        = paginate @baskets
+      .col-md-2
+        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
+  .col-md-3
+    = image_tag "admin/baskets.jpg" , :class => "img-responsive"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -37,14 +34,21 @@
                   = item.name
                   %br
               %td= basket_edit_link(basket)
-  .medium-3.columns
-    = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      .search_heading= t(:type)
-      = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]]
-      .search_heading= t(:items)
-      = f.text_field :items_product_name_cont ,  :title => t(:name_contains)
-      .search_heading= t(:price_between)
-      = f.text_field :total_price_gt
-      = f.text_field :total_price_lt
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), baskets_path, :class => "admin-button"
+  .col-md-3
+    = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-large" }, :method => :post do |f|
+      .form-group.row
+        .col-md-3
+          = t(:type)
+        .col-md-9
+          = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]] , {},  :class => "form-control"
+      .form-group
+        = f.text_field :items_product_name_cont , :class => "form-control" , :placeholder => t(:name_contains)
+      .form-group.row
+        .col-md-3
+          = f.label(:total_price)
+        .col-md-4
+          = f.text_field :total_price_gt , :class => "form-control"
+        .col-md-4
+          = f.text_field :total_price_lt , :class => "form-control"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), baskets_path, :class => "btn btn-primary"

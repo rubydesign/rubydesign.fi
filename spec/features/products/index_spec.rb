@@ -2,26 +2,27 @@ require 'spec_helper'
 
 describe "GET /products" do
   before :each do
-     visit products_path
+    sign_in
+    visit_path products_path
    end
   it "lists products" do
-    should_translate page
   end
 end
 describe "product filtering" do
   before :each do
     20.times { create :product }
+    sign_in
     visit products_path
    end
   it "filters by price" do
-    fill_in "q_price_gteq", :with => '10'
-    click_button( 'Filter')
+    fill_in "q[price_lteq]", :with => '10'
+    click_button( I18n.t(:filter))
   end
 end
 describe "edit product" do
   it "renders" do
     product = create :product
-    visit edit_product_path product
-    should_translate page
+    sign_in
+    visit_path edit_product_path(product) 
   end
 end

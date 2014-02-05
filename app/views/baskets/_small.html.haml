@@ -1,4 +1,4 @@
-.medium-12.columns
+.col-md-12
   %table.table.table-striped.table-bordered.table-condensed
     %thead
       %tr
@@ -16,7 +16,7 @@
       %tr
         %td{:colspan => 2}
           %b
-            = basket_edit_link basket, :class => "admin-button"
+            = basket_edit_link basket, :class => "btn btn-primary"
         %td
           = t(:quantity)
           = basket.quantity

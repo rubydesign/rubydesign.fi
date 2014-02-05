@@ -1,56 +1,18 @@
 .row
-  .large-9.columns
-    .row
-      .large-4.columns
-        .menu-wrapper
-          %a{href: "/page/lista"} 
-            %img{src: "/assets/shop/menu-kasvo.jpg"}/
-            %h4 Kasvojenhoito
-
-      .large-4.columns    
-        .menu-wrapper
-          %a{href: "/page/lista"} 
-            %img{src: "/assets/shop/menu-vartalo.jpg"}/
-            %h4 Vartalonhoito
-
-      .large-4.columns    
-        .menu-wrapper
-          %a{href: "/page/lista"} 
-            %img{src: "/assets/shop/menu-hius.jpg"}/
-            %h4 Hiustenhoito
-
-    .row
-      .large-4.columns
-        .menu-wrapper
-          %a{href: "/page/lista"} 
-            %img{src: "/assets/shop/menu-tuoksu1.jpg"}/
-            %h4 Parfyymit ja tuoksut
-
-      .large-4.columns    
-        .menu-wrapper
-          %a{href: "/page/lista"} 
-            %img{src: "/assets/shop/menu-oljy.jpg"}/
-            %h4 Öljyt
-
-      .large-4.columns    
-        .menu-wrapper
-          %a{href: "/page/lista"} 
-            %img{src: "/assets/shop/menu-men.jpg"}/
-            %h4 Miehille
+  .col-md-9
+    - @groups.in_groups_of(3).each do |array|
+      .row
+        -array.each do |group|
+          .col-md-4
+            -next unless group
+            .menu-wrapper
+              =link_to shop_group_path(group.link) do
+                = image_tag group.main_picture.url(:product)
+                %h3= group.name
     
-  .large-3.columns
-    .intro2
-      %img{src: "/assets/shop/farfalla-logo.jpg"}/
-      %p
-        %em
-          %strong Farfalla Essentials
-          on perustettu yli 26 vuotta sitten.
-      %p Se on ensimmäinen sveitsiläinen, heti perustamisestaan lähtien luomulaatuisiin aromaterapia-, hyvinvointi- ja SPA -tuotteisiin keskittynyt yhtiö.
-      %p
-        Farfallalla on jo alusta alkaen ollut visio: jakaa oma inspiraationsa ja luomulaatuisen kosmetiikan asiantuntemuksensa.
-        %a{href: "/page/lista"}
-          Lue lisää >
-      %p
-      %p
-          
+  -if @group
+    .col-md-3
+      .intro2
+        = image_tag @group.main_picture.url
+        %p.description= @group.description
  

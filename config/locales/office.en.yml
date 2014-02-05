@@ -1,11 +1,21 @@
 ---
 en:
+  empty: Empty
+  online_eq: Online?
   actions: Actions
   activerecord:
     attributes:
       basket:
         created_at: Created
         total_price: Price
+      clerk:
+        city: City
+        email: Email
+        name: Name
+        password: Passord
+        password_confirmation: Password confirmation
+        phone: Phone
+        street: Street
       order:
         email: Email
         ordered_on: Ordered on
@@ -29,22 +39,14 @@ en:
         phone: Phone
         street: Street
         supplier_name: Supplier
-      clerk:
-        city: City
-        email: Email
-        name: Name
-        password: Passord
-        password_confirmation: Password confirmation
-        phone: Phone
-        street: Street
     models:
       basket: Cart
       category: Product group
+      clerk: User
       order: Order
       product: Product
       purchase: Purchase
       supplier: Supplier
-      clerk: User
   add: Add
   add_inventory: Add Inventory
   add_to_basket: Add to basket
@@ -64,6 +66,8 @@ en:
   category: Product Category
   choose_product_for_basket: Choose product for basket
   city: City
+  clerk: User
+  clerks: Users
   contact: Contact
   cost: Cost
   count: Count
@@ -71,7 +75,7 @@ en:
   create: Create
   create_success: Successfully created
   created_at: Created
-  delete: Poista
+  delete: Delete
   description: Description
   destroy: Destroy
   discount: Discount
@@ -93,7 +97,7 @@ en:
   link: Link
   made_offline: taken offline
   made_online: made online
-  main_picture: Kuva
+  main_picture: Main Picture
   make_order: Make Order
   make_purchase: Make Purchase
   may_be_blank: May be blank
@@ -134,9 +138,9 @@ en:
   received_on: Received On
   scode: Supplier code
   search: Search
+  shipment_price: Shipment price
   shipment_type: Shipment type
   shipped_on: Shipped on
-  shipment_price: Shipment price
   shop: Shop
   show: Show
   sign_in: Log in
@@ -145,14 +149,6 @@ en:
   sign_up: Sign up
   signed_in: Logged in
   signed_out: Logged out
-  simple_form:
-    error_notification:
-      default_message: 'Please review the problems below:'
-    'no': 'No'
-    required:
-      mark: '*'
-      text: required
-    'yes': 'Yes'
   state: State
   street: Street
   street1: Street1
@@ -171,9 +167,7 @@ en:
   type: Type
   update_success: Successfully updated
   updated: Updated
-  clerk: User
-  clerks: Users
-  vat:  Vat
+  vat: Vat
   weight: Weight
   will_paginate:
     next_label: Next &#8594;

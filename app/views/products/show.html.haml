@@ -13,20 +13,20 @@
     = @product.name
     = render "online" , :object => @product
 .row
-  .medium-6.columns
-    .medium-6.columns
+  .col-md-6
+    .col-md-6
       %p
         %b
           = t(:main_picture) + " : "
         %br
         = image_tag @product.main_picture.url
-    .medium-6.columns
+    .col-md-6
       %p
         %b
           = t(:extra_picture) + " : "
         %br
         = image_tag @product.extra_picture.url
-    .medium-6
+    .col-md-6
       %p
         %b
           = t(:price) + " : "
@@ -43,13 +43,13 @@
         %b
           = t(:inventory) + " : "
         = @product.inventory
-    = link_to t(:edit), edit_product_path(@product), :class => "admin-button"
-    = link_to t(:back), products_path, :class => "admin-button"
-    = link_to t(:delete) , delete_product_path(@product), :class => "admin-button"
-    = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "admin-button"
-    = link_to t(:barcode) , barcode_product_path( @product), :class => "admin-button"
+    = link_to t(:edit), edit_product_path(@product), :class => "btn btn-primary"
+    = link_to t(:back), products_path, :class => "btn btn-primary"
+    = link_to t(:delete) , delete_product_path(@product), :class => "btn btn-primary"
+    = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
+    = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary"
 
-  .medium-6.columns
+  .col-md-6
     %p
       %b
         = t(:description) + " : "

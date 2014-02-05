@@ -7,29 +7,70 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
+ *= require jquery.ui.all
  *= require reset
  */
 
-// configuartion of zurb has to go before its import
 
-$topbar-bg: #6827EC;
+$navbar-inverse-bg: #6827EC;
+$navbar-height:70px;
+body { padding-top: 80px; }
 
-@import "admin_foundation.scss";
+$primary-color: #6827EC;
+$topbar-bg: $primary-color;
+$global-radius: 6px;
+$open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
 
-// new classes using zurb go after the import
+$table-head-bg: scale-color($primary-color, $lightness: 75%);
+$table-bg: scale-color($primary-color, $lightness: 98%);
+$table-even-row-bg: scale-color($primary-color, $lightness: 90%);
+$table-border-color: scale-color($primary-color, $lightness: 75%);
 
+
+@import "bootstrap";
+
+.container-fluid{
+        max-width: 90%;
+}
+
+.navbar {
+  font-size: 1.7rem;
+};
 .alert-notice {
   background-color: #00FFEB;
-};
+  padding: 8px;
+  radius: $global-radius;
+}
+
 .alert-error {
   background-color: red;
 };
-.admin-button { 
-  $button-radius: rem-calc(10);
-  @include button(rem-calc(10), #87B624, true, false, false, false);
-};
-.submit-button { 
-  @include button(rem-calc(15), orange, true, false, false, false);
-  $button-radius: rem-calc(15);
-};
+
+
+body {
+  font-family: $open;
+}
+
+.new-button {
+  top: 15px;
+  text-align: right;  
+}
+
+.strip {
+  position:relative;
+  bottom:-48px;  
+margin-bottom: 7px;
+}
+
+ul.pagination {
+margin-bottom: 7px;
+}
+
+ul.pagination li {
+  font-size: 1.4rem;
+  }
+  
+.admin-table  {
+font-size: 0.5rem;
+
+}

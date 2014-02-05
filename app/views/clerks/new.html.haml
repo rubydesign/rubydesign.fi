@@ -1,7 +1,8 @@
 %h2
   = t(:new)
   = t(:clerk)
+  =@clerk.phone
   -if @clerk.admin
     =t(:admin) 
 = render 'form'
-= link_to t(:back), clerks_path, :class => "admin-button"
+= link_to t(:back), clerks_path, :class => "btn btn-primary"

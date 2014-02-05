@@ -1,0 +1,41 @@
+.row  
+  %ol.breadcrumb
+    %li
+      %a{href: "#"} Koti
+    %li
+      %a{href: "#"} Luonnonkosmetiikka
+    %li.current
+      %a{href: "#"} Kasvojenhoito
+
+.row
+  .col-md-3
+    .menu-wrapper
+      =link_to shop_group_path(@group.link) do
+        = image_tag @group.main_picture.url(:list)
+        %h4= @group.name
+    
+    .intro2
+      = image_tag @group.extra_picture.url(:list)
+      %p.description= @group.description
+        
+  .col-md-9
+    -@products.in_groups_of(3).each do |three|
+      .row.product-listing
+        -three.each do |product|
+          .col-md-4
+            -next unless product
+            .product-container
+              .product-image
+                .square-image
+                  =link_to shop_product_path(:link => product.link ) do
+                    =image_tag product.main_picture.url
+                .product-fact
+                  =link_to shop_product_path( :link => product.link ) , :class => :info do
+                    %h5.product-name
+                      = product.name
+                      %span.price.selling
+                        = product.price
+                        €
+
+
+                

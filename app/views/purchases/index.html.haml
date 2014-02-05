@@ -1,16 +1,13 @@
 .row
-  .large-9.column
+  .col-md-9
     .row
-      .large-8.column
-        %h2
-          = t(:purchases)
-    .row
-      %p
+      .col-md-10
+        %h2= t(:purchases)
         = paginate @purchases
-  .large-3.column
-    = image_tag "admin/purchases.jpg"
+  .col-md-3
+    = image_tag "admin/purchases.jpg" , :class => "img-responsive"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -34,14 +31,25 @@
       .btn-toolbar
         .btn-group
           = paginate @purchases
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for("name" , :label => t(:name))
-      = f.label t(:ordered_on) + " " + t(:between)
-      = f.date_field :ordered_on_gt
-      = f.date_field :ordered_on_lt
-      = f.label t(:received_on) + " "  +t(:between)
-      = f.date_field :received_on_gt
-      = f.date_field :received_on_lt
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), purchases_path, :class => "admin-button"
+      .form-group
+        = f.text_field :name_cont , :placeholder =>  t(:name)
+      .row
+        .col-md-10
+          = f.label(:ordered_on)
+      .row
+        .col-md-5
+          = f.text_field :ordered_on_gteq , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :ordered_on_lteq , :class => "form-control datepicker"
+      .row
+        .col-md-10
+          = f.label(:received_on)
+      .row
+        .col-md-5
+          = f.text_field :received_on_gt , :class => "form-control datepicker"
+        .col-md-5
+          = f.text_field :received_on_lt , :class => "form-control datepicker"
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), purchases_path, :class => "btn btn-primary"

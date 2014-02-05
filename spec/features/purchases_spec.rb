@@ -1,19 +1,17 @@
 require 'spec_helper'
 
 describe "Purchases" do
-  describe "GET /purchases" do
-    it "lists purchases" do
-      visit purchases_path
-      should_translate page
-    end
+  before(:each) do
+    sign_in
+  end
+  it "lists purchases" do
+    visit_path purchases_path
   end
   it "creates a new purchases" do
-    visit new_purchase_path
-    should_translate page
+    visit_path new_purchase_path
   end
   it "shows" do
     @purchase = create(:purchase)
-    visit purchase_path(@purchase)
-    should_translate page
+    visit_path purchase_path(@purchase)
   end
 end

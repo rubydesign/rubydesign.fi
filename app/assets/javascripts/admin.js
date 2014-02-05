@@ -2,7 +2,6 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require turbolinks
-//= require foundation
 //= require_self
 
 $(function() {
@@ -16,7 +15,7 @@ function initPage(){
   });
 
   // Add Error Form style with bootstrap
-  $("div.control-group>div.field_with_errors").parent().addClass("error");
+  $("div.form-group>div.field_with_errors").parent().addClass("error");
   $("#error_explanation").addClass("text-error");
 
 }

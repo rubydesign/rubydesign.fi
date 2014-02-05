@@ -1,16 +1,15 @@
 .row
-  .large-12.columns
+  .col-md-12
     -if @basket.kori_type
       %h2
         = t(@basket.kori_type.downcase)
 .row
-  .large-8.columns.ean_form
+  .col-md-8.ean_form
     = label_tag :ean
-    .row.ean_label
-      = form_tag edit_basket_path(@basket) , :method => :get  do |f|
-        = text_field_tag :ean , "" , :autofocus => true , :class => "ean_field"
-        = submit_tag t(:search) ,  :class => "button small ean_submit"
-  .large-3.columns
+    = form_tag edit_basket_path(@basket) , :method => :get  do |f|
+      = text_field_tag :ean , "" , :autofocus => true , :class => "ean_field" , :size => 45
+      = submit_tag t(:search) ,  :class => "btn btn-xs ean_submit"
+  .col-md-3
     = t(:discount )
     = form_tag edit_basket_path(@basket) , :method => :get do
       = select_tag("discount" , options_for_select( ["",0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => 'this.form.submit()')
@@ -50,26 +49,26 @@
 
 
     .row.form-actions
-      .large-2.column
-        = f.submit :class => "submit-button"
-      .large-2.column
-        = link_to t(:back), baskets_path, :class => "admin-button"
-      .large-2.column
-        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "admin-button"
+      .col-md-2
+        = f.submit :class => "btn btn-success"
+      .col-md-2
+        = link_to t(:back), baskets_path, :class => "btn btn-primary"
+      .col-md-2
+        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
       - if @basket.isa :cart
-        .large-2.column
-          - link_to t(:make_order), order_basket_path(@basket), :class => "admin-button make_order"
-          = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "admin-button make_purchase"
-        .large-2.column{"data-no-turbolink" => true}
-          = link_to t(:print_order), print_basket_path(@basket) , :target => "_blank" , :class => "admin-button print_order"
+        .col-md-2
+          - link_to t(:make_order), order_basket_path(@basket), :class => "btn btn-primary make_order"
+          = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "btn btn-primary make_purchase"
+        .col-md-2{"data-no-turbolink" => true}
+          = link_to t(:print_order), print_basket_path(@basket) , :target => "_blank" , :class => "btn btn-primary print_order"
       - elsif @basket.isa(:order)
-        .large-2.column
-          = link_to t(:to_order), order_path(@basket.kori), :class => "admin-button to_order"
-        .large-2.column{"data-no-turbolink" => true}
-          = link_to t(:print_order), print_order_path(@basket.kori), :target => "_blank" , :class => "admin-button print_order"
+        .col-md-2
+          = link_to t(:to_order), order_path(@basket.kori), :class => "btn btn-primary to_order"
+        .col-md-2{"data-no-turbolink" => true}
+          = link_to t(:print_order), print_order_path(@basket.kori), :target => "_blank" , :class => "btn btn-primary print_order"
       - elsif @basket.isa(:purchase)
-        .large-2.column
-          = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "admin-button to_purchase"
+        .col-md-2
+          = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "btn btn-primary to_purchase"
 
-      .large-2.column
-        = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "admin-button" unless @basket.kori_type
+      .col-md-2
+        = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-primary" unless @basket.kori_type

@@ -8,6 +8,7 @@ FactoryGirl.define do
     password_confirmation 'password'
     # confirmed_at Time.now
     factory :admin do
+      sequence( :email) { |n| "admin#{n}@test.com" }
       admin true
     end
   end

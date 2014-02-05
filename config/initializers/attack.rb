@@ -19,5 +19,5 @@ end
 # (blacklist & throttles are skipped)
 Rack::Attack.whitelist('allow from localhost') do |req|
   # Requests are allowed if the return value is truthy
-   [ '85.76.176.10' , "85.76.168.133" , "127.0.0.1"].include? req.ip
+   [ "85.76.112.161" , "85.76.99.50", "127.0.0.1"].include? req.ip
 end

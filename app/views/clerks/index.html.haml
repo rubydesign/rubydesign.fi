@@ -1,18 +1,15 @@
 .row
-  .large-9.column
+  .col-md-9
     .row
-      .large-8.column
-        %h2
-          = t(:clerks)
-      .large-4.column
-        = link_to  t(:new) + ' ' + t(:clerk) , new_clerk_path , :class => "admin-button"
-    .row
-      %p
+      .col-md-10
+        %h2= t(:clerks)
         = paginate @clerks
-  .large-3.column
-    = image_tag "admin/clerks.jpg"
+      .col-md-2
+        = link_to  t(:new) + ' ' + t(:clerk) , new_clerk_path , :class => "btn btn-primary"
+  .col-md-3
+    = image_tag "admin/clerks.jpg" , :class => "img-responsive"
 .row
-  .medium-9.columns
+  .col-md-9
     %div
       %table.table.table-striped.table-bordered.table-condensed
         %thead
@@ -32,9 +29,11 @@
                 =clerk.whole_address
               %td= link_to t(:show) , clerk_path(clerk), :title => t(:show)
               %td= link_to t(:edit), edit_clerk_path(clerk), :title => t(:edit)
-  .medium-3.columns
+  .col-md-3
     = search_form_for @q, :url => search_clerks_path, :html => { :class => "well well-small" }, :method => :post do |f|
-      = f.facet_for(:email , :label => t(:email))
-      = f.facet_for(:address , :label => t(:address))
-      = f.submit t(:filter), :class => "submit-button"
-      = link_to  t(:cancel), clerks_path, :class => "admin-button"
+      .form-group
+        = f.text_field :email_cont , :placeholder =>  t(:email)
+      .form-group
+        = f.text_field :address_cont , :placeholder =>  t(:address)
+      = f.submit t(:filter), :class => "btn btn-success"
+      = link_to  t(:cancel), clerks_path, :class => "btn btn-primary"
