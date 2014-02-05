@@ -118,6 +118,7 @@ fi:
   orders: Tilaukset
   paid_on: Maksettu
   parent: Tuoteryhmä
+  password: Salasana
   phone: Puhelin
   picture: Kuva
   picture2: Toinen kuva
@@ -140,6 +141,7 @@ fi:
   received_on: Vastaanotettu
   scode: Tuottajatunnus
   search: Hae
+  select: Valitse
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty

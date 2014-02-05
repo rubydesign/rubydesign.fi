@@ -6,21 +6,18 @@ class Clerk < ActiveRecord::Base
 
   attr_accessor :password , :password_confirmation
 
-  after_create :prepare_password
+  before_validation :prepare_password
   validates_presence_of :password, :on => :create
-  validates_uniqueness_of :email
-  validates :email, :presence => true, :email => true
   validates_confirmation_of :password
+  validates_presence_of :encrypted_password
+
+  validates_uniqueness_of :email
+  validates :email, :presence => true, :email => true  # extra gem to check email validity
 
   store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
 
   def whole_address
     [ name , street , city , phone ].join(" ")
-  end
-
-  #still to be taken into use
-  def has_role? role
-    true
   end
   
   def valid_password?(password)
@@ -32,11 +29,6 @@ class Clerk < ActiveRecord::Base
     self.encrypted_password.each_byte { |byte| res |= byte ^ left.shift }
     res == 0
   end
-  def encrypt_password(password)
-    encrypted = [password, self.password_salt].flatten.join('')
-    20.times { encrypted = Digest::SHA512.hexdigest(encrypted) }
-    encrypted
-  end
 
   private
 
@@ -45,5 +37,10 @@ class Clerk < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.encrypted_password = encrypt_password(password)
     end
+  end
+  def encrypt_password(password)
+    encrypted = [password, self.password_salt].flatten.join('')
+    20.times { encrypted = Digest::SHA512.hexdigest(encrypted) }
+    encrypted
   end
 end

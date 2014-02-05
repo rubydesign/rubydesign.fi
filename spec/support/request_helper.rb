@@ -5,10 +5,9 @@ module PageHelper
   end
 
   def ensure_admin
-    email = "admin35@admin.com"
+    email = "admin@important.me"
     admin = Clerk.where( :email => email).first
-    admin = create(:clerk , :email => email , :admin => true )  unless admin
-    admin.stub(:password).and_return("password")
+    admin.should_not be nil
     admin
   end
   
@@ -16,9 +15,8 @@ module PageHelper
     admin = ensure_admin
     visit sign_in_path
     fill_in "email" , :with => "torsten@villataika.fi" #admin.email
-    fill_in "password" , :with => "rakkaus" #admin.password
-    click_link I18n.t(:sign_in)
-    #puts "Locale #{I18n.default_locale}"
+    fill_in "password" , :with => "rakkaus"
+    click_button I18n.t(:sign_in)
     expect(page).to have_content I18n.t(:baskets)
   end
 end
