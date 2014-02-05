@@ -32,6 +32,10 @@ $table-border-color: scale-color($primary-color, $lightness: 75%);
 .container-fluid{
         max-width: 90%;
 }
+
+.navbar {
+  font-size: 1.7rem;
+};
 .alert-notice {
   background-color: #00FFEB;
   padding: 8px;
