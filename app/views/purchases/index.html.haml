@@ -2,10 +2,7 @@
   .col-md-9
     .row
       .col-md-10
-        %h2
-          = t(:purchases)
-    .row
-      %p
+        %h2= t(:purchases)
         = paginate @purchases
   .col-md-3
     = image_tag "admin/purchases.jpg" , :class => "img-responsive"

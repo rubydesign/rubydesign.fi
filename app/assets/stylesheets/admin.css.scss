@@ -29,7 +29,9 @@ $table-border-color: scale-color($primary-color, $lightness: 75%);
 
 @import "bootstrap";
 
-
+.container-fluid{
+        max-width: 90%;
+}
 .alert-notice {
   background-color: #00FFEB;
   padding: 8px;
@@ -61,7 +63,7 @@ margin-bottom: 7px;
 }
 
 ul.pagination li {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   }
   
 .admin-table  {
