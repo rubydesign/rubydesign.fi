@@ -1,22 +1,21 @@
 require 'spec_helper'
 
 describe Category  do
+  before(:each) do
+    sign_in
+  end
   it "lists product groups" do
-    visit categories_path
-    should_translate page
+    visit_path categories_path
   end
   it "creates a new group" do
-    visit new_category_path
-    should_translate page
+    visit_path new_category_path
   end
   it "edit" do
     @category = create(:category)
-    visit edit_category_path(@category)
-    should_translate page
+    visit_path edit_category_path(@category)
   end
   it "shows" do
     @category = create(:category)
-    visit category_path(@category)
-    should_translate page
+    visit_path category_path(@category)
   end
 end

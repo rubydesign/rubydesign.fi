@@ -1,23 +1,17 @@
 require 'spec_helper'
 
 describe "Orders" do
-  describe "GET /orders" do
-    it "lists orders" do
-      visit orders_path
-      should_translate page
-    end
+  before(:each) do
+    sign_in
   end
-  describe "GET /orders/new" do
-    it "creates a new order" do
-      visit new_order_path
-      should_translate page
-    end
+  it "lists orders" do
+    visit_path orders_path
   end
-  describe "show order" do
-    it "should render" do
-      order = create :order
-      visit order_path order
-      should_translate page
-    end
+  it "creates a new order" do
+    visit_path new_order_path
+  end
+  it "should render" do
+    order = create :order
+    visit_path order_path order
   end
 end

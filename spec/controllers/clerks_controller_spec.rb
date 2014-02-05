@@ -62,8 +62,8 @@ describe ClerksController do
   describe "GET 'show'" do
     it "should be successful" do
       clerk = create :clerk
-      visit clerk_path(clerk)
-      should_translate page
+      sign_in
+      visit_path clerk_path(clerk)
     end
   end
 

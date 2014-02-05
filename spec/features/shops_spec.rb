@@ -6,7 +6,7 @@ describe "Shops" do
       p = create :product
       g = create :category
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      visit shop_product(:link => p.link)
+      visit shop_product_path(:link => p.link)
       status_code.should be(200)
     end
   end
