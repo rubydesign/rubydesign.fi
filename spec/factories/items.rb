@@ -4,13 +4,14 @@ FactoryGirl.define do
   factory :item do
     quantity 1
     price 10
-    tax 5
+    tax 10
     product
+    sequence( :name) { |n| "product #{n}" }
     factory :item2 do
       price 20
       factory :item22 do
         quantity 2
-        tax 10
+        tax 20
       end
     end
   end

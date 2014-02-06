@@ -29,19 +29,21 @@ describe "Baskets" do
   describe "edit baskets" do
     before :each do
       sign_in
-      @basket = create :basket_with_item
+      @basket = create :basket
+      @basket.items << create(:item22)
+      @basket.save!
       visit_path basket_path(@basket)
     end
     it "renders item too" do
       td = find(".table").find(".name")
-#TODO      td.should have_content(@basket.items.first.product.name)
+      td.should have_content(@basket.items.first.name)
     end
-    #removed functionality
-#    it "goes to order" do
- #     click_on I18n.t(:make_order)
-      # ensure_path order_path
-  #    find("h2").should have_content(I18n.t(:order))
-   # end
+    it "deletes item" do
+      name = @basket.items.first.name
+      click_link I18n.t(:delete)
+      td = find(".table").find(".name")
+      td.should_not have_content(name )
+    end
     it "goes to purchase" do
       click_on I18n.t(:make_purchase)
       find("h2").should have_content(I18n.t(:purchase))
