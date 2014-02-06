@@ -13,15 +13,15 @@ class ShopController < ApplicationController
   def group
     @group = Category.online.where(:link => params[:link]).first 
     if @group and @group.categories.empty?
-      @products = @group.products
-      template = "product_group"
+      @products = @group.products.online
+      template = "product_list"
     else
       if @group
-        @groups = @group.categories
-        template = "subgroup"
+        @groups = @group.categories.online
+        template = "sub_group"
       else
         @groups = Category.online.where( :category_id => nil )
-        template = "subgroup"
+        template = "main_group"
       end
     end
     render template
