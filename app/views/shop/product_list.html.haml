@@ -1,18 +1,18 @@
 .row  
   %ol.breadcrumb
     %li
-      %a{href: "#"} Koti
-    %li
-      %a{href: "#"} Luonnonkosmetiikka
-    %li.current
-      %a{href: "#"} Kasvojenhoito
+      %a{ :href => "/"}= t(:home)
+    - parents(@group).each do | group|
+      %li
+        = link_to group.name , shop_group_path(group.link)
 
 .row
   .col-md-3
-    .menu-wrapper
-      =link_to shop_group_path(@group.link) do
-        = image_tag @group.main_picture.url(:list)
-        %h4= @group.name
+    - parents(@group).each do | group|
+      .group-wrapper
+        = link_to shop_group_path(group.link) do
+          = image_tag group.main_picture.url(:list)
+          %h4= group.name
     
     .intro2
       = image_tag @group.extra_picture.url(:list)

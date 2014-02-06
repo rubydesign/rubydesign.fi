@@ -1,11 +1,10 @@
 .row  
   %ol.breadcrumb
     %li
-      %a{href: "/"} Koti
-    %li
-      %a{href: "/group/farfalla"} Luonnonkosmetiikka
-    %li
-      %a{href: "/group/kasvohoito"} Kasvojenhoito
+      %a{ :href => "/"}= t(:home)
+    - parents(@product.category).each do | group|
+      %li
+        = link_to group.name , shop_group_path(group.link)
     %li.current
       %a{href: "#"}= @product.name
     

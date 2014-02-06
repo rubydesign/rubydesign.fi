@@ -15,6 +15,7 @@ class BasketsController < AdminController
 
   def print
     order = @basket.kori || Order.new( :basket => @basket )
+    order.ordered_on    = Date.today unless order.ordered_on
     order.paid_on    = Date.today unless order.paid_on
     order.shipped_on = Date.today unless order.shipped_on
     order.shipment_price = 0 unless order.shipment_price
@@ -58,7 +59,7 @@ class BasketsController < AdminController
       item = @basket.items.find { |item| item.id.to_s == pid }
       item.quantity -= 1
       if item.quantity == 0
-        @basket.items.delete item
+        @basket.items.destroy item
       else
         item.save
       end

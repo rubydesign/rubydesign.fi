@@ -13,12 +13,13 @@ class Basket < ActiveRecord::Base
     items.sum(:quantity)
   end
   def cache_total
-    self.total_price = items.to_a.sum{ |i| i.price * i.quantity}
+    self.total_price = items.to_a.sum{ |i| i.total }
+    self.total_tax =  items.to_a.sum{ |i| i.tax_amount}
   end
   def touch
     cache_total
-    save
     super
+    save!
   end
   
   #return a hash of rate => amount
@@ -49,14 +50,9 @@ class Basket < ActiveRecord::Base
     self.receive!
   end
 
-  #type is one of order purchase , clerk or cart depending on who "owns" the basket
-  def type
-    self.kori_type
-  end
-
   def isa typ
-    return typ == :cart  if self.type == nil
-    self.type.downcase == typ.to_s
+    return typ == :cart  if self.kori_type == nil
+    self.kori_type.downcase == typ.to_s.downcase
   end
 
   def suppliers
@@ -65,6 +61,7 @@ class Basket < ActiveRecord::Base
     ss.delete(nil)
     ss
   end
+  
   #when adding a product (with quantity) we ensure there is only one item for each product
   def add_product prod , quant = 1
     return unless prod
