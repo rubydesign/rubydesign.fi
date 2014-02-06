@@ -3,10 +3,10 @@
 /[if IE 7 ] <html class="ie ie7" lang="en">
 /[if IE 8 ] <html class="ie ie8" lang="en">
 /[if IE 9 ] <html class="ie ie9" lang="en">
-%html{lang: "en"}
+%html{lang: "fi"}
   %head
     %meta{charset: "utf-8"}/
-    %title Auringosta Itään, Kuusta Länteen - Cinnamon Apple Spices
+    %title Auringosta Itään, Kuusta Länteen
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1", name: "viewport"}
     %meta{content: "Sisustus, Lifestyle, luomukosmetiikka , luonnonkosmetiikka , farfalla", name: "keywords"}
@@ -14,7 +14,7 @@
     = javascript_include_tag "shop"
     = csrf_meta_tags
   %body
-    .container-fluid
+    .container
       %header.logo
         .row
           .col-md-8
@@ -53,19 +53,21 @@
                 .alert-message!= flash[:notice]
       
 
-      .row
-        .col-md-12
-          = yield
+      .main
+        .row
+          .col-md-12
+            = yield
 
 
       .row
-        #footer
-          .left
+        .col-md-6
+          .footer
             Suunnittelu ja toteutus Ruby Design    
             %br/
             Powered by
             %a{href: "http://rubyclerks.com/"} RubyClerks
-          .right{align: "right"}
+        .col-md-6
+          .footer.right
             %b> AURINGOSTA ITÄÄN, KUUSTA LÄNTEEN
             %br/
             Fredrikinkatu 19 (Viiskulma), Helsinki

@@ -7,10 +7,15 @@
 
 $navbar-default-bg: #108BAD;
 $highlight: #108BAD;
-$open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
 $secondary-color: #c7e1df;
 $crumb-bg: lighten($secondary-color, 2%);
 $crumb-border-style: none;
+
+
+.main{
+	max-width: 1000px;
+  	margin: 0 auto;
+}
 
 @import "bootstrap";
 
@@ -27,18 +32,21 @@ $crumb-border-style: none;
 }   
 
 .top-bar-section form {
-    background-color: highlight;
+    background-color: $highlight;
     padding-right: 5px;
 }
 
+.right {
+  text-align: right;
+}
 
-#footer {
+.footer {
   padding-top: 30px;
   padding-left: 18px; padding-right: 18px;
   font-size: .8em;
 	line-height: 150%;
 	strong, b {
-  color: highlight;
+  color: $highlight;
   }  
 }
 
@@ -46,22 +54,25 @@ $crumb-border-style: none;
   padding-top: 15px;
 }
 
-body {
-  font-family: $open;
-}
+
 
 .menus {
   padding: 8px;
   margin: 0 auto;
 }
 
-.menu-wrapper {
+.group-wrapper {
 	position: relative;
 	margin-top: 25px;
 }
 
-.menu-wrapper h3 {
-  font-size: 1.45rem;
+.subgroup-wrapper {
+	position: relative;
+	margin-top: 25px;
+}
+
+
+.group-wrapper h3 {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -75,7 +86,25 @@ body {
 	width: 100%;
 }
 
-.menu-wrapper h4 {
+.subgroup-wrapper img {
+height: auto;
+max-width: 100%;  }
+
+.subgroup-wrapper h3 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  color: #FFF;
+  background: black;
+  /* fallback color */
+  background: rgba(70,3,21,0.25);
+	text-shadow: black 1px 1px 03px;
+  margin: 0px;
+	width: 100%;
+}
+
+.group-wrapper h4 {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -100,14 +129,14 @@ body {
 }
 
 .intro2 p {
-  font-size: .7em;
+  font-size: .9em;
 	line-height: 130%;
 	margin-bottom: 12px;
 }
 
-.intro2, .intro3 img {
-  width: 150px;
-  padding-top: 20px;
+.intro2 img, .intro3 img {
+  max-width: 150px;
+  padding-top: 25px;
   padding-bottom: 20px;
 }
 
@@ -185,9 +214,7 @@ h1.product-title {
 	color: #108BAD;
 }
 
-body {
-  font-family: "Open Sans";
-}
+
 
 #product-description {
   font-size: 0.9rem;
@@ -211,48 +238,6 @@ span.price.selling {
 	margin-top: 0.3rem;
 }
 
-
-.submenu {
-  padding: 8px;
-  text-align: center;
-  img {
-  padding: 8px;
-  }
-}
-
-.submenu-container {
-  position: relative;
-  margin: 0 auto;
-  }
-
-.submenu-image {
-  position: absolute;
-  left: 0;
-  top: 0;
-	margin-top: 10px;
-}
-.submenu-image2 {
-  position: absolute;
-  left: 60;
-  top: 0;
-	margin-top: 10px;
-}
-
-
-.submenu-text {
-  width: 325px;
-  height: 65px;
-  z-index: 100;
-  position: absolute;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  top: 190px;
-  background: black;
-  /* fallback color */
-  background: rgba(0, 0, 0, 0.3);
-	padding: 6px;
-}
 
 .bread {
   margin-top: 12;
