@@ -40,7 +40,7 @@ gem 'coffee-rails'
 gem 'rack-attack'
 
 group :development do
-  gem "migrate_spree", :path => "../migrate_spree"
+
   gem 'db_fixtures_dump'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
