@@ -38,10 +38,10 @@ gem 'coffee-rails'
 
 #one wishes one would not need it. alas . . .
 gem 'rack-attack'
+gem 'db_fixtures_dump'
 
 group :development do
 
-  gem 'db_fixtures_dump'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
