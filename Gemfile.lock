@@ -10,11 +10,6 @@ GIT
       i18n
       polyamorous (~> 0.6.0)
 
-PATH
-  remote: ../migrate_spree
-  specs:
-    migrate_spree (1.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -294,7 +289,6 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   libv8 (= 3.16.14.3)
-  migrate_spree!
   paperclip
   prawn
   quiet_assets
