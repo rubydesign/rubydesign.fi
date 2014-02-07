@@ -47,6 +47,7 @@ Clerk_5:
     city: 80130 Joensuu
     phone: 0442933022
   created_at: 2011-11-06 18:49:08.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_6:
   id: 6
   email: raisa@villataika.fi
@@ -68,6 +69,7 @@ Clerk_7:
     city: 58700 Sulkava
     phone: '0404136436'
   created_at: 2011-11-16 18:32:11.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_8:
   id: 8
   email: torsten@villataika.fi
@@ -93,6 +95,7 @@ Clerk_9:
     city: 01200 Vantaa
     phone: 040-5916678
   created_at: 2011-11-28 16:11:36.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_10:
   id: 10
   email: torsten.ruger@gmail.com
@@ -105,6 +108,7 @@ Clerk_10:
     city: 10480 Antskog
     phone: '358407308052'
   created_at: 2011-12-04 16:44:05.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_11:
   id: 11
   email: natali.sayenko@pp.inet.fi
@@ -117,6 +121,7 @@ Clerk_11:
     city: 44150 Äänekoski
     phone: 0468115607
   created_at: 2011-12-26 18:32:40.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_12:
   id: 12
   email: pia.rehell@gmail.com
@@ -129,6 +134,7 @@ Clerk_12:
     city: 11710 Riihimäki
     phone: 0414349176
   created_at: 2012-01-12 16:56:23.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_13:
   id: 13
   email: Maria@salongwellness.fi
@@ -141,6 +147,7 @@ Clerk_13:
     city: 10300 KARJAA
     phone: 040-4159279
   created_at: 2012-01-12 21:37:40.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_14:
   id: 14
   email: meemi.luoma@luukku.com
@@ -153,6 +160,7 @@ Clerk_14:
     city: 76130 Pieksämäki
     phone: 0505695398
   created_at: 2012-01-27 14:33:23.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_15:
   id: 15
   email: kaisuberg@hotmail.com
@@ -165,6 +173,7 @@ Clerk_15:
     city: 90570 oulu
     phone: 040-7510242
   created_at: 2012-02-04 19:51:21.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_16:
   id: 16
   email: tarja.luoto@nsn.com
@@ -177,6 +186,7 @@ Clerk_16:
     city: 37150 Nokia
     phone: 050 487 7496
   created_at: 2012-02-09 06:01:42.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_17:
   id: 17
   email: tiina.gronroos@wippies.fi
@@ -189,6 +199,7 @@ Clerk_17:
     city: 00640 helsinki
     phone: 0440961961
   created_at: 2012-02-01 21:21:49.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_18:
   id: 18
   email: outiritvanen@netti.fi
@@ -201,6 +212,7 @@ Clerk_18:
     city: 70620 Kuopio
     phone: 0503239815
   created_at: 2012-03-20 17:05:55.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_19:
   id: 19
   email: irene.alaranta@pp.inet.fi
@@ -213,6 +225,7 @@ Clerk_19:
     city: 07600 myrskylä
     phone: 0505606859
   created_at: 2012-04-22 05:41:44.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_20:
   id: 20
   email: leija100@gmail.com
@@ -225,6 +238,7 @@ Clerk_20:
     city: 03100 nummela
     phone: 0503008783
   created_at: 2012-05-31 13:44:05.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_21:
   id: 21
   email: miiagranlund@hotmail.com
@@ -237,6 +251,7 @@ Clerk_21:
     city: 10020 Else
     phone: 0400 840 110
   created_at: 2012-06-07 23:36:18.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_22:
   id: 22
   email: sinivaisanen@hotmail.com
@@ -249,6 +264,7 @@ Clerk_22:
     city: 02660 Espoo
     phone: 0405718272
   created_at: 2012-06-27 18:32:58.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_23:
   id: 23
   email: latva.johanna@gmail.com
@@ -261,6 +277,7 @@ Clerk_23:
     city: 39340  Ylöjärvi
     phone: 0408279180
   created_at: 2012-07-04 09:25:29.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_24:
   id: 24
   email: arttu@arsti.la
@@ -273,6 +290,7 @@ Clerk_24:
     city: 00580 Helsinki
     phone: 050-3660248
   created_at: 2012-07-21 20:07:59.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_25:
   id: 25
   email: minna.koskinen@aalto.fi
@@ -285,6 +303,7 @@ Clerk_25:
     city: 00530 Helsinki
     phone: '0407650163'
   created_at: 2012-08-13 05:27:41.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_26:
   id: 26
   email: hanna.m.k.siisiainen@student.jyu.fi
@@ -297,6 +316,7 @@ Clerk_26:
     city: 00180 Helsinki
     phone: 0417420269
   created_at: 2012-08-18 20:27:07.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_27:
   id: 27
   email: sekarotu.mika@gmail.com
@@ -309,6 +329,7 @@ Clerk_27:
     city: 01370 Vantaa
     phone: 0401978259
   created_at: 2012-08-20 18:49:14.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_28:
   id: 28
   email: pia.setala@kolumbus.fi
@@ -321,6 +342,7 @@ Clerk_28:
     city: 00100 Helsinki
     phone: 050-3442603
   created_at: 2012-09-03 09:53:26.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_29:
   id: 29
   email: silandert@gmail.com
@@ -333,6 +355,7 @@ Clerk_29:
     city: 65410 Sundom
     phone: 0503250785
   created_at: 2012-09-28 07:18:16.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_30:
   id: 30
   email: ekimi@suomi24.fi
@@ -345,6 +368,7 @@ Clerk_30:
     city: 38700 kankaanpää
     phone: '0500327214'
   created_at: 2012-10-28 16:57:24.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_31:
   id: 31
   email: kaisa7@gmail.com
@@ -357,6 +381,7 @@ Clerk_31:
     city: 00670 Helsinki
     phone: 0445760581
   created_at: 2012-11-16 09:24:42.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_32:
   id: 32
   email: toni.kokkila@gmail.com
@@ -369,6 +394,7 @@ Clerk_32:
     city: 11120 Riihimäki
     phone: '3584402689674'
   created_at: 2012-12-13 13:07:30.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_33:
   id: 33
   email: kristiina.matttila@gmail.com
@@ -381,6 +407,7 @@ Clerk_33:
     city: 33900 Tampere
     phone: 0408286951
   created_at: 2013-01-10 14:44:16.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_34:
   id: 34
   email: keppister@gmail.com
@@ -393,6 +420,7 @@ Clerk_34:
     city: 15680 Lahti
     phone: 0407483264
   created_at: 2013-01-22 08:24:29.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_35:
   id: 35
   email: masaskariwl@gmail.com
@@ -405,6 +433,7 @@ Clerk_35:
     city: 66600 Vörå
     phone: 0505875315
   created_at: 2013-10-07 10:37:11.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_36:
   id: 36
   email: saijavatanen@gmail.com
@@ -417,6 +446,7 @@ Clerk_36:
     city: 08100 Lohja
     phone: 0458805111
   created_at: 2013-11-04 17:14:36.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_37:
   id: 37
   email: kirsi.riepponen@gmail.com
@@ -429,6 +459,7 @@ Clerk_37:
     city: 53850 Lappeenranta
     phone: '0451442114'
   created_at: 2013-11-16 16:44:02.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_38:
   id: 38
   email: helena.lahde@luukku.com
@@ -441,6 +472,7 @@ Clerk_38:
     city: 60120 Seinäjoki
     phone: 0465852813
   created_at: 2013-11-20 11:09:57.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_39:
   id: 39
   email: anne.mahlamaki@ehox.fi
@@ -453,6 +485,7 @@ Clerk_39:
     city: 21310 Vahto
     phone: '0503450763'
   created_at: 2013-11-20 13:09:48.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_40:
   id: 40
   email: krislau@dnainternet.net
@@ -465,6 +498,7 @@ Clerk_40:
     city: 14200 Turenki
     phone: '0400704625'
   created_at: 2013-12-03 09:06:52.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_41:
   id: 41
   email: haapaniemi.essi@gmail.com
@@ -477,6 +511,7 @@ Clerk_41:
     city: 16100 Uusikylä
     phone: '0504635356'
   created_at: 2013-12-17 19:49:05.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_42:
   id: 42
   email: anne.pulliainen@gmail.com
@@ -485,6 +520,7 @@ Clerk_42:
   password_salt: 6CB2bCnMQpZTStR399Q2
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2011-09-18 12:27:02.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_43:
   id: 43
   email: anna.smura@Gmail.com
@@ -497,6 +533,7 @@ Clerk_43:
     city: 75530 Nurmes
     phone: '0503246363'
   created_at: 2011-12-27 14:13:49.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_44:
   id: 44
   email: avalonia81@gmail.com
@@ -509,6 +546,7 @@ Clerk_44:
     city: Tampere 33100
     phone: 0445285308
   created_at: 2011-12-27 20:21:54.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_45:
   id: 45
   email: katja.vuori@educlusterfinland.fi
@@ -517,6 +555,7 @@ Clerk_45:
   password_salt: 4QJ7sqHWwxbqeHcP9sSR
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2012-01-05 13:51:29.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_46:
   id: 46
   email: auliv@yahoo.com
@@ -529,6 +568,7 @@ Clerk_46:
     city: 80110 Joensuu
     phone: 040-7677865
   created_at: 2012-02-13 10:22:45.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_47:
   id: 47
   email: sari.sikio@hotmail.com
@@ -541,6 +581,7 @@ Clerk_47:
     city: 54120 Pulp
     phone: 0403022608
   created_at: 2012-03-01 05:27:34.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_48:
   id: 48
   email: june.fi@hotmail.com
@@ -549,6 +590,7 @@ Clerk_48:
   password_salt: rhxhzEP8yUWp5p37AW4b
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2012-05-05 16:24:43.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_49:
   id: 49
   email: torsten.rueger@villataika.fi
@@ -561,6 +603,7 @@ Clerk_49:
     city: 10480 Antskog
     phone: '358407308052'
   created_at: 2012-06-30 06:28:04.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_50:
   id: 50
   email: testie@mailmetrash.com
@@ -569,6 +612,7 @@ Clerk_50:
   password_salt: uX4CkikYeDPMxb3S5USE
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2012-08-14 15:50:35.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_51:
   id: 51
   email: aino.jarvi@iloteho.fi
@@ -581,6 +625,7 @@ Clerk_51:
     city: 04480 Haarajoki
     phone: 040-7096452
   created_at: 2012-10-01 09:23:52.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_52:
   id: 52
   email: hanna.niura@live.fi
@@ -593,6 +638,7 @@ Clerk_52:
     city: 37560 Lempäälä
     phone: 0409614970
   created_at: 2013-01-16 10:22:51.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_53:
   id: 53
   email: hrheinir@gmail.com
@@ -601,6 +647,7 @@ Clerk_53:
   password_salt: sCnbqFDD1y7aXS4cqV5x
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2013-05-24 12:31:50.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_54:
   id: 54
   email: tiina.thilman1@gmail.com
@@ -609,6 +656,7 @@ Clerk_54:
   password_salt: wGp9aBNDDHzVqz4Vyktp
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2013-09-05 10:20:59.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_55:
   id: 55
   email: niklas.luokkala@gmail.com
@@ -621,6 +669,7 @@ Clerk_55:
     city: 01690 VANTAA
     phone: '0407356711'
   created_at: 2013-10-15 16:30:22.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_56:
   id: 56
   email: tarja@steinway.int.fi
@@ -629,6 +678,7 @@ Clerk_56:
   password_salt: scykioGDWb6ZRviTCUKd
   address: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   created_at: 2013-12-05 09:52:22.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
 Clerk_57:
   id: 57
   email: merivirta.niina@luukku.com
@@ -641,3 +691,4 @@ Clerk_57:
     city: 31400 Somero
     phone: '358405451518'
   created_at: 2014-01-15 20:14:29.000000000 Z
+  updated_at: 2014-02-07 21:28:09.000000000 Z
