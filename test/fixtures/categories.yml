@@ -1,4 +1,3 @@
----
 Category_1:
   id: 38
   category_id: 1
@@ -8,7 +7,6 @@ Category_1:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_2:
   id: 35
   category_id: 1
@@ -18,7 +16,6 @@ Category_2:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_3:
   id: 13
   category_id: 39
@@ -32,7 +29,6 @@ Category_3:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-02-03 18:36:31.714453000 Z
 
----
 Category_4:
   id: 68
   name: Hameet
@@ -41,7 +37,6 @@ Category_4:
   created_at: 2014-01-28 21:16:19.367265000 Z
   updated_at: 2014-01-28 21:16:19.367265000 Z
 
----
 Category_5:
   id: 57
   name: Hatut
@@ -50,7 +45,6 @@ Category_5:
   created_at: 2014-01-28 21:16:01.584008000 Z
   updated_at: 2014-01-28 21:16:01.584008000 Z
 
----
 Category_6:
   id: 30
   category_id: 1
@@ -60,7 +54,6 @@ Category_6:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_7:
   id: 61
   name: Hopeaesineet
@@ -69,7 +62,6 @@ Category_7:
   created_at: 2014-01-28 21:16:08.149998000 Z
   updated_at: 2014-01-28 21:16:08.149998000 Z
 
----
 Category_8:
   id: 70
   name: Housut
@@ -78,7 +70,6 @@ Category_8:
   created_at: 2014-01-28 21:16:20.144602000 Z
   updated_at: 2014-01-28 21:16:20.144602000 Z
 
----
 Category_9:
   id: 51
   name: Huivit
@@ -87,7 +78,6 @@ Category_9:
   created_at: 2014-01-28 21:15:58.973129000 Z
   updated_at: 2014-01-28 21:15:58.973129000 Z
 
----
 Category_10:
   id: 36
   category_id: 1
@@ -97,7 +87,6 @@ Category_10:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_11:
   id: 65
   name: Huonetuoksut
@@ -106,7 +95,6 @@ Category_11:
   created_at: 2014-01-28 21:16:09.296227000 Z
   updated_at: 2014-01-28 21:16:09.296227000 Z
 
----
 Category_12:
   id: 62
   name: Kankaat
@@ -115,7 +103,6 @@ Category_12:
   created_at: 2014-01-28 21:16:08.808869000 Z
   updated_at: 2014-01-28 21:16:08.808869000 Z
 
----
 Category_13:
   id: 32
   category_id: 1
@@ -125,7 +112,6 @@ Category_13:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_14:
   id: 47
   name: Keittiöesineet
@@ -134,7 +120,6 @@ Category_14:
   created_at: 2014-01-28 21:15:57.676589000 Z
   updated_at: 2014-01-28 21:15:57.676589000 Z
 
----
 Category_15:
   id: 58
   name: Keittiötavarat
@@ -143,7 +128,6 @@ Category_15:
   created_at: 2014-01-28 21:16:02.763441000 Z
   updated_at: 2014-01-28 21:16:02.763441000 Z
 
----
 Category_16:
   id: 69
   name: Kengät
@@ -152,7 +136,6 @@ Category_16:
   created_at: 2014-01-28 21:16:19.572994000 Z
   updated_at: 2014-01-28 21:16:19.572994000 Z
 
----
 Category_17:
   id: 48
   name: Koristeesineet
@@ -161,7 +144,6 @@ Category_17:
   created_at: 2014-01-28 21:15:57.777107000 Z
   updated_at: 2014-01-28 21:15:57.777107000 Z
 
----
 Category_18:
   id: 7
   category_id: 27
@@ -171,7 +153,6 @@ Category_18:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_19:
   id: 60
   name: Kylpyesineet
@@ -180,7 +161,6 @@ Category_19:
   created_at: 2014-01-28 21:16:03.607312000 Z
   updated_at: 2014-01-28 21:16:03.607312000 Z
 
----
 Category_20:
   id: 66
   name: Kynttilät
@@ -189,7 +169,6 @@ Category_20:
   created_at: 2014-01-28 21:16:14.559635000 Z
   updated_at: 2014-01-28 21:16:14.559635000 Z
 
----
 Category_21:
   id: 20
   category_id: 27
@@ -199,7 +178,6 @@ Category_21:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_22:
   id: 1
   name: Luomukosmetiikka
@@ -208,7 +186,6 @@ Category_22:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_23:
   id: 34
   category_id: 1
@@ -218,7 +195,6 @@ Category_23:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_24:
   id: 43
   name: Luonnonkosmetiikka
@@ -227,7 +203,6 @@ Category_24:
   created_at: 2014-01-28 21:15:57.291898000 Z
   updated_at: 2014-01-28 21:15:57.291898000 Z
 
----
 Category_25:
   id: 55
   name: Mekot
@@ -236,7 +211,6 @@ Category_25:
   created_at: 2014-01-28 21:16:00.177217000 Z
   updated_at: 2014-01-28 21:16:00.177217000 Z
 
----
 Category_26:
   id: 40
   category_id: 1
@@ -246,7 +220,6 @@ Category_26:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_27:
   id: 27
   category_id: 39
@@ -256,7 +229,6 @@ Category_27:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_28:
   id: 64
   name: Neuleet
@@ -265,7 +237,6 @@ Category_28:
   created_at: 2014-01-28 21:16:09.186806000 Z
   updated_at: 2014-01-28 21:16:09.186806000 Z
 
----
 Category_29:
   id: 56
   name: None
@@ -274,7 +245,6 @@ Category_29:
   created_at: 2014-01-28 21:16:00.494688000 Z
   updated_at: 2014-01-28 21:16:00.494688000 Z
 
----
 Category_30:
   id: 54
   name: Peilit
@@ -283,7 +253,6 @@ Category_30:
   created_at: 2014-01-28 21:16:00.084726000 Z
   updated_at: 2014-01-28 21:16:00.084726000 Z
 
----
 Category_31:
   id: 59
   name: Prilit
@@ -292,7 +261,6 @@ Category_31:
   created_at: 2014-01-28 21:16:03.350293000 Z
   updated_at: 2014-01-28 21:16:03.350293000 Z
 
----
 Category_32:
   id: 49
   name: Puserot
@@ -301,7 +269,6 @@ Category_32:
   created_at: 2014-01-28 21:15:58.250350000 Z
   updated_at: 2014-01-28 21:15:58.250350000 Z
 
----
 Category_33:
   id: 67
   name: Puuesineet
@@ -310,7 +277,6 @@ Category_33:
   created_at: 2014-01-28 21:16:15.141218000 Z
   updated_at: 2014-01-28 21:16:15.141218000 Z
 
----
 Category_34:
   id: 46
   name: Sekalaista
@@ -319,7 +285,6 @@ Category_34:
   created_at: 2014-01-28 21:15:57.613255000 Z
   updated_at: 2014-01-28 21:15:57.613255000 Z
 
----
 Category_35:
   id: 39
   name: Sisustus
@@ -328,7 +293,6 @@ Category_35:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_36:
   id: 15
   category_id: 27
@@ -338,7 +302,6 @@ Category_36:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_37:
   id: 44
   name: Suitsukkeet
@@ -347,7 +310,6 @@ Category_37:
   created_at: 2014-01-28 21:15:57.314782000 Z
   updated_at: 2014-01-28 21:15:57.314782000 Z
 
----
 Category_38:
   id: 63
   name: Sängynpeiteet
@@ -356,7 +318,6 @@ Category_38:
   created_at: 2014-01-28 21:16:09.111529000 Z
   updated_at: 2014-01-28 21:16:09.111529000 Z
 
----
 Category_39:
   id: 50
   name: Takit
@@ -365,7 +326,6 @@ Category_39:
   created_at: 2014-01-28 21:15:58.806473000 Z
   updated_at: 2014-01-28 21:15:58.806473000 Z
 
----
 Category_40:
   id: 45
   name: Tunika
@@ -374,7 +334,6 @@ Category_40:
   created_at: 2014-01-28 21:15:57.463158000 Z
   updated_at: 2014-01-28 21:15:57.463158000 Z
 
----
 Category_41:
   id: 53
   name: Tunikat
@@ -383,7 +342,6 @@ Category_41:
   created_at: 2014-01-28 21:15:59.662568000 Z
   updated_at: 2014-01-28 21:15:59.662568000 Z
 
----
 Category_42:
   id: 52
   name: Tuoksut
@@ -392,7 +350,6 @@ Category_42:
   created_at: 2014-01-28 21:15:59.266336000 Z
   updated_at: 2014-01-28 21:15:59.266336000 Z
 
----
 Category_43:
   id: 71
   name: Tyynyt
@@ -401,7 +358,6 @@ Category_43:
   created_at: 2014-01-28 21:16:40.268014000 Z
   updated_at: 2014-01-28 21:16:40.268014000 Z
 
----
 Category_44:
   id: 41
   category_id: 39
@@ -411,7 +367,6 @@ Category_44:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_45:
   id: 14
   category_id: 39
@@ -421,7 +376,6 @@ Category_45:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_46:
   id: 31
   category_id: 1
@@ -431,7 +385,6 @@ Category_46:
   created_at: 2014-01-28 21:09:18.000000000 Z
   updated_at: 2014-01-28 21:09:18.000000000 Z
 
----
 Category_47:
   id: 72
   name: Verhot
@@ -440,7 +393,6 @@ Category_47:
   created_at: 2014-01-28 21:16:49.124539000 Z
   updated_at: 2014-01-28 21:16:49.124539000 Z
 
----
 Category_48:
   id: 42
   category_id: 1

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20131226151332) do
     t.string   "kori_type"
     t.decimal  "total_price", default: 0.0
     t.decimal  "total_tax",   default: 0.0
+    t.date     "locked"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
