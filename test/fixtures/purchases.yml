@@ -5,81 +5,69 @@ Purchase_1:
   received_on: 2014-01-29
   created_at: 2014-01-29 08:55:35.272009000 Z
   updated_at: 2014-01-29 08:55:49.041298000 Z
-
 Purchase_2:
   id: 2
   ordered_on: 2014-01-29
   received_on: 2014-01-29
   created_at: 2014-01-29 10:04:48.452596000 Z
   updated_at: 2014-01-29 10:04:55.015002000 Z
-
 Purchase_3:
   id: 3
   ordered_on: 2014-01-29
   received_on: 2014-01-29
   created_at: 2014-01-29 14:20:15.100666000 Z
   updated_at: 2014-01-29 14:20:28.156442000 Z
-
 Purchase_4:
   id: 4
   ordered_on: 2014-01-29
   received_on: 2014-01-29
   created_at: 2014-01-29 14:23:10.770812000 Z
   updated_at: 2014-01-29 14:23:25.267723000 Z
-
 Purchase_5:
   id: 5
   ordered_on: 2014-01-29
   received_on: 2014-01-29
   created_at: 2014-01-29 16:00:43.104309000 Z
   updated_at: 2014-01-29 16:00:47.240887000 Z
-
 Purchase_6:
   id: 6
   ordered_on: 2014-01-29
   received_on: 2014-01-29
   created_at: 2014-01-29 16:06:17.091173000 Z
   updated_at: 2014-01-29 16:06:21.284674000 Z
-
 Purchase_7:
   id: 8
   ordered_on: 2014-01-30
   received_on: 2014-01-30
   created_at: 2014-01-30 13:22:26.780305000 Z
   updated_at: 2014-01-30 13:22:33.125260000 Z
-
 Purchase_8:
   id: 9
   ordered_on: 2014-02-03
   received_on: 2014-02-03
   created_at: 2014-02-03 10:12:59.120307000 Z
   updated_at: 2014-02-03 10:13:09.099047000 Z
-
 Purchase_9:
   id: 10
   ordered_on: 2014-02-04
   received_on: 2014-02-04
   created_at: 2014-02-04 15:20:17.575601000 Z
   updated_at: 2014-02-04 15:20:21.129071000 Z
-
 Purchase_10:
   id: 11
   ordered_on: 2014-02-05
   received_on: 2014-02-05
   created_at: 2014-02-05 14:45:32.918573000 Z
   updated_at: 2014-02-05 14:45:57.070536000 Z
-
 Purchase_11:
   id: 12
   ordered_on: 2014-02-06
   received_on: 2014-02-06
   created_at: 2014-02-06 09:32:04.336499000 Z
   updated_at: 2014-02-06 09:32:21.273669000 Z
-
 Purchase_12:
   id: 13
   ordered_on: 2014-02-06
   received_on: 2014-02-06
   created_at: 2014-02-06 14:18:53.388929000 Z
   updated_at: 2014-02-06 14:19:01.055062000 Z
-
