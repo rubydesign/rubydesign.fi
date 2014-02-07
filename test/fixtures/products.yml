@@ -84,12 +84,12 @@ Product_5:
   cost: 2.36
   ean: '5701352000162'
   tax: 24.0
-  inventory: 5
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   created_at: 2014-01-03 11:17:55.000000000 Z
-  updated_at: 2014-02-06 19:06:23.546934000 Z
+  updated_at: 2014-02-07 21:01:05.373353000 Z
 Product_6:
   id: 5776
   price: 39.0
@@ -206,14 +206,14 @@ Product_12:
   cost: 2.4
   ean: '4009636025100'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 13
   supplier_id: 1
   created_at: 2013-12-21 11:03:36.000000000 Z
-  updated_at: 2014-02-06 19:06:23.578248000 Z
+  updated_at: 2014-02-07 21:01:05.156051000 Z
 Product_13:
   id: 5769
   price: 6.0
@@ -1522,12 +1522,12 @@ Product_86:
   cost: 2.6
   ean: '10010013'
   tax: 24.0
-  inventory: 5
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   created_at: 2013-12-05 09:54:21.000000000 Z
-  updated_at: 2014-02-06 19:06:24.032354000 Z
+  updated_at: 2014-02-07 21:01:05.161337000 Z
 Product_87:
   id: 5669
   price: 5.9
@@ -2391,12 +2391,12 @@ Product_134:
   cost: 12.8
   ean: '4032584676582'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: '67658'
   created_at: 2013-11-04 19:04:52.000000000 Z
-  updated_at: 2014-02-06 19:06:24.382006000 Z
+  updated_at: 2014-02-07 21:01:05.594503000 Z
 Product_135:
   id: 5613
   price: 75.0
@@ -3074,7 +3074,7 @@ Product_172:
   cost: 130.0
   ean: 2636095-sin-S
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -3082,7 +3082,7 @@ Product_172:
   category_id: 41
   supplier_id: 6
   created_at: 2013-10-25 09:44:10.000000000 Z
-  updated_at: 2014-02-06 19:06:24.621880000 Z
+  updated_at: 2014-02-07 21:01:04.724312000 Z
 Product_173:
   id: 5568
   price: 325.0
@@ -4843,7 +4843,7 @@ Product_265:
   cost: 98.0
   ean: 1736010-S
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -4851,7 +4851,7 @@ Product_265:
   category_id: 41
   supplier_id: 6
   created_at: 2013-09-16 15:59:13.000000000 Z
-  updated_at: 2014-02-06 19:06:25.125961000 Z
+  updated_at: 2014-02-07 21:01:05.481781000 Z
 Product_266:
   id: 5456
   price: 245.0
@@ -6531,14 +6531,14 @@ Product_346:
   cost: 15.56
   ean: '7612534046169'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 32
   supplier_id: 2
   created_at: 2013-06-27 11:41:44.000000000 Z
-  updated_at: 2014-02-06 19:06:25.588766000 Z
+  updated_at: 2014-02-07 21:01:05.023551000 Z
 Product_347:
   id: 5340
   price: 105.0
@@ -7075,14 +7075,14 @@ Product_373:
   cost: 25.4
   ean: '7612534046176'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 32
   supplier_id: 2
   created_at: 2013-06-10 09:07:44.000000000 Z
-  updated_at: 2014-01-28 21:22:24.218671000 Z
+  updated_at: 2014-02-07 21:01:04.504180000 Z
 Product_374:
   id: 5312
   price: 27.0
@@ -9181,14 +9181,14 @@ Product_481:
   cost: 5.04
   ean: '4260052245569'
   tax: 24.0
-  inventory: 3
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 13
   supplier_id: 24
   created_at: 2013-04-22 09:12:43.000000000 Z
-  updated_at: 2014-02-06 19:06:26.401519000 Z
+  updated_at: 2014-02-07 21:01:05.850428000 Z
 Product_482:
   id: 5171
   price: 25.0
@@ -10918,14 +10918,14 @@ Product_571:
   cost: 6.1
   ean: '7612534105033'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 35
   supplier_id: 2
   created_at: 2012-12-19 13:49:14.000000000 Z
-  updated_at: 2014-01-28 21:22:58.689796000 Z
+  updated_at: 2014-02-07 21:01:04.768857000 Z
 Product_572:
   id: 5067
   price: 12.2
@@ -11213,14 +11213,14 @@ Product_583:
   cost: 12.1
   ean: '7612534032223'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: d103
   category_id: 42
   supplier_id: 2
   created_at: 2012-12-17 13:42:54.000000000 Z
-  updated_at: 2014-01-28 21:23:05.003760000 Z
+  updated_at: 2014-02-07 21:01:05.506181000 Z
 Product_584:
   id: 5053
   price: 22.0
@@ -12101,14 +12101,14 @@ Product_629:
   cost: 2.6
   ean: S-343
   tax: 24.0
-  inventory: 10
+  inventory: 9
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 13
   supplier_id: 30
   created_at: 2012-11-29 09:59:23.000000000 Z
-  updated_at: 2014-02-06 19:06:27.217627000 Z
+  updated_at: 2014-02-07 21:01:05.639842000 Z
 Product_630:
   id: 5003
   price: 15.0
@@ -14545,14 +14545,14 @@ Product_750:
   cost: 1.72
   ean: '4009636023984'
   tax: 24.0
-  inventory: 5
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 13
   supplier_id: 1
   created_at: 2012-09-19 15:23:42.000000000 Z
-  updated_at: 2014-02-06 19:06:27.953557000 Z
+  updated_at: 2014-02-07 21:01:05.368727000 Z
 Product_751:
   id: 4853
   price: 45.0
@@ -15613,14 +15613,14 @@ Product_804:
   cost: 74.0
   ean: 401b
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 56
   supplier_id: 19
   created_at: 2012-08-02 10:21:13.000000000 Z
-  updated_at: 2014-02-06 19:06:28.303571000 Z
+  updated_at: 2014-02-07 21:01:05.329440000 Z
 Product_805:
   id: 4770
   price: 73.0
@@ -17772,7 +17772,7 @@ Product_916:
   cost: 22.0
   ean: L-101
   tax: 24.0
-  inventory: 0
+  inventory: -2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -17780,7 +17780,7 @@ Product_916:
   category_id: 56
   supplier_id: 19
   created_at: 2012-06-14 20:24:12.000000000 Z
-  updated_at: 2014-02-06 19:06:28.969722000 Z
+  updated_at: 2014-02-07 21:01:05.203277000 Z
 Product_917:
   id: 4668
   price: 55.0
@@ -17810,7 +17810,7 @@ Product_918:
   cost: 22.0
   ean: L-111
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -17818,7 +17818,7 @@ Product_918:
   category_id: 56
   supplier_id: 19
   created_at: 2012-06-14 20:24:12.000000000 Z
-  updated_at: 2014-02-06 19:06:28.981837000 Z
+  updated_at: 2014-02-07 21:01:05.186176000 Z
 Product_919:
   id: 4601
   price: 72.0
@@ -19716,7 +19716,7 @@ Product_1015:
   cost: 6.76
   ean: ''
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -19724,7 +19724,7 @@ Product_1015:
   category_id: 47
   supplier_id: 8
   created_at: 2012-04-25 08:43:34.000000000 Z
-  updated_at: 2014-02-06 19:06:29.668200000 Z
+  updated_at: 2014-02-07 21:01:04.582119000 Z
 Product_1016:
   id: 4534
   price: 35.0
@@ -19974,14 +19974,14 @@ Product_1028:
   cost: 1.8
   ean: '4004060430001'
   tax: 24.0
-  inventory: 27
+  inventory: 26
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: T-101
   category_id: 13
   supplier_id: 1
   created_at: 2012-04-23 09:50:14.000000000 Z
-  updated_at: 2014-02-06 19:06:29.745094000 Z
+  updated_at: 2014-02-07 21:01:05.353578000 Z
 Product_1029:
   id: 4525
   price: 16.2
@@ -20000,14 +20000,14 @@ Product_1029:
   cost: 8.1
   ean: '7612534045209'
   tax: 24.0
-  inventory: 8
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 31
   supplier_id: 2
   created_at: 2012-04-20 15:25:52.000000000 Z
-  updated_at: 2014-02-04 15:20:21.143113000 Z
+  updated_at: 2014-02-07 21:01:05.072954000 Z
 Product_1030:
   id: 4524
   price: 13.4
@@ -20186,14 +20186,14 @@ Product_1036:
   cost: 8.1
   ean: '7612534045056'
   tax: 24.0
-  inventory: 4
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 31
   supplier_id: 2
   created_at: 2012-04-20 15:09:21.000000000 Z
-  updated_at: 2014-02-06 09:32:21.485551000 Z
+  updated_at: 2014-02-07 21:01:04.976100000 Z
 Product_1037:
   id: 4517
   price: 16.9
@@ -20266,14 +20266,14 @@ Product_1039:
   cost: 10.5
   ean: '7612534045087'
   tax: 24.0
-  inventory: 3
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 31
   supplier_id: 2
   created_at: 2012-04-20 15:00:56.000000000 Z
-  updated_at: 2014-01-29 08:55:49.062384000 Z
+  updated_at: 2014-02-07 21:01:04.625720000 Z
 Product_1040:
   id: 4514
   price: 17.4
@@ -20321,14 +20321,14 @@ Product_1041:
   cost: 7.15
   ean: '7612534045117'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 31
   supplier_id: 2
   created_at: 2012-04-20 14:55:20.000000000 Z
-  updated_at: 2014-02-06 09:32:21.339183000 Z
+  updated_at: 2014-02-07 21:01:04.784595000 Z
 Product_1042:
   id: 4512
   price: 21.0
@@ -20458,14 +20458,14 @@ Product_1046:
   cost: 13.4
   ean: '7612534045223'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 31
   supplier_id: 2
   created_at: 2012-04-20 14:44:54.000000000 Z
-  updated_at: 2014-02-06 09:32:21.505221000 Z
+  updated_at: 2014-02-07 21:01:04.886012000 Z
 Product_1047:
   id: 4506
   price: 13.5
@@ -23195,14 +23195,14 @@ Product_1181:
   cost: 5.28
   ean: '4260052241776'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: FG-123
   category_id: 13
   supplier_id: 24
   created_at: 2011-12-24 12:43:58.000000000 Z
-  updated_at: 2014-01-28 21:16:09.145911000 Z
+  updated_at: 2014-02-07 21:01:05.760034000 Z
 Product_1182:
   id: 4150
   price: 4.9
@@ -23235,14 +23235,14 @@ Product_1183:
   cost: 2.8
   ean: '205'
   tax: 24.0
-  inventory: 2
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 46
   supplier_id: 25
   created_at: 2011-12-20 19:38:03.000000000 Z
-  updated_at: 2014-02-06 19:06:30.306486000 Z
+  updated_at: 2014-02-07 21:01:05.211842000 Z
 Product_1184:
   id: 4148
   price: 7.9
@@ -23636,14 +23636,14 @@ Product_1203:
   cost: 8.35
   ean: '4260052245507'
   tax: 14.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 13
   supplier_id: 24
   created_at: 2011-12-05 13:05:18.000000000 Z
-  updated_at: 2014-01-28 21:16:09.322927000 Z
+  updated_at: 2014-02-07 21:01:05.866592000 Z
 Product_1204:
   id: 4102
   price: 39.55
@@ -24358,14 +24358,14 @@ Product_1239:
   cost: 20.0
   ean: ''
   tax: 24.0
-  inventory: 6
+  inventory: 5
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 46
   supplier_id: 25
   created_at: 2011-11-26 13:50:20.000000000 Z
-  updated_at: 2014-02-06 19:06:30.336437000 Z
+  updated_at: 2014-02-07 21:01:04.823567000 Z
 Product_1240:
   id: 4042
   price: 20.0
@@ -25524,14 +25524,14 @@ Product_1297:
   cost: 6.65
   ean: '7612534050500'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95536
   category_id: 30
   supplier_id: 2
   created_at: 2011-10-23 07:58:56.000000000 Z
-  updated_at: 2014-02-06 09:32:21.380048000 Z
+  updated_at: 2014-02-07 21:01:05.524191000 Z
 Product_1298:
   id: 403
   price: 14.7
@@ -26277,7 +26277,7 @@ Product_1336:
   cost: 20.7
   ean: 9815-38
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -26285,7 +26285,7 @@ Product_1336:
   category_id: 51
   supplier_id: 11
   created_at: 2011-10-11 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:10.979766000 Z
+  updated_at: 2014-02-07 21:01:04.449033000 Z
 Product_1337:
   id: 5547
   price: 53.0
@@ -26371,14 +26371,14 @@ Product_1340:
   cost: 12.1
   ean: '7612534032230'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95553
   category_id: 42
   supplier_id: 2
   created_at: 2011-10-09 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:31.925903000 Z
+  updated_at: 2014-02-07 21:01:04.937733000 Z
 Product_1341:
   id: 715
   price: 95.0
@@ -26418,14 +26418,14 @@ Product_1342:
   cost: 12.1
   ean: '7612534032209'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95547
   category_id: 42
   supplier_id: 2
   created_at: 2011-10-06 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:32.371973000 Z
+  updated_at: 2014-02-07 21:01:05.388943000 Z
 Product_1343:
   id: 401
   price: 34.9
@@ -26519,14 +26519,14 @@ Product_1346:
   cost: 3.1
   ean: '7612534041140'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 31
   supplier_id: 2
   created_at: 2011-10-06 14:46:59.000000000 Z
-  updated_at: 2014-01-28 21:24:33.572137000 Z
+  updated_at: 2014-02-07 21:01:04.800518000 Z
 Product_1347:
   id: 395
   price: 11.8
@@ -26604,14 +26604,14 @@ Product_1349:
   cost: 26.95
   ean: '7612534070188'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: "P-95544\t"
   category_id: 34
   supplier_id: 2
   created_at: 2011-10-06 13:17:37.000000000 Z
-  updated_at: 2014-01-28 21:24:34.472350000 Z
+  updated_at: 2014-02-07 21:01:05.664193000 Z
 Product_1350:
   id: 392
   price: 53.9
@@ -26865,14 +26865,14 @@ Product_1358:
   cost: 2.95
   ean: '7612534043465'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95533
   category_id: 43
   supplier_id: 2
   created_at: 2011-09-14 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:11.122067000 Z
+  updated_at: 2014-02-07 21:01:05.249763000 Z
 Product_1359:
   id: 668
   price: 9.0
@@ -27557,14 +27557,14 @@ Product_1390:
   cost: 6.7
   ean: '7612534050517'
   tax: 24.0
-  inventory: 4
+  inventory: 3
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95497
   category_id: 30
   supplier_id: 2
   created_at: 2011-07-14 22:00:00.000000000 Z
-  updated_at: 2014-02-06 09:32:21.395778000 Z
+  updated_at: 2014-02-07 21:01:04.923366000 Z
 Product_1391:
   id: 373
   price: 39.9
@@ -28008,14 +28008,14 @@ Product_1413:
   cost: 20.5
   ean: '7612534043632'
   tax: 24.0
-  inventory: 2
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95463
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-28 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:44.165489000 Z
+  updated_at: 2014-02-07 21:01:04.838307000 Z
 Product_1414:
   id: 834
   price: 19.5
@@ -28090,14 +28090,14 @@ Product_1417:
   cost: 11.2
   ean: '7612534043694'
   tax: 24.0
-  inventory: 4
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95391
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-02-06 09:32:21.295988000 Z
+  updated_at: 2014-02-07 21:01:05.264910000 Z
 Product_1418:
   id: 305
   price: 17.3
@@ -28175,14 +28175,14 @@ Product_1420:
   cost: 14.3
   ean: '7612534043663'
   tax: 24.0
-  inventory: 4
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95389
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-02-06 09:32:21.316255000 Z
+  updated_at: 2014-02-07 21:01:05.044236000 Z
 Product_1421:
   id: 308
   price: 18.6
@@ -28202,14 +28202,14 @@ Product_1421:
   cost: 14.3
   ean: '7612534043687'
   tax: 24.0
-  inventory: 4
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95388
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-02-03 10:13:09.112521000 Z
+  updated_at: 2014-02-07 21:01:05.616615000 Z
 Product_1422:
   id: 309
   price: 37.4
@@ -28374,14 +28374,14 @@ Product_1427:
   cost: 15.5
   ean: '7612534043786'
   tax: 24.0
-  inventory: 2
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95393
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:47.474237000 Z
+  updated_at: 2014-02-07 21:01:05.086562000 Z
 Product_1428:
   id: 315
   price: 49.9
@@ -28402,14 +28402,14 @@ Product_1428:
   cost: 24.95
   ean: '7612534043625'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95403
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:47.708822000 Z
+  updated_at: 2014-02-07 21:01:04.857717000 Z
 Product_1429:
   id: 317
   price: 31.0
@@ -28430,14 +28430,14 @@ Product_1429:
   cost: 15.5
   ean: '7612534043991'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95394
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-02-03 10:13:09.130637000 Z
+  updated_at: 2014-02-07 21:01:05.559419000 Z
 Product_1430:
   id: 318
   price: 46.0
@@ -28546,14 +28546,14 @@ Product_1433:
   cost: 23.2
   ean: '7612534043649'
   tax: 24.0
-  inventory: 2
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95402
   category_id: 32
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:49.210640000 Z
+  updated_at: 2014-02-07 21:01:04.870826000 Z
 Product_1434:
   id: 347
   price: 13.2
@@ -28600,14 +28600,14 @@ Product_1435:
   cost: 6.6
   ean: '7612534050425'
   tax: 24.0
-  inventory: 4
+  inventory: 3
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95421
   category_id: 30
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:49.895831000 Z
+  updated_at: 2014-02-07 21:01:04.527837000 Z
 Product_1436:
   id: 349
   price: 13.2
@@ -28682,14 +28682,14 @@ Product_1438:
   cost: 9.1
   ean: '7612534050463'
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95423
   category_id: 30
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-02-06 09:32:21.428322000 Z
+  updated_at: 2014-02-07 21:01:04.573459000 Z
 Product_1439:
   id: 353
   price: 14.7
@@ -28956,14 +28956,14 @@ Product_1448:
   cost: 18.4
   ean: '7612534032308'
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95417
   category_id: 31
   supplier_id: 2
   created_at: 2011-06-26 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:24:53.911239000 Z
+  updated_at: 2014-02-07 21:01:05.677937000 Z
 Product_1449:
   id: 369
   price: 22.95
@@ -31683,14 +31683,14 @@ Product_1587:
   cost: 86.25
   ean: P-95214
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
   category_id: 20
   supplier_id: 35
   created_at: 2011-05-02 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:13.496569000 Z
+  updated_at: 2014-02-07 21:01:04.740862000 Z
 Product_1588:
   id: 2807
   price: 375.0
@@ -33986,14 +33986,14 @@ Product_1709:
   cost: 1.26
   ean: Pß95016
   tax: 24.0
-  inventory: 3
+  inventory: 2
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95016
   category_id: 13
   supplier_id: 1
   created_at: 2010-12-06 23:00:00.000000000 Z
-  updated_at: 2014-02-04 17:47:27.007437000 Z
+  updated_at: 2014-02-07 21:01:04.997896000 Z
 Product_1710:
   id: 436
   price: 4.7
@@ -34008,14 +34008,14 @@ Product_1710:
   cost: 2.07
   ean: Pß95017
   tax: 24.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-95017
   category_id: 13
   supplier_id: 1
   created_at: 2010-12-06 23:00:00.000000000 Z
-  updated_at: 2014-02-04 17:48:47.468863000 Z
+  updated_at: 2014-02-07 21:01:05.418479000 Z
 Product_1711:
   id: 437
   price: 4.5
@@ -34953,14 +34953,14 @@ Product_1760:
   cost: 1.47
   ean: Pß94927
   tax: 14.0
-  inventory: 6
+  inventory: 5
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-94927
   category_id: 13
   supplier_id: 1
   created_at: 2010-10-26 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:25:06.236823000 Z
+  updated_at: 2014-02-07 21:01:05.882344000 Z
 Product_1761:
   id: 717
   price: 4.3
@@ -36905,7 +36905,7 @@ Product_1861:
   cost: 3.45
   ean: '9337259002648'
   tax: 24.0
-  inventory: 11
+  inventory: 10
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -36913,7 +36913,7 @@ Product_1861:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:25:13.255524000 Z
+  updated_at: 2014-02-07 21:01:04.816591000 Z
 Product_1862:
   id: 2605
   price: 12.0
@@ -36974,7 +36974,7 @@ Product_1864:
   cost: 3.45
   ean: '9337259002693'
   tax: 24.0
-  inventory: 5
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -36982,7 +36982,7 @@ Product_1864:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:25:14.579788000 Z
+  updated_at: 2014-02-07 21:01:04.601882000 Z
 Product_1865:
   id: 2611
   price: 12.0
@@ -37043,7 +37043,7 @@ Product_1867:
   cost: 3.45
   ean: LB.B1
   tax: 24.0
-  inventory: 7
+  inventory: 6
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -37051,7 +37051,7 @@ Product_1867:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:25:15.795468000 Z
+  updated_at: 2014-02-07 21:01:05.134691000 Z
 Product_1868:
   id: 2615
   price: 12.0
@@ -37425,7 +37425,7 @@ Product_1885:
   cost: 3.45
   ean: '9337259000606'
   tax: 24.0
-  inventory: 5
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -37433,7 +37433,7 @@ Product_1885:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:25:19.765009000 Z
+  updated_at: 2014-02-07 21:01:04.930420000 Z
 Product_1886:
   id: 4348
   price: 12.0
@@ -37471,7 +37471,7 @@ Product_1887:
   cost: 3.45
   ean: '9337259003508'
   tax: 24.0
-  inventory: 4
+  inventory: 3
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -37479,7 +37479,7 @@ Product_1887:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:25:20.657960000 Z
+  updated_at: 2014-02-07 21:01:05.221172000 Z
 Product_1888:
   id: 4351
   price: 12.0
@@ -37578,7 +37578,7 @@ Product_1892:
   cost: 3.45
   ean: '9337259003119'
   tax: 24.0
-  inventory: 11
+  inventory: 10
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -37586,7 +37586,7 @@ Product_1892:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:16.894247000 Z
+  updated_at: 2014-02-07 21:01:04.418263000 Z
 Product_1893:
   id: 4358
   price: 12.0
@@ -37796,7 +37796,7 @@ Product_1902:
   cost: 3.45
   ean: '9337259003881'
   tax: 24.0
-  inventory: 12
+  inventory: 10
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -37804,7 +37804,7 @@ Product_1902:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:17.095564000 Z
+  updated_at: 2014-02-07 21:01:05.782751000 Z
 Product_1903:
   id: 4473
   price: 12.0
@@ -37853,7 +37853,7 @@ Product_1905:
   cost: 3.45
   ean: '9337259003836'
   tax: 24.0
-  inventory: 28
+  inventory: 24
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -37861,7 +37861,7 @@ Product_1905:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:17.123249000 Z
+  updated_at: 2014-02-07 21:01:05.802438000 Z
 Product_1906:
   id: 4476
   price: 12.0
@@ -38165,7 +38165,7 @@ Product_1921:
   cost: 3.45
   ean: '9337259000521'
   tax: 24.0
-  inventory: 5
+  inventory: 3
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -38173,7 +38173,7 @@ Product_1921:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:17.285357000 Z
+  updated_at: 2014-02-07 21:01:05.825526000 Z
 Product_1922:
   id: 5202
   price: 12.0
@@ -38363,7 +38363,7 @@ Product_1931:
   cost: 3.45
   ean: '9337259004161'
   tax: 24.0
-  inventory: 6
+  inventory: 5
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -38371,7 +38371,7 @@ Product_1931:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:17.383315000 Z
+  updated_at: 2014-02-07 21:01:04.551026000 Z
 Product_1932:
   id: 5682
   price: 12.0
@@ -38401,7 +38401,7 @@ Product_1933:
   cost: 3.45
   ean: '9337259004208'
   tax: 24.0
-  inventory: 7
+  inventory: 6
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -38409,7 +38409,7 @@ Product_1933:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:17.402145000 Z
+  updated_at: 2014-02-07 21:01:05.818401000 Z
 Product_1934:
   id: 5684
   price: 12.0
@@ -38458,7 +38458,7 @@ Product_1936:
   cost: 3.45
   ean: '9337259004222'
   tax: 24.0
-  inventory: 6
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -38466,7 +38466,7 @@ Product_1936:
   category_id: 20
   supplier_id: 45
   created_at: 2010-09-17 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:17.532236000 Z
+  updated_at: 2014-02-07 21:01:05.466899000 Z
 Product_1937:
   id: 5687
   price: 12.0
@@ -50568,7 +50568,7 @@ Product_2541:
   cost: 7.56
   ean: P-93227
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -50576,7 +50576,7 @@ Product_2541:
   category_id: 46
   supplier_id: 28
   created_at: 2009-11-13 23:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:24.791148000 Z
+  updated_at: 2014-02-07 21:01:05.281990000 Z
 Product_2542:
   id: 531
   price: 10.0
@@ -52725,14 +52725,14 @@ Product_2646:
   weight: 0.25
   ean: '4260052242223'
   tax: 14.0
-  inventory: 2
+  inventory: 1
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-92999
   category_id: 13
   supplier_id: 24
   created_at: 2009-10-05 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:27:44.157660000 Z
+  updated_at: 2014-02-07 21:01:05.632705000 Z
 Product_2647:
   id: 5
   price: 12.8
@@ -52804,14 +52804,14 @@ Product_2649:
   cost: 4.83
   ean: '4260052242100'
   tax: 14.0
-  inventory: 5
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: P-92992
   category_id: 13
   supplier_id: 24
   created_at: 2009-10-05 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:27:45.217184000 Z
+  updated_at: 2014-02-07 21:01:05.401712000 Z
 Product_2650:
   id: 1645
   price: 10.0
@@ -53323,7 +53323,7 @@ Product_2676:
   cost: 49.8
   ean: P-92940
   tax: 24.0
-  inventory: 1
+  inventory: 0
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -53331,7 +53331,7 @@ Product_2676:
   category_id: 50
   supplier_id: 3
   created_at: 2009-09-10 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:26.428898000 Z
+  updated_at: 2014-02-07 21:01:04.716745000 Z
 Product_2677:
   id: 1882
   price: 245.0
@@ -57290,7 +57290,7 @@ Product_2873:
   weight: 0.35
   ean: P-93862
   tax: 24.0
-  inventory: 21
+  inventory: 20
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -57298,7 +57298,7 @@ Product_2873:
   category_id: 7
   supplier_id: 36
   created_at: 2009-06-24 22:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:28.792158000 Z
+  updated_at: 2014-02-07 21:01:04.915892000 Z
 Product_2874:
   id: 410
   price: 120.0
@@ -70400,7 +70400,7 @@ Product_3555:
   cost: 11.0
   ean: P-91654
   tax: 24.0
-  inventory: 5
+  inventory: 4
   stock_level: 0
   properties: !ruby/hash:ActiveSupport::HashWithIndifferentAccess {}
   scode: ''
@@ -70408,7 +70408,7 @@ Product_3555:
   category_id: 51
   supplier_id: 22
   created_at: 2009-03-06 23:00:00.000000000 Z
-  updated_at: 2014-01-28 21:16:37.670642000 Z
+  updated_at: 2014-02-07 21:01:05.171601000 Z
 Product_3556:
   id: 2355
   price: 23.0
