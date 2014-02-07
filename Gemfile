@@ -28,6 +28,7 @@ gem "bcrypt-ruby"
 
 #misc
 gem "valid_email" , :require => 'valid_email/email_validator' #no mx checking
+gem 'db_fixtures_dump' , :github => 'rubyclerks/db_fixtures_dump' #backup
 
 #asset / production reelated
 gem "therubyracer" 
@@ -38,10 +39,9 @@ gem 'coffee-rails'
 
 #one wishes one would not need it. alas . . .
 gem 'rack-attack'
-gem 'db_fixtures_dump'
+
 
 group :development do
-
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
