@@ -1,91 +1,452 @@
 ---
-1:
+Category_1:
+  id: 38
+  category_id: 1
+  name: Aloe Shea
+  position: 1
+  link: aloe-shea
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_2:
+  id: 35
+  category_id: 1
+  name: Aromasprayt
+  position: 1
+  link: aromasprayt
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_3:
+  id: 13
+  category_id: 39
+  name: Gourmet
+  position: 1
+  link: gourmet
+  main_picture_file_name: menu-gourmet.jpg
+  main_picture_content_type: image/jpeg
+  main_picture_file_size: 31857
+  main_picture_updated_at: 2014-02-03 18:36:31.356203000 Z
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-02-03 18:36:31.714453000 Z
+
+---
+Category_4:
+  id: 68
+  name: Hameet
+  position: 1
+  link: hameet
+  created_at: 2014-01-28 21:16:19.367265000 Z
+  updated_at: 2014-01-28 21:16:19.367265000 Z
+
+---
+Category_5:
+  id: 57
+  name: Hatut
+  position: 1
+  link: hatut
+  created_at: 2014-01-28 21:16:01.584008000 Z
+  updated_at: 2014-01-28 21:16:01.584008000 Z
+
+---
+Category_6:
+  id: 30
+  category_id: 1
+  name: Hiustenhoito
+  position: 1
+  link: hiustenhoito
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_7:
+  id: 61
+  name: Hopeaesineet
+  position: 1
+  link: hopeaesineet
+  created_at: 2014-01-28 21:16:08.149998000 Z
+  updated_at: 2014-01-28 21:16:08.149998000 Z
+
+---
+Category_8:
+  id: 70
+  name: Housut
+  position: 1
+  link: housut
+  created_at: 2014-01-28 21:16:20.144602000 Z
+  updated_at: 2014-01-28 21:16:20.144602000 Z
+
+---
+Category_9:
+  id: 51
+  name: Huivit
+  position: 1
+  link: huivit
+  created_at: 2014-01-28 21:15:58.973129000 Z
+  updated_at: 2014-01-28 21:15:58.973129000 Z
+
+---
+Category_10:
+  id: 36
+  category_id: 1
+  name: Huonesprayt
+  position: 1
+  link: huonesprayt
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_11:
+  id: 65
+  name: Huonetuoksut
+  position: 1
+  link: huonetuoksut
+  created_at: 2014-01-28 21:16:09.296227000 Z
+  updated_at: 2014-01-28 21:16:09.296227000 Z
+
+---
+Category_12:
+  id: 62
+  name: Kankaat
+  position: 1
+  link: kankaat
+  created_at: 2014-01-28 21:16:08.808869000 Z
+  updated_at: 2014-01-28 21:16:08.808869000 Z
+
+---
+Category_13:
+  id: 32
+  category_id: 1
+  name: Kasvojenhoito
+  position: 1
+  link: Kasvojenhoito
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_14:
+  id: 47
+  name: Keittiöesineet
+  position: 1
+  link: keittiöesineet
+  created_at: 2014-01-28 21:15:57.676589000 Z
+  updated_at: 2014-01-28 21:15:57.676589000 Z
+
+---
+Category_15:
+  id: 58
+  name: Keittiötavarat
+  position: 1
+  link: keittiötavarat
+  created_at: 2014-01-28 21:16:02.763441000 Z
+  updated_at: 2014-01-28 21:16:02.763441000 Z
+
+---
+Category_16:
+  id: 69
+  name: Kengät
+  position: 1
+  link: kengät
+  created_at: 2014-01-28 21:16:19.572994000 Z
+  updated_at: 2014-01-28 21:16:19.572994000 Z
+
+---
+Category_17:
+  id: 48
+  name: Koristeesineet
+  position: 1
+  link: koristeesineet
+  created_at: 2014-01-28 21:15:57.777107000 Z
+  updated_at: 2014-01-28 21:15:57.777107000 Z
+
+---
+Category_18:
+  id: 7
+  category_id: 27
+  name: Korut
+  position: 1
+  link: korut
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_19:
+  id: 60
+  name: Kylpyesineet
+  position: 1
+  link: kylpyesineet
+  created_at: 2014-01-28 21:16:03.607312000 Z
+  updated_at: 2014-01-28 21:16:03.607312000 Z
+
+---
+Category_20:
+  id: 66
+  name: Kynttilät
+  position: 1
+  link: kynttilät
+  created_at: 2014-01-28 21:16:14.559635000 Z
+  updated_at: 2014-01-28 21:16:14.559635000 Z
+
+---
+Category_21:
+  id: 20
+  category_id: 27
+  name: Laukut
+  position: 1
+  link: laukut
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_22:
   id: 1
   name: Luomukosmetiikka
+  position: 1
   link: web
-  category_id: 
-7:
-  id: 7
-  name: Korut
-  link: korut
-  category_id: 27
-13:
-  id: 13
-  name: Gourmet
-  link: gourmet
-  category_id: 39
-14:
-  id: 14
-  name: Valaisimet
-  link: valaisimet
-  category_id: 39
-15:
-  id: 15
-  name: Sisustustuotteet
-  link: sisustustuotteet
-  category_id: 27
-20:
-  id: 20
-  name: Laukut
-  link: laukut
-  category_id: 27
-27:
-  id: 27
-  name: Muut
-  link: muut
-  category_id: 39
-30:
-  id: 30
-  name: Hiustenhoito
-  link: hiustenhoito
-  category_id: 1
-31:
-  id: 31
-  name: Vartalonhoito
-  link: vartalonhoito
-  category_id: 1
-32:
-  id: 32
-  name: Kasvojenhoito
-  link: Kasvojenhoito
-  category_id: 1
-34:
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_23:
   id: 34
+  category_id: 1
   name: Luomuparfyymit
+  position: 1
   link: luomu-parfyymit
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_24:
+  id: 43
+  name: Luonnonkosmetiikka
+  position: 1
+  link: luonnonkosmetiikka
+  created_at: 2014-01-28 21:15:57.291898000 Z
+  updated_at: 2014-01-28 21:15:57.291898000 Z
+
+---
+Category_25:
+  id: 55
+  name: Mekot
+  position: 1
+  link: mekot
+  created_at: 2014-01-28 21:16:00.177217000 Z
+  updated_at: 2014-01-28 21:16:00.177217000 Z
+
+---
+Category_26:
+  id: 40
   category_id: 1
-35:
-  id: 35
-  name: Aromasprayt
-  link: aromasprayt
-  category_id: 1
-36:
-  id: 36
-  name: Huonesprayt
-  link: huonesprayt
-  category_id: 1
-38:
-  id: 38
-  name: Aloe Shea
-  link: aloe-shea
-  category_id: 1
-39:
+  name: Miehille
+  position: 1
+  link: miehille
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_27:
+  id: 27
+  category_id: 39
+  name: Muut
+  position: 1
+  link: muut
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_28:
+  id: 64
+  name: Neuleet
+  position: 1
+  link: neuleet
+  created_at: 2014-01-28 21:16:09.186806000 Z
+  updated_at: 2014-01-28 21:16:09.186806000 Z
+
+---
+Category_29:
+  id: 56
+  name: None
+  position: 1
+  link: none
+  created_at: 2014-01-28 21:16:00.494688000 Z
+  updated_at: 2014-01-28 21:16:00.494688000 Z
+
+---
+Category_30:
+  id: 54
+  name: Peilit
+  position: 1
+  link: peilit
+  created_at: 2014-01-28 21:16:00.084726000 Z
+  updated_at: 2014-01-28 21:16:00.084726000 Z
+
+---
+Category_31:
+  id: 59
+  name: Prilit
+  position: 1
+  link: prilit
+  created_at: 2014-01-28 21:16:03.350293000 Z
+  updated_at: 2014-01-28 21:16:03.350293000 Z
+
+---
+Category_32:
+  id: 49
+  name: Puserot
+  position: 1
+  link: puserot
+  created_at: 2014-01-28 21:15:58.250350000 Z
+  updated_at: 2014-01-28 21:15:58.250350000 Z
+
+---
+Category_33:
+  id: 67
+  name: Puuesineet
+  position: 1
+  link: puuesineet
+  created_at: 2014-01-28 21:16:15.141218000 Z
+  updated_at: 2014-01-28 21:16:15.141218000 Z
+
+---
+Category_34:
+  id: 46
+  name: Sekalaista
+  position: 1
+  link: sekalaista
+  created_at: 2014-01-28 21:15:57.613255000 Z
+  updated_at: 2014-01-28 21:15:57.613255000 Z
+
+---
+Category_35:
   id: 39
   name: Sisustus
+  position: 1
   link: sisustus
-  category_id: 
-40:
-  id: 40
-  name: Miehille
-  link: miehille
-  category_id: 1
-41:
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_36:
+  id: 15
+  category_id: 27
+  name: Sisustustuotteet
+  position: 1
+  link: sisustustuotteet
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_37:
+  id: 44
+  name: Suitsukkeet
+  position: 1
+  link: suitsukkeet
+  created_at: 2014-01-28 21:15:57.314782000 Z
+  updated_at: 2014-01-28 21:15:57.314782000 Z
+
+---
+Category_38:
+  id: 63
+  name: Sängynpeiteet
+  position: 1
+  link: sängynpeiteet
+  created_at: 2014-01-28 21:16:09.111529000 Z
+  updated_at: 2014-01-28 21:16:09.111529000 Z
+
+---
+Category_39:
+  id: 50
+  name: Takit
+  position: 1
+  link: takit
+  created_at: 2014-01-28 21:15:58.806473000 Z
+  updated_at: 2014-01-28 21:15:58.806473000 Z
+
+---
+Category_40:
+  id: 45
+  name: Tunika
+  position: 1
+  link: tunika
+  created_at: 2014-01-28 21:15:57.463158000 Z
+  updated_at: 2014-01-28 21:15:57.463158000 Z
+
+---
+Category_41:
+  id: 53
+  name: Tunikat
+  position: 1
+  link: tunikat
+  created_at: 2014-01-28 21:15:59.662568000 Z
+  updated_at: 2014-01-28 21:15:59.662568000 Z
+
+---
+Category_42:
+  id: 52
+  name: Tuoksut
+  position: 1
+  link: tuoksut
+  created_at: 2014-01-28 21:15:59.266336000 Z
+  updated_at: 2014-01-28 21:15:59.266336000 Z
+
+---
+Category_43:
+  id: 71
+  name: Tyynyt
+  position: 1
+  link: tyynyt
+  created_at: 2014-01-28 21:16:40.268014000 Z
+  updated_at: 2014-01-28 21:16:40.268014000 Z
+
+---
+Category_44:
   id: 41
-  name: Vaatteet
-  link: vaatteet
   category_id: 39
-42:
-  id: 42
-  name: Öljyt
-  link: oljyt
+  name: Vaatteet
+  position: 1
+  link: vaatteet
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_45:
+  id: 14
+  category_id: 39
+  name: Valaisimet
+  position: 1
+  link: valaisimet
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_46:
+  id: 31
   category_id: 1
+  name: Vartalonhoito
+  position: 1
+  link: vartalonhoito
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
+---
+Category_47:
+  id: 72
+  name: Verhot
+  position: 1
+  link: verhot
+  created_at: 2014-01-28 21:16:49.124539000 Z
+  updated_at: 2014-01-28 21:16:49.124539000 Z
+
+---
+Category_48:
+  id: 42
+  category_id: 1
+  name: Öljyt
+  position: 1
+  link: oljyt
+  created_at: 2014-01-28 21:09:18.000000000 Z
+  updated_at: 2014-01-28 21:09:18.000000000 Z
+
