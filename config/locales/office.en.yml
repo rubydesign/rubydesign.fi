@@ -58,6 +58,7 @@ en:
   back: Back
   barcode: Barcode
   basket: Basket
+  basket_empty: Basket is empty
   baskets: Baskets
   between: ' between'
   cancel: Cancel

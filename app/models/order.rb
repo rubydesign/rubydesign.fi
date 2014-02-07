@@ -36,4 +36,16 @@ class Order < ActiveRecord::Base
     cart[self.shipment_tax] += s_tax if self.shipment_tax and self.shipment_tax != 0
     cart
   end
+  
+  #quick checkout, ie ship (hand over) and pay (externally)
+  def pos_checkout email
+    self.ordered_on    = Date.today unless self.ordered_on
+    self.paid_on    = Date.today unless self.paid_on
+    self.shipped_on = Date.today unless self.shipped_on
+    self.shipment_price = 0 unless self.shipment_price
+    self.shipment_tax   = 0 unless self.shipment_tax
+    self.email = email
+    self.basket.deduct!
+  end
+  
 end

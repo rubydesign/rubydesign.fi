@@ -14,13 +14,13 @@ class BasketsController < AdminController
   end
 
   def print
+    if @basket.empty?
+      flash.notice = t(:basket_empty)
+      redirect_to :action => :show 
+      return
+    end
     order = @basket.kori || Order.new( :basket => @basket )
-    order.ordered_on    = Date.today unless order.ordered_on
-    order.paid_on    = Date.today unless order.paid_on
-    order.shipped_on = Date.today unless order.shipped_on
-    order.shipment_price = 0 unless order.shipment_price
-    order.shipment_tax   = 0 unless order.shipment_tax
-    order.email = current_clerk.email
+    order.pos_checkout( current_clerk.email )
     order.save!
     redirect_to :action => :print , :controller => :orders , :id => order.id
   end
@@ -30,15 +30,21 @@ class BasketsController < AdminController
 
   #as an action this order is mean as a verb, ie order this basket
   def order
-    redirect_to :action => :show    if @basket.items.empty?
+    if @basket.empty?
+      flash.notice = t(:basket_empty)
+      redirect_to :action => :show 
+      return
+    end
     order = Order.create! :basket => @basket , :email => current_clerk.email , :orderd_on => Date.today
     redirect_to :action => :show , :controller => :orders , :id => order.id
   end
 
   def purchase
-    redirect_to :action => :show    if @basket.items.empty?
-    name = "purchase"
-    #if inventory -> "inventory" etc
+    if @basket.empty?
+      flash.notice = t(:basket_empty)
+      redirect_to :action => :show 
+      return
+    end
     purchase = Purchase.create! :basket => @basket
     redirect_to :action => :show , :controller => :purchases , :id => purchase.id
   end

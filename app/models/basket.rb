@@ -12,16 +12,22 @@ class Basket < ActiveRecord::Base
   def quantity
     items.sum(:quantity)
   end
+
+  def empty?
+    self.items.empty?
+  end
+
   def cache_total
     self.total_price = items.to_a.sum{ |i| i.total }
     self.total_tax =  items.to_a.sum{ |i| i.tax_amount}
   end
+  
   def touch
     cache_total
     super
     save!
   end
-  
+
   #return a hash of rate => amount
   def taxes
     taxes = Hash.new(0.0)
@@ -30,6 +36,7 @@ class Basket < ActiveRecord::Base
     end
     taxes
   end
+
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price
   def receive!
@@ -43,6 +50,18 @@ class Basket < ActiveRecord::Base
     end
     sum
   end
+
+  # deduct the items from inventory, change affects immediately in the products 
+  def deduct!
+    sum = 0
+    self.items.each do |item|
+      item.product.inventory -= item.quantity
+      sum += item.quantity
+      item.product.save!
+    end
+    sum
+  end
+
   #inventoying the basket means setting the item quantity as the stock
   #we actually change the basket for it to be a relative change (so as to look like a receive)
   def inventory!
