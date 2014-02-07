@@ -23,4 +23,14 @@ describe "Basket inventory" do
     @basket.items.first.product.inventory.should be p1 - 1
     @basket.items.last.product.inventory.should be p2 - 2
   end
+  it "locks after receive" do
+    @basket.receive!
+    @basket.locked.should_not be nil
+    expect { @basket.receive! }.to raise_error 
+  end
+  it "locks after deduct" do
+    @basket.deduct!
+    @basket.locked.should_not be nil
+    expect { @basket.deduct! }.to raise_error 
+  end
 end

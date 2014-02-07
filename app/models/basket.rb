@@ -39,7 +39,9 @@ class Basket < ActiveRecord::Base
 
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price
+  # locks the basket so receiving or deductiing becomes an error.
   def receive!
+    raise "Locked since #{self.locked}" if self.locked
     sum = 0
     self.items.each do |item|
       item.product.inventory += item.quantity
@@ -48,17 +50,23 @@ class Basket < ActiveRecord::Base
       item.product.save!
       item.save!
     end
+    self.locked = Date.today
+    save!
     sum
   end
 
+  # locks the basket so receiving or deductiing becomes an error.
   # deduct the items from inventory, change affects immediately in the products 
   def deduct!
+    raise "Locked since #{self.locked}" if self.locked
     sum = 0
     self.items.each do |item|
       item.product.inventory -= item.quantity
       sum += item.quantity
       item.product.save!
     end
+    self.locked = Date.today
+    save!
     sum
   end
 
