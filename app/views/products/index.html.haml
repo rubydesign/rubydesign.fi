@@ -65,16 +65,16 @@
         .col-md-3
           = f.label(:price)
         .col-md-4
-          = f.text_field :price_lteq , :class => "form-control"
-        .col-md-4
           = f.text_field :price_gteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :price_lteq , :class => "form-control"
       .form-group.row
         .col-md-3
           = f.label(:inventory)
         .col-md-4
-          = f.text_field :inventory_lteq , :class => "form-control"
-        .col-md-4
           = f.text_field :inventory_gteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :inventory_lteq , :class => "form-control"
       .form-group
         = f.label t(:supplier)
         = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, :include_blank => true

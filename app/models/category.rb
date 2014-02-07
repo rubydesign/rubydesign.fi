@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-  default_scope { order('name').includes(:categories) }
+  default_scope { order('position') }
 
   has_many :products, :dependent => :nullify
   has_many :categories, :dependent => :nullify

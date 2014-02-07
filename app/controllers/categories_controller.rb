@@ -1,7 +1,7 @@
 # encoding : utf-8
 class CategoriesController < AdminController
 
-  before_filter :load_category, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_category, :only => [ :edit, :update, :destroy]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -13,6 +13,7 @@ class CategoriesController < AdminController
   end
 
   def show
+    @category = Category.where(:id => params[:id]).includes(:products).first
   end
 
   def new
