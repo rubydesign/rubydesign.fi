@@ -5,4 +5,5 @@ describe Order do
     o = Order.new attributes_for :order
     o.save.should be true
   end
+
 end
