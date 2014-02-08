@@ -29,19 +29,21 @@ class ProductsController < AdminController
   end
 
   def new
+    flash.notice = ""
     if params[:parent_id]
       parent = Product.find params[:parent_id]
       @product = parent.new_line_item
     else
       @product = Product.new :tax => 24 #TODO config default tax
     end
+    render "edit"
   end
 
   def edit
   end
 
   def create
-    flash.notice = nil
+    flash.notice = ""
     @product = Product.create(params_for_model)
     #TODO maybe there is a better way, but this "validation" happens "after the fact", ie by adding
     # an item to a parent the parent can become "invalid" even it is not what is being edited. hmmm
@@ -66,10 +68,11 @@ class ProductsController < AdminController
 
   def update
     ok = true
-    flash.notice = nil
-    unless @product.update_attributes(params_for_model)
+    flash.notice = ""
+    if @product.update_attributes(params_for_model)
       flash.notice = "" unless flash.notice
       flash.notice += t(:update_success, :model => "product")
+    else
       ok = false
     end
     if (@product.line_item? and @product.product.link) or (@product.line? and not @product.link.blank?)
