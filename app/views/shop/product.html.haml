@@ -26,12 +26,11 @@
         #product-description
           %div
             = @product.description
-          .row#product-price
-            .col-md-1
-              %h6.product-section-title Hinta
-            .col-md-3    
-              %div
-                %h6.price.selling= euros @product.price
+          .row
+            .col-md-4.product-price
+              %h4
+                Hinta
+                %span.price.selling= euros @product.price
             .col-md-8    
               #cart-form
                 %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}

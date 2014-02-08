@@ -25,7 +25,8 @@
       = t(:picture) + " : "
     = image_tag @category.extra_picture.url
 
-=render "products/triple" , :products => @category.products
-
 = link_to t(:edit), edit_category_path(@category), :class => "btn btn-primary"
 = link_to t(:back), categories_path, :class => "btn btn-primary"
+
+=render "products/triple" , :products => @category.products
+

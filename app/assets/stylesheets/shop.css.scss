@@ -19,7 +19,6 @@ $crumb-border-style: none;
 
 @import "bootstrap";
 
-
 .top-bar-section ul {
     background: #ffffff;
     }
@@ -199,43 +198,28 @@ h5.product-name {
 	line-height: 120%;
 }
   
-.product-price {
-  font-size: 1.3em;
-  font-weight: 500;
-  line-height: 150%;
-  border-top: 1px solid #588ebf;
-	width: 80%;
-	text-align: center;
-	margin: 0 auto;
-}
 
 h1.product-title {
 	font-size: 2.3rem;
 	color: #108BAD;
 }
 
-
-
 #product-description {
-  font-size: 0.9rem;
-	line-height: 120%;
-	border-bottom: 1px dotted #007bd2;
+	line-height: 130%;
 	margin-top: 10px;
 }
 
 #inside-product-cart-form {
-	margin-top: 12px;
+	margin-top: 10px;
 }
 
-h6.product-section-title {
-font-weight: 500;
-margin-top: 0.1rem;
+.product-price {
+  margin-top: 12px;
 }
+
 
 span.price.selling {
-  color: #108BAD;
-	margin-left: 4px;
-	margin-top: 0.3rem;
+  color: $highlight;
 }
 
 
