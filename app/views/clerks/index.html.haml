@@ -29,6 +29,7 @@
                 =clerk.whole_address
               %td= link_to t(:show) , clerk_path(clerk), :title => t(:show)
               %td= link_to t(:edit), edit_clerk_path(clerk), :title => t(:edit)
+    = paginate @clerks
   .col-md-3
     = search_form_for @q, :url => search_clerks_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .form-group

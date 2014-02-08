@@ -30,6 +30,7 @@
                 =supplier.whole_address
               %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
+    = paginate @suppliers
   .col-md-3
     = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .form-group

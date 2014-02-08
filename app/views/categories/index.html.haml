@@ -32,6 +32,7 @@
               %td= Category.find(category.category_id).name if category.category_id
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
               %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
+    = paginate @categories
   .col-md-3
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
       .form-group
