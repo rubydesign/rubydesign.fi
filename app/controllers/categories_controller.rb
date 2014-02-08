@@ -18,6 +18,7 @@ class CategoriesController < AdminController
 
   def new
     @category = Category.new
+    render "edit"
   end
 
   def edit
