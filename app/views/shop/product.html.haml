@@ -19,13 +19,6 @@
           #product-images
             #main-image
               =image_tag @product.main_picture.url(:product)
-          .row
-            .col-md-3
-              #product-price
-                %h6.product-section-title Hinta
-            .col-md-9    
-              %div
-                %span.price.selling= euros @product.price
 
                 
     .col-md-6
@@ -33,16 +26,22 @@
         #product-description
           %div
             = @product.description
-          #cart-form
-            %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
-              #inside-product-cart-form
-                .add-to-cart
-                  .row
-                    .col-md-2
-                      %input#variants_3.title{max: "1", min: "1", name: "variants[3]", type: "number", value: "1"} 
-                    .col-md-10
-                      %button#add-to-cart-button.medium.primary{type: "submit"}
-                        Lisää ostoskoriin
+          .row#product-price
+            .col-md-1
+              %h6.product-section-title Hinta
+            .col-md-3    
+              %div
+                %h6.price.selling= euros @product.price
+            .col-md-8    
+              #cart-form
+                %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
+                  #inside-product-cart-form
+                    .add-to-cart
+                      .row
+                        .col-md-10
+                          %button#add-to-cart-button.btn.btn-primary{type: "submit"}
+                            Lisää ostoskoriin
+              
     .col-md-1
 
 
