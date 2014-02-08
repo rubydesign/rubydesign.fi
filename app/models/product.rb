@@ -29,10 +29,11 @@ class Product < ActiveRecord::Base
   before_save :generate_url_if_needed
 
   def generate_url_if_needed
-    if link.blank? && name != nil && deleted_on == nil
-      self.link = name.gsub(" " , "_").downcase
+    if deleted_on != nil or line?
+      self.link = ""
+    else
+      self.link = name.gsub(" " , "_").downcase if link.blank? && name != nil
     end
-    true
   end
 
   def delete
@@ -61,5 +62,10 @@ class Product < ActiveRecord::Base
 
   def sellable?
     !line?
+  end
+  
+  def new_line_item
+    Product.new :tax => self.tax , :weight => self.weight , :cost => self.cost ,  :product_id => self.id , 
+        :supplier_id => self.supplier_id , :category_id => self.category_id , :price => self.price
   end
 end

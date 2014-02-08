@@ -14,41 +14,46 @@
     = render "online" , :object => @product
 .row
   .col-md-6
-    .col-md-6
-      %p
-        %b
-          = t(:main_picture) + " : "
-        %br
-        = image_tag @product.main_picture.url
-    .col-md-6
-      %p
-        %b
-          = t(:extra_picture) + " : "
-        %br
-        = image_tag @product.extra_picture.url
-    .col-md-6
-      %p
-        %b
-          = t(:price) + " : "
-        = euros(@product.price)
-      %p
-        %b
-          = t(:cost) + " : "
-        = euros(@product.cost)
-      %p
-        %b
-          = t(:weight) + " : "
-        = @product.weight
-      %p
-        %b
-          = t(:inventory) + " : "
-        = @product.inventory
-    = link_to t(:edit), edit_product_path(@product), :class => "btn btn-primary"
-    = link_to t(:back), products_path, :class => "btn btn-primary"
-    = link_to t(:delete) , delete_product_path(@product), :class => "btn btn-primary"
-    = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
-    = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary"
-
+    .row
+      .col-md-6
+        %p
+          %b
+            = t(:main_picture) + " : "
+          %br
+          = image_tag @product.main_picture.url
+      .col-md-6
+        %p
+          %b
+            = t(:extra_picture) + " : "
+          %br
+          = image_tag @product.extra_picture.url
+    .row
+      .col-md-6
+        %p
+          %b
+            = t(:price) + " : "
+          = euros(@product.price)
+        %p
+          %b
+            = t(:cost) + " : "
+          = euros(@product.cost)
+        %p
+          %b
+            = t(:category) + " : "
+          = link_to @product.category.name ,category_path(@product.category) if @product.category
+      .col-md-6
+        %p
+          %b
+            = t(:weight) + " : "
+          = @product.weight
+        %p
+          %b
+            = t(:inventory) + " : "
+          = @product.inventory
+        %p
+          %b
+            = t(:supplier) + " : "
+          = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
   .col-md-6
     %p
       %b
@@ -70,11 +75,19 @@
       %b
         = t(:tax_percent) + " : "
       = @product.tax
-    %p
-      %b
-        = t(:category) + " : "
-      = link_to @product.category.name ,category_path(@product.category) if @product.category
-    %p
-      %b
-        = t(:supplier) + " : "
-      = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
+.row
+  .col-md-2
+    = link_to t(:edit), edit_product_path(@product), :class => "btn btn-primary"
+  .col-md-2
+    = link_to t(:back), products_path, :class => "btn btn-primary"
+  .col-md-2
+    = link_to t(:delete) , delete_product_path(@product), :class => "btn btn-primary"
+  -if @product.line_item?
+    .col-md-2
+      = link_to t(:to_product) , product_path( @product.product), :class => "btn btn-primary" 
+  -else
+    .col-md-2
+      = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary" 
+  -unless @product.line?
+    .col-md-2
+      = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary"

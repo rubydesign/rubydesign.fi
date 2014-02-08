@@ -129,6 +129,10 @@ en:
   product: Product
   product_added: Product added
   product_line: Product Line
+  product_line_has_inventory: Product Line has inventori
+  product_line_has_ean: Product Line has ean
+  product_line_has_link: Tuotelinjassa on link
+  product_line_has_scode: Product Line has supplier code
   products: Products
   purchase: Purchase
   purchases: Purchases
@@ -161,6 +165,7 @@ en:
   tax_rate: Vat rate
   to_order: To order
   to_purchase: To purchase
+  to_product: To product
   total: Total
   total_price: Total Price
   total_tax: Taxes

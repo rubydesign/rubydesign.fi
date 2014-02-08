@@ -132,6 +132,10 @@ fi:
   product: Tuote
   product_added: Tuote lisätty
   product_line: Tuotelinja
+  product_line_has_inventory: Tuotelinjassa on inventaario
+  product_line_has_ean: Tuotelinjassa on ean
+  product_line_has_link: Tuotelinjassa on linki
+  product_line_has_scode: Tuotelinjassa on tuottajatunnus
   products: Tuotteet
   purchase: Sisäänosto
   purchases: Sisäänostot
@@ -174,6 +178,7 @@ fi:
   tax_percent: Veroprosentti
   tax_rate: Veroprosentti
   to_order: Tilaukselle
+  to_product: Tuotelle
   to_purchase: Sisänostoksille
   total: yhteensä
   total_price: Yhteensä
