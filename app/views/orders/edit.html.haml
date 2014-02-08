@@ -1,5 +1,25 @@
 %h2
-  = t(:editing)
+  = t params["action"]
   = t(:order)
-= render 'form'
-= link_to t(:back), order_path(@order), :class => "btn btn-warning"
+= simple_form_for(@order, :html => { :class => "form-horizontal" }) do |f|
+  .col-md-6
+    = f.date_field :ordered_on
+  .col-md-6
+    = f.text_field :shipment_price
+  .col-md-6
+    = f.text_field :shipment_tax
+  .col-md-6
+    = f.text_field :email
+  .col-md-6
+    = f.date_field :paid_on
+  .col-md-6
+    = f.date_field :shipped_on
+  .col-md-6
+    = f.date_field :paid_on
+  .col-md-6
+    = f.date_field :canceled_on
+  .col-md-6
+    = f.text_field :shipment_type
+  .form-actions
+    = f.submit :class => "btn btn-success"
+    = link_to t(:back), order_path(@order), :class => "btn btn-warning"
