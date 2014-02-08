@@ -17,6 +17,7 @@ class SuppliersController < AdminController
 
   def new
     @supplier = Supplier.new
+    render "edit"
   end
 
   def edit
