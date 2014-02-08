@@ -3,11 +3,11 @@
     = t(:category)
     = @category.name
     = render "products/online" , :object => @category
-  -if @category.category_id
-    %h3
-      = "( " + @category.category.name + " )"
 
-
+  %ol.breadcrumb
+    - parents(@category).each do | group|
+      %li
+        = link_to group.name , category_path(group)
   %p
     %b
       = t(:description) + " : "
@@ -26,6 +26,7 @@
     = image_tag @category.extra_picture.url
 
 =render "products/triple" , :products => @category.products
+=render "triple" , :groups => @category.categories
 
 = link_to t(:edit), edit_category_path(@category), :class => "btn btn-primary"
-= link_to t(:back), categories_path, :class => "btn btn-primary"
+= link_to t(:back), categories_path, :class => "btn btn-warning"

@@ -1,0 +1,12 @@
+%h3= groups.count.to_s + " " + t(:categories)
+.row
+  %table.table.table-striped.table-bordered.table-condensed
+    %tbody
+      - groups.in_groups_of(3).each do |array|
+        %tr{:class => "line-#{cycle("1","2")}"}
+          -array.each do |group|
+            -next unless group
+            %td= image_tag group.main_picture.url(:thumb)
+            %td
+              = link_to category_path(group), :title => t(:show) do
+                = group.name

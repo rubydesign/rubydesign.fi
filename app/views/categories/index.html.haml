@@ -42,7 +42,8 @@
         = t(:online)
         = f.check_box :online_eq
       = f.submit t(:filter), :class => "btn btn-success"
-      = link_to  t(:cancel), categories_path, :class => "btn btn-primary"
+      = link_to  t(:cancel), categories_path, :class => "btn btn-warning"
     %hr
     - Category.where(:category_id => nil).each do |group|
-      = render "treeview" , :group => group
+      %ul
+        = render "treeview" , :group => group
