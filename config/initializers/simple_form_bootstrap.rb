@@ -7,7 +7,7 @@ SimpleForm.setup do |config|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'col-md-6' do |ba|
+    b.wrapper tag: 'div', class: 'col-md-8' do |ba|
       ba.use :input
       ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
@@ -18,7 +18,7 @@ SimpleForm.setup do |config|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'col-md-6' do |input|
+    b.wrapper tag: 'div', class: 'col-md-8' do |input|
       input.wrapper tag: 'div', class: 'input-prepend' do |prepend|
         prepend.use :input
       end
@@ -31,7 +31,7 @@ SimpleForm.setup do |config|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'col-md-6' do |input|
+    b.wrapper tag: 'div', class: 'col-md-8' do |input|
       input.wrapper tag: 'div', class: 'input-append' do |append|
         append.use :input
       end

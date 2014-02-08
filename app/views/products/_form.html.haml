@@ -28,6 +28,6 @@
       .form-actions
         = f.submit :class => "btn btn-success"
         -if @product.product_id
-          = link_to t(:cancel), product_path(@product.product), :class => "btn btn-primary"
+          = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
         -else
-          = link_to t(:cancel), products_path, :class => "btn btn-primary"
+          = link_to t(:cancel), products_path, :class => "btn btn-warning"

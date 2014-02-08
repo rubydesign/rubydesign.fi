@@ -33,6 +33,6 @@
 = render "baskets/small" , :basket => @order.basket
 
 .col-md-12{"data-no-turbolink" => true}
-  = link_to t(:back), orders_path, :class => "btn btn-primary"
+  = link_to t(:back), orders_path, :class => "btn btn-warning"
   = link_to t(:print), print_order_path(@order), :class => "btn btn-primary"
   = link_to t(:destroy) , order_path(@order), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "admin-button warning"

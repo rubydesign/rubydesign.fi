@@ -100,9 +100,9 @@ class ProductsController < AdminController
   def delete
     @product.delete
     if @product.save
-      redirect_to products_url , :flash => {:notice => "deleted"}
+      redirect_to products_url , :flash => {:notice => t("deleted")}
     else
-      redirect_to products_url , :flash => {:notice => "error"}
+      redirect_to products_url , :flash => {:notice => t("error")}
     end
   end
   
