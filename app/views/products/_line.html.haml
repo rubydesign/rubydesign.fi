@@ -2,7 +2,7 @@
   = t(:product_line)
   = @product.name
   = render "online" , :object => @product
-%table
+%table.table.table-bordered.table-condensed
   %tbody
     %tr.line-1
       %td=t("name")
@@ -15,7 +15,8 @@
       - @product.products.each do |product|
         %td=euros(product.price)
     %tr.line-1
-      %td=t("inventory")
+      %td
+        =t("inventory")
       - @product.products.each do |product|
         %td=product.inventory
     %tr.line-2

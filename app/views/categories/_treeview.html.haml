@@ -1,8 +1,8 @@
-%ul
-  %li
-    = link_to "#{group.name} (#{group.products.count})" , category_path(group), :title => t(:edit)
-    - ar = Category.where(:category_id => group.id)
-    - ar = ar.order("position")
-    - ar.each do |g|
-      = render "treeview" , :group => g
+%li
+  = link_to "#{group.name} (#{group.products.count})" , category_path(group), :title => t(:edit)
+  - ar = Category.where(:category_id => group.id)
+  -if ar.length > 0
+    %ul
+      - ar.each do |g|
+        = render "treeview" , :group => g
 

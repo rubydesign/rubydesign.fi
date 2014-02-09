@@ -29,25 +29,69 @@ class ProductsController < AdminController
   end
 
   def new
-    @product = Product.new
-    @product.product_id = params[:parent_id] if params[:parent_id]
+    if params[:parent_id]
+      parent = Product.find params[:parent_id]
+      @product = parent.new_line_item
+    else
+      @product = Product.new :tax => 24 #TODO config default tax
+    end
   end
 
   def edit
   end
 
   def create
+    flash.notice = nil
     @product = Product.create(params_for_model)
+    #TODO maybe there is a better way, but this "validation" happens "after the fact", ie by adding
+    # an item to a parent the parent can become "invalid" even it is not what is being edited. hmmm
+    if @product.line_item? and not @product.product.ean.blank?
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:product_line_has_ean) 
+      flash.notice += "<br/>"
+    end
+    if @product.line_item? and not @product.product.scode.blank?
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:product_line_has_scode) 
+      flash.notice += "<br/>"
+    end
     if @product.save
-      redirect_to product_path(@product), :flash => { :notice => t(:create_success, :model => "product") }
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:create_success, :model => "product")
+      redirect_to product_path(@product)
     else
       render :action => "new"
     end
   end
 
   def update
-    if @product.update_attributes(params_for_model)
-      redirect_to product_path(@product), :flash => { :notice => t(:update_success, :model => "product") }
+    ok = true
+    flash.notice = nil
+    unless @product.update_attributes(params_for_model)
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:update_success, :model => "product")
+      ok = false
+    end
+    if (@product.line_item? and @product.product.link) or (@product.line? and not @product.link.blank?)
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:product_line_has_link) 
+      flash.notice += "<br/>"
+      ok = false
+    end
+    if (@product.line_item? and @product.product.ean) or (@product.line? and not @product.ean.blank?)
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:product_line_has_ean) 
+      flash.notice += "<br/>"
+      ok = false
+    end
+    if (@product.line_item? and @product.product.scode) or (@product.line? and not @product.scode.blank?)
+      flash.notice = "" unless flash.notice
+      flash.notice += t(:product_line_has_scode) 
+      flash.notice += "<br/>"
+      ok = false
+    end
+    if ok
+      redirect_to product_path(@product)
     else
       render :action => "edit"
     end
@@ -56,9 +100,9 @@ class ProductsController < AdminController
   def delete
     @product.delete
     if @product.save
-      redirect_to products_url , :flash => {:notice => "deleted"}
+      redirect_to products_url , :flash => {:notice => t("deleted")}
     else
-      redirect_to products_url , :flash => {:notice => "error"}
+      redirect_to products_url , :flash => {:notice => t("error")}
     end
   end
   

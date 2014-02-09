@@ -9,8 +9,11 @@
       %a{href: "#"}= @product.name
     
 .row.content.product-info
-  .product-title-h1
-    %h1.product-title= @product.name
+  .row
+    .col-md-12
+      .product-title-h1
+        %h1.product-title= @product.name
+  .row
     .col-md-1
       =image_tag  "shop/spacer.gif"
     .col-md-3
@@ -25,7 +28,7 @@
       .row
         #product-description
           %div
-            = @product.description
+            = raw @product.description
           .row
             .col-md-4.product-price
               %h4

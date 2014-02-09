@@ -3,15 +3,15 @@
     = t(:category)
     = @category.name
     = render "products/online" , :object => @category
-  -if @category.category_id
-    %h3
-      = "( " + @category.category.name + " )"
 
-
+  %ol.breadcrumb
+    - parents(@category).each do | group|
+      %li
+        = link_to group.name , category_path(group)
   %p
     %b
       = t(:description) + " : "
-    = @category.description
+    = raw @category.description
 .col-md-6
   %p
     %b
@@ -29,4 +29,5 @@
 = link_to t(:back), categories_path, :class => "btn btn-primary"
 
 =render "products/triple" , :products => @category.products
+=render "triple" , :groups => @category.categories
 

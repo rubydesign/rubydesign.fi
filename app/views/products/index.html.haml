@@ -47,6 +47,7 @@
                 %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :product => product.id)
               -else
                 %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
+    = paginate @products
   .col-md-3
     = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
       .form-group
@@ -82,4 +83,4 @@
         = f.label t(:category)
         = f.collection_select :category_id_eq, Category.all, :id, :name, :include_blank => true
       = f.submit t(:filter), :class => "btn btn-success"
-      = link_to  t(:cancel), products_path, :class => "btn btn-primary"
+      = link_to  t(:cancel), products_path, :class => "btn btn-warning"

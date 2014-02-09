@@ -23,7 +23,7 @@
   %b
     = t(:suppliers) + " : "
   = @purchase.basket.suppliers.collect {|s| s.name }.join
-= link_to t(:back), purchases_path, :class => "btn btn-primary"
+= link_to t(:back), purchases_path, :class => "btn btn-warning"
 
 %h3{"style" => "color:red"}
   = t(:inventory)

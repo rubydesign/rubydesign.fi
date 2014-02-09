@@ -34,6 +34,7 @@
                   = item.name
                   %br
               %td= basket_edit_link(basket)
+    = paginate @categories
   .col-md-3
     = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-large" }, :method => :post do |f|
       .form-group.row
@@ -51,4 +52,4 @@
         .col-md-4
           = f.text_field :total_price_lt , :class => "form-control"
       = f.submit t(:filter), :class => "btn btn-success"
-      = link_to  t(:cancel), baskets_path, :class => "btn btn-primary"
+      = link_to  t(:cancel), baskets_path, :class => "btn btn-warning"

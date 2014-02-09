@@ -3,22 +3,22 @@ SimpleForm.setup do |config|
   config.error_notification_class = 'alert alert-error'
   config.label_class = 'control-label'
 
-  config.wrappers :bootstrap, tag: 'div', class: 'form-group', error_class: 'error' do |b|
+  config.wrappers :bootstrap, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'col-md-6' do |ba|
+    b.wrapper tag: 'div', class: 'col-md-8' do |ba|
       ba.use :input
       ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
   end
 
-  config.wrappers :prepend, tag: 'div', class: "form-group", error_class: 'error' do |b|
+  config.wrappers :prepend, tag: 'div', class: "form-group", error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'col-md-6' do |input|
+    b.wrapper tag: 'div', class: 'col-md-8' do |input|
       input.wrapper tag: 'div', class: 'input-prepend' do |prepend|
         prepend.use :input
       end
@@ -27,11 +27,11 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :append, tag: 'div', class: "form-group", error_class: 'error' do |b|
+  config.wrappers :append, tag: 'div', class: "form-group", error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'col-md-6' do |input|
+    b.wrapper tag: 'div', class: 'col-md-8' do |input|
       input.wrapper tag: 'div', class: 'input-append' do |append|
         append.use :input
       end

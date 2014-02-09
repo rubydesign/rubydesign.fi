@@ -1,34 +1,33 @@
 .row
   = simple_form_for(@product, :html => { :multipart => true , :class => "form-horizontal" , :role=>"form"} ) do |f|
     = f.hidden_field( :product_id) if @product.product_id
-    .col-md-9
+    .col-md-8
       .row
-        .col-md-8
-          = f.input :online
-          = f.input :name
-          = f.input :description, :as => :text          
-          = f.input :category do 
-            = f.select :category_id, Supplier.all.map { |c| [c.supplier_name, c.id ] }, :prompt => t(:select) 
-          = f.input :category do 
-            = f.select :category_id, Category.all.map { |c| [c.name, c.id ] }, :prompt => t(:select) 
-        .col-md-4
+        = f.input :name
+        - unless @product.product_id
+          = f.input :link
+        = f.input :description, :as => :text , :input_html => {:rows => 10}
+      .row
+        .col-md-6
           = image_tag @product.main_picture.url(:list)
           = f.file_field :main_picture , :label => t(:main_picture)
+        .col-md-6
           = image_tag @product.extra_picture.url(:list)
           = f.file_field :extra_picture , :label => t(:extra_picture)
-      .row
-        .form-actions
-          = f.submit :class => "btn btn-success"
-          -if @product.product_id
-            = link_to t(:cancel), product_path(@product.product), :class => "btn btn-primary"
-          -else
-            = link_to t(:cancel), products_path, :class => "btn btn-primary"
-
-    .col-md-3
-      - unless @product.product_id
-        = f.input :link
+    .col-md-4
+      = f.input :online
       = f.input :price
       = f.input :weight
       = f.input :ean
       = f.input :tax
       = f.input :scode
+      = f.input :category do 
+        = f.select :category_id, Supplier.all.map { |c| [c.supplier_name, c.id ] }, :prompt => t(:select) 
+      = f.input :category do 
+        = f.select :category_id, Category.all.map { |c| [c.name, c.id ] }, :prompt => t(:select) 
+      .form-actions
+        = f.submit :class => "btn btn-success"
+        -if @product.product_id
+          = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
+        -else
+          = link_to t(:cancel), products_path, :class => "btn btn-warning"
