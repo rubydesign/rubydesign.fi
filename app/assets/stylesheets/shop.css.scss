@@ -18,6 +18,11 @@ $crumb-border-style: none;
   	margin: 0 auto;
 }
 
+ul.subcat a{
+	font-size: .9em;
+	padding-left: 15px !important;
+}
+
 @import "bootstrap";
 
 .top-bar-section ul {
