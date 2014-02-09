@@ -10,7 +10,7 @@
 # attributes : see permitted_attributes + inventory + deleted_on
 
 class Product < ActiveRecord::Base
-  has_many :products, :dependent => :nullify
+  has_many :products
   store :properties, accessors: [ :color, :size , :model_number ] , coder: JSON
   belongs_to :product
   belongs_to :category
@@ -28,13 +28,26 @@ class Product < ActiveRecord::Base
   validates :name, :presence => true
 
   before_save :generate_url_if_needed
+  after_save :update_line_inventory , :if => :product_id
+
+  def update_line_inventory
+    parent = self.product
+    return unless parent
+    inv = parent.inventory
+    parent.inventory = parent.products.sum(:inventory) 
+    parent.save! if inv != parent.inventory
+  end
 
   def generate_url_if_needed
-    if deleted_on != nil or line?
+    if line_item? or deleted?
       self.link = ""
     else
       self.link = name.gsub(" " , "_").downcase if link.blank? && name != nil
     end
+  end
+
+  def deleted?
+    not deleted_on.blank?
   end
 
   def delete

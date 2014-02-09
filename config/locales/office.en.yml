@@ -133,7 +133,7 @@ en:
   product_line: Product Line
   product_line_has_inventory: Product Line has inventori
   product_line_has_ean: Product Line has ean
-  product_line_has_link: Tuotelinjassa on link
+  product_item_has_link: Product item has link
   product_line_has_scode: Product Line has supplier code
   products: Products
   purchase: Purchase

@@ -72,12 +72,13 @@ class ProductsController < AdminController
     if @product.update_attributes(params_for_model)
       flash.notice = "" unless flash.notice
       flash.notice += t(:update_success, :model => "product")
+      flash.notice += "<br/>"
     else
       ok = false
     end
-    if (@product.line_item? and @product.product.link) or (@product.line? and not @product.link.blank?)
+    if (@product.line_item? and not @product.link.blank?)
       flash.notice = "" unless flash.notice
-      flash.notice += t(:product_line_has_link) 
+      flash.notice += t(:product_item_has_link)
       flash.notice += "<br/>"
       ok = false
     end

@@ -136,7 +136,7 @@ fi:
   product_line: Tuotelinja
   product_line_has_inventory: Tuotelinjassa on inventaario
   product_line_has_ean: Tuotelinjassa on ean
-  product_line_has_link: Tuotelinjassa on linki
+  product_item_has_link: Tuoteessa on linki
   product_line_has_scode: Tuotelinjassa on tuottajatunnus
   products: Tuotteet
   purchase: Sisäänosto
