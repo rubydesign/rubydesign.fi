@@ -16,33 +16,26 @@
   .row
     .col-md-1
       =image_tag  "shop/spacer.gif"
-    .col-md-3
-      .picture
-        .row
-          #product-images
-            #main-image
-              =image_tag @product.main_picture.url(:product)
+    .col-md-3.picture
+      =image_tag @product.main_picture.url(:product) , :class => "img-responsive"
 
-                
-    .col-md-6
+    #product-description.col-md-6
       .row
-        #product-description
-          %div
-            = raw @product.description
-          .row
-            .col-md-4.product-price
-              %h4
-                Hinta
-                %span.price.selling= euros @product.price
-            .col-md-8    
-              #cart-form
-                %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
-                  #inside-product-cart-form
-                    .add-to-cart
-                      .row
-                        .col-md-10
-                          %button#add-to-cart-button.btn.btn-primary{type: "submit"}
-                            Lisää ostoskoriin
+        .col-md-12
+          = raw @product.description
+      .row
+        .col-md-4.product-price
+          %h4
+            Hinta
+            %span.price.selling= euros @product.price
+        .col-md-8    
+          %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
+            #inside-product-cart-form
+              .add-to-cart
+                .row
+                  .col-md-10
+                    %button#add-to-cart-button.btn.btn-primary{type: "submit"}
+                      Lisää ostoskoriin
               
     .col-md-1
 
