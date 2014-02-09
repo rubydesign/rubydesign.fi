@@ -57,6 +57,7 @@ fi:
   barcode: Viivakoodi
   basket: Ostoskori
   basket_empty: Ostoskori on tyhjä
+  basket_locked: Ostoskoria ei voi muuttaa
   baskets: Ostoskorit
   between: haarukka
   cancel: Peruuta
@@ -84,7 +85,7 @@ fi:
   editing: Muokkaamassa
   email: S-posti
   empty: Empty
-  error: Virhe
+  error: Virhe 
   extra_picture: Toinen kuva
   filter: Hae
   first_name: Etunimi

@@ -59,6 +59,7 @@ en:
   barcode: Barcode
   basket: Basket
   basket_empty: Basket is empty
+  basket_locked: Basket is locked, unlock to change
   baskets: Baskets
   between: ' between'
   cancel: Cancel

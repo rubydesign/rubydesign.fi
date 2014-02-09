@@ -55,6 +55,11 @@ class BasketsController < AdminController
   end
 
   def edit
+    if( @basket.locked)
+      flash.notice = t('basket_locked')
+      redirect_to  :action => :show
+      return
+    end
     if pid = params[:add]
       item = @basket.items.find { |item| item.id.to_s == pid }
       item.quantity += 1
@@ -116,9 +121,11 @@ class BasketsController < AdminController
   end
 
   def update
-    if @basket.update_attributes(params_for_basket)
-      redirect_to basket_path(@basket), :flash => { :notice => t(:update_success, :model => "basket") }
+    if not @basket.locked and @basket.update_attributes(params_for_basket)
+       flash.notice = t(:update_success, :model => "basket")
+       redirect_to basket_path(@basket)
     else
+      flash.notice = t('basket_locked') if @basket.locked
       render :action => "show"
     end
   end
