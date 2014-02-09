@@ -32,6 +32,9 @@ $table-border-color: scale-color($primary-color, $lightness: 75%);
         max-width: 90%;
 }
 
+a.online{
+  color: green;
+}
 .navbar {
   font-size: 1.7rem;
 };

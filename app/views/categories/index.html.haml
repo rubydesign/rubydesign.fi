@@ -18,7 +18,7 @@
             %th= sort_link @q, :name
             %th= t(:count)
             %th= t(:online)
-            %th{column_style("category", "category_id")}=t( "parent")
+            %th=t( "activerecord.attributes.category.category")
             %th{:colspan => "3"}
               %label.checkbox
                 = @category_scope.count.to_s + " " +t(:categories)
@@ -26,7 +26,7 @@
           - @categories.each do |category|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= image_tag category.main_picture.url(:thumb)
-              %td=link_to category.name, category_path(category), :title => t(:show)
+              %td=link_to category.name, category_path(category), :title => t(:show) , :class => category.online && "online"
               %td=category.products.no_items.count.to_s
               %td=category.online ? t(:online) : t(:not_online)
               %td= Category.find(category.category_id).name if category.category_id
