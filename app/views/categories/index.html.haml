@@ -27,7 +27,7 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= image_tag category.main_picture.url(:thumb)
               %td=link_to category.name, category_path(category), :title => t(:show)
-              %td=category.products.count.to_s
+              %td=category.products.no_items.count.to_s
               %td=category.online ? t(:online) : t(:not_online)
               %td= Category.find(category.category_id).name if category.category_id
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)

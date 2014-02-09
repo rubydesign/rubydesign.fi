@@ -13,7 +13,7 @@ class ShopController < ApplicationController
   def group
     @group = Category.online.where(:link => params[:link]).first 
     if @group and @group.categories.empty?
-      @products = @group.products.online
+      @products = @group.products.no_items.online
       template = "product_list"
     else
       if @group
