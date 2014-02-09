@@ -15,18 +15,15 @@
         %thead
           %tr
             %th=sort_link @q, :email
-            %th{column_style("clerk", "address")}
-              =t(:address)
+            %th=t(:address)
             %th{:colspan => "2"}
               %label.checkbox
                 = @clerk_scope.count.to_s + " " + t(:clerk)
         %tbody
           - @clerks.each do |clerk|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td{column_style("clerk", "email")}
-                =clerk.email
-              %td{column_style("clerk", "address")}
-                =clerk.whole_address
+              %td=clerk.email
+              %td=clerk.whole_address
               %td= link_to t(:show) , clerk_path(clerk), :title => t(:show)
               %td= link_to t(:edit), edit_clerk_path(clerk), :title => t(:edit)
     = paginate @clerks
