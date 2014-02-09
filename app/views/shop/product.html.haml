@@ -9,8 +9,11 @@
       %a{href: "#"}= @product.name
     
 .row.content.product-info
-  .product-title-h1
-    %h1.product-title= @product.name
+  .row
+    .col-md-12
+      .product-title-h1
+        %h1.product-title= @product.name
+  .row
     .col-md-1
       =image_tag  "shop/spacer.gif"
     .col-md-3
@@ -25,13 +28,12 @@
       .row
         #product-description
           %div
-            = @product.description
-          .row#product-price
-            .col-md-1
-              %h6.product-section-title Hinta
-            .col-md-3    
-              %div
-                %h6.price.selling= euros @product.price
+            = raw @product.description
+          .row
+            .col-md-4.product-price
+              %h4
+                Hinta
+                %span.price.selling= euros @product.price
             .col-md-8    
               #cart-form
                 %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
