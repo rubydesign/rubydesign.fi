@@ -4,8 +4,11 @@
 %ol.breadcrumb
   - parents(@category).each do | group|
     %li
-      = link_to group.name , category_path(group)
-
+      - if group.id
+        = link_to group.name , category_path(group)
+      - else
+        = t(:new)
+        
 = simple_form_for(@category, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
   .row.form-group
     .col-md-6
