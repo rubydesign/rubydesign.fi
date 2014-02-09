@@ -116,7 +116,7 @@ class BasketsController < AdminController
     if @basket.save
       redirect_to basket_path(@basket), :flash => { :notice => t(:create_success, :model => "basket") }
     else
-      render :action => "new"
+      render "edit"
     end
   end
 

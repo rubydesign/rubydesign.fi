@@ -62,7 +62,7 @@ class ProductsController < AdminController
       flash.notice += t(:create_success, :model => "product")
       redirect_to product_path(@product)
     else
-      render :action => "new"
+      render :action => "edit"
     end
   end
 

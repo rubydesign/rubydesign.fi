@@ -99,7 +99,7 @@ describe SuppliersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
         post :create, {:supplier => {  :name  => "" }}, valid_session
-        response.should render_template("new")
+        response.should render_template("edit")
       end
     end
   end

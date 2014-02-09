@@ -28,7 +28,7 @@ class ClerksController < AdminController
     if @clerk.save
       redirect_to clerk_path(@clerk), :flash => { :notice => t(:create_success, :model => "clerk") }
     else
-      render :action => "new"
+      render "edit"
     end
   end
 

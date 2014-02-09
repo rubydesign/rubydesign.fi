@@ -28,7 +28,7 @@ class SuppliersController < AdminController
     if @supplier.save
       redirect_to supplier_path(@supplier), :flash => { :notice => t(:create_success, :model => "supplier") }
     else
-      render :action => "new"
+      render "edit"
     end
   end
 

@@ -44,7 +44,7 @@ class OrdersController < AdminController
     if @order.save
       redirect_to order_path(@order), :flash => { :notice => t(:create_success, :model => "order") }
     else
-      render :action => "new"
+      render "edit"
     end
   end
 

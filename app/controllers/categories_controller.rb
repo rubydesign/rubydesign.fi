@@ -30,7 +30,7 @@ class CategoriesController < AdminController
     if @category.save
       redirect_to category_path(@category), :flash => { :notice => t(:create_success, :model => "category") }
     else
-      render :action => "new"
+      render "edit"
     end
   end
 

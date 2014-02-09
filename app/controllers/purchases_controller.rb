@@ -47,7 +47,7 @@ class PurchasesController < AdminController
     if @purchase.save
       redirect_to purchase_path(@purchase), :flash => { :notice => t(:create_success, :model => "purchase") }
     else
-      render :action => "new"
+      render "edit"
     end
   end
 

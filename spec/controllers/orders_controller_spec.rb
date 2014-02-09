@@ -93,7 +93,7 @@ describe OrdersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
         post :create, {:order => {  :paid_on => ""}}, valid_session
-        response.should render_template("new")
+        response.should render_template("edit")
       end
     end
   end
