@@ -35,6 +35,7 @@ class PurchasesController < AdminController
 
   def new
     @purchase = Purchase.new
+    render "edit"
   end
 
   def edit

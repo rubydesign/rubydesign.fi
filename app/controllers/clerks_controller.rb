@@ -17,6 +17,7 @@ class ClerksController < AdminController
 
   def new
     @clerk = Clerk.new
+    render "edit"
   end
 
   def edit

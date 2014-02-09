@@ -31,6 +31,7 @@ class OrdersController < AdminController
   def new
     @order = Order.new
     @order.build_basket
+    render "edit"
   end
 
   def edit

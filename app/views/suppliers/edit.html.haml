@@ -1,5 +1,10 @@
 %h2
-  = t(:editing)
+  = t params["action"]
   = t(:supplier)
-= render 'form'
-= link_to t(:back), suppliers_path, :class => "btn btn-warning"
+= simple_form_for(@supplier) do |f|
+  .row
+    = f.input :supplier_name
+    = render "addresses/form_fields" ,:f => f
+  .form-actions
+    = f.submit :class => "btn btn-success"
+    = link_to t(:back), suppliers_path, :class => "btn btn-warning"
