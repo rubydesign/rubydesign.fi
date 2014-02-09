@@ -29,7 +29,7 @@
       = f.input :ean
       = f.input :tax
       = f.input :scode
-      = f.input :category do 
+      = f.input :supplier do 
         = f.select :category_id, Supplier.all.map { |c| [c.supplier_name, c.id ] }, :prompt => t(:select) 
       = f.input :category do 
         = f.select :category_id, Category.all.map { |c| [c.name, c.id ] }, :prompt => t(:select) 

@@ -14,6 +14,13 @@ fi:
         password_confirmation: Vahvista salasana
         phone: Puhelin
         street: Osoite
+      category:
+        name: Nimi
+        online: Netissä
+        category: Pääryhmä
+        link: Linkki
+        position: Järjetysnummero
+        description: Kuvaus
       order:
         email: S-posti
         ordered_on: Tilattu
@@ -27,6 +34,8 @@ fi:
         scode: Tuottajatunnus
         tax: Veroprosentti
         weight: Paino
+        supplier: Tuottaja
+        category: Tuoteryhmä
       purchase:
         name: Nimi
         ordered_on: Tilattu

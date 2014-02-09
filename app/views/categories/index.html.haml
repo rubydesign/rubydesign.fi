@@ -46,5 +46,5 @@
       = link_to  t(:cancel), categories_path, :class => "btn btn-warning"
     %hr
     - Category.where(:category_id => nil).each do |group|
-      %ul
+      %ul.cat
         = render "treeview" , :group => group
