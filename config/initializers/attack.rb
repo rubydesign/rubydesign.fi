@@ -1,7 +1,7 @@
 # Block requests for php or cgi
 Rack::Attack.blacklist('block 1.2.3.4') do |req|
   # Request are blocked if the return value is truthy
-  req.path.index("php") || req.path.index("cgi") || req.path.index("proxy.txt") || req.path.index("soapCaller")
+  req.path.index("php") || req.path.index("cgi") || req.path.index("proxy.txt") || req.path.index("soapCaller") || req.path.index("Win32")
 end
 
 # Throttle requests to 5 requests per second per ip
