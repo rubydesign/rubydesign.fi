@@ -7,9 +7,6 @@ describe "Orders" do
   it "lists orders" do
     visit_path orders_path
   end
-  it "creates a new order" do
-    visit_path new_order_path
-  end
   it "should render" do
     order = create :order
     visit_path order_path order
