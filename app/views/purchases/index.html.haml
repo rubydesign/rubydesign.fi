@@ -16,7 +16,7 @@
             %th= sort_link @q, :ordered_on
             %th= sort_link @q, :received_on
             %th=t  "basket"
-            %th= @purchase_scope.count.to_s + " " +  t(:purchases)
+            %th= @purchases.length.to_s + " " +  t(:purchases)
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}

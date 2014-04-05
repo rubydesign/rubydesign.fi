@@ -27,13 +27,13 @@
             %th= sort_link @q, :inventory
             %th
               %label.checkbox
-                = @product_scope.count.to_s + " " + t(:products)
+                = @products.length.to_s + " " + t(:products)
         %tbody
           - @products.each do |product|
           -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
               %td.image= image_tag product.main_picture.url(:thumb)
-              %td.ean= product.line? ? "#{product.products.count} #{t(:items)}" : product.ean
+              %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
               %td.name
                 = link_to product_path(product), :title => t(:show) do
                   =product.full_name

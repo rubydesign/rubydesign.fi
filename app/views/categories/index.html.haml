@@ -21,7 +21,7 @@
             %th=t( "activerecord.attributes.category.category")
             %th{:colspan => "3"}
               %label.checkbox
-                = @category_scope.count.to_s + " " +t(:categories)
+                = @categories.length.to_s + " " +t(:categories)
         %tbody
           - @categories.each do |category|
             %tr{:class => "line-#{cycle("1","2")}"}

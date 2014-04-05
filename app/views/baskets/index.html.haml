@@ -19,7 +19,7 @@
             %th= t(:items)
             %th
               %label.checkbox
-                = @basket_scope.count.to_s + " " + t("baskets")
+                = @baskets.length.to_s + " " + t("baskets")
         %tbody
           - @baskets.each do |basket|
             %tr{:class => "line-#{cycle("1","2")}"}

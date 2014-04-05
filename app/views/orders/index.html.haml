@@ -15,7 +15,7 @@
             %th= sort_link @q, :basket_total_price
             %th= sort_link @q, :email
             %th= t(:state)
-            %th= @order_scope.count.to_s + " " + t(:orders)
+            %th= @orders.length.to_s + " " + t(:orders)
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
