@@ -22,6 +22,7 @@ class ProductsController < AdminController
     unless params[:scope].blank?
       @product_scope = @product_scope.send(params[:scope])
     end
+    @product_scope = @product_scope.includes(:products , :supplier , :category) 
     @products = @product_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
   end
 
