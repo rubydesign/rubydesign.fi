@@ -27,9 +27,9 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td= image_tag category.main_picture.url(:thumb)
               %td=link_to category.name, category_path(category), :title => t(:show) , :class => category.online && "online"
-              %td=category.products.no_items.count.to_s
+              %td=category.products.length.to_s
               %td=category.online ? t(:online) : t(:not_online)
-              %td= Category.find(category.category_id).name if category.category_id
+              %td= category.category.name if category.category
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
               %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
     = paginate @categories
@@ -45,6 +45,6 @@
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), categories_path, :class => "btn btn-warning"
     %hr
-    - Category.where(:category_id => nil).each do |group|
+    - @roots.each do |group|
       %ul.cat
         = render "treeview" , :group => group

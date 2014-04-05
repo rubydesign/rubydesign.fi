@@ -3,13 +3,12 @@ class CategoriesController < AdminController
 
   before_filter :load_category, :only => [ :edit, :update, :destroy]
 
-  # Uncomment for check abilities with CanCan
-  #authorize_resource
-
   def index
     @q = Category.search(params[:q])
     @category_scope = @q.result(:distinct => true)
+    @category_scope = @category_scope.includes(:products , :categories ) 
     @categories = @category_scope.paginate( :page => params[:page],:per_page => 20).to_a
+    @roots = Category.where(:category_id => nil).includes(:products , :categories ).to_a
   end
 
   def show

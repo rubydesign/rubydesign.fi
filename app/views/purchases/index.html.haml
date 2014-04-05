@@ -26,7 +26,7 @@
               %td
                 - if not purchase.basket.nil? then
                   = link_to basket_path(purchase.basket) do
-                    = "#{purchase.basket.items.count}  #{t(:items)} /  #{purchase.basket.total_price} €"
+                    = "#{purchase.basket.items.length}  #{t(:items)} /  #{purchase.basket.total_price} €"
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
       .btn-toolbar
         .btn-group

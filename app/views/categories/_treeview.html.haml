@@ -1,6 +1,6 @@
 %li
-  = link_to "#{group.name} (#{group.products.no_items.count})" , category_path(group), :title => t(:edit) , :class => group.online && "online"
-  - ar = Category.where(:category_id => group.id)
+  = link_to "#{group.name} (#{group.products.length})" , category_path(group), :title => t(:edit) , :class => group.online && "online"
+  - ar = group.categories
   -if ar.length > 0
     %ul.subcat
       - ar.each do |g|
