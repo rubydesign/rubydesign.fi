@@ -4,13 +4,14 @@ class BasketsController < AdminController
   before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :print, :purchase]
 
   def index
-    @q = Basket.search( params[:q] , :include => {:items => :product} )
+    @q = Basket.search( params[:q] )
     @basket_scope = @q.result( :distinct => true )
     @basket_scope_for_scope = @basket_scope.dup
     unless params[:scope].blank?
       @basket_scope = @basket_scope.send(params[:scope])
     end
-    @baskets = @basket_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
+    @basket_scope = @basket_scope.includes({:items => :product} , :kori) 
+    @baskets = @basket_scope.paginate( :page => params[:page], :per_page => 20 )
   end
 
   def print
