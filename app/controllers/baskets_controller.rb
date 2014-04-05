@@ -6,10 +6,6 @@ class BasketsController < AdminController
   def index
     @q = Basket.search( params[:q] )
     @basket_scope = @q.result( :distinct => true )
-    @basket_scope_for_scope = @basket_scope.dup
-    unless params[:scope].blank?
-      @basket_scope = @basket_scope.send(params[:scope])
-    end
     @basket_scope = @basket_scope.includes({:items => :product} , :kori) 
     @baskets = @basket_scope.paginate( :page => params[:page], :per_page => 20 )
   end

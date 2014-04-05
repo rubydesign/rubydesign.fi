@@ -10,13 +10,7 @@ class OrdersController < AdminController
     @q = Order.search(params[:q])
     @order_scope = @q.result( :distinct => true)
     @order_scope_for_scope = @order_scope.dup
-
-    unless params[:scope].blank?
-      @order_scope = @order_scope.send(params[:scope])
-    end
-
     @orders = @order_scope.paginate(:page => params[:page],:per_page => 20).to_a
-
   end
 
   def show
