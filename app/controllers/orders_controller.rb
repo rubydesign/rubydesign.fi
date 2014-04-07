@@ -9,7 +9,7 @@ class OrdersController < AdminController
   def index
     @q = Order.search(params[:q])
     @order_scope = @q.result( :distinct => true)
-    @order_scope_for_scope = @order_scope.dup
+    @order_scope = @order_scope.includes(:basket => :items )
     @orders = @order_scope.paginate(:page => params[:page],:per_page => 20).to_a
   end
 
