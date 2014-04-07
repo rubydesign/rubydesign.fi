@@ -13,7 +13,7 @@ class BasketsController < AdminController
   def print
     if @basket.empty?
       flash.notice = t(:basket_empty)
-      redirect_to :action => :show 
+      render :edit
       return
     end
     order = @basket.kori || Order.new( :basket => @basket )
@@ -29,7 +29,7 @@ class BasketsController < AdminController
   def order
     if @basket.empty?
       flash.notice = t(:basket_empty)
-      redirect_to :action => :show 
+      render :edit
       return
     end
     order = Order.create! :basket => @basket , :email => current_clerk.email , :orderd_on => Date.today
@@ -39,7 +39,7 @@ class BasketsController < AdminController
   def purchase
     if @basket.empty?
       flash.notice = t(:basket_empty)
-      redirect_to :action => :show 
+      render :edit 
       return
     end
     purchase = Purchase.create! :basket => @basket
@@ -48,7 +48,7 @@ class BasketsController < AdminController
 
   def new
     @basket = Basket.create!
-    render "show"
+    render :edit
   end
 
   def edit
@@ -105,7 +105,6 @@ class BasketsController < AdminController
         end
       end
     end
-    redirect_to  :action => :show
   end
 
   def create
@@ -135,7 +134,7 @@ class BasketsController < AdminController
   def inventory
     if @order.state == "complete"
       flash[:error] = "Order was already completed (printed), please start with a new customer to add inventory"
-      redirect_to :action => :show
+      render :edit
       return
     end
     as = params[:as]
@@ -153,7 +152,7 @@ class BasketsController < AdminController
     end
     @order.basket.items.clear
     flash.notice = "Total of #{num} items #{as ? 'inventoried': 'added'} for #{prods} products "
-    redirect_to :action => :show
+    render :edit
   end
 
   private
