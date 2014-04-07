@@ -68,7 +68,7 @@ class PurchasesController < AdminController
   private
 
   def load_purchase
-    @purchase = Purchase.find(params[:id])
+    @purchase = Purchase.where( :id => params[:id]).includes( :basket => {:items => {:product => :supplier}} ).first
   end
 
   def params_for_model
