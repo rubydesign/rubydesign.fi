@@ -12,21 +12,18 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
-            %th= sort_link @q, :name
             %th= sort_link @q, :ordered_on
             %th= sort_link @q, :received_on
-            %th=t  "basket"
+            %th= t(:items)
+            %th= sort_link @q, :basket_total_price
             %th= @purchases.length.to_s + " " +  t(:purchases)
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td=purchase.name
               %td=purchase.ordered_on
               %td=purchase.received_on
-              %td
-                - if not purchase.basket.nil? then
-                  = link_to basket_path(purchase.basket) do
-                    = "#{purchase.basket.items.length}  #{t(:items)} /  #{purchase.basket.total_price} €"
+              %td= purchase.basket.items.length
+              %td= link_to euros(purchase.basket.total_price) , basket_path(purchase.basket)
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
       .btn-toolbar
         .btn-group

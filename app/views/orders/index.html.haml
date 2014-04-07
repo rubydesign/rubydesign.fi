@@ -12,7 +12,7 @@
           %tr
             %th= sort_link @q, :number
             %th= sort_link @q, :ordered_on
-            %th= sort_link @q, :items
+            %th= t(:items)
             %th= sort_link @q, :basket_total_price
             %th= sort_link @q, :email
             %th= t(:state)
@@ -23,9 +23,7 @@
               %td= order.number.to_s
               %td= order.ordered_on
               %td= order.basket.items.length
-              %td
-                = link_to basket_path(order.basket) do
-                  = euros order.basket.total_price
+              %td= link_to euros(order.basket.total_price),  basket_path(order.basket)
               %td= order.email
               %td= order.paid_on
               %td= link_to t(:show) , order_path(order), :title => t(:show)
