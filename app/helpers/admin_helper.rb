@@ -4,7 +4,7 @@ module AdminHelper
   def basket_edit_link basket , options = {}
     return "---" unless basket
     text = t(:edit)
-    link= basket_path(basket)
+    link= edit_basket_path(basket)
     case basket.kori_type
     when "Order"
       text = I18n.t(:order)

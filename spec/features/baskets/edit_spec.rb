@@ -6,7 +6,7 @@ describe "edit baskets" do
     @basket = create :basket
     @basket.items << create(:item22)
     @basket.save!
-    visit_path basket_path(@basket)
+    visit_path edit_basket_path(@basket)
   end
   it "renders item too" do
     td = find(".table").find(".name")

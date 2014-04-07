@@ -32,7 +32,6 @@ describe "Basket buttons" do
     url = page.current_path
     page.should_not have_content I18n.t(:to_order)
     click_link I18n.t(:print)
-    visit_path url
-    page.should have_content I18n.t(:to_order)
+    page.should have_content I18n.t(:order)
   end
 end
