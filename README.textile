@@ -4,7 +4,8 @@ Office Clerk is the back office helper, your accountant, storage manager, secret
 
 h2. Plans
 
-The clerks are under heavy development, not ready for use. But once it is, it shall replace our 2 spree installations.
+The clerks are under heavy development, not ready for you to use. OficeClerk is actually in daily use alreay, but it's not public yet.
+But once it is, it shall replace our 2 spree installations.
 
 Once installed, we mean to keep RubyClerks running with easy to manage upgrades. Our shop is 15 years old, and so we expect to be around for a while, with a stable product and feature list.
 
@@ -30,6 +31,6 @@ h2. Similar Projects
 
  * "Spree":http:spreecommerce.com , the grandfather of the rails ecommerce has grown big and mighty
  * "Ror-e":http://ror-e.com/ has some nice purchase features, but Dave has not been so active lately
- * "MarketStree":https://github.com/alex-nexus/market_street/ has taken the ball from ror-e and is running strong with an impressive list of goals
- * "TryShopp":http://tryshoppe.com/ is new and lightweight. Very nice looking interface.
+ * "MarketStreet":https://github.com/alex-nexus/market_street/ has taken the ball from ror-e and is running strong with an impressive list of goals
+ * "TryShoppe":http://tryshoppe.com/ is new and lightweight. Very nice looking interface.
  
