@@ -139,7 +139,7 @@ class BasketsController < AdminController
     end
     as = params[:as]
     num = 0
-    prods = @order.basket.items.count
+    prods = @order.basket.items.length
     @order.basket.items.each do |item |
       variant = item.variant
       num += item.quantity
