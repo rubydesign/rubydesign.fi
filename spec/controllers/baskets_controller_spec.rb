@@ -2,7 +2,7 @@ require 'spec_helper'
 
 #Note of incompleteness:
 # this is close to the original generated code and tests more crud than the actual basket functionality
-# it should test item adding and the like, but hmm how do they say: "not now", or was it "not yet"
+# things are better in the features test (where adding item and the like is actually tested)
 
 describe BasketsController do
 
