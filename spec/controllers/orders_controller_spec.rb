@@ -99,20 +99,4 @@ describe OrdersController do
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested order" do
-      order = create :order
-      expect {
-        delete :destroy, {:id => order.to_param}, valid_session
-      }.to change(Order, :count).by(-1)
-    end
-
-    it "redirects to the orders list" do
-      order = create :order
-      delete :destroy, {:id => order.to_param}, valid_session
-      response.should redirect_to(orders_url)
-    end
-  end
-
 end

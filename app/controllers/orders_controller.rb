@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update, :destroy , :print]
+  before_filter :load_order, :only => [:show, :edit, :update , :print]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -49,11 +49,6 @@ class OrdersController < AdminController
     else
       render :action => "edit"
     end
-  end
-
-  def destroy
-    @order.destroy
-    redirect_to orders_url
   end
 
   private
