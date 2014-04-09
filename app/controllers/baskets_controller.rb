@@ -127,7 +127,8 @@ class BasketsController < AdminController
   end
 
   def destroy
-    @basket.destroy
+    # the idea is that you can't delete a basket once something has been "done" with it (order..)
+    @basket.destroy unless @basket.kori_type
     redirect_to baskets_url
   end
 

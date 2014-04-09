@@ -31,7 +31,7 @@
               %td=category.online ? t(:online) : t(:not_online)
               %td= category.category.name if category.category
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
-              %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy)
+              %td= link_to t(:destroy), category_path(category), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) if category.categories.empty?
     = paginate @categories
   .col-md-3
     = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|

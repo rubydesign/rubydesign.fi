@@ -46,7 +46,8 @@ class ClerksController < AdminController
   end
 
   def destroy
-    @clerk.destroy
+    #should the whole method go ? probably
+    #@clerk.destroy
     redirect_to clerks_url
   end
 

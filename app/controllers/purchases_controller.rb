@@ -1,7 +1,7 @@
 # encoding : utf-8
 class PurchasesController < AdminController
 
-  before_filter :load_purchase, :only => [:show, :edit, :update, :destroy , :order , :receive , :inventory]
+  before_filter :load_purchase, :only => [:show, :edit, :update , :order , :receive , :inventory]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -58,11 +58,6 @@ class PurchasesController < AdminController
     else
       render :action => "edit"
     end
-  end
-
-  def destroy
-    @purchase.destroy
-    redirect_to purchases_url
   end
 
   private

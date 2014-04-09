@@ -53,7 +53,7 @@ class CategoriesController < AdminController
   end
 
   def destroy
-    @category.destroy
+    @category.destroy if @category.categories.empty?
     redirect_to categories_url 
   end
 
