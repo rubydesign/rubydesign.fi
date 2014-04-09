@@ -42,7 +42,7 @@
           %td{:colspan => 4}
           %td
             = t(:count)
-            = @basket.items.count
+            = @basket.items.length
           %td
             = t(:total)
             = euros @basket.total_price
@@ -55,7 +55,7 @@
         = link_to t(:back), baskets_path, :class => "btn btn-warning"
       .col-md-2
         = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
-      - if @basket.isa :cart
+      - if @basket.isa(:cart) and not @basket.empty?
         .col-md-2
           - link_to t(:make_order), order_basket_path(@basket), :class => "btn btn-primary make_order"
           = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "btn btn-primary make_purchase"
