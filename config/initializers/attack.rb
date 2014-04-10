@@ -1,7 +1,16 @@
-# Block requests for php or cgi
-Rack::Attack.blacklist('block 1.2.3.4') do |req|
+# Block requests for php or cgi, jps and what else the people throw at us
+Rack::Attack.blacklist('block admin probes') do |req|
   # Request are blocked if the return value is truthy
-  req.path.index("php") || req.path.index("cgi") || req.path.index("proxy.txt") || req.path.index("soapCaller") || req.path.index("Win32")
+  ["php" , "jsp" , "cgi", "asp", "cfm," "proxy.txt", "soapCaller", "Win32" , "HNAP1" , "w00tw00t",
+    "pma" , "mysql" ,"msd" , "MySQL" , "jmx-console" , "ervlet" , "install"].each do |no|
+    return true if  req.path.index(no)
+  end
+  false
+end
+
+# Block requests from people clearly out to break servers
+Rack::Attack.blacklist('block admin probes') do |req|
+  [ "79.143.82.69" , "85.76.99.50", "127.0.0.1"].include? req.ip
 end
 
 # Throttle requests to 5 requests per second per ip
