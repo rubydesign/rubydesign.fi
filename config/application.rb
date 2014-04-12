@@ -25,6 +25,8 @@ module OfficeClerk
       g.view_specs false
       g.helper_specs false
     end
+    config.exceptions_app = self.routes
+    
     I18n.enforce_available_locales = false
     I18n.default_locale = :fi
     config.after_initialize do
