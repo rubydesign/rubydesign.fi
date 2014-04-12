@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 module ApplicationHelper
   
+  def markdown text
+    return sanitize Kramdown::Document.new(text).to_html
+  end
+
   def euros price
     price ? number_to_currency(price , :precision => 2 , :unit => "€") : 0.0
   end
