@@ -7,20 +7,27 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans); 
 
 $navbar-default-bg: #108BAD;
+$navbar-default-border: #108BAD;
 $highlight: #108BAD;
 $secondary-color: #c7e1df;
 $crumb-bg: lighten($secondary-color, 2%);
 $crumb-border-style: none;
 
+ul.subcat {
+	font-size: .9em;
+	padding-left: 10px;
+}
+
+ul.cat {
+		padding-left: 0;
+
+}
+
+
 
 .main{
 	max-width: 1000px;
   	margin: 0 auto;
-}
-
-ul.subcat a{
-	font-size: .9em;
-	padding-left: 15px !important;
 }
 
 @import "bootstrap";
@@ -109,7 +116,8 @@ max-width: 100%;  }
 	width: 100%;
 }
 
-.group-wrapper h4 {
+.group-wrapper h5 {
+  font-size: 16px;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -120,12 +128,17 @@ max-width: 100%;  }
   background: rgba(70,3,21,0.25);
 	text-shadow: black 1px 1px 03px;
   margin: 0px;
-	width: 100%;
+	width: 150px;
 }
 
 .intro {
   padding-top: 20px;
 }
+
+.img-responsive-prod {
+  display: block;
+  max-width: 100%;
+  max-height: 400px;}
 
 .intro p {
   font-size: .8em;

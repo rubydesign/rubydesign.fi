@@ -12,7 +12,7 @@
       .group-wrapper
         = link_to shop_group_path(group.link) do
           = image_tag group.main_picture.url(:list)
-          %h4= group.name
+          %h5= group.name
     
     .intro2
       = image_tag @group.extra_picture.url(:list)
