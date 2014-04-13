@@ -99,4 +99,6 @@ OfficeClerk::Application.routes.draw do
   get 'prod/:link' => 'shop#product', :as => :shop_product
   get 'page/:id' => 'shop#page', :as => :shop_page
   
+  get "/404", :to => "application#error"
+  
 end

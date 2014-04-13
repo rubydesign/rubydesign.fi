@@ -15,8 +15,7 @@
           %h5= group.name
     
     .intro2
-      = image_tag @group.extra_picture.url(:list)
-      %p.description= @group.description
+      %p.description= markdown @group.description
         
   .col-md-9
     -@products.in_groups_of(3).each do |three|
