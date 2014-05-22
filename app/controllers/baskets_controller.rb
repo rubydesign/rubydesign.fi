@@ -42,6 +42,11 @@ class BasketsController < AdminController
       render :edit 
       return
     end
+    if @basket.locked
+      flash.notice = t(:basket_locked)
+      render :show
+      return
+    end
     purchase = Purchase.create! :basket => @basket
     redirect_to :action => :show , :controller => :purchases , :id => purchase.id
   end
@@ -119,7 +124,7 @@ class BasketsController < AdminController
   def update
     if not @basket.locked and @basket.update_attributes(params_for_basket)
        flash.notice = t(:update_success, :model => "basket")
-       redirect_to basket_path(@basket)
+       redirect_to edit_basket_path(@basket)
     else
       flash.notice = t('basket_locked') if @basket.locked
       render :action => "show"
