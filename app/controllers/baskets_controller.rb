@@ -110,6 +110,7 @@ class BasketsController < AdminController
         end
       end
     end
+    @basket.save!
   end
 
   def create
