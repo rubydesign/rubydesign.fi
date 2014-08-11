@@ -27,7 +27,8 @@ class Product < ActiveRecord::Base
   validates :cost, :numericality => true
   validates :name, :presence => true
 
-  before_save :generate_url_if_needed
+  before_save :generate_url
+  before_save :adjust_cost
   after_save :update_line_inventory , :if => :product_id
 
   def update_line_inventory
@@ -38,7 +39,9 @@ class Product < ActiveRecord::Base
     parent.save! if inv != parent.inventory
   end
 
-  def generate_url_if_needed
+  # if no url is set we generate one based on the name
+  # but line_items don't have urls, so not for them
+  def generate_url
     if line_item? or deleted?
       self.link = ""
     else
@@ -46,6 +49,11 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def adjust_cost
+    if self.cost == 0.0
+      self.cost = self.price / 2
+    end
+  end
   def deleted?
     not deleted_on.blank?
   end

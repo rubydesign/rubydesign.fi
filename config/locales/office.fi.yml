@@ -31,6 +31,7 @@ fi:
         name: Nimi
         online: Netissä
         price: Hinta
+        cost: Kustannus
         scode: Tuottajatunnus
         tax: Veroprosentti
         weight: Paino

@@ -8,17 +8,17 @@ class Purchase < ActiveRecord::Base
   end
 
   def receive!
+    basket.receive!
     self.ordered_on = Date.today unless ordered_on
     self.received_on = Date.today
     self.save!
-    basket.receive!
   end
 
   def inventory!
+    basket.receive!
     self.ordered_on = Date.today unless ordered_on
     self.received_on = Date.today
     self.save!
-    basket.inventory!
   end
 
 end
