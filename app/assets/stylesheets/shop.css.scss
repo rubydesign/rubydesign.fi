@@ -12,6 +12,7 @@ $highlight: #108BAD;
 $secondary-color: #c7e1df;
 $crumb-bg: lighten($secondary-color, 2%);
 $crumb-border-style: none;
+$table-bg-accent: #E2EEF1;
 
 ul.subcat {
 	font-size: .9em;
@@ -220,7 +221,7 @@ h5.product-name {
 
 h1.product-title {
 	font-size: 2.3rem;
-	color: #108BAD;
+	color: $highlight;
 }
 
 #product-description {
@@ -246,3 +247,6 @@ span.price.selling {
   margin: 8px 15px 20px;
 }
 
+.highlight{
+  color: $highlight;
+}

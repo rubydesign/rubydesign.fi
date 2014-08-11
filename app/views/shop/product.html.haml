@@ -8,30 +8,63 @@
     %li.current
       %a{href: "#"}= @product.name
 
-.row.product-info
-  .col-md-5.product-title-h1
-    %h1.product-title= @product.name
 .row
-  .col-md-3.picture
-    =image_tag @product.main_picture.url(:product) , :class => "img-responsive-prod"
-  #product-description.col-md-6
+  .col-md-3.tex
+    - parents(@group).each do | group|
+      .group-wrapper
+        = link_to shop_group_path(group.link) do
+          = image_tag group.main_picture.url(:list)
+          %h5= group.name
+    
+    .intro2
+      %p.description= markdown @group.description
+  
+  .col-md-8
+    .row.product-info
+      .col-md-12.product-title-h1
+        %h1.product-title= @product.name
+        %br/
+    
     .row
-      .col-md-12
-        = markdown @product.description
-    .row
-      .col-md-4.product-price
-        %h4
-          Hinta
-          %span.price.selling= euros @product.price
-      .col-md-8    
-        %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
-          #inside-product-cart-form
-            .add-to-cart
-              .row
-                .col-md-10
-                  %button#add-to-cart-button.btn.btn-primary{type: "submit"}
-                    Lisää ostoskoriin
+      .col-md-3.picture
+        =image_tag @product.main_picture.url(:product) , :class => "img-responsive-prod"
+      #product-description.col-md-9
+        .row
+          .col-md-12
+            = markdown @product.description
+        .row
+          .col-md-4.product-price
+            %h4
+              Hinta
+              %span.price.selling= euros @product.price
+          .col-md-8    
+            %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
+              #inside-product-cart-form
+                .add-to-cart
+                  .row
+                    .col-md-10
+                      %button#add-to-cart-button.btn.btn-primary{type: "submit"}
+                        Lisää ostoskoriin
+    
+        .row
+          .col-md-12
+            %br/
+            %table.table-striped.table-condensed
+              %thead.highlight
+                %tr
+                  %th Muut tuotteet samassa kategoriassa
+              %tbody
+                %tr 
+                  %td Volyymi muotovaahto
+                %tr  
+                  %td Muotoileva hoitovaahto
+                %tr  
+                  %td Hiuskiinne
+                %tr  
+                  %td Korjaava Hiusnaamio
             
+            
+          
   .col-md-1
 
 

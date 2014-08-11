@@ -23,7 +23,9 @@ $open: "Open Sans","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
 $table-head-bg: scale-color($primary-color, $lightness: 75%);
 $table-bg: scale-color($primary-color, $lightness: 98%);
 $table-even-row-bg: scale-color($primary-color, $lightness: 90%);
-$table-border-color: scale-color($primary-color, $lightness: 75%);
+$table-border-color: scale-color($primary-color, $lightness: 85%);
+
+$tausta-bg: scale-color($primary-color, $lightness: 95%);
 
 
 @import "bootstrap";
@@ -64,6 +66,11 @@ body {
 margin-bottom: 7px;
 }
 
+.pagination {
+margin-top: 55px;
+}
+
+
 ul.pagination {
 margin-bottom: 7px;
 }
@@ -71,8 +78,52 @@ margin-bottom: 7px;
 ul.pagination li {
   font-size: 1.4rem;
   }
+
+ul.pagination li a{
+  background-color: rgba(255, 255, 255, 0.9);
+  }
   
 .admin-table  {
 font-size: 0.5rem;
 
+}
+
+thead, tbody {  vertical-align: top;
+
+}
+
+.tausta { 
+  background: $tausta-bg;
+  border-radius: 6px;
+  padding-top: 6px;
+  margin-bottom: 20px;
+}
+
+.products{ 
+  background: url('admin/products-2.jpg') no-repeat;
+}
+
+.baskets{ 
+  background: url('admin/baskets-2.jpg') no-repeat;
+}
+
+.orders{ 
+  background: url('admin/orders-2.jpg') no-repeat;
+}
+
+.purchases{ 
+  background: url('admin/purchases-2.jpg') no-repeat;
+  height: 161px;
+}
+
+.categories{ 
+  background: url('admin/categories-2.jpg') no-repeat;
+}
+
+.suppliers{ 
+  background: url('admin/suppliers-2.jpg') no-repeat;
+}
+
+.clerks{ 
+  background: url('admin/clerks-2.jpg') no-repeat;
 }
