@@ -10,9 +10,9 @@ $navbar-default-bg: #108BAD;
 $navbar-default-border: #108BAD;
 $highlight: #108BAD;
 $secondary-color: #c7e1df;
-$crumb-bg: lighten($secondary-color, 2%);
-$crumb-border-style: none;
 $table-bg-accent: #E2EEF1;
+$breadcrumb-bg: rgba(213,223,255,0.3);
+
 
 ul.subcat {
 	font-size: .9em;
@@ -24,7 +24,9 @@ ul.cat {
 
 }
 
-
+.navbar-nav > li > a {
+  font-size: 12px;
+  color: #E4DFDF; }
 
 .main{
 	max-width: 1000px;
@@ -55,9 +57,10 @@ ul.cat {
 
 .footer {
   padding-top: 30px;
-  padding-left: 18px; padding-right: 18px;
-  font-size: .8em;
-	line-height: 150%;
+  padding-left: 70px;
+  padding-right: 70px;
+  line-height: 140%;
+	font-size: .9em;
 	strong, b {
   color: $highlight;
   }  
@@ -250,3 +253,14 @@ span.price.selling {
 .highlight{
   color: $highlight;
 }
+
+.breadcrumb {
+border-radius: 0px;
+}
+
+.list {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px dotted #0078ff;
+}
+

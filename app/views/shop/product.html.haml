@@ -38,7 +38,7 @@
               Hinta
               %span.price.selling= euros @product.price
           .col-md-8    
-            %form{"accept-charset" => "UTF-8", action: "/shop/add_item", method: "post"}
+            %form{"accept-charset" => "UTF-8", action: "/cart/add", method: "get"}
               #inside-product-cart-form
                 .add-to-cart
                   .row

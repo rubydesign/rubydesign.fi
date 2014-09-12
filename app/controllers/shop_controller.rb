@@ -6,23 +6,20 @@ class ShopController < ApplicationController
   def product
     @product = Product.online.where(:link => params[:link]).first
     redirect_to :action => :group unless @product
+    @group = @product.category
     #error handling
 #    @group = Category.find(@product.category_id)
   end
 
   def group
     @group = Category.online.where(:link => params[:link]).first 
-    if @group and @group.categories.empty?
+    if @group
       @products = @group.products.no_items.online
       template = "product_list"
+      @groups = @group.categories.online
     else
-      if @group
-        @groups = @group.categories.online
-        template = "sub_group"
-      else
-        @groups = Category.online.where( :category_id => nil )
-        template = "main_group"
-      end
+      @groups = Category.online.where( :category_id => nil )
+      template = "main_group"
     end
     render template
   end

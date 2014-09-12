@@ -18,6 +18,17 @@
       %p.description= markdown @group.description
         
   .col-md-9
+    .row
+      - @groups.in_groups_of(3).each do |array|
+        .row
+          -array.each do |group|
+            .col-lg-4
+              -next unless group
+              .subgroup-wrapper
+                =link_to shop_group_path(group.link) do
+                  = image_tag group.main_picture.url(:product)
+                  %h3= group.name
+  .row.list
     -@products.in_groups_of(3).each do |three|
       .row.product-listing
         -three.each do |product|
@@ -35,6 +46,5 @@
                       %span.price.selling
                         = product.price
                         €
-
-
-                
+    
+              
