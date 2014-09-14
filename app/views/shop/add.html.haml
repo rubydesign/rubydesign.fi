@@ -1,1 +1,121 @@
-haloo
+.row
+  %img{:src => "/assets/shop/spacer.gif"}/
+  
+.row
+  .col-md-3
+    .group-wrapper
+      %img{:src => "/assets/shop/basket.jpg"}/
+      %h5 Ostoskori
+
+  .col-md-9
+    .row
+      %br
+      %h4.highlight Ostoskorisi sisältö
+      %div
+        %table.table.table-hover.table-condensed
+          %thead            
+            %tr
+              %th tuote
+              %th 
+              %th hinta a
+              %th määrä
+              %th yhteishinta
+          %tbody
+            %tr
+              %td
+                %img{:alt => "St gel", :src => "/images/404/thumb/st_gel.jpg?1397320086"}/
+              %td Muotoiluvoide
+              %td 13,30 €
+              %td 3
+              %td 39,90 €
+
+            %tr
+              %td  
+                %img{:alt => "Care haarmaske", :src => "/images/403/thumb/care_haarmaske.jpg?1408202337"}/
+              %td   Korjaava Hiusnaamio
+              %td   14,70 €
+              %td 3
+              %td 39,90 €
+
+            %tr
+              %td  
+                %img{:alt => "St mousse", :src => "/images/354/thumb/st_mousse.jpg?1408202351"}/
+              %td   Volyymi Muotovaahto
+              %td   14,70 €
+              %td 3
+              %td 39,90 €
+            %tr
+              %th 
+              %th tuotteet yhteensä
+              %th
+              %th
+              %th 120,20 €
+
+    .row
+      %hr       
+      %h4.highlight Tilaus 123123
+      .row
+        .col-md-4
+          %table.table.table-condensed.basket-total
+            %thead
+              %tr
+                %th Tuotteet yhteensä 
+                %td.text-right 120,20 €
+            %tbody
+              %tr 
+                %th Toimituskulut 
+                %td.text-right 0,00 €
+              %tr 
+                %th Tilaus yhteensä 
+                %th.text-right 120,20 €
+      
+        .col-md-1
+        .col-md-7
+        
+          %button.btn.btn-primary{:type => "button"} Jatka ostoksia 
+          \ 
+          \ 
+          tai 
+          %br
+          %br
+          .dropdown
+            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+              Valitse toimitustapa
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Postin kotiinkuljetus 9,90 €
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Nouto lähimmästä postikonttorista 8,80 €
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Nouto lähimmästä pakettiautomaatista 7,70 €
+              %li{:role => "presentation"}
+                %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Nouto myymälästämme 0 €
+
+
+            
+              
+    .row
+      %hr.highlight       
+      %h4.highlight Yhteystiedot
+       
+      %form{:role => "form"}
+        .form-group
+          %label{:for => "nimi"} Nimi
+          %input#nimi.form-control{:placeholder => "Nimi", :type => "nimi"}/
+        .form-group
+          %label{:for => "exampleInputEmail1"} Sähköposti
+          %input#exampleInputEmail1.form-control{:placeholder => "Sähköposti", :type => "email"}/
+        .form-group
+          %label{:for => "Katuosoite"} Katuosoite
+          %input#exampleKatuosoite.form-control{:placeholder => "Katuosoite", :type => "Katuosoite"}/
+        .form-group
+          %label{:for => "Katuosoite"} Puhelin
+          %input#examplePuhelin.form-control{:placeholder => "Puhelin", :type => "Puhelin"}/
+        .form-group
+          %label{:for => "Katuosoite"} Viesti
+          %input#exampleViesti.form-control{:placeholder => "Kirjoita tähän mahdolliset erityistoiveesi tilaukseen liittyen", :type => "Viesti"}/
+        %hr  
+        %button.btn.btn-primary{:type => "submit"} Vahvista tilaus    
+
+            
