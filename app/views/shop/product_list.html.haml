@@ -35,16 +35,16 @@
           .col-md-4
             -next unless product
             .product-container
-              .product-image
-                .square-image
-                  =link_to shop_product_path(:link => product.link ) do
-                    =image_tag product.main_picture.url
-                .product-fact
-                  =link_to shop_product_path( :link => product.link ) , :class => :info do
-                    %h5.product-name
-                      = product.name
-                      %span.price.selling
-                        = product.price
-                        €
+              .square-image
+                =link_to shop_product_path(:link => product.link ) do
+                  =image_tag product.main_picture.url
+              .product-fact
+                =link_to shop_product_path( :link => product.link ) , :class => :info do
+                  %h5.product-name
+                    = product.name
+                  %p Tulisiko tähän pari riviä tuotteen esittelyä pienellä
+                  %span.price.selling
+                    = product.price
+                    €
     
               

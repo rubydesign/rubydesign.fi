@@ -1,1 +1,106 @@
-onko joo
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title= t(:receipt)
+    = stylesheet_link_tag "shop" , :media => "print"
+    = stylesheet_link_tag "shop-receipt" , :media => "print"
+  %body
+    .row
+      %img{:src => "/assets/shop/spacer.gif"}/
+  
+      .receipt.no-screen
+        #header
+          = image_tag "receipt-logo.gif"
+          %br/
+          %br/
+          .shop
+            Auringosta Itään, Kuusta Länteen
+          .info
+            Fredrikinkatu 19 (Viiskulma)
+            %br/
+            00120 Helsinki
+    
+    .row
+      .col-md-3.no-print
+        .group-wrapper
+          %img{:src => "/assets/shop/basket.jpg"}/
+          %h5 Tilausvahvistus
+
+      .col-md-9
+        .row
+          %br
+          %h4.highlight Tilausvahvistus 
+          %b Tilaus 123123 
+          vastaanotettu 21.9.2014
+          %hr
+          %div
+            %table.table.table-condensed
+              %thead            
+                %tr
+                  %th Tuote
+                  %th hinta
+                  %th määrä
+                  %th yhteishinta
+              %tbody
+                %tr
+                  %td Muotoiluvoide
+                  %td 13,30 €
+                  %td 3
+                  %td 39,90 €
+
+                %tr
+                  %td   Korjaava Hiusnaamio
+                  %td   14,70 €
+                  %td 3
+                  %td 39,90 €
+
+                %tr
+                  %td   Volyymi Muotovaahto
+                  %td   14,70 €
+                  %td 3
+                  %td 39,90 €
+                %tr
+                  %th Tuotteet yhteensä
+                  %th
+                  %th
+                  %th 120,20 €
+                %tr
+                  %td Toimituskulut
+                  %td
+                  %td
+                  %td 0,00 €
+                %tr
+                  %th Tilaus yhteensä
+                  %th
+                  %th
+                  %th 120,20 €
+
+            %B Valittu toimitustapa: 
+            Nouto pakettiautomaatista
+
+            
+              
+        .row
+          %hr       
+          .col-md-6
+            %h4.highlight Yhteystiedot     
+            Minni Mannila
+            %br 
+            Niemitie 6
+            %br 
+            10300 Karjaa
+            %br 
+            puh 040 555 6677
+            %br 
+            minni.mannila@gmail.com   
+      
+          .col-md-6
+            %h4.highlight Tilaushistoria
+            Aikaisemmat tilauksesi löydät täältä
+            %a{:href => "/linkki_jonnekin"} clerk.auringostaitaan.fi/tilaushistoria
+    
+        %hr       
+        %b.highlight Kiitos tilauksestasi!    
+
+            
