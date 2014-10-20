@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   has_one :basket , :as => :kori , :autosave => true
 
-  store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
+  store :address, accessors: [ :name , :street , :city , :phone ] #, coder: JSON
 
   before_validation :generate_order_number, :on => :create
 
