@@ -18,7 +18,7 @@
             %th=t :address
             %th{:colspan => "2"}
               %label.checkbox
-                = @suppliers.length.to_s + " " + t(:suppliers)
+                = @supplier_scope.length.to_s + " " + t(:suppliers)
         %tbody
           - @suppliers.each do |supplier|
             %tr{:class => "line-#{cycle("1","2")}"}
