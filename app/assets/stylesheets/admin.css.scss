@@ -62,8 +62,8 @@ body {
 
 .strip {
   position:relative;
-  bottom:-48px;  
-margin-bottom: 7px;
+  bottom:-48px;
+	margin-bottom: 7px;
 }
 
 .pagination {
@@ -100,30 +100,30 @@ thead, tbody {  vertical-align: top;
 }
 
 .products{ 
-  background: url('admin/products-2.jpg') no-repeat;
+  background: image-url('admin/products-2.jpg') no-repeat;
 }
 
 .baskets{ 
-  background: url('admin/baskets-2.jpg') no-repeat;
+  background: image-url('admin/baskets-2.jpg') no-repeat;
 }
 
 .orders{ 
-  background: url('admin/orders-2.jpg') no-repeat;
+  background: image-url('admin/orders-2.jpg') no-repeat;
 }
 
 .purchases{ 
-  background: url('admin/purchases-2.jpg') no-repeat;
+  background: image-url('admin/purchases-2.jpg') no-repeat;
   height: 161px;
 }
 
 .categories{ 
-  background: url('admin/categories-2.jpg') no-repeat;
+  background: image-url('admin/categories-2.jpg') no-repeat;
 }
 
 .suppliers{ 
-  background: url('admin/suppliers-2.jpg') no-repeat;
+  background: image-url('admin/suppliers-2.jpg') no-repeat;
 }
 
 .clerks{ 
-  background: url('admin/clerks-2.jpg') no-repeat;
+  background: image-url('admin/clerks-2.jpg') no-repeat;
 }
