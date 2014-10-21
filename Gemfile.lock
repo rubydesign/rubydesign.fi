@@ -11,16 +11,16 @@ GIT
       polyamorous (~> 0.6.0)
 
 GIT
+  remote: git://github.com/rubyclerks/accountant_clerk.git
+  revision: 1c0678a0422c5a0d02f395b2d72f134678db8181
+  specs:
+    accountant_clerk (0.1)
+
+GIT
   remote: git://github.com/rubyclerks/db_fixtures_dump.git
   revision: 3b20b52eb3e44622b32c6e788309aee8e9c4c4a0
   specs:
     db_fixtures_dump (0.0.9)
-
-GIT
-  remote: git://github.com/rubyclerks/reports_clerk.git
-  revision: 13cfcf754d8b9379f50c21e6fb4e4fd1db9d2485
-  specs:
-    reports_clerk (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -281,6 +281,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  accountant_clerk!
   barby
   bcrypt-ruby
   better_errors
@@ -311,7 +312,6 @@ DEPENDENCIES
   rails_layout
   ransack!
   rb-readline
-  reports_clerk!
   rspec-rails
   sass-rails
   simple_form

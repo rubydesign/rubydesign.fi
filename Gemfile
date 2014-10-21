@@ -5,7 +5,7 @@ gem 'rails'
 gem 'sqlite3'
 
 # extensions
-gem 'reports_clerk' , github: "rubyclerks/reports_clerk"
+gem 'accountant_clerk' , github: "rubyclerks/accountant_clerk"
 
 #ui
 gem 'sass-rails'
