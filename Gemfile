@@ -4,6 +4,9 @@ ruby '2.0.0'
 gem 'rails'
 gem 'sqlite3'
 
+# extensions
+gem 'reports_clerk' , github: "rubyclerks/reports_clerk"
+
 #ui
 gem 'sass-rails'
 gem 'jquery-rails'

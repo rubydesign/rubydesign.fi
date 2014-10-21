@@ -16,6 +16,12 @@ GIT
   specs:
     db_fixtures_dump (0.0.9)
 
+GIT
+  remote: git://github.com/rubyclerks/reports_clerk.git
+  revision: 13cfcf754d8b9379f50c21e6fb4e4fd1db9d2485
+  specs:
+    reports_clerk (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -305,6 +311,7 @@ DEPENDENCIES
   rails_layout
   ransack!
   rb-readline
+  reports_clerk!
   rspec-rails
   sass-rails
   simple_form
