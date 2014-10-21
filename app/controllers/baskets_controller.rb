@@ -95,7 +95,7 @@ class BasketsController < AdminController
       flash.notice = t('product_added')
     end
     if ean = params[:ean]
-      ean.sub!("P-" , "P+") if ean[0,2] == "P+"
+      ean.sub!("P+" , "P-") if ean[0,2] == "P+"
       prod = Product.find_by_ean ean
       if(prod)
         @basket.add_product prod
