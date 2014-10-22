@@ -9,6 +9,10 @@ class Item < ActiveRecord::Base
     self.price * self.quantity
   end
 
+  def product
+    Product.unscoped.find self.product_id
+  end
+
   # tax included in the total
   def tax_amount
     ((self.total * self.tax ) / 100.0).round(2)
