@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
 
   before_validation :generate_order_number, :on => :create
 
-  default_scope { order('created_at DESC').includes(:basket) }
+  default_scope { order('created_at DESC')}
 
   # many a european goverment requires buisnesses to have running order/transaction numbers.
   # this is what we use, but it can easily be changed by redifining this method
