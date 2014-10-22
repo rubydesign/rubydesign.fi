@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/rubyclerks/accountant_clerk.git
-  revision: 1c0678a0422c5a0d02f395b2d72f134678db8181
+  revision: a9ef40d1a4b56364240416ff17e2c45b24df67b2
   specs:
     accountant_clerk (0.1)
 

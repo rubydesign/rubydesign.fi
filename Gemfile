@@ -6,6 +6,7 @@ gem 'sqlite3'
 
 # extensions
 gem 'accountant_clerk' , github: "rubyclerks/accountant_clerk"
+#gem 'accountant_clerk' , path: "../accountant_clerk"
 
 #ui
 gem 'sass-rails'
