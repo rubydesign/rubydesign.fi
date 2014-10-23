@@ -22,6 +22,12 @@ GIT
   specs:
     db_fixtures_dump (0.0.9)
 
+GIT
+  remote: git://github.com/rubyclerks/print_clerk.git
+  revision: 485dfc1f1e77081575a77afa6972af2b5b492183
+  specs:
+    print_clerk (0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -305,6 +311,7 @@ DEPENDENCIES
   libv8 (= 3.16.14.3)
   paperclip
   prawn
+  print_clerk!
   quiet_assets
   rack-attack
   rails

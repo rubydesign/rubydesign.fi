@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update , :print]
+  before_filter :load_order, :only => [:show, :edit, :update ]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -13,12 +13,6 @@ class OrdersController < AdminController
   end
 
   def show
-  end
-
-  def print
-    template = params[:template] || "receipt"
-    eval "@#{template} = true"
-    render  template , :layout => false
   end
 
   def new
