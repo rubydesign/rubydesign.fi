@@ -11,6 +11,12 @@ class ShopController < ApplicationController
 #    @group = Category.find(@product.category_id)
   end
 
+  def add
+    prod = Product.find( params[:id]) # no id will raise which in turn will show home page
+    current_basket.add_product(prod)
+    redirect_to shop_group_path(prod.category.link), :flash => { :notice => t(:product_added) }
+  end
+
   def group
     @group = Category.online.where(:link => params[:link]).first 
     if @group

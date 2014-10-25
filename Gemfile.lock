@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/rubyclerks/db_fixtures_dump.git
-  revision: 3b20b52eb3e44622b32c6e788309aee8e9c4c4a0
+  revision: 2d00815c8cb4a9bf143564a8a1de082b6e30282c
   specs:
     db_fixtures_dump (0.0.9)
 
