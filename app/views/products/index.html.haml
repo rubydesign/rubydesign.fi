@@ -27,7 +27,7 @@
             %th= sort_link @q, :inventory
             %th
               %label.checkbox
-                = @products.length.to_s + " " + t(:products)
+                = @product_scope.length.to_s + " " + t(:products)
         %tbody
           - @products.each do |product|
           -next if params[:basket] and product.line?

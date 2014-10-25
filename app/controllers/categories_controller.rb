@@ -6,8 +6,7 @@ class CategoriesController < AdminController
   def index
     @q = Category.search(params[:q])
     @category_scope = @q.result(:distinct => true)
-    @category_scope = @category_scope.includes(:products , :categories ) 
-    @categories = @category_scope.paginate( :page => params[:page],:per_page => 20).to_a
+    @categories = @category_scope.includes(:products , :categories ).paginate( :page => params[:page],:per_page => 20).to_a
     @roots = Category.where(:category_id => nil).includes(:products , :categories ).to_a
   end
 

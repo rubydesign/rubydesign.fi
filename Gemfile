@@ -4,6 +4,13 @@ ruby '2.0.0'
 gem 'rails'
 gem 'sqlite3'
 
+# extensions, reporting, printing
+gem 'accountant_clerk' , github: "rubyclerks/accountant_clerk"
+#gem 'accountant_clerk' , path: "../accountant_clerk"
+
+gem 'print_clerk' , github: "rubyclerks/print_clerk"
+#gem 'print_clerk' , path: "../print_clerk"
+
 #ui
 gem 'sass-rails'
 gem 'jquery-rails'

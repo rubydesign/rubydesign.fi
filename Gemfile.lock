@@ -11,10 +11,22 @@ GIT
       polyamorous (~> 0.6.0)
 
 GIT
+  remote: git://github.com/rubyclerks/accountant_clerk.git
+  revision: a9ef40d1a4b56364240416ff17e2c45b24df67b2
+  specs:
+    accountant_clerk (0.1)
+
+GIT
   remote: git://github.com/rubyclerks/db_fixtures_dump.git
   revision: 3b20b52eb3e44622b32c6e788309aee8e9c4c4a0
   specs:
     db_fixtures_dump (0.0.9)
+
+GIT
+  remote: git://github.com/rubyclerks/print_clerk.git
+  revision: 485dfc1f1e77081575a77afa6972af2b5b492183
+  specs:
+    print_clerk (0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -275,6 +287,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  accountant_clerk!
   barby
   bcrypt-ruby
   better_errors
@@ -298,6 +311,7 @@ DEPENDENCIES
   libv8 (= 3.16.14.3)
   paperclip
   prawn
+  print_clerk!
   quiet_assets
   rack-attack
   rails

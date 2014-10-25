@@ -18,8 +18,7 @@ class ProductsController < AdminController
     param.merge!(:product_id_null => 1)    unless( params[:basket])
     @q = Product.search( param )
     @product_scope = @q.result(:distinct => true)
-    @product_scope = @product_scope.includes(:products , :supplier , :category) 
-    @products = @product_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
+    @products = @product_scope.includes(:products , :supplier , :category).paginate( :page => params[:page], :per_page => 20 ).to_a
   end
 
   def show

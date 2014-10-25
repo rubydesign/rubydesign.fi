@@ -14,7 +14,7 @@ class Clerk < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, :presence => true, :email => true  # extra gem to check email validity
 
-  store :address, accessors: [ :name , :street , :city , :phone ] , coder: JSON
+  store :address, accessors: [ :name , :street , :city , :phone ] #, coder: JSON
 
   def whole_address
     [ name , street , city , phone ].join(" ")

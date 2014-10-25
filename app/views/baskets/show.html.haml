@@ -15,4 +15,4 @@
 .col-md-12{"data-no-turbolink" => true}
   = link_to t(:back), orders_path, :class => "btn btn-warning"
   = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @basket.kori_type
-  = link_to t(:print_order), print_order_path(@basket.kori) , :target => "_blank" , :class => "btn btn-primary print_order" if @basket.isa(:order)
+  = link_to t(:print_order), invoice_order_path(@basket.kori) , :target => "_blank" , :class => "btn btn-primary print_order" if @basket.isa(:order)

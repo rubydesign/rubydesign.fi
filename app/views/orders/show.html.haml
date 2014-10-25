@@ -34,4 +34,4 @@
 
 .col-md-12{"data-no-turbolink" => true}
   = link_to t(:back), orders_path, :class => "btn btn-warning"
-  = link_to t(:print), print_order_path(@order), :class => "btn btn-primary"
+  = link_to t(:print), invoice_order_path(@order), :class => "btn btn-primary" ,  :target => "_blank"
