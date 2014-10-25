@@ -6,8 +6,6 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans); 
 
-$navbar-default-bg: #108BAD;
-$navbar-default-border: #108BAD;
 $highlight: #108BAD;
 $secondary-color: #c7e1df;
 $table-bg-accent: #E2EEF1;
@@ -24,14 +22,13 @@ ul.cat {
 
 }
 
-.navbar-nav > li > a {
+.navbar-nav li a {
   font-size: 12px;
   color: #E4DFDF; }
 
-.main{
-	max-width: 1000px;
-  	margin: 0 auto;
-}
+.main {
+  max-width: 92%;
+  margin: 60px auto 0; }
 
 @import "bootstrap";
 
@@ -43,7 +40,6 @@ ul.cat {
   	background-image: image-url("shop/kansi.jpg");
   	background-repeat: no-repeat;
     background-position: center center;
-    height: 250px;
 }   
 
 .top-bar-section form {
@@ -139,6 +135,10 @@ max-width: 100%;  }
   padding-top: 20px;
 }
 
+.intro2 {
+  width: 80%;
+}
+
 .img-responsive-prod {
   display: block;
   max-width: 100%;
@@ -170,23 +170,36 @@ max-width: 100%;  }
 
 .product-container {
   margin-bottom: 31px;
-  padding: 5px 0 45px;
+  padding: 0 0 86px;
   text-align: center;
   position: relative;
   border: 1px solid #cae3fb;
   box-shadow: 2px 2px 5px #E8EDF0;
   border-radius: 4px;
-	min-height: 240px;
-}
+  height: 350px; 
+  width: 185px;
+  }
 
 
 .square-image {
-  margin-left: auto;
-  margin-right: auto;
-  img { 
-  width: 200px;
-  padding-top: 7px; }
-  }
+  height: 200px;}
+
+
+.square-image img {
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px; 
+    display: block;  
+    height: auto;  
+    max-width: 100%;
+    margin: auto;  
+    
+}
+    
+
 
 .product-fact {
   height: 49px;
@@ -229,10 +242,10 @@ h1.product-title {
   margin-top: 12px;
 }
 
-span.price.selling {
+.price.selling {
   color: $highlight;
-	font-weight: bold;
-	font-size: 1.6rem;
+	font-weight: 300;
+	font-size: 1.8rem;
 	text-align: right;
 }
 
@@ -252,6 +265,7 @@ border-radius: 0px;
 	margin-top: 12px;
 	padding-top: 12px;
 	border-top: 1px dotted #0078ff;
+	float: left;
 }
 
 .basket-total {
@@ -276,4 +290,65 @@ border-radius: 0px;
     {
         display: none !important;
     }
+}
+
+.navbar-inverse .navbar-inner {
+  border: 0px;
+  background-color: #108BAD;
+}
+
+.carouselli {
+	margin-top: 50px;
+	margin: 50px auto 0;
+	width: 1000px;
+	text-align: center;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 93%;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 30px;
+  color: #ffffff;
+  text-align: center;
+  background: #BDB6B6;
+  border: 3px solid #ffffff;
+  -webkit-border-radius: 23px;
+     -moz-border-radius: 23px;
+          border-radius: 23px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.carousel-control.right {
+  right: 15px;
+}
+
+body {
+    margin-top: 50px; 
+    /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.banner {
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background: image-url("shop/violetti.jpg") no-repeat center center scroll;
+    height: 450px;
+}
+
+.taustalogo {
+  background: url(/assets/shop/kansi.png) no-repeat scroll;
+  height: 100px; }
+
+.dropped {
+	top: 50px;
+	position: relative;
 }

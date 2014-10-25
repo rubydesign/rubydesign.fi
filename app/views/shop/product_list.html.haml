@@ -29,10 +29,10 @@
                   = image_tag group.main_picture.url(:product)
                   %h3= group.name
   .row.list
-    -@products.in_groups_of(3).each do |three|
+    -@products.in_groups_of(4).each do |three|
       .row.product-listing
         -three.each do |product|
-          .col-md-4
+          .col-md-3
             -next unless product
             .product-container
               .square-image
@@ -40,10 +40,10 @@
                   =image_tag product.main_picture.url
               .product-fact
                 =link_to shop_product_path( :link => product.link ) , :class => :info do
-                  %h5.product-name
+                  %h4.product-name
                     = product.name
                   %p Tulisiko tähän pari riviä tuotteen esittelyä pienellä
-                  %span.price.selling
+                  .price.selling
                     = product.price
                     €
     
