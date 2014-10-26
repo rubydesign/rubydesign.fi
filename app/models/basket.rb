@@ -92,6 +92,7 @@ class Basket < ActiveRecord::Base
   #when adding a product (with quantity) we ensure there is only one item for each product
   def add_product prod , quant = 1
     return unless prod
+    return unless quant != 0
     exists = items.where(:product_id => prod.id ).limit(1).first
     if exists
       exists.quantity += quant
@@ -99,7 +100,11 @@ class Basket < ActiveRecord::Base
       exists = items.new :quantity => quant , :product => prod , :price => prod.price , 
                          :tax => prod.tax , :name => prod.full_name
     end
-    exists.save!
+    if( exists.quantity == 0)
+      exists.delete
+    else
+      exists.save!
+    end
     reload
   end
 end
