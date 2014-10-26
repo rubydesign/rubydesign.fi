@@ -26,7 +26,12 @@
                 %td.picture= image_tag item.product.main_picture.url(:thumb) if item.product
                 %td.name= item.name
                 %td= number_to_currency item.product.price
-                %td= item.quantity
+                %td
+                  = link_to cart_remove_path( :id => item.product.id ) do
+                    = image_tag "down-icon.png" , :width => 16 , :height => 16
+                  = item.quantity
+                  = link_to cart_add_path( :id => item.product.id ) do
+                    = image_tag "up-icon.png" , :width => 16 , :height => 16
                 %td= number_to_currency item.total
 
             %tr
