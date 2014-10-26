@@ -19,7 +19,7 @@
         .row
           %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
             .navbar-inner
-              .row.taustalogo
+              .row
                 .col-md-6
                   %img{:src => "/assets/shop/spacer.gif"}/
                   
@@ -52,10 +52,10 @@
                           %li= link_to t(:sign_up), sign_up_path
                           %li= link_to t(:sign_in), sign_in_path
         
-      -#        
-        .row
-          .banner
-            \     
+                          -#        
+      .row
+        .banner
+          \     
           
       .row.content
         - if not flash[:notice].blank? then
@@ -75,10 +75,15 @@
       
 
       .main
-        .row
-          .col-md-12
-            = yield
-
+        - @groups.in_groups_of(3).each do |array|
+          .row
+            -array.each do |group|
+              .col-md-4
+                -next unless group
+                .group-wrapper
+                  =link_to shop_group_path(group.link) do
+                    = image_tag group.main_picture.url(:product) , :class => "img-responsive"
+                    %h3= group.name
 
       .row
         .col-md-6

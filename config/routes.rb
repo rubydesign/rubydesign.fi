@@ -95,6 +95,7 @@ OfficeClerk::Application.routes.draw do
   get 'group/:link' => 'shop#group', :as => :shop_group
   get 'prod/:link' => 'shop#product', :as => :shop_product
   get 'page/:id' => 'shop#page', :as => :shop_page
+  get 'welcome' => 'shop#welcome', :as => :shop_welcome
   post 'cart/add/:id' => 'shop#add', :as => :cart_add
   get 'cart/order' => 'shop#order', :as => :shop_order
   get 'cart/checkout' => 'shop#checkout', :as => :shop_checkout

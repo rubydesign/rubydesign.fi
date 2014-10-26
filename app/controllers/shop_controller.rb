@@ -3,6 +3,11 @@ class ShopController < ApplicationController
 
   layout "shop"
 
+  def welcome
+    @groups = Category.online.where( :category_id => nil )
+    render :layout => false
+  end
+
   def product
     @product = Product.online.where(:link => params[:link]).first
     redirect_to :action => :group unless @product
