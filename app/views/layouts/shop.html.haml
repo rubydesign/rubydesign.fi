@@ -51,30 +51,25 @@
                         - else
                           %li= link_to t(:sign_up), sign_up_path
                           %li= link_to t(:sign_in), sign_in_path
-        
-      -#        
-        .row
-          .banner
-            \     
           
-      .row.content
-        - if not flash[:notice].blank? then
-          .col-md-12.alert
-            .alert-notice.row
-              .col-md-3
-                .alert-heading= t(:info) + " :"
-              .col-md-9
-                .alert-message!= flash[:notice]
-        - if not flash[:error].blank? then
-          .col-md-12.alert
-            .alert-error.row
-              .col-md-3
-                .alert-heading= t(:info) + " :"
-              .col-md-9
-                .alert-message!= flash[:notice]
+      .main
+        .row
+          - if not flash[:notice].blank? then
+            .col-md-12
+              .alert-notice.row.alert-shop
+                .col-md-1
+                  .alert-heading= t(:info) + " :"
+                .col-md-11
+                  .alert-message!= flash[:notice]
+          - if not flash[:error].blank? then
+            .col-md-12.alert-shop
+              .alert-error.row.alert-shop
+                .col-md-1
+                  .alert-heading= t(:info) + " :"
+                .col-md-11
+                  .alert-message!= flash[:notice]
       
 
-      .main
         .row
           .col-md-12
             = yield
