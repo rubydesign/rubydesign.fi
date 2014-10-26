@@ -19,7 +19,7 @@
         .row
           %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
             .navbar-inner
-              .row.taustalogo
+              .row
                 .col-md-6
                   %img{:src => "/assets/shop/spacer.gif"}/
                   
@@ -51,29 +51,39 @@
                         - else
                           %li= link_to t(:sign_up), sign_up_path
                           %li= link_to t(:sign_in), sign_in_path
+        
+                          -#        
+      .row
+        .banner
+          \     
           
-      .main
-        .row
-          - if not flash[:notice].blank? then
-            .col-md-12
-              .alert-notice.row.alert-shop
-                .col-md-1
-                  .alert-heading= t(:info) + " :"
-                .col-md-11
-                  .alert-message!= flash[:notice]
-          - if not flash[:error].blank? then
-            .col-md-12.alert-shop
-              .alert-error.row.alert-shop
-                .col-md-1
-                  .alert-heading= t(:info) + " :"
-                .col-md-11
-                  .alert-message!= flash[:notice]
+      .row.content
+        - if not flash[:notice].blank? then
+          .col-md-12.alert
+            .alert-notice.row
+              .col-md-3
+                .alert-heading= t(:info) + " :"
+              .col-md-9
+                .alert-message!= flash[:notice]
+        - if not flash[:error].blank? then
+          .col-md-12.alert
+            .alert-error.row
+              .col-md-3
+                .alert-heading= t(:info) + " :"
+              .col-md-9
+                .alert-message!= flash[:notice]
       
 
-        .row
-          .col-md-12
-            = yield
-
+      .main
+        - @groups.in_groups_of(3).each do |array|
+          .row
+            -array.each do |group|
+              .col-md-4
+                -next unless group
+                .group-wrapper
+                  =link_to shop_group_path(group.link) do
+                    = image_tag group.main_picture.url(:product) , :class => "img-responsive"
+                    %h3= group.name
 
       .row
         .col-md-6

@@ -28,7 +28,7 @@ ul.cat {
 
 .main {
   max-width: 92%;
-  margin: 60px auto 0; }
+  margin: 70px auto 0; }
 
 @import "bootstrap";
 
@@ -62,9 +62,6 @@ ul.cat {
   }  
 }
 
-.banner {
-  padding-top: 15px;
-}
 
 
 
@@ -176,7 +173,7 @@ max-width: 100%;  }
   border: 1px solid #cae3fb;
   box-shadow: 2px 2px 5px #E8EDF0;
   border-radius: 4px;
-  height: 350px; 
+  height: 375px; 
   width: 185px;
   }
 
@@ -186,17 +183,13 @@ max-width: 100%;  }
 
 
 .square-image img {
-    -webkit-border-top-left-radius: 4px;
-    -webkit-border-top-right-radius: 4px;
-    -moz-border-radius-topleft: 4px;
-    -moz-border-radius-topright: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px; 
-    display: block;  
-    height: auto;  
-    max-width: 100%;
-    margin: auto;  
-    
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: block;
+  height: 190px;
+  max-width: 100%;
+  margin: auto;
+	padding-top: 10px;
 }
     
 
@@ -336,19 +329,41 @@ body {
 
 .banner {
     text-align: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
+    background: image-url("shop/violetti-lev.jpg") no-repeat center center;
     background-size: cover;
-    -o-background-size: cover;
-    background: image-url("shop/violetti.jpg") no-repeat center center scroll;
-    height: 450px;
+    min-height: 500px;
+    margin-top: 15px;
 }
 
 .taustalogo {
-  background: url(/assets/shop/kansi.png) no-repeat scroll;
-  height: 100px; }
+  background: url(/assets/shop/kansi.jpg) no-repeat scroll;
+  height: 107px;
+}
 
 .dropped {
 	top: 50px;
 	position: relative;
 }
+
+.dropdown-menu {
+  padding-left: 10px;
+}
+
+.navbar-inverse  .navbar-nav > li > a {
+color: #E2E7F6; }
+
+.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+background-color: #0A6779; }
+
+
+.alert-shop {
+  padding: 8px 15px;
+  margin: 8px 0 10px;
+  background-color: rgba(155, 27, 255, 0.3);
+  color: #682EA7;
+  font-weight: 500;
+  border-radius: 0px; }
+  
+
+
+
