@@ -14,7 +14,16 @@ class ShopController < ApplicationController
   def add
     prod = Product.find( params[:id]) # no id will raise which in turn will show home page
     current_basket.add_product(prod)
-    redirect_to shop_group_path(prod.category.link), :flash => { :notice => t(:product_added) }
+    if request.get?
+      redirect_to shop_checkout_path
+    else
+      redirect_to shop_group_path(prod.category.link), :flash => { :notice => t(:product_added) }
+    end
+  end
+  def remove
+    prod = Product.find( params[:id]) # no id will raise which in turn will show home page
+    current_basket.add_product(prod , -1)
+    redirect_to shop_checkout_path
   end
 
   def group
