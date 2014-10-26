@@ -54,14 +54,11 @@
                 %tr
                   %th Muut tuotteet samassa kategoriassa
               %tbody
-                %tr 
-                  %td Volyymi muotovaahto
-                %tr  
-                  %td Muotoileva hoitovaahto
-                %tr  
-                  %td Hiuskiinne
-                %tr  
-                  %td Korjaava Hiusnaamio
+                - in_group(@product).each do |p|
+                  %tr
+                    %td
+                      =link_to shop_product_path(:link => p.link ) do
+                        = p.name
             
             
           
