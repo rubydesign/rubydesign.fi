@@ -55,7 +55,7 @@ class Basket < ActiveRecord::Base
     sum
   end
 
-  # locks the basket so receiving or deductiing becomes an error.
+  # locks the basket so receiving or deducting becomes an error.
   # deduct the items from inventory, change affects immediately in the products 
   def deduct!
     raise "Locked since #{self.locked}" if self.locked
@@ -93,6 +93,7 @@ class Basket < ActiveRecord::Base
   def add_product prod , quant = 1
     return unless prod
     return unless quant != 0
+    raise "Locked since #{self.locked}" if self.locked
     exists = items.where(:product_id => prod.id ).limit(1).first
     if exists
       exists.quantity += quant
@@ -102,6 +103,7 @@ class Basket < ActiveRecord::Base
     end
     if( exists.quantity == 0)
       exists.delete
+      touch
     else
       exists.save!
     end
