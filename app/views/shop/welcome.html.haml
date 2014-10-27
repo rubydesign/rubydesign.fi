@@ -58,12 +58,12 @@
 
       .welcome
         .row
-          .col-md-4
+          .col-md-5.text-right
             %img{:src => "/assets/shop/tervetuloa.gif"}/
-          .col-md-4.text-center
-            %button.btn.btn-primary.btn-mega{:type => "button"} Käy ostoksille! 
-          .col-md-4
-            \
+          .col-md-2
+          .col-md-5
+            %button.btn.btn-primary.btn-mega{:type => "button"} Siirry verkkokauppaan 
+          
           
         - @groups.in_groups_of(3).each do |array|
           .row
