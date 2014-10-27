@@ -61,9 +61,9 @@
           - OfficeClerk::ShippingMethod.all.each do |s|
             .radio
               %label
-                %input{:id => s.id , :name => "optionsRadios", :type => "radio", :value => "option3"}/
+                %input{:id => s.id , :name => "optionsRadios", :type => "radio", :value => "option3"}
                 = s.name
-                = s.price(current_basket)
+                = s.price_for(current_basket)
                 €
 
         .col-md-4
@@ -72,15 +72,19 @@
           %table.table.table-condensed.basket-total
             %thead
               %tr
-                %th Tuotteet yhteensä 
-                %td.text-right 120,20 €
+                %th Tuotteet yhteensä
+                %td.text-right= number_to_currency current_basket.total_price
             %tbody
               %tr 
                 %th Toimituskulut 
-                %td.text-right 0,00 €
+                %td.text-right
+                  %span#shipping_cost 0
+                  €
               %tr 
-                %th Tilaus yhteensä 
-                %th.text-right 120,20 €
+                %th Tilaus yhteensä
+                %th.text-right
+                  %span#order_total= number_with_precision current_basket.total_price , :precision => 2
+                  €
                 
       
         .col-md-1

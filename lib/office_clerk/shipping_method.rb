@@ -2,16 +2,14 @@ module OfficeClerk
   class ShippingMethod
     def initialize data
       @data = data
+      @name = @data[:name]
+      @id = @data[:id]
+      @description = @data[:description]
     end
-    attr_reader :data
-    def name
-      @data[:name]
-    end
-    def id
-      @data[:id]
-    end
-    def price(basket)
-      5
+    attr_reader :data , :name , :id
+
+    def price_for(basket)
+      raise "Not implemented in #{self}"
     end
     @@methods = nil
     def self.all
@@ -30,10 +28,8 @@ module OfficeClerk
     def initialize data
       super(data)
     end
-  end
-  class Postal < ShippingMethod
-    def initialize data
-      super data
+    def price_for(basket)
+      0
     end
   end
 end

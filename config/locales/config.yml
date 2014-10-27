@@ -4,17 +4,17 @@ config:
       max: 12
       min: 10
       name: Postin kotiinkuljetus
-      class: "OfficeClerk::Postal"
+      class: "OfficeClerk::Post"
     post:
       max: 12
       min: 10
       name: Nouto lähimmästä postikonttorista
-      class: "OfficeClerk::Postal"
+      class: "OfficeClerk::Post"
     pakettiautomaati:
       max: 12
       min: 10
       name: Nouto lähimmästä pakettiautomaatista
-      class: "OfficeClerk::Postal"
+      class: "OfficeClerk::Post"
     pickup:
       class: "OfficeClerk::Pickup"
       name: Nouto myymälästämme
