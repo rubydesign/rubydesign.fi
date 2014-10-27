@@ -1,0 +1,20 @@
+config:
+  shipping:
+    kotiinkuljetus:
+      max: 12
+      min: 10
+      name: Postin kotiinkuljetus
+      class: "OfficeClerk::Postal"
+    post:
+      max: 12
+      min: 10
+      name: Nouto lähimmästä postikonttorista
+      class: "OfficeClerk::Postal"
+    pakettiautomaati:
+      max: 12
+      min: 10
+      name: Nouto lähimmästä pakettiautomaatista
+      class: "OfficeClerk::Postal"
+    pickup:
+      class: "OfficeClerk::Pickup"
+      name: Nouto myymälästämme

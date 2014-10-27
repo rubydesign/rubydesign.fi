@@ -58,24 +58,13 @@
         .col-md-7
       
           %h4.highlight Valitse toimitustapa
-        
-          .radio
-            %label
-              %input#optionsRadios1{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
-              Postin kotiinkuljetus 9,90 €
-          .radio
-            %label
-              %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option2"}/
-              Nouto lähimmästä postikonttorista 8,80 €
-          .radio
-            %label
-              %input#optionsRadios3{:disabled => "disabled", :name => "optionsRadios", :type => "radio", :value => "option3"}/
-              Nouto lähimmästä pakettiautomaatista 7,70 €
-          .radio
-            %label
-              %input#optionsRadios3{:disabled => "disabled", :name => "optionsRadios", :type => "radio", :value => "option4"}/
-              Nouto myymälästämme 0 €
-
+          - OfficeClerk::ShippingMethod.all.each do |s|
+            .radio
+              %label
+                %input{:id => s.id , :name => "optionsRadios", :type => "radio", :value => "option3"}/
+                = s.name
+                = s.price(current_basket)
+                €
 
         .col-md-4
           %h4.highlight Tilaus 123123
