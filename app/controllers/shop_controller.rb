@@ -22,7 +22,7 @@ class ShopController < ApplicationController
     if request.get?
       redirect_to shop_checkout_path
     else
-      redirect_to shop_group_path(prod.category.link), :flash => { :notice => t(:product_added) }
+      redirect_to shop_group_path(prod.category.link), :flash => { :notice => "#{t(:product_added)}: #{prod.name}" }
     end
   end
   def remove
