@@ -9,7 +9,7 @@
 .row
   .col-md-3
     - parents(@group).each do | group|
-      .group-wrapper
+      .group-wrapper.side
         = link_to shop_group_path(group.link) do
           = image_tag group.main_picture.url(:list)
           %h5= group.name
@@ -24,7 +24,7 @@
           -array.each do |group|
             .col-lg-4
               -next unless group
-              .subgroup-wrapper
+              .group-wrapper.sub
                 =link_to shop_group_path(group.link) do
                   = image_tag group.main_picture.url(:product)
                   %h3= group.name

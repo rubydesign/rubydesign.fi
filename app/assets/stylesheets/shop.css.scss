@@ -75,13 +75,8 @@ ul.cat {
 	margin-top: 25px;
 }
 
-.subgroup-wrapper {
-	position: relative;
-	margin-top: 25px;
-}
 
-
-.group-wrapper h3 {
+.group-wrapper h3, h5, {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -89,43 +84,24 @@ ul.cat {
   color: #FFF;
   background: black;
   /* fallback color */
-  background: rgba(70,3,21,0.25);
+  background: rgba(3, 142, 235, 0.25);
 	text-shadow: black 1px 1px 03px;
   margin: 0px;
 	width: 100%;
 }
 
-.subgroup-wrapper img {
+.group-wrapper.sub img {
 height: auto;
 max-width: 100%;  }
 
-.subgroup-wrapper h3 {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding: 10px;
-  color: #FFF;
-  background: black;
-  /* fallback color */
-  background: rgba(70,3,21,0.25);
-	text-shadow: black 1px 1px 03px;
-  margin: 0px;
-	width: 100%;
-}
+.group-wrapper.side img {
+height: auto;
+width: 200px;  }
 
-.group-wrapper h5 {
-  font-size: 16px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+.group-wrapper.side h5 {
+  font-size: 18px;
   padding: 7px;
-  color: #FFF;
-  background: black;
-  /* fallback color */
-  background: rgba(70,3,21,0.25);
-	text-shadow: black 1px 1px 03px;
-  margin: 0px;
-	width: 150px;
+	width: 200px;
 }
 
 .intro {
