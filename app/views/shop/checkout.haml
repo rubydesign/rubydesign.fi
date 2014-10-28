@@ -92,49 +92,47 @@
         .col-md-1
 
             
-              
-    .row
-      %hr 
-      .col-md-9
-        %h4.highlight Yhteystiedot 
-        %form{:role => "form"}
+    = form_tag shop_checkout_path do
+      .row
+        %hr 
+        .col-md-9#address_form
+          %h4.highlight Yhteystiedot 
           .form-group
-            %label{:for => "nimi"} Nimi
-            %input#nimi.form-control{:placeholder => "Nimi", :type => "nimi"}/
+            = label_tag :nimi
+            = text_field_tag :name, params[:name] , :class => "form-control" , :placeholder => t(:name)
           .form-group
-            %label{:for => "exampleInputEmail1"} Sähköposti
-            %input#exampleInputEmail1.form-control{:placeholder => "Sähköposti", :type => "email"}/
+            = label_tag :street
+            = text_field_tag :street, params[:street] , :class => "form-control" , :placeholder => t(:street)
           .form-group
-            %label{:for => "Katuosoite"} Katuosoite
-            %input#exampleKatuosoite.form-control{:placeholder => "Katuosoite", :type => "Katuosoite"}/
+            = label_tag :city
+            = text_field_tag :city, params[:city] , :class => "form-control" , :placeholder => t(:city)
           .form-group
-            %label{:for => "Katuosoite"} Puhelin
-            %input#examplePuhelin.form-control{:placeholder => "Puhelin", :type => "Puhelin"}/
-      .col-md-3
-        %h4.highlight Tallennetut osoitteet
-        .frame
-          Anna Asiakas 
-          %br/ 
-          Mallikatu 3  
-          %br/
-          10300 Karjaa  
-          %br/
-          040 333 4455  
-          %br/
-          anna.asiakas@gmail.com  
-          %br/
-          %br/
+            = label_tag :phone
+            = text_field_tag :phone, params[:phone] , :class => "form-control" , :placeholder => t(:phone)
+          .form-group
+            = label_tag :email
+            = text_field_tag :email, params[:email] , :class => "form-control" , :placeholder => t(:email)
+        .col-md-3
+          %h4.highlight Tallennetut osoitteet
+          .frame#previous_address
+            %span.name Anna Asiakas 
+            %br/ 
+            %span.street Mallikatu 3  
+            %br/
+            %span.city 10300 Karjaa  
+            %br/
+            %span.phone 040 333 4455  
+            %br/
           
-          %button.btn.btn-primary.btn-xs{:type => "button"} Käytä tätä osoitetta
+            %button.btn.btn-primary.btn-xs#fill_address{:type => "button"} Käytä tätä osoitetta
   
-    .row
-      %hr  
-      %form{:role => "form"}
+      .row
+        %hr  
         .form-group
-          %label{:for => "Katuosoite"} Viesti
-          %input#exampleViesti.form-control{:placeholder => "Kirjoita tähän mahdolliset erityistoiveesi tilaukseen liittyen", :type => "Viesti"}/
-      %hr  
-      %button.btn.btn-primary{:type => "submit"} Vahvista tilaus    
+          = label_tag :message
+          = text_field_tag :message, params[:message] , :class => "form-control" , :placeholder => "Kirjoita tähän mahdolliset erityistoiveesi tilaukseen liittyen"
+        %hr  
+        %button.btn.btn-primary{:type => "submit"} Tee tilaus
       
           
     
