@@ -3,10 +3,10 @@ module OfficeClerk
     def initialize data
       @data = data
       @name = @data[:name]
-      @id = @data[:id]
+      @type = @data[:type]
       @description = @data[:description]
     end
-    attr_reader :data , :name , :id
+    attr_reader :data , :name , :type
 
     def price_for(basket)
       raise "Not implemented in #{self}"
@@ -19,7 +19,7 @@ module OfficeClerk
       config.each do |key , method|
         clas_name = method[:class]
         clas = clas_name.constantize
-        @@methods << clas.new( method.merge(:id => key) )
+        @@methods << clas.new( method.merge(:type => key) )
       end
       @@methods
     end
