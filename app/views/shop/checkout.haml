@@ -62,7 +62,7 @@
               = @order.shipment_type              
             - OfficeClerk::ShippingMethod.all.each do |s|
               .radio
-                = radio_button_tag "order[shipment_type]" , s.type , @order.shipment_type == s.type.to_s , :data => s.price_for(current_basket)
+                = radio_button_tag "order[shipment_type]" , s.type , @order.shipment_type == s.type.to_s , "data-price" => s.price_for(current_basket).round(2)
                 = s.name
                 = s.price_for(current_basket).round(2)
                 €

@@ -7,10 +7,10 @@
 //= require_self
 
 function shipmentSelected(){
-  val = $("input[name='shipmentOption']:checked").val();
-  ship = parseFloat(val.replace(",", "."));
+  val = $("input[name='order[shipment_type]']:checked").data("price");
+  ship = parseFloat(val);
   val = $("#basket_total").text();
-  basket = parseFloat(val.replace(",", "."));
+  basket = parseFloat(val);
   $("#shipping_cost").text( ship.toFixed(2) );
   $("#order_total").text( (ship + basket).toFixed(2) );
 }
@@ -25,6 +25,6 @@ function fillAddress(){
 }
 
 $(function() {
-  $("input[name='shipmentOption']").click(shipmentSelected);
+  $("input[name='order[shipment_type]']").click(shipmentSelected);
   $("#fill_address").click(fillAddress);
 });
