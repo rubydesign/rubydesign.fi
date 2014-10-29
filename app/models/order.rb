@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   validates :street,:presence => true , :if => :needs_address?
   validates :city,  :presence => true , :if => :needs_address?
   validates :phone, :presence => true , :if => :needs_address?
-  validates :email, :presence => true
+  validates :email, :presence => true , :email => true  # extra gem to check email validity
   
   default_scope { order('created_at DESC')}
 
