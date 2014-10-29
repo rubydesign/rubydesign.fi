@@ -67,8 +67,10 @@
                 €
 
         .col-md-4
-          %h4.highlight Tilaus 123123
-          
+          %h4.highlight
+            = t(:order)
+            = @order.number
+
           %table.table.table-condensed.basket-total
             %thead
               %tr
@@ -80,7 +82,7 @@
               %tr 
                 %th Toimituskulut 
                 %td.text-right
-                  %span#shipping_cost 0
+                  %span#shipping_cost= @order.shipment_price
                   €
               %tr 
                 %th Tilaus yhteensä
@@ -95,19 +97,19 @@
           %h4.highlight Yhteystiedot 
           .form-group
             = label_tag :nimi
-            = text_field_tag "address[name]", params[:name] , :class => "form-control" , :placeholder => t(:name)
+            = text_field_tag "order[name]", @order.name , :class => "form-control" , :placeholder => t(:name)
           .form-group
             = label_tag :street
-            = text_field_tag :street, params[:street] , :class => "form-control" , :placeholder => t(:street)
+            = text_field_tag "order[street]", @order.street , :class => "form-control" , :placeholder => t(:street)
           .form-group
             = label_tag :city
-            = text_field_tag :city, params[:city] , :class => "form-control" , :placeholder => t(:city)
+            = text_field_tag "order[city]", @order.city , :class => "form-control" , :placeholder => t(:city)
           .form-group
             = label_tag :phone
-            = text_field_tag :phone, params[:phone] , :class => "form-control" , :placeholder => t(:phone)
+            = text_field_tag "order[phone]", @order.phone , :class => "form-control" , :placeholder => t(:phone)
           .form-group
             = label_tag :email
-            = text_field_tag :email, params[:email] , :class => "form-control" , :placeholder => t(:email)
+            = text_field_tag "order[email]", @order.email , :class => "form-control" , :placeholder => t(:email)
         .col-md-3
           %h4.highlight Tallennetut osoitteet
           .frame#previous_address
