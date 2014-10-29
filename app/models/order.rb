@@ -5,10 +5,11 @@ class Order < ActiveRecord::Base
 
   after_validation :generate_order_number, :on => :create
 
-  validates :name, presence: true
-  validates :street, presence: true
-  validates :city, presence: true
-  validates :phone, presence: true
+  validates :name,  :presence => true , :if => :needs_address?
+  validates :street,:presence => true , :if => :needs_address?
+  validates :city,  :presence => true , :if => :needs_address?
+  validates :phone, :presence => true , :if => :needs_address?
+  validates :email, :presence => true
   
   default_scope { order('created_at DESC')}
 
@@ -28,12 +29,14 @@ class Order < ActiveRecord::Base
     basket.total_price + shipment_price
   end
 
-  #should be an array later (different rates)
+  # total tax is for when the rates don't matter, usually to cutomers.
+  # only on bills or invoices do we need the detailed list you get from the taxes function
   def total_tax
     basket.total_tax + shipment_tax*shipment_price
   end
 
-  #return a hash of rate => amount
+  # return a hash of rate => amount , because products may have different taxes, 
+  # the items in an order may have a collection of tax rates.
   def taxes
     cart = basket.taxes
     s_tax = self.shipment_price * shipment_tax
@@ -52,5 +55,11 @@ class Order < ActiveRecord::Base
     self.email = email
     self.basket.deduct!
   end
-  
+
+  private
+  # the name says a lot ,but what for? for shipping. For pickup or store sales we don't need an address
+  def needs_address?
+    return true unless shipment_type
+    return shipment_type != "pickup"
+  end
 end
