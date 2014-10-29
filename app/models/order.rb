@@ -56,6 +56,13 @@ class Order < ActiveRecord::Base
     self.basket.deduct!
   end
 
+  def shipment_type= typ
+    write_attribute(:shipment_type, typ)
+    calc = OfficeClerk::ShippingMethod.all[typ.to_sym]
+    cost = calc.price_for(self.basket)
+    self.shipment_price = cost
+  end
+
   private
   # the name says a lot ,but what for? for shipping. For pickup or store sales we don't need an address
   def needs_address?
