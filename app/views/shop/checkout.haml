@@ -53,7 +53,7 @@
             %h4.highlight
               Valitse toimitustapa
               = @order.shipment_type              
-            - OfficeClerk::ShippingMethod.all.each do |s|
+            - OfficeClerk::ShippingMethod.all.each_value do |s|
               .radio
                 = radio_button_tag "order[shipment_type]" , s.type , @order.shipment_type == s.type.to_s , "data-price" => s.price_for(current_basket).round(2)
                 = s.name
@@ -82,7 +82,7 @@
                 %tr 
                   %th Tilaus yhteensä
                   %th.text-right
-                    %span#order_total= current_basket.total_price.round(2)
+                    %span#order_total= @order.total_price.round(2)
                     €
           .col-md-1
 

@@ -13,13 +13,13 @@ module OfficeClerk
     end
     @@methods = nil
     def self.all
-#      return @@methods if @@methods 
-      @@methods = []
+      return @@methods if @@methods 
+      @@methods = {}
       config = OfficeClerk.config(:shipping)
       config.each do |key , method|
         clas_name = method[:class]
         clas = clas_name.constantize
-        @@methods << clas.new( method.merge(:type => key) )
+        @@methods[key] = clas.new( method.merge(:type => key) )
       end
       @@methods
     end
