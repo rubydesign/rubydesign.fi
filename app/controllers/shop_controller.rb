@@ -29,6 +29,7 @@ class ShopController < ApplicationController
       if @order.update_attributes(order_ps)
         raise "redirect"
         return
+      else
       end
     end
   end
