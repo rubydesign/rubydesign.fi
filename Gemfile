@@ -30,6 +30,8 @@ gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootstrap_form' #, :github => "bootstrap-ruby/rails-bootstrap-forms"
+
 
 gem "paperclip"
 gem 'turbolinks'
