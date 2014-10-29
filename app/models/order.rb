@@ -3,8 +3,13 @@ class Order < ActiveRecord::Base
 
   store :address, accessors: [ :name , :street , :city , :phone ] #, coder: JSON
 
-  before_validation :generate_order_number, :on => :create
+  after_validation :generate_order_number, :on => :create
 
+  validates :name, presence: true
+  validates :street, presence: true
+  validates :city, presence: true
+  validates :phone, presence: true
+  
   default_scope { order('created_at DESC')}
 
   # many a european goverment requires buisnesses to have running order/transaction numbers.

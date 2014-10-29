@@ -99,7 +99,7 @@ OfficeClerk::Application.routes.draw do
   get 'cart/remove/:id' => 'shop#remove', :as => :cart_remove
   get 'welcome' => 'shop#welcome', :as => :shop_welcome
   get 'cart/order' => 'shop#order', :as => :shop_order
-  get 'cart/checkout' => 'shop#checkout', :as => :shop_checkout
+  match 'cart/checkout' => 'shop#checkout', :as => :shop_checkout , :via => [:get,:post]
   
   get "/404", :to => "application#error"
   

@@ -16,6 +16,12 @@ class ShopController < ApplicationController
 #    @group = Category.find(@product.category_id)
   end
 
+  def checkout
+    order = Order.new :shipment_type => "OfficeClerk::Pickup" # price is 0 automatically
+    order.basket = current_basket
+    order.email = current_clerk.email if current_clerk
+  end
+
   def add
     prod = Product.find( params[:id]) # no id will raise which in turn will show home page
     current_basket.add_product(prod)

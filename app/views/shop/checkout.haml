@@ -63,7 +63,7 @@
               %label
                 %input{:id => s.id , :name => "shipmentOption", :type => "radio", :value => s.price_for(current_basket)}
                 = s.name
-                = s.price_for(current_basket)
+                = s.price_for(current_basket).round(2)
                 €
 
         .col-md-4
@@ -74,7 +74,7 @@
               %tr
                 %th Tuotteet yhteensä
                 %td.text-right
-                  %span#basket_total= number_with_precision current_basket.total_price , :precision => 2
+                  %span#basket_total= current_basket.total_price.round(2)
                   €
             %tbody
               %tr 
@@ -85,13 +85,9 @@
               %tr 
                 %th Tilaus yhteensä
                 %th.text-right
-                  %span#order_total= number_with_precision current_basket.total_price , :precision => 2
+                  %span#order_total= current_basket.total_price.round(2)
                   €
-                
-      
         .col-md-1
-
-            
     = form_tag shop_checkout_path do
       .row
         %hr 
@@ -99,7 +95,7 @@
           %h4.highlight Yhteystiedot 
           .form-group
             = label_tag :nimi
-            = text_field_tag :name, params[:name] , :class => "form-control" , :placeholder => t(:name)
+            = text_field_tag "address[name]", params[:name] , :class => "form-control" , :placeholder => t(:name)
           .form-group
             = label_tag :street
             = text_field_tag :street, params[:street] , :class => "form-control" , :placeholder => t(:street)
