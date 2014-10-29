@@ -2,59 +2,52 @@
   %img{:src => "/assets/shop/spacer.gif"}/
   
 .row
-  .col-md-3
-    .group-wrapper
-      %img{:src => "/assets/shop/basket.jpg"}/
-      %h5 Ostoskori
+  = bootstrap_form_for @order, :url => shop_checkout_path do |f|
+    = f.alert_message t(:fix_errors) , error_summary: false
 
-  .col-md-9
-    .row
-      %br
-      %h4.highlight Ostoskorisi sisältö
-      %div
-        %table.table.table-hover.table-condensed
-          %thead            
-            %tr
-              %th tuote
-              %th 
-              %th hinta a
-              %th määrä
-              %th yhteishinta
-          %tbody
-            -current_basket.items.each do |item|
+    .col-md-3
+      .group-wrapper
+        %img{:src => "/assets/shop/basket.jpg"}/
+        %h5 Ostoskori
+
+    .col-md-9
+      .row
+        %br
+        %h4.highlight Ostoskorisi sisältö
+        %div
+          %table.table.table-hover.table-condensed
+            %thead            
               %tr
-                %td.picture= image_tag item.product.main_picture.url(:thumb) if item.product
-                %td.name
-                  = link_to shop_product_path(:link => item.product.link ) do
-                    = item.name
-                %td= number_to_currency item.product.price
-                %td
-                  = link_to cart_remove_path( :id => item.product.id ) do
-                    = image_tag "down-icon.png" , :width => 16 , :height => 16
-                  = item.quantity
-                  = link_to cart_add_path( :id => item.product.id ) do
-                    = image_tag "up-icon.png" , :width => 16 , :height => 16
-                %td= number_to_currency item.total
+                %th tuote
+                %th 
+                %th hinta a
+                %th määrä
+                %th yhteishinta
+            %tbody
+              -current_basket.items.each do |item|
+                %tr
+                  %td.picture= image_tag item.product.main_picture.url(:thumb) if item.product
+                  %td.name
+                    = link_to shop_product_path(:link => item.product.link ) do
+                      = item.name
+                  %td= number_to_currency item.product.price
+                  %td
+                    = link_to cart_remove_path( :id => item.product.id ) do
+                      = image_tag "down-icon.png" , :width => 16 , :height => 16
+                    = item.quantity
+                    = link_to cart_add_path( :id => item.product.id ) do
+                      = image_tag "up-icon.png" , :width => 16 , :height => 16
+                  %td= number_to_currency item.total
 
-            %tr
-              %th 
-              %th tuotteet yhteensä
-              %th
-              %th
-              %th= number_to_currency current_basket.total_price
+              %tr
+                %th 
+                %th tuotteet yhteensä
+                %th
+                %th
+                %th= number_to_currency current_basket.total_price
         
-        %button.btn.btn-primary.btn-sm{:type => "button"} Päivitä ostoskori
-        \ 
-        \ 
-        tai
-        \ 
-        \ 
-              
-        %button.btn.btn-primary.btn-sm{:type => "button"} Jatka ostoksia 
-              
-    .row
-      %hr
-      = form_tag shop_checkout_path do
+      .row
+        %hr
         .row
           .col-md-7
             %h4.highlight
@@ -98,21 +91,11 @@
           %hr 
           .col-md-9#address_form
             %h4.highlight Yhteystiedot 
-            .form-group
-              = label_tag :nimi
-              = text_field_tag "order[name]", @order.name , :class => "form-control" , :placeholder => t(:name)
-            .form-group
-              = label_tag :street
-              = text_field_tag "order[street]", @order.street , :class => "form-control" , :placeholder => t(:street)
-            .form-group
-              = label_tag :city
-              = text_field_tag "order[city]", @order.city , :class => "form-control" , :placeholder => t(:city)
-            .form-group
-              = label_tag :phone
-              = text_field_tag "order[phone]", @order.phone , :class => "form-control" , :placeholder => t(:phone)
-            .form-group
-              = label_tag :email
-              = text_field_tag "order[email]", @order.email , :class => "form-control" , :placeholder => t(:email)
+            = f.text_field :name , :placeholder => t(:name)
+            = f.text_field :street , :placeholder => t(:street)
+            = f.text_field :city , :placeholder => t(:city)
+            = f.text_field :phone , :placeholder => t(:phone)
+            = f.email_field :email, :placeholder => t(:email)
             %hr  
             .form-group
               = label_tag :message
