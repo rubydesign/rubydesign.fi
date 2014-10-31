@@ -10,7 +10,10 @@ class ShopController < ApplicationController
 
   def product
     @product = Product.online.where(:link => params[:link]).first
-    redirect_to :action => :group unless @product
+    unless @product
+      redirect_to :action => :group 
+      return
+    end
     @group = @product.category
     #error handling
 #    @group = Category.find(@product.category_id)
