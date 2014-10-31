@@ -11,6 +11,8 @@ unless Clerk.where( :email =>  "admin@important.me").first
 end
 require "database_cleaner"
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+Capybara::Screenshot.prune_strategy = :keep_last_run
 
 #require 'capybara/poltergeist'
 #Capybara.javascript_driver = :poltergeist
@@ -27,8 +29,10 @@ RSpec.configure do |config|
   config.include(EmailSpec::Matchers)
 
   config.include PageHelper
-
-
+  
+  config.include Capybara::DSL  
+  
+  config.include Rails.application.routes.url_helpers
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -46,9 +50,17 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.before(:suite) do
+    DatabaseCleaner.clean_with :truncation
     DatabaseCleaner.strategy = :transaction
   end
-  config.before(:each) do
+
+  config.before(:each) do |group|
+    case group.metadata[:type]
+    when :feature
+      DatabaseCleaner.strategy = :truncation
+    else
+      DatabaseCleaner.strategy = :transaction
+    end
     DatabaseCleaner.start
   end
   config.after(:each) do

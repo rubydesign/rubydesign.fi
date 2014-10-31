@@ -75,6 +75,7 @@ group :test do
 #  gem "poltergeist"
 #  gem "phantomjs"
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'email_spec'
 end

@@ -1,17 +1,17 @@
 module PageHelper
   def ensure_path path
-    page.current_path.should == path
+    expect(page.current_path).to eq path
   end
   def visit_path path
     visit path
-    status_code.should be 200
-    page.should_not have_css(".translation_missing")
+    expect(status_code).to be 200
+    expect(page).not_to have_css(".translation_missing")
     ensure_path path
   end
 
   def ensure_admin
     admin = create :admin
-    admin.should_not be nil
+    expect(admin).not_to be nil
     admin
   end
   
