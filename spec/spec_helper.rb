@@ -3,7 +3,6 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'email_spec'
-require 'rspec/autorun'
 
 unless Clerk.where( :email =>  "admin@important.me").first
   admin = Clerk.new( :email =>  "admin@important.me" , :admin => true , :password => "password" ) 

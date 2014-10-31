@@ -30,7 +30,7 @@ describe "Basket buttons" do
       click_on I18n.t(:search)
     end
     url = page.current_path
-    page.should_not have_content I18n.t(:to_order)
+    page.not_to have_content I18n.t(:to_order)
     click_link I18n.t(:print)
     page.should have_content I18n.t(:order)
   end

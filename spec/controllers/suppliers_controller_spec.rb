@@ -22,7 +22,7 @@ describe SuppliersController do
       before = Supplier.count
       create :supplier
       get :index, {}, valid_session
-      Supplier.count.should be before + 1
+      Supplier.count.to be  before + 1
     end
   end
 
@@ -30,14 +30,14 @@ describe SuppliersController do
     it "assigns the requested supplier as @supplier" do
       supplier = create :supplier
       get :show, {:id => supplier.to_param}, valid_session
-      assigns(:supplier).should eq(supplier)
+      assigns(:supplier).to eq(supplier)
     end
   end
 
   describe "GET new" do
     it "assigns a new supplier as @supplier" do
       get :new, {}, valid_session
-      assigns(:supplier).should be_a_new(Supplier)
+      assigns(:supplier).to be _a_new(Supplier)
     end
   end
 
@@ -45,7 +45,7 @@ describe SuppliersController do
     it "assigns the requested supplier as @supplier" do
       supplier = create :supplier
       get :edit, {:id => supplier.to_param}, valid_session
-      assigns(:supplier).should eq(supplier)
+      assigns(:supplier).to eq(supplier)
     end
   end
 
@@ -59,8 +59,8 @@ describe SuppliersController do
 
       it "assigns a newly created supplier as @supplier" do
         post :create, supplier_attributes, valid_session
-        assigns(:supplier).should be_a(Supplier)
-        assigns(:supplier).should be_persisted
+        assigns(:supplier).to be _a(Supplier)
+        assigns(:supplier).to be _persisted
       end
 
       it "redirects to the created supplier" do
@@ -74,7 +74,7 @@ describe SuppliersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
         post :create, {:supplier => {  :name  => "" }}, valid_session
-        assigns(:supplier).should be_a_new(Supplier)
+        assigns(:supplier).to be _a_new(Supplier)
       end
 
       it "re-renders the 'new' template" do
@@ -94,7 +94,7 @@ describe SuppliersController do
         attributes[:id] = supplier.id
         put :update, attributes , valid_session
         response.should redirect_to(supplier)
-        assigns(:supplier).should eq(supplier)
+        assigns(:supplier).to eq(supplier)
       end
     end
 
@@ -104,7 +104,7 @@ describe SuppliersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Supplier.any_instance.stub(:save).and_return(false)
         put :update, {:id => supplier.to_param, :supplier => {  :name  => "" }}, valid_session
-        assigns(:supplier).should eq(supplier)
+        assigns(:supplier).to eq(supplier)
       end
 
       it "re-renders the 'edit' template" do

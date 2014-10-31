@@ -21,7 +21,7 @@ describe PurchasesController do
       count_before = Purchase.count
       purchase = create :purchase
       get :index, {}, valid_session
-      assigns(:purchases).count.should be count_before + 1
+      assigns(:purchases).count.to be  count_before + 1
     end
   end
 
@@ -29,14 +29,14 @@ describe PurchasesController do
     it "assigns the requested purchase as @purchase" do
       purchase = Purchase.create! valid_attributes
       get :show, {:id => purchase.to_param}, valid_session
-      assigns(:purchase).should eq(purchase)
+      assigns(:purchase).to eq(purchase)
     end
   end
 
   describe "GET new" do
     it "assigns a new purchase as @purchase" do
       get :new, {}, valid_session
-      assigns(:purchase).should be_a_new(Purchase)
+      assigns(:purchase).to be _a_new(Purchase)
     end
   end
 
@@ -44,7 +44,7 @@ describe PurchasesController do
     it "assigns the requested purchase as @purchase" do
       purchase = Purchase.create! valid_attributes
       get :edit, {:id => purchase.to_param}, valid_session
-      assigns(:purchase).should eq(purchase)
+      assigns(:purchase).to eq(purchase)
     end
   end
 
@@ -58,8 +58,8 @@ describe PurchasesController do
 
       it "assigns a newly created purchase as @purchase" do
         post :create, {:purchase => valid_attributes}, valid_session
-        assigns(:purchase).should be_a(Purchase)
-        assigns(:purchase).should be_persisted
+        assigns(:purchase).to be _a(Purchase)
+        assigns(:purchase).to be _persisted
       end
 
       it "redirects to the created purchase" do
@@ -73,7 +73,7 @@ describe PurchasesController do
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
         post :create, {:purchase => {  :supplier_id => nil }}, valid_session
-        assigns(:purchase).should be_a_new(Purchase)
+        assigns(:purchase).to be _a_new(Purchase)
       end
 
       it "re-renders the 'new' template" do
@@ -90,7 +90,7 @@ describe PurchasesController do
       it "assigns the requested purchase as @purchase" do
         purchase = Purchase.create! valid_attributes
         put :update, {:id => purchase.to_param, :purchase => valid_attributes}, valid_session
-        assigns(:purchase).should eq(purchase)
+        assigns(:purchase).to eq(purchase)
       end
 
       it "redirects to the purchase" do
@@ -106,7 +106,7 @@ describe PurchasesController do
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
         put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
-        assigns(:purchase).should eq(purchase)
+        assigns(:purchase).to eq(purchase)
       end
 
       it "re-renders the 'edit' template" do

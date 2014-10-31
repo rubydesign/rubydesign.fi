@@ -15,7 +15,7 @@ describe CategoriesController do
     it "assigns all categories as @categories" do
       category = create :category
       get :index, {}, valid_session
-#      assigns(:categories).should eq([category])
+#      assigns(:categories).to eq([category])
     end
   end
 
@@ -23,14 +23,14 @@ describe CategoriesController do
     it "assigns the requested category as @category" do
       category = create :category
       get :show, {:id => category.to_param}, valid_session
-      assigns(:category).should eq(category)
+      assigns(:category).to eq(category)
     end
   end
 
   describe "GET new" do
     it "assigns a new category as @category" do
       get :new, {}, valid_session
-      assigns(:category).should be_a_new(Category)
+      assigns(:category).to be _a_new(Category)
     end
   end
 
@@ -38,7 +38,7 @@ describe CategoriesController do
     it "assigns the requested category as @category" do
       category = create :category
       get :edit, {:id => category.to_param}, valid_session
-      assigns(:category).should eq(category)
+      assigns(:category).to eq(category)
     end
   end
 
@@ -52,8 +52,8 @@ describe CategoriesController do
 
       it "assigns a newly created category as @category" do
         post :create, {:category =>  attributes_for(:category)}, valid_session
-        assigns(:category).should be_a(Category)
-        assigns(:category).should be_persisted
+        assigns(:category).to be _a(Category)
+        assigns(:category).to be _persisted
       end
 
       it "redirects to the created category" do
@@ -67,7 +67,7 @@ describe CategoriesController do
         # Trigger the behavior that occurs when invalid params are submitted
         Category.any_instance.stub(:save).and_return(false)
         post :create, {:category => {  :name => ""}}, valid_session
-        assigns(:category).should be_a_new(Category)
+        assigns(:category).to be _a_new(Category)
       end
 
       it "re-renders the 'new' template" do
@@ -85,7 +85,7 @@ describe CategoriesController do
       it "assigns the requested category as @category" do
         category = create :category
         put :update, {:id => category.to_param, :category =>  attributes_for(:category)}, valid_session
-        assigns(:category).should eq(category)
+        assigns(:category).to eq(category)
       end
 
       it "redirects to the category" do
@@ -101,7 +101,7 @@ describe CategoriesController do
         # Trigger the behavior that occurs when invalid params are submitted
         Category.any_instance.stub(:save).and_return(false)
         put :update, {:id => category.to_param, :category => { :name => "" }}, valid_session
-        assigns(:category).should eq(category)
+        assigns(:category).to eq(category)
       end
 
       it "re-renders the 'edit' template" do
