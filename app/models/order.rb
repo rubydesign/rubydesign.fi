@@ -66,7 +66,7 @@ class Order < ActiveRecord::Base
   private
   # the name says a lot ,but what for? for shipping. For pickup or store sales we don't need an address
   def needs_address?
-    return true unless shipment_type
+    return false unless shipment_type
     return shipment_type != "pickup"
   end
 end

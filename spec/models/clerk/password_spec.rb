@@ -16,11 +16,11 @@ describe Clerk do
   describe "password validations" do
 
     it "should require a password" do
-      build(:clerk , :password => "", :password_confirmation => "").should_not be_valid
+      build(:clerk , :password => "", :password_confirmation => "").not_to be_valid
     end
 
     it "should require a matching password confirmation" do
-      build(:clerk , :password_confirmation => "invalid").should_not be_valid
+      build(:clerk , :password_confirmation => "invalid").not_to be_valid
     end
 
   end
@@ -32,7 +32,7 @@ describe Clerk do
     end
 
     it "should set the encrypted password attribute" do
-      create(:clerk).encrypted_password.should_not be_blank
+      create(:clerk).encrypted_password.not_to be_blank
     end
 
   end
@@ -52,20 +52,20 @@ describe Clerk do
   it "should validate password is longer than 3 characters" do
     clerk = build(:clerk, :password => 'bad')
     clerk.save
-    clerk.errors[:password].should_not be_nil
+    clerk.errors[:password].not_to be_nil
   end
 
   it "should require matching password confirmation" do
     clerk = build(:clerk, :password_confirmation => 'nonmatching')
     clerk.save
-    clerk.errors[:password].should_not be_nil
+    clerk.errors[:password].not_to be_nil
   end
 
   it "should generate password hash and salt on create" do
     clerk = create(:clerk)
     clerk.save!
-    clerk.encrypted_password.should_not be_nil
-    clerk.password_salt.should_not be_nil
+    clerk.encrypted_password.not_to be_nil
+    clerk.password_salt.not_to be_nil
   end
 
   it "should authenticate" do
@@ -75,7 +75,7 @@ describe Clerk do
 
   it "should not authenticate bad password" do
     clerk = create(:clerk)
-    clerk.valid_password?('badpassword').should be_false
+    clerk.valid_password?('badpassword').to be _false
   end
 
 end

@@ -6,10 +6,10 @@ describe "Basket totals" do
     @basket.items << create( :item2)
     @basket.items << create(:item22)
     @basket.save!
-    @basket.items.length.should be 2
+    @basket.items.length.to be  2
   end
   it "calculates tax for 2" do
-    @basket.items.length.should be 2
+    @basket.items.length.to be  2
     taxes = @basket.taxes
     expect(taxes[10.0]).to eq 2.0
     expect(taxes[20.0]).to eq 8.0
@@ -27,6 +27,6 @@ describe "Basket totals" do
   it "destroys" do
     @basket.items.delete @basket.items.last
     @basket.save!
-    @basket.items.length.should be 1
+    @basket.items.length.to be  1
   end
 end

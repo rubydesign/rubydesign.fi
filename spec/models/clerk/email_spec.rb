@@ -8,14 +8,14 @@ describe Clerk do
 
   it "should require an email address" do
     no_email_clerk = build(:clerk , :email => "")
-    no_email_clerk.should_not be_valid
+    no_email_clerk.not_to be_valid
   end
 
   it "should accept valid email addresses" do
     addresses = %w[clerk@foo.com THE_USER@foo.bar.org first.last@foo.jp]
     addresses.each do |address|
       valid_email_clerk = create(:clerk , :email => address)
-      valid_email_clerk.should be_valid
+      valid_email_clerk.to be _valid
     end
   end
 
@@ -23,7 +23,7 @@ describe Clerk do
     addresses = %w[clerk@foo,com clerk_at_foo.org example.clerk@foo.]
     addresses.each do |address|
       invalid_email_clerk = build(:clerk , :email => address)
-      invalid_email_clerk.should_not be_valid
+      invalid_email_clerk.not_to be_valid
     end
   end
 
@@ -31,7 +31,7 @@ describe Clerk do
     create(:clerk , :email => "sama@sama.net")
     clerk_with_duplicate_email = build(:clerk , :email => "sama@sama.net")
     clerk_with_duplicate_email.save
-    clerk_with_duplicate_email.should_not be_valid
+    clerk_with_duplicate_email.not_to be_valid
   end
 
   it "should reject email addresses identical up to case" do
@@ -40,12 +40,12 @@ describe Clerk do
     clerk_with_duplicate_email = build(:clerk , :email => upcased_email.downcase )
     clerk_with_duplicate_email.save
 #should work but doesn, postponed
- #   clerk_with_duplicate_email.should_not be_valid
+ #   clerk_with_duplicate_email.not_to be_valid
   end
 
 
   it "should be valid" do
-    create(:clerk).should be_valid
+    create(:clerk).to be _valid
   end
 
   it "should require well formed email" do
