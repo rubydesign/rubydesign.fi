@@ -59,15 +59,14 @@ gem 'rack-attack'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
-  gem 'guard-bundler'
-  gem 'guard-rails'
-  gem 'guard-rspec'
   gem "i18n-tasks"
   gem 'quiet_assets'
   gem 'rails_layout'
 #  gem "jeweler", "> 1.6.4"
 end
 group :development, :test do
+  gem "spring"
+  gem "spring-commands-rspec"
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
@@ -78,5 +77,8 @@ group :test do
   gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'email_spec'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec'
 end
 
