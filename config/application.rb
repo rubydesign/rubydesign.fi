@@ -13,7 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module OfficeClerk
   class Application < Rails::Application
-    config.autoload_paths += %W(#{config.root}/app/modules)
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
@@ -21,8 +21,6 @@ module OfficeClerk
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
 
-
-      g.view_specs false
       g.helper_specs false
     end
     config.exceptions_app = self.routes
@@ -50,5 +48,12 @@ module OfficeClerk
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+  end
+
+  # Configuration is stored in locale/config.yml under the main key (ie "locale") config
+  # You can add to it, or redifine it, just like you do to locale data, by adding a locale file to your app
+  #  with config locale and the keys you need   
+  def self.config key
+    I18n.t(key , :locale => :config)
   end
 end

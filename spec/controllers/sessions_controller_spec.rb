@@ -9,9 +9,10 @@ describe SessionsController do
 
   it "create action should redirect when authentication is valid" do
     Clerk.any_instance.stub(:valid_password?).and_return(true)
+    clerk = create :clerk
     email = Clerk.where(:admin=>false).first.email
     post :create , :email => email
-    response.should redirect_to(root_url)
+    response.should redirect_to(root_path)
     session['clerk_email'].should == email
   end
 end

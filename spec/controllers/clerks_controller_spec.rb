@@ -25,13 +25,13 @@ describe ClerksController do
   it "create action should redirect when model is valid" do
     Clerk.any_instance.stub(:valid?).and_return(true)
     post :create
-    response.should redirect_to(sign_in_url)
+    response.should redirect_to(sign_in_path)
 #    session['clerk_email'].should == assigns['clerk'].email
   end
 
   it "edit action should redirect when not logged in" do
     get :edit, :id => "ignored"
-    response.should redirect_to(sign_in_url)
+    response.should redirect_to(sign_in_path)
   end
 
   it "edit action should render edit template" do
@@ -42,7 +42,7 @@ describe ClerksController do
 
   it "update action should redirect when not logged in" do
     put :update, :id => "ignored"
-    response.should redirect_to(sign_in_url)
+    response.should redirect_to(sign_in_path)
   end
 
 #  it "update action should render edit template when clerk is invalid" do
@@ -56,7 +56,7 @@ describe ClerksController do
 #    @controller.stub(:current_clerk).and_return(Clerk.first)
 #    Clerk.any_instance.stub(:valid?).and_return(true)
 #    put :update_clerk, :id => "ignored"
-#    response.should redirect_to(root_url)
+#    response.should redirect_to(root_path)
 #  end
 
   describe "GET 'show'" do

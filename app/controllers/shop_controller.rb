@@ -10,10 +10,39 @@ class ShopController < ApplicationController
 
   def product
     @product = Product.online.where(:link => params[:link]).first
-    redirect_to :action => :group unless @product
+    unless @product
+      redirect_to :action => :group 
+      return
+    end
     @group = @product.category
     #error handling
 #    @group = Category.find(@product.category_id)
+  end
+
+  # the checkout page creates an order upon completion. So before a checkout the basket is attached to the session
+  # and by filling out all data an order is created with the basket and the session zeroed
+  def checkout
+    @order = Order.new :ordered_on => Date.today
+    @order.basket = current_basket
+    if(request.get?)
+      @order.email = current_clerk.email if current_clerk
+      @order.shipment_type = "pickup" # price is 0 automatically
+    else
+      order_ps = params.require(:order).permit( :email,:name , :street , :city , :phone , :shipment_type )
+      if @order.update_attributes(order_ps)
+        new_basket
+        redirect_to shop_order_path(@order), :flash => { :notice => t(:thanks) }
+        return
+      end
+    end
+  end
+
+  def order
+    if( params[:id])
+      @order = Order.find( params[:id] )
+    else
+      raise "last order of logged person"
+    end
   end
 
   def add
@@ -22,7 +51,7 @@ class ShopController < ApplicationController
     if request.get?
       redirect_to shop_checkout_path
     else
-      redirect_to shop_group_path(prod.category.link), :flash => { :notice => t(:product_added) }
+      redirect_to shop_group_path(prod.category.link), :flash => { :notice => "#{t(:product_added)}: #{prod.name}" }
     end
   end
   def remove

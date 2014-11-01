@@ -7,6 +7,9 @@ FactoryGirl.define do
     tax 10
     product
     sequence( :name) { |n| "product #{n}" }
+    factory :item_quantity do
+      quantity { rand( 2 + product.inventory) }
+    end
     factory :item2 do
       price 20
       factory :item22 do

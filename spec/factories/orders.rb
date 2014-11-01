@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :order do
+    sequence( :email) { |n| "test#{n}@test.com" }
     shipment_tax 0
     basket
   end

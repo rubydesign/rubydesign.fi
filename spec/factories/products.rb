@@ -5,5 +5,6 @@ FactoryGirl.define do
   factory :product do
     sequence( :name) { |n| "product #{n}" }
     sequence :price , 10
+    inventory { rand(2 + 10) }
   end
 end

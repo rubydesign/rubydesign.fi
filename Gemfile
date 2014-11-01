@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gemspec
+
 gem 'rails'
 gem 'sqlite3'
 
@@ -10,6 +12,9 @@ gem 'accountant_clerk' , github: "rubyclerks/accountant_clerk"
 
 gem 'print_clerk' , github: "rubyclerks/print_clerk"
 #gem 'print_clerk' , path: "../print_clerk"
+
+gem 'post_clerk' , github: "rubyclerks/post_clerk"
+#gem 'post_clerk' , path: "../post_clerk"
 
 #ui
 gem 'sass-rails'
@@ -25,6 +30,8 @@ gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
 gem "prawn"
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootstrap_form' #, :github => "bootstrap-ruby/rails-bootstrap-forms"
+
 
 gem "paperclip"
 gem 'turbolinks'
@@ -52,23 +59,26 @@ gem 'rack-attack'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
-  gem 'guard-bundler'
-  gem 'guard-rails'
-  gem 'guard-rspec'
   gem "i18n-tasks"
   gem 'quiet_assets'
   gem 'rails_layout'
 #  gem "jeweler", "> 1.6.4"
 end
 group :development, :test do
+  gem "spring"
+  gem "spring-commands-rspec"
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
 end
 group :test do
 #  gem "poltergeist"
 #  gem "phantomjs"
+  gem 'rspec-rails'
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'email_spec'
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-rspec'
 end
 

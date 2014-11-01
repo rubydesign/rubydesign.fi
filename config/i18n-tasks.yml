@@ -1,4 +1,4 @@
-base_locale: en
+base_locale: fi
 locales: [fi]
 data:
   # a list of file globs to read from per-locale

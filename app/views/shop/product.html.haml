@@ -2,7 +2,7 @@
   %ol.breadcrumb
     %li
       %a{ :href => "/"}= t(:home)
-    - parents(@product.category).each do | group|
+    - parents(@group).each do | group|
       %li
         = link_to group.name , shop_group_path(group.link)
     %li.current
@@ -17,7 +17,7 @@
           %h5= group.name
     
     .intro2
-      %p.description= markdown @group.description
+      %p.description= markdown( @group.description) rescue ""
   
   .col-md-8
     .row.product-info
@@ -31,7 +31,7 @@
       #product-description.col-md-9
         .row
           .col-md-12
-            = markdown @product.description
+            = markdown @product.description rescue ""
         .row
           .col-md-4.product-price
             %h4

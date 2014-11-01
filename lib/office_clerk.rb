@@ -1,0 +1,1 @@
+require "office_clerk/shipping_method"

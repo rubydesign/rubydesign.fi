@@ -22,14 +22,20 @@ class ApplicationController < ActionController::Base
   # this is not associated with the user until an order is finalized at which point the order gets the users email (not id)
   # that way people don't have to log in to order, but if they are we can retrieve their orders by email
   def current_basket
-    return @current_basket if @current_basket
+    return @current_basket unless @current_basket.nil?
     if session[:current_basket]
       @current_basket = Basket.where( :id => session[:current_basket] ).limit(1).first 
-    else
+    end
+    if @current_basket.nil?
       @current_basket = Basket.new(:kori_type => "Order")
       @current_basket.save!
       session[:current_basket] = @current_basket.id
     end
     @current_basket
+  end
+
+  # when the order is made and the basket locked, it's time to make a new one
+  def new_basket
+    session[:current_basket] = nil
   end
 end

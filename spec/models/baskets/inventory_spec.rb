@@ -1,36 +1,36 @@
 require 'spec_helper'
 
 describe "Basket inventory" do
-  before(:each) do
-    @basket = create :basket
-    @basket.items << create( :item2)
-    @basket.items << create(:item22)
-    @basket.save!
-  end
   it "receives ok" do
-    p1 = @basket.items.first.product.inventory
-    p2 = @basket.items.last.product.inventory
-    @basket.receive!
-    @basket.reload    
-    @basket.items.first.product.inventory.should be p1 + 1
-    @basket.items.last.product.inventory.should be p2 + 2
+    basket = create :basket_2_items
+    p1 = basket.items.first.product.inventory
+    p2 = basket.items.last.product.inventory
+    expect(p1).to be > 2
+    expect(p2).to be > 2
+    basket.receive!
+    basket.reload
+    expect(basket.items.first.product.inventory).to eq  p1 + 1
+    expect(basket.items.last.product.inventory).to eq  p2 + 2
   end
   it "deducts ok" do
-    p1 = @basket.items.first.product.inventory
-    p2 = @basket.items.last.product.inventory
-    @basket.deduct!
-    @basket.reload    
-    @basket.items.first.product.inventory.should be p1 - 1
-    @basket.items.last.product.inventory.should be p2 - 2
+    basket = create :basket_2_items
+    p1 = basket.items.first.product.inventory
+    p2 = basket.items.last.product.inventory
+    basket.deduct!
+    basket.reload
+    expect(basket.items.first.product.inventory).to eq  (p1 - 1)
+    expect(basket.items.last.product.inventory).to eq  (p2 - 2)
   end
   it "locks after receive" do
-    @basket.receive!
-    @basket.locked.should_not be nil
-    expect { @basket.receive! }.to raise_error 
+    basket = create :basket_2_items
+    basket.receive!
+    expect(basket.locked).not_to be nil
+    expect { basket.receive! }.to raise_error 
   end
   it "locks after deduct" do
-    @basket.deduct!
-    @basket.locked.should_not be nil
-    expect { @basket.deduct! }.to raise_error 
+    basket = create :basket_2_items
+    basket.deduct!
+    expect(basket.locked).not_to be nil
+    expect { basket.deduct! }.to raise_error 
   end
 end
