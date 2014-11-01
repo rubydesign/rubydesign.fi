@@ -11,11 +11,11 @@ describe Category  do
     visit_path new_category_path
   end
   it "edit" do
-    @category = create(:category)
-    visit_path edit_category_path(@category)
+    category = create(:category)
+    visit_path edit_category_path(category)
   end
   it "shows" do
-    @category = create(:category)
-    visit_path category_path(@category)
+    category = create(:category)
+    visit_path category_path(category)
   end
 end

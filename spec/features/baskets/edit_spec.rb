@@ -21,7 +21,7 @@ describe "edit baskets" do
       click_link I18n.t(:delete)
     end
     expect{ find(".table").find(".name") }.to raise_error
-    page.not_to have_content(name )
+    expect(page).not_to have_content(name )
   end
   it "goes to purchase" do
     click_on I18n.t(:make_purchase)

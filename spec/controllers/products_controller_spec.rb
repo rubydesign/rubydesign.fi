@@ -28,14 +28,15 @@ describe ProductsController do
     it "assigns the requested product as @product" do
       product = Product.create! valid_attributes
       get :show, {:id => product.to_param}, valid_session
-      assigns(:product).to eq(product)
+      expect(assigns(:product)).to eq(product)
     end
   end
 
   describe "GET new" do
     it "assigns a new product as @product" do
       get :new, {}, valid_session
-      assigns(:product).to be _a_new(Product)
+      expect(assigns(:product)).to be_kind_of(Product)
+      expect(assigns(:product)).to be_new_record
     end
   end
 
@@ -43,7 +44,7 @@ describe ProductsController do
     it "assigns the requested product as @product" do
       product = Product.create! valid_attributes
       get :edit, {:id => product.to_param}, valid_session
-      assigns(:product).to eq(product)
+      expect(assigns(:product)).to eq(product)
     end
   end
 
@@ -57,8 +58,8 @@ describe ProductsController do
 
       it "assigns a newly created product as @product" do
         post :create, {:product => valid_attributes}, valid_session
-        assigns(:product).to be _a(Product)
-        assigns(:product).to be _persisted
+        expect(assigns(:product)).to be_kind_of(Product)
+        expect(assigns(:product)).to be_persisted
       end
 
       it "redirects to the created product" do
@@ -72,7 +73,8 @@ describe ProductsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Product.any_instance.stub(:save).and_return(false)
         post :create, {:product => {  :name => "" }}, valid_session
-        assigns(:product).to be _a_new(Product)
+        expect(assigns(:product)).to be_kind_of(Product)
+        expect(assigns(:product)).to be_new_record
       end
 
       it "re-renders the 'new' template" do
@@ -89,7 +91,7 @@ describe ProductsController do
       it "assigns the requested product as @product" do
         product = Product.create! valid_attributes
         put :update, {:id => product.to_param, :product => valid_attributes}, valid_session
-        assigns(:product).to eq(product)
+        expect(assigns(:product)).to eq(product)
       end
 
       it "redirects to the product" do
@@ -105,7 +107,7 @@ describe ProductsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Product.any_instance.stub(:save).and_return(false)
         put :update, {:id => product.to_param, :product => {  :name => "" }}, valid_session
-        assigns(:product).to eq(product)
+        expect(assigns(:product)).to eq(product)
       end
 
       it "re-renders the 'edit' template" do
@@ -123,13 +125,13 @@ describe ProductsController do
       product = Product.create! valid_attributes
       before = Product.count
       delete :delete, {:id => product.to_param}, valid_session
-      Product.count.to be  before - 1
+      expect(Product.count).to be  before - 1
     end
 
     it "redirects to the products list" do
       product = Product.create! valid_attributes
       delete :delete, {:id => product.to_param}, valid_session
-      response.should redirect_to(products_url)
+      response.should redirect_to(products_path)
     end
   end
 

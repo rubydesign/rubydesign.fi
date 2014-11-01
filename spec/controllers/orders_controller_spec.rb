@@ -17,7 +17,7 @@ describe OrdersController do
       count_before = Order.count
       basket = create :order
       get :index, {}, valid_session
-      assigns(:order_scope).count.to be  count_before + 1
+      expect(assigns(:order_scope).count).to be  count_before + 1
     end
   end
 
@@ -25,14 +25,15 @@ describe OrdersController do
     it "assigns the requested order as @order" do
       order = create :order
       get :show, {:id => order.to_param}, valid_session
-      assigns(:order).to eq(order)
+      expect(assigns(:order)).to eq(order)
     end
   end
 
   describe "GET new" do
     it "assigns a new order as @order" do
       get :new, {}, valid_session
-      assigns(:order).to be _a_new(Order)
+      expect(assigns(:order)).to be_kind_of(Order)
+      expect(assigns(:order)).to be_new_record
     end
   end
 
@@ -40,7 +41,7 @@ describe OrdersController do
     it "assigns the requested order as @order" do
       order = create :order
       get :edit, {:id => order.to_param}, valid_session
-      assigns(:order).to eq(order)
+      expect(assigns(:order)).to eq(order)
     end
   end
 
@@ -54,8 +55,8 @@ describe OrdersController do
 
       it "assigns a newly created order as @order" do
         post :create, {:order => attributes_for(:order)}, valid_session
-        assigns(:order).to be _a(Order)
-        assigns(:order).to be _persisted
+        expect(assigns(:order)).to be_kind_of(Order)
+        expect(assigns(:order)).to be_persisted
       end
 
       it "redirects to the created order" do
@@ -69,7 +70,8 @@ describe OrdersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
         post :create, {:order => {  :paid_on => ""}}, valid_session
-        assigns(:order).to be _a_new(Order)
+        expect(assigns(:order)).to be_kind_of(Order)
+        expect(assigns(:order)).to be_new_record
       end
 
       it "re-renders the 'new' template" do
@@ -86,7 +88,7 @@ describe OrdersController do
       it "assigns the requested order as @order" do
         order = create :order
         put :update, {:id => order.to_param, :order => attributes_for(:order)}, valid_session
-        assigns(:order).to eq(order)
+        expect(assigns(:order)).to eq(order)
       end
     end
 
@@ -96,7 +98,7 @@ describe OrdersController do
         # Trigger the behavior that occurs when invalid params are submitted
         Order.any_instance.stub(:save).and_return(false)
         put :update, {:id => order.to_param, :order => {  :paid_on => ""}}, valid_session
-        assigns(:order).to eq(order)
+        expect(assigns(:order)).to eq(order)
       end
     end
   end
