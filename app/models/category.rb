@@ -14,8 +14,8 @@ class Category < ActiveRecord::Base
   scope :online, -> { where(:online => true) }
 
   def generate_url_if_needed
-    if link.blank? && name != nil
-      self.link = name.gsub(" " , "_").downcase
+    if self.link.blank? && self.name != nil
+      self.link = self.name.gsub(" " , "_").downcase
     end
     true
   end
