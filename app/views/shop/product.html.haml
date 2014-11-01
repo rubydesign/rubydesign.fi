@@ -11,7 +11,7 @@
 .row
   .col-md-3.tex
     - parents(@group).each do | group|
-      .group-wrapper
+      .group-wrapper.side
         = link_to shop_group_path(group.link) do
           = image_tag group.main_picture.url(:list)
           %h5= group.name
@@ -52,7 +52,7 @@
             %table.table-striped.table-condensed
               %thead.highlight
                 %tr
-                  %th Muita tuotteita samassa kategoriassa
+                  %th Muita tuotteita samassa tuoteryhmässä
               %tbody
                 - in_group(@product).each do |p|
                   %tr

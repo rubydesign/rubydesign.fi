@@ -142,7 +142,7 @@ fi:
   print: Tulosta
   print_order: Tulosta
   product: Tuote
-  product_added: Tuote lisätty
+  product_added: Tuote lisätty ostoskoriin
   product_line: Tuotelinja
   product_line_has_inventory: Tuotelinjassa on inventaario
   product_line_has_ean: Tuotelinjassa on ean
