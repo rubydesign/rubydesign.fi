@@ -16,11 +16,13 @@ describe Clerk do
   describe "password validations" do
 
     it "should require a password" do
-      build(:clerk , :password => "", :password_confirmation => "").not_to be_valid
+      cl = build(:clerk , :password => "", :password_confirmation => "")
+      expect(cl).not_to be_valid
     end
 
     it "should require a matching password confirmation" do
-      build(:clerk , :password_confirmation => "invalid").not_to be_valid
+      clerk = build(:clerk , :password_confirmation => "invalid")
+      expect(clerk).not_to be_valid
     end
 
   end
@@ -32,7 +34,7 @@ describe Clerk do
     end
 
     it "should set the encrypted password attribute" do
-      create(:clerk).encrypted_password.not_to be_blank
+      expect(create(:clerk).encrypted_password).not_to be_blank
     end
 
   end
@@ -40,7 +42,7 @@ describe Clerk do
   it "should require password" do
     clerk = build(:clerk , :password => '')
     clerk.save
-    clerk.should have(1).error_on(:password)
+    expect(clerk.errors[:password]).not_to be nil
   end
 
 
@@ -52,30 +54,30 @@ describe Clerk do
   it "should validate password is longer than 3 characters" do
     clerk = build(:clerk, :password => 'bad')
     clerk.save
-    clerk.errors[:password].not_to be_nil
+    expect(clerk.errors[:password]).not_to be nil
   end
 
   it "should require matching password confirmation" do
     clerk = build(:clerk, :password_confirmation => 'nonmatching')
     clerk.save
-    clerk.errors[:password].not_to be_nil
+    expect(clerk.errors[:password]).not_to be_nil
   end
 
   it "should generate password hash and salt on create" do
     clerk = create(:clerk)
     clerk.save!
-    clerk.encrypted_password.not_to be_nil
-    clerk.password_salt.not_to be_nil
+    expect(clerk.encrypted_password).not_to be nil
+    expect(clerk.password_salt).not_to be_nil
   end
 
   it "should authenticate" do
     clerk = create(:clerk)
-    clerk.valid_password?('password').should == true
+    expect(clerk.valid_password?('password')).to be true
   end
 
   it "should not authenticate bad password" do
     clerk = create(:clerk)
-    clerk.valid_password?('badpassword').to be _false
+    expect(clerk.valid_password?('badpassword')).to be false
   end
 
 end
