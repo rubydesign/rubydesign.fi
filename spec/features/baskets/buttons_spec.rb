@@ -6,7 +6,7 @@ describe "Basket buttons" do
     visit_path new_basket_path
   end
   it "shold have back and update buttons" do
-    page.should have_content I18n.t(:back)
+    expect(page).to have_content I18n.t(:back)
     find_button I18n.t("helpers.submit.update" , :model => I18n.t(:basket))
     find_link I18n.t(:new) + ' ' + I18n.t(:basket)
     find_link I18n.t(:destroy)
@@ -19,7 +19,7 @@ describe "Basket buttons" do
       click_on I18n.t(:search)
     end
     td = find(".table").find(".name")
-    td.should have_content(p.name)
+    expect(td).to have_content(p.name)
   end
   it "creates a new order" do
     visit_path new_basket_path
@@ -32,6 +32,6 @@ describe "Basket buttons" do
     url = page.current_path
     expect(page).not_to have_content I18n.t(:to_order)
     click_link I18n.t(:print)
-    page.should have_content I18n.t(:order)
+    expect(page).to have_content I18n.t(:order)
   end
 end
