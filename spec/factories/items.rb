@@ -8,7 +8,7 @@ FactoryGirl.define do
     product
     sequence( :name) { |n| "product #{n}" }
     factory :item_quantity do
-      quantity { rand( 2 + product.inventory) }
+      quantity 1 
     end
     factory :item2 do
       price 20
