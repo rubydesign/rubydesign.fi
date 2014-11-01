@@ -66,14 +66,14 @@ describe SuppliersController do
 
       it "redirects to the created supplier" do
         post :create, supplier_attributes , valid_session
-        response.should redirect_to(Supplier.unscoped.last)
+        expect(response).to redirect_to(Supplier.unscoped.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved supplier as @supplier" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Supplier.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Supplier).to receive(:save).and_return(false)
         post :create, {:supplier => {  :name  => "" }}, valid_session
         expect(assigns(:supplier)).to be_kind_of(Supplier)
         expect(assigns(:supplier)).to be_new_record
@@ -81,9 +81,9 @@ describe SuppliersController do
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Supplier.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Supplier).to receive(:save).and_return(false)
         post :create, {:supplier => {  :name  => "" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -95,7 +95,7 @@ describe SuppliersController do
         attributes = supplier_attributes
         attributes[:id] = supplier.id
         put :update, attributes , valid_session
-        response.should redirect_to(supplier)
+        expect(response).to redirect_to(supplier)
         expect(assigns(:supplier)).to eq(supplier)
       end
     end
@@ -104,7 +104,7 @@ describe SuppliersController do
       it "assigns the supplier as @supplier" do
         supplier = create :supplier
         # Trigger the behavior that occurs when invalid params are submitted
-        Supplier.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Supplier).to receive(:save).and_return(false)
         put :update, {:id => supplier.to_param, :supplier => {  :name  => "" }}, valid_session
         expect(assigns(:supplier)).to eq(supplier)
       end
@@ -112,9 +112,9 @@ describe SuppliersController do
       it "re-renders the 'edit' template" do
         supplier = create :supplier
         # Trigger the behavior that occurs when invalid params are submitted
-        Supplier.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Supplier).to receive(:save).and_return(false)
         put :update, {:id => supplier.to_param, :supplier => {  :name  => "" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -130,7 +130,7 @@ describe SuppliersController do
     it "redirects to the suppliers list" do
       supplier = create :supplier
       delete :destroy, {:id => supplier.to_param}, valid_session
-      response.should redirect_to(suppliers_path)
+      expect(response).to redirect_to(suppliers_path)
     end
   end
 

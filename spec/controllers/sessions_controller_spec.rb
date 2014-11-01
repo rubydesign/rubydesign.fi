@@ -4,15 +4,15 @@ describe SessionsController do
 
   it "new action should render new template" do
     get :new
-    response.should render_template(:new)
+    expect(response).to render_template(:new)
   end
 
   it "create action should redirect when authentication is valid" do
-    Clerk.any_instance.stub(:valid_password?).and_return(true)
+    allow_any_instance_of(Clerk).to receive(:valid_password?).and_return(true)
     clerk = create :clerk
     email = Clerk.where(:admin=>false).first.email
     post :create , :email => email
-    response.should redirect_to(root_path)
-    session['clerk_email'].should == email
+    expect(response).to redirect_to(root_path)
+    expect(session['clerk_email']).to eq email
   end
 end

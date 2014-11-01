@@ -61,14 +61,14 @@ describe OrdersController do
 
       it "redirects to the created order" do
         post :create, {:order => attributes_for(:order)}, valid_session
-        response.should redirect_to(Order.first)
+        expect(response).to redirect_to(Order.first)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved order as @order" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Order.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Order).to receive(:save).and_return(false)
         post :create, {:order => {  :paid_on => ""}}, valid_session
         expect(assigns(:order)).to be_kind_of(Order)
         expect(assigns(:order)).to be_new_record
@@ -76,9 +76,9 @@ describe OrdersController do
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Order.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Order).to receive(:save).and_return(false)
         post :create, {:order => {  :paid_on => ""}}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -96,7 +96,7 @@ describe OrdersController do
       it "assigns the order as @order" do
         order = create :order
         # Trigger the behavior that occurs when invalid params are submitted
-        Order.any_instance.stub(:save).and_return(false)
+        #allow(order).to receive(:save).and_return(false)
         put :update, {:id => order.to_param, :order => {  :paid_on => ""}}, valid_session
         expect(assigns(:order)).to eq(order)
       end

@@ -62,7 +62,7 @@ describe BasketsController do
 
       it "redirects to the created basket" do
         post :create, {:basket => attributes_for(:basket)}, valid_session
-        response.should redirect_to(Basket.first)
+        expect(response).to redirect_to(Basket.first)
       end
     end
 
@@ -87,11 +87,10 @@ describe BasketsController do
       it "assigns the basket as @basket" do
         basket = create :basket
         # Trigger the behavior that occurs when invalid params are submitted
-        Basket.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Basket).to receive(:save).and_return(false)
         put :update, {:id => basket.to_param, :basket => { :some => :thing_to_stop_erros  }}, valid_session
         expect(assigns(:basket)).to eq(basket)
       end
-
     end
   end
 
