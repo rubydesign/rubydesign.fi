@@ -18,7 +18,7 @@ class BasketsController < AdminController
     order = @basket.kori || Order.new( :basket => @basket )
     order.pos_checkout( current_clerk.email )
     order.save!
-    redirect_to :action => :print , :controller => :orders , :id => order.id
+    redirect_to :action => :invoice , :controller => :orders , :id => order.id
   end
 
   def show
