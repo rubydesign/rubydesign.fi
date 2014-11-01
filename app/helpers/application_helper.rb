@@ -2,6 +2,7 @@
 module ApplicationHelper
   
   def markdown text
+    return "" if text.blank?
     return sanitize Kramdown::Document.new(text).to_html
   end
 
