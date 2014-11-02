@@ -33,7 +33,7 @@
                         %li Liikkeemme
                         %li Toimitusehdot
 
-                    %li#link-to-cart
+                    %li#link-to-cart{"data-no-turbolink" => true}
                       %a{href: shop_checkout_path}
                         = t(:basket)
                         - if current_basket.items.count == 0
