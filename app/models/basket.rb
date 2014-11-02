@@ -44,11 +44,12 @@ class Basket < ActiveRecord::Base
     raise "Locked since #{self.locked}" if self.locked
     sum = 0
     self.items.each do |item|
-      item.product.inventory += item.quantity
+      prod = item.product
+      prod.inventory = prod.inventory + item.quantity
+      prod.save!
       sum += item.quantity
       item.price = item.product.cost
-      item.product.save!
-      item.save!
+#      item.save!
     end
     self.locked = Date.today
     self.save!

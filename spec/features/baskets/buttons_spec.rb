@@ -31,7 +31,7 @@ describe "Basket buttons" do
     end
     url = page.current_path
     expect(page).not_to have_content I18n.t(:to_order)
-    click_link I18n.t(:print)
+    click_link I18n.t(:checkout)
     expect(page).to have_content I18n.t(:order)
   end
 end
