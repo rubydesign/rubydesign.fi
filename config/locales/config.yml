@@ -18,3 +18,5 @@ config:
     pickup:
       class: "OfficeClerk::Pickup"
       name: Nouto myymälästämme
+  defaults:
+    tax: 24.0

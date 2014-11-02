@@ -30,7 +30,7 @@ class ProductsController < AdminController
       parent = Product.find params[:parent_id]
       @product = parent.new_line_item
     else
-      @product = Product.new :tax => 24 #TODO config default tax
+      @product = Product.new :tax => OfficeClerk.config("defaults.tax")
     end
     render "edit"
   end
