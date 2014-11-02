@@ -33,7 +33,7 @@ OfficeClerk::Application.routes.draw do
     member do
       get :order
       get :purchase
-      get :print
+      get :checkout
     end
   end
 
