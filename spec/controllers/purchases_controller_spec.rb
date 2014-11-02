@@ -65,14 +65,14 @@ describe PurchasesController do
 
       it "redirects to the created purchase" do
         post :create, {:purchase => valid_attributes}, valid_session
-        response.should redirect_to(Purchase.last)
+        expect(response).to redirect_to(Purchase.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved purchase as @purchase" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Purchase.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         post :create, {:purchase => {  :supplier_id => nil }}, valid_session
         expect(assigns(:purchase)).to be_kind_of(Purchase)
         expect(assigns(:purchase)).to be_new_record
@@ -80,9 +80,9 @@ describe PurchasesController do
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Purchase.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         post :create, {:purchase => {  :supplier_id => nil }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -98,7 +98,7 @@ describe PurchasesController do
       it "redirects to the purchase" do
         purchase = Purchase.create! valid_attributes
         put :update, {:id => purchase.to_param, :purchase => valid_attributes}, valid_session
-        response.should redirect_to(purchase)
+        expect(response).to redirect_to(purchase)
       end
     end
 
@@ -106,7 +106,7 @@ describe PurchasesController do
       it "assigns the purchase as @purchase" do
         purchase = Purchase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Purchase.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
         expect(assigns(:purchase)).to eq(purchase)
       end
@@ -114,9 +114,9 @@ describe PurchasesController do
       it "re-renders the 'edit' template" do
         purchase = Purchase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Purchase.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end

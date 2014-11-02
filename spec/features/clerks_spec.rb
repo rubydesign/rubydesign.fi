@@ -11,11 +11,11 @@ describe Clerk  do
     visit_path new_clerk_path
   end
   it "edit" do
-    @clerk = create(:clerk)
-    visit_path edit_clerk_path(@clerk)
+    clerk = create(:clerk)
+    visit_path edit_clerk_path(clerk)
   end
   it "shows" do
-    @clerk = create(:clerk)
-    visit_path clerk_path(@clerk)
+    clerk = create(:clerk)
+    visit_path clerk_path(clerk)
   end
 end
