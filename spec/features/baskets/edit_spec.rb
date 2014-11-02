@@ -7,20 +7,15 @@ describe "edit baskets" do
   it "renders item too" do
     basket = create :basket_2_items
     visit_path edit_basket_path(basket)
-    td = find(".table").find(".name")
-    expect(td).to have_content(@basket.items.first.name)
+    td = find(".table").first(".name")
+    expect(td).to have_content(basket.items.first.name)
   end
   it "deletes item" do
-    basket = create :basket_2_items
+    basket = create :basket_with_item
     visit_path edit_basket_path(basket)
     name = basket.items.first.name
-    within(".table") do
-      click_link I18n.t(:delete)
-    end
-    within(".table") do
-      click_link I18n.t(:delete)
-    end
-    expect{ find(".table").find(".name") }.to raise_error
+    within(".table") {  first('a', :text => I18n.t(:delete)).click }
+    expect{ find(".table").find(".name" , :minimum => 1) }.to raise_error
     expect(page).not_to have_content(name )
   end
   it "goes to purchase" do
@@ -32,7 +27,7 @@ describe "edit baskets" do
   it "finds print link" do
     basket = create :basket_2_items
     visit_path edit_basket_path(basket)
-    expect(page).to have_content(I18n.t(:print_order))
-    expect(find(".print_order")).to have_content(I18n.t(:print_order))
+    expect(page).to have_content(I18n.t(:checkout))
+    expect(find(".print_order")).to have_content(I18n.t(:checkout))
   end
 end
