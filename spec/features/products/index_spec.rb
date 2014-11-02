@@ -20,9 +20,11 @@ describe "product filtering" do
   end
 end
 describe "edit product" do
+  before :each do
+    sign_in
+  end
   it "renders" do
     product = create :product
-    sign_in
     visit_path edit_product_path(product) 
   end
 end
