@@ -53,12 +53,12 @@
                           %li= link_to t(:sign_in), sign_in_path
           
       .main
-        .row
+        .row          
           - if not flash[:notice].blank? then
             .col-md-12
               .alert-notice.row
-                .col-md-6
-                .col-md-6.alert-shop
+                .col-md-9
+                .col-md-3.alert-shop
                   .alert-message!= flash[:notice]
           - if not flash[:error].blank? then
             .col-md-12.alert-shop
