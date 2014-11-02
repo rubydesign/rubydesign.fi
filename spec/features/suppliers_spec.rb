@@ -7,4 +7,12 @@ describe "Suppliers" do
   it "lists suppliers" do
     visit_path suppliers_path
   end
+  it "shows" do
+    s = create(:supplier)
+    visit_path supplier_path(s)
+  end
+  it "edits" do
+    s = create(:supplier)
+    visit_path edit_supplier_path(s)
+  end
 end
