@@ -10,7 +10,8 @@ module PageHelper
   end
 
   def ensure_admin
-    admin = create :admin
+    admin = Clerk.where(:admin => true).first
+    admin = create :admin unless admin
     expect(admin).not_to be nil
     admin
   end
