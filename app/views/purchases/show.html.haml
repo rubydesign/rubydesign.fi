@@ -7,13 +7,13 @@
 %p
   %b
     -if @purchase.ordered_on
-      = t(:ordered_on) + " : " + @purchase.ordered_on.to_s
+      = t(:ordered_on) + " : " + date(@purchase.ordered_on)
     -else
       = link_to t(:order) , order_purchase_path(@purchase) , :class => "btn btn-primary"
 %p
   %b
     -if @purchase.received_on
-      = t(:received) + " : " + @purchase.received_on.to_s
+      = t(:received) + " : " + date(@purchase.received_on)
     -else
       = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "btn btn-primary"
 

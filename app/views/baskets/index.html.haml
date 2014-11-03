@@ -24,7 +24,7 @@
           - @baskets.each do |basket|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td
-                =basket.created_at.to_date.to_s
+                = date(basket.created_at.to_date)
               %td
                 = euros basket.total_price
               %td

@@ -35,7 +35,7 @@
           %b Tilaus 
           =@order.number 
           vastaanotettu 
-          =@order.ordered_on || Date.today
+          =date(@order.ordered_on || Date.today)
           %hr
           %div
             %table.table.table-condensed

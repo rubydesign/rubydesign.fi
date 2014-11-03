@@ -21,4 +21,8 @@ module AdminHelper
     attribute_name
   end
 
+  def sort_date key
+    return "" unless params[:q]
+    params[:q][key] || ""
+  end
 end
