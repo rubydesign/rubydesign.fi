@@ -43,18 +43,4 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "chunky_png"
   s.add_runtime_dependency "bcrypt-ruby"
 
-  s.add_development_dependency 'rspec', '~> 3.1.0'
-  s.add_development_dependency 'rspec-rails', '~> 3.1.0'
-  s.add_development_dependency 'factory_girl', '>= 4.4'
-  s.add_development_dependency 'sqlite3', '~> 1.3.9'
-  s.add_development_dependency 'simplecov', '~> 0.9.0'
-  s.add_development_dependency 'coveralls', '>= 0.7.0'
-  s.add_development_dependency 'i18n-spec', '>= 0.5.1'
-  s.add_development_dependency 'ffaker', '>= 1.24'
-  s.add_development_dependency 'coffee-rails', '~> 4.0.0'
-  s.add_development_dependency 'pry-rails', '>= 0.3.2'
-  s.add_development_dependency 'database_cleaner', '1.3.0'
-  s.add_development_dependency 'guard-rspec', '>= 4.2.8'
-  s.add_development_dependency 'guard-rubocop', '>= 1.1.0'
-  s.add_development_dependency 'rubocop'
 end

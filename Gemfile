@@ -34,7 +34,6 @@ gem 'coffee-rails'
 #one wishes one would not need it. alas . . .
 gem 'rack-attack'
 
-
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -46,7 +45,6 @@ end
 group :development, :test do
   gem "spring"
   gem "spring-commands-rspec"
-  gem 'factory_girl_rails'
 end
 group :test do
 #  gem "poltergeist"
@@ -55,7 +53,9 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
+  gem "factory_girl_rails"
   gem 'email_spec'
+  gem 'i18n-spec'
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
