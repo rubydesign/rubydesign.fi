@@ -57,9 +57,12 @@
     .col-md-3
       %h4.highlight
         Valitse toimitustapa
-      %em Yli 60 € tilauksiin 
-      %br/
-      %em toimitus rahtivapaasti  
+        .row
+          .col-md-9
+            %br
+            .frame.bg-high8
+              %b Huom!
+              Yli 60 € tilauksiin toimitus rahtivapaasti  
 
     .col-md-9
       .row
@@ -105,7 +108,11 @@
     .col-md-3
       .row
         .col-md-9
-          %h4.highlight Tallennetut osoitteet
+          %h4.highlight Anna yhteystiedot
+          %br/
+          
+          %b Tallennetut osoitteet
+          
           .frame#previous_address
             %span.name Anna Asiakas 
             %br/ 
@@ -121,18 +128,13 @@
     .col-md-9
       .row
         .col-md-9#address_form
-          %h4.highlight Yhteystiedot 
+          %h4 Yhteystiedot 
           = f.text_field :name , :placeholder => t(:name)
           = f.text_field :street , :placeholder => t(:street)
           = f.text_field :city , :placeholder => t(:city)
           = f.text_field :phone , :placeholder => t(:phone)
           = f.email_field :email, :placeholder => t(:email)
           %hr  
-          .form-group
-            = label_tag :message
-            = text_field_tag :message, params[:message] , :class => "form-control" , :placeholder => "Kirjoita tähän mahdolliset erityistoiveesi tilaukseen liittyen"
-          %hr  
-          %button.btn.btn-primary{:type => "submit"} Tee tilaus
-
+          %button.btn.btn-primary.btn-lg{:type => "submit"} Tee tilaus
+          
         .col-md-3
-
