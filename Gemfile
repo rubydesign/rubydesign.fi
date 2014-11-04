@@ -34,7 +34,7 @@ gem 'coffee-rails'
 gem 'rack-attack'
 
 group :development do
-  gem 'better_errors'
+  gem 'better_errors' , :platforms=>[:mri_20, :rbx]
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem "i18n-tasks"
   gem 'quiet_assets'
