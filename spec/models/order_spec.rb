@@ -13,4 +13,7 @@ describe Order do
     expect(ok).to be true
   end
 
+  it "creates ok" do
+    o1 = create :order
+  end
 end

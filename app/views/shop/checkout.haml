@@ -65,7 +65,7 @@
       .row
         .col-md-7
           %h4
-            Toimitustapa
+            Valitse toimitustapa
             = @order.shipment_type              
           - OfficeClerk::ShippingMethod.all.each_value do |s|
             .radio
@@ -73,7 +73,6 @@
               = s.name
               = s.price_for(current_basket).round(2)
               €
-              = s.type
 
         .col-md-4
           %h4

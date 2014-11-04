@@ -7,9 +7,6 @@ describe "Purchases" do
   it "lists purchases" do
     visit_path purchases_path
   end
-  it "creates a new purchases" do
-    visit_path new_purchase_path
-  end
   it "shows" do
     purchase = create(:purchase)
     visit_path purchase_path(purchase)

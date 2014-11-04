@@ -5,11 +5,11 @@ describe Clerk do
   describe "passwords" do
 
     it "should have a password attribute" do
-      create(:clerk).should respond_to(:password)
+      expect(create(:clerk)).to respond_to(:password)
     end
 
     it "should have a password confirmation attribute" do
-      create(:clerk).should respond_to(:password_confirmation)
+      expect(create(:clerk)).to respond_to(:password_confirmation)
     end
   end
 
@@ -30,7 +30,7 @@ describe Clerk do
   describe "password encryption" do
 
     it "should have an encrypted password attribute" do
-      create(:clerk).should respond_to(:encrypted_password)
+      expect(create(:clerk)).to respond_to(:encrypted_password)
     end
 
     it "should set the encrypted password attribute" do

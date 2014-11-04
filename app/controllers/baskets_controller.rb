@@ -1,7 +1,7 @@
 # encoding : utf-8
 class BasketsController < AdminController
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :print, :purchase]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :checkout, :purchase]
 
   def index
     @q = Basket.search( params[:q] )
@@ -9,7 +9,7 @@ class BasketsController < AdminController
     @baskets = @basket_scope.includes({:items => :product} , :kori).paginate( :page => params[:page], :per_page => 20 )
   end
 
-  def print
+  def checkout
     if @basket.empty?
       flash.notice = t(:basket_empty)
       render :edit

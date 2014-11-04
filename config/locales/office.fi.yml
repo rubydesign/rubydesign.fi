@@ -74,6 +74,7 @@ fi:
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
+  checkout: Checkout
   choose_product_for_basket: Valitse tuote ostoskoriin
   city: Kaupunki
   clerk: Käyttäjä

@@ -1,16 +1,7 @@
 require 'spec_helper'
 
 describe "Basket inventory" do
-  it "receives ok" do
-    basket = create :basket_2_items
-    p1 = basket.items.first.product.inventory
-    p2 = basket.items.last.product.inventory
-    basket.receive!
-    basket.reload
-    expect(basket.items.first.product.inventory).to eq  p1 + basket.items.first.quantity
-    expect(basket.items.last.product.inventory).to eq  p2 + basket.items.last.quantity
-  end
-  it "deducts ok" do
+  it "deducts ok and adjusts inventory" do
     basket = create :basket_2_items
     inv1 = basket.items.first.product.inventory - basket.items.first.quantity
     inv2 = basket.items.last.product.inventory - basket.items.last.quantity
@@ -18,6 +9,15 @@ describe "Basket inventory" do
     basket.reload
     expect(basket.items.first.product.inventory).to eq inv1
     expect(basket.items.last.product.inventory).to eq inv2
+  end
+  it "receives ok and adjusts inventory" do
+    basket = create :basket_2_items
+    inv1 = basket.items.first.product.inventory + basket.items.first.quantity
+    inv2 = basket.items.last.product.inventory + basket.items.last.quantity
+    expect(basket.receive!).to be 3
+    basket.reload
+    expect(basket.items.first.product.inventory).to eq  inv1
+    expect(basket.items.last.product.inventory).to eq  inv2
   end
   it "locks after receive" do
     basket = create :basket_2_items

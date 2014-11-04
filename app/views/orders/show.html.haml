@@ -3,7 +3,7 @@
 .col-md-4
   %p
     %b
-      = t(:ordered_on) + " : " + @order.ordered_on.to_s
+      = t(:ordered_on) + " : " + date(@order.ordered_on)
   %p
     %b
       = t(:total_price) + " : " +  euros(@order.basket.total_price)
@@ -19,13 +19,13 @@
 .col-md-4
   %p
     %b
-      = t(:paid_on) + " : " + @order.paid_on.to_s
+      = t(:paid_on) + " : " + date(@order.paid_on)
   %p
     %b
-      = t(:shipped_on) + " : " + @order.shipped_on.to_s
+      = t(:shipped_on) + " : " + date(@order.shipped_on)
   %p
     %b
-      = t(:canceled_on) + " : " + @order.canceled_on.to_s
+      = t(:canceled_on) + " : " + date(@order.canceled_on)
   %p
     %b
       = t(:shipment_type) + " : " + @order.shipment_type.to_s

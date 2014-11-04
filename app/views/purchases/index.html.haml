@@ -20,8 +20,8 @@
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td=purchase.ordered_on
-              %td=purchase.received_on
+              %td= date(purchase.ordered_on)
+              %td= date(purchase.received_on)
               %td= purchase.basket.items.length
               %td= link_to euros(purchase.basket.total_price) , basket_path(purchase.basket)
               %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)

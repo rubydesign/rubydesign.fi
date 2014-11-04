@@ -1,12 +1,15 @@
 //= require jquery
 //= require jquery-ui
+//= require jquery-ui/datepicker-fi
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require_self
 
+$.datepicker.setDefaults( $.datepicker.regional[ "fi" ] );
+
 $(function() {
-   $( ".datepicker" ).datepicker( { dateFormat: 'dd/mm/yy' });
+   $( ".datepicker" ).datepicker( );
  });
  
 function initPage(){
