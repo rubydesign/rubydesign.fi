@@ -15,12 +15,12 @@ describe Item do
 
   it "calcualtes taxes" do
     [create(:item) , create(:item2) , create(:item22)].each do |c|
-      expect(c.tax_amount).to be ((c.tax * c.price*c.quantity) / 100.0).round(2)
+      expect(c.tax_amount).to eq ((c.tax * c.price*c.quantity) / 100.0).round(2)
     end
   end
   it "calcualtes total" do
     [create(:item) , create(:item2) , create(:item22)].each do |c|
-      expect(c.total).to be (c.quantity * c.price).round(2)
+      expect(c.total).to eq (c.quantity * c.price).round(2)
     end
   end
   it "has products" do
