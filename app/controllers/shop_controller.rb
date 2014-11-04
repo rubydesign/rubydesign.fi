@@ -9,7 +9,7 @@ class ShopController < ApplicationController
   end
 
   def product
-    @product = Product.online.where(:link => params[:link]).first
+    @product = Product.shop_products.where(:link => params[:link]).first
     unless @product
       redirect_to :action => :group 
       return
@@ -63,7 +63,7 @@ class ShopController < ApplicationController
   def group
     @group = Category.online.where(:link => params[:link]).first 
     if @group
-      @products = @group.products.no_items.online
+      @products = @group.shop_products
       template = "product_list"
       @groups = @group.categories.online
     else
@@ -74,10 +74,9 @@ class ShopController < ApplicationController
   end
 
   def page
-    @products = Product.online.limit(50)
+    @products = Product.shop_products.limit(50)
     template = params[:id]
     template = "tuotteista" if template.blank?
-    @products = Product.online.limit(20)
     render template
   end
   private
