@@ -20,3 +20,4 @@ config:
       name: Nouto myymälästämme
   defaults:
     tax: 24.0
+    free_shipping: 100

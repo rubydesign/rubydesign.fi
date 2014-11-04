@@ -60,9 +60,11 @@
         .row
           .col-md-9
             %br
-            .frame.bg-high8
-              %b Huom!
-              Yli 60 € tilauksiin toimitus rahtivapaasti  
+              - extra = OfficeClerk.config("defaults.free_shipping") - current_basket.total_price
+              - if extra > 0
+                .frame.bg-high8
+                  %b= t(:notice) + "!"
+                  = t(:order_more_for_free_shipping , :more => extra.round(2))
 
     .col-md-9
       .row

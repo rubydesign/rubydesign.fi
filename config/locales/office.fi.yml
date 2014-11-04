@@ -122,12 +122,14 @@ fi:
   new: Uusi
   new_item: Uusi tuote
   next: seuraava
+  notice: Huom
   not_online: ei netissä
   online: Netissä
   online_eq: Online?
   order: Tilaus
   order_number: Tilauksen numero
   order_total: Loppusumma
+  order_more_for_free_shipping: "%{more} €  tilauksiin toimitus rahtivapaasti"
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
