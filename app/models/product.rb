@@ -22,6 +22,8 @@ class Product < ActiveRecord::Base
   default_scope {where(:deleted_on => nil).order('created_at DESC') }
   scope :online, -> { where(:online => true) }
   scope :no_items, -> { where(:product_id => nil) }
+  scope :with_inventory, -> { where("inventory > 0") }
+  scope :shop_products , -> { online.no_items.with_inventory }
 
   validates :price, :numericality => true
   validates :cost, :numericality => true
@@ -31,6 +33,7 @@ class Product < ActiveRecord::Base
   before_save :adjust_cost
   after_save :update_line_inventory , :if => :product_id
 
+  
   def update_line_inventory
     parent = self.product
     return unless parent

@@ -20,4 +20,8 @@ class Category < ActiveRecord::Base
     true
   end
 
+  # just a shorthand to apply Products.shop_products scope to the groups products
+  def shop_products
+    products.shop_products
+  end
 end
