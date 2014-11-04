@@ -1,19 +1,24 @@
-.row
-  %img{:src => "/assets/shop/spacer.gif"}/
+.row  
+  %ol.breadcrumb
+    %li
+      %a{ :href => "/"}= t(:home)
+    %li
+      = t(:basket)
+      
   
-.row
-  = bootstrap_form_for @order, :url => shop_checkout_path do |f|
+= bootstrap_form_for @order, :url => shop_checkout_path do |f|
+  .row
     = f.alert_message t(:fix_errors) , error_summary: false
 
     .col-md-3
-      .group-wrapper
+      .group-wrapper.side.checkout
         %img{:src => "/assets/shop/basket.jpg"}/
         %h5 Ostoskori
 
     .col-md-9
       .row
         %br
-        %h4.highlight Ostoskorisi sisältö
+        %h4 Ostoskorisi sisältö
         %div
           %table.table.table-hover.table-condensed
             %thead            
@@ -26,7 +31,7 @@
             %tbody
               -current_basket.items.each do |item|
                 %tr
-                  %td.picture= image_tag item.product.main_picture.url(:thumb) if item.product
+                  %td.picture.text-center= image_tag item.product.main_picture.url(:thumb) if item.product
                   %td.name
                     = link_to shop_product_path(:link => item.product.link ) do
                       = item.name
@@ -46,73 +51,88 @@
                 %th
                 %th= number_to_currency current_basket.total_price
         
-      .row
-        %hr
-        .row
-          .col-md-7
-            %h4.highlight
-              Valitse toimitustapa
-              = @order.shipment_type              
-            - OfficeClerk::ShippingMethod.all.each_value do |s|
-              .radio
-                = radio_button_tag "order[shipment_type]" , s.type , s.type.to_s == @order.shipment_type , "data-price" => s.price_for(current_basket).round(2)
-                = s.name
-                = s.price_for(current_basket).round(2)
-                €
-
-          .col-md-4
-            %h4.highlight
-              = t(:order)
-              = @order.number
-
-            %table.table.table-condensed.basket-total
-              %thead
-                %tr
-                  %th Tuotteet yhteensä
-                  %td.text-right
-                    %span#basket_total= current_basket.total_price.round(2)
-                    €
-              %tbody
-                %tr 
-                  %th Toimituskulut 
-                  %td.text-right
-                    %span#shipping_cost= @order.shipment_price
-                    €
-                %tr 
-                  %th Tilaus yhteensä
-                  %th.text-right
-                    %span#order_total= @order.total_price.round(2)
-                    €
-          .col-md-1
-
-
-        .row
-          %hr 
-          .col-md-9#address_form
-            %h4.highlight Yhteystiedot 
-            = f.text_field :name , :placeholder => t(:name)
-            = f.text_field :street , :placeholder => t(:street)
-            = f.text_field :city , :placeholder => t(:city)
-            = f.text_field :phone , :placeholder => t(:phone)
-            = f.email_field :email, :placeholder => t(:email)
-            %hr  
-            .form-group
-              = label_tag :message
-              = text_field_tag :message, params[:message] , :class => "form-control" , :placeholder => "Kirjoita tähän mahdolliset erityistoiveesi tilaukseen liittyen"
-            %hr  
-            %button.btn.btn-primary{:type => "submit"} Tee tilaus
-
-          .col-md-3
-            %h4.highlight Tallennetut osoitteet
-            .frame#previous_address
-              %span.name Anna Asiakas 
-              %br/ 
-              %span.street Mallikatu 3  
-              %br/
-              %span.city 10300 Karjaa  
-              %br/
-              %span.phone 040 333 4455  
-              %br/
-          
-              %button.btn.btn-primary.btn-xs#fill_address{:type => "button"} Käytä tätä osoitetta
+  .row
+    %hr 
   
+    .col-md-3
+      %h4.highlight
+        Valitse toimitustapa
+      %em Yli 60 € tilauksiin 
+      %br/
+      %em toimitus rahtivapaasti  
+
+    .col-md-9
+      .row
+        .col-md-7
+          %h4
+            Valitse toimitustapa
+            = @order.shipment_type              
+          - OfficeClerk::ShippingMethod.all.each_value do |s|
+            .radio
+              = radio_button_tag "order[shipment_type]" , s.type , s.type.to_s == @order.shipment_type , "data-price" => s.price_for(current_basket).round(2)
+              = s.name
+              = s.price_for(current_basket).round(2)
+              €
+
+        .col-md-4
+          %h4
+            = t(:order)
+            = @order.number
+
+          %table.table.table-condensed.basket-total
+            %thead
+              %tr
+                %th Tuotteet yhteensä
+                %td.text-right
+                  %span#basket_total= current_basket.total_price.round(2)
+                  €
+            %tbody
+              %tr 
+                %th Toimituskulut 
+                %td.text-right
+                  %span#shipping_cost= @order.shipment_price
+                  €
+              %tr 
+                %th Tilaus yhteensä
+                %th.text-right
+                  %span#order_total= @order.total_price.round(2)
+                  €
+        .col-md-1
+
+
+  .row
+    %hr 
+    .col-md-3
+      .row
+        .col-md-9
+          %h4.highlight Tallennetut osoitteet
+          .frame#previous_address
+            %span.name Anna Asiakas 
+            %br/ 
+            %span.street Mallikatu 3  
+            %br/
+            %span.city 10300 Karjaa  
+            %br/
+            %span.phone 040 333 4455  
+            %br/
+            %br/
+            %button.btn.btn-primary.btn-xs#fill_address{:type => "button"} Käytä tätä osoitetta
+      
+    .col-md-9
+      .row
+        .col-md-9#address_form
+          %h4.highlight Yhteystiedot 
+          = f.text_field :name , :placeholder => t(:name)
+          = f.text_field :street , :placeholder => t(:street)
+          = f.text_field :city , :placeholder => t(:city)
+          = f.text_field :phone , :placeholder => t(:phone)
+          = f.email_field :email, :placeholder => t(:email)
+          %hr  
+          .form-group
+            = label_tag :message
+            = text_field_tag :message, params[:message] , :class => "form-control" , :placeholder => "Kirjoita tähän mahdolliset erityistoiveesi tilaukseen liittyen"
+          %hr  
+          %button.btn.btn-primary{:type => "submit"} Tee tilaus
+
+        .col-md-3
+
