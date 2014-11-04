@@ -11,6 +11,9 @@ $highlight: #108BAD;
 $highlight-1: scale-color($highlight, $lightness: 10%);
 $highlight-2: scale-color($highlight, $lightness: 20%);
 $highlight-3: scale-color($highlight, $lightness: 30%);
+$highlight-7: scale-color($highlight, $lightness: 70%);
+$highlight-8: scale-color($highlight, $lightness: 80%);
+$highlight-9: scale-color($highlight, $lightness: 90%);
 $secondary-color: #c7e1df;
 $table-bg-accent: #E2EEF1;
 $breadcrumb-bg: rgba(213,223,255,0.3);
@@ -108,7 +111,7 @@ width: 200px;  }
 	width: 200px;
 }
 
-.checkout h5{
+.group-wrapper.checkout h5 {
 color: #F19711;
 background: black;
 background: rgba(212, 232, 245, 0.45);
@@ -233,14 +236,7 @@ h1.product-title {
 
 .breadcrumb {
   margin: 8px 15px 20px;
-}
-
-.highlight{
-  color: $highlight;
-}
-
-.breadcrumb {
-border-radius: 0px;
+  border-radius: 0px;
 }
 
 .list {
@@ -345,23 +341,55 @@ color: #E2E7F6; }
 background-color: #0A6779; }
 
 
-.alert-shop {
+.alert {
   padding: 8px 15px;
+  font-weight: 500;
+  border-radius: 0px; }
+
+
+.alert-shop {
   margin: 8px 0 10px;
   background-color: $highlight-2;
   color: #ffffff;
-  font-weight: 500;
   text-align: center;
-  border-radius: 0px; }
-  
-.alert-shop2 {
-  background-color: $highlight-3;
-  
-}  
+ }
 
+.alert-danger {
+  margin: 10px 15px 0px 15px;
+  }
+  
 .alert-notice {
   margin: 1px;
 }  
+
+.highlight{
+  color: $highlight;
+}
+
+.bg-high1 {
+  background-color: $highlight-1;  
+}  
+
+.bg-high2 {
+  background-color: $highlight-2;  
+}  
+
+.bg-high3 {
+  background-color: $highlight-3;  
+}  
+
+.bg-high7 {
+  background-color: $highlight-7;  
+}  
+
+.bg-high8 {
+  background-color: $highlight-8;  
+}  
+
+.bg-high9 {
+  background-color: $highlight-9;  
+}  
+
 
 .welcome {
   max-width: 92%;
