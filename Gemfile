@@ -48,6 +48,7 @@ end
 group :test do
 #  gem "poltergeist"
 #  gem "phantomjs"
+  gem "codeclimate-test-reporter"
   gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-screenshot'
