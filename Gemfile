@@ -17,7 +17,6 @@ gem 'post_clerk' , github: "rubyclerks/post_clerk"
 #gem 'post_clerk' , path: "../post_clerk"
 
 #ui
-gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 

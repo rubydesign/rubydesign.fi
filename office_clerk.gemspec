@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.has_rdoc = false
 
   s.add_runtime_dependency 'rails', '~> 4.0.1'
+  s.add_runtime_dependency 'sass-rails'
 
   s.add_development_dependency 'rspec', '~> 3.1.0'
   s.add_development_dependency 'rspec-rails', '~> 3.1.0'
@@ -33,7 +34,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'i18n-spec', '>= 0.5.1'
   s.add_development_dependency 'ffaker', '>= 1.24'
   s.add_development_dependency 'coffee-rails', '~> 4.0.0'
-  s.add_development_dependency 'sass-rails', '~> 4.0.0'
   s.add_development_dependency 'pry-rails', '>= 0.3.2'
   s.add_development_dependency 'database_cleaner', '1.3.0'
   s.add_development_dependency 'guard-rspec', '>= 4.2.8'
