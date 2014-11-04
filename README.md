@@ -5,27 +5,33 @@ Office Clerk is the back office helper, your accountant, storage manager, secret
 
 ####  Status
 
-The clerks are under heavy development, not ready for you to use. OficeClerk is actually in daily use alreay, but it's not public yet. But once it is, it shall replace our 2 spree installations.
+The clerks are under heavy development in public beta one could say.
 
-Once installed, we mean to keep RubyClerks running with easy to manage upgrades. Our shop is 15 years old, and so we expect to be around for a while, with a stable product and feature list.
+A first push of development resulted in a system that has been used for backend office work since 2/2014
 
-On the other hand it would be nice to see many extensions.
+Currenly refinements and front end work is underway and scheduled for x-mas.
 
 ### Other clerks
 
-Once finished, i will split the OnlineClerk to it's seperate module. This will be the repository to clone and edit. The Officeclerk should be the same for everyone and rather than edit it for your own use we hope to receive pull requests and are looking forward to welcoming new members.
+The original plan (as per web-site) is being implemented: several extension "clerk" will be optional. Some are ready (one not)
 
-### OnlineClerk
+### AccountantClerk
 
-See there when done
+This currenly does graphical sales reports. Purchase order creation is planned.
 
-### ReportClerk
+### Print Clerk
 
-Is an exteral module so it can be extended easier.
+A invoice generator
+
+### Sales Clerk
+
+Work is underway to make the front end work. ie your standard e-commerce front end.
 
 ### Getting Started
 
-Clone the office clerk, migrate, and start editing the interface to suit you.
+Clone the office clerk, migrate, and click around. Fork and help.
+
+THe final version wil work by cloning the sales clerk, OR adding the officeclerk engine into your existing app. Docs follow.
 
 ### Similar Projects
 
