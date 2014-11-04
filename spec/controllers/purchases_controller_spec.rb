@@ -82,7 +82,7 @@ describe PurchasesController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         post :create, {:purchase => {  :supplier_id => nil }}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -116,7 +116,7 @@ describe PurchasesController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end

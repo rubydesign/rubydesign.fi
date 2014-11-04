@@ -83,7 +83,7 @@ describe SuppliersController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Supplier).to receive(:save).and_return(false)
         post :create, {:supplier => {  :name  => "" }}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -114,7 +114,7 @@ describe SuppliersController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Supplier).to receive(:save).and_return(false)
         put :update, {:id => supplier.to_param, :supplier => {  :name  => "" }}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end

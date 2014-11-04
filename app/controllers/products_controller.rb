@@ -32,7 +32,7 @@ class ProductsController < AdminController
     else
       @product = Product.new :tax => OfficeClerk.config("defaults.tax")
     end
-    render "edit"
+    render :edit
   end
 
   def edit
@@ -58,7 +58,7 @@ class ProductsController < AdminController
       flash.notice += t(:create_success, :model => "product")
       redirect_to product_path(@product)
     else
-      render :action => "edit"
+      render :action => :edit
     end
   end
 
@@ -93,7 +93,7 @@ class ProductsController < AdminController
     if ok
       redirect_to product_path(@product)
     else
-      render :action => "edit"
+      render :action => :edit
     end
   end
 

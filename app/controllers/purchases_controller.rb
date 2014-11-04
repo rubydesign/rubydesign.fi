@@ -35,7 +35,7 @@ class PurchasesController < AdminController
 
   def new
     @purchase = Purchase.new
-    render "edit"
+    render :edit
   end
 
   def edit
@@ -47,7 +47,7 @@ class PurchasesController < AdminController
     if @purchase.save
       redirect_to purchase_path(@purchase), :flash => { :notice => t(:create_success, :model => "purchase") }
     else
-      render "edit"
+      render :edit
     end
   end
 
@@ -55,7 +55,7 @@ class PurchasesController < AdminController
     if @purchase.update_attributes(params_for_model)
       redirect_to purchase_path(@purchase), :flash => { :notice => t(:update_success, :model => "purchase") }
     else
-      render :action => "edit"
+      render :action => :edit
     end
   end
 

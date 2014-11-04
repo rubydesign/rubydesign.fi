@@ -78,7 +78,7 @@ describe OrdersController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Order).to receive(:save).and_return(false)
         post :create, {:order => {  :paid_on => ""}}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end

@@ -81,7 +81,7 @@ describe ProductsController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Product).to receive(:save).and_return(false)
         post :create, {:product => {  :name => "" }}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -115,7 +115,7 @@ describe ProductsController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Product).to receive(:save).and_return(false)
         put :update, {:id => product.to_param, :product => {  :name => "" }}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end

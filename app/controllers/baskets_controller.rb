@@ -118,7 +118,7 @@ class BasketsController < AdminController
     if @basket.save
       redirect_to basket_path(@basket), :flash => { :notice => t(:create_success, :model => "basket") }
     else
-      render "edit"
+      render :edit
     end
   end
 
@@ -128,7 +128,7 @@ class BasketsController < AdminController
        redirect_to edit_basket_path(@basket)
     else
       flash.notice = t('basket_locked') if @basket.locked
-      render :action => "show"
+      render :action => :show
     end
   end
 

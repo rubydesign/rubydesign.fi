@@ -17,7 +17,7 @@ class ClerksController < AdminController
 
   def new
     @clerk = Clerk.new
-    render "edit"
+    render :edit
   end
 
   def edit
@@ -28,7 +28,7 @@ class ClerksController < AdminController
     if @clerk.save
       redirect_to clerk_path(@clerk), :flash => { :notice => t(:create_success, :model => "clerk") }
     else
-      render "edit"
+      render :edit
     end
   end
 
@@ -41,7 +41,7 @@ class ClerksController < AdminController
     if @clerk.update_attributes(pars)
       redirect_to clerk_path(@clerk), :flash => { :notice => t(:update_success, :model => "clerk") }
     else
-      render :action => "edit"
+      render :action => :edit
     end
   end
 

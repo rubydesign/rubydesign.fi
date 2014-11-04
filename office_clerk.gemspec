@@ -38,5 +38,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'database_cleaner', '1.3.0'
   s.add_development_dependency 'guard-rspec', '>= 4.2.8'
   s.add_development_dependency 'guard-rubocop', '>= 1.1.0'
-  s.add_development_dependency 'rubocop', '>= 0.24.1'
+  s.add_development_dependency 'rubocop'
 end

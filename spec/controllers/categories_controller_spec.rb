@@ -75,7 +75,7 @@ describe CategoriesController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Category).to receive(:save).and_return(false)
         post :create, {:category => {  :name => ""}}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -110,7 +110,7 @@ describe CategoriesController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Category).to receive(:save).and_return(false)
         put :update, {:id => category.to_param, :category => { :name => ""}}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end

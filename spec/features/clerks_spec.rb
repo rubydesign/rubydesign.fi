@@ -10,7 +10,7 @@ describe Clerk  do
   it "creates a new group" do
     visit_path new_clerk_path
   end
-  it "edit" do
+  it :edit do
     clerk = create(:clerk)
     visit_path edit_clerk_path(clerk)
   end

@@ -10,7 +10,7 @@ describe Category  do
   it "creates a new group" do
     visit_path new_category_path
   end
-  it "edit" do
+  it :edit do
     category = create(:category)
     visit_path edit_category_path(category)
   end
