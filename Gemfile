@@ -16,29 +16,9 @@ gem 'print_clerk' , github: "rubyclerks/print_clerk"
 gem 'post_clerk' , github: "rubyclerks/post_clerk"
 #gem 'post_clerk' , path: "../post_clerk"
 
-#ui
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
 
 # template
-gem 'simple_form' 
-gem "haml"
-gem "kramdown"
-gem "will_paginate"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
-gem "prawn"
-gem 'will_paginate-bootstrap'
-gem 'bootstrap-sass', '~> 3.1.0'
-gem 'bootstrap_form' #, :github => "bootstrap-ruby/rails-bootstrap-forms"
-
-
-gem "paperclip"
-gem 'turbolinks'
-gem 'rails-i18n'
-
-gem "barby"
-gem "chunky_png"
-gem "bcrypt-ruby"
 
 #misc
 gem "valid_email" , :require => 'valid_email/email_validator' #no mx checking

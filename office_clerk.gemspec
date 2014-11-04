@@ -24,6 +24,24 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'rails', '~> 4.0.1'
   s.add_runtime_dependency 'sass-rails'
+  s.add_runtime_dependency "haml"
+  s.add_runtime_dependency "jquery-rails"
+  s.add_runtime_dependency 'jquery-ui-rails'
+  s.add_runtime_dependency "kramdown"
+  s.add_runtime_dependency "will_paginate"
+
+  s.add_runtime_dependency 'simple_form' 
+  s.add_runtime_dependency "prawn"
+  s.add_runtime_dependency 'will_paginate-bootstrap'
+  s.add_runtime_dependency 'bootstrap-sass', '~> 3.1.0'
+  s.add_runtime_dependency 'bootstrap_form'
+  s.add_runtime_dependency "paperclip"
+  s.add_runtime_dependency 'turbolinks'
+  s.add_runtime_dependency 'rails-i18n'
+
+  s.add_runtime_dependency "barby"
+  s.add_runtime_dependency "chunky_png"
+  s.add_runtime_dependency "bcrypt-ruby"
 
   s.add_development_dependency 'rspec', '~> 3.1.0'
   s.add_development_dependency 'rspec-rails', '~> 3.1.0'
