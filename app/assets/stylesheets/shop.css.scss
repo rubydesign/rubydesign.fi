@@ -8,6 +8,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans); 
 
 $highlight: #108BAD;
+$highlight-1: scale-color($highlight, $lightness: 10%);
+$highlight-2: scale-color($highlight, $lightness: 20%);
+$highlight-3: scale-color($highlight, $lightness: 30%);
 $secondary-color: #c7e1df;
 $table-bg-accent: #E2EEF1;
 $breadcrumb-bg: rgba(213,223,255,0.3);
@@ -104,6 +107,15 @@ width: 200px;  }
   padding: 7px;
 	width: 200px;
 }
+
+.checkout h5{
+color: #F19711;
+background: black;
+background: rgba(212, 232, 245, 0.45);
+text-shadow: rgb(255, 255, 255) 0px 0px 10px;
+}
+
+
 
 .intro {
   padding-top: 20px;
@@ -264,7 +276,7 @@ border-radius: 0px;
 
 .navbar-inverse .navbar-inner {
   border: 0px;
-  background-color: #108BAD;
+  background-color: $highlight;
 }
 
 .carouselli {
@@ -336,12 +348,17 @@ background-color: #0A6779; }
 .alert-shop {
   padding: 8px 15px;
   margin: 8px 0 10px;
-  background-color: rgba(155, 27, 255, 0.3);
-  color: #682EA7;
+  background-color: $highlight-2;
+  color: #ffffff;
   font-weight: 500;
   text-align: center;
   border-radius: 0px; }
   
+.alert-shop2 {
+  background-color: $highlight-3;
+  
+}  
+
 .alert-notice {
   margin: 1px;
 }  
