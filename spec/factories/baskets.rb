@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :basket do
-    sequence(:id)
     factory :basket_with_item do
       items {build_list :item , 1 }
     end
