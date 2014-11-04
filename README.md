@@ -1,5 +1,6 @@
 ## Office Clerk
 [![Build Status](https://travis-ci.org/rubyclerks/office_clerk.svg?branch=master)](https://travis-ci.org/rubyclerks/office_clerk)
+[![Code Climate](https://codeclimate.com/github/rubyclerks/office_clerk/badges/gpa.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
 
 Office Clerk is the back office helper, your accountant, storage manager, secretary and more. It is the heart of the "RubyClerks team":http://rubyclerks.org , the manager as it were.
 
@@ -36,7 +37,7 @@ THe final version wil work by cloning the sales clerk, OR adding the officeclerk
 ### Similar Projects
 
  * "Spree":http:spreecommerce.com , the grandfather of the rails ecommerce has grown big and mighty
- * "Ror-e":http://ror-e.com/ has some nice purchase features, but Dave has not been so active lately
+ * "Ror-e":http://ror-e.com/ has some nice purchase features, and did great work to standardise rails usage
  * "MarketStreet":https://github.com/alex-nexus/market_street/ has taken the ball from ror-e and is running strong with an impressive list of goals
  * "TryShoppe":http://tryshoppe.com/ is new and lightweight. Very nice looking interface.
  
