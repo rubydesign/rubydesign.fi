@@ -1,37 +1,35 @@
 require 'spec_helper'
 
+# lots of buttons appear and disapear, check that that all works
+
 describe "Basket buttons" do
   before(:each) do 
     sign_in
-    visit_path new_basket_path
   end
-  it "shold have back and update buttons" do
+  it "should have back and update buttons" do
+    visit_path new_basket_path
     expect(page).to have_content I18n.t(:back)
     find_button I18n.t("helpers.submit.update" , :model => I18n.t(:basket))
     find_link I18n.t(:new) + ' ' + I18n.t(:basket)
     find_link I18n.t(:destroy)
   end
-  it "adds product" do
-    ean = "123456Z"
-    p = create :product , :ean => ean
-    within ".ean_form" do
-      fill_in "ean" , :with => "#{ean}"
-      click_on I18n.t(:search)
-    end
-    td = find(".table").find(".name")
-    expect(td).to have_content(p.name)
-  end
   it "creates a new order" do
-    visit_path new_basket_path
-    ean = "123456Z"
-    p = create :product , :ean => ean
-    within ".ean_form" do
-      fill_in "ean" , :with => "#{ean}"
-      click_on I18n.t(:search)
-    end
-    url = page.current_path
+    basket = create :basket_with_item
+    visit_path edit_basket_path basket
     expect(page).not_to have_content I18n.t(:to_order)
     click_link I18n.t(:checkout)
     expect(page).to have_content I18n.t("invoice.header")
+  end
+  it "goes to purchase" do
+    basket = create :basket_2_items
+    visit_path edit_basket_path(basket)
+    click_on I18n.t(:make_purchase)
+    expect(find("h2")).to have_content(I18n.t(:purchase))
+  end
+  it "finds print link" do
+    basket = create :basket_2_items
+    visit_path edit_basket_path(basket)
+    expect(page).to have_content(I18n.t(:checkout))
+    expect(find(".print_order")).to have_content(I18n.t(:checkout))
   end
 end
