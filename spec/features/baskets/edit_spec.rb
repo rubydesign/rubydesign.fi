@@ -14,14 +14,23 @@ describe "edit baskets" do
     expect{ find(".table").find(".name" , :minimum => 1) }.to raise_error
     expect(page).not_to have_content(name )
   end
-  it "add quantity items" do
+  it "add quantity to item" do
     basket = create :basket_with_item
     visit_path edit_basket_path(basket)
-    expect(find( "//table #basket_items_attributes_0_quantity").value).to eq "1"
+    expect(find( "//table #basket_items_attributes_0_quantity").value).to eq basket.items.first.quantity.to_s
     fill_in "basket_items_attributes_0_quantity" , :with => 2
     find(".commit").click()
     td = find("//table #basket_items_attributes_0_quantity")
     expect(td.value).to eq("2")
+  end
+  it "change item price" do
+    basket = create :basket_with_item
+    visit_path edit_basket_path(basket)
+    expect(find( "//table #basket_items_attributes_0_price").value).to eq basket.items.first.price.to_s
+    fill_in "basket_items_attributes_0_price" , :with => 20
+    find(".commit").click()
+    td = find("//table #basket_items_attributes_0_price")
+    expect(td.value).to eq("20.0")
   end
   it "renders 2 items with amount and total" do
     basket = create :basket_2_items
