@@ -40,10 +40,10 @@
 
         %tr
           %td{:colspan => 4}
-          %td
+          %td.count
             = t(:count)
             = @basket.items.length
-          %td
+          %td.total
             = t(:total)
             = euros @basket.total_price
 

@@ -17,7 +17,7 @@ describe "Basket search functionality" do
   end
   # this adds the product, but because we enter the name, it has to search and show a second page
   # where we hit add
-  it "adds product by entering ean" do
+  it "adds product by entering name" do
     basket = create :basket
     visit_path edit_basket_path basket
     p = create :product
