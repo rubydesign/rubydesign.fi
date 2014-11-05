@@ -35,8 +35,8 @@
             %td
               = select_tag("discount" , options_for_select( [item.discount,0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => "window.location.href='#{discount_basket_path(@basket)}?item=#{item.id}&discount=' + this.value"  )
             %td
-              = link_to t(:delete) , edit_basket_path(:delete => item.id)
-              = link_to t(:add) , edit_basket_path(:add => item.id)
+              = link_to t(:delete) , edit_basket_path(:delete => item.product.id)
+              = link_to t(:add) , edit_basket_path(:add => item.product.id)
 
         %tr
           %td{:colspan => 4}

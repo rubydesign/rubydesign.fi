@@ -98,27 +98,10 @@ class BasketsController < AdminController
 
   def edit
     return if locked?
-    if pid = params[:add]
-      item = @basket.items.find { |item| item.id.to_s == pid }
-      item.quantity += 1
-      item.save
-      flash.notice = t('product_added')
-    end
-    if pid = params[:delete]
-      item = @basket.items.find { |item| item.id.to_s == pid }
-      item.quantity -= 1
-      if item.quantity == 0
-        @basket.items.destroy item
-      else
-        item.save
-      end
-      flash.notice = t('item_removed')
-    end
-    if p_id = params[:product]
-      prod = Product.find p_id
-      #errors ?
-      @basket.add_product prod
-      flash.notice = t('product_added')
+    if p_id = (params[:add] || params[:delete])
+      add = params[:add].blank? ? -1 : 1
+      @basket.add_product Product.find(p_id) , add
+      flash.notice = params[:add] ? t('product_added') : t('item_removed')
     end
     @basket.save!
   end
