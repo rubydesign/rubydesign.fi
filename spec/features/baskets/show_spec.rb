@@ -16,6 +16,6 @@ describe "edit basket screen, no editing" do
     td = find(".table").first(".name")
     expect(td).to have_content(basket.items.first.name)
     expect(find(".count").text).to include( I18n.t(:count))
-    expect(find(".total").text).to include( basket.total_price.round(2).to_s.sub(".",",")) # TODO remove the format hack 
+    expect_basket_total basket.total_price
   end
 end

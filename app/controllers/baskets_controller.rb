@@ -1,7 +1,7 @@
 # encoding : utf-8
 class BasketsController < AdminController
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :checkout, :purchase]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :checkout, :purchase , :discount]
 
   def index
     @q = Basket.search( params[:q] )
@@ -55,6 +55,24 @@ class BasketsController < AdminController
     render :edit
   end
 
+  # refactor discount out of edit
+  def discount
+    if discount = params[:discount]
+      if i_id = params[:item]
+        item = @basket.items.find { |item| item.id.to_s == i_id }
+        item_discount( item , discount )
+      else
+        @basket.items.each do |item|
+          item_discount( item , discount )
+        end
+      end
+      @basket.save!
+    else
+      flash[:error] = "No discount given"
+    end
+    redirect_to :action => :edit
+  end
+
   def edit
     if( @basket.locked)
       flash.notice = t('basket_locked')
@@ -76,16 +94,6 @@ class BasketsController < AdminController
         item.save
       end
       flash.notice = t('item_removed')
-    end
-    if discount = params[:discount]
-      if i_id = params[:item]
-        item = @basket.items.find { |item| item.id.to_s == i_id }
-        item_discount( item , discount )
-      else
-        @basket.items.each do |item|
-          item_discount( item , discount )
-        end
-      end
     end
     if p_id = params[:product]
       prod = Product.find p_id

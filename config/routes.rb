@@ -31,6 +31,7 @@ OfficeClerk::Application.routes.draw do
       match "search" => "baskets#index", :via => [:get, :post]
     end
     member do
+      get :discount
       get :order
       get :purchase
       get :checkout

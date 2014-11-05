@@ -32,12 +32,19 @@ describe "edit baskets" do
     td = find("//table #basket_items_attributes_0_price")
     expect(td.value).to eq("20.0")
   end
-  it "renders 2 items with amount and total" do
-    basket = create :basket_2_items
-    visit_path edit_basket_path(basket)
-    td = find(".table").first(".name")
-    expect(td).to have_content(basket.items.first.name)
-    expect(find(".count").text).to include( I18n.t(:count))
-    expect(find(".total").text).to include( basket.total_price.round(2).to_s.sub(".",",")) # TODO remove the format hack 
+  it "discounts basket" do
+    basket = create :basket_with_item
+    total = basket.total_price
+    visit discount_basket_path(basket , :discount => "10")
+    expect_basket_total total * 0.9
   end
+  it "discounts item" do
+    basket = create :basket_2_items
+    total = basket.total_price - basket.items.first.price*0.1
+    visit discount_basket_path(basket , :discount => "10" , :item => basket.items.first)
+    expect_basket_total total
+    td = find("//table #basket_items_attributes_0_price")
+    expect(td.value).to eq((basket.items.first.price*0.9).to_s)
+  end
+
 end
