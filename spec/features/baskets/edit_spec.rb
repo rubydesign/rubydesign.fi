@@ -44,7 +44,7 @@ describe "edit baskets" do
     visit discount_basket_path(basket , :discount => "10" , :item => basket.items.first)
     expect_basket_total total
     td = find("//table #basket_items_attributes_0_price")
-    expect(td.value).to eq((basket.items.first.price*0.9).to_s)
+    expect(td.value).to eq((basket.items.first.price*0.9).round(2).to_s)
   end
 
 end
