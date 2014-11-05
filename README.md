@@ -1,6 +1,7 @@
 ## Office Clerk
 [![Build Status](https://travis-ci.org/rubyclerks/office_clerk.svg?branch=master)](https://travis-ci.org/rubyclerks/office_clerk)
 [![Code Climate](https://codeclimate.com/github/rubyclerks/office_clerk/badges/gpa.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
+[![Test Coverage](https://codeclimate.com/github/rubyclerks/office_clerk/badges/coverage.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
 
 Office Clerk is the back office helper, your accountant, storage manager, secretary and more. It is the heart of the "RubyClerks team":http://rubyclerks.org , the manager as it were.
 
