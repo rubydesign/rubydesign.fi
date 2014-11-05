@@ -1,7 +1,8 @@
 # encoding : utf-8
 class BasketsController < AdminController
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , :checkout, :purchase , :discount]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , 
+                                        :checkout, :purchase , :discount , :ean]
 
   def index
     @q = Basket.search( params[:q] )
@@ -73,12 +74,30 @@ class BasketsController < AdminController
     redirect_to :action => :edit
   end
 
-  def edit
-    if( @basket.locked)
-      flash.notice = t('basket_locked')
-      redirect_to  :action => :show
-      return
+  # ean search at the top of basket edit
+  def ean
+    return if locked?
+    ean = params[:ean]
+    ean.sub!("P+" , "P-") if ean[0,2] == "P+"
+    prod = Product.find_by_ean ean
+    if(prod)
+      @basket.add_product prod
+    else
+      prod = Product.find_by_scode ean
+      if(prod)
+        @basket.add_product prod
+      else
+        # stor the basket in the session ( or the url ???)
+        redirect_to :action => :index, :controller => :products, 
+              :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
+        return
+      end
     end
+    redirect_to :action => :edit    
+  end
+
+  def edit
+    return if locked?
     if pid = params[:add]
       item = @basket.items.find { |item| item.id.to_s == pid }
       item.quantity += 1
@@ -101,23 +120,6 @@ class BasketsController < AdminController
       @basket.add_product prod
       flash.notice = t('product_added')
     end
-    if ean = params[:ean]
-      ean.sub!("P+" , "P-") if ean[0,2] == "P+"
-      prod = Product.find_by_ean ean
-      if(prod)
-        @basket.add_product prod
-      else
-        prod = Product.find_by_scode ean
-        if(prod)
-          @basket.add_product prod
-        else
-          # stor the basket in the session ( or the url ???)
-          redirect_to :action => :index, :controller => :products, 
-                :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
-          return
-        end
-      end
-    end
     @basket.save!
   end
 
@@ -131,13 +133,10 @@ class BasketsController < AdminController
   end
 
   def update
-    if not @basket.locked and @basket.update_attributes(params_for_basket)
-       flash.notice = t(:update_success, :model => "basket")
-       redirect_to edit_basket_path(@basket)
-    else
-      flash.notice = t('basket_locked') if @basket.locked
-      render :action => :show
-    end
+    return if locked?
+    @basket.update_attributes(params_for_basket)
+    flash.notice = t(:update_success, :model => "basket")
+    redirect_to edit_basket_path(@basket)
   end
 
   def destroy
@@ -171,6 +170,15 @@ class BasketsController < AdminController
   end
 
   private
+
+  # check if the @basket is locked (no edits allowed)
+  # and if so redirect to show
+  def locked?
+    return false unless @basket.locked
+    flash.notice = t('basket_locked')
+    redirect_to  :action => :show
+    return true
+  end
 
   def item_discount item , discount
     item.price = (item.product.price * ( 1.0 - discount.to_f/100.0 )).round(2)
