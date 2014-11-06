@@ -62,23 +62,6 @@ class ProductsController < AdminController
     flash.notice = ""
     if ok = @product.update_attributes(params_for_model)
       flash.notice += t(:update_success, :model => "product")
-      flash.notice += "<br/>"
-    end
-    if (@product.product_item? and not @product.link.blank?)
-      flash.notice += t(:product_item_has_link)
-      flash.notice += "<br/>"
-      ok = false
-    end
-    if (@product.product_item? and @product.product.ean) or (@product.line? and not @product.ean.blank?)
-      flash.notice += t(:product_line_has_ean) 
-      flash.notice += "<br/>"
-      ok = false
-    end
-    if (@product.product_item? and @product.product.scode) or (@product.line? and not @product.scode.blank?)
-      flash.notice += t(:product_line_has_scode) 
-      ok = false
-    end
-    if ok
       redirect_to product_path(@product)
     else
       render :action => :edit
@@ -90,29 +73,34 @@ class ProductsController < AdminController
     if @product.save
       redirect_to products_url , :notice => t("deleted")
     else
-      redirect_to products_url , :notice => t("error")
+      redirect_to product_url , :notice => "#{t(:error)} : #{t(:inventory)}"
     end
   end
   
   # loads of ways to create barcodes nowadays, this is a bit older. 
   # Used to be html but moved to pdf for better layout control
   def barcode
-    pdf = Prawn::Document.new( :page_size => [ 54.mm , 25.mm ] , :margin => 2.mm )
-    pdf.text( @product.full_name  , :align => :left )
-    pdf.text( "#{@product.price} € "  , :align => :right , :padding => 5.mm)
     code = @product.ean.blank? || ""
     if code.length == 12
       aBarcode =  ::Barby::EAN13.new( code )
     else
       aBarcode = ::Barby::Code128B.new( code  )
     end
+    pdf = create_pdf
     pdf.image( StringIO.new( aBarcode.to_png(:xdim => 5)) , :width => 50.mm , 
             :height => 10.mm , :at => [ 0 , 10.mm])
     send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.full_name}.pdf"
   end
   
   private
-  
+
+  def create_pdf
+    pdf = Prawn::Document.new( :page_size => [ 54.mm , 25.mm ] , :margin => 2.mm )
+    pdf.text( @product.full_name  , :align => :left )
+    pdf.text( "#{@product.price} € "  , :align => :right , :padding => 5.mm)
+    pdf
+  end
+
   def load_product
     @product = Product.find(params[:id])
   end

@@ -11,5 +11,8 @@ FactoryGirl.define do
         create :product , :product_id => prod.id
       end
     end
+    factory :product_without_inventory do
+      inventory 0
+    end
   end
 end

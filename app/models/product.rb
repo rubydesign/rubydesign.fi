@@ -34,7 +34,7 @@ class Product < ActiveRecord::Base
   validates :name, :presence => true
   validates :deleted_on , :absence => true , :if => "inventory > 0"
 
-  before_save :generate_url
+  before_save :check_attributes
   before_save :adjust_cost
   after_save :update_line_inventory , :if => :product_id
 
@@ -49,11 +49,16 @@ class Product < ActiveRecord::Base
 
   # if no url is set we generate one based on the name
   # but product_items don't have urls, so not for them
-  def generate_url
-    if product_item? or deleted?
+  def check_attributes
+    if product_item?
+      self.product.touch
       self.link = ""
     else
       self.link = name.gsub(" " , "_").downcase if link.blank? && name != nil
+    end
+    if line?
+      self.ean = "" unless self.ean.blank?
+      self.scode = "" unless self.scode.blank?
     end
   end
 

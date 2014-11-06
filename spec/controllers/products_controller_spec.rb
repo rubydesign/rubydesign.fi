@@ -122,16 +122,16 @@ describe ProductsController do
 
   describe "DELETE destroy" do
     it "deletes the requested product" do
-      product = Product.create! valid_attributes
+      product = create :product_without_inventory
       before = Product.count
       delete :delete, {:id => product.to_param}, valid_session
       expect(Product.count).to be  before - 1
     end
 
-    it "redirects to the products list" do
+    it "does not delete with inventory" do
       product = Product.create! valid_attributes
       delete :delete, {:id => product.to_param}, valid_session
-      expect(response).to redirect_to(products_path)
+      expect(response).to redirect_to(product_path(product))
     end
   end
 
