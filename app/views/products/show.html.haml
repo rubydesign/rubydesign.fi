@@ -1,6 +1,6 @@
 -if @product.line?
   =render "line"
--elsif @product.line_item?
+-elsif @product.product_item?
   %h3
     = t(:product)
     = t(:product_line)
@@ -83,7 +83,7 @@
     = link_to t(:back), products_path, :class => "btn btn-warning"
   .col-md-2
     = link_to t(:delete) , delete_product_path(@product), :class => "btn btn-danger"
-  -if @product.line_item?
+  -if @product.product_item?
     .col-md-2
       = link_to t(:to_product) , product_path( @product.product), :class => "btn btn-primary" 
   -else

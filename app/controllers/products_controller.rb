@@ -27,7 +27,7 @@ class ProductsController < AdminController
   def new
     if params[:parent_id]
       parent = Product.find params[:parent_id]
-      @product = parent.new_line_item
+      @product = parent.new_product_item
     else
       @product = Product.new :tax => OfficeClerk.config("defaults.tax")
     end
@@ -42,11 +42,11 @@ class ProductsController < AdminController
     @product = Product.create(params_for_model)
     #TODO maybe there is a better way, but this "validation" happens "after the fact", ie by adding
     # an item to a parent the parent can become "invalid" even it is not what is being edited. hmmm
-    if @product.line_item? and not @product.product.ean.blank?
+    if @product.product_item? and not @product.product.ean.blank?
       flash.notice += t(:product_line_has_ean) 
       flash.notice += "<br/>"
     end
-    if @product.line_item? and not @product.product.scode.blank?
+    if @product.product_item? and not @product.product.scode.blank?
       flash.notice += t(:product_line_has_scode) 
       flash.notice += "<br/>"
     end
@@ -64,17 +64,17 @@ class ProductsController < AdminController
       flash.notice += t(:update_success, :model => "product")
       flash.notice += "<br/>"
     end
-    if (@product.line_item? and not @product.link.blank?)
+    if (@product.product_item? and not @product.link.blank?)
       flash.notice += t(:product_item_has_link)
       flash.notice += "<br/>"
       ok = false
     end
-    if (@product.line_item? and @product.product.ean) or (@product.line? and not @product.ean.blank?)
+    if (@product.product_item? and @product.product.ean) or (@product.line? and not @product.ean.blank?)
       flash.notice += t(:product_line_has_ean) 
       flash.notice += "<br/>"
       ok = false
     end
-    if (@product.line_item? and @product.product.scode) or (@product.line? and not @product.scode.blank?)
+    if (@product.product_item? and @product.product.scode) or (@product.line? and not @product.scode.blank?)
       flash.notice += t(:product_line_has_scode) 
       ok = false
     end
