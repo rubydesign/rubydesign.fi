@@ -1,17 +1,8 @@
+= render "head"
+
 -if @product.line?
   =render "line"
--elsif @product.product_item?
-  %h3
-    = t(:product)
-    = t(:product_line)
-    = link_to @product.product.name , product_path( @product.product)
-    = @product.name
-    = render "online" , :object => @product
--elsif
-  %h3
-    = t(:tuote)
-    = @product.name
-    = render "online" , :object => @product
+
 .row
   %br
   .col-md-6.tausta
@@ -79,8 +70,6 @@
 .row
   .col-md-2
     = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success"
-  .col-md-2
-    = link_to t(:back), products_path, :class => "btn btn-warning"
   .col-md-2
     = link_to t(:delete) , delete_product_path(@product), :class => "btn btn-danger"
   -if @product.product_item?

@@ -1,0 +1,10 @@
+.row
+  .col-md-2
+    = t params["action"]
+    %h3= t @product.type
+  .col-md-10
+    %h3
+      = @product.full_name
+    %small
+      = @product.online ? t(:online) : t(:not_online)
+

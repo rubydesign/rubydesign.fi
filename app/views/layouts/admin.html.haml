@@ -20,23 +20,28 @@
           %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
           %li= link_to t(:sign_out), sign_out_path
 
-      .row.content
-        - if not flash[:notice].blank? then
+      - if not flash[:notice].blank? then
+        .row.content
           .col-md-12.alert
             .alert-notice.row
               .col-md-3
                 .alert-heading= t(:info) + " :"
               .col-md-9
                 .alert-message!= flash[:notice]
-        - if not flash[:error].blank? then
+      - if not flash[:alert].blank? then
+        .row.content
           .col-md-12.alert
             .alert-error.row
               .col-md-3
                 .alert-heading= t(:info) + " :"
               .col-md-9
-                .alert-message!= flash[:notice]
+                .alert-message= flash[:alert]
         .large-12.column
           .row.space
             =image_tag "shop/spacer.gif"
 
       = yield
+
+    .row
+      .col-md-12
+        %br
