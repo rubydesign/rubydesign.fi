@@ -12,8 +12,7 @@ class BasketsController < AdminController
 
   def checkout
     if @basket.empty?
-      flash.notice = t(:basket_empty)
-      render :edit
+      render :edit , :notice => t(:basket_empty)
       return
     end
     order = @basket.kori || Order.new( :basket => @basket )
@@ -28,8 +27,7 @@ class BasketsController < AdminController
   #as an action this order is mean as a verb, ie order this basket
   def order
     if @basket.empty?
-      flash.notice = t(:basket_empty)
-      render :edit
+      render :edit , :notice => t(:basket_empty)
       return
     end
     order = Order.create! :basket => @basket , :email => current_clerk.email , :orderd_on => Date.today
@@ -38,13 +36,11 @@ class BasketsController < AdminController
 
   def purchase
     if @basket.empty?
-      flash.notice = t(:basket_empty)
-      render :edit 
+      render :edit , :notice => t(:basket_empty)
       return
     end
     if @basket.locked
-      flash.notice = t(:basket_locked)
-      render :show
+      render :show , :notice => t(:basket_locked)
       return
     end
     purchase = Purchase.create! :basket => @basket
@@ -109,7 +105,7 @@ class BasketsController < AdminController
   def create
     @basket = Basket.create(params_for_basket)
     if @basket.save
-      redirect_to basket_path(@basket), :flash => { :notice => t(:create_success, :model => "basket") }
+      redirect_to basket_path(@basket), :notice => t(:create_success, :model => "basket")
     else
       render :edit
     end
@@ -158,8 +154,7 @@ class BasketsController < AdminController
   # and if so redirect to show
   def locked?
     return false unless @basket.locked
-    flash.notice = t('basket_locked')
-    redirect_to  :action => :show
+    redirect_to :action => :show , :notice => t('basket_locked')
     return true
   end
 

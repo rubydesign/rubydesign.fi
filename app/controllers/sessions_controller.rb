@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
       url = clerk.admin ?  baskets_url : root_url
       redirect_to url , :notice => I18n.t(:signed_in)
     else
-      flash.notice = I18n.t(:sign_in_invalid)
-      render "new"
+      render "new" , :notice => I18n.t(:sign_in_invalid)
     end
   end
 

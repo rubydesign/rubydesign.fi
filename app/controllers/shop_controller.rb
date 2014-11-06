@@ -31,7 +31,7 @@ class ShopController < ApplicationController
       order_ps = params.require(:order).permit( :email,:name , :street , :city , :phone , :shipment_type )
       if @order.update_attributes(order_ps)
         new_basket
-        redirect_to shop_order_path(@order), :flash => { :notice => t(:thanks) }
+        redirect_to shop_order_path(@order), :notice => t(:thanks)
         return
       end
     end
@@ -51,7 +51,7 @@ class ShopController < ApplicationController
     if request.get?
       redirect_to shop_checkout_path
     else
-      redirect_to shop_group_path(prod.category.link), :flash => { :notice => "#{t(:product_added)}: #{prod.name}" }
+      redirect_to shop_group_path(prod.category.link), :notice => "#{t(:product_added)}: #{prod.name}"
     end
   end
   def remove

@@ -26,7 +26,7 @@ class ClerksController < AdminController
   def create
     @clerk = Clerk.create(params_for_model)
     if @clerk.save
-      redirect_to clerk_path(@clerk), :flash => { :notice => t(:create_success, :model => "clerk") }
+      redirect_to clerk_path(@clerk),  :notice => t(:create_success, :model => "clerk") 
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ClerksController < AdminController
       pars.delete("password_confirmation")
     end
     if @clerk.update_attributes(pars)
-      redirect_to clerk_path(@clerk), :flash => { :notice => t(:update_success, :model => "clerk") }
+      redirect_to clerk_path(@clerk),  :notice => t(:update_success, :model => "clerk")
     else
       render :action => :edit
     end

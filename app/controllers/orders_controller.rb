@@ -29,7 +29,7 @@ class OrdersController < AdminController
     @order = Order.create(params_for_model)
     @order.build_basket() unless @order.basket
     if @order.save
-      redirect_to order_path(@order), :flash => { :notice => t(:create_success, :model => "order") }
+      redirect_to order_path(@order), :notice => t(:create_success, :model => "order")
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class OrdersController < AdminController
   def update
     @order.build_basket unless @order.basket
     if @order.update_attributes(params_for_model)
-      redirect_to order_path(@order), :flash => { :notice => t(:update_success, :model => "order") }
+      redirect_to order_path(@order), :notice => t(:update_success, :model => "order")
     else
       render :action => :edit
     end

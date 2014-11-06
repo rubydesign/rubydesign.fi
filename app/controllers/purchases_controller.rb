@@ -18,19 +18,19 @@ class PurchasesController < AdminController
   # order this from supplier
   def order
     @purchase.order!
-    redirect_to purchase_path(@purchase), :flash => { :notice => t(:ordered) }
+    redirect_to purchase_path(@purchase), :notice => t(:ordered)
   end
 
   # receive the stuff (ie add to inventory)
   def receive
     items = @purchase.receive!
-    redirect_to purchase_path(@purchase), :flash => { :notice => [t(:received) ,items ,t(:items)].join(" ") }
+    redirect_to purchase_path(@purchase), :notice => [t(:received) ,items ,t(:items)].join(" ")
   end
 
   # receive the stuff (ie add to inventory)
   def inventory
     items = @purchase.inventory!
-    redirect_to purchase_path(@purchase), :flash => { :notice => [t(:inventorized) ,items ,t(:items)].join(" ") }
+    redirect_to purchase_path(@purchase), :notice => [t(:inventorized) ,items ,t(:items)].join(" ")
   end
 
   def new
@@ -45,7 +45,7 @@ class PurchasesController < AdminController
   def create
     @purchase = Purchase.create(params_for_model)
     if @purchase.save
-      redirect_to purchase_path(@purchase), :flash => { :notice => t(:create_success, :model => "purchase") }
+      redirect_to purchase_path(@purchase), :notice => t(:create_success, :model => "purchase")
     else
       render :edit
     end
@@ -53,7 +53,7 @@ class PurchasesController < AdminController
 
   def update
     if @purchase.update_attributes(params_for_model)
-      redirect_to purchase_path(@purchase), :flash => { :notice => t(:update_success, :model => "purchase") }
+      redirect_to purchase_path(@purchase), :notice => t(:update_success, :model => "purchase")
     else
       render :action => :edit
     end
