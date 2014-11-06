@@ -1,11 +1,15 @@
 # RubyClerk product may represent one of three things
 # - the normal product (all attributes work as expected)
-# - a product line, in which case it may not be sold and inventory is meaningless
+# - a product line, in which case it may not be sold and inventory is the sum of the items
 #                   other attributes (like price/cost) act as a template and are copied into children
 #                   where they are then used.
-# - a member of a product line, in which case the default view concatenates name and description and
+# - an (line) item of a product line, in which case the default view concatenates name and description and
 #                   shows prices relative to it's parent
 #
+# This makes the model a three headed one and validation is a little more complicated
+# - a product line _may not_ have an ean (as it can't be sold) 
+# - a product and product line _must_ have a link , but  (those are generated if needed)
+# - line item _may not_ have a link (this is enforced, not validated)
 
 # attributes : see permitted_attributes + inventory + deleted_on
 

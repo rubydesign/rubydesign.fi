@@ -112,17 +112,14 @@ class ProductsController < AdminController
     pdf = Prawn::Document.new( :page_size => [ 54.mm , 25.mm ] , :margin => 2.mm )
     pdf.text( @product.full_name  , :align => :left )
     pdf.text( "#{@product.price} € "  , :align => :right , :padding => 5.mm)
-    code = @product.ean.blank? ?  @product.scode : @product.ean
-    unless code.blank?
-      if code.length == 12
-        aBarcode =  ::Barby::EAN13.new( code )
-      else
-        aBarcode = ::Barby::Code128B.new( code  )
-      end
-      pdf.image( StringIO.new( aBarcode.to_png(:xdim => 5)) , :width => 50.mm , 
-              :height => 10.mm , :at => [ 0 , 10.mm])
-      #aBarcode.annotate_pdf(pdf, :width => 45.mm , :height => 10.mm , :at => [ 0 , 10.mm])
+    code = @product.ean.blank? || ""
+    if code.length == 12
+      aBarcode =  ::Barby::EAN13.new( code )
+    else
+      aBarcode = ::Barby::Code128B.new( code  )
     end
+    pdf.image( StringIO.new( aBarcode.to_png(:xdim => 5)) , :width => 50.mm , 
+            :height => 10.mm , :at => [ 0 , 10.mm])
     send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.full_name}.pdf"
   end
   
