@@ -124,30 +124,6 @@ class BasketsController < AdminController
     redirect_to baskets_url
   end
 
-  def inventory
-    if @order.state == "complete"
-      flash[:error] = "Order was already completed (printed), please start with a new customer to add inventory"
-      render :edit
-      return
-    end
-    as = params[:as]
-    num = 0
-    prods = @order.basket.items.length
-    @order.basket.items.each do |item |
-      variant = item.variant
-      num += item.quantity
-      if as
-        variant.on_hand = item.quantity
-      else
-        variant.on_hand += item.quantity
-      end
-      variant.save!
-    end
-    @order.basket.items.clear
-    flash.notice = "Total of #{num} items #{as ? 'inventoried': 'added'} for #{prods} products "
-    render :edit
-  end
-
   private
 
   # check if the @basket is locked (no edits allowed)
