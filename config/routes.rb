@@ -4,16 +4,9 @@ OfficeClerk::Application.routes.draw do
   root :to => 'shop#group'
 
   get "sign_out" => "sessions#destroy", :as => "sign_out"
-  get "sign_in"  => "sessions#new",     :as => "sign_in"
+  get "sign_in"  => "sessions#new",     :as => "sign_in" 
+  post "create_session"  => "sessions#create" 
   get "sign_up" => "sessios#new_clerk", :as => "sign_up"
-#  root :to => "clerks#new"
-
-  resources :sessions do
-    member do
-      get :new_clerk
-      get :create_clerk
-    end
-  end
   
   resources :purchases do
     collection do

@@ -44,7 +44,7 @@
                           = t(:items)
                     %li.dropdown
                       %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                        = current_clerk ? current_clerk.email : "Login"
+                        = current_clerk ? current_clerk.email : t(:sign_in)
                         %b.caret
                       %ul.dropdown-menu
                         - if current_clerk
