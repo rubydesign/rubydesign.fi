@@ -9,7 +9,7 @@ class ClerksController < AdminController
   def index
     @q = Clerk.search params[:q]
     @clerk_scope = @q.result(:distinct => true)
-    @clerks = @clerk_scope.paginate( :page => params[:page],:per_page => 20).to_a
+    @clerks = @clerk_scope.paginate( :page => params[:page],:per_page => 20)
   end
 
   def show
@@ -44,12 +44,6 @@ class ClerksController < AdminController
     else
       render :action => :edit
     end
-  end
-
-  def destroy
-    #should the whole method go ? probably
-    #@clerk.destroy
-    redirect_to clerks_url
   end
 
   private
