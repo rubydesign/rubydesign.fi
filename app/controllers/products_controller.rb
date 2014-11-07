@@ -38,20 +38,9 @@ class ProductsController < AdminController
   end
 
   def create
-    flash.notice = ""
     @product = Product.create(params_for_model)
-    #TODO maybe there is a better way, but this "validation" happens "after the fact", ie by adding
-    # an item to a parent the parent can become "invalid" even it is not what is being edited. hmmm
-    if @product.product_item? and not @product.product.ean.blank?
-      flash.notice += t(:product_line_has_ean) 
-      flash.notice += "<br/>"
-    end
-    if @product.product_item? and not @product.product.scode.blank?
-      flash.notice += t(:product_line_has_scode) 
-      flash.notice += "<br/>"
-    end
     if @product.save
-      flash.notice += t(:create_success, :model => "product")
+      flash.notice = t(:create_success, :model => "product")
       redirect_to product_path(@product)
     else
       render :action => :edit
@@ -59,9 +48,8 @@ class ProductsController < AdminController
   end
 
   def update
-    flash.notice = ""
-    if ok = @product.update_attributes(params_for_model)
-      flash.notice += t(:update_success, :model => "product")
+    if @product.update_attributes(params_for_model)
+      flash.notice = t(:update_success, :model => "product")
       redirect_to product_path(@product)
     else
       render :action => :edit

@@ -26,7 +26,8 @@ class CategoriesController < AdminController
   def create
     @category = Category.create(params_for_model)
     if @category.save
-      redirect_to category_path(@category), :notice => t(:create_success, :model => "category") 
+      flash.notice = t(:create_success, :model => "category") 
+      redirect_to category_path(@category)
     else
       render :edit
     end

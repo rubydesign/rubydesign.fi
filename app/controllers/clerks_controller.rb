@@ -26,7 +26,8 @@ class ClerksController < AdminController
   def create
     @clerk = Clerk.create(params_for_model)
     if @clerk.save
-      redirect_to clerk_path(@clerk),  :notice => t(:create_success, :model => "clerk") 
+      flash.notice = t(:create_success, :model => "clerk") 
+      redirect_to clerk_path(@clerk)
     else
       render :edit
     end
