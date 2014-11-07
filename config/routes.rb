@@ -3,11 +3,11 @@ OfficeClerk::Application.routes.draw do
 
   root :to => 'shop#group'
 
-  get "sign_out" => "sessions#destroy", :as => "sign_out"
-  get "sign_in"  => "sessions#new",     :as => "sign_in" 
+  get "sign_out" => "sessions#sign_out"
+  get "sign_in"  => "sessions#sign_in"
   post "create_session"  => "sessions#create" 
-  get "sign_up" => "sessios#new_clerk", :as => "sign_up"
-  
+  match "sign_up" => "sessions#sign_up" , :via => [:get ,:post]
+
   resources :purchases do
     collection do
       match "search" => "purchases#index", :via => [:get, :post]

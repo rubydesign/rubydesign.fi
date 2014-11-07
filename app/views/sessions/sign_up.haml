@@ -1,5 +1,5 @@
 %h1 Sign Up
-= form_for @clerk do |f|
+= form_for @clerk , :url => sign_up_path do |f|
   - if @clerk.errors.any?
     .error_messages
       %h2 Form is invalid

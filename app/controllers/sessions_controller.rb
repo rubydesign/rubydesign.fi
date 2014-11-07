@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   layout "shop"
 
-  def new
+  def sign_in
   end
 
   def create
@@ -15,19 +15,25 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def sign_out
     session[:clerk_email] = nil
     redirect_to root_url, :notice => I18n.t(:signed_out)
   end
-  
-  def create_clerk
-    @clerk = Clerk.new(params[:clerk])
-    if @clerk.save
-      session[:clerk_email] = @clerk.email
-      redirect_to root_url, :notice => "Signed up!"
+
+  def sign_up
+    if request.get?
+      @clerk = Clerk.new
     else
-      render "new"
+      @clerk = Clerk.new(params_for_clerk)
+      if @clerk.save
+        session[:clerk_email] = @clerk.email
+        redirect_to root_url, :notice => "Signed up!"
+        return
+      end
     end
   end
-  
+  def params_for_clerk
+    params.require(:clerk).permit(:email,:password,:password_confirmation)
+  end
+
 end
