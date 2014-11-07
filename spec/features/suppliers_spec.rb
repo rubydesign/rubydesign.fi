@@ -5,6 +5,8 @@ describe "Suppliers" do
     sign_in
   end
   it "lists suppliers" do
+    create(:supplier)
+    create(:supplier)
     visit_path suppliers_path
   end
   it "shows" do
