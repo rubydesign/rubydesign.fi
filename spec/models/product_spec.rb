@@ -56,4 +56,20 @@ describe Product do
     expect(pro.save).to be false
   end
 
+  it "removes ean if make line" do
+    line = create :product , :ean => "1234"
+    item = line.new_product_item
+    item.name = "my unique name"
+    expect(item.save).to be true
+    expect(item.link).to be_blank
+    expect(line.reload.ean).to be_blank
+  end
+  it "removes link for items" do
+    line = create :product_line
+    item = line.products.first
+    expect(item.link).to be_blank
+    item.link = item.name
+    expect(item.save).to be true
+    expect(item.link).to be_blank
+  end
 end

@@ -37,6 +37,7 @@ class Product < ActiveRecord::Base
   before_save :check_attributes
   before_save :adjust_cost
   after_save :update_line_inventory , :if => :product_id
+  after_save :check_parent_ean , :if => :product_id
 
   
   def update_line_inventory
@@ -47,14 +48,20 @@ class Product < ActiveRecord::Base
     parent.save! if inv != parent.inventory
   end
 
+  def check_parent_ean
+    parent = self.product
+    return unless parent
+    parent.check_attributes
+    parent.save! if parent.changed? 
+  end
+
   # if no url is set we generate one based on the name
   # but product_items don't have urls, so not for them
   def check_attributes
     if product_item?
-      self.product.touch
       self.link = ""
     else
-      self.link = name.gsub(" " , "_").downcase if link.blank? && name != nil
+      self.link = self.name.gsub(" " , "_").downcase if self.link.blank? && self.name != nil
     end
     if line?
       self.ean = "" unless self.ean.blank?
