@@ -30,7 +30,8 @@ class PurchasesController < AdminController
   # receive the stuff (ie add to inventory)
   def inventory
     items = @purchase.inventory!
-    redirect_to purchase_path(@purchase), :notice => [t(:inventorized) ,items ,t(:items)].join(" ")
+    flash.notice = [t(:inventorized) ,items ,t(:items)].join(" ")
+    redirect_to purchase_path(@purchase)
   end
 
   def new
