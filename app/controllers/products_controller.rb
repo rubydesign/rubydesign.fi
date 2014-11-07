@@ -41,7 +41,8 @@ class ProductsController < AdminController
     @product = Product.create(params_for_model)
     if @product.save
       flash.notice = t(:create_success, :model => "product")
-      redirect_to product_path(@product)
+      show = @product.product_item? ? @product.product : @product
+      redirect_to product_path(show)
     else
       render :action => :edit
     end
