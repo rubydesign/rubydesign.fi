@@ -9,13 +9,13 @@
     -if @purchase.ordered_on
       = t(:ordered_on) + " : " + date(@purchase.ordered_on)
     -else
-      = link_to t(:order) , order_purchase_path(@purchase) , :class => "btn btn-primary"
+      = link_to t(:order) , order_purchase_path(@purchase) , :class => "btn btn-primary order_link"
 %p
   %b
     -if @purchase.received_on
       = t(:received) + " : " + date(@purchase.received_on)
     -else
-      = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "btn btn-primary"
+      = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "btn btn-primary receive_link"
 
 = render "baskets/small" , :basket => @purchase.basket
 
@@ -28,5 +28,5 @@
 -unless @purchase.received_on
   %h3{"style" => "color:red"}
     = t(:inventory)
-    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary"
+    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary inventory_link"
  
