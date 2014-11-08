@@ -31,7 +31,7 @@ class SuppliersController < AdminController
   def create
     @supplier = Supplier.create(params_for_supplier)
     if @supplier.save
-      redirect_to supplier_path(@supplier), :flash => { :notice => t(:create_success, :model => :supplier) }
+      redirect_to supplier_path(@supplier), :notice => t(:create_success, :model => :supplier)
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class SuppliersController < AdminController
   def update
     @supplier.update_attributes params_for_supplier
     if @supplier.save
-      redirect_to supplier_path(@supplier), :flash => { :notice => t(:update_success, :model => :supplier) }
+      redirect_to supplier_path(@supplier), :notice => t(:update_success, :model => :supplier)
     else
       render :action => :edit
     end

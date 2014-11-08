@@ -9,7 +9,7 @@ class ClerksController < AdminController
   def index
     @q = Clerk.search params[:q]
     @clerk_scope = @q.result(:distinct => true)
-    @clerks = @clerk_scope.paginate( :page => params[:page],:per_page => 20).to_a
+    @clerks = @clerk_scope.paginate( :page => params[:page],:per_page => 20)
   end
 
   def show
@@ -26,7 +26,8 @@ class ClerksController < AdminController
   def create
     @clerk = Clerk.create(params_for_model)
     if @clerk.save
-      redirect_to clerk_path(@clerk), :flash => { :notice => t(:create_success, :model => "clerk") }
+      flash.notice = t(:create_success, :model => "clerk") 
+      redirect_to clerk_path(@clerk)
     else
       render :edit
     end
@@ -39,16 +40,10 @@ class ClerksController < AdminController
       pars.delete("password_confirmation")
     end
     if @clerk.update_attributes(pars)
-      redirect_to clerk_path(@clerk), :flash => { :notice => t(:update_success, :model => "clerk") }
+      redirect_to clerk_path(@clerk),  :notice => t(:update_success, :model => "clerk")
     else
       render :action => :edit
     end
-  end
-
-  def destroy
-    #should the whole method go ? probably
-    #@clerk.destroy
-    redirect_to clerks_url
   end
 
   private

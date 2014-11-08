@@ -11,27 +11,13 @@ class SessionsController < ApplicationController
       url = clerk.admin ?  baskets_url : root_url
       redirect_to url , :notice => I18n.t(:signed_in)
     else
-      flash.notice = I18n.t(:sign_in_invalid)
-      render "new"
+      redirect_to :sign_in , :notice => I18n.t(:sign_in_invalid)
     end
   end
 
   def destroy
     session[:clerk_email] = nil
     redirect_to root_url, :notice => I18n.t(:signed_out)
-  end
-
-  def new_clerk
-    @clerk = Clerk.new
-  end
-
-  def update_clerk
-    @clerk = current_clerk
-    if @clerk.update_attributes(params[:clerk])
-      redirect_to root_url, :notice => I18n.t(:updated)
-    else
-      render :action => 'edit'
-    end
   end
   
   def create_clerk

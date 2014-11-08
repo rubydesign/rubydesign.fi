@@ -6,7 +6,7 @@
 //= require bootstrap
 //= require_self
 
-$.datepicker.setDefaults( $.datepicker.regional[ "fi" ] );
+$.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 
 $(function() {
    $( ".datepicker" ).datepicker( );
@@ -14,7 +14,7 @@ $(function() {
  
 function initPage(){
   // Barcode
-  $('.barcode').each(function(index){
+  $('.barcode').each(function(){
       $(this).barcode($(this).attr('data-barcode'), $(this).attr('data-type-barcode'));
   });
 

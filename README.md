@@ -1,5 +1,6 @@
 ## Office Clerk
 [![Build Status](https://travis-ci.org/rubyclerks/office_clerk.svg?branch=master)](https://travis-ci.org/rubyclerks/office_clerk)
+[![Gem Version](https://badge.fury.io/rb/office_clerk.svg)](http://badge.fury.io/rb/office_clerk)
 [![Code Climate](https://codeclimate.com/github/rubyclerks/office_clerk/badges/gpa.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
 [![Test Coverage](https://codeclimate.com/github/rubyclerks/office_clerk/badges/coverage.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
 

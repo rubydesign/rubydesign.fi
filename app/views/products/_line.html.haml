@@ -1,25 +1,21 @@
-%h2
-  = t(:product_line)
-  = @product.name
-  = render "online" , :object => @product
 %table.table.table-bordered.table-condensed
   %tbody
     %tr.line-1
-      %td=t("name")
+      %td=t(:name)
       - @product.products.each do |product|
         %td
           = image_tag product.main_picture.url(:thumb)
           =link_to product.name , product_path(product)
     %tr.line-2
-      %td=t("price")
+      %td=t(:price)
       - @product.products.each do |product|
         %td=euros(product.price)
     %tr.line-1
       %td
-        =t("inventory")
+        =t(:inventory)
       - @product.products.each do |product|
         %td=product.inventory
     %tr.line-2
-      %td=t("ean")
+      %td=t(:ean)
       - @product.products.each do |product|
         %td=product.ean

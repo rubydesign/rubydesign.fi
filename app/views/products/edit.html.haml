@@ -1,10 +1,4 @@
-%h2
-  = t params["action"]
-  -if @product.line?
-    =t(:product_line)
-  -else
-    = t(:product)
-  = @product.name.to_s
+= render "head"
 
 .row
   = simple_form_for(@product, :html => { :multipart => true , :class => "form-horizontal" , :role=>"form"} ) do |f|

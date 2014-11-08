@@ -108,7 +108,7 @@ en:
   name: Name
   name_contains: Name contains
   new: New
-  new_item: New item
+  new_item: New product item
   next: Next
   not_online: not online
   online: Online
@@ -133,9 +133,6 @@ en:
   product_added: Product added
   product_line: Product Line
   product_line_has_inventory: Product Line has inventori
-  product_line_has_ean: Product Line has ean
-  product_item_has_link: Product item has link
-  product_line_has_scode: Product Line has supplier code
   products: Products
   purchase: Purchase
   purchases: Purchases
