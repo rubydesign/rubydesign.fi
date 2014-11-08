@@ -6,6 +6,14 @@ FactoryGirl.define do
     sequence( :name) { |n| "product #{n}" }
     sequence :price , 10
     inventory 5
+    factory :shop_product do
+      online true
+      after(:create) do |prod|
+        cat = create :category , :online => true
+        prod.category = cat
+        prod.save!
+      end
+    end
     factory :product_line do
       after(:create) do |prod| 
         create :product , :product_id => prod.id
