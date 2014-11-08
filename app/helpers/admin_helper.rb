@@ -17,10 +17,6 @@ module AdminHelper
     return link_to text , link , options 
   end
   
-  def sorting_header(model_name, attribute_name, namespace)
-    attribute_name
-  end
-
   def sort_date key
     return "" unless params[:q]
     params[:q][key] || ""
