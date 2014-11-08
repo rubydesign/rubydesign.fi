@@ -1,5 +1,4 @@
 OfficeClerk::Application.routes.draw do
-  resources :shops
 
   root :to => 'shop#group'
 
@@ -85,6 +84,8 @@ OfficeClerk::Application.routes.draw do
     member do
     end
   end
+
+  match "manage/all" => "manage#all", :via => [:get, :post]
   
   #shop
   get 'group/:link' => 'shop#group', :as => :shop_group
