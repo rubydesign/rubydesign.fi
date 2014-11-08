@@ -15,7 +15,7 @@ describe "ShippingMethod"  do
   it "Pickup is free" do
     method = OfficeClerk::ShippingMethod.all[:pickup]
     basket = create :basket
-    expect(method.price_for(basket)).to be 0.0
+    expect(method.price_for(basket)).to eq 0.0
   end
   it "creates Pickup with data" do
     method = OfficeClerk::Pickup.new(:name => "me" , :type => :pick2)
