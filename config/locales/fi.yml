@@ -100,6 +100,7 @@ fi:
   extra_picture: Toinen kuva
   filter: Hae
   first_name: Etunimi
+  history: Tilaushistoria
   home: Kotiin
   info: Info
   inventorized: Inventoitu
@@ -129,7 +130,7 @@ fi:
   order: Tilaus
   order_number: Tilauksen numero
   order_total: Loppusumma
-  order_more_for_free_shipping: "%{more} €  tilauksiin toimitus rahtivapaasti"
+  order_more_for_free_shipping: "%{more} €  jäljellä ilmaiseen toimitukseen"
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
