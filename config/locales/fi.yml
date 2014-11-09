@@ -147,6 +147,10 @@ fi:
   price_between: Hinta haarukka
   print: Tulosta
   print_order: Tulosta
+  print_invoice: Tulosta tilaus
+  print_reminder: Tulosta maksumuistutus
+  print_slip: Tulosta kuormakirja
+  print_receipt: Tulosta kuitti
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
   product_line: Tuotelinja
