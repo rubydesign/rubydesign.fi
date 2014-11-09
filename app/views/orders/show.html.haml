@@ -19,10 +19,17 @@
 .col-md-4
   %p
     %b
-      = t(:paid_on) + " : " + date(@order.paid_on)
+    -if @order.paid_on
+      %b= t(:paid_on) + " : " + date(@order.paid_on)
+    -else
+      = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
+
   %p
-    %b
-      = t(:shipped_on) + " : " + date(@order.shipped_on)
+    -if @order.shipped_on
+      %b
+        = t(:shipped_on) + " : " + date(@order.shipped_on)
+    -else
+      = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
   %p
     %b
       = t(:canceled_on) + " : " + date(@order.canceled_on)

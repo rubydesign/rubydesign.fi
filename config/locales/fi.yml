@@ -135,6 +135,7 @@ fi:
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
+  paid: Maksa
   paid_on: Maksettu
   parent: Tuoteryhmä
   password: Salasana
@@ -167,6 +168,7 @@ fi:
   scode: Tuottajatunnus
   search: Hae
   select: Valitse
+  ship: Lähetä
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty

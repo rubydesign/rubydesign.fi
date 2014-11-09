@@ -35,6 +35,11 @@ OfficeClerk::Application.routes.draw do
     collection do
       match "search" => "orders#index", :via => [:get, :post]
     end
+    member do
+      get :pay
+      get :ship
+      patch :ship
+    end
   end
 
   resources :items do

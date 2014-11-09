@@ -24,13 +24,13 @@ class BasketsController < AdminController
   def show
   end
 
-  #as an action this order is mean as a verb, ie order this basket
+  #as an action this order is meant as a verb, ie order this basket
   def order
     if @basket.empty?
       render :edit , :notice => t(:basket_empty)
       return
     end
-    order = Order.create! :basket => @basket , :email => current_clerk.email , :orderd_on => Date.today
+    order = Order.create! :basket => @basket , :email => current_clerk.email , :ordered_on => Date.today
     redirect_to :action => :show , :controller => :orders , :id => order.id
   end
 

@@ -8,7 +8,6 @@ describe "Basket buttons" do
   end
   it "should have back and update buttons" do
     visit_path new_basket_path
-    expect(page).to have_content I18n.t(:back)
     find_button I18n.t("helpers.submit.update" , :model => I18n.t(:basket))
     find_link I18n.t(:new) + ' ' + I18n.t(:basket)
     find_link I18n.t(:destroy)

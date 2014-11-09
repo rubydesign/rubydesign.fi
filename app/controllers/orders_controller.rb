@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update ]
+  before_filter :load_order, :only => [:show, :edit, :update , :pay , :ship]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -21,8 +21,22 @@ class OrdersController < AdminController
     render :edit
   end
 
+  def pay
+    @order.paid_on = Date.today
+    @order.save!
+    render :show
+  end
+  def ship
+    return if request.get?
+    order_ps = params.require(:order).permit( :email,:name , :street , :city , :phone , :shipment_type )
+    order_ps[:shipped_on] = Date.today
+    if @order.update_attributes(order_ps)
+      redirect_to order_path(@order), :notice => t(:OK)
+      return
+    end
+  end
+  
   def edit
-
   end
 
   def create
