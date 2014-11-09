@@ -4,10 +4,13 @@
       .col-md-10
         %h2
           - if params[:basket]
+            %br
+            %br
+            %br
             = t(:choose_product_for_basket)
           -else
             = t(:products)
-        = paginate @products
+          = paginate @products
       .col-md-2
         = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary"
   .col-md-3
