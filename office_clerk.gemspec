@@ -5,7 +5,7 @@ $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'office_clerk'
-  s.version      = "0.0.1"
+  s.version      = "0.1"
   s.summary      = 'Backend of rubyclerks'
   s.description  = s.summary
   s.required_ruby_version = '>= 1.9.3'
