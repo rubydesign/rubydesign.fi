@@ -7,6 +7,8 @@ class Category < ActiveRecord::Base
   belongs_to :category
   has_attached_file :main_picture
   has_attached_file :extra_picture
+  validates_attachment_content_type :main_picture, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :extra_picture, :content_type => /\Aimage\/.*\Z/
 
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
