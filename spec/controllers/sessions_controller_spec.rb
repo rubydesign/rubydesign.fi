@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe SessionsController do
 
   it "new action should render new template" do
-    get :new
-    expect(response).to render_template(:new)
+    get :sign_in
+    expect(response).to render_template(:sign_in)
   end
 
   it "create action should redirect to root for user if authentication is valid" do

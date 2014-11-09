@@ -29,7 +29,7 @@ module OfficeClerk
       super(data)
     end
     def price_for(basket)
-      0
+      0.0
     end
   end
 end

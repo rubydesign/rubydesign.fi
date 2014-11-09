@@ -34,5 +34,9 @@ describe "Sessions" do
     click_button( I18n.t(:sign_in))
     ensure_path sign_in_path
   end
-
+  it "signs out" do
+    sign_in
+    visit sign_out_path
+    ensure_path root_path
+  end
 end

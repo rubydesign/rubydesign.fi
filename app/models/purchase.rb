@@ -13,7 +13,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def inventory!
-    items = basket.receive!
+    items = basket.inventory!
     return stamp_today items
   end
 

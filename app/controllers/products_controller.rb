@@ -69,7 +69,7 @@ class ProductsController < AdminController
   # loads of ways to create barcodes nowadays, this is a bit older. 
   # Used to be html but moved to pdf for better layout control
   def barcode
-    code = @product.ean.blank? || ""
+    code = @product.ean || ""
     if code.length == 12
       aBarcode =  ::Barby::EAN13.new( code )
     else

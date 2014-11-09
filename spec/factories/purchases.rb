@@ -3,8 +3,12 @@
 FactoryGirl.define do
   factory :purchase do
     sequence( :name) { |n| "purchase #{n}" }
-    ordered_on "2013-12-26"
-    received_on "2013-12-26"
     basket { create :basket_with_item }
+    factory :purchase_ordered do
+      ordered_on "2013-12-26"
+      factory :purchase_received do
+        received_on "2013-12-26"
+      end
+    end
   end
 end
