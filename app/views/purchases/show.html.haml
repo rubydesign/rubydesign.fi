@@ -28,5 +28,5 @@
 -unless @purchase.received_on
   %h3{"style" => "color:red"}
     = t(:inventory)
-    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary inventory_link"
+    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary inventory_link", :data => { :confirm => t(:are_you_sure) }
  
