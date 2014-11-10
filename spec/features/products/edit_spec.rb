@@ -25,4 +25,8 @@ feature "new product" do
     click_button( I18n.t(:product))
     ensure_path product_path(product)
   end
+  it "renders product barcode" do
+    product = create :product
+    visit_path barcode_product_path(product) 
+  end
 end
