@@ -39,4 +39,20 @@ describe "Sessions" do
     visit sign_out_path
     ensure_path root_path
   end
+  it "signs up needs confirmation" do
+    visit_path sign_up_path
+    fill_in(:clerk_email , :with => "some@mail.me")
+    fill_in(:clerk_password , :with => "password")
+    find(".submit").click
+    ensure_path sign_up_path
+    expect(page).to have_content("invalid")
+  end
+  it "signs up" do
+    visit_path sign_up_path
+    fill_in(:clerk_email , :with => "some@mail.me")
+    fill_in(:clerk_password , :with => "password")
+    fill_in(:clerk_password_confirmation , :with => "password")
+    find(".submit").click
+    ensure_path root_path
+  end
 end
