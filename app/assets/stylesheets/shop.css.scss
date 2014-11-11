@@ -409,4 +409,14 @@ background-color: #0A6779; }
   border-radius: 6px;
   }
   
-  
+.dropdown-menu {
+  background-color: $highlight-2;
+  color: #ffffff;
+  } 
+
+.dropdown-menu > li > a {
+  color: #ffffff;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color: $highlight-8; }
