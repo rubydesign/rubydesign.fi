@@ -31,8 +31,11 @@
                         Auringosta Itään, Kuusta Länteen
                         %b.caret
                       %ul.dropdown-menu 
-                        %li Liikkeemme
-                        %li Toimitusehdot
+                        %li{:role => "presentation"} 
+                          %a{:href => "/page/liikkeemme", :role => "menuitem", :tabindex => "-1"} Liikkeemme
+                          
+                        %li{:role => "presentation"} 
+                          %a{:href => "/page/toimitusehdot", :role => "menuitem", :tabindex => "-1"} Toimitusehdot
 
                     %li#link-to-cart{"data-no-turbolink" => true}
                       %a{href: shop_checkout_path}

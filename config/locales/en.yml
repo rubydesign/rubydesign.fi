@@ -118,6 +118,7 @@ en:
   ordered: Ordered
   ordered_on: Ordered On
   orders: Orders
+  our_shop: Our shop
   paid_on: Paid on
   parent: Parent
   phone: Phone
@@ -162,6 +163,7 @@ en:
   tax: Vat
   tax_percent: Tax percent
   tax_rate: Vat rate
+  terms: Terms
   to_order: To order
   to_purchase: To purchase
   to_product: To product

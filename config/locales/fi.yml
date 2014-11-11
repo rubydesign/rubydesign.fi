@@ -135,6 +135,7 @@ fi:
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
+  our_shop: Liikkeemme
   paid: Maksa
   paid_on: Maksettu
   parent: Tuoteryhmä
@@ -198,6 +199,7 @@ fi:
   tax: Alv
   tax_percent: Veroprosentti
   tax_rate: Veroprosentti
+  terms: Toimitusehdot
   to_order: Tilaukselle
   to_product: Tuotelle
   to_purchase: Sisänostoksille
