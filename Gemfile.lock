@@ -41,7 +41,7 @@ GIT
 PATH
   remote: .
   specs:
-    office_clerk (0.1)
+    office_clerk (0.2)
       barby
       bcrypt-ruby
       bootstrap-sass (~> 3.1.0)

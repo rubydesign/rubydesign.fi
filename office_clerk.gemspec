@@ -6,7 +6,7 @@ require "office_clerk/version"
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'office_clerk'
-  s.version      = OfficeClerk.VERSION
+  s.version      = OfficeClerk::VERSION
   s.summary      = 'Backend of rubyclerks'
   s.description  = s.summary
   s.required_ruby_version = '>= 1.9.3'
