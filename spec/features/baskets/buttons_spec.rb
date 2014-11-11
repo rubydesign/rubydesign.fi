@@ -8,7 +8,6 @@ describe "Basket buttons" do
   end
   it "should have back and update buttons" do
     visit_path new_basket_path
-    expect(page).to have_content I18n.t(:back)
     find_button I18n.t("helpers.submit.update" , :model => I18n.t(:basket))
     find_link I18n.t(:new) + ' ' + I18n.t(:basket)
     find_link I18n.t(:destroy)
@@ -18,7 +17,7 @@ describe "Basket buttons" do
     visit_path edit_basket_path basket
     expect(page).not_to have_content I18n.t(:to_order)
     click_link I18n.t(:checkout)
-    expect(page).to have_content I18n.t("invoice.header")
+    expect(page.title).to include I18n.t("receipt.header")
   end
   it "goes to purchase" do
     basket = create :basket_2_items

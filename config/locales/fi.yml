@@ -136,6 +136,7 @@ fi:
   ordered_on: Tilattu
   orders: Tilaukset
   our_shop: Liikkeemme
+  paid: Maksa
   paid_on: Maksettu
   parent: Tuoteryhmä
   password: Salasana
@@ -148,6 +149,10 @@ fi:
   price_between: Hinta haarukka
   print: Tulosta
   print_order: Tulosta
+  print_invoice: Tulosta tilaus
+  print_reminder: Tulosta maksumuistutus
+  print_slip: Tulosta kuormakirja
+  print_receipt: Tulosta kuitti
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
   product_line: Tuotelinja
@@ -157,13 +162,13 @@ fi:
   purchase: Sisäänosto
   purchases: Sisäänostot
   quantity: Määrä
-  receipt: Kuitti
   receive: Ota vastaan
   received: Vastaanotettu
   received_on: Vastaanotettu
   scode: Tuottajatunnus
   search: Hae
   select: Valitse
+  ship: Lähetä
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty

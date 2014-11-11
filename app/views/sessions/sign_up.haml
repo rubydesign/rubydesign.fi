@@ -1,5 +1,5 @@
 %h1 Sign Up
-= form_for @clerk , :url => sign_up_path do |f|
+= simple_form_for @clerk , :url => sign_up_path do |f|
   - if @clerk.errors.any?
     .error_messages
       %h2 Form is invalid
@@ -18,5 +18,5 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
-  %p.button= f.submit
+  %p.button= f.submit :class => "btn btn-info submit"
   

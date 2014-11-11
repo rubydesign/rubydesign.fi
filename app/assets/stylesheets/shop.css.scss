@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*
+ *= require_self
  *= require rails_bootstrap_forms
  */
 
@@ -328,7 +329,7 @@ body {
 }
 
 .taustalogo {
-  background: url(/assets/shop/kansi.jpg) no-repeat scroll;
+  background: image-url("shop/kansi.jpg") no-repeat scroll;
   height: 107px;
 }
 

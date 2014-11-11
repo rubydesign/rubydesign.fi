@@ -80,8 +80,7 @@ class Basket < ActiveRecord::Base
   end
 
   def isa typ
-    return typ == :cart  if self.kori_type == nil
-    self.kori_type.downcase == typ.to_s.downcase
+    self.kori_type.to_s.downcase == typ.to_s.downcase && self.kori_id != nil
   end
 
   def suppliers

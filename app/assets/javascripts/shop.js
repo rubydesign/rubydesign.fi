@@ -1,9 +1,10 @@
 
-//= require jquery
+//= require jquery.min
 //= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require bootstrap/dropdown
 //= require_self
 
 function shipmentSelected(){
