@@ -4,6 +4,7 @@ class OfficeController < ApplicationController
   protect_from_forgery with: :exception
   helper_method :current_clerk , :current_basket
   helper OfficeHelper
+  include OfficeClerk::Engine.routes.url_helpers
   
   # users are stored in the session by email
   # if user is not logged i , return nil
