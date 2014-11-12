@@ -5,6 +5,7 @@ require 'spec_helper'
 # things are better in the features test (where adding item and the like is actually tested)
 
 describe BasketsController do
+  routes { OfficeClerk::Engine.routes }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

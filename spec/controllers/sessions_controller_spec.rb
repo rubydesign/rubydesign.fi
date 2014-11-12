@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe SessionsController do
+  routes { OfficeClerk::Engine.routes }
 
   it "new action should render new template" do
     get :sign_in

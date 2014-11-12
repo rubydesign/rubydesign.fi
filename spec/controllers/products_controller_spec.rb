@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ProductsController do
+  routes { OfficeClerk::Engine.routes }
 
   # This should return the minimal set of attributes required to create a valid
   # Product. As you add validations to Product, be sure to

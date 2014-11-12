@@ -1,6 +1,7 @@
 require "spec_helper"
 
 describe CategoriesController do
+  routes { OfficeClerk::Engine.routes }
   describe "routing" do
 
     it "routes to #index" do

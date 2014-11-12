@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ClerksController do
+  routes { OfficeClerk::Engine.routes }
 
   before :all do
     create :admin  unless Clerk.where(:admin => true).first
