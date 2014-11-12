@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
     @current_basket
   end
 
+  private
   # when the order is made and the basket locked, it's time to make a new one
   def new_basket
     session[:current_basket] = nil
