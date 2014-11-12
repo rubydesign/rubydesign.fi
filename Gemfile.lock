@@ -332,7 +332,6 @@ DEPENDENCIES
   office_clerk!
   quiet_assets
   rack-attack
-  rails
   rails_layout
   ransack!
   rb-readline
