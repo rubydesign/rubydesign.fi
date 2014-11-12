@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-OfficeClerk::Application.config.secret_key_base = 'aa3a95b2c20f81ab2f5e3236233108b998d6cb1db12b32e17cd1154a04a574bd2a68652518f71fe11a3ca5deb6a848682dcd54f41acd3ad2d257a3dab3c3b2f5'
+#OfficeClerk::Application.config.secret_key_base = 'aa3a95b2c20f81ab2f5e3236233108b998d6cb1db12b32e17cd1154a04a574bd2a68652518f71fe11a3ca5deb6a848682dcd54f41acd3ad2d257a3dab3c3b2f5'

@@ -1,9 +1,10 @@
-class ApplicationController < ActionController::Base
+class OfficeController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_clerk , :current_basket
-
+  helper OfficeHelper
+  
   # users are stored in the session by email
   # if user is not logged i , return nil
   def current_clerk

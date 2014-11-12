@@ -18,7 +18,7 @@ module PageHelper
   
   def sign_in
     admin = ensure_admin
-    visit sign_in_path
+    visit office.sign_in_path
     fill_in "email" , :with => admin.email
     fill_in "password" , :with => "password"
     click_button I18n.t(:sign_in)

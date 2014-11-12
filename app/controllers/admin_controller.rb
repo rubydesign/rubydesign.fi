@@ -1,5 +1,5 @@
 # encoding : utf-8
-class AdminController < ApplicationController
+class AdminController < OfficeController
 
   layout "admin"
 

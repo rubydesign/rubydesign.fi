@@ -1,4 +1,4 @@
-class ShopController < ApplicationController
+class ShopController < OfficeController
   before_action :load
 
   layout "shop"

@@ -1,8 +1,5 @@
 require "office_clerk/engine"
 
-module OfficeClerk
-end
-
 require "haml"
 require "jquery-rails"
 require "jquery-ui-rails"
