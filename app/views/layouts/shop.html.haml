@@ -40,7 +40,7 @@
                     %li#link-to-cart{"data-no-turbolink" => true}
                       %a{href: shop_checkout_path}
                         = t(:basket)
-                        - if current_basket.items.count == 0
+                        - if current_basket_or_nil.nil? or current_basket.items.count == 0
                           = t(:empty)
                         -else
                           = current_basket.items.count
