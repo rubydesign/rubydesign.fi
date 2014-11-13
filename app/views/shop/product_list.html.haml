@@ -29,22 +29,25 @@
                   = image_tag group.main_picture.url(:product)
                   %h3= group.name
   .row.list
-    -@products.in_groups_of(4).each do |three|
+    -@products.in_groups_of(3).each do |three|
       .row.product-listing
         -three.each do |product|
-          .col-md-3
+          .col-md-4
             -next unless product
             .product-container
-              .square-image
-                =link_to shop_product_path(:link => product.link ) do
-                  =image_tag product.main_picture.url
-              .product-fact
-                =link_to shop_product_path( :link => product.link ) , :class => :info do
-                  %h4.product-name
-                    = product.name
-                  %p Tulisiko tähän pari riviä tuotteen esittelyä pienellä
-                  .price.selling
-                    = product.price
-                    €
+              %h4.product-name
+                = product.name
+              .row
+                .col-md-4
+                  .square-image
+                    =link_to shop_product_path(:link => product.link ) do
+                      =image_tag product.main_picture.url
+                .col-md-8
+                  .product-fact
+                    =link_to shop_product_path( :link => product.link ) , :class => :info do
+                      %p Luonnollinen shampoo rasvoittuville hiuksille. Valmistuksessa on käytetty bretagnelaista Fucus vesiculosus ...
+                      .price.selling
+                        = product.price
+                        €
     
               
