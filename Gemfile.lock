@@ -11,37 +11,15 @@ GIT
       polyamorous (~> 1.1)
 
 GIT
-  remote: git://github.com/rubyclerks/accountant_clerk.git
-  revision: 180a37904680284caf2fe4d37c739f69fa76f621
-  specs:
-    accountant_clerk (0.2)
-      flot-rails (~> 0.0.6)
-      office_clerk (~> 0.1)
-
-GIT
   remote: git://github.com/rubyclerks/db_fixtures_dump.git
   revision: 2d00815c8cb4a9bf143564a8a1de082b6e30282c
   specs:
     db_fixtures_dump (0.0.9)
 
-GIT
-  remote: git://github.com/rubyclerks/post_clerk.git
-  revision: e8933edc2ecf62eed79417f7db92e5f5c1ace53e
-  specs:
-    post_clerk (0.4)
-      office_clerk (~> 0.1)
-
-GIT
-  remote: git://github.com/rubyclerks/print_clerk.git
-  revision: c73c5f7bcb7f0af73b37bc627fa2d0fa0faee6f0
-  specs:
-    print_clerk (0.2)
-      office_clerk (~> 0.1)
-
 PATH
   remote: .
   specs:
-    office_clerk (0.1)
+    office_clerk (0.2)
       barby
       bcrypt-ruby
       bootstrap-sass (~> 3.1.0)
@@ -151,8 +129,6 @@ GEM
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     ffi (1.9.6)
-    flot-rails (0.0.6)
-      jquery-rails
     formatador (0.2.5)
     guard (2.8.0)
       formatador (>= 0.2.4)
@@ -337,7 +313,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  accountant_clerk!
   better_errors
   binding_of_caller
   capybara
@@ -355,11 +330,8 @@ DEPENDENCIES
   i18n-tasks
   libv8 (= 3.16.14.3)
   office_clerk!
-  post_clerk!
-  print_clerk!
   quiet_assets
   rack-attack
-  rails
   rails_layout
   ransack!
   rb-readline

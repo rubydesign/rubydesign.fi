@@ -1,4 +1,4 @@
-OfficeClerk::Application.routes.draw do
+OfficeClerk::Engine.routes.draw do
 
   root :to => 'shop#group'
 

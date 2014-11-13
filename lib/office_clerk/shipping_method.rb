@@ -17,9 +17,13 @@ module OfficeClerk
       @@methods = {}
       config = OfficeClerk.config(:shipping)
       config.each do |key , method|
-        clas_name = method[:class]
-        clas = clas_name.constantize
-        @@methods[key] = clas.new( method.merge(:type => key) )
+        begin
+          clas_name = method[:class]
+          clas = clas_name.constantize
+          @@methods[key] = clas.new( method.merge(:type => key) )
+        rescue
+          puts "No such Class #{method[:class]}, check config.yml"
+        end
       end
       @@methods
     end

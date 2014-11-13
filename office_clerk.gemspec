@@ -1,11 +1,12 @@
 # coding: utf-8
-lib = File.expand_path('../lib/', __FILE__)
-$LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
+$:.push File.expand_path("../lib", __FILE__)
+
+require "office_clerk/version"
 
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'office_clerk'
-  s.version      = "0.1"
+  s.version      = OfficeClerk::VERSION
   s.summary      = 'Backend of rubyclerks'
   s.description  = s.summary
   s.required_ruby_version = '>= 1.9.3'

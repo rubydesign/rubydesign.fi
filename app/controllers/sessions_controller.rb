@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionsController < OfficeController
   layout "shop"
 
   def sign_in
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     clerk = Clerk.where(:email => params[:email]).limit(1).first
     if clerk && clerk.valid_password?(params[:password])
       session[:clerk_email] = clerk.email
-      url = clerk.admin ?  baskets_url : root_url
+      url = clerk.admin ?  office.baskets_url : root_url
       redirect_to url , :notice => I18n.t(:signed_in)
     else
       redirect_to :sign_in , :notice => I18n.t(:sign_in_invalid)

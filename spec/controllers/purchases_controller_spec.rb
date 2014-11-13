@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe PurchasesController do
+  routes { OfficeClerk::Engine.routes }
 
   # This should return the minimal set of attributes required to create a valid
   # Purchase. As you add validations to Purchase, be sure to

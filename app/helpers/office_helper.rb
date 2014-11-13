@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-module ApplicationHelper
+module OfficeHelper
   
   def markdown text
     return "" if text.blank?

@@ -1,6 +1,8 @@
 require "spec_helper"
 
 describe BasketsController do
+ routes { OfficeClerk::Engine.routes }
+  
   describe "routing" do
 
     it "routes to #index" do
