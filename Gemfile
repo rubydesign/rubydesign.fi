@@ -26,7 +26,6 @@ group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21,:rbx]
   gem "i18n-tasks"
   gem 'quiet_assets'
-  gem 'rails_layout'
 #  gem "jeweler", "> 1.6.4"
 end
 group :development, :test do

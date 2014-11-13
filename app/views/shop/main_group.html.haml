@@ -1,9 +1,0 @@
-- @groups.in_groups_of(3).each do |array|
-  .row
-    -array.each do |group|
-      .col-md-4
-        -next unless group
-        .group-wrapper
-          =link_to shop_group_path(group.link) do
-            = image_tag group.main_picture.url(:product) , :class => "img-responsive"
-            %h3= group.name

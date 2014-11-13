@@ -1,7 +1,7 @@
 # encoding : utf-8
 class AdminController < OfficeController
 
-  layout "admin"
+  layout "office_clerk"
 
   before_filter :clean_search , :only => [:index , :search]
 

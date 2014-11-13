@@ -1,7 +1,7 @@
 class ShopController < OfficeController
   before_action :load
 
-  layout "shop"
+  layout "sales_clerk"
 
   def welcome
     @groups = Category.online.where( :category_id => nil )

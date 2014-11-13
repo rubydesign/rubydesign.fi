@@ -1,8 +1,0 @@
-%ul.group-list.no-bullet
-  -@groups.each do |group|
-    %li.group-h4
-      %a{href: group.link}= group.name
-      %ul.group-list.no-bullet
-        - group.categories.each do |g|
-          %li.group-h6
-            %a{href: group_path(g.link)}= g.name
