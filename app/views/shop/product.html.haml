@@ -1,13 +1,3 @@
-.row  
-  %ol.breadcrumb
-    %li
-      %a{ :href => "/"}= t(:home)
-    - parents(@group).each do | group|
-      %li
-        = link_to group.name , shop_group_path(group.link)
-    %li.current
-      %a{href: "#"}= @product.name
-
 .row
   .col-md-3.tex
     - parents(@group).each do | group|
@@ -20,6 +10,8 @@
       %p.description= markdown( @group.description) rescue ""
   
   .col-md-8
+    %br/
+    
     .row.product-info
       .col-md-12.product-title-h1
         %h1.product-title= @product.name
