@@ -220,7 +220,6 @@ GEM
     rails-i18n (4.0.3)
       i18n (~> 0.6)
       railties (~> 4.0)
-    rails_layout (1.0.23)
     railties (4.0.11)
       actionpack (= 4.0.11)
       activesupport (= 4.0.11)
@@ -332,7 +331,6 @@ DEPENDENCIES
   office_clerk!
   quiet_assets
   rack-attack
-  rails_layout
   ransack!
   rb-readline
   rspec-rails
