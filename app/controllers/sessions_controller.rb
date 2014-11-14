@@ -1,5 +1,5 @@
 class SessionsController < OfficeController
-  layout "shop"
+  layout "sales_clerk"
 
   def sign_in
   end
