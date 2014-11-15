@@ -17,7 +17,6 @@ describe "Basket buttons" do
     visit_path edit_basket_path basket
     expect(page).not_to have_content I18n.t(:to_order)
     click_link I18n.t(:checkout)
-    expect(page.title).to include I18n.t("receipt.header")
   end
   it "goes to purchase" do
     basket = create :basket_2_items

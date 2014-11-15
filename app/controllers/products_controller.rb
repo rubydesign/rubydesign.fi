@@ -74,7 +74,6 @@ class ProductsController < AdminController
     if code.length == 12
       aBarcode =  ::Barby::EAN13.new( code )
     else
-      puts "product #{code}"
       puts code.class
       aBarcode = ::Barby::Code128B.new( code  )
     end

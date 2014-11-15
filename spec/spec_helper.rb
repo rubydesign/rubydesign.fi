@@ -5,7 +5,7 @@ end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] = 'test'
-require File.expand_path("../dummy/config/environment",  __FILE__)
+require File.expand_path("../../test_app/config/environment",  __FILE__)
 Rails.backtrace_cleaner.remove_silencers!
 
 require 'rspec/rails'

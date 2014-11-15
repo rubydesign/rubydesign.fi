@@ -1,24 +1,10 @@
 config:
   shipping:
-    kotiinkuljetus:
-      weight_table: '2 5 15 30'
-      price_table: '8.13 9.75 11.38 13.82'
-      name: Postin kotiinkuljetus
-      class: "OfficeClerk::Post"
-    post:
-      weight_table: '2 5 15 30'
-      price_table: '5.7 7.3 8.95 10.55'
-      name: Nouto lähimmästä postikonttorista
-      class: "OfficeClerk::Post"
-    pakettiautomaati:
-      weight_table: '1 2 5 10 20'
-      price_table: '2 5 10 15 18'
-      name: Nouto lähimmästä pakettiautomaatista
-      class: "OfficeClerk::Post"
     pickup:
       class: "OfficeClerk::Pickup"
       name: Nouto myymälästämme
   defaults:
     tax: 24.0
     free_shipping: 100
-  print_styles: "receipt slip invoice reminder"
+  print_styles: ""
+  

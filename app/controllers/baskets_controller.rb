@@ -18,7 +18,12 @@ class BasketsController < AdminController
     order = @basket.kori || Order.new( :basket => @basket )
     order.pos_checkout( current_clerk.email )
     order.save!
-    redirect_to :action => :receipt , :controller => :orders , :id => order.id
+    styles = OfficeClerk.config(:print_styles)
+    if(styles && styles.split.include?("receipt"))
+      redirect_to receipt_order_path(order)
+    else
+      redirect_to order_path(order)
+    end
   end
 
   def show
