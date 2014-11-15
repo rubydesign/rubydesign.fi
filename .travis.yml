@@ -1,7 +1,8 @@
 language: ruby
 gemfile: test_app/Gemfile
 script:
-  - CODECLIMATE_REPO_TOKEN=3f97bb5305cd65f6683587a32b4b3eae42cfec26d3de56374b10b3efb78ccf6a rake
+  - RAILS_ENV='test' cd test_app/;rake db:migrate;cd ..
+  - CODECLIMATE_REPO_TOKEN=3f97bb5305cd65f6683587a32b4b3eae42cfec26d3de56374b10b3efb78ccf6a rspec
 rvm:
   - 1.9.3
   - 2.0.0
