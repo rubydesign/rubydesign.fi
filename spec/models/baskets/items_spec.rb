@@ -26,7 +26,7 @@ describe "Basket totals" do
     basket.items.delete basket.items.last
     basket.save!
     expect(basket.total_price).to eq total
-    expect(basket.total_tax).to eq tax
+    expect(basket.total_tax).to eq tax.to_f
   end
   it "destroys" do
     basket = create :basket_2_items
