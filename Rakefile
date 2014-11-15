@@ -4,7 +4,11 @@ load APP_RAKEFILE
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
-  task default: :spec
+  task :test_with_setup do
+    `RAILS_ENV='test' rake db:migrate` 
+    Rake::Task[:spec].invoke
+  end
+  task default: :test_with_setup
 rescue LoadError
 end
 

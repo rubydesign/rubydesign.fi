@@ -4,8 +4,8 @@
 /vendor/ruby/
 
 # minimal Rails specific artifacts
-db/*.sqlite3
-/db/*.sqlite3-journal
+*.sqlite3
+*.sqlite3-journal
 /log/*
 /tmp/*
 .ruby-version

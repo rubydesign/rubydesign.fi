@@ -1,8 +1,7 @@
 language: ruby
-before_script:
-  - RAILS_ENV=test bundle exec rake db:schema:load
+gemfile: test_app/Gemfile
 script:
-  - CODECLIMATE_REPO_TOKEN=3f97bb5305cd65f6683587a32b4b3eae42cfec26d3de56374b10b3efb78ccf6a bundle exec rspec
+  - CODECLIMATE_REPO_TOKEN=3f97bb5305cd65f6683587a32b4b3eae42cfec26d3de56374b10b3efb78ccf6a rake
 rvm:
   - 1.9.3
   - 2.0.0
