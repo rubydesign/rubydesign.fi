@@ -37,9 +37,7 @@ $tausta-bg: scale-color($primary-color, $lightness: 95%);
 a.online{
   color: green;
 }
-.navbar {
-  font-size: 1.7rem;
-};
+
 .alert-notice {
   background-color: #00FFEB;
   padding: 8px;
@@ -100,30 +98,30 @@ thead, tbody {  vertical-align: top;
 }
 
 .products{ 
-  background: image-url('admin/products-2.jpg') no-repeat;
+  background: image-url('office_clerk/products-2.jpg') no-repeat;
 }
 
 .baskets{ 
-  background: image-url('admin/baskets-2.jpg') no-repeat;
+  background: image-url('office_clerk/baskets-2.jpg') no-repeat;
 }
 
 .orders{ 
-  background: image-url('admin/orders-2.jpg') no-repeat;
+  background: image-url('office_clerk/orders-2.jpg') no-repeat;
 }
 
 .purchases{ 
-  background: image-url('admin/purchases-2.jpg') no-repeat;
+  background: image-url('office_clerk/purchases-2.jpg') no-repeat;
   height: 161px;
 }
 
 .categories{ 
-  background: image-url('admin/categories-2.jpg') no-repeat;
+  background: image-url('office_clerk/categories-2.jpg') no-repeat;
 }
 
 .suppliers{ 
-  background: image-url('admin/suppliers-2.jpg') no-repeat;
+  background: image-url('office_clerk/suppliers-2.jpg') no-repeat;
 }
 
 .clerks{ 
-  background: image-url('admin/clerks-2.jpg') no-repeat;
+  background: image-url('office_clerk/clerks-2.jpg') no-repeat;
 }
