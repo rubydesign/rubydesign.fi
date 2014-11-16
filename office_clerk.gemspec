@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'bootstrap-sass', '~> 3.1.0'
   s.add_runtime_dependency 'bootstrap_form'
   s.add_runtime_dependency "paperclip"
-  s.add_runtime_dependency 'turbolinks'
   s.add_runtime_dependency 'rails-i18n'
 
   s.add_runtime_dependency "barby"

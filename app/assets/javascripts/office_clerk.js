@@ -2,7 +2,6 @@
 //= require jquery-ui
 //= require jquery-ui/datepicker-fi
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require_self
 

@@ -35,7 +35,6 @@ PATH
       rails-i18n
       sass-rails
       simple_form
-      turbolinks
       will_paginate
       will_paginate-bootstrap
 
@@ -288,8 +287,6 @@ GEM
       hitimes
     tins (1.3.3)
     ttfunk (1.4.0)
-    turbolinks (2.5.2)
-      coffee-rails
     tzinfo (0.3.42)
     uglifier (2.5.3)
       execjs (>= 0.3.0)

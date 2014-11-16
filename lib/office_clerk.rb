@@ -12,7 +12,6 @@ require 'will_paginate-bootstrap'
 require 'bootstrap-sass'
 require 'bootstrap_form'
 require "paperclip"
-require 'turbolinks'
 require 'rails-i18n'
 
 require "barby"

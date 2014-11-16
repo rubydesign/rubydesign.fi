@@ -74,7 +74,6 @@ class ProductsController < AdminController
     if code.length == 12
       aBarcode =  ::Barby::EAN13.new( code )
     else
-      puts code.class
       aBarcode = ::Barby::Code128B.new( code  )
     end
     pdf = create_pdf

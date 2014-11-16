@@ -39,7 +39,7 @@
 
 = render "baskets/small" , :basket => @order.basket
 
-.col-md-12{"data-no-turbolink" => true}
+.col-md-12
   = link_to t(:back), orders_path, :class => "btn btn-warning"
   - print_styles.each do |style|
     = link_to t("print_" + style) , print_path(style), :class => "btn btn-primary" ,  :target => "_blank"
