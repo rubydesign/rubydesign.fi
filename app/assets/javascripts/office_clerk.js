@@ -1,8 +1,10 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery-ui/datepicker-fi
-//= require jquery_ujs
+//= require opal
+//= require opal_ujs
 //= require bootstrap
+//= require office
 //= require_self
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
