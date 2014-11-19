@@ -1,7 +1,6 @@
 require "office_clerk/engine"
 
 require "haml"
-require "jquery-rails"
 require "jquery-ui-rails"
 require "kramdown"
 require "will_paginate"
@@ -17,6 +16,8 @@ require 'rails-i18n'
 require "barby"
 require "chunky_png"
 require "bcrypt"
+require "opal"
+require "opal/rails"
 
 require "office_clerk/shipping_method"
 
