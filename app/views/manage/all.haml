@@ -1,3 +1,8 @@
-Config
-
-link to report
+.row.manage_first
+.row.config
+  .col-md-12
+  %h3 Config
+  .row
+    - conf = I18n.backend.send(:translations)[:config]
+    = render "hash" , :config => conf if conf
+.row.manage_last

@@ -1,0 +1,7 @@
+- config.each do |key , value |
+  .col-md-2= key
+  .col-md-10
+    - if value.is_a? Hash
+      = render "hash" , :config => value
+    - else
+      = value
