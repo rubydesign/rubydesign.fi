@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'office_clerk'
   s.version      = OfficeClerk::VERSION
-  s.summary      = 'Backend of rubyclerks'
-  s.description  = s.summary
+  s.summary      = 'Backend of rubyclerks, a simple way to manage a buisness'
+  s.description  = "Rubyclerks is a small buisness management solution, including an online presence (shop), but also POS, inventory and more."
   s.required_ruby_version = '>= 1.9.3'
 
   s.authors      = ['Torsten Rüger']
