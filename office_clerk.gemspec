@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.authors      = ['Torsten Rüger']
   s.email        = ['torsten@villataika.fi']
-  s.homepage     = 'https://github.com/ruby_clerks/office_clerk'
+  s.homepage     = 'https://github.com/rubyclerks/office_clerk'
   s.license      = 'MIT'
 
   s.files        = `git ls-files`.split("\n")
