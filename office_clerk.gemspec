@@ -23,26 +23,27 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = false
 
-  s.add_runtime_dependency 'rails', '~> 4.0.1'
-  s.add_runtime_dependency 'sass-rails'
-  s.add_runtime_dependency "haml"
-  s.add_runtime_dependency "opal-rails"
-  s.add_runtime_dependency 'opal-jquery'
-  
-  s.add_runtime_dependency 'jquery-ui-rails'
-  s.add_runtime_dependency "kramdown"
-  s.add_runtime_dependency "will_paginate"
+  s.add_runtime_dependency 'rails', '~> 4.0', '>= 4.0.1'
+  s.add_runtime_dependency 'sass-rails' , '~> 4.0'
+  s.add_runtime_dependency "haml" , '~> 4.0'
+  s.add_runtime_dependency "opal-rails" , '~> 0.6'
+  s.add_runtime_dependency 'opal-jquery' , '~> 0.2'
 
-  s.add_runtime_dependency 'simple_form' 
-  s.add_runtime_dependency "prawn"
-  s.add_runtime_dependency 'will_paginate-bootstrap'
-  s.add_runtime_dependency 'bootstrap-sass', '~> 3.1.0'
-  s.add_runtime_dependency 'bootstrap_form'
-  s.add_runtime_dependency "paperclip"
-  s.add_runtime_dependency 'rails-i18n'
+  s.add_runtime_dependency 'jquery-ui-rails' , '~> 5.0'
+  s.add_runtime_dependency "kramdown" , '~> 1.5'
 
+  s.add_runtime_dependency 'simple_form' , '~> 3.0'
+  s.add_runtime_dependency 'will_paginate-bootstrap' , '~> 1.0'
+  s.add_runtime_dependency 'bootstrap-sass', '~> 3.1'
+  s.add_runtime_dependency 'bootstrap_form' , '~> 2.2'
+  s.add_runtime_dependency "paperclip" , '~> 4.1'
+  s.add_runtime_dependency 'rails-i18n' , '~> 4.0'
+
+  s.add_runtime_dependency "bcrypt-ruby" , '~> 3.1'
+
+  #these will stil have to go to accountant
   s.add_runtime_dependency "barby"
   s.add_runtime_dependency "chunky_png"
-  s.add_runtime_dependency "bcrypt-ruby"
+  s.add_runtime_dependency "prawn"
 
 end

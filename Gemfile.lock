@@ -19,24 +19,24 @@ GIT
 PATH
   remote: ../
   specs:
-    office_clerk (0.3)
+    office_clerk (0.4)
       barby
-      bcrypt-ruby
-      bootstrap-sass (~> 3.1.0)
-      bootstrap_form
+      bcrypt-ruby (~> 3.1)
+      bootstrap-sass (~> 3.1)
+      bootstrap_form (~> 2.2)
       chunky_png
-      haml
-      jquery-rails
-      jquery-ui-rails
-      kramdown
-      paperclip
+      haml (~> 4.0)
+      jquery-ui-rails (~> 5.0)
+      kramdown (~> 1.5)
+      opal-jquery (~> 0.2)
+      opal-rails (~> 0.6)
+      paperclip (~> 4.1)
       prawn
-      rails (~> 4.0.1)
-      rails-i18n
-      sass-rails
-      simple_form
-      will_paginate
-      will_paginate-bootstrap
+      rails (~> 4.0, >= 4.0.1)
+      rails-i18n (~> 4.0)
+      sass-rails (~> 4.0)
+      simple_form (~> 3.0)
+      will_paginate-bootstrap (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -186,6 +186,22 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.4.1)
       mini_portile (~> 0.6.0)
+    opal (0.6.2)
+      source_map
+      sprockets
+    opal-activesupport (0.0.5)
+      opal
+    opal-jquery (0.2.0)
+      opal (>= 0.5.0, < 1.0.0)
+    opal-rails (0.6.3)
+      jquery-rails
+      opal (~> 0.6.0)
+      opal-activesupport (>= 0.0.5)
+      opal-jquery (>= 0.1.0)
+      opal-rspec (~> 0.3.0.beta1)
+      rails (>= 3.2.13, < 5.0)
+    opal-rspec (0.3.0.beta3)
+      opal (>= 0.6.0, < 1.0.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -263,6 +279,8 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.6.0)
+    source_map (3.0.1)
+      json
     sprockets (2.11.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
