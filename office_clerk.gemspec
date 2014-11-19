@@ -26,7 +26,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 4.0.1'
   s.add_runtime_dependency 'sass-rails'
   s.add_runtime_dependency "haml"
-  s.add_runtime_dependency "jquery-rails"
+  s.add_runtime_dependency "opal-rails"
+  s.add_runtime_dependency 'opal-jquery'
+  
   s.add_runtime_dependency 'jquery-ui-rails'
   s.add_runtime_dependency "kramdown"
   s.add_runtime_dependency "will_paginate"
