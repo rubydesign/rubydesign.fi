@@ -39,7 +39,6 @@
 
 = render "baskets/small" , :basket => @order.basket
 
-.col-md-12
+.col-md-2
   = link_to t(:back), orders_path, :class => "btn btn-warning"
-  - print_styles.each do |style|
-    = link_to t("print_" + style) , print_path(style), :class => "btn btn-primary" ,  :target => "_blank"
+.col-md-10.order_show_back

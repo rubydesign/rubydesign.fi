@@ -13,6 +13,7 @@ class OrdersController < AdminController
   end
 
   def show
+    gon.order_id = @order.id
   end
 
   def new

@@ -6,18 +6,14 @@ require "kramdown"
 require "will_paginate"
 
 require 'simple_form' 
-require "prawn"
 require 'will_paginate-bootstrap'
 require 'bootstrap-sass'
 require 'bootstrap_form'
 require "paperclip"
 require 'rails-i18n'
-
-require "barby"
-require "chunky_png"
+require "jquery-rails"
+require "gon"
 require "bcrypt"
-require "opal"
-require "opal/rails"
 
 require "office_clerk/shipping_method"
 

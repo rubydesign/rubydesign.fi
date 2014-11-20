@@ -26,9 +26,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 4.0', '>= 4.0.1'
   s.add_runtime_dependency 'sass-rails' , '~> 4.0'
   s.add_runtime_dependency "haml" , '~> 4.0'
-  s.add_runtime_dependency "opal-rails" , '~> 0.6'
-  s.add_runtime_dependency 'opal-jquery' , '~> 0.2'
-
+  s.add_runtime_dependency "jquery-rails" , '~> 3.1'
+  s.add_runtime_dependency 'coffee-rails'
+  s.add_runtime_dependency 'gon'
   s.add_runtime_dependency 'jquery-ui-rails' , '~> 5.0'
   s.add_runtime_dependency "kramdown" , '~> 1.5'
 
@@ -40,10 +40,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails-i18n' , '~> 4.0'
 
   s.add_runtime_dependency "bcrypt-ruby" , '~> 3.1'
-
-  #these will stil have to go to accountant
-  s.add_runtime_dependency "barby"
-  s.add_runtime_dependency "chunky_png"
-  s.add_runtime_dependency "prawn"
 
 end

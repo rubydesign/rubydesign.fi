@@ -5,6 +5,7 @@
     %title Office Clerk
     %meta{:content => "Office Clerk", :name => "description"}
     = stylesheet_link_tag "office_clerk"
+    = include_gon(:init => true)
     = javascript_include_tag "office_clerk"
     = render "layouts/header_extra"
     = csrf_meta_tags

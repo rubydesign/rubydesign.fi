@@ -64,7 +64,6 @@ OfficeClerk::Engine.routes.draw do
     end
     member do
       get :delete
-      get :barcode  #print the barcode and price on a 50x25 mm area
     end
   end
 
