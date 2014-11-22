@@ -31,6 +31,7 @@ class ShopController < OfficeController
       order_ps = params.require(:order).permit( :email,:name , :street , :city , :phone , :shipment_type )
       if @order.update_attributes(order_ps)
         new_basket
+        OrderMailer.confirm(@order).deliver
         redirect_to shop_order_path(@order), :notice => t(:thanks)
         return
       end
