@@ -9,7 +9,7 @@ describe "Basket totals" do
     basket = create :basket_2_items
     expect(basket.items.length).to be 2
     taxes = basket.taxes
-    expect(taxes.values.first.round(2)).to eq  basket.total_tax.round(2)
+    expect(taxes.values.first.round(2)).to eq  basket.total_tax.to_f.round(2)
   end
   it "updates total on add" do
     basket = create :basket_2_items
@@ -17,7 +17,7 @@ describe "Basket totals" do
     total = items.first.price * items.first.quantity + items.last.price * items.last.quantity
     expect(basket.total_price).to eq total
     # assume the same tax (as per factory)
-    expect(basket.total_tax).to eq total * items.first.tax / 100
+    expect(basket.total_tax.to_f).to eq total * items.first.tax / 100
   end
   it "updates total on destroy" do
     basket = create :basket_2_items
@@ -26,7 +26,7 @@ describe "Basket totals" do
     basket.items.delete basket.items.last
     basket.save!
     expect(basket.total_price).to eq total
-    expect(basket.total_tax).to eq tax.to_f
+    expect(basket.total_tax.to_f).to eq tax.to_f
   end
   it "destroys" do
     basket = create :basket_2_items

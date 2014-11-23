@@ -36,6 +36,7 @@ OfficeClerk::Engine.routes.draw do
       match "search" => "orders#index", :via => [:get, :post]
     end
     member do
+      get "mail/:act" , :action => :mail , :as => :mail
       get :pay
       get :ship
       patch :ship

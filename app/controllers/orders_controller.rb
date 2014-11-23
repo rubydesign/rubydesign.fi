@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update , :pay , :ship]
+  before_filter :load_order, :only => [:show, :edit, :update , :pay , :ship , :mail]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -22,6 +22,14 @@ class OrdersController < AdminController
     render :edit
   end
 
+  def mail
+    action = params[:act]
+    puts "MAIL #{action}"
+    mail = eval("OrderMailer.#{action}(@order)")
+    mail.deliver
+    flash.notice = "Sent #{action}"
+    redirect_to :action => :show
+  end
   def pay
     @order.paid_on = Date.today
     @order.save!

@@ -70,6 +70,7 @@ fi:
   baskets: Ostoskorit
   between: haarukka
   cancel: Peruuta
+  cancel_order_button: Peruta s-post
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
@@ -78,6 +79,7 @@ fi:
   city: Kaupunki
   clerk: Käyttäjä
   clerks: Käyttäjät
+  confirm_order_button: Vahvistus s-post
   contact: Kontaktihenkilö
   cost: Kustannus
   count: Määrä
@@ -137,6 +139,7 @@ fi:
   our_shop: Liikkeemme
   paid: Maksa
   paid_on: Maksettu
+  paid_order_button: Maksettu s-post
   parent: Tuoteryhmä
   password: Salasana
   phone: Puhelin
@@ -171,6 +174,7 @@ fi:
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty
+  shipped_order_button: Lähetetty S-Posti
   shop: Kauppa
   show: Näytä
   sign_in: Kirjaudu sisään

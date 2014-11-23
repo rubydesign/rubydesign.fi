@@ -69,6 +69,7 @@ en:
   city: City
   clerk: User
   clerks: Users
+  confirm_order_button: Send Confirmation Email
   contact: Contact
   cost: Cost
   count: Count

@@ -1,44 +1,49 @@
-%h2
-  = t(:order) + " : " + @order.number.to_s
-.col-md-4
-  %p
-    %b
-      = t(:ordered_on) + " : " + date(@order.ordered_on)
-  %p
-    %b
-      = t(:total_price) + " : " +  euros(@order.basket.total_price)
-  %p
-    %b
-      = t(:total_tax) + " : " + euros(@order.basket.total_tax)
-  %p
-    %b
-      = t(:shipment_price) + " : " + euros(@order.shipment_price)
-  %p
-    %b
-      = t(:email) + " : " + @order.email.to_s
-.col-md-4
-  %p
-    %b
-    -if @order.paid_on
-      %b= t(:paid_on) + " : " + date(@order.paid_on)
-    -else
-      = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
-
-  %p
-    -if @order.shipped_on
+.row
+  %h2
+    = t(:order) + " : " + @order.number.to_s
+.row
+  .col-md-4
+    %p
       %b
-        = t(:shipped_on) + " : " + date(@order.shipped_on)
-    -else
-      = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
-  %p
-    %b
-      = t(:canceled_on) + " : " + date(@order.canceled_on)
-  %p
-    %b
-      = t(:shipment_type) + " : " + @order.shipment_type.to_s
+        = t(:ordered_on) + " : " + date(@order.ordered_on)
+    %p
+      %b
+        = t(:total_price) + " : " +  euros(@order.basket.total_price)
+    %p
+      %b
+        = t(:total_tax) + " : " + euros(@order.basket.total_tax)
+    %p
+      %b
+        = t(:shipment_price) + " : " + euros(@order.shipment_price)
+    %p
+      %b
+        = t(:email) + " : " + @order.email.to_s
+  .col-md-4
+    %p
+      %b
+      -if @order.paid_on
+        %b= t(:paid_on) + " : " + date(@order.paid_on)
+      -else
+        = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
 
-= render "baskets/small" , :basket => @order.basket
-
-.col-md-2
-  = link_to t(:back), orders_path, :class => "btn btn-warning"
-.col-md-10.order_show_back
+    %p
+      -if @order.shipped_on
+        %b
+          = t(:shipped_on) + " : " + date(@order.shipped_on)
+      -else
+        = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
+    %p
+      %b
+        = t(:canceled_on) + " : " + date(@order.canceled_on)
+    %p
+      %b
+        = t(:shipment_type) + " : " + @order.shipment_type.to_s
+.row
+  = render "baskets/small" , :basket => @order.basket
+.row
+  .col-md-2
+    = link_to t(:back), orders_path, :class => "btn btn-warning"
+  .col-md-10
+    - mail_actions.each do |action|
+      = link_to t("#{action}_order_button") , mail_order_path( @order , :act => action) , :class => "btn btn-info"
+  .col-md-12.order_show_back
