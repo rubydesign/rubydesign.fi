@@ -5,68 +5,61 @@
 
 .row
   %br
-  .col-md-6.tausta
-    .row
+  .col-md-4
+    .row.tausta
       .col-md-6
         %p
-          %b
-            = t(:main_picture) + " : "
+          %b= t(:main_picture) + " : "
           %br
           = image_tag @product.main_picture.url
       .col-md-6
         %p
-          %b
-            = t(:extra_picture) + " : "
+          %b= t(:extra_picture) + " : "
           %br
           = image_tag @product.extra_picture.url
     .row
       .col-md-6
         %p
-          %b
-            = t(:price) + " : "
+          %b= t(:price) + " : "
           = euros(@product.price)
         %p
-          %b
-            = t(:cost) + " : "
+          %b= t(:cost) + " : "
           = euros(@product.cost)
         %p
-          %b
-            = t(:category) + " : "
+          %b= t(:category) + " : "
           = link_to @product.category.name ,category_path(@product.category) if @product.category
+        %p
+          %b= t(:link) + " : "
+          = @product.link
+        %p
+          %b= t(:ean) + " : "
+          = @product.ean
       .col-md-6
         %p
-          %b
-            = t(:weight) + " : "
+          %b= t(:weight) + " : "
           = @product.weight
         %p
-          %b
-            = t(:inventory) + " : "
+          %b= t(:inventory) + " : "
           = @product.inventory
         %p
-          %b
-            = t(:supplier) + " : "
+          %b= t(:supplier) + " : "
           = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
-  .col-md-6
+        %p
+          %b= t(:scode) + " : "
+          = @product.scode
+        %p
+          %b= t(:tax_percent) + " : "
+          = @product.tax
+  .col-md-4
     %p
-      %b
-        = t(:description) + " : "
+      %b= t(:summary) + " : "
+      = markdown @product.summary
+    %p
+      %b= t(:description) + " : "
       = markdown @product.description
-    %p
-      %b
-        = t(:link) + " : "
-      = @product.link
-    %p
-      %b
-        = t(:ean) + " : "
-      = @product.ean
-    %p
-      %b
-        = t(:scode) + " : "
-      = @product.scode
-    %p
-      %b
-        = t(:tax_percent) + " : "
-      = @product.tax
+  .col-md-4
+    =render :partial => "shop/product_box" , :locals => {:product => @product}
+%br
 .row.product_show_row_buttons
   .col-md-2
     = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success"
