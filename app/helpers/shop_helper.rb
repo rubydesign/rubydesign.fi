@@ -17,12 +17,13 @@ module ShopHelper
   end
 
   # a short version of a desciption text. now we use markdown and often have a bold "header"
-  # so if we find a bold we use just that, regardless of length given
-  # otherwise we try and find a space close to the given length, to avoid ugly half-words
-  def short text , len = 110
-    ind = text.index( "**" , 10)  || text.index( "**" , 10)
-    return text[0 .. ind + 1] if ind
-    ind = text.index(" " , len - 10)
-    ind ? text[0 .. ind + 1] : text[0 .. len +1]
+  # so one can give a char sequence
+  def short text , chop = "**"
+    ind = text.index( chop , 10)
+    if ind
+      return text[0 .. ind + 1] 
+    else
+      return text[0 .. 100] 
+    end
   end
 end
