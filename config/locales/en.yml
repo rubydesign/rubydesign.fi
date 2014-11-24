@@ -176,6 +176,7 @@ en:
         link: Link
         position: Position
         description: Description
+        summary: Summary
       order:
         email: Email
         ordered_on: Ordered on
