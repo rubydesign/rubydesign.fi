@@ -186,6 +186,7 @@ en:
         received_on: Received on
       product:
         description: Description
+        summary: Summary
         ean: Ean
         inventory: Inventory
         name: Name
