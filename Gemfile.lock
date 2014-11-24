@@ -19,7 +19,7 @@ GIT
 PATH
   remote: ../
   specs:
-    office_clerk (0.4)
+    office_clerk (0.5)
       bcrypt-ruby (~> 3.1)
       bootstrap-sass (~> 3.1)
       bootstrap_form (~> 2.2)
@@ -33,7 +33,6 @@ PATH
       rails (~> 4.0, >= 4.0.1)
       rails-i18n (~> 4.0)
       sass-rails (~> 4.0)
-      simple_form (~> 3.0)
       will_paginate-bootstrap (~> 1.0)
 
 GEM
@@ -252,9 +251,6 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 2.12)
       sprockets-rails (~> 2.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
