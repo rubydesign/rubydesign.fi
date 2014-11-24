@@ -171,6 +171,7 @@ fi:
         street: Osoite
       category:
         name: Nimi
+        summary: Yhteenveto
         online: Netissä
         category: Pääryhmä
         link: Linkki
@@ -181,6 +182,7 @@ fi:
         ordered_on: Tilattu
       product:
         description: Kuvaus
+        summary: Yhteenveto
         ean: Ean
         inventory: Inventaario
         name: Nimi

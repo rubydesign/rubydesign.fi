@@ -1,13 +1,13 @@
-=link_to shop_product_path(:link => product.link ) do
-  %h4.product-name
+%h4.product-name
+  =link_to shop_product_path(:link => product.link ) do
     = product.name
-  .row
-    .col-md-4
-      .square-image
-        =image_tag product.main_picture.url
-    .col-md-8.bottom
-      .product-fact
-        = link_to shop_product_path( :link => product.link ) , :class => :info do
-          %p= markdown product.summary
-          .price.selling
-            = euros product.price
+.row
+  .col-md-4
+    .square-image
+      =image_tag product.main_picture.url
+  .col-md-8.bottom
+    .product-fact
+      %p= markdown product.summary
+      = link_to shop_product_path( :link => product.link ) , :class => :info do
+        .price.selling
+          = euros product.price
