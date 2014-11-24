@@ -1,7 +1,7 @@
 %h2
   = t params["action"]
   = t(:order)
-= simple_form_for(@order, :html => { :class => "form-horizontal" }) do |f|
+= bootstrap_form_for(@order) do |f|
   .col-md-6
     = f.date_field :ordered_on
   .col-md-6

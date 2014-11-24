@@ -1,9 +1,9 @@
 %h2
   = t params["action"]
   = t(:purchase)
-= simple_form_for(@purchase, :html => { :class => "form-horizontal" }) do |f|
-  = f.input :name
-  = f.input :ordered_on
-  = f.input :received_on
+= bootstrap_form_for(@purchase) do |f|
+  = f.test_field :name
+  = f.date_field :ordered_on
+  = f.date_field :received_on
   = f.submit :class => "btn btn-success"
   = link_to t(:back), purchases_path, :class => "btn btn-warning"

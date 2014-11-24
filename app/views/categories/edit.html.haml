@@ -9,28 +9,32 @@
       - else
         = t(:new)
         
-= simple_form_for(@category, :html => { :multipart => true , :class => "form-horizontal" }) do |f|
+= bootstrap_form_for(@category, :html => { :multipart => true }) do |f|
   .row.form-group
-    .col-md-6
-      = f.input :category ,  input_html: { class: 'form-control' } do 
-        = f.select :category_id, Category.all.order(:name).map { |c| [c.name, c.id ] }, :include_blank => true , :prompt => t(:select)
-      = f.input :online
-      = f.input :name
-      = f.input :link
-      = f.input :position
-    .col-md-6
-      = f.input :description , :as => :text , :input_html => {:rows => 12}
+    .col-md-5
+      = f.text_field :name
+      .row
+        .col-md-2
+          = f.check_box :online
+        .col-md-10
+          = f.text_field :link
+      = f.select :category_id , Category.all.order(:name).map { |c| [c.name, c.id ] }, :prompt => t(:select) , :include_blank => true
+      = f.text_field :position
+    .col-md-7
+      = f.text_area :description , :rows => 12
   .row
-    .col-md-6
+    .col-md-4
       = image_tag @category.main_picture.url
-  .row
-    .col-md-6
-      = f.file_field :main_picture
-    .col-md-6
-      = f.file_field :extra_picture
-  .row
-    .col-md-3
+    .col-md-4
+      = image_tag @category.extra_picture.url
+    .col-md-4
       = f.submit :class => "btn btn-success"
-    .col-md-3
+      %br
+      %br
       = link_to t(:back), categories_path, :class => "btn btn-warning"
+  .row
+    .col-md-4
+      = f.file_field :main_picture
+    .col-md-4
+      = f.file_field :extra_picture
         

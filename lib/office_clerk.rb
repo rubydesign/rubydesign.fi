@@ -5,7 +5,6 @@ require "jquery-ui-rails"
 require "kramdown"
 require "will_paginate"
 
-require 'simple_form' 
 require 'will_paginate-bootstrap'
 require 'bootstrap-sass'
 require 'bootstrap_form'
