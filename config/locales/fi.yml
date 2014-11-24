@@ -1,60 +1,6 @@
 ---
 fi:
   actions: Toimenpiteet
-  activerecord:
-    attributes:
-      basket:
-        created_at: Luotu
-        total_price: Hinta
-      clerk:
-        city: Kaupunki
-        email: S-posti
-        name: Nimi
-        password: Salasana
-        password_confirmation: Vahvista salasana
-        phone: Puhelin
-        street: Osoite
-      category:
-        name: Nimi
-        online: Netissä
-        category: Pääryhmä
-        link: Linkki
-        position: Järjetysnummero
-        description: Kuvaus
-      order:
-        email: S-posti
-        ordered_on: Tilattu
-      product:
-        description: Kuvaus
-        ean: Ean
-        inventory: Inventaario
-        name: Nimi
-        online: Netissä
-        price: Hinta
-        cost: Kustannus
-        scode: Tuottajatunnus
-        tax: Veroprosentti
-        weight: Paino
-        supplier: Tuottaja
-        category: Tuoteryhmä
-      purchase:
-        name: Nimi
-        ordered_on: Tilattu
-        received_on: Vastaanotettu
-      supplier:
-        city: Kaupunki
-        name: Nimi
-        phone: Puhelin
-        street: Osoite
-        supplier_name: Tuottaja
-    models:
-      basket: Ostoskori
-      category: Tuoteryhmä
-      clerk: Käyttäjä
-      order: Tilaus
-      product: Tuote
-      purchase: Sisäänosto
-      supplier: Tuottaja
   add: Lisää
   add_inventory: Lisää inventaarioon
   add_to_basket: Lisää ostoskoriin
@@ -111,8 +57,6 @@ fi:
   items: Tuotteet
   last_name: Sukunimi
   link: linkki
-  login: Kirjaudu sisään
-  logout: Kirjaudu ulos
   made_offline: poistettu netistä
   made_online: laitettu nettiin
   main_picture: Kuva
@@ -147,6 +91,7 @@ fi:
   picture2: Toinen kuva
   position: Paikka
   prev: edellinen
+  preview: Esikatselu
   price: Hinta
   price_between: Hinta haarukka
   print: Tulosta
@@ -183,22 +128,13 @@ fi:
   sign_up: Luo tili
   signed_in: Sisäänkirjautunut
   signed_out: Uloskirjautunut
-  simple_form:
-    error_notification:
-      default_message: 'Tarkista uudelleen:'
-    'false': Ei
-    "no": Ei
-    required:
-      mark: '*'
-      text: required
-    'true': Kyllä
-    "yes": Kyllä
   state: Tila
   street: Osoite
   street1: Osoite1
   street2: Osoite2
   supplier: Tuottaja
   suppliers: Tuottajat
+  summary: Yhteenveto
   tax: Alv
   tax_percent: Veroprosentti
   tax_rate: Veroprosentti
@@ -219,3 +155,57 @@ fi:
     next_label: seuraava
     page_gap: '&hellip;'
     previous_label: edellinen
+  activerecord:
+    attributes:
+      basket:
+        created_at: Luotu
+        total_price: Hinta
+      clerk:
+        city: Kaupunki
+        email: S-posti
+        name: Nimi
+        password: Salasana
+        password_confirmation: Vahvista salasana
+        phone: Puhelin
+        street: Osoite
+      category:
+        name: Nimi
+        online: Netissä
+        category: Pääryhmä
+        link: Linkki
+        position: Järjetysnummero
+        description: Kuvaus
+      order:
+        email: S-posti
+        ordered_on: Tilattu
+      product:
+        description: Kuvaus
+        ean: Ean
+        inventory: Inventaario
+        name: Nimi
+        online: Netissä
+        price: Hinta
+        cost: Kustannus
+        scode: Tuottajatunnus
+        tax: Veroprosentti
+        weight: Paino
+        supplier: Tuottaja
+        category: Tuoteryhmä
+      purchase:
+        name: Nimi
+        ordered_on: Tilattu
+        received_on: Vastaanotettu
+      supplier:
+        city: Kaupunki
+        name: Nimi
+        phone: Puhelin
+        street: Osoite
+        supplier_name: Tuottaja
+    models:
+      basket: Ostoskori
+      category: Tuoteryhmä
+      clerk: Käyttäjä
+      order: Tilaus
+      product: Tuote
+      purchase: Sisäänosto
+      supplier: Tuottaja

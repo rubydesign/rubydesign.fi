@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.integer  "category_id"
     t.boolean  "online",                     default: false
     t.string   "name"
-    t.string   "description"
+    t.text     "description",                default: ""
+    t.text     "summary",                    default: ""
     t.integer  "position",                   default: 1
     t.string   "link"
     t.string   "main_picture_file_name"
@@ -89,7 +90,8 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.float    "price",                                      null: false
     t.string   "name",                                       null: false
     t.string   "link"
-    t.text     "description"
+    t.text     "description",                default: ""
+    t.text     "summary",                    default: ""
     t.string   "main_picture_file_name"
     t.string   "main_picture_content_type"
     t.integer  "main_picture_file_size"

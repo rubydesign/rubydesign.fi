@@ -3,50 +3,6 @@ en:
   empty: Empty
   online_eq: Online?
   actions: Actions
-  activerecord:
-    attributes:
-      basket:
-        created_at: Created
-        total_price: Price
-      clerk:
-        city: City
-        email: Email
-        name: Name
-        password: Passord
-        password_confirmation: Password confirmation
-        phone: Phone
-        street: Street
-      order:
-        email: Email
-        ordered_on: Ordered on
-      product:
-        description: Description
-        ean: Ean
-        inventory: Inventory
-        name: Name
-        online: online
-        price: Price
-        scode: Supplier code
-        tax: Tax rate
-        weight: Weight
-      purchase:
-        name: Name
-        ordered_on: Ordered on
-        received_on: Received on
-      supplier:
-        city: City
-        name: Name
-        phone: Phone
-        street: Street
-        supplier_name: Supplier
-    models:
-      basket: Cart
-      category: Product group
-      clerk: User
-      order: Order
-      product: Product
-      purchase: Purchase
-      supplier: Supplier
   add: Add
   add_inventory: Add Inventory
   add_to_basket: Add to basket
@@ -63,9 +19,11 @@ en:
   between: ' between'
   cancel: Cancel
   canceled_on: Canceled on
+  cancel_order_button: Cancel email
   categories: Product Categories
   category: Product Category
   choose_product_for_basket: Choose product for basket
+  checkout: Checkout
   city: City
   clerk: User
   clerks: Users
@@ -91,6 +49,7 @@ en:
   filter: Filter
   first_name: First Name
   history: Order history
+  home: Home
   info: Info
   inventorized: Inventorized
   inventory: Inventory
@@ -101,6 +60,7 @@ en:
   link: Link
   made_offline: taken offline
   made_online: made online
+  manage: Manage
   main_picture: Main Picture
   make_order: Make Order
   make_purchase: Make Purchase
@@ -111,27 +71,38 @@ en:
   new_item: New product item
   next: Next
   not_online: not online
+  notice: Notice
   online: Online
   order: Order
   order_number: Number
+  order_more_for_free_shipping: "Order %{more} €  for free shipping"
   order_total: Order total
   ordered: Ordered
   ordered_on: Ordered On
   orders: Orders
   our_shop: Our shop
+  paid: Paid
   paid_on: Paid on
+  paid_order_button: Paid Mail
   parent: Parent
+  password: Password
   phone: Phone
   picture: Picture
   picture2: Picture 2
   position: Position
   prev: Previous
+  preview: Preview
   price: Price
   price_between: Price between
   print: Print
+  print_invoice: Print Invoice
   print_order: Print Order
+  print_reminder: Print Reminder
+  print_slip: Print Package Slip
+  print_receipt: Print Receipt
   product: Product
   product_added: Product added
+  product_item: Product Item
   product_line: Product Line
   product_line_has_inventory: Product Line has inventori
   products: Products
@@ -142,10 +113,13 @@ en:
   received: Received
   received_on: Received On
   scode: Supplier code
+  select: Select
   search: Search
+  ship: Ship
   shipment_price: Shipment price
   shipment_type: Shipment type
   shipped_on: Shipped on
+  shipped_order_button: Ship Order Email
   shop: Shop
   show: Show
   sign_in: Log in
@@ -160,6 +134,7 @@ en:
   street2: Street2
   supplier: Supplier
   suppliers: Suppliers
+  summary: Summary
   tax: Vat
   tax_percent: Tax percent
   tax_rate: Vat rate
@@ -180,3 +155,58 @@ en:
     next_label: Next &#8594;
     page_gap: '&hellip;'
     previous_label: '&#8592; Previous'
+  activerecord:
+    attributes:
+      basket:
+        created_at: Created
+        total_price: Price
+      clerk:
+        city: City
+        email: Email
+        name: Name
+        password: Passord
+        password_confirmation: Password confirmation
+        phone: Phone
+        street: Street
+      category:
+        name: Name
+        online: Online
+        category: Parent
+        link: Link
+        position: Position
+        description: Description
+      order:
+        email: Email
+        ordered_on: Ordered on
+      purchase:
+        name: Name
+        ordered_on: Ordered on
+        received_on: Received on
+      product:
+        description: Description
+        ean: Ean
+        inventory: Inventory
+        name: Name
+        online: online
+        price: Price
+        scode: Supplier code
+        tax: Tax rate
+        weight: Weight
+        cost: Cost
+        supplier: Suppier
+        category: Category
+        name: Name
+      supplier:
+        city: City
+        name: Name
+        phone: Phone
+        street: Street
+        supplier_name: Supplier
+    models:
+      basket: Cart
+      category: Product group
+      clerk: User
+      order: Order
+      product: Product
+      purchase: Purchase
+      supplier: Supplier
