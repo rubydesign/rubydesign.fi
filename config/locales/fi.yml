@@ -121,6 +121,7 @@ fi:
   shipped_on: Lähetetty
   shipped_order_button: Lähetetty S-Posti
   shop: Kauppa
+  shop_link: Kauppassa
   show: Näytä
   sign_in: Kirjaudu sisään
   sign_in_invalid: Sposti tai salasana virheellinen

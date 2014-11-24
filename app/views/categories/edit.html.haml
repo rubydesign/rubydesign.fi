@@ -21,7 +21,8 @@
       = f.select :category_id , Category.all.order(:name).map { |c| [c.name, c.id ] }, :prompt => t(:select) , :include_blank => true
       = f.text_field :position
     .col-md-7
-      = f.text_area :description , :rows => 12
+      = f.text_area :summary , :rows => 2
+      = f.text_area :description , :rows => 10
   .row
     .col-md-4
       = image_tag @category.main_picture.url
