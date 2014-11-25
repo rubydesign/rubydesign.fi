@@ -23,7 +23,9 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = false
 
-  s.add_runtime_dependency 'rails', '~> 4.0', '>= 4.0.1'
+  s.add_runtime_dependency 'rails', '~> 4.1', '<= 4.2'
+  s.add_runtime_dependency "ransack" , '>= 1.5.1'
+  s.add_runtime_dependency "valid_email" 
   s.add_runtime_dependency 'sass-rails' , '~> 4.0'
   s.add_runtime_dependency "haml" , '~> 4.0'
   s.add_runtime_dependency "jquery-rails" , '~> 3.1'
