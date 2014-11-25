@@ -1,5 +1,4 @@
--# ::Rails::Engine.subclasses.map(&:instance) in 4.1
--Rails::Application::Railties.engines.each do |e|
+-Rails::Engine.subclasses.map(&:instance).each do |e|
   - name = e.engine_name.sub("clerk" , "office")
   - next if name == e.engine_name
   = stylesheet_link_tag name

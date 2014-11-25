@@ -13,6 +13,8 @@ require 'rails-i18n'
 require "jquery-rails"
 require "gon"
 require "bcrypt"
+require "valid_email"
+require "ransack"
 
 require "office_clerk/shipping_method"
 
