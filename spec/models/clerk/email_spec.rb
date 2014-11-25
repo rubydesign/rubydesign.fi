@@ -28,8 +28,8 @@ describe Clerk do
   end
 
   it "should reject duplicate email addresses" do
-    create(:clerk , :email => "sama@sama.net")
-    clerk_with_duplicate_email = build(:clerk , :email => "sama@sama.net")
+    create(:clerk , :email => "torsten@villataika.fi")
+    clerk_with_duplicate_email = build(:clerk , :email => "torsten@villataika.fi")
     clerk_with_duplicate_email.save
     expect(clerk_with_duplicate_email).not_to be_valid
   end
@@ -40,7 +40,7 @@ describe Clerk do
     clerk_with_duplicate_email = build(:clerk , :email => upcased_email.downcase )
     clerk_with_duplicate_email.save
 #should work but doesn, postponed
- #   clerk_with_duplicate_email.not_to be_valid
+    expect(clerk_with_duplicate_email).not_to be_valid
   end
 
 
