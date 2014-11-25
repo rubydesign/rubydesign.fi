@@ -9,45 +9,16 @@ require File.expand_path("../../test_app/config/environment",  __FILE__)
 Rails.backtrace_cleaner.remove_silencers!
 
 require 'rspec/rails'
-require 'email_spec'
 
-unless Clerk.where( :email =>  "admin@important.me").first
-  admin = Clerk.new( :email =>  "admin@important.me" , :admin => true , :password => "password" ) 
-   admin.save!
-end
-require "database_cleaner"
-require 'capybara/rspec'
-require 'capybara-screenshot/rspec'
-Capybara::Screenshot.prune_strategy = :keep_last_run
-
-#require 'capybara/poltergeist'
-#Capybara.javascript_driver = :poltergeist
-
-Capybara.default_selector = :css
-
-# Requires supporting ruby files with custom matchers and macros, etc,
-# in spec/support/ and its subdirectories.
-#Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
- 
-RSpec.configure do |config|
-  config.include(EmailSpec::Helpers)
-  config.include(EmailSpec::Matchers)
 
-  config.include PageHelper
+RSpec.configure do |config|
   
-  config.include Capybara::DSL  
+  config.include PageHelper  
   
   config.include OfficeClerk::Engine.routes.url_helpers
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = false
 
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
   
@@ -56,22 +27,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-  config.before(:suite) do
-    DatabaseCleaner.clean_with :truncation
-    DatabaseCleaner.strategy = :transaction
-  end
-  config.before(:each) do |group|
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # Print the 10 slowest examples and example groups at the end of the spec run, 
+  #to help surface which specs are running  particularly slow.
+#  config.profile_examples = 10
 end
