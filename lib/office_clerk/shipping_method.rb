@@ -6,7 +6,7 @@ module OfficeClerk
       @type = @data[:type]
       @description = @data[:description]
     end
-    attr_reader :data , :name , :type
+    attr_reader :data , :name , :type , :description
 
     def price_for(basket)
       raise "Not implemented in #{self}"
