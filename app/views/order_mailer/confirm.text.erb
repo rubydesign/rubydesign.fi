@@ -6,6 +6,9 @@ Tarkistathan että tiedot ovat oikein.
 ....................................................................
 Tilauksen tiedot
 ....................................................................
+<% @order.basket.items.each do |item|%>
+<%= item.product.full_name%>
+<%end%>
 Tasapainottava – Neem-Rhassoul shampoo  1 kpl á 13,20 € = 13,20 €
 Villiruusu Hiustenhoitoaine  1  kpl á  18,20 € = 18,20 €
 Päivittäin – Granaattiomenashampoo  2  kpl á  13,20 € = 26,40 €
@@ -13,7 +16,7 @@ Intense Frangipani Deo Roll-on  1  kpl á  14,30 € = 14,30 €
 ....................................................................
 Välisumma: 72,10 €
 Toimituskulut: 7,30 €
-Tilauksen loppusumma: 79,40 €
+Tilauksen loppusumma: <%= @order.total_price%> €
 Alv 24% NN,NN €
 ....................................................................
 Toimitusosoite: Tiina Tilaaja, Kotikatu 3, 10470 Fiskars
