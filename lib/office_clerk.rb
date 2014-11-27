@@ -4,7 +4,7 @@ require "haml"
 require "jquery-ui-rails"
 require "kramdown"
 require "will_paginate"
-
+require 'coffee_script'
 require 'will_paginate-bootstrap'
 require 'bootstrap-sass'
 require 'bootstrap_form'
