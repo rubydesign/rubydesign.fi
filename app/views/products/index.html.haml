@@ -52,7 +52,7 @@
                 %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
     = paginate @products
   .col-md-3
-    = search_form_for @q, :url => search_products_path, :html => { :class => "well well-small" }, :method => :get do |f|
+    = search_form_for @q, :url => search_products_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         - if params[:basket]
           = hidden_field_tag :basket , params[:basket]
@@ -60,30 +60,36 @@
         -else
           = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
       .form-group
+        = f.text_field :summary_cont , :class => "form-control" , :placeholder => t(:summary)
+      .form-group
         = f.text_field :description_cont , :class => "form-control" , :placeholder => t(:description)
       .form-group
-        = f.text_field :ean_cont , :class => "form-control" , :placeholder => t(:ean)
+        .col-md-6
+          = f.text_field :ean_cont , :class => "form-control" , :placeholder => t(:ean)
+        .col-md-6
+          = f.text_field :scode_cont , :class => "form-control" , :placeholder => t(:scode)
       .form-group
-        = f.text_field :scode_cont , :class => "form-control" , :placeholder => t(:scode)
-      .form-group.row
-        .col-md-3
+        .col-md-4
           = f.label(:price)
         .col-md-4
           = f.text_field :price_gteq , :class => "form-control"
         .col-md-4
           = f.text_field :price_lteq , :class => "form-control"
-      .form-group.row
-        .col-md-3
+        .col-md-4
           = f.label(:inventory)
         .col-md-4
           = f.text_field :inventory_gteq , :class => "form-control"
         .col-md-4
           = f.text_field :inventory_lteq , :class => "form-control"
       .form-group
-        = f.label t(:supplier)
-        = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, :include_blank => true
+        .col-md-4
+          = f.label t(:supplier)
+        .col-md-8
+          = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, {:include_blank => true}, :class=>"form-control"
       .form-group
-        = f.label t(:category)
-        = f.collection_select :category_id_eq, Category.all, :id, :name, :include_blank => true
+        .col-md-4
+          = f.label t(:category)
+        .col-md-8
+          = f.collection_select :category_id_eq, Category.all, :id, :name, {:include_blank => true}, :class=>"form-control"
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), products_path, :class => "btn btn-warning"
