@@ -25,7 +25,7 @@
         %tbody
           - @categories.each do |category|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= image_tag category.main_picture.url(:thumb)
+              %td.image= image_tag category.main_picture.url(:thumb)
               %td=link_to category.name, category_path(category), :title => t(:show) , :class => category.online && "online"
               %td=category.products.length.to_s
               %td=category.online ? t(:online) : t(:not_online)
@@ -52,7 +52,7 @@
           %span.input-group-addon
             =t(:blanks)
             = f.radio_button :description_blank , true
-      = f.submit t(:filter), :class => "btn btn-success"
+      = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), categories_path, :class => "btn btn-warning"
     %hr
     - @roots.each do |group|
