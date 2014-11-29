@@ -23,18 +23,18 @@
         %tbody
           - @suppliers.each do |supplier|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td=supplier.supplier_name
+              %td.name=supplier.supplier_name
               %td=supplier.products.count
               %td=supplier.whole_address
               %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
     = paginate @suppliers
   .col-md-3
-    = search_form_for @q, :url => search_suppliers_path, :html => { :class => "well well-small" }, :method => :post do |f|
+    = search_form_for @q, :url => search_suppliers_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
       .form-group
-        = f.text_field :supplier_name_cont , :placeholder =>  t(:name)
+        = f.text_field :supplier_name_cont , :class => "form-control", :placeholder =>  t(:name)
       .form-group
-        = f.text_field :address_cont , :placeholder =>  t(:address)
-      = f.submit t(:filter), :class => "btn btn-success"
+        = f.text_field :address_cont , :class => "form-control", :placeholder =>  t(:address)
+      = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), suppliers_path, :class => "btn btn-warning"
   

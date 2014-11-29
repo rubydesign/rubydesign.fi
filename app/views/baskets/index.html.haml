@@ -36,16 +36,16 @@
               %td= basket_edit_link(basket)
     = paginate @baskets
   .col-md-3
-    = search_form_for @q, :url => search_baskets_path, :html => { :class => "well well-large" }, :method => :post do |f|
+    = search_form_for @q, :url => search_baskets_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
       .form-group.row
         .col-md-3
-          = t(:type)
+          = f.label(:type)
         .col-md-9
           = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]] , {},  :class => "form-control"
       .form-group
         = f.text_field :items_product_name_cont , :class => "form-control" , :placeholder => t(:name_contains)
       .form-group.row
-        .col-md-3
+        .col-md-4
           = f.label(:total_price)
         .col-md-4
           = f.text_field :total_price_gt , :class => "form-control"

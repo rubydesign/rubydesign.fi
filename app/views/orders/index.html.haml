@@ -37,57 +37,52 @@
           = link_to orders_path(:format => :json), :class => "btn btn-primary" do
             %i.icon-download JSON
   .col-md-3
-    = search_form_for @q, :url => search_orders_path, :html => { :class => "well well-small" }, :method => :post do |f|
+    = search_form_for @q, :url => search_orders_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
       .form-group
-        = f.text_field :number_cont , :placeholder =>  t(:order_number)
+        = f.text_field :number_cont ,:class => "form-control" , :placeholder =>  t(:order_number)
       .form-group
-        = f.text_field(:email , :placeholder => t(:email))
-      .form-group.row
-        .col-md-3
+        = f.text_field(:email , :class => "form-control" , :placeholder => t(:email))
+      .form-group
+        .col-md-4
           = f.label(:total)
         .col-md-4
           = f.text_field :basket_total_price_gteq , :class => "form-control"
         .col-md-4
           = f.text_field :basket_total_price_lteq , :class => "form-control"
-      .row
-        .col-md-10
+      .form-group
+        .col-md-4
           = f.label(:ordered_on)
-      .row
-        .col-md-5
+        .col-md-4
           = f.search_field :ordered_on_gteq , :class => "form-control datepicker" , :value => sort_date(:ordered_on_gteq)
-        .col-md-5
+        .col-md-4
           = f.search_field :ordered_on_lteq , :class => "form-control datepicker"
-      .row
-        .col-md-10
+      .form-group
+        .col-md-4
           = f.label(:paid_on)
-      .row
-        .col-md-5
+        .col-md-4
           = f.text_field :paid_on_gteq , :class => "form-control datepicker"
-        .col-md-5
+        .col-md-4
           = f.text_field :paid_on_lteq , :class => "form-control datepicker"
-      .row
-        .col-md-10
+      .form-group
+        .col-md-4
           = f.label(:shipped_on)
-      .row
-        .col-md-5
+        .col-md-4
           = f.text_field :shipped_on_gteq , :class => "form-control datepicker"
-        .col-md-5
+        .col-md-4
           = f.text_field :shipped_on_lteq , :class => "form-control datepicker"
-      .row
-        .col-md-10
+      .form-group
+        .col-md-4
           = f.label(:shipped_on)
-      .row
-        .col-md-5
+        .col-md-4
           = f.text_field :shipped_on_gteq , :class => "form-control datepicker"
-        .col-md-5
+        .col-md-4
           = f.text_field :shipped_on_lteq , :class => "form-control datepicker"
-      .row
-        .col-md-10
+      .form-group
+        .col-md-4
           = f.label(:canceled_on)
-      .row
-        .col-md-5
+        .col-md-4
           = f.text_field :canceled_on_gteq , :class => "form-control datepicker"
-        .col-md-5
+        .col-md-4
           = f.text_field :canceled_on_lteq , :class => "form-control datepicker"
-      = f.submit t(:filter), :class => "btn btn-success"
+      = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), orders_path, :class => "btn btn-warning"

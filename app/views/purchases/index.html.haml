@@ -29,9 +29,9 @@
         .btn-group
           = paginate @purchases
   .col-md-3
-    = search_form_for @q, :url => search_purchases_path, :html => { :class => "well well-small" }, :method => :post do |f|
+    = search_form_for @q, :url => search_purchases_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
       .form-group
-        = f.text_field :name_cont , :placeholder =>  t(:name)
+        = f.text_field :name_cont , :class => "form-control" , :placeholder =>  t(:name)
       .row
         .col-md-10
           = f.label(:ordered_on)
@@ -48,5 +48,6 @@
           = f.text_field :received_on_gt , :class => "form-control datepicker"
         .col-md-5
           = f.text_field :received_on_lt , :class => "form-control datepicker"
-      = f.submit t(:filter), :class => "btn btn-success"
+      %br
+      = f.submit t(:filter),  :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), purchases_path, :class => "btn btn-warning"
