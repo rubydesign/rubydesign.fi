@@ -15,8 +15,6 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   
-  config.include PageHelper  
-  
   config.include OfficeClerk::Engine.routes.url_helpers
 
   config.infer_base_class_for_anonymous_controllers = false

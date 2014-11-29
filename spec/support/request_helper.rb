@@ -1,4 +1,4 @@
-module PageHelper
+module RequestHelper
   def ensure_path path
     expect(page.current_path).to eq path
   end
@@ -24,8 +24,8 @@ module PageHelper
     click_button I18n.t(:sign_in)
     expect(page).to have_content I18n.t(:baskets)
   end
+end
 
-  def expect_basket_total price
-    expect(find(".total").text).to include( price.round(2).to_s.sub(".",",")) # TODO remove the format hack 
-  end
+RSpec.configure do |config|
+  config.include RequestHelper
 end
