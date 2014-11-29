@@ -15,6 +15,7 @@ fi:
   basket_locked: Ostoskoria ei voi muuttaa
   baskets: Ostoskorit
   between: haarukka
+  blanks: Tyhjät
   cancel: Peruuta
   cancel_order_button: Peruta s-post
   canceled_on: Peruutettu

@@ -33,14 +33,25 @@
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
     = paginate @categories
   .col-md-3
-    = search_form_for @q, :url => search_categories_path, :html => { :class => "well well-small" }, :method => :post do |f|
+    = search_form_for @q, :url => search_categories_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
       .form-group
-        = f.text_field :name_cont , :placeholder =>  t(:name)
+        .input-group
+          = f.text_field :name_cont , :class => "form-control" , :placeholder =>  t(:name)
+          %span.input-group-addon
+            =t(:online)
+            = f.radio_button :online_eq , true
       .form-group
-        = f.text_field :description_cont , :placeholder =>  t(:description)
-      .search_heading
-        = t(:online)
-        = f.check_box :online_eq
+        .input-group
+          = f.text_field :summary_cont , :class => "form-control" , :placeholder => t(:summary)
+          %span.input-group-addon
+            =t(:blanks)
+            = f.radio_button :summary_blank , true
+      .form-group
+        .input-group
+          = f.text_field :description_cont , :class => "form-control" , :placeholder =>  t(:description)
+          %span.input-group-addon
+            =t(:blanks)
+            = f.radio_button :description_blank , true
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), categories_path, :class => "btn btn-warning"
     %hr
