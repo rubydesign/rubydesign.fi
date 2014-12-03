@@ -1,5 +1,5 @@
-%h3= products.length.to_s + " " + t(:products)
 .row
+  %h3= products.length.to_s + " " + t(:products)
   %table.table.table-striped.table-bordered.table-condensed
     %tbody
       - products.in_groups_of(3).each do |array|
@@ -8,5 +8,5 @@
             -next unless product
             %td= image_tag product.main_picture.url(:thumb)
             %td
-              = link_to product_path(product), :title => t(:show) do
+              = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                 = product.full_name

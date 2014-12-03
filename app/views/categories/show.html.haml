@@ -30,7 +30,6 @@
   %b= t(:shop_link) + " : "
   = link_to @category.link , shop_group_path(@category.link)
 
-.row
-  =render "products/triple" , :products => @category.products.no_items
-  =render "triple" , :groups => @category.categories
+=render "triple" , :groups => @category.categories
+=render "products/triple" , :products => @category.products.no_items
 
