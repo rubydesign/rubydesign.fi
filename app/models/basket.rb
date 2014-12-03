@@ -18,8 +18,8 @@ class Basket < ActiveRecord::Base
   end
 
   def cache_total
-    self.total_price = items.to_a.sum{ |i| i.total }
-    self.total_tax =  items.to_a.sum{ |i| i.tax_amount}
+    self.total_price = (items.to_a.sum{ |i| i.total }).round(2)
+    self.total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
   end
   
   def touch

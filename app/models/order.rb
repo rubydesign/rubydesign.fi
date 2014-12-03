@@ -26,13 +26,13 @@ class Order < ActiveRecord::Base
   end
 
   def total_price
-    basket.total_price + shipment_price
+    basket.total_price + shipment_price.round(2)
   end
 
   # total tax is for when the rates don't matter, usually to cutomers.
   # only on bills or invoices do we need the detailed list you get from the taxes function
   def total_tax
-    basket.total_tax + shipment_tax*shipment_price
+    basket.total_tax + (shipment_tax*shipment_price / 100.0).round(2) 
   end
 
   # return a hash of rate => amount , because products may have different taxes, 

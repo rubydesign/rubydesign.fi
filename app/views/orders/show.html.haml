@@ -8,16 +8,10 @@
         = t(:ordered_on) + " : " + date(@order.ordered_on)
     %p
       %b
-        = t(:total_price) + " : " +  euros(@order.basket.total_price)
-    %p
-      %b
-        = t(:total_tax) + " : " + euros(@order.basket.total_tax)
-    %p
-      %b
-        = t(:shipment_price) + " : " + euros(@order.shipment_price)
-    %p
-      %b
         = t(:email) + " : " + @order.email.to_s
+    %p
+      %b
+        = t(:shipment_type) + " : " + @order.shipment_type.to_s
   .col-md-4
     %p
       %b
@@ -35,12 +29,30 @@
     %p
       %b
         = t(:canceled_on) + " : " + date(@order.canceled_on)
-    %p
-      %b
-        = t(:shipment_type) + " : " + @order.shipment_type.to_s
+-content_for :basket do
+  %tr
+    %td{:colspan => 2}
+    %td
+      %b= t(:total_tax) + " : "
+    %td
+      %b= euros(@order.total_tax)
+  %tr
+    %td{:colspan => 2}
+    %td
+      %b= t(:shipment_price) + " : "
+    %td
+      %b= euros(@order.shipment_price)
+  %tr
+    %td{:colspan => 2}
+    %td
+      %b= t(:total_price) + " : "
+    %td
+      %b= euros(@order.total_price)
+
 .row
   = render "baskets/small" , :basket => @order.basket
 .row
+  %br
   .col-md-2
     = link_to t(:back), orders_path, :class => "btn btn-warning"
   .col-md-10
