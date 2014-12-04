@@ -1,0 +1,5 @@
+<% [:number , :ordered_on ,:total_price , :tax , :paid_on ].collect{|i| I18n.t(i)}.join("") %>
+<% @orders.each do |order| %>
+<%=[ order.number.to_s , date(order.ordered_on) ,  order.total_price.round(2),  
+    order.total_tax.round(2) , date(order.paid_on) ].join(",")   %>              
+<%end%>
