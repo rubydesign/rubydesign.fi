@@ -27,6 +27,7 @@ class BasketsController < AdminController
   end
 
   def show
+    gon.basket_id = @basket.id
   end
 
   #as an action this order is meant as a verb, ie order this basket
