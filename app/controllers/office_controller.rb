@@ -42,6 +42,11 @@ class OfficeController < ApplicationController
   end
 
   private
+  def has_ssl?
+    return false unless Rails.env.production?
+    OfficeClerk.config(:has_ssl) == true
+  end
+  
   # when the order is made and the basket locked, it's time to make a new one
   def new_basket
     session[:current_basket] = nil

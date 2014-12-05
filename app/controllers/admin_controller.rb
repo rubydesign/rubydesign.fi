@@ -10,9 +10,13 @@ class AdminController < OfficeController
   def require_admin
     clerk = current_clerk
     return if clerk and clerk.admin
-    redirect_to sign_in_url
+    redirect_to sign_in
   end
-  
+
+  def sign_in
+    has_ssl? ? sign_in_path(:protocol => :https) : sign_in_url
+  end
+
   def clean_search
     q = params[:q]
     return unless q

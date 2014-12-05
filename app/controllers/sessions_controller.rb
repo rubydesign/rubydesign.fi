@@ -1,6 +1,8 @@
 class SessionsController < OfficeController
   layout "sales_clerk"
 
+  force_ssl :if => :has_ssl?
+
   def sign_in
   end
 
@@ -32,6 +34,9 @@ class SessionsController < OfficeController
       end
     end
   end
+
+  private
+
   def params_for_clerk
     params.require(:clerk).permit(:email,:password,:password_confirmation)
   end
