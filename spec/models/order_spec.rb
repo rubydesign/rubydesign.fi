@@ -31,12 +31,12 @@ describe Order do
   end
 
   it "adds shipping tax to taxes" do
-    expect(order.taxes.length).to eq 1
-    expect(order.taxes.first).to eq [10.0 , 0.9091]
+    expect(shipped_order.taxes.length).to eq 2
+    expect(shipped_order.taxes.first).to eq [10.0 , 0.9091]
+    expect(shipped_order.taxes[20.0]).to eq 1.6667
   end
 
   it "calculates total tax with shipping" do
-    expect(order.basket.items.length).to eq 1
-    expect(order.total_tax).to eq 0.91
+    expect(shipped_order.total_tax).to eq 2.5767
   end
 end

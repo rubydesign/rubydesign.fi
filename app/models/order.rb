@@ -69,6 +69,6 @@ class Order < ActiveRecord::Base
     return shipment_type != "pickup"
   end
   def shipment_tax_value
-     (shipment_tax*shipment_price / 100.0).round(2)
+    (self.shipment_tax * self.shipment_price / ( 100.0 + self.shipment_tax)).round(4)
   end
 end
