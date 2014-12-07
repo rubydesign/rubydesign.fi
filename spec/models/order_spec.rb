@@ -22,21 +22,21 @@ describe Order do
 
   it "calculates total tax" do
     expect(order.basket.items.length).to eq 1
-    expect(order.total_tax).to eq 1.1
+    expect(order.total_tax).to eq 0.91
   end
 
   it "calculates tax per rate" do
     expect(order.taxes.length).to eq 1
-    expect(order.taxes.first).to eq [10.0 , 1.0]
+    expect(order.taxes.first).to eq [10.0 , 0.9091]
   end
 
   it "adds shipping tax to taxes" do
     expect(order.taxes.length).to eq 1
-    expect(order.taxes.first).to eq [10.0 , 1.2]    
+    expect(order.taxes.first).to eq [10.0 , 0.9091]
   end
 
   it "calculates total tax with shipping" do
     expect(order.basket.items.length).to eq 1
-    expect(order.total_tax).to eq 1.1
+    expect(order.total_tax).to eq 0.91
   end
 end

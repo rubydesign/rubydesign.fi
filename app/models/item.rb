@@ -15,12 +15,16 @@ class Item < ActiveRecord::Base
 
   # tax included in the total
   def tax_amount
-    ((self.total * self.tax ) / 100.0).round(2)
+    self.quantity * single_item_tax
   end
 
   #relation of price to product price down from 100 %
   def discount
     return 0 unless product.price and product.price != 0
     (100 - (price/product.price)*100).round(0)
+  end
+
+  def single_item_tax
+    (self.price * self.tax / ( 100.0 + self.tax)).round(4)
   end
 end

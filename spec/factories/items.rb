@@ -5,7 +5,7 @@ FactoryGirl.define do
     product
     quantity 1
     price {product.price}
-    tax 10
+    tax { product.tax }
     sequence( :name) { |n| "product #{n}" }
     factory :item_quantity do
       quantity 1 

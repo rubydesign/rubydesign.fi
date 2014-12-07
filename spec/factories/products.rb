@@ -4,7 +4,8 @@ FactoryGirl.define do
   #minimal product
   factory :product do
     sequence( :name) { |n| "product #{n}" }
-    sequence :price , 10
+    price 10
+    tax 10.0
     inventory 5
     factory :shop_product do
       online true

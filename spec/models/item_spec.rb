@@ -14,8 +14,11 @@ describe Item do
   end
 
   it "calcualtes taxes" do
+    expect(create(:item).price).to eq 10.0
+    expect(create(:item).tax).to eq 10.0
+    expect(create(:item).tax_amount).to eq 0.9091
     [create(:item) , create(:item2) , create(:item22)].each do |c|
-      expect(c.tax_amount).to eq ((c.tax * c.price*c.quantity) / 100.0).round(2)
+      expect(c.tax_amount).to eq ((c.price * c.tax / (100 + c.tax ) ) ).round(4) * c.quantity
     end
   end
   it "calcualtes total" do

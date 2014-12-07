@@ -32,16 +32,15 @@ class Order < ActiveRecord::Base
   # total tax is for when the rates don't matter, usually to cutomers.
   # only on bills or invoices do we need the detailed list you get from the taxes function
   def total_tax
-    basket.total_tax + (shipment_tax*shipment_price / 100.0).round(2) 
+    basket.total_tax + shipment_tax_value
   end
 
   # return a hash of rate => amount , because products may have different taxes, 
   # the items in an order may have a collection of tax rates.
   def taxes
     cart = basket.taxes
-    s_tax = self.shipment_price * shipment_tax
     #relies on basket creating a default value of 0
-    cart[self.shipment_tax] += s_tax if self.shipment_tax and self.shipment_tax != 0
+    cart[self.shipment_tax] += shipment_tax_value if self.shipment_tax and self.shipment_tax != 0
     cart
   end
   
@@ -68,5 +67,8 @@ class Order < ActiveRecord::Base
   def needs_address?
     return false unless shipment_type
     return shipment_type != "pickup"
+  end
+  def shipment_tax_value
+     (shipment_tax*shipment_price / 100.0).round(2)
   end
 end
