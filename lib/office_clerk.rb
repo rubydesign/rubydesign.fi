@@ -14,6 +14,7 @@ require "jquery-rails"
 require "gon"
 require "bcrypt"
 require "valid_email"
+require "best_in_place"
 require "ransack"
 
 require "office_clerk/shipping_method"

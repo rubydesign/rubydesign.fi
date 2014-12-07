@@ -2,8 +2,8 @@
 <% @orders.each do |order| %>
 <% values = [ order.number.to_s , date(order.ordered_on) ,  order.total_price.round(2)]  %>
 <% taxes = order.taxes %>
-<% values << taxes[14.0]   %>              
-<% values << taxes[24.0] %>
+<% values << taxes[14.0].round(2) %>              
+<% values << taxes[24.0].round(2) %>
 <% values << date(order.paid_on) %>              
 <%= values.join(";")   %>              
 <%end%>

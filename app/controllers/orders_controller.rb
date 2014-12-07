@@ -49,7 +49,7 @@ class OrdersController < AdminController
   end
 
   def create
-    @order = Order.create(params_for_model)
+    @order = Order.create(params_for_order)
     @order.build_basket() unless @order.basket
     if @order.save
       redirect_to order_path(@order), :notice => t(:create_success, :model => "order")
@@ -60,10 +60,14 @@ class OrdersController < AdminController
 
   def update
     @order.build_basket unless @order.basket
-    if @order.update_attributes(params_for_model)
-      redirect_to order_path(@order), :notice => t(:update_success, :model => "order")
-    else
-      render :action => :edit
+    respond_to do |format|
+      if @order.update_attributes(params_for_order)
+        format.html { redirect_to(@order, :notice => t(:update_success, :model => "order")) }
+        format.json { respond_with_bip(@order) }
+      else
+        format.html { render :action => :edit }
+        format.json { respond_with_bip(@order) }
+      end
     end
   end
 
@@ -73,8 +77,8 @@ class OrdersController < AdminController
     @order = Order.find(params[:id])
   end
 
-  def params_for_model
-    params.require(:order).permit(:ordered_on,:shipment_price,:shipment_tax,:basket_id,:email,:paid_on,:shipped_on,:paid_on,:canceled_on,:shipment_type)
+  def params_for_order
+    params.require(:order).permit(:shipment_price,:shipment_tax,:shipment_type, :note)
   end
 end
 

@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :address do
-    first_name "Torsten"
-    last_name "Ruger"
-    street1 "Fiskarsintie 513"
+    name "Torsten Ruger"
+    street "Fiskarsintie 513"
     city "10480 antskog"
     country "Suomi"
+    phone "0407308052"
   end
 end

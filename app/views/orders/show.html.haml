@@ -5,14 +5,20 @@
   .col-md-4
     %p
       %b
-        = t(:ordered_on) + " : " + date(@order.ordered_on)
-    %p
-      %b
         = t(:email) + " : " + @order.email.to_s
     %p
       %b
-        = t(:shipment_type) + " : " + @order.shipment_type.to_s
+        = t(:phone) + " : " +  @order.phone
+    %p
+      %b
+        = t(:ordered_on) + " : " + date(@order.ordered_on)
+    %p
+      %b
+        = t(:canceled_on) + " : " + date(@order.canceled_on)
   .col-md-4
+    %p
+      %b
+        = t(:shipment_type) + " : " + @order.shipment_type.to_s
     %p
       %b
       -if @order.paid_on
@@ -26,24 +32,30 @@
           = t(:shipped_on) + " : " + date(@order.shipped_on)
       -else
         = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
+  .col-md-4
     %p
-      %b
-        = t(:canceled_on) + " : " + date(@order.canceled_on)
+      %b Note
+    %p
+      = in_place @order , :note, :as => :textarea 
+
 -content_for :basket do
   %tr
-    %td{:colspan => 2}
+    %td= t(:name) 
+    %td=@order.name
     %td
       %b= t(:total_tax) + " : "
     %td
       %b= euros(@order.total_tax)
   %tr
-    %td{:colspan => 2}
+    %td= t(:street)
+    %td= @order.street
     %td
       %b= t(:shipment_price) + " : "
     %td
       %b= euros(@order.shipment_price)
   %tr
-    %td{:colspan => 2}
+    %td= t(:city)
+    %td=@order.city
     %td
       %b= t(:total_price) + " : "
     %td

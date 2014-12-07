@@ -23,4 +23,17 @@ module AdminHelper
     return "" unless params[:q]
     params[:q][key] || ""
   end
+
+  # define a bunch of defaults for the best_in_place call
+  # save and cancel buttons with internationlized texts
+  # bootstrap form class
+  # a default note
+  # same signature as best_in_place, ie object, field symbol , hash
+  def in_place object , field , attributes
+    defaults = { :ok_button => I18n.t(:edit), :ok_button_class => "btn btn-success" , 
+                 :cancel_button => I18n.t(:cancel) , :cancel_button_class => "btn btn-warning",
+                 :place_holder => I18n.t(:edit)  , :inner_class => "form-control" }
+    defaults.merge attributes
+    best_in_place(object , field , defaults)
+  end
 end

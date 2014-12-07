@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'gon'
   s.add_runtime_dependency 'jquery-ui-rails' , '~> 5.0'
   s.add_runtime_dependency "kramdown" , '~> 1.5'
+  s.add_runtime_dependency "best_in_place"
 
   s.add_runtime_dependency 'will_paginate-bootstrap' , '~> 1.0'
   s.add_runtime_dependency 'bootstrap-sass', '~> 3.1'

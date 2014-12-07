@@ -1,6 +1,10 @@
 //= require jquery
+//= require best_in_place
+
 //= require jquery-ui
 //= require jquery-ui/datepicker-fi
+//= require best_in_place.jquery-ui
+
 //= require bootstrap
 //= require_self
 
@@ -19,4 +23,9 @@ function initPage(){
 
 $(window).bind('page:change', function() {
     initPage();
+});
+
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
 });
