@@ -13,10 +13,10 @@
             %th= sort_link @q, :number
             %th= sort_link @q, :ordered_on
             %th= t(:items)
-            %th= sort_link @q, :total_price
+            %th= sort_link @q, :basket_total_price
             %th= sort_link @q, :email
-            %th= t(:paid_on)
-            %th= t(:shipped_on)
+            %th= sort_link @q, :paid_on
+            %th= sort_link @q, :shipped_on
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
@@ -51,7 +51,6 @@
         .col-md-3
           = f.label(:ordered_on)
         .col-sm-1.radio
-          = f.radio_button :ordered_on_blank , true
         .form-group.col-md-6
           = f.search_field :ordered_on_gteq , :class => "form-control datepicker" , :value => sort_date(:ordered_on_gteq)
         .form-group.col-md-4
