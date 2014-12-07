@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20141114205532) do
 
   create_table "orders", force: true do |t|
     t.string   "number"
+    t.string   "note",           default: ""
     t.string   "email"
     t.date     "ordered_on"
     t.date     "paid_on"

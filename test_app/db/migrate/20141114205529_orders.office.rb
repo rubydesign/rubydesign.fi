@@ -3,6 +3,7 @@ class Orders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
       t.string      :number
+      t.string      :note,     :default => ""
       t.string      :email
       t.date        :ordered_on
       t.date        :paid_on

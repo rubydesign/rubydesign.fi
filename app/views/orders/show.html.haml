@@ -8,7 +8,7 @@
         = t(:email) + " : " + @order.email.to_s
     %p
       %b
-        = t(:phone) + " : " +  @order.phone
+        = t(:phone) + " : " +  @order.phone.to_s
     %p
       %b
         = t(:ordered_on) + " : " + date(@order.ordered_on)
