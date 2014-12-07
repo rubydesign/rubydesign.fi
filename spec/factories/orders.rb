@@ -10,6 +10,11 @@ FactoryGirl.define do
       factory :order_paid do
         paid_on "2013-12-26"
       end
+      factory :order_shippped do
+        shipped_on "2013-12-26"
+        shipment_price 10.0
+        shipment_tax 20.0
+      end
     end
   end
 end

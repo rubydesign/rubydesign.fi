@@ -10,6 +10,7 @@ describe "Basket totals" do
     expect(basket.items.length).to be 2
     taxes = basket.taxes
     expect(taxes.values.first.round(2)).to eq  basket.total_tax.to_f.round(2)
+    expect(taxes.values.length).to eq  1
   end
   it "updates total on add" do
     basket = create :basket_2_items

@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Order do
+  let(:order) { create :order }
+  let(:shipped_order) { create :order_shippped }
+
   it "factory is ok" do
     o = build :order
     ok = o.save
@@ -14,6 +17,26 @@ describe Order do
   end
 
   it "creates ok" do
-    o1 = create :order
+    order
+  end
+
+  it "calculates total tax" do
+    expect(order.basket.items.length).to eq 1
+    expect(order.total_tax).to eq 1.1
+  end
+
+  it "calculates tax per rate" do
+    expect(order.taxes.length).to eq 1
+    expect(order.taxes.first).to eq [10.0 , 1.0]
+  end
+
+  it "adds shipping tax to taxes" do
+    expect(order.taxes.length).to eq 1
+    expect(order.taxes.first).to eq [10.0 , 1.2]    
+  end
+
+  it "calculates total tax with shipping" do
+    expect(order.basket.items.length).to eq 1
+    expect(order.total_tax).to eq 1.1
   end
 end
