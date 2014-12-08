@@ -8,11 +8,7 @@ Office Clerk is the back office helper, your accountant, storage manager, secret
 
 ####  Status
 
-The clerks are under heavy development in public beta one could say.
-
-A first push of development resulted in a system that has been used for backend office work since 2/2014
-
-Currenly refinements and front end work is underway and scheduled for x-mas.
+In production for 2 sites. Work continues on refinements. That could qualify for 1.0 but i'll wait a few months. 
 
 ### Other clerks
 
@@ -24,17 +20,32 @@ This currenly does graphical sales reports. Purchase order creation is planned.
 
 ### Print Clerk
 
-A invoice generator
+A invoice generator. Also barcode generation and receipt printing (for POS use).
 
 ### Sales Clerk
 
-Work is underway to make the front end work. ie your standard e-commerce front end.
+We have a shop [online](http://auringostaitaan.fi/), the best way to get started is to clone [it](https://github.com/rubyclerks/sales_clerk).
 
 ### Getting Started
 
-Clone the office clerk, migrate, and click around. Fork and help.
+The easy way (tryout or new project):
 
-THe final version wil work by cloning the sales clerk, OR adding the officeclerk engine into your existing app. Docs follow.
+- clone sales_clerk
+- bundle and migrate it
+- change the git/config 
+- start editing
+
+The longer route, adding to existing project
+
+- add office_clerk  to Gemfile (gem or git)
+- build your public pages
+- may use ShopController which is included in office
+
+### Further
+
+If you got this far and still have question , mail me, or mail the [list](https://groups.google.com/forum/#!forum/rubyclerks)
+
+I will start writing User/Developer guides soon, your question will help. Off course your help will help even more :-)
 
 ### Similar Projects
 
