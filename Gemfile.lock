@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    office_clerk (0.6)
+    office_clerk (0.7)
       bcrypt-ruby (~> 3.1)
       best_in_place
       bootstrap-sass (~> 3.1)
