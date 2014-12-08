@@ -34,7 +34,7 @@
         = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
   .col-md-4
     %p
-      %b Note
+      %b= t(:note)
     %p
       = in_place @order , :note, :as => :textarea 
 

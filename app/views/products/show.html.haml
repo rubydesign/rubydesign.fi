@@ -21,10 +21,10 @@
       .col-md-6
         %p
           %b= t(:price) + " : "
-          = euros(@product.price)
+          = in_place @product , :price , :display_with => :euros
         %p
           %b= t(:cost) + " : "
-          = euros(@product.cost)
+          = in_place @product , :cost , :display_with => :euros
         %p
           %b= t(:category) + " : "
           = link_to @product.category.name ,category_path(@product.category) if @product.category
@@ -33,11 +33,11 @@
           = @product.link
         %p
           %b= t(:ean) + " : "
-          = @product.ean
+          = in_place @product , :ean
       .col-md-6
         %p
           %b= t(:weight) + " : "
-          = @product.weight
+          = in_place @product , :weight
         %p
           %b= t(:inventory) + " : "
           = @product.inventory
@@ -46,19 +46,20 @@
           = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
         %p
           %b= t(:scode) + " : "
-          = @product.scode
+          = in_place @product , :scode
         %p
           %b= t(:tax_percent) + " : "
-          = @product.tax
+          = in_place @product , :tax
   .col-md-4
     %p
       %b= t(:summary) + " : "
-      = markdown @product.summary
+      = in_place @product , :summary 
     %p
       %b= t(:description) + " : "
-      = markdown @product.description
+      = in_place @product , :description , :as => :textarea
   .col-md-4
     =render :partial => "shop/product_box" , :locals => {:product => @product}
+    = markdown @product.description
 %br
 .row.product_show_row_buttons
   .col-md-2

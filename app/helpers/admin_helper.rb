@@ -1,6 +1,6 @@
 # encoding : utf-8
 module AdminHelper
-
+    
   def basket_edit_link basket , options = {}
     return "---" unless basket
     return "" unless request.url.include?("basket")
@@ -29,11 +29,12 @@ module AdminHelper
   # bootstrap form class
   # a default note
   # same signature as best_in_place, ie object, field symbol , hash
-  def in_place object , field , attributes
+  def in_place object , field , attributes ={}
     defaults = { :ok_button => I18n.t(:edit), :ok_button_class => "btn btn-success" , 
                  :cancel_button => I18n.t(:cancel) , :cancel_button_class => "btn btn-warning",
                  :place_holder => I18n.t(:edit)  , :inner_class => "form-control" }
-    defaults.merge attributes
-    best_in_place(object , field , defaults)
+    attributes.reverse_merge! defaults 
+    best_in_place(object , field , attributes)
   end
+  BestInPlace::ViewHelpers.extend OfficeHelper
 end

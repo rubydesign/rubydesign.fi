@@ -44,11 +44,14 @@ class ProductsController < AdminController
   end
 
   def update
-    if @product.update_attributes(params_for_model)
-      flash.notice = t(:update_success, :model => "product")
-      redirect_to product_path(@product)
-    else
-      render :action => :edit
+    respond_to do |format|
+      if @product.update_attributes(params_for_model)
+        format.html { redirect_to(@product, :notice => t(:update_success, :model => "product")) }
+        format.json { respond_with_bip(@product) }
+      else
+        format.html { render :action => :edit }
+        format.json { respond_with_bip(@product) }
+      end
     end
   end
 
