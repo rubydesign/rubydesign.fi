@@ -36,5 +36,4 @@ module AdminHelper
     attributes.reverse_merge! defaults 
     best_in_place(object , field , attributes)
   end
-  BestInPlace::ViewHelpers.extend OfficeHelper
 end

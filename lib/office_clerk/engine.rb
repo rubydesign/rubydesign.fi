@@ -12,6 +12,7 @@ module OfficeClerk
     I18n.enforce_available_locales = false
     I18n.default_locale = :fi
     config.after_initialize do
+      BestInPlace::ViewHelpers.extend OfficeHelper
     end
     # for testing this makes engine factories available
     initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
