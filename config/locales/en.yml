@@ -73,6 +73,7 @@ en:
   new_item: New product item
   next: Next
   not_online: not online
+  note: Note
   notice: Notice
   online: Online
   order: Order
@@ -161,6 +162,7 @@ en:
   activerecord:
     attributes:
       basket:
+        type: Type
         created_at: Created
         total_price: Price
       clerk:
@@ -180,6 +182,11 @@ en:
         description: Description
         summary: Summary
       order:
+        total: Total
+        paid_on: Paid on
+        shipped_on: Shipped on
+        canceled_on: Canceled on
+        note: Note
         email: Email
         ordered_on: Ordered on
       purchase:

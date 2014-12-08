@@ -73,6 +73,7 @@ fi:
   next: seuraava
   notice: Huom
   not_online: ei netissä
+  note: Muistiinpano
   online: Netissä
   online_eq: Online?
   order: Tilaus
@@ -161,6 +162,7 @@ fi:
   activerecord:
     attributes:
       basket:
+        type: Laji
         created_at: Luotu
         total_price: Hinta
       clerk:
@@ -180,6 +182,11 @@ fi:
         position: Järjetysnummero
         description: Kuvaus
       order:
+        total: Yhteensä
+        paid_on: Maksettu
+        shipped_on: Lähetetty
+        canceled_on: Peruttu
+        note: Muisti
         email: S-posti
         ordered_on: Tilattu
       product:
