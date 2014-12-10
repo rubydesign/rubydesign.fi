@@ -3,26 +3,7 @@ Hei,
 Tilauksesi <%= @order.number %> on vastaanotettu <%= date(@order.ordered_on) %>.
 Tarkistathan että tiedot ovat oikein. 
 
-....................................................................
-Tilauksen tiedot
-....................................................................
-
-<% @order.basket.items.each do |item|%>
-<%= item.product.full_name%> <%= item.quantity%> á <%= euros(item.price) %> = <%= euros(item.total)%> 
-<%end%>
-
-....................................................................
-
-Välisumma: <%= euros(@order.basket.total_price) %>
-Toimituskulut: <%= euros(@order.shipment_price)%>
-Tilauksen loppusumma: <%= euros(@order.total_price)%> €
-<%@order.taxes.each do |tax , value| %>
-<%=t(:vat) %><%=tax%>%: <%=value%> €
-<%end%>
-
-....................................................................
-Toimitusosoite: <%= [@order.name , @order.street , @order.city].join(" , ")   %>
-....................................................................
+<%=render :partial => "order_mailer/order"%>
 
 Maksutapa: Ennakkomaksu
 

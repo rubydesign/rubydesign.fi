@@ -44,6 +44,10 @@ class Order < ActiveRecord::Base
     cart
   end
   
+  def pay_now!
+    self.paid_on = Date.today
+    self.save!    
+  end
   #quick checkout, ie ship (hand over) and pay (externally)
   def pos_checkout email
     self.ordered_on    = Date.today unless self.ordered_on

@@ -1,21 +1,15 @@
 Hyvä asiakkaamme,
 
-Tilauksesi R11111111 on postitettu NN.NN.2014.
-Postin seurantatunnus on JJFI000111222333444
+Tilauksesi <%= @order.number %> on postitettu <%= date(@order.shipped_on) %>.
 
-....................................................................
-Tilauksen tiedot
-....................................................................
-Tasapainottava – Neem-Rhassoul shampoo  1 kpl 
-Villiruusu Hiustenhoitoaine  1  kpl 
-Päivittäin – Granaattiomenashampoo  2  
-Intense Frangipani Deo Roll-on  1  kpl 
-....................................................................
-Toimitusosoite: Tiina Tilaaja, Kotikatu 3, 10470 Fiskars
-....................................................................
-
+<% unless @order.shipment_info.blank? %>
+Postin seurantatunnus on <%=@order.shipment_info%>
+<%end%>
+  
+<%=render :partial => "order_mailer/order"%>
 
 Kiitos tilauksestasi!
+
 Ystävällisin terveisin Auringosta Itään, Kuusta länteen
 
 

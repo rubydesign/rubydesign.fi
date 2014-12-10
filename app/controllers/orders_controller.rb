@@ -34,8 +34,7 @@ class OrdersController < AdminController
     redirect_to :action => :show
   end
   def pay
-    @order.paid_on = Date.today
-    @order.save!
+    @order.pay_now!
     render :show
   end
   def ship
