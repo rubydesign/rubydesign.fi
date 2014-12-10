@@ -3,8 +3,11 @@ class OrdersController < AdminController
 
   before_filter :load_order, :only => [:show, :edit, :update , :pay , :ship , :mail]
 
-  # Uncomment for check abilities with CanCan
-  #authorize_resource
+  def invoice
+    load_order
+    @invoice = true
+    @template = "invoice"
+  end
 
   def index
     @q = Order.search(params[:q])
