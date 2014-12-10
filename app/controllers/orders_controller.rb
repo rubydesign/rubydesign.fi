@@ -3,12 +3,6 @@ class OrdersController < AdminController
 
   before_filter :load_order, :only => [:show, :edit, :update , :pay , :ship , :mail]
 
-  def invoice
-    load_order
-    @invoice = true
-    @template = "invoice"
-  end
-
   def index
     @q = Order.search(params[:q])
     @order_scope = @q.result( :distinct => true)
