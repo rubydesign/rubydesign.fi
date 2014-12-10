@@ -1,5 +1,6 @@
--Rails::Engine.subclasses.map(&:instance).each do |e|
-  - name = e.engine_name.sub("clerk" , "office")
-  - next if name == e.engine_name
-  = stylesheet_link_tag name
-  = javascript_include_tag name
+- ( Rails::Engine.subclasses.map(&:instance) << Rails.application).each do |e|
+  - next unless e.respond_to? :office_assets
+  - asset = e.office_assets
+  - next if asset.blank?
+  = stylesheet_link_tag asset , :media => :all
+  = javascript_include_tag asset
