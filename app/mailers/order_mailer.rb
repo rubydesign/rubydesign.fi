@@ -5,19 +5,19 @@ class OrderMailer < ActionMailer::Base
 
   def confirm(order)
     @order = order
-    mail(to: @order.email, :from => from ,  subject: "Order #{@order.number}")
+    mail(to: @order.email, :from => from ,  subject: "#{I18n.t(:order)} #{@order.number}")
   end
   def cancel(order)
     @order = order
-    mail(to: @order.email, :from => from ,  subject: "Order #{@order.number}")
+    mail(to: @order.email, :from => from ,  subject: "#{I18n.t(:order)} #{@order.number}")
   end
   def paid(order)
     @order = order
-    mail(to: @order.email, :from => from ,  subject: "Order #{@order.number}")
+    mail(to: @order.email, :from => from ,  subject: "#{I18n.t(:order)} #{@order.number}")
   end
   def shipped(order)
     @order = order
-    mail(to: @order.email, :from => from ,  subject: "Order #{@order.number}")
+    mail(to: @order.email, :from => from ,  subject: "#{I18n.t(:order)} #{@order.number}")
   end
   
   private
