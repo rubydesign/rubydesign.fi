@@ -1,29 +1,35 @@
 Hei,
 
-Tilauksesi R11111111 on vastaanotettu NN.NN.2014.
+Tilauksesi <%= @order.number %> on vastaanotettu <%= date(@order.ordered_on) %>.
 Tarkistathan että tiedot ovat oikein. 
 
 ....................................................................
 Tilauksen tiedot
 ....................................................................
+
 <% @order.basket.items.each do |item|%>
-<%= item.product.full_name%>
+<%= item.product.full_name%> <%= item.quantity%> á <%= euros(item.price) %> = <%= euros(item.total)%> 
 <%end%>
-Tasapainottava – Neem-Rhassoul shampoo  1 kpl á 13,20 € = 13,20 €
-Villiruusu Hiustenhoitoaine  1  kpl á  18,20 € = 18,20 €
-Päivittäin – Granaattiomenashampoo  2  kpl á  13,20 € = 26,40 €
-Intense Frangipani Deo Roll-on  1  kpl á  14,30 € = 14,30 €
+
 ....................................................................
-Välisumma: 72,10 €
-Toimituskulut: 7,30 €
-Tilauksen loppusumma: <%= @order.total_price%> €
-Alv 24% NN,NN €
+
+Välisumma: <%= euros(@order.basket.total_price) %>
+Toimituskulut: <%= euros(@order.shipment_price)%>
+Tilauksen loppusumma: <%= euros(@order.total_price)%> €
+<%@order.taxes.each do |tax , value| %>
+<%=t(:vat) %> <%=tax%> €
+<%end%>
+
 ....................................................................
-Toimitusosoite: Tiina Tilaaja, Kotikatu 3, 10470 Fiskars
+Toimitusosoite: <%= [@order.name , @order.street , @order.city].join(" , ")   %>
 ....................................................................
+
 Maksutapa: Ennakkomaksu
+
 Tilauksesi lähetetään, kun olet maksanut sen ja maksusi on kirjautunut tilillemme. 
-Tilinumero FI1017 4530 0013 2474, mainitse viestikentässä tilausnumerosi R111222333. 
+Tilinumero FI1017 4530 0013 2474, mainitse viestikentässä tilausnumerosi R111222333 tai 
+käytä <%=viite%> 
+ 
 Kun maksusi on kirjautunut tilille, lähetämme tilaamasi tuotteet 1-3 arkipäivän kuluessa.
 
 Kiitos tilauksestasi!

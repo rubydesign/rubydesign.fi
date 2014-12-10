@@ -8,4 +8,8 @@ module OrdersHelper
   def mail_path action
     
   end
+  def viite
+    base = @order.number[1 .. -1]
+    viite = open("http://www1.nordea.fi/P636V/H636VTXT.asp?action=tekstiLista&lkm=1&alkuViite=#{base}&L=1").read[/\d+ \d+/]
+  end
 end
