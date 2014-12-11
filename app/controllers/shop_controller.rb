@@ -52,7 +52,8 @@ class ShopController < OfficeController
     if request.get?
       redirect_to shop_checkout_path
     else
-      redirect_to shop_group_path(prod.category.link), :notice => "#{t(:product_added)}: #{prod.name}"
+      flash.notice = "#{t(:product_added)}: #{prod.name}"
+      redirect_to shop_group_path(prod.category.link)
     end
   end
   def remove

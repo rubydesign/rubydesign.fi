@@ -23,7 +23,7 @@
           %li= link_to t(:sign_out), sign_out_path
 
       - if not flash[:notice].blank? then
-        .row.content
+        .row.content.hidden-print
           .col-md-12.alert
             .alert-notice.row
               .col-md-3
@@ -31,7 +31,7 @@
               .col-md-9
                 .alert-message!= flash[:notice]
       - if not flash[:alert].blank? then
-        .row.content
+        .row.content.hidden-print
           .col-md-12.alert
             .alert-error.row
               .col-md-3

@@ -103,7 +103,7 @@ class BasketsController < AdminController
     if p_id = (params[:add] || params[:delete])
       add = params[:add].blank? ? -1 : 1
       @basket.add_product Product.find(p_id) , add
-      flash.notice = params[:add] ? t('product_added') : t('item_removed')
+      flash.now.notice = params[:add] ? t('product_added') : t('item_removed')
     end
     @basket.save!
   end
