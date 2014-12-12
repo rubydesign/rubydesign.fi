@@ -8,12 +8,10 @@ RSpec.describe OrderMailer, :type => :mailer do
       it 'renders the subject' do
         expect(mail.subject.to_s).to include( I18n.t(:order))
         expect(mail.subject.to_s).to include( order.number)
+        expect(mail.subject.to_s).not_to include( "missing")
       end
       it 'renders the receiver email' do
-        expect(mail.to).to eql([order.email])
-      end
-      it 'renders the sender email' do
-        expect(mail.from).to eql(["me@here.now"]) #configured in config.yml
+        expect(mail.to).to eq([order.email])
       end
     end
     describe "order details" do
@@ -22,6 +20,7 @@ RSpec.describe OrderMailer, :type => :mailer do
       end
       it "includes the product name" do
         expect(mail.body).to include(order.basket.items.first.product.name)
+        expect(mail.body).not_to include( "missing")
       end
     end
   end
