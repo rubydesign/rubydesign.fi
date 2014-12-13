@@ -10,8 +10,11 @@ class Clerk < ActiveRecord::Base
   validates_presence_of :encrypted_password
 
   validates_uniqueness_of :email
-  validates :email, :presence => true, :email => {:ban_disposable_email => true, :mx_with_fallback => true }
-
+  if Rails.env.test?
+    validates :email, :presence => true , :email => true
+  else
+    validates :email, :presence => true, :email => {:ban_disposable_email => true, :mx_with_fallback => true }
+  end
   store :address, accessors: [ :name , :street , :city , :phone ] #, coder: JSON
 
   def whole_address

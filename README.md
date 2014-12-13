@@ -39,7 +39,7 @@ The longer route, adding to existing project
 
 - add office_clerk  to Gemfile (gem or git)
 - build your public pages
-- may use ShopController which is included in office
+- possibly copy ShopController from sales_clerk as a starting point
 
 ### Further
 

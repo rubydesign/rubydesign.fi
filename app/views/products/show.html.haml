@@ -58,7 +58,7 @@
       %b= t(:description) + " : "
       = in_place @product , :description , :as => :textarea
   .col-md-4
-    =render :partial => "shop/product_box" , :locals => {:product => @product}
+    =render :partial => "products/preview_box" , :locals => {:product => @product}
     = markdown @product.description
 %br
 .row.product_show_row_buttons

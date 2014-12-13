@@ -91,17 +91,5 @@ OfficeClerk::Engine.routes.draw do
   end
 
   match "manage/all" => "manage#all", :via => [:get, :post]
-  
-  #shop
-  get 'group/:link' => 'shop#group', :as => :shop_group
-  get 'prod/:link' => 'shop#product', :as => :shop_product
-  get 'page/:id' => 'shop#page', :as => :shop_page
-  match 'cart/add/:id' => 'shop#add', :as => :cart_add , :via => [:get,:post]
-  get 'cart/remove/:id' => 'shop#remove', :as => :cart_remove
-  get 'welcome' => 'shop#welcome', :as => :shop_welcome
-  get 'cart/order/:id' => 'shop#order', :as => :shop_order
-  match 'cart/checkout' => 'shop#checkout', :as => :shop_checkout , :via => [:get,:post]
-  
-  get "/404", :to => "application#error"
-  
+    
 end
