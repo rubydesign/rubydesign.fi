@@ -28,7 +28,9 @@ module OfficeClerk
       @@methods
     end
     def self.method(name)
-      @@methods[name.to_sym] || {}
+      return self.all.values.first if name.nil?
+      m = self.all[name.to_sym]
+      m.blank? ?  self.all.values.first : m
     end
   end
   class Pickup < ShippingMethod
