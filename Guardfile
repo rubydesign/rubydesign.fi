@@ -3,6 +3,7 @@ begin
   require "rubygems"
   require "spring/version" #safe to try
   command = "spring rspec"
+  puts "Using Spring loaded rspec"
 rescue LoadError
 end
 guard :rspec , :cmd => command do
