@@ -31,6 +31,10 @@ class Clerk < ActiveRecord::Base
     res == 0
   end
 
+  def last_address
+    order = Order.where(:email => self.email).first
+    order ? order.address : {}
+  end
   private
 
   def prepare_password

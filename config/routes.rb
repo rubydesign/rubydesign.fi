@@ -1,7 +1,5 @@
 OfficeClerk::Engine.routes.draw do
 
-  root :to => 'shop#group'
-
   get "sign_out" => "sessions#sign_out"
   get "sign_in"  => "sessions#sign_in"
   post "create_session"  => "sessions#create" 

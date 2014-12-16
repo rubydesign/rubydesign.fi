@@ -27,6 +27,9 @@ module OfficeClerk
       end
       @@methods
     end
+    def self.method(name)
+      @@methods[name.to_sym] || {}
+    end
   end
   class Pickup < ShippingMethod
     def initialize data

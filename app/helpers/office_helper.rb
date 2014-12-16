@@ -40,6 +40,10 @@ module OfficeHelper
     session[:current_basket] = nil
   end
   
+  def shipping_method name
+    OfficeClerk::ShippingMethod.method(name)
+  end
+  
   def markdown text
     return "" if text.blank?
     return sanitize Kramdown::Document.new(text).to_html

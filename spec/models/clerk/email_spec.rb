@@ -62,8 +62,9 @@ describe Clerk do
   end
 
   # would be nice, just doesn't work yet
-#  it "should not allow odd characters in name" do
-#    create(:clerk, :name => 'odd ^&(@)').should have(1).error_on(:name)
-#  end
+  #it "should not allow odd characters in name" do
+   # clerk = create(:clerk, :name => 'odd ^&(@)')
+    #expect(clerk.errors[:name].size).to eq 1 
+    #end
 
 end

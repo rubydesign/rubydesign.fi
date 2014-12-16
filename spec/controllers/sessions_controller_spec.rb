@@ -13,7 +13,7 @@ describe SessionsController do
     clerk = create :clerk
     email = Clerk.where(:admin=>false).first.email
     post :create , :email => email
-    expect(response).to redirect_to(root_path)
+    expect(response).to redirect_to(Rails.application.routes.url_helpers.root_path)
     expect(session['clerk_email']).to eq email
   end
   it "create action should redirect to baskets for admin if authentication is valid" do
