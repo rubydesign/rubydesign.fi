@@ -131,6 +131,7 @@ en:
   sign_out: Log out
   sign_up: Sign up
   signed_in: Logged in
+  signed_up: Signed up
   signed_out: Logged out
   state: State
   street: Street
@@ -189,6 +190,8 @@ en:
         note: Note
         email: Email
         ordered_on: Ordered on
+        password: Passord
+        password_confirmation: Password confirmation
       purchase:
         name: Name
         ordered_on: Ordered on

@@ -1,22 +1,10 @@
-%h1 Sign Up
+%h1= t(:sign_up)
 = bootstrap_form_for @clerk , :url => sign_up_path do |f|
-  - if @clerk.errors.any?
-    .error_messages
-      %h2 Form is invalid
-      %ul
-        - for message in @clerk.errors.full_messages
-          %li= message
-  %p
-    = f.label :email
-    %br/
+  .form_group
     = f.text_field :email
-  %p
-    = f.label :password
-    %br/
+  .form_group
     = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br/
+  .form_group
     = f.password_field :password_confirmation
   %p.button= f.submit :class => "btn btn-info submit"
   

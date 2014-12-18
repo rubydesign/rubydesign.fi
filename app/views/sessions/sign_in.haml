@@ -1,10 +1,10 @@
-%h1= t(:sign_in)
-= form_tag office.create_session_path do
-  %p
-    = label_tag :email , t(:email) 
-    %br= text_field_tag :email, params[:email]
-  %p
-    = label_tag :password , t(:password)
-    %br= password_field_tag :password
-  %p.btn= submit_tag t(:sign_in)
+.col-md-4
+  %h1= t(:sign_in)
+  = bootstrap_form_tag :url => office.create_session_path do |f|
+    .form_group
+      = f.text_field :email, value: params[:email] , :label => t(:email)
+    .form_group
+      = f.password_field :password , value: params[:password] , :label => t(:password)
+    .form_group
+      = f.submit  t(:sign_in) , :class => "btn btn-info submit"
   

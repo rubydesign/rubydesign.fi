@@ -131,6 +131,7 @@ fi:
   sign_out: Kirjaudu ulos
   sign_up: Luo tili
   signed_in: Sisäänkirjautunut
+  signed_up: Tili luottu
   signed_out: Uloskirjautunut
   state: Tila
   street: Osoite
@@ -188,6 +189,8 @@ fi:
         canceled_on: Peruttu
         note: Muisti
         email: S-posti
+        password: Salasana
+        password_confirmation: Vahvista salasana
         ordered_on: Tilattu
       product:
         description: Kuvaus

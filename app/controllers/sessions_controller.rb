@@ -9,8 +9,11 @@ class SessionsController < OfficeController
     clerk = Clerk.where(:email => params[:email]).limit(1).first
     if clerk && clerk.valid_password?(params[:password])
       session[:clerk_email] = clerk.email
-      url = clerk.admin ?  office.baskets_url : Rails.application.routes.url_helpers.root_path
-      redirect_to url , :notice => I18n.t(:signed_in)
+      if clerk.admin
+         redirect_to baskets_url , :notice => I18n.t(:signed_in)
+       else
+         redirect_after_sign_up
+       end
     else
       redirect_to :sign_in , :notice => I18n.t(:sign_in_invalid)
     end
@@ -28,8 +31,7 @@ class SessionsController < OfficeController
       @clerk = Clerk.new(params_for_clerk)
       if @clerk.save
         session[:clerk_email] = @clerk.email
-        redirect_to root_url, :notice => "Signed up!"
-        return
+        return redirect_after_sign_up
       end
     end
   end

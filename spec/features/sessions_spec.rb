@@ -45,7 +45,6 @@ describe "Sessions" do
     fill_in(:clerk_password , :with => "password")
     find(".submit").click
     ensure_path sign_up_path
-    expect(page).to have_content("invalid")
   end
   it "signs up" do
     visit_path sign_up_path
@@ -53,6 +52,6 @@ describe "Sessions" do
     fill_in(:clerk_password , :with => "password")
     fill_in(:clerk_password_confirmation , :with => "password")
     find(".submit").click
-    ensure_path root_path
+    ensure_path main_app.root_path
   end
 end
