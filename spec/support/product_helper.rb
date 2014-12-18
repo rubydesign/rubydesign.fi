@@ -17,7 +17,15 @@ module ProductHelper
     create_ab :category , hash
     visit categories_path
   end
+  def order_ab hash
+    create_ab :order , hash
+    visit orders_path
+  end
   alias :category_count :product_count
+  def order_count
+    click_button(:filter)
+    all(".number").count
+  end
 end
 
 RSpec.configure do |config|
