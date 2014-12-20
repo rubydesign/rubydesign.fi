@@ -1,3 +1,14 @@
+### 0.8
+
+- fix order search
+- improve sign_in and up behaviour
+- move sales layout there
+- remove analytics (is an app function)
+- fix emails
+- manage printing inline (inside the layout), improves navigation
+- using best in place to edit new order note and simple product features
+- pin to rails under 4.2
+
 ### 0.7
 
 - Order search improvements, added a private Note too
