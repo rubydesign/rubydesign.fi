@@ -24,16 +24,16 @@ Gem::Specification.new do |s|
   s.has_rdoc = false
 
   s.add_runtime_dependency 'rails', '~> 4.1', '< 4.2'
-  s.add_runtime_dependency "ransack" , '>= 1.5.1'
-  s.add_runtime_dependency "valid_email" 
+  s.add_runtime_dependency 'ransack', '~> 1.5', '>= 1.5.1'
+  s.add_runtime_dependency "valid_email" ,  '~> 0.0', '>= 0.0.10'
   s.add_runtime_dependency 'sass-rails' , '~> 4.0'
   s.add_runtime_dependency "haml" , '~> 4.0'
   s.add_runtime_dependency "jquery-rails" , '~> 3.1'
-  s.add_runtime_dependency 'coffee-rails'
-  s.add_runtime_dependency 'gon'
+  s.add_runtime_dependency 'coffee-rails' , '~> 4.0'
+  s.add_runtime_dependency 'gon' , '~> 5.2'
   s.add_runtime_dependency 'jquery-ui-rails' , '~> 5.0'
   s.add_runtime_dependency "kramdown" , '~> 1.5'
-  s.add_runtime_dependency "best_in_place"
+  s.add_runtime_dependency "best_in_place" , '~> 0'
 
   s.add_runtime_dependency 'will_paginate-bootstrap' , '~> 1.0'
   s.add_runtime_dependency 'bootstrap-sass', '~> 3.1'
