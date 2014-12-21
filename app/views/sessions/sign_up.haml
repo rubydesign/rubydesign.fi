@@ -1,10 +1,11 @@
-%h1= t(:sign_up)
-= bootstrap_form_for @clerk , :url => sign_up_path do |f|
-  .form_group
-    = f.text_field :email
-  .form_group
-    = f.password_field :password
-  .form_group
-    = f.password_field :password_confirmation
-  %p.button= f.submit :class => "btn btn-info submit"
+.col-md-4
+  %h1= t(:sign_up)
+  = bootstrap_form_for @clerk , :url => sign_up_path do |f|
+    .form_group
+      = f.text_field :email
+    .form_group
+      = f.password_field :password
+    .form_group
+      = f.password_field :password_confirmation
+    %p.button= f.submit :class => "btn btn-info submit"
   

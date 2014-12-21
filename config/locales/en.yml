@@ -192,6 +192,11 @@ en:
         ordered_on: Ordered on
         password: Passord
         password_confirmation: Password confirmation
+        number: Order number
+        name: Full name
+        street: Street and number
+        phone: Phonenumber
+        city: Postcode and city
       purchase:
         name: Name
         ordered_on: Ordered on

@@ -167,13 +167,13 @@ fi:
         created_at: Luotu
         total_price: Hinta
       clerk:
-        city: Kaupunki
         email: S-posti
-        name: Nimi
         password: Salasana
         password_confirmation: Vahvista salasana
+        name: Etu- ja sukunimien
+        street: Jakeluosoite
         phone: Puhelin
-        street: Osoite
+        city: Kaupunki
       category:
         name: Nimi
         summary: Yhteenveto
@@ -183,6 +183,7 @@ fi:
         position: Järjetysnummero
         description: Kuvaus
       order:
+        number: Tilauksen numero
         total: Yhteensä
         paid_on: Maksettu
         shipped_on: Lähetetty
@@ -192,6 +193,10 @@ fi:
         password: Salasana
         password_confirmation: Vahvista salasana
         ordered_on: Tilattu
+        name: Etu- ja sukunimien
+        street: Jakeluosoite
+        phone: Puhelin
+        city: Kaupunki
       product:
         description: Kuvaus
         summary: Yhteenveto

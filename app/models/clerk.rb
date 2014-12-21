@@ -31,8 +31,13 @@ class Clerk < ActiveRecord::Base
     res == 0
   end
 
+  # just an ar association with order of the same email
+  def orders
+    Order.where(:email => self.email)
+  end
+
   def last_address
-    order = Order.where(:email => self.email).first
+    order = orders.last 
     order ? order.address : {}
   end
   private
