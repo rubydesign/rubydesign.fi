@@ -28,7 +28,7 @@
   = link_to t(:edit), edit_category_path(@category), :class => "btn btn-primary"
   = link_to t(:back), categories_path, :class => "btn btn-primary"
   %b= t(:shop_link) + " : "
-  = link_to @category.link , main_app.shop_group_path(@category.link)
+  = link_to @category.link , group_path(@category.link)
 
 =render "triple" , :groups => @category.categories
 =render "products/triple" , :products => @category.products.no_items

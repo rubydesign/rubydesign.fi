@@ -11,5 +11,8 @@ module CategoriesHelper
     end
     parents.reverse
   end
+  def group_path group
+    category_path(group)
+  end
 
 end
