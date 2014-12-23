@@ -36,7 +36,7 @@
               %td= basket_edit_link(basket)
     = paginate @baskets
   .col-md-3
-    = search_form_for @q, :url => search_baskets_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
+    = search_form_for @q, :url => search_baskets_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group.row
         .col-md-3
           = f.label(:type)

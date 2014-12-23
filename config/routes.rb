@@ -7,7 +7,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :purchases do
     collection do
-      match "search" => "purchases#index", :via => [:get, :post]
+      get "search" => "purchases#index"
     end
     member do
       get :order
@@ -18,7 +18,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :baskets do
     collection do
-      match "search" => "baskets#index", :via => [:get, :post]
+      get "search" => "baskets#index"
     end
     member do
       get :discount
@@ -31,7 +31,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :orders do
     collection do
-      match "search" => "orders#index", :via => [:get, :post]
+      get "search" => "orders#index"
     end
     member do
       get "mail/:act" , :action => :mail , :as => :mail
@@ -43,7 +43,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :items do
     collection do
-      match "search" => "items#index", :via => [:get, :post]
+      get "search" => "items#index"
     end
     member do
     end
@@ -51,7 +51,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :categories do
     collection do
-      match "search" => "categories#index", :via => [:get, :post]
+      get "search" => "categories#index"
     end
     member do
     end
@@ -59,7 +59,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :products do
     collection do
-      match "search" => "products#index", :via => [:get, :post]
+      get "search" => "products#index"
     end
     member do
       get :delete
@@ -68,7 +68,7 @@ OfficeClerk::Engine.routes.draw do
 
   resources :clerks do
     collection do
-      match "search" => "clerks#index", :via => [:get, :post]
+      get "search" => "clerks#index"
     end
     member do
     end
@@ -76,18 +76,18 @@ OfficeClerk::Engine.routes.draw do
 
   resources :addresses do
     collection do
-      match "search" => "addresses#index", :via => [:get, :post]
+      get "search" => "addresses#index"
     end
   end
 
   resources :suppliers do
     collection do
-      match "search" => "suppliers#index", :via => [:get, :post]
+      get "search" => "suppliers#index"
     end
     member do
     end
   end
 
-  match "manage/all" => "manage#all", :via => [:get, :post]
+  get "manage/all" => "manage#all"
     
 end

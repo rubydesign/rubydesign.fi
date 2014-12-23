@@ -33,7 +33,7 @@
               %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
     = paginate @categories
   .col-md-3
-    = search_form_for @q, :url => search_categories_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
+    = search_form_for @q, :url => search_categories_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         .input-group
           = f.text_field :name_cont , :class => "form-control" , :placeholder =>  t(:name)

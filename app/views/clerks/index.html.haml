@@ -28,7 +28,7 @@
               %td= link_to t(:edit), edit_clerk_path(clerk), :title => t(:edit)
     = paginate @clerks
   .col-md-3
-    = search_form_for @q, :url => search_clerks_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
+    = search_form_for @q, :url => search_clerks_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         = f.text_field :email_cont , :class => "form-control" , :placeholder =>  t(:email)
       .form-group

@@ -30,7 +30,7 @@
               %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
     = paginate @suppliers
   .col-md-3
-    = search_form_for @q, :url => search_suppliers_path, :html => { :class => "form-horizontal" }, :method => :post do |f|
+    = search_form_for @q, :url => search_suppliers_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         = f.text_field :supplier_name_cont , :class => "form-control", :placeholder =>  t(:name)
       .form-group
