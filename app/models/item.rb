@@ -18,6 +18,13 @@ class Item < ActiveRecord::Base
     self.quantity * single_item_tax
   end
 
+  # profit is off course the sale price minus the cost
+  # but . .. while the sale price is copied to the item and thus remains correct
+  # when the cost changes over time, so does this "profit".
+  def profit
+    (self.price - self.product.cost) * self.quantity
+  end
+
   #relation of price to product price down from 100 %
   def discount
     return 0 unless product.price and product.price != 0

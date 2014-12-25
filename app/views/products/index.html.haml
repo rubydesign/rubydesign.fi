@@ -26,7 +26,11 @@
             %th= sort_link @q, :ean
             %th= sort_link @q, :name
             %th= sort_link @q, :price
-            %th=t(:supplier) + " " + t(:category)
+            %th= sort_link @q, :cost
+            %th
+              =t(:supplier)
+              %br
+              =t(:category)
             %th= sort_link @q, :inventory
             %th
               %label.checkbox
@@ -41,6 +45,7 @@
                 = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name
               %td.price=euros(product.price)
+              %td.price=euros(product.cost)
               %td.supplier
                 =product.supplier.supplier_name if product.supplier
                 %br
@@ -87,6 +92,12 @@
           = f.text_field :price_gteq , :class => "form-control"
         .col-md-4
           = f.text_field :price_lteq , :class => "form-control"
+        .col-md-4
+          = f.label(:cost)
+        .col-md-4
+          = f.text_field :cost_gteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :cost_lteq , :class => "form-control"
         .col-md-4
           = f.label(:inventory)
         .col-md-4
