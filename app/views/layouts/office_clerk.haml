@@ -3,11 +3,13 @@
   %head
     %meta{:charset => "utf-8"}/
     %title Office Clerk
-    %meta{:content => "Office Clerk", :name => "description"}
-    = stylesheet_link_tag "office_clerk" ,  :media => :all
-    = javascript_include_tag "office_clerk"
     = include_gon(:init => true)
-    = render "layouts/header_extra"
+    = stylesheet_link_tag "office_clerk" ,  :media => :all
+    -office_assets.each do |ass|
+      = stylesheet_link_tag ass , :media => :all
+    = javascript_include_tag "office_clerk"
+    -office_assets.each do |ass|
+      = javascript_include_tag ass
     = csrf_meta_tags
     = yield :head
   %body{:style => ""}

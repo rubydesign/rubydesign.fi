@@ -36,4 +36,12 @@ module AdminHelper
     attributes.reverse_merge! defaults 
     best_in_place(object , field , attributes)
   end
+
+  def office_assets
+    engines = Rails::Engine.subclasses.map(&:instance)
+    engines << Rails.application
+    engines.delete_if {|e| ! e.respond_to?(:office_assets) }
+    assets = engines.collect{ |e| e.office_assets }
+    assets.compact
+  end
 end
