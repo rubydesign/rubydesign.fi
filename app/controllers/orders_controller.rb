@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update , :pay , :ship , :mail]
+  before_filter :load_order, :only => [:show, :edit, :update , :pay , :shipment , :mail]
 
   def index
     @q = Order.search(params[:q])
@@ -31,14 +31,11 @@ class OrdersController < AdminController
     @order.pay_now!
     render :show
   end
-  def ship
+  def shipment
     return if request.get?
     order_ps = params.require(:order).permit( :email,:name , :street , :city , :phone , :shipment_type )
     order_ps[:shipped_on] = Date.today
-    if @order.update_attributes(order_ps)
-      redirect_to order_path(@order), :notice => t(:OK)
-      return
-    end
+    return redirect_to order_path(@order), :notice => t(:update_success) if @order.update_attributes(order_ps)
   end
   
   def edit
@@ -48,7 +45,7 @@ class OrdersController < AdminController
     @order = Order.create(params_for_order)
     @order.build_basket() unless @order.basket
     if @order.save
-      redirect_to order_path(@order), :notice => t(:create_success, :model => "order")
+      redirect_to order_path(@order), :notice => t(:create_success, :model => :order)
     else
       render :edit
     end
@@ -58,7 +55,7 @@ class OrdersController < AdminController
     @order.build_basket unless @order.basket
     respond_to do |format|
       if @order.update_attributes(params_for_order)
-        format.html { redirect_to(@order, :notice => t(:update_success, :model => "order")) }
+        format.html { redirect_to(@order, :notice => t(:update_success, :model => :order)) }
         format.json { respond_with_bip(@order) }
       else
         format.html { render :action => :edit }

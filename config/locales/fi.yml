@@ -84,6 +84,7 @@ fi:
   ordered_on: Tilattu
   orders: Tilaukset
   our_shop: Liikkeemme
+  payment_info: Maksun coodi
   paid: Maksa
   paid_on: Maksettu
   paid_order_button: Maksettu s-post
@@ -121,6 +122,7 @@ fi:
   ship: Lähetä
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
+  shipment_info: Lähetyksen coodi
   shipped_on: Lähetetty
   shipped_order_button: Lähetetty S-Posti
   shop: Kauppa
