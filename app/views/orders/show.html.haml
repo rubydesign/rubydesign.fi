@@ -19,7 +19,7 @@
     %p
       %b
         = t(:shipment_type) + " : "
-        = link_to shipping_method(@order.shipment_type).name , shipment_order_path(@order)
+        = link_to shipping_method(@order.shipment_type).name , shipment_order_path(@order) , :class => "shipment_type"
 
     %p
       %b= t(:paid_on) + ":"
@@ -33,7 +33,7 @@
       -unless(@order.shipped_on.blank?)
         =date(@order.shipped_on)
       -else
-        = link_to t(:ship), shipment_order_path(@order), :class => "btn btn-info ship_now"
+        = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
   .col-md-4
     %p
       %b= t(:note)

@@ -84,6 +84,7 @@ en:
   ordered_on: Ordered On
   orders: Orders
   our_shop: Our shop
+  payment_info: Payment info
   paid: Paid
   paid_on: Paid on
   paid_order_button: Paid Mail
@@ -119,6 +120,7 @@ en:
   select: Select
   search: Search
   ship: Ship
+  shipment_info: Shipment info
   shipment_price: Shipment price
   shipment_type: Shipment type
   shipped_on: Shipped on

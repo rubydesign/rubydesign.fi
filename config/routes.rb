@@ -37,6 +37,7 @@ OfficeClerk::Engine.routes.draw do
       get "mail/:act" , :action => :mail , :as => :mail
       get :pay
       get :shipment
+      get :ship
       patch :shipment
     end
   end

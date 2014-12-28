@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update , :pay , :shipment , :mail]
+  before_filter :load_order, :only => [:show, :edit, :update , :pay ,:ship, :shipment , :mail]
 
   def index
     @q = Order.search(params[:q])
@@ -21,21 +21,27 @@ class OrdersController < AdminController
 
   def mail
     action = params[:act]
-    puts "MAIL #{action}"
     mail = eval("OrderMailer.#{action}(@order)")
     mail.deliver
     flash.notice = "Sent #{action}"
     redirect_to :action => :show
   end
   def pay
-    @order.pay_now!
+    @order.pay_now
+    @order.save
     render :show
   end
+
+  def ship
+    @order.ship_now
+    @order.basket.deduct!
+    @order.save!
+    render :show
+  end
+
   def shipment
     return if request.get?
-    order_ps = params.require(:order).permit( :email,:name , :street , :city , :phone , :shipment_type )
-    order_ps[:shipped_on] = Date.today
-    return redirect_to order_path(@order), :notice => t(:update_success) if @order.update_attributes(order_ps)
+    return redirect_to order_path(@order), :notice => t(:update_success) if @order.update_attributes(params_for_order)
   end
   
   def edit
