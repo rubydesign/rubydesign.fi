@@ -13,6 +13,7 @@ describe "Basket index/search page" do
     create :purchase_received
     create :order_ordered
     create :order_paid
+    create :order_shipped
     visit_path baskets_path
   end
 end

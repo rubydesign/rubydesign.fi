@@ -4,9 +4,6 @@ describe "Orders" do
   before(:each) do
     sign_in
   end
-  it "lists orders" do
-    visit_path orders_path
-  end
   it "should render" do
     order = create :order
     visit_path order_path order
@@ -17,21 +14,20 @@ describe "Orders" do
     find(".make_order").click
     ensure_path order_path(basket.reload.kori)
   end
-  it "orders a order" do
+  it "pays an order" do
+    order = create(:order_ordered)
+    visit_path order_path(order)
+    find(".shipment_type").click
+    ensure_path shipment_order_path(order)
+  end
+  it "pays an order" do
     order = create(:order_ordered)
     visit_path order_path(order)
     find(".pay_now").click
   end
-  it "inventories a order" do
+  it "cant pay twice" do
     order = create(:order_paid)
     visit_path order_path(order)
-    start = order.basket.items.first.product.inventory
-    find(".ship_now").click
-#    expect(order.basket.items.first.product.inventory).to be order.basket.items.first.quantity
-  end
-  it "filters by email" do
-    order_ab :email =>[ "torsten@villataika.fi", "raisa@villataika.fi"]
-    fill_in("q[email_cont]" , :with => "torsten")
-    expect(order_count).to eq 1
+    expect {find(".pay_now").click}.to raise_error Capybara::ElementNotFound
   end
 end

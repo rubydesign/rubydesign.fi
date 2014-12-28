@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Order do
   let(:order) { create :order }
-  let(:shipped_order) { create :order_shippped }
+  let(:shipped_order) { create :order_shipped }
 
   it "factory is ok" do
     o = build :order

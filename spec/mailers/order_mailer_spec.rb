@@ -54,7 +54,8 @@ RSpec.describe OrderMailer, :type => :mailer do
 
   describe 'shipped mail' do
     let(:mail) do
-      order.pay_now!
+      order.pay_now
+      order.save
       OrderMailer.shipped(order)
     end
     it_should_behave_like "an order mail" do
