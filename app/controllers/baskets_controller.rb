@@ -1,5 +1,6 @@
 # encoding : utf-8
 class BasketsController < AdminController
+  include BasketsHelper
 
   before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , 
                                         :checkout, :purchase , :discount , :ean]
@@ -18,8 +19,7 @@ class BasketsController < AdminController
     order = @basket.kori || Order.new( :basket => @basket )
     order.pos_checkout( current_clerk.email )
     order.save!
-    styles = OfficeClerk.config(:print_styles)
-    if(styles && styles.split.include?("receipt"))
+    if has_receipt?
       redirect_to receipt_order_path(order)
     else
       redirect_to order_path(order)
@@ -33,8 +33,7 @@ class BasketsController < AdminController
   #as an action this order is meant as a verb, ie order this basket
   def order
     if @basket.empty?
-      render :edit , :notice => t(:basket_empty)
-      return
+      return render :edit , :notice => t(:basket_empty)
     end
     order = Order.create! :basket => @basket , :email => current_clerk.email , :ordered_on => Date.today
     redirect_to :action => :show , :controller => :orders , :id => order.id
@@ -78,7 +77,7 @@ class BasketsController < AdminController
 
   # ean search at the top of basket edit
   def ean
-    return if locked?
+    return if redirect_if_locked
     ean = params[:ean]
     ean.sub!("P+" , "P-") if ean[0,2] == "P+"
     prod = Product.find_by_ean ean
@@ -99,7 +98,7 @@ class BasketsController < AdminController
   end
 
   def edit
-    return if locked?
+    return if redirect_if_locked
     if p_id = (params[:add] || params[:delete])
       add = params[:add].blank? ? -1 : 1
       @basket.add_product Product.find(p_id) , add
@@ -118,7 +117,7 @@ class BasketsController < AdminController
   end
 
   def update
-    return if locked?
+    return if redirect_if_locked
     @basket.update_attributes(params_for_basket)
     flash.notice = t(:update_success, :model => "basket")
     redirect_to edit_basket_path(@basket)
@@ -134,10 +133,14 @@ class BasketsController < AdminController
 
   # check if the @basket is locked (no edits allowed)
   # and if so redirect to show
-  def locked?
-    return false unless @basket.locked
-    redirect_to :action => :show , :notice => t('basket_locked')
-    return true
+  # return if redirect happened
+  def redirect_if_locked
+    if @basket.locked?
+      flash.notice = t('basket_locked')
+      redirect_to :action => :show 
+      return true
+    end
+    return false 
   end
 
   def item_discount item , discount

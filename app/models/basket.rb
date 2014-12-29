@@ -17,6 +17,10 @@ class Basket < ActiveRecord::Base
     self.items.empty?
   end
 
+  def locked?
+    not self.locked.blank?
+  end
+
   def cache_total
     self.total_price = (items.to_a.sum{ |i| i.total }).round(2)
     self.total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
@@ -41,7 +45,7 @@ class Basket < ActiveRecord::Base
   # also we change the price to the products cost price
   # locks the basket so receiving or deductiing becomes an error.
   def receive!
-    raise "Locked since #{self.locked}" if self.locked
+    raise "Locked since #{self.locked}" if locked?
     sum = 0
     self.items.each do |item|
       prod = item.product
@@ -59,7 +63,7 @@ class Basket < ActiveRecord::Base
   # locks the basket so receiving or deducting becomes an error.
   # deduct the items from inventory, change affects immediately in the products 
   def deduct!
-    raise "Locked since #{self.locked}" if self.locked
+    raise "Locked since #{self.locked}" if locked?
     sum = 0
     self.items.each do |item|
       prod = item.product
@@ -94,7 +98,7 @@ class Basket < ActiveRecord::Base
   def add_product prod , quant = 1
     return unless prod
     return unless quant != 0
-    raise "Locked since #{self.locked}" if self.locked
+    raise "Locked since #{self.locked}" if locked?
     exists = items.where(:product_id => prod.id ).limit(1).first
     if exists
       exists.quantity += quant
