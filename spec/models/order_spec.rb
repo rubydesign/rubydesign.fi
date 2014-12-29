@@ -18,6 +18,12 @@ describe Order do
 
   it "creates ok" do
     order
+    expect(order.basket.locked?).to eq false
+  end
+
+  it "creates shipped order" do
+    o = shipped_order
+    expect(o.basket.locked?).to eq true
   end
 
   it "calculates total tax" do

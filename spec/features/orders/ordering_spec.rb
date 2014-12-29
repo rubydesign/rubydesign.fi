@@ -36,4 +36,16 @@ describe "Orders" do
     find(".edit_basket").click
     ensure_path edit_basket_path(order.basket)
   end
+  it "can edit basket of paid order" do
+    order = create(:order_ordered)
+    visit_path order_path(order)
+    find(".edit_basket").click
+    ensure_path edit_basket_path(order.basket)
+  end
+  it "can not edit basket of shipped order" do
+    order = create(:order_paid)
+    visit_path order_path(order)
+    find(".ship_now").click
+    expect {find(".edit_basket").click}.to raise_error Capybara::ElementNotFound
+  end
 end
