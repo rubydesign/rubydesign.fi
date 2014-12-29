@@ -1,6 +1,9 @@
 .row
   %h2
     = t(:order) + " : " + @order.number.to_s
+    - unless @order.canceled_on.blank?
+      = t(:canceled_on) + " : " + date(@order.canceled_on)
+    
 .row
   .col-md-4
     %p
@@ -12,9 +15,6 @@
     %p
       %b
         = t(:ordered_on) + " : " + date(@order.ordered_on)
-    %p
-      %b
-        = t(:canceled_on) + " : " + date(@order.canceled_on)
   .col-md-4
     %p
       %b
@@ -74,6 +74,8 @@
   %br
   .col-md-2
     = link_to t(:back), orders_path, :class => "btn btn-warning"
+    -unless @order.basket.locked?
+      = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket"
   .col-md-10
     - mail_actions.each do |action|
       = link_to t("#{action}_order_button") , mail_order_path( @order , :act => action) , :class => "btn btn-info"

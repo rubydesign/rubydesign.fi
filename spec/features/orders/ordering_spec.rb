@@ -14,7 +14,7 @@ describe "Orders" do
     find(".make_order").click
     ensure_path order_path(basket.reload.kori)
   end
-  it "pays an order" do
+  it "ships an order" do
     order = create(:order_ordered)
     visit_path order_path(order)
     find(".shipment_type").click
@@ -29,5 +29,11 @@ describe "Orders" do
     order = create(:order_paid)
     visit_path order_path(order)
     expect {find(".pay_now").click}.to raise_error Capybara::ElementNotFound
+  end
+  it "can edit basket of ordered order" do
+    order = create(:order_ordered)
+    visit_path order_path(order)
+    find(".edit_basket").click
+    ensure_path edit_basket_path(order.basket)
   end
 end
