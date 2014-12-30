@@ -4,7 +4,8 @@ class Basket < ActiveRecord::Base
 
   belongs_to :kori, polymorphic: true  #kori is basket in finnish
 
-  has_many :items, autosave: true
+  has_many :items, autosave: true , :dependent => :destroy
+
   before_save :cache_total
 
   accepts_nested_attributes_for :items

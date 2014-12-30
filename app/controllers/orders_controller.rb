@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :update , :pay ,:ship, :shipment , :mail]
+  before_filter :load_order, :only => [:show, :edit, :destroy, :update , :pay ,:ship, :shipment , :mail]
 
   def index
     @q = Order.search(params[:q])
@@ -59,6 +59,16 @@ class OrdersController < AdminController
         format.json { respond_with_bip(@order) }
       end
     end
+  end
+
+  def destroy
+    if @order.basket.locked?
+      flash.notice = t(:basket_locked)
+    else
+      @order.destroy
+      flash.notice = t(:order) + " " + t(:deleted)
+    end
+    redirect_to orders_url 
   end
 
   private

@@ -35,7 +35,7 @@ fi:
   create_success: Luotu onnistuneesti
   created_at: Luotu
   delete: Poista
-  deleted: Poisettu
+  deleted: Poistettu
   description: Kuvaus
   destroy: Poista
   discount: Alennus
@@ -59,6 +59,7 @@ fi:
   items: Tuotteet
   last_name: Sukunimi
   link: linkki
+  locked: Lukittu
   made_offline: poistettu netistä
   made_online: laitettu nettiin
   main_picture: Kuva

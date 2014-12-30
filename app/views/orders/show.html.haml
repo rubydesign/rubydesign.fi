@@ -72,11 +72,15 @@
   = render "baskets/small" , :basket => @order.basket
 .row
   %br
-  .col-md-2
+  .col-md-1
     = link_to t(:back), orders_path, :class => "btn btn-warning"
-    -unless @order.basket.locked?
-      = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket"
-  .col-md-10
+  .col-md-1
+    = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket" unless @order.basket.locked?
+  .col-md-1
+    = link_to t(:destroy) , order_path(@order), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil?
+  .col-md-2
+  .col-md-6
     - mail_actions.each do |action|
       = link_to t("#{action}_order_button") , mail_order_path( @order , :act => action) , :class => "btn btn-info"
+.row
   .col-md-12.order_show_back

@@ -125,8 +125,13 @@ class BasketsController < AdminController
 
   def destroy
     # the idea is that you can't delete a basket once something has been "done" with it (order..)
-    @basket.destroy unless @basket.kori_type
-    redirect_to baskets_url
+    if @basket.locked?
+      flash.notice = t('basket_locked')
+    else
+      flash.notice = t('basket') + " " + t(:deleted)
+      @basket.destroy
+    end
+    redirect_to baskets_path
   end
 
   private

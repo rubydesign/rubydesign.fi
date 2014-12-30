@@ -60,6 +60,7 @@ en:
   items: Items
   last_name: Last Name
   link: Link
+  locked: Locked
   made_offline: taken offline
   made_online: made online
   manage: Manage
