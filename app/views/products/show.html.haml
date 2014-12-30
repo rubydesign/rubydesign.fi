@@ -21,10 +21,10 @@
       .col-md-6
         %p
           %b= t(:price) + " : "
-          = in_place @product , :price , :display_with => :euros
+          = in_place @product , :price , :display_with => :best_euros
         %p
           %b= t(:cost) + " : "
-          = in_place @product , :cost , :display_with => :euros
+          = in_place @product , :cost , :display_with => :best_euros
         %p
           %b= t(:category) + " : "
           = link_to @product.category.name ,category_path(@product.category) if @product.category
