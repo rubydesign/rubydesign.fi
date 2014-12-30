@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   store :address, accessors: [ :name , :street , :city , :phone ] #, coder: JSON
 
   after_validation :generate_order_number, :on => :create
+  validates :ordered_on,  :presence => true
 
   validates :name,  :presence => true , :if => :needs_address?
   validates :street,:presence => true , :if => :needs_address?
