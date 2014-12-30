@@ -14,9 +14,10 @@ class OrdersController < AdminController
   end
 
   def new
-    @order = Order.new
-    @order.build_basket
-    render :edit
+    basket = Basket.create!
+    @order = Order.new :email => current_clerk.email , :basket => basket , :ordered_on => Date.today
+    @order.save!
+    redirect_to edit_basket_path basket
   end
 
   def mail
@@ -45,16 +46,6 @@ class OrdersController < AdminController
   end
   
   def edit
-  end
-
-  def create
-    @order = Order.create(params_for_order)
-    @order.build_basket() unless @order.basket
-    if @order.save
-      redirect_to order_path(@order), :notice => t(:create_success, :model => :order)
-    else
-      render :edit
-    end
   end
 
   def update
