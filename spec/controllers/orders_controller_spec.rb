@@ -34,35 +34,6 @@ describe OrdersController do
     it "assigns a new order as @order" do
       get :new, {}, valid_session
       expect(assigns(:order)).to be_kind_of(Order)
-      expect(assigns(:order)).to be_new_record
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested order as @order" do
-      order = create :order
-      get :edit, {:id => order.to_param}, valid_session
-      expect(assigns(:order)).to eq(order)
-    end
-  end
-
-  describe "POST create" do
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved order as @order" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Order).to receive(:save).and_return(false)
-        post :create, {:order => {  :paid_on => ""}}, valid_session
-        expect(assigns(:order)).to be_kind_of(Order)
-        expect(assigns(:order)).to be_new_record
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        allow_any_instance_of(Order).to receive(:save).and_return(false)
-        post :create, {:order => {  :paid_on => ""}}, valid_session
-        expect(response).to render_template(:edit)
-      end
     end
   end
 

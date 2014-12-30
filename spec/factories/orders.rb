@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :order do
     sequence( :email) { |n| "test#{n}@test.com" }
+    ordered_on Date.today
     shipment_tax 0
     basket { create :basket_with_item }
     factory :order_ordered do

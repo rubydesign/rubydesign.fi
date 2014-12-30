@@ -10,6 +10,14 @@ describe Order do
     expect(ok).to be true
   end
 
+  it "doesnt save a blank order" do
+    expect(Order.new.save).to eq false
+  end
+
+  it "doesnt save order with just mail" do
+    expect(Order.new(:email => "torsten@villataika.fi").save).to eq false
+  end
+  
   it "verification works" do
     o = Order.new attributes_for :order
     ok = o.save

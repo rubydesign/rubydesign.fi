@@ -29,7 +29,7 @@ OfficeClerk::Engine.routes.draw do
     end
   end
 
-  resources :orders do
+  resources :orders , :except => [:edit] do
     collection do
       get "search" => "orders#index"
     end
