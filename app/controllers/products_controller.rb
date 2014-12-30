@@ -2,7 +2,7 @@
 
 class ProductsController < AdminController
 
-  before_filter :load_product, :only => [:show, :edit, :update, :delete ]
+  before_filter :load_product, :only => [:show, :edit, :update, :destroy ]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -55,10 +55,10 @@ class ProductsController < AdminController
     end
   end
 
-  def delete
+  def destroy
     @product.delete
     if @product.save
-      redirect_to products_url , :notice => t("deleted")
+      redirect_to products_url , :notice => t("deleted") + ": " + @product.full_name
     else
       redirect_to product_url , :notice => "#{t(:error)} : #{t(:inventory)}"
     end

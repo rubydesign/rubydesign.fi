@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery_ujs
 //= require best_in_place
 
 //= require jquery-ui
@@ -20,7 +21,6 @@ function initPage(){
   $("#error_explanation").addClass("text-error");
 
 }
-
 $(window).bind('page:change', function() {
     initPage();
 });
