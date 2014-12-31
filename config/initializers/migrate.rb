@@ -1,7 +1,7 @@
 # poor mans migration. 
 # Trying to keep the schema clean until version 1
 
-unless Rails.env.test?
+if ActiveRecord::Base.connection.table_exists? :orders
   #order paid_amount
   # order all times to datetime
   #product position 
