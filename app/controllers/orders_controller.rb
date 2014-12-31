@@ -78,7 +78,7 @@ class OrdersController < AdminController
   end
 
   def params_for_order
-    params.require(:order).permit(:shipment_price,:shipment_tax,:shipment_type, :note)
+    params.require(:order).permit(:shipment_price,:shipment_tax,:shipment_type, :note , :name ,:street, :city , :phone , :email)
   end
 end
 
