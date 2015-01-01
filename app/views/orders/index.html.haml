@@ -39,7 +39,7 @@
         .btn-group
           = paginate @orders
         .btn-group.pull-right
-          = link_to orders_path(:format => :csv), :class => "btn btn-primary" do
+          = link_to orders_path({:format => :csv}.merge( params)), {:class => "btn btn-primary"} do
             %i.icon-download CSV
   .col-md-3
     = search_form_for @q, :url => search_orders_path, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|

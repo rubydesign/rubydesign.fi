@@ -1,5 +1,5 @@
 <%= [t(:order_number) , t(:ordered_on) , t(:total_price) , t(:vat) + " 14" , t(:vat) + " 24" , t(:paid_on) ].join(";") %>
-<% @orders.each do |order| %>
+<% @order_scope.each do |order| %>
 <% values = [ order.number.to_s , date(order.ordered_on) ,  number_with_comma(order.total_price)]  %>
 <% taxes = order.taxes %>
 <% values << number_with_comma(taxes[14.0]) %>

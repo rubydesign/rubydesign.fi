@@ -9,3 +9,9 @@ if ActiveRecord::Base.connection.table_exists? :orders
     ActiveRecord::Base.connection.add_column :orders, :note, :string , :default => ""
   end
 end
+if ActiveRecord::Base.connection.table_exists? :purchases
+  #purchase should have email
+  Purchase.where(:name => nil).each do |p|
+    p.update_attribute(:name , "Sisäänosto #{I18n.l(Date.today)}")
+  end
+end

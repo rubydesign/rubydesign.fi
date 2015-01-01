@@ -5,8 +5,8 @@ class OrdersController < AdminController
 
   def index
     @q = Order.search(params[:q])
-    @order_scope = @q.result( :distinct => true)
-    @orders = @order_scope.includes(:basket => :items ).paginate(:page => params[:page],:per_page => 20)
+    @order_scope = @q.result( :distinct => true).includes(:basket => :items )
+    @orders = @order_scope.paginate(:page => params[:page],:per_page => 20)
   end
 
   def show
