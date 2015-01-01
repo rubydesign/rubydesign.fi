@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/rubyclerks/office_clerk.svg?branch=master)](https://travis-ci.org/rubyclerks/office_clerk)
 [![Gem Version](https://badge.fury.io/rb/office_clerk.svg)](http://badge.fury.io/rb/office_clerk)
 [![Code Climate](https://codeclimate.com/github/rubyclerks/office_clerk/badges/gpa.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
-[![Test Coverage](https://codeclimate.com/github/rubyclerks/office_clerk/badges/coverage.svg)](https://codeclimate.com/github/rubyclerks/office_clerk)
+[![Test Coverage](https://codeclimate.com/github/rubyclerks/office_clerk/badges/coverage.svg) 300+](https://codeclimate.com/github/rubyclerks/office_clerk)
 
 Office Clerk is the back office helper, your accountant, storage manager, secretary and more. It is the heart of the [RubyClerks team](http://rubyclerks.org) , the manager as it were.
 
@@ -45,7 +45,10 @@ The longer route, adding to existing project
 
 If you got this far and still have question , mail me, or mail the [list](https://groups.google.com/forum/#!forum/rubyclerks)
 
-I will start writing User/Developer guides soon, your question will help. Off course your help will help even more :-)
+Check the [User Guide](http://rubyclerks.org/user_guide/01_index.html).
+I will start writing Developer guide soon, your question will help. Off course your help will help even more :-)
+
+Fill issues if you find, or discuss with me for ideas.
 
 ### Similar Projects
 
