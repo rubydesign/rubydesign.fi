@@ -1,3 +1,4 @@
+# coding: utf-8
 # poor mans migration. 
 # Trying to keep the schema clean until version 1
 
