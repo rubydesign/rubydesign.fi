@@ -4,6 +4,8 @@
       .col-md-10
         %h2= t(:purchases)
         = paginate @purchases
+      .col-md-2
+        = link_to  t(:new) + ' ' + t(:purchase) , new_purchase_path , :class => "btn btn-primary new_purchase"
   .col-md-3
     = image_tag "office_clerk/purchases.jpg" , :class => "img-responsive"
 .row
@@ -12,6 +14,7 @@
       %table.table.table-striped.table-bordered.table-condensed
         %thead
           %tr
+            %th= t(:name)
             %th= sort_link @q, :ordered_on
             %th= sort_link @q, :received_on
             %th= t(:items)
@@ -20,6 +23,7 @@
         %tbody
           - @purchases.each do |purchase|
             %tr{:class => "line-#{cycle("1","2")}"}
+              %td= purchase.name
               %td= date(purchase.ordered_on)
               %td= date(purchase.received_on)
               %td= purchase.basket.items.length

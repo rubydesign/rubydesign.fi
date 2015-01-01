@@ -38,14 +38,13 @@ describe PurchasesController do
     it "assigns a new purchase as @purchase" do
       get :new, {}, valid_session
       expect(assigns(:purchase)).to be_kind_of(Purchase)
-      expect(assigns(:purchase)).to be_new_record
     end
   end
 
   describe "GET edit" do
     it "assigns the requested purchase as @purchase" do
       purchase = Purchase.create! valid_attributes
-      get :edit, {:id => purchase.to_param}, valid_session
+      get :show, {:id => purchase.to_param}, valid_session
       expect(assigns(:purchase)).to eq(purchase)
     end
   end
@@ -83,7 +82,7 @@ describe PurchasesController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         post :create, {:purchase => {  :supplier_id => nil }}, valid_session
-        expect(response).to render_template(:edit)
+        expect(response).to render_template(:show)
       end
     end
   end
@@ -117,7 +116,7 @@ describe PurchasesController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Purchase).to receive(:save).and_return(false)
         put :update, {:id => purchase.to_param, :purchase => {  :supplier_id => nil }}, valid_session
-        expect(response).to render_template(:edit)
+        expect(response).to render_template(:show)
       end
     end
   end

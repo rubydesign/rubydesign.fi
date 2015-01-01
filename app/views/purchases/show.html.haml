@@ -1,32 +1,43 @@
-%h2
-  = t(:show)
-  = t(:purchase)
-%p
-  %b
-    = t(:name) + " : " + @purchase.name.to_s
-%p
-  %b
-    -if @purchase.ordered_on
-      = t(:ordered_on) + " : " + date(@purchase.ordered_on)
-    -else
-      = link_to t(:order) , order_purchase_path(@purchase) , :class => "btn btn-primary order_link"
-%p
-  %b
-    -if @purchase.received_on
-      = t(:received) + " : " + date(@purchase.received_on)
-    -else
-      = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "btn btn-primary receive_link"
+.row
+  %h2
+    = t(:purchase)
+  %p
+    %b= t(:name)
+    = in_place @purchase , :name
+.row
+  .col-md-3
+    %p
+      %b
+        = t(:ordered_on) + " : " 
+        -if @purchase.ordered_on
+          = date(@purchase.ordered_on)
+        -else
+          = link_to t(:order) , order_purchase_path(@purchase) , :class => "btn btn-primary order_link"
+  .col-md-3
+    %p
+      %b
+        = t(:received_on) + " : " 
+        -if @purchase.received_on
+          = date(@purchase.received_on)
+        -else
+          = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "btn btn-primary receive_link"
+  .col-md-6
+    %p
+      %b
+        = t(:suppliers) + " : "
+      = raw @purchase.basket.suppliers.collect {|s| link_to( s.supplier_name , supplier_path(s)) }.join(",")
 
 = render "baskets/small" , :basket => @purchase.basket
 
-%p
-  %b
-    = t(:suppliers) + " : "
-  = @purchase.basket.suppliers.collect {|s| s.name }.join
-= link_to t(:back), purchases_path, :class => "btn btn-warning"
+.row
+  .col-md-1
+    = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+  .col-md-1
+    = link_to t(:back), purchases_path, :class => "btn btn-warning"
 
 -unless @purchase.received_on
   %h3{"style" => "color:red"}
     = t(:inventory)
-    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary inventory_link", :data => { :confirm => t(:are_you_sure) }
+    %br
+    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary btn-danger inventory_link", :data => { :confirm => t(:are_you_sure) }
  

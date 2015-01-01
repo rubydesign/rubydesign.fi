@@ -35,8 +35,11 @@ class PurchasesController < AdminController
   end
 
   def new
-    @purchase = Purchase.new
-    render :edit
+    today = Date.today
+    basket = Basket.create!
+    @purchase = Purchase.new :name => "#{I18n.t(:purchase)} #{I18n.l(today)}" , :basket => basket 
+    @purchase.save!
+    redirect_to edit_basket_path basket
   end
 
   def edit
@@ -48,15 +51,19 @@ class PurchasesController < AdminController
     if @purchase.save
       redirect_to purchase_path(@purchase), :notice => t(:create_success, :model => "purchase")
     else
-      render :edit
+      render :show
     end
   end
 
   def update
-    if @purchase.update_attributes(params_for_model)
-      redirect_to purchase_path(@purchase), :notice => t(:update_success, :model => "purchase")
-    else
-      render :action => :edit
+    respond_to do |format|
+      if @purchase.update_attributes(params_for_model)
+        format.html { redirect_to purchase_path(@purchase), :notice => t(:update_success, :model => "purchase") }
+        format.json { respond_with_bip(@purchase) }
+      else
+        format.html { render :action => :show }
+        format.json { respond_with_bip(@purchase) }
+      end
     end
   end
 
