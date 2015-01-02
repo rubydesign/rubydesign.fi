@@ -78,7 +78,7 @@ fi:
   online: Netissä
   online_eq: Online?
   order: Tilaus
-  order_number: Tilauksen numero
+  order_number: Tilausnumero
   order_total: Loppusumma
   order_more_for_free_shipping: "%{more} €  jäljellä ilmaiseen toimitukseen"
   ordered: Tilattu

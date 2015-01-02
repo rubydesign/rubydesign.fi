@@ -78,7 +78,7 @@ en:
   notice: Notice
   online: Online
   order: Order
-  order_number: Number
+  order_number: Order Number
   order_more_for_free_shipping: "Order %{more} €  for free shipping"
   order_total: Order total
   ordered: Ordered
