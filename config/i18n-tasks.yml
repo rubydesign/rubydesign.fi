@@ -65,7 +65,9 @@ translation:
   api_key: "AIzaSyCRjToD-btZK_eaaLeqKNmoh1fPoqhbAtQ"
 
 ## Consider these keys not missing
-# ignore_missing:
+ignore_missing:
+  - receipt.header
+
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 
@@ -73,6 +75,10 @@ translation:
 ignore_unused:
   - 'activerecord.*'
   - "will_paginate.*"
+  - "order_button.*"
+  - product_line
+  - product_item
+  
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

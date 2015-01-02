@@ -71,10 +71,8 @@ fi:
       purchase: Sisäänosto
       supplier: Tuottaja
   add: Lisää
-  add_inventory: Lisää inventaarioon
   add_to_basket: Lisää ostoskoriin
   address: Osoite
-  addresses: Osoiteet
   admin: Admin
   are_you_sure: Oletko varma
   as_inventory: Inventaarioon
@@ -86,7 +84,11 @@ fi:
   between: haarukka
   blanks: Tyhjät
   cancel: Peruuta
-  cancel_order_button: Peruta s-post
+  order_button: 
+    cancel: Peruta s-post
+    confirm: Vahvistus s-post
+    paid: Maksettu s-post
+    shipped: Lähetetty S-Posti
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
@@ -95,7 +97,6 @@ fi:
   city: Kaupunki
   clerk: Käyttäjä
   clerks: Käyttäjät
-  confirm_order_button: Vahvistus s-post
   contact: Kontaktihenkilö
   cost: Kustannus
   count: Määrä
@@ -147,7 +148,6 @@ fi:
   online: Netissä
   online_eq: Online?
   order: Tilaus
-  order_more_for_free_shipping: "%{more} €  jäljellä ilmaiseen toimitukseen"
   order_number: Tilausnumero
   order_total: Loppusumma
   ordered: Tilattu
@@ -156,7 +156,6 @@ fi:
   our_shop: Liikkeemme
   paid: Maksa
   paid_on: Maksettu
-  paid_order_button: Maksettu s-post
   parent: Tuoteryhmä
   password: Salasana
   payment_info: Maksun coodi
@@ -168,17 +167,11 @@ fi:
   preview: Esikatselu
   price: Hinta
   price_between: Hinta haarukka
-  print: Tulosta
-  print_invoice: Tulosta tilaus
-  print_order: Tulosta
-  print_receipt: Tulosta kuitti
-  print_reminder: Tulosta maksumuistutus
-  print_slip: Tulosta kuormakirja
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
   product_item: Tuote Tuotelinjalla
   product_line: Tuotelinja
-  product_line_has_inventory: Tuotelinjassa on inventaario
+  product_has_inventory: Tuoteessa on inventaario
   products: Tuotteet
   purchase: Sisäänosto
   purchases: Sisäänostot
@@ -194,7 +187,6 @@ fi:
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
   shipped_on: Lähetetty
-  shipped_order_button: Lähetetty S-Posti
   shop: Kauppa
   shop_link: Kauppassa
   show: Näytä
@@ -222,10 +214,8 @@ fi:
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot
-  treeview: Treeview
   type: Laji
   update_success: Päivitetty onnistuneesti
-  updated: Päivitetty
   vat: Alv
   weight: Paino
   will_paginate:

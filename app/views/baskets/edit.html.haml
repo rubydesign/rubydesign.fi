@@ -63,7 +63,7 @@
           = link_to t(:to_order), order_path(@basket.kori), :class => "btn btn-primary to_order"
         .col-md-2
           - if has_receipt?
-            = link_to t(:print_order), receipt_order_path(@basket.kori), :class => "btn btn-primary print_order"
+            = link_to t("receipt.header"), receipt_order_path(@basket.kori), :class => "btn btn-primary print_order"
       - elsif @basket.isa(:purchase)
         .col-md-2
           = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "btn btn-primary to_purchase"

@@ -71,10 +71,8 @@ en:
       purchase: Purchase
       supplier: Supplier
   add: Add
-  add_inventory: Add Inventory
   add_to_basket: Add to basket
   address: Adress
-  addresses: Adresses
   admin: Admin
   are_you_sure: Are you sure?
   as_inventory: As Inventory
@@ -86,7 +84,11 @@ en:
   between: " between"
   blanks: Blanks
   cancel: Cancel
-  cancel_order_button: Cancel email
+  order_button:
+    cancel: Cancel email
+    confirm: Send Confirmation Email
+    paid: Paid Mail
+    shipped: Ship Order Email
   canceled_on: Canceled on
   categories: Product Categories
   category: Product Category
@@ -95,7 +97,6 @@ en:
   city: City
   clerk: User
   clerks: Users
-  confirm_order_button: Send Confirmation Email
   contact: Contact
   cost: Cost
   count: Count
@@ -147,7 +148,6 @@ en:
   online: Online
   online_eq: Online?
   order: Order
-  order_more_for_free_shipping: Order %{more} €  for free shipping
   order_number: Order Number
   order_total: Order total
   ordered: Ordered
@@ -156,7 +156,6 @@ en:
   our_shop: Our shop
   paid: Paid
   paid_on: Paid on
-  paid_order_button: Paid Mail
   parent: Parent
   password: Password
   payment_info: Payment info
@@ -168,17 +167,11 @@ en:
   preview: Preview
   price: Price
   price_between: Price between
-  print: Print
-  print_invoice: Print Invoice
-  print_order: Print Order
-  print_receipt: Print Receipt
-  print_reminder: Print Reminder
-  print_slip: Print Package Slip
   product: Product
   product_added: Product added
   product_item: Product Item
   product_line: Product Line
-  product_line_has_inventory: Product Line has inventori
+  product_has_inventory: Product has inventory
   products: Products
   purchase: Purchase
   purchases: Purchases
@@ -194,7 +187,6 @@ en:
   shipment_price: Shipment price
   shipment_type: Shipment type
   shipped_on: Shipped on
-  shipped_order_button: Ship Order Email
   shop: Shop
   shop_link: In Shop
   show: Show
@@ -222,10 +214,8 @@ en:
   total: Total
   total_price: Total Price
   total_tax: Taxes
-  treeview: Treeview
   type: Type
   update_success: Successfully updated
-  updated: Updated
   vat: Vat
   weight: Weight
   will_paginate:
