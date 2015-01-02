@@ -75,20 +75,13 @@ fi:
   address: Osoite
   admin: Admin
   are_you_sure: Oletko varma
-  as_inventory: Inventaarioon
   back: Listalle
   basket: Ostoskori
   basket_empty: Ostoskori on tyhjä
   basket_locked: Ostoskoria ei voi muuttaa
   baskets: Ostoskorit
-  between: haarukka
   blanks: Tyhjät
   cancel: Peruuta
-  order_button: 
-    cancel: Peruta s-post
-    confirm: Vahvistus s-post
-    paid: Maksettu s-post
-    shipped: Lähetetty S-Posti
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
@@ -103,7 +96,6 @@ fi:
   country: Maa
   create: Luo
   create_success: Luotu onnistuneesti
-  created_at: Luotu
   delete: Poista
   deleted: Poistettu
   description: Kuvaus
@@ -111,20 +103,15 @@ fi:
   discount: Alennus
   ean: Ean
   edit: Muokkaa
-  editing: Muokkaamassa
   email: S-posti
-  empty: tyhjä
   error: Virhe
   extra_picture: Toinen kuva
   filter: Hae
   first_name: Etunimi
   fix_errors: Yhteystiedoistasi puuttuu tietoja
-  history: Tilaushistoria
-  home: Kotiin
   info: Info
   inventorized: Inventoitu
   inventory: Inventaario
-  item: Tuote
   item_removed: Tuote poistettu
   items: Tuotteet
   last_name: Sukunimi
@@ -141,37 +128,32 @@ fi:
   name_contains: Nimi sisältää
   new: Uusi
   new_item: Uusi tuote tuotelinjalle
-  next: seuraava
   not_online: ei netissä
   note: Muistiinpano
-  notice: Huom
   online: Netissä
-  online_eq: Online?
   order: Tilaus
+  order_button:
+    cancel: Peruta s-post
+    confirm: Vahvistus s-post
+    paid: Maksettu s-post
+    shipped: Lähetetty S-Posti
   order_number: Tilausnumero
-  order_total: Loppusumma
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
-  our_shop: Liikkeemme
   paid: Maksa
   paid_on: Maksettu
-  parent: Tuoteryhmä
   password: Salasana
   payment_info: Maksun coodi
   phone: Puhelin
   picture: Kuva
-  picture2: Toinen kuva
-  position: Paikka
-  prev: edellinen
   preview: Esikatselu
   price: Hinta
-  price_between: Hinta haarukka
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
+  product_has_inventory: Tuoteessa on inventaario
   product_item: Tuote Tuotelinjalla
   product_line: Tuotelinja
-  product_has_inventory: Tuoteessa on inventaario
   products: Tuotteet
   purchase: Sisäänosto
   purchases: Sisäänostot
@@ -197,24 +179,18 @@ fi:
   signed_in: Sisäänkirjautunut
   signed_out: Uloskirjautunut
   signed_up: Tili luottu
-  state: Tila
   street: Osoite
   street1: Osoite1
   street2: Osoite2
   summary: Yhteenveto
   supplier: Tuottaja
   suppliers: Tuottajat
-  tax: Alv
   tax_percent: Veroprosentti
-  tax_rate: Veroprosentti
-  terms: Toimitusehdot
   to_order: Tilaukselle
-  to_product: Tuotelle
   to_purchase: Sisänostoksille
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot
-  type: Laji
   update_success: Päivitetty onnistuneesti
   vat: Alv
   weight: Paino

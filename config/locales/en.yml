@@ -75,20 +75,13 @@ en:
   address: Adress
   admin: Admin
   are_you_sure: Are you sure?
-  as_inventory: As Inventory
   back: Back
   basket: Basket
   basket_empty: Basket is empty
   basket_locked: Basket is locked, unlock to change
   baskets: Baskets
-  between: " between"
   blanks: Blanks
   cancel: Cancel
-  order_button:
-    cancel: Cancel email
-    confirm: Send Confirmation Email
-    paid: Paid Mail
-    shipped: Ship Order Email
   canceled_on: Canceled on
   categories: Product Categories
   category: Product Category
@@ -101,9 +94,8 @@ en:
   cost: Cost
   count: Count
   country: Country
-  create: Create
+  create: Luo
   create_success: Successfully created
-  created_at: Created
   delete: Delete
   deleted: Deleted
   description: Description
@@ -111,20 +103,15 @@ en:
   discount: Discount
   ean: Ean
   edit: Edit
-  editing: Editing
   email: Email
-  empty: Empty
   error: Error
   extra_picture: Extra picture
   filter: Filter
   first_name: First Name
   fix_errors: There are errors below
-  history: Order history
-  home: Home
   info: Info
   inventorized: Inventorized
   inventory: Inventory
-  item: Item
   item_removed: Item removed
   items: Items
   last_name: Last Name
@@ -141,37 +128,32 @@ en:
   name_contains: Name contains
   new: New
   new_item: New product item
-  next: Next
   not_online: not online
   note: Note
-  notice: Notice
   online: Online
-  online_eq: Online?
   order: Order
+  order_button:
+    cancel: Cancel email
+    confirm: Send Confirmation Email
+    paid: Paid Mail
+    shipped: Ship Order Email
   order_number: Order Number
-  order_total: Order total
   ordered: Ordered
   ordered_on: Ordered On
   orders: Orders
-  our_shop: Our shop
   paid: Paid
   paid_on: Paid on
-  parent: Parent
   password: Password
   payment_info: Payment info
   phone: Phone
   picture: Picture
-  picture2: Picture 2
-  position: Position
-  prev: Previous
   preview: Preview
   price: Price
-  price_between: Price between
   product: Product
   product_added: Product added
+  product_has_inventory: Product has inventory
   product_item: Product Item
   product_line: Product Line
-  product_has_inventory: Product has inventory
   products: Products
   purchase: Purchase
   purchases: Purchases
@@ -197,24 +179,18 @@ en:
   signed_in: Logged in
   signed_out: Logged out
   signed_up: Signed up
-  state: State
   street: Street
   street1: Street1
   street2: Street2
   summary: Summary
   supplier: Supplier
   suppliers: Suppliers
-  tax: Vat
   tax_percent: Tax percent
-  tax_rate: Vat rate
-  terms: Terms
   to_order: To order
-  to_product: To product
   to_purchase: To purchase
   total: Total
   total_price: Total Price
   total_tax: Taxes
-  type: Type
   update_success: Successfully updated
   vat: Vat
   weight: Weight

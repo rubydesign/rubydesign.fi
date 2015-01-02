@@ -67,7 +67,7 @@ translation:
 ## Consider these keys not missing
 ignore_missing:
   - receipt.header
-
+  
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 
@@ -78,6 +78,7 @@ ignore_unused:
   - "order_button.*"
   - product_line
   - product_item
+  - create
   
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
