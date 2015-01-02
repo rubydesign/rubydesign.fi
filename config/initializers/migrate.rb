@@ -13,6 +13,6 @@ end
 if ActiveRecord::Base.connection.table_exists? :purchases
   #purchase should have email
   Purchase.where(:name => nil).each do |p|
-    p.update_attribute(:name , "Sisäänosto #{I18n.l(p.created_at)}")
+    p.update_attribute(:name , "Sisäänosto #{I18n.l(p.created_at.to_date)}")
   end
 end
