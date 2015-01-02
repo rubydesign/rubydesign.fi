@@ -1,6 +1,75 @@
 ---
 fi:
   actions: Toimenpiteet
+  activerecord:
+    attributes:
+      basket:
+        created_at: Luotu
+        total_price: Hinta
+        type: Laji
+      category:
+        category: Pääryhmä
+        description: Kuvaus
+        link: Linkki
+        name: Nimi
+        online: Netissä
+        position: Järjetysnummero
+        summary: Yhteenveto
+      clerk:
+        city: Kaupunki
+        email: S-posti
+        name: Etu- ja sukunimien
+        password: Salasana
+        password_confirmation: Vahvista salasana
+        phone: Puhelin
+        street: Jakeluosoite
+      order:
+        canceled_on: Peruttu
+        city: Kaupunki
+        email: S-posti
+        name: Etu- ja sukunimien
+        note: Muisti
+        number: Tilauksen numero
+        ordered_on: Tilattu
+        paid_on: Maksettu
+        password: Salasana
+        password_confirmation: Vahvista salasana
+        phone: Puhelin
+        shipped_on: Lähetetty
+        street: Jakeluosoite
+        total: Yhteensä
+      product:
+        category: Tuoteryhmä
+        cost: Kustannus
+        description: Kuvaus
+        ean: Ean
+        inventory: Inventaario
+        name: Nimi
+        online: Netissä
+        price: Hinta
+        scode: Tuottajatunnus
+        summary: Yhteenveto
+        supplier: Tuottaja
+        tax: Veroprosentti
+        weight: Paino
+      purchase:
+        name: Nimi
+        ordered_on: Tilattu
+        received_on: Vastaanotettu
+      supplier:
+        city: Kaupunki
+        name: Nimi
+        phone: Puhelin
+        street: Osoite
+        supplier_name: Tuottaja
+    models:
+      basket: Ostoskori
+      category: Tuoteryhmä
+      clerk: Käyttäjä
+      order: Tilaus
+      product: Tuote
+      purchase: Sisäänosto
+      supplier: Tuottaja
   add: Lisää
   add_inventory: Lisää inventaarioon
   add_to_basket: Lisää ostoskoriin
@@ -44,7 +113,7 @@ fi:
   editing: Muokkaamassa
   email: S-posti
   empty: tyhjä
-  error: Virhe 
+  error: Virhe
   extra_picture: Toinen kuva
   filter: Hae
   first_name: Etunimi
@@ -72,25 +141,25 @@ fi:
   new: Uusi
   new_item: Uusi tuote tuotelinjalle
   next: seuraava
-  notice: Huom
   not_online: ei netissä
   note: Muistiinpano
+  notice: Huom
   online: Netissä
   online_eq: Online?
   order: Tilaus
+  order_more_for_free_shipping: "%{more} €  jäljellä ilmaiseen toimitukseen"
   order_number: Tilausnumero
   order_total: Loppusumma
-  order_more_for_free_shipping: "%{more} €  jäljellä ilmaiseen toimitukseen"
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
   our_shop: Liikkeemme
-  payment_info: Maksun coodi
   paid: Maksa
   paid_on: Maksettu
   paid_order_button: Maksettu s-post
   parent: Tuoteryhmä
   password: Salasana
+  payment_info: Maksun coodi
   phone: Puhelin
   picture: Kuva
   picture2: Toinen kuva
@@ -100,15 +169,15 @@ fi:
   price: Hinta
   price_between: Hinta haarukka
   print: Tulosta
-  print_order: Tulosta
   print_invoice: Tulosta tilaus
+  print_order: Tulosta
+  print_receipt: Tulosta kuitti
   print_reminder: Tulosta maksumuistutus
   print_slip: Tulosta kuormakirja
-  print_receipt: Tulosta kuitti
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
-  product_line: Tuotelinja
   product_item: Tuote Tuotelinjalla
+  product_line: Tuotelinja
   product_line_has_inventory: Tuotelinjassa on inventaario
   products: Tuotteet
   purchase: Sisäänosto
@@ -121,9 +190,9 @@ fi:
   search: Hae
   select: Valitse
   ship: Lähetä
+  shipment_info: Lähetyksen coodi
   shipment_price: Lähetyksen hinta
   shipment_type: Lähetyksen tapa
-  shipment_info: Lähetyksen coodi
   shipped_on: Lähetetty
   shipped_order_button: Lähetetty S-Posti
   shop: Kauppa
@@ -134,15 +203,15 @@ fi:
   sign_out: Kirjaudu ulos
   sign_up: Luo tili
   signed_in: Sisäänkirjautunut
-  signed_up: Tili luottu
   signed_out: Uloskirjautunut
+  signed_up: Tili luottu
   state: Tila
   street: Osoite
   street1: Osoite1
   street2: Osoite2
+  summary: Yhteenveto
   supplier: Tuottaja
   suppliers: Tuottajat
-  summary: Yhteenveto
   tax: Alv
   tax_percent: Veroprosentti
   tax_rate: Veroprosentti
@@ -161,74 +230,5 @@ fi:
   weight: Paino
   will_paginate:
     next_label: seuraava
-    page_gap: '&hellip;'
+    page_gap: "&hellip;"
     previous_label: edellinen
-  activerecord:
-    attributes:
-      basket:
-        type: Laji
-        created_at: Luotu
-        total_price: Hinta
-      clerk:
-        email: S-posti
-        password: Salasana
-        password_confirmation: Vahvista salasana
-        name: Etu- ja sukunimien
-        street: Jakeluosoite
-        phone: Puhelin
-        city: Kaupunki
-      category:
-        name: Nimi
-        summary: Yhteenveto
-        online: Netissä
-        category: Pääryhmä
-        link: Linkki
-        position: Järjetysnummero
-        description: Kuvaus
-      order:
-        number: Tilauksen numero
-        total: Yhteensä
-        paid_on: Maksettu
-        shipped_on: Lähetetty
-        canceled_on: Peruttu
-        note: Muisti
-        email: S-posti
-        password: Salasana
-        password_confirmation: Vahvista salasana
-        ordered_on: Tilattu
-        name: Etu- ja sukunimien
-        street: Jakeluosoite
-        phone: Puhelin
-        city: Kaupunki
-      product:
-        description: Kuvaus
-        summary: Yhteenveto
-        ean: Ean
-        inventory: Inventaario
-        name: Nimi
-        online: Netissä
-        price: Hinta
-        cost: Kustannus
-        scode: Tuottajatunnus
-        tax: Veroprosentti
-        weight: Paino
-        supplier: Tuottaja
-        category: Tuoteryhmä
-      purchase:
-        name: Nimi
-        ordered_on: Tilattu
-        received_on: Vastaanotettu
-      supplier:
-        city: Kaupunki
-        name: Nimi
-        phone: Puhelin
-        street: Osoite
-        supplier_name: Tuottaja
-    models:
-      basket: Ostoskori
-      category: Tuoteryhmä
-      clerk: Käyttäjä
-      order: Tilaus
-      product: Tuote
-      purchase: Sisäänosto
-      supplier: Tuottaja
