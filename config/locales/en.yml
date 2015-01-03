@@ -87,10 +87,12 @@ en:
   category: Product Category
   checkout: Checkout
   choose_product_for_basket: Choose product for basket
+  choose_shipment: Choose shipment
   city: City
   clerk: User
   clerks: Users
   contact: Contact
+  contact_details: Contact details
   cost: Cost
   count: Count
   country: Country
@@ -191,6 +193,7 @@ en:
   total: Total
   total_price: Total Price
   total_tax: Taxes
+  update: Update
   update_success: Successfully updated
   vat: Vat
   weight: Weight

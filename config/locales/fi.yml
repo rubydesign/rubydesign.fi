@@ -87,10 +87,12 @@ fi:
   category: Tuoteryhmä
   checkout: Checkout
   choose_product_for_basket: Valitse tuote ostoskoriin
+  choose_shipment: Valitse toimitustapa
   city: Kaupunki
   clerk: Käyttäjä
   clerks: Käyttäjät
   contact: Kontaktihenkilö
+  contact_details: Yhteystiedot
   cost: Kustannus
   count: Määrä
   country: Maa
@@ -191,6 +193,7 @@ fi:
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot
+  update: Päivitä
   update_success: Päivitetty onnistuneesti
   vat: Alv
   weight: Paino
