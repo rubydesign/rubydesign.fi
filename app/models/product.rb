@@ -15,6 +15,7 @@
 
 class Product < ActiveRecord::Base
   has_many :products
+  has_many :items
   store :properties, accessors: [ :color, :size , :model_number ] #, coder: JSON
   belongs_to :product
   belongs_to :category

@@ -11,8 +11,7 @@ module OfficeClerk
       app.config.assets.precompile += %w(office_clerk.css office_clerk.js)
     end
 
-    I18n.enforce_available_locales = false
-    I18n.default_locale = :fi
+    config.i18n.enforce_available_locales = false
     # for testing this makes engine factories available
     initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
       FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
