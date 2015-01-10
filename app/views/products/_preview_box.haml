@@ -1,11 +1,15 @@
-%h4.product-name
-  =product.name
-.row
-  .col-md-4
-    .square-image
-      =image_tag product.main_picture.url
-  .col-md-8.bottom
-    .product-fact
-      %p= markdown product.summary
-      .price.selling
+.admin
+  .product-container
+    %h4.product-name
+      =product.name
+    .row
+      .col-md-4
+        .square-image
+          =image_tag product.main_picture.url
+      .col-md-8
+        .product-fact
+          %p= markdown product.summary
+    .row
+      .product-list-price
         = euros product.price
+    
