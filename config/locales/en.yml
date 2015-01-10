@@ -98,6 +98,7 @@ en:
   country: Country
   create: Luo
   create_success: Successfully created
+  customer: Customer
   delete: Delete
   deleted: Deleted
   description: Description

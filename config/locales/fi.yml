@@ -98,6 +98,7 @@ fi:
   country: Maa
   create: Luo
   create_success: Luotu onnistuneesti
+  customer: Asiakas
   delete: Poista
   deleted: Poistettu
   description: Kuvaus
@@ -136,8 +137,8 @@ fi:
   order: Tilaus
   order_actions: Toiminnot
   order_button:
-    cancel: Peruuta
-    confirm: Vahvista
+    cancel: Peruutus
+    confirm: Vahvistus
     paid: Maksettu
     shipped: Lähetetty
   order_mail: Lähetä sähköposti

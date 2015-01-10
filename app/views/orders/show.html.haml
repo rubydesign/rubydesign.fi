@@ -5,53 +5,62 @@
       = t(:canceled_on) + " : " + date(@order.canceled_on)
     
 .row
-  .col-md-6
+  .col-md-7
     %table.table.table-condensed.no-bg.no-border
       %tbody
         %tr
           %td
             %b 
-              = t(:email) + " : "
-          %td 
+              = t(:ordered_on) + " : "
+            = date(@order.ordered_on)
+          %td
+        %tr
+          %td
+            %b 
+              = t(:customer)
+            = @order.name
+            %br
+            = @order.street + ", " + @order.city
+            %br
             = @order.email.to_s
+            %br
+            = @order.phone.to_s
         
           %td
             %b 
               = t(:shipment_type) + " : "
-          %td 
-            = link_to shipping_method(@order.shipment_type).name , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
+            = @order.shipment_type
+            %br  
+            %br  
+              
+            = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
         
         %tr
           %td
             %b 
-              = t(:phone) + " : "
-          %td 
-            = @order.phone.to_s
-          %td
-            %b 
               = t(:paid_on) + ":"
-          %td 
+            \  
             -if @order.paid_on
               = date(@order.paid_on)
             -else
               = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
         
-        %tr    
-          %td
-            %b 
-              = t(:ordered_on) + " : "
-          %td 
-            = date(@order.ordered_on)
           %td
             %b 
               = t(:shipped_on) + " : "
-          %td 
             -unless(@order.shipped_on.blank?)
               =date(@order.shipped_on)
             -else
               = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
+              
+        %tr
+          %td
+            \
+          %td
+            \
+              
 
-  .col-md-2
+  .col-md-1
   .col-md-4
     %p
       %b= t(:note)
@@ -65,22 +74,22 @@
 
 -content_for :basket do
   %tr
-    %td= t(:name) 
-    %td=@order.name
+    %td 
+    %td
     %td
       %b= t(:total_tax) + " : "
     %td
       %b= euros(@order.total_tax)
   %tr
-    %td= t(:street)
-    %td= @order.street
+    %td
+    %td
     %td
       %b= t(:shipment_price) + " : "
     %td
       %b= euros(@order.shipment_price)
   %tr
-    %td= t(:city)
-    %td=@order.city
+    %td
+    %td
     %td
       %b= t(:total_price) + " : "
     %td
