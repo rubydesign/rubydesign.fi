@@ -16,18 +16,18 @@ fi:
         position: Järjetysnummero
         summary: Yhteenveto
       clerk:
-        city: Kaupunki
+        city: Postinumero ja -toimipaikka
         email: S-posti
-        name: Etu- ja sukunimien
+        name: Etu- ja sukunimi
         password: Salasana
         password_confirmation: Vahvista salasana
         phone: Puhelin
         street: Jakeluosoite
       order:
         canceled_on: Peruttu
-        city: Kaupunki
+        city: Postinumero ja -toimipaikka
         email: S-posti
-        name: Etu- ja sukunimien
+        name: Etu- ja sukunimi
         note: Muisti
         number: Tilauksen numero
         ordered_on: Tilattu
@@ -75,7 +75,7 @@ fi:
   address: Osoite
   admin: Admin
   are_you_sure: Oletko varma
-  back: Listalle
+  back: Takaisin
   basket: Ostoskori
   basket_empty: Ostoskori on tyhjä
   basket_locked: Ostoskoria ei voi muuttaa
@@ -134,19 +134,22 @@ fi:
   note: Muistiinpano
   online: Netissä
   order: Tilaus
+  order_actions: Toiminnot
   order_button:
-    cancel: Peruta s-post
-    confirm: Vahvistus s-post
-    paid: Maksettu s-post
-    shipped: Lähetetty S-Posti
+    cancel: Peruuta
+    confirm: Vahvista
+    paid: Maksettu
+    shipped: Lähetetty
+  order_mail: Lähetä sähköposti
   order_number: Tilausnumero
+  order_print: Tulosta
   ordered: Tilattu
   ordered_on: Tilattu
   orders: Tilaukset
   paid: Maksa
   paid_on: Maksettu
   password: Salasana
-  payment_info: Maksun coodi
+  payment_info: Maksukoodi
   phone: Puhelin
   picture: Kuva
   preview: Esikatselu
@@ -167,9 +170,9 @@ fi:
   search: Hae
   select: Valitse
   ship: Lähetä
-  shipment_info: Lähetyksen coodi
+  shipment_info: Lähetyksen koodi
   shipment_price: Lähetyksen hinta
-  shipment_type: Lähetyksen tapa
+  shipment_type: Toimitustapa
   shipped_on: Lähetetty
   shop: Kauppa
   shop_link: Kauppassa

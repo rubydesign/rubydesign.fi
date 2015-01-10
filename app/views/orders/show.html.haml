@@ -5,35 +5,53 @@
       = t(:canceled_on) + " : " + date(@order.canceled_on)
     
 .row
-  .col-md-4
-    %p
-      %b
-        = t(:email) + " : " + @order.email.to_s
-    %p
-      %b
-        = t(:phone) + " : " +  @order.phone.to_s
-    %p
-      %b
-        = t(:ordered_on) + " : " + date(@order.ordered_on)
-  .col-md-4
-    %p
-      %b
-        = t(:shipment_type) + " : "
-        = link_to shipping_method(@order.shipment_type).name , shipment_order_path(@order) , :class => "shipment_type"
+  .col-md-6
+    %table.table.table-condensed.no-bg.no-border
+      %tbody
+        %tr
+          %td
+            %b 
+              = t(:email) + " : "
+          %td 
+            = @order.email.to_s
+        
+          %td
+            %b 
+              = t(:shipment_type) + " : "
+          %td 
+            = link_to shipping_method(@order.shipment_type).name , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
+        
+        %tr
+          %td
+            %b 
+              = t(:phone) + " : "
+          %td 
+            = @order.phone.to_s
+          %td
+            %b 
+              = t(:paid_on) + ":"
+          %td 
+            -if @order.paid_on
+              = date(@order.paid_on)
+            -else
+              = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
+        
+        %tr    
+          %td
+            %b 
+              = t(:ordered_on) + " : "
+          %td 
+            = date(@order.ordered_on)
+          %td
+            %b 
+              = t(:shipped_on) + " : "
+          %td 
+            -unless(@order.shipped_on.blank?)
+              =date(@order.shipped_on)
+            -else
+              = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
 
-    %p
-      %b= t(:paid_on) + ":"
-      -if @order.paid_on
-        = date(@order.paid_on)
-      -else
-        = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
-
-    %p
-      %b= t(:shipped_on) + " : " 
-      -unless(@order.shipped_on.blank?)
-        =date(@order.shipped_on)
-      -else
-        = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
+  .col-md-2
   .col-md-4
     %p
       %b= t(:note)
@@ -70,17 +88,33 @@
 
 .row
   = render "baskets/small" , :basket => @order.basket
+
 .row
   %br
-  .col-md-1
+  
+  .col-md-5
+    %b= t(:order_actions)
+    %br
+    
     = link_to t(:back), orders_path, :class => "btn btn-warning"
-  .col-md-1
+    \ 
     = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket" unless @order.basket.locked?
-  .col-md-1
+    \     
     = link_to t(:destroy) , order_path(@order), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil? and @order.paid_on.nil?
+
   .col-md-2
-  .col-md-6
+  .col-md-5 
+    %b= t(:order_mail)
+    %br
     - mail_actions.each do |action|
       = link_to t("order_button.#{action}") , mail_order_path( @order , :act => action) , :class => "btn btn-info"
+      \     
+      
+
 .row
-  .col-md-12.order_show_back
+  %br
+  .col-md-12
+    %b= t(:order_print)
+    .order_show_back
+  %br
+  %br

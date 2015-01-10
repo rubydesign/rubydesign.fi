@@ -14,7 +14,7 @@
           = f.email_field :email, :placeholder => t(:email)
           %hr  
           %button.btn.btn-primary.btn-lg#make_order{:type => "submit"}
-          =t(:update) 
+            =t(:update) 
           
         .col-md-3
     .col-md-4
@@ -24,7 +24,8 @@
       - OfficeClerk::ShippingMethod.all.each_value do |s|
         .radio
           = radio_button_tag "order[shipment_type]" , s.type , s.type.to_s == @order.shipment_type , "data-price" => s.price_for(@order.basket).round(2)
-          = s.name
+          %b
+            = s.name + ":  "
           = s.price_for(@order.basket).round(2)
           €
 

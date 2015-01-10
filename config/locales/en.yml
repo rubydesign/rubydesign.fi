@@ -134,12 +134,15 @@ en:
   note: Note
   online: Online
   order: Order
+  order_actions: Actions
   order_button:
     cancel: Cancel email
     confirm: Send Confirmation Email
     paid: Paid Mail
     shipped: Ship Order Email
+  order_mail: Send email
   order_number: Order Number
+  order_print: Print
   ordered: Ordered
   ordered_on: Ordered On
   orders: Orders
