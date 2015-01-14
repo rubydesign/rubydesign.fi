@@ -41,7 +41,9 @@ module OfficeHelper
   end
   
   def shipping_method name
-    OfficeClerk::ShippingMethod.method(name)
+    method = OfficeClerk::ShippingMethod.method(name)
+    method = OfficeClerk::ShippingMethod.all.first    unless method
+    method
   end
   
   def markdown text
