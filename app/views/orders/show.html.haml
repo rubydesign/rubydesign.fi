@@ -20,7 +20,8 @@
               = t(:customer)
             = @order.name
             %br
-            = @order.street + ", " + @order.city
+            = @order.street 
+            = @order.city
             %br
             = @order.email.to_s
             %br

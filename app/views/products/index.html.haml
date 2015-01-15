@@ -19,7 +19,7 @@
 .row
   .col-md-9
     %div
-      %table.table-striped.table-bordered.table-condensed
+      %table.table.table-condensed
         %thead
           %tr
             %th=t( "picture")
@@ -44,8 +44,8 @@
               %td.name
                 = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name
-              %td.price=euros(product.price)
-              %td.price=euros(product.cost)
+              %td.price.text-right=euros(product.price)
+              %td.price.text-right=euros(product.cost)
               %td.supplier
                 =product.supplier.supplier_name if product.supplier
                 %br

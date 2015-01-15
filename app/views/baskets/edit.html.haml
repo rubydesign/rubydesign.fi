@@ -15,7 +15,7 @@
       = select_tag("discount" , options_for_select( ["",0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => "window.location.href='#{discount_basket_path(@basket)}?discount=' + this.value")
 .row
   = form_for(@basket) do |f|
-    %table.table.table-striped.table-bordered.table-condensed
+    %table.table.table-hover.table-condensed
       %thead
         %tr
           %th= t(:picture)
