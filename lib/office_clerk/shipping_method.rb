@@ -8,9 +8,17 @@ module OfficeClerk
     end
     attr_reader :data , :name , :type , :description
 
+    # the relevant interface for a shipping method is 
+    # a) whether it applies to the order (basket) : available?
+    # b) how much sendin costs, price_for(basket)
     def price_for(basket)
       raise "Not implemented in #{self}"
     end
+    def available?(basket)
+      true
+    end
+
+    ## class stuff after here, global list etc
     @@methods = nil
     def self.all
       return @@methods if @@methods 
@@ -39,6 +47,9 @@ module OfficeClerk
     end
     def price_for(basket)
       0.0
+    end
+    def available?(basket)
+      true
     end
   end
 end
