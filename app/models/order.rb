@@ -67,6 +67,7 @@ class Order < ActiveRecord::Base
     calc = OfficeClerk::ShippingMethod.all[typ.to_sym]
     cost = calc.price_for(self.basket)
     self.shipment_price = cost
+    self.shipment_tax = OfficeClerk.config("defaults.tax").to_f rescue 0
   end
 
   private

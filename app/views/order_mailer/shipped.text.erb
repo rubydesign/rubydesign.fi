@@ -1,6 +1,7 @@
 Hyvä asiakkaamme,
 
-Tilauksesi <%= @order.number %> on postitettu <%= date(@order.shipped_on) %>.
+Tilauksesi <%= @order.number %> on kuitattu maksetuksi ja 
+tilaus on postitettu <%= date(@order.shipped_on) %>.
 
 <% unless @order.shipment_info.blank? %>
 Postin seurantatunnus on <%=@order.shipment_info%>

@@ -145,7 +145,7 @@ fi:
   order_number: Tilausnumero
   order_print: Tulosta
   ordered: Tilattu
-  ordered_on: Tilattu
+  ordered_on: Tilauspäivä
   orders: Tilaukset
   paid: Maksa
   paid_on: Maksettu
@@ -172,7 +172,7 @@ fi:
   select: Valitse
   ship: Lähetä
   shipment_info: Lähetyksen koodi
-  shipment_price: Lähetyksen hinta
+  shipment_price: Toimitus sis alv
   shipment_type: Toimitustapa
   shipped_on: Lähetetty
   shop: Kauppa
