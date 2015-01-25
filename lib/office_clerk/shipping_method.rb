@@ -28,10 +28,10 @@ module OfficeClerk
         begin
           clas_name = method[:class]
           clas = clas_name.constantize
-          @@methods[key] = clas.new( method.merge(:type => key) )
         rescue
           puts "No such Class #{method[:class]}, check config.yml"
         end
+        @@methods[key] = clas.new( method.merge(:type => key) )
       end
       @@methods
     end
