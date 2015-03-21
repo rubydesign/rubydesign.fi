@@ -45,8 +45,8 @@ The longer route, adding to existing project
 
 If you got this far and still have question , mail me, or mail the [list](https://groups.google.com/forum/#!forum/rubyclerks)
 
-Check the [User Guide](http://rubyclerks.org/user_guide/01_index.html).
-I will start writing Developer guide soon, your question will help. Off course your help will help even more :-)
+Check the [User Guide](http://rubyclerks.org/user_guide/01_index.html), 
+then the [Developer Guide](http://rubyclerks.org/developer_guide/01_index.html).
 
 Fill issues if you find, or discuss with me for ideas.
 
