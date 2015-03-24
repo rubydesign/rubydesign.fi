@@ -30,7 +30,7 @@
                 -unless order.note.blank?
                   %span.glyphicon.glyphicon-flag
               %td.text-right= date(order.ordered_on)
-              %td.text-right= order.basket.items.length
+              %td.text-right= order.basket.items.length rescue "basket #{order.id}"
               %td.text-right= link_to euros(order.total_price),  basket_path(order.basket)
               %td.email= order.email
               %td.text-right= date(order.paid_on)
