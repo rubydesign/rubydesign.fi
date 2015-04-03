@@ -14,6 +14,9 @@ FactoryGirl.define do
         prod.category = cat
         prod.save!
       end
+      factory :shop_product_without_inventory do
+        inventory 0
+      end
     end
     factory :product_line do
       after(:create) do |prod| 

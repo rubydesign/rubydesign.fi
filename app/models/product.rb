@@ -30,15 +30,17 @@ class Product < ActiveRecord::Base
   scope :online, -> { where(:online => true) }
   scope :no_items, -> { where(:product_id => nil) }
   scope :with_inventory, -> { where("inventory > 0") }
-  scope :shop_products , -> { online.no_items.with_inventory }
+  # some shops may wish to add .with_inventory to the scope, but that means users can't see the page
+  # and for products you carry regularly that is not desirable. The Product page checks, and the controller
+  scope :shop_products , -> { online.no_items }
 
   validates :price, :numericality => true
   validates :cost, :numericality => true
   validates :name, :presence => true
-  validates :deleted_on , :absence => true , :if => "inventory > 0"
+  validates :deleted_on , :absence => true , :if => :has_inventory?
 
   before_save :check_attributes
-  before_save :adjust_cost
+  before_save :fix_cost
   after_save :update_line_inventory , :if => :product_id
   after_save :check_parent_ean , :if => :product_id
 
@@ -72,16 +74,17 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def adjust_cost
-    if self.cost == 0.0
-      self.cost = self.price / 2
-    end
+  def has_inventory?
+    self.inventory > 0
   end
-
+  # has the product been deleted (marked as deleted)
   def deleted?
     not deleted_on.blank?
   end
 
+  # deleting sets the deleted_on flag to today
+  # Products can not be deleted because of the risk of invalidating old orders
+  # to actually remove a product from the db, use the console
   def delete
     self.deleted_on = Date.today
     self.link = ""
@@ -103,15 +106,19 @@ class Product < ActiveRecord::Base
   def line?
     !product_item? and !products.empty?
   end
+
   # this product is an item of a product line (so is sellable)
   def product_item?
     self.product_id != nil
   end
+
   # only products and product items are sellable. in other words if it's not a line
   def sellable?
     !line?
   end
 
+  # full name, or display name, is the name for a product, 
+  # and the concatination of the parents name and the name, for product items
   def full_name
     if product_item?
       product.name + " : " + self.name
@@ -123,5 +130,12 @@ class Product < ActiveRecord::Base
   def new_product_item
     Product.new :tax => self.tax , :weight => self.weight , :cost => self.cost ,  :product_id => self.id , 
         :supplier_id => self.supplier_id , :category_id => self.category_id , :price => self.price
+  end
+
+  private
+  def fix_cost
+    if self.cost == 0.0
+      self.cost = self.price / 2
+    end
   end
 end
