@@ -25,9 +25,5 @@ module OfficeClerk
       BestInPlace::ViewHelpers.extend OfficeHelper
     end
 
-    config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '150x150>', :product  => '600x600>' },
-                                :default_style => :list,
-                                :url => "/images/:id/:style/:basename.:extension",
-                                :default_url => "/assets/" + ActionController::Base.helpers.asset_path('missing_:style.png')      }
   end
 end
