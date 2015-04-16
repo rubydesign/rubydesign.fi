@@ -12,6 +12,7 @@ module OfficeClerk
     end
 
     config.i18n.enforce_available_locales = false
+    config.i18n.available_locales = [:fi , :en , :config]
     config.i18n.default_locale = :fi
     # for testing this makes engine factories available
     initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
@@ -27,6 +28,6 @@ module OfficeClerk
     config.paperclip_defaults =  {  :styles => {:thumb => '48x48>', :list => '150x150>', :product  => '600x600>' },
                                 :default_style => :list,
                                 :url => "/images/:id/:style/:basename.:extension",
-                                :default_url => "/images/missing/:style.png"      }
+                                :default_url => "/assets/" + ActionController::Base.helpers.asset_path('missing_:style.png')      }
   end
 end
