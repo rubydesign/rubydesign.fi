@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe "Basket totals" do
   let(:basket) { create :basket_2_items }
-  
+
   it "creates proper quantities" do
     basket = create :basket_3_items
+    expect(basket.items.length).to eq 3
   end
   it "updates total on add" do
     items = basket.items
@@ -24,5 +25,9 @@ describe "Basket totals" do
     basket.items.delete basket.items.last
     basket.save!
     expect(basket.items.length).to be  1
+  end
+  it "zeros basket" do
+    basket.zero_prices!
+    expect(basket.total_price).to eq 0.0
   end
 end

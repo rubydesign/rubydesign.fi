@@ -2,7 +2,7 @@ OfficeClerk::Engine.routes.draw do
 
   get "sign_out" => "sessions#sign_out"
   get "sign_in"  => "sessions#sign_in"
-  post "create_session"  => "sessions#create" 
+  post "create_session"  => "sessions#create"
   match "sign_up" => "sessions#sign_up" , :via => [:get ,:post]
 
   resources :purchases do
@@ -26,6 +26,7 @@ OfficeClerk::Engine.routes.draw do
       get :order
       get :purchase
       get :checkout
+      get :zero
     end
   end
 
@@ -90,5 +91,5 @@ OfficeClerk::Engine.routes.draw do
   end
 
   get "manage/all" => "manage#all"
-    
+
 end

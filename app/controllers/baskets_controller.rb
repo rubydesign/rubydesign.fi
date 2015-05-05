@@ -2,8 +2,8 @@
 class BasketsController < AdminController
   include BasketsHelper
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order , 
-                                        :checkout, :purchase , :discount , :ean]
+  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order ,
+                                        :checkout, :purchase , :discount , :ean , :zero]
 
   def index
     @q = Basket.search( params[:q] )
@@ -28,6 +28,11 @@ class BasketsController < AdminController
 
   def show
     gon.basket_id = @basket.id
+  end
+
+  def zero
+    @basket.zero_prices!
+    render :edit
   end
 
   #as an action this order is meant as a verb, ie order this basket
@@ -61,11 +66,11 @@ class BasketsController < AdminController
   def discount
     if discount = params[:discount]
       if i_id = params[:item]
-        item = @basket.items.find { |item| item.id.to_s == i_id }
+        item = @basket.items.find { |it| it.id.to_s == i_id }
         item_discount( item , discount )
       else
-        @basket.items.each do |item|
-          item_discount( item , discount )
+        @basket.items.each do |it|
+          item_discount( it , discount )
         end
       end
       @basket.save!
@@ -89,12 +94,12 @@ class BasketsController < AdminController
         @basket.add_product prod
       else
         # stor the basket in the session ( or the url ???)
-        redirect_to :action => :index, :controller => :products, 
+        redirect_to :action => :index, :controller => :products,
               :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
         return
       end
     end
-    redirect_to :action => :edit    
+    redirect_to :action => :edit
   end
 
   def edit
@@ -142,10 +147,10 @@ class BasketsController < AdminController
   def redirect_if_locked
     if @basket.locked?
       flash.notice = t('basket_locked')
-      redirect_to :action => :show 
+      redirect_to :action => :show
       return true
     end
-    return false 
+    return false
   end
 
   def item_discount item , discount
@@ -163,4 +168,3 @@ class BasketsController < AdminController
     params.require(:basket).permit( :items_attributes => [:quantity , :price , :id] )
   end
 end
-

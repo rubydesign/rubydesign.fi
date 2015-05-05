@@ -131,6 +131,7 @@ fi:
   name_contains: Nimi sisältää
   new: Uusi
   new_item: Uusi tuote tuotelinjalle
+  nolla: Nolla hinnat
   not_online: ei netissä
   note: Muistiinpano
   online: Netissä

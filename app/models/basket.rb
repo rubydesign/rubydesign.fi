@@ -84,6 +84,15 @@ class Basket < ActiveRecord::Base
     self.receive!
   end
 
+  # set all items prices to zero
+  def zero_prices!
+    raise "Locked since #{self.locked}" if locked?
+    self.items.each do |item|
+      item.price = 0.0
+    end
+    self.save!
+  end
+
   def isa typ
     self.kori_type.to_s.downcase == typ.to_s.downcase && self.kori_id != nil
   end

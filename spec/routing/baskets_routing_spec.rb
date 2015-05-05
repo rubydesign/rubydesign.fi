@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe BasketsController do
  routes { OfficeClerk::Engine.routes }
-  
+
   describe "routing" do
 
     it "routes to #index" do
@@ -19,6 +19,10 @@ describe BasketsController do
 
     it "routes to #edit" do
       expect(get("/baskets/1/edit")).to route_to("baskets#edit", :id => "1")
+    end
+
+    it "routes to #zero" do
+      expect(get("/baskets/1/zero")).to route_to("baskets#zero", :id => "1")
     end
 
     it "routes to #create" do

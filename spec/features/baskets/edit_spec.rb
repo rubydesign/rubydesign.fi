@@ -38,6 +38,11 @@ describe "edit baskets" do
     visit discount_basket_path(basket , :discount => "10")
     expect_basket_total total * 0.9
   end
+  it "zeros basket" do
+    basket = create :basket_with_item
+    visit zero_basket_path(basket)
+    expect_basket_total 0.0
+  end
   it "discounts item" do
     basket = create :basket_2_items
     total = basket.total_price - basket.items.first.price*0.1

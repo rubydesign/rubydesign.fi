@@ -69,5 +69,7 @@
           = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "btn btn-primary to_purchase"
       .col-md-2
         = link_to t(:destroy) , basket_path(@basket), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @basket.locked? or @basket.kori
+      .col-md-2
+        = link_to t(:nolla) , zero_basket_path(@basket), :class => "btn btn-danger" unless @basket.locked?
       .col-md-1
         = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
