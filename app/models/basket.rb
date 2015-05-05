@@ -26,7 +26,7 @@ class Basket < ActiveRecord::Base
     self.total_price = (items.to_a.sum{ |i| i.total }).round(2)
     self.total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
   end
-  
+
   def touch
     cache_total
     super
@@ -44,7 +44,7 @@ class Basket < ActiveRecord::Base
 
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
   # also we change the price to the products cost price
-  # locks the basket so receiving or deductiing becomes an error.
+  # locks the basket so receiving or deducting becomes an error.
   def receive!
     raise "Locked since #{self.locked}" if locked?
     sum = 0
@@ -61,8 +61,8 @@ class Basket < ActiveRecord::Base
     sum
   end
 
+  # deduct the items from inventory, change affects immediately in the products
   # locks the basket so receiving or deducting becomes an error.
-  # deduct the items from inventory, change affects immediately in the products 
   def deduct!
     raise "Locked since #{self.locked}" if locked?
     sum = 0
@@ -77,8 +77,8 @@ class Basket < ActiveRecord::Base
     sum
   end
 
-  #inventoying the basket means setting the item quantity as the stock
-  #we actually change the basket for it to be a relative change (so as to look like a receive)
+  # inventorying the basket means setting the item quantity as the stock
+  # we actually change the basket for it to be a relative change (so as to look like a receive)
   def inventory!
     self.items.each { |item| item.quantity -= item.product.inventory  }
     self.receive!
@@ -94,7 +94,7 @@ class Basket < ActiveRecord::Base
     ss.delete(nil)
     ss
   end
-  
+
   #when adding a product (with quantity) we ensure there is only one item for each product
   def add_product prod , quant = 1
     return unless prod
@@ -104,7 +104,7 @@ class Basket < ActiveRecord::Base
     if exists
       exists.quantity += quant
     else
-      exists = items.new :quantity => quant , :product => prod , :price => prod.price , 
+      exists = items.new :quantity => quant , :product => prod , :price => prod.price ,
                          :tax => prod.tax , :name => prod.full_name
     end
     if( exists.quantity == 0)
