@@ -173,7 +173,7 @@ fi:
   select: Valitse
   ship: Lähetä
   shipment_info: Lähetyksen koodi
-  shipment_price: Toimitus sis alv
+  shipment_price: Toimituskulut
   shipment_type: Toimitustapa
   shipped_on: Lähetetty
   shop: Kauppa
