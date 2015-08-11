@@ -13,6 +13,7 @@ class PurchasesController < AdminController
   end
 
   def show
+    gon.purchase_id = @purchase.id
   end
 
   # order this from supplier
@@ -67,11 +68,13 @@ class PurchasesController < AdminController
     end
   end
 
-  private
+  protected
 
   def load_purchase
     @purchase = Purchase.where( :id => params[:id]).includes( :basket => {:items => {:product => :supplier}} ).first
   end
+
+  private
 
   def params_for_model
     params.require(:purchase).permit(:name,:ordered_on,:received_on,:basket_id)
