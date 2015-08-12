@@ -32,7 +32,6 @@
 .row
   .col-md-1
     = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
-  .col-md-1
     = link_to t(:back), purchases_path, :class => "btn btn-warning"
 
 -unless @purchase.received_on
@@ -40,4 +39,8 @@
     = t(:inventory)
     %br
     = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary btn-danger inventory_link", :data => { :confirm => t(:are_you_sure) }
- 
+
+.row
+  %br
+  .col-md-12
+    .purchase_show_last
