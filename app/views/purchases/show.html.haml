@@ -32,7 +32,6 @@
 .row
   .col-md-1
     = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
-  .col-md-1
     = link_to t(:back), purchases_path, :class => "btn btn-warning"
 
 -unless @purchase.received_on
@@ -43,7 +42,5 @@
 
 .row
   %br
-  %b= t(:order_print)
   .col-md-12
     .purchase_show_last
-      tralala
