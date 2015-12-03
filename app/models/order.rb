@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   validates :city,  :presence => true , :if => :needs_address?
   validates :phone, :presence => true , :if => :needs_address?
   validates :email, :presence => true , :email => {:ban_disposable_email => true, :mx_with_fallback => true }
-  
+
   default_scope { order('created_at DESC')}
 
   # many a european goverment requires buisnesses to have running order/transaction numbers.
@@ -36,7 +36,7 @@ class Order < ActiveRecord::Base
     basket.total_tax + shipment_tax_value
   end
 
-  # return a hash of rate => amount , because products may have different taxes, 
+  # return a hash of rate => amount , because products may have different taxes,
   # the items in an order may have a collection of tax rates.
   def taxes
     cart = basket.taxes
@@ -44,13 +44,21 @@ class Order < ActiveRecord::Base
     cart[self.shipment_tax] += shipment_tax_value if self.shipment_tax and self.shipment_tax != 0
     cart
   end
-  
+
   def pay_now
     self.paid_on = Date.today
   end
   def ship_now
     self.shipped_on = Date.today
   end
+
+  # go back to edit mode, but return inventiry and zero shipped
+  def unlock!
+    self.shipped_on = nil
+    self.basket.unlock_order!
+    self.save
+  end
+
   #quick checkout, ie ship (hand over) and pay (externally)
   def pos_checkout email
     self.ordered_on    = Date.today unless self.ordered_on

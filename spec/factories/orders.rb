@@ -15,8 +15,9 @@ FactoryGirl.define do
         shipped_on "2013-12-26"
         shipment_price 10.0
         shipment_tax 20.0
-        after(:create) do |o| 
+        after(:create) do |o|
           o.basket.locked = Date.today
+          o.save
         end
       end
     end

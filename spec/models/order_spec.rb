@@ -17,7 +17,7 @@ describe Order do
   it "doesnt save order with just mail" do
     expect(Order.new(:email => "torsten@villataika.fi").save).to eq false
   end
-  
+
   it "verification works" do
     o = Order.new attributes_for :order
     ok = o.save
@@ -53,4 +53,9 @@ describe Order do
   it "calculates total tax with shipping" do
     expect(shipped_order.total_tax).to eq 2.5767
   end
+
+  it "unlocks after shipping" do
+    expect(shipped_order.unlock!).to be true
+  end
+
 end

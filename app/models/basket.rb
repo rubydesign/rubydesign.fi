@@ -47,15 +47,7 @@ class Basket < ActiveRecord::Base
   # locks the basket so receiving or deducting becomes an error.
   def receive!
     raise "Locked since #{self.locked}" if locked?
-    sum = 0
-    self.items.each do |item|
-      prod = item.product
-      prod.inventory = prod.inventory + item.quantity
-      prod.save!
-      sum += item.quantity
-      item.price = item.product.cost
-#      item.save!
-    end
+    sum = do_receive(true) # change the prices
     self.locked = Date.today
     self.save!
     sum
@@ -75,6 +67,14 @@ class Basket < ActiveRecord::Base
     self.locked = Date.today
     self.save!
     sum
+  end
+
+  # return inventory and unlock basket
+  # very similar to receive, just we don't change prices (and don't lock)
+  def unlock_order!
+    self.locked = nil
+    do_receive(false) #don't change prices
+    self.save!
   end
 
   # inventorying the basket means setting the item quantity as the stock
@@ -123,5 +123,17 @@ class Basket < ActiveRecord::Base
       exists.save!
     end
     reload
+  end
+  private
+  def do_receive change_prices
+    sum = 0
+    self.items.each do |item|
+      prod = item.product
+      prod.inventory = prod.inventory + item.quantity
+      prod.save!
+      sum += item.quantity
+      item.price = item.product.cost if change_prices
+    end
+    sum
   end
 end

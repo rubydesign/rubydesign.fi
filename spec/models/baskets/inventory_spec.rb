@@ -23,12 +23,19 @@ describe "Basket inventory" do
     basket = create :basket_2_items
     expect(basket.receive!).to be 3
     expect(basket.locked).not_to be nil
-    expect { basket.receive! }.to raise_error 
+    expect { basket.receive! }.to raise_error
   end
   it "locks after deduct" do
     basket = create :basket_2_items
     basket.deduct!
     expect(basket.locked).not_to be nil
-    expect { basket.deduct! }.to raise_error 
+    expect { basket.deduct! }.to raise_error
+  end
+  it "unlock order" do
+    basket = create :basket_2_items
+    basket.deduct!
+    basket.unlock_order!
+    expect(basket.locked).to be nil
+    expect(basket.deduct!).to be 3 
   end
 end
