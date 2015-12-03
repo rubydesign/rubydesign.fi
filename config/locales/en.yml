@@ -198,6 +198,8 @@ en:
   total: Total
   total_price: Total Price
   total_tax: Taxes
+  unlock: Unlock
+  unlock_confirmation: Unlocking will return stock and zero shipment and payment dates.
   update: Update
   update_success: Successfully updated
   vat: Vat

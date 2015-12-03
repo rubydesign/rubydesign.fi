@@ -1,7 +1,8 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [:show, :edit, :destroy, :update , :pay ,:ship, :shipment , :mail]
+  before_filter :load_order, :only => [ :show, :edit, :destroy, :update , :unlock,
+                                        :ship, :shipment ,  :pay , :mail]
 
   def index
     @q = Order.search(params[:q])
@@ -30,21 +31,27 @@ class OrdersController < AdminController
   def pay
     @order.pay_now
     @order.save
-    render :show
+    return redirect_to order_path(@order), :notice => t(:update_success)
   end
 
   def ship
     @order.ship_now
     @order.basket.deduct!
     @order.save!
-    render :show
+    return redirect_to order_path(@order), :notice => t(:update_success)
+  end
+
+  # after many user mistakes we now let the user undo those, unlock to go back to edit
+  def unlock
+    @order.unlock!
+    return redirect_to order_path(@order), :notice => t(:update_success)
   end
 
   def shipment
     return if request.get?
     return redirect_to order_path(@order), :notice => t(:update_success) if @order.update_attributes(params_for_order)
   end
-  
+
   def edit
   end
 
@@ -68,7 +75,7 @@ class OrdersController < AdminController
       @order.destroy
       flash.notice = t(:order) + " " + t(:deleted)
     end
-    redirect_to orders_url 
+    redirect_to orders_url
   end
 
   private
@@ -81,4 +88,3 @@ class OrdersController < AdminController
     params.require(:order).permit(:payment_info,:shipment_info,:shipment_price,:shipment_tax,:shipment_type, :note , :name ,:street, :city , :phone , :email)
   end
 end
-

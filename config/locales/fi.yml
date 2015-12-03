@@ -198,6 +198,8 @@ fi:
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot
+  unlock: Avaa
+  unlock_confirmation: Avaaminen palauta inventaario, ja nolla lähetyksen päivä.
   update: Päivitä
   update_success: Päivitetty onnistuneesti
   vat: Alv

@@ -3,69 +3,69 @@
     = t(:order) + " : " + @order.number.to_s
     - unless @order.canceled_on.blank?
       = t(:canceled_on) + " : " + date(@order.canceled_on)
-    
+
 .row
   .col-md-7
     %table.table.table-condensed.no-bg.no-border
       %tbody
         %tr
           %td
-            %b 
+            %b
               = t(:ordered_on) + " : "
             = date(@order.ordered_on)
           %td
         %tr
           %td
-            %b 
+            %b
               = t(:customer)
             = @order.name
             %br
-            = @order.street 
+            = @order.street
             = @order.city
             %br
             = @order.email.to_s
             %br
             = @order.phone.to_s
-        
+
           %td
-            %b 
+            %b
               = t(:shipment_type) + " : "
             = @order.shipment_type
-            %br  
-            %br  
-              
+            %br
+            %br
+
             = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
-        
+
         %tr
           %td
-            %b 
+            %b
               = t(:paid_on) + ":"
-            \  
+            \
             -if @order.paid_on
               = date(@order.paid_on)
             -else
               = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
-        
+
           %td
-            %b 
+            %b
               = t(:shipped_on) + " : "
             -unless(@order.shipped_on.blank?)
               =date(@order.shipped_on)
             -else
               = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
-              
+
         %tr
           %td
             \
           %td
             \
-              
+
 
   .col-md-1
   .col-md-4
     %p
       %b= t(:note)
-      = in_place @order , :note, :as => :textarea 
+      = in_place @order , :note, :as => :textarea
     %p
       %b= t(:shipment_info)
       = in_place @order , :shipment_info
@@ -75,7 +75,7 @@
 
 -content_for :basket do
   %tr
-    %td 
+    %td
     %td
     %td
       %b= t(:total_tax) + " : "
@@ -101,25 +101,27 @@
 
 .row
   %br
-  
+
   .col-md-5
     %b= t(:order_actions)
     %br
-    
+
     = link_to t(:back), orders_path, :class => "btn btn-warning"
     \ 
     = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket" unless @order.basket.locked?
-    \     
-    = link_to t(:destroy) , order_path(@order), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil? and @order.paid_on.nil?
+    \ 
+    = link_to t(:unlock), unlock_order_path(@order), :data =>{:confirm => t(:unlock_confirmation )} , :class => "btn btn-danger unlock_order" if @order.basket.locked?
+    \ 
+    = link_to t(:destroy) , order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil? and @order.paid_on.nil?
 
   .col-md-2
-  .col-md-5 
+  .col-md-5
     %b= t(:order_mail)
     %br
     - mail_actions.each do |action|
       = link_to t("order_button.#{action}") , mail_order_path( @order , :act => action) , :class => "btn btn-info"
-      \     
-      
+      \ 
+
 
 .row
   %br
