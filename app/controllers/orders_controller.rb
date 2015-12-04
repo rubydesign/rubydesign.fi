@@ -31,7 +31,7 @@ class OrdersController < AdminController
   def pay
     @order.pay_now
     @order.save
-    return redirect_to order_path(@order), :notice => t(:update_success)
+    return redirect_to orders_path , :notice => t(:update_success) + ":#{@order.number}"
   end
 
   def ship

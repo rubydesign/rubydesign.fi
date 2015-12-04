@@ -72,6 +72,12 @@
     %p
       %b= t(:payment_info)
       = in_place @order , :payment_info
+    %p
+      %br
+      %br
+      %br
+      %b= t(:total_price) + " : " + euros(@order.total_price)
+
 
 -content_for :basket do
   %tr
