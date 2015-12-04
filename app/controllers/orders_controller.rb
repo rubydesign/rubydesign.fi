@@ -1,7 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
 
-  before_filter :load_order, :only => [ :show, :edit, :destroy, :update , :unlock,
+  before_filter :load_order, :only => [ :show, :edit, :destroy, :update , :cancel,
                                         :ship, :shipment ,  :pay , :mail]
 
   def index
@@ -41,9 +41,9 @@ class OrdersController < AdminController
     return redirect_to order_path(@order), :notice => t(:update_success)
   end
 
-  # after many user mistakes we now let the user undo those, unlock to go back to edit
-  def unlock
-    @order.unlock!
+  # after many user mistakes we now let the user undo those, cancel to go back to edit
+  def cancel
+    @order.cancel!
     return redirect_to order_path(@order), :notice => t(:update_success)
   end
 

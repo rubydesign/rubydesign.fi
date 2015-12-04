@@ -53,9 +53,9 @@ class Order < ActiveRecord::Base
   end
 
   # go back to edit mode, but return inventiry and zero shipped
-  def unlock!
+  def cancel!
     self.shipped_on = nil
-    self.basket.unlock_order!
+    self.basket.cancel_order!
     self.save
   end
 

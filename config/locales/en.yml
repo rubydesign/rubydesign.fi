@@ -78,10 +78,11 @@ en:
   back: Back
   basket: Basket
   basket_empty: Basket is empty
-  basket_locked: Basket is locked, unlock to change
+  basket_locked: Basket is locked, cancel to change
   baskets: Baskets
   blanks: Blanks
   cancel: Cancel
+  cancel_confirmation: Cancelling will return stock and zero shipment date. You can then delete the order or keep editing.
   canceled_on: Canceled on
   categories: Product Categories
   category: Product Category
@@ -198,8 +199,6 @@ en:
   total: Total
   total_price: Total Price
   total_tax: Taxes
-  unlock: Unlock
-  unlock_confirmation: Unlocking will return stock and zero shipment and payment dates.
   update: Update
   update_success: Successfully updated
   vat: Vat

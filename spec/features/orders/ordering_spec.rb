@@ -42,10 +42,10 @@ describe "Orders" do
     find(".edit_basket").click
     ensure_path edit_basket_path(order.basket)
   end
-  it "can unlock shipped order and edit" do
+  it "can cancel shipped order and edit" do
     order = create(:order_shipped)
     visit_path order_path(order)
-    find(".unlock_order").click
+    find(".cancel_order").click
     find(".edit_basket").click
     ensure_path edit_basket_path(order.basket)
   end

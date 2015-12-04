@@ -39,7 +39,7 @@ OfficeClerk::Engine.routes.draw do
       get :pay
       get :shipment
       get :ship
-      get :unlock
+      get :cancel
       patch :shipment
     end
   end

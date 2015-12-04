@@ -54,8 +54,8 @@ describe Order do
     expect(shipped_order.total_tax).to eq 2.5767
   end
 
-  it "unlocks after shipping" do
-    expect(shipped_order.unlock!).to be true
+  it "cancels after shipping" do
+    expect(shipped_order.cancel!).to be true
   end
 
 end

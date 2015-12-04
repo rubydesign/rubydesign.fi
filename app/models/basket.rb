@@ -69,9 +69,9 @@ class Basket < ActiveRecord::Base
     sum
   end
 
-  # return inventory and unlock basket
+  # return inventory and cancel basket
   # very similar to receive, just we don't change prices (and don't lock)
-  def unlock_order!
+  def cancel_order!
     self.locked = nil
     do_receive(false) #don't change prices
     self.save!

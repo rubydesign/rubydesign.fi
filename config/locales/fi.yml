@@ -82,6 +82,7 @@ fi:
   baskets: Ostoskorit
   blanks: Tyhjät
   cancel: Peruuta
+  cancel_confirmation: Peruuminen palauta inventaario, ja nolla lähetyksen päivä.
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
@@ -198,8 +199,6 @@ fi:
   total: yhteensä
   total_price: Yhteensä
   total_tax: Verot
-  unlock: Avaa
-  unlock_confirmation: Avaaminen palauta inventaario, ja nolla lähetyksen päivä.
   update: Päivitä
   update_success: Päivitetty onnistuneesti
   vat: Alv

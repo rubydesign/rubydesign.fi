@@ -31,10 +31,10 @@ describe "Basket inventory" do
     expect(basket.locked).not_to be nil
     expect { basket.deduct! }.to raise_error
   end
-  it "unlock order" do
+  it "cancel order" do
     basket = create :basket_2_items
     basket.deduct!
-    basket.unlock_order!
+    basket.cancel_order!
     expect(basket.locked).to be nil
     expect(basket.deduct!).to be 3 
   end
