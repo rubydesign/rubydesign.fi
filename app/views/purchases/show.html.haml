@@ -8,7 +8,7 @@
   .col-md-3
     %p
       %b
-        = t(:ordered_on) + " : " 
+        = t(:ordered_on) + " : "
         -if @purchase.ordered_on
           = date(@purchase.ordered_on)
         -else
@@ -16,7 +16,7 @@
   .col-md-3
     %p
       %b
-        = t(:received_on) + " : " 
+        = t(:received_on) + " : "
         -if @purchase.received_on
           = date(@purchase.received_on)
         -else
@@ -30,8 +30,11 @@
 = render "baskets/small" , :basket => @purchase.basket
 
 .row
-  .col-md-1
+  .col-md-5
+    %b= t(:order_actions)
+    %br
     = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+    \ 
     = link_to t(:back), purchases_path, :class => "btn btn-warning"
 
 -unless @purchase.received_on

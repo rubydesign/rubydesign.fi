@@ -48,6 +48,7 @@ en:
         online: online
         price: Price
         scode: Supplier code
+        stock_level: Stock aim
         summary: Summary
         supplier: Suppier
         tax: Tax rate
@@ -186,6 +187,7 @@ en:
   signed_in: Logged in
   signed_out: Logged out
   signed_up: Signed up
+  stock_level: Stock aim
   street: Street
   street1: Street1
   street2: Street2

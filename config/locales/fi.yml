@@ -49,6 +49,7 @@ fi:
         price: Hinta
         scode: Tuottajatunnus
         summary: Yhteenveto
+        stock_level: Haluttu Inventaario
         supplier: Tuottaja
         tax: Veroprosentti
         weight: Paino
@@ -186,6 +187,7 @@ fi:
   signed_in: Sisäänkirjautunut
   signed_out: Uloskirjautunut
   signed_up: Tili luottu
+  stock_level: Haluttu Inventaario
   street: Osoite
   street1: Osoite1
   street2: Osoite2
