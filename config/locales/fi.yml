@@ -113,7 +113,6 @@ fi:
   filter: Hae
   first_name: Etunimi
   fix_errors: Puuttuu tietoja
-  info: Info
   inventorized: Inventoitu
   inventory: Inventaario
   item_removed: Tuote poistettu
