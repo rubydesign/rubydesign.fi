@@ -14,6 +14,18 @@ describe "Orders" do
     find(".make_order").click
     ensure_path order_path(basket.reload.kori)
   end
+  it "creates order from order" do
+    order = create(:order_ordered)
+    order.name = "Tester Man"
+    order.save
+    email = order.email
+    visit_path order_path(order)
+    find(".copy_order").click
+    copy = Order.find order.id + 1
+    ensure_path edit_basket_path(copy.basket)
+    expect(copy.email).to eq email
+    expect(order.name).to eq copy.name
+  end
   it "ships an order" do
     order = create(:order_ordered)
     visit_path order_path(order)

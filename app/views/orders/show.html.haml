@@ -23,7 +23,7 @@
             = @order.street
             = @order.city
             %br
-            = @order.email.to_s
+            = link_to @order.email.to_s , search_orders_path( :"q[email_cont]" => @order.email )
             %br
             = @order.phone.to_s
 
@@ -35,6 +35,8 @@
             %br
 
             = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
+
+            = link_to t(:new) + ' ' + t(:order) , new_order_path( :address => @order.id) , :class => "btn btn-primary copy_order"
 
         %tr
           %td

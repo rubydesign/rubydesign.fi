@@ -17,6 +17,11 @@ class OrdersController < AdminController
   def new
     basket = Basket.create!
     @order = Order.new :email => current_clerk.email , :basket => basket , :ordered_on => Date.today
+    if( copy = params[:address])
+      order = Order.find copy
+      @order.email = order.email
+      @order.address = order.address
+    end
     @order.save!
     redirect_to edit_basket_path basket
   end
