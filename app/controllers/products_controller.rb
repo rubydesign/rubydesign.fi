@@ -39,6 +39,7 @@ class ProductsController < AdminController
       show = @product.product_item? ? @product.product : @product
       redirect_to product_path(show)
     else
+      flash.alert = t(:fix_errors, :model => "product")
       render :action => :edit
     end
   end
@@ -74,4 +75,3 @@ class ProductsController < AdminController
 )
   end
 end
-

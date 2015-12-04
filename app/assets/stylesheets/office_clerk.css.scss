@@ -38,14 +38,17 @@ a.online{
   color: green;
 }
 
-.alert-notice {
-  background-color: #00FFEB;
+.alert {
   padding: 8px;
   radius: $global-radius;
 }
 
-.alert-error {
-  background-color: red;
+.alert-notice {
+  background-color: #00FFEB;
+}
+
+.alert-alert {
+  background-color: #ff8080;
 };
 
 
@@ -55,7 +58,7 @@ body {
 
 .new-button {
   top: 15px;
-  text-align: right;  
+  text-align: right;
 }
 
 .strip {
@@ -80,7 +83,7 @@ ul.pagination li {
 ul.pagination li a{
   background-color: rgba(255, 255, 255, 0.9);
   }
-  
+
 .admin-table  {
 font-size: 0.5rem;
 
@@ -90,39 +93,39 @@ thead, tbody {  vertical-align: top;
 
 }
 
-.tausta { 
+.tausta {
   background: $tausta-bg;
   border-radius: 6px;
   padding-top: 6px;
   margin-bottom: 20px;
 }
 
-.products{ 
+.products{
   background: image-url('office_clerk/products-2.jpg') no-repeat;
 }
 
-.baskets{ 
+.baskets{
   background: image-url('office_clerk/baskets-2.jpg') no-repeat;
 }
 
-.orders{ 
+.orders{
   background: image-url('office_clerk/orders-2.jpg') no-repeat;
 }
 
-.purchases{ 
+.purchases{
   background: image-url('office_clerk/purchases-2.jpg') no-repeat;
   height: 161px;
 }
 
-.categories{ 
+.categories{
   background: image-url('office_clerk/categories-2.jpg') no-repeat;
 }
 
-.suppliers{ 
+.suppliers{
   background: image-url('office_clerk/suppliers-2.jpg') no-repeat;
 }
 
-.clerks{ 
+.clerks{
   background: image-url('office_clerk/clerks-2.jpg') no-repeat;
 }
 
@@ -132,7 +135,7 @@ thead, tbody {  vertical-align: top;
     position: relative;
     border: 1px solid #5BE7E2;
     box-shadow: 2px 2px 5px #E8EDF0;
-    overflow: hidden;	
+    overflow: hidden;
     width: 260px;
     }
 
@@ -161,8 +164,8 @@ thead, tbody {  vertical-align: top;
   	position: absolute;
   	bottom: 0;
   	right: 0;
-  }  
-    
+  }
+
   .product-fact {
     border-top: 1px solid #0078ff;
     background: rgba(255, 255, 255, 0.7);
@@ -174,11 +177,11 @@ thead, tbody {  vertical-align: top;
   .product-fact	p {
   	font-size: 1.2rem;
   	font-weight: 500;
-  	color: #000000; 
+  	color: #000000;
   	line-height: 110%;
   	margin-bottom: 3px;
   }
-  
+
   .product-list-price {
     color: #04617A;
     font-weight: 400;
@@ -187,8 +190,8 @@ thead, tbody {  vertical-align: top;
     position: absolute;
     bottom: 2px;
     right: 22px; }
-  
-}  
+
+}
 
 .no-bg {
   background: none;
@@ -197,4 +200,3 @@ thead, tbody {  vertical-align: top;
 .no-border td {
   border: none;
 }
-

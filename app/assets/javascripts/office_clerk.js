@@ -14,7 +14,7 @@ $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 $(function() {
    $( ".datepicker" ).datepicker( );
  });
- 
+
 function initPage(){
   // Add Error Form style with bootstrap
   $("div.form-group>div.field_with_errors").parent().addClass("error");
@@ -28,4 +28,6 @@ $(window).bind('page:change', function() {
 $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
+  /* and fading alerts */
+  jQuery(".alert").delay(5000).fadeOut("slow");
 });
