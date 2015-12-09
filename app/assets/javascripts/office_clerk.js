@@ -1,12 +1,12 @@
-//= require jquery
+//= require jquery.min
 //= require jquery_ujs
 //= require best_in_place
 
-//= require jquery-ui
+//= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-fi
 //= require best_in_place.jquery-ui
 
-//= require bootstrap
+//= require bootstrap.min
 //= require_self
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
