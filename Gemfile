@@ -10,6 +10,9 @@ gem "libv8" , "3.16.14.13"
 gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
 
+# those guys dropped 1.9 support, but i haven't
+gem "autoprefixer-rails" , '< 6.0' , :platform => [:ruby_19]
+
 group :development do
   gem 'better_errors' , :platforms=>[:mri_20, :mri_21, :rbx]
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21,:rbx]
