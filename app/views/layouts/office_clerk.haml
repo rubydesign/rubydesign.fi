@@ -21,8 +21,8 @@
             %a{href: "/"}= t(:shop)
           = render :partial => "layouts/admin_menu"
         %ul.nav.navbar-nav.navbar-right
-          %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
-          %li= link_to t(:sign_out), sign_out_path
+          %li= link_to current_clerk.email , office.edit_clerk_path(current_clerk)
+          %li= link_to t(:sign_out), office.sign_out_path
       = render "layouts/messages"
 
       = yield

@@ -5,7 +5,7 @@
         %h2= t(:categories)
         = paginate @categories
       .col-md-2
-        = link_to  t(:new) + ' ' + t(:category) , new_category_path , :class => "btn btn-primary"
+        = link_to  t(:new) + ' ' + t(:category) , office.new_category_path , :class => "btn btn-primary"
   .col-md-3
     = image_tag "office_clerk/categories.jpg" , :class => "img-responsive"
 .row
@@ -15,7 +15,7 @@
         %thead
           %tr
             %th=t( "picture")
-            %th= sort_link @q, :name
+            %th= sort_link [:office,@q], :name
             %th= t(:count)
             %th= t(:online)
             %th=t( "activerecord.attributes.category.category")
@@ -26,14 +26,14 @@
           - @categories.each do |category|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td.image= image_tag category.main_picture.url(:thumb)
-              %td=link_to category.name, category_path(category), :title => t(:show) , :class => category.online && "online"
+              %td=link_to category.name, office.category_path(category), :title => t(:show) , :class => category.online && "online"
               %td=category.products.length.to_s
               %td=category.online ? t(:online) : t(:not_online)
-              %td=link_to category.category.name, category_path(category.category) , :class => category.category.online && "online" if category.category
-              %td= link_to t(:edit), edit_category_path(category), :title => t(:edit)
+              %td=link_to category.category.name, office.category_path(category.category) , :class => category.category.online && "online" if category.category
+              %td= link_to t(:edit), office.edit_category_path(category), :title => t(:edit)
     = paginate @categories
   .col-md-3
-    = search_form_for @q, :url => search_categories_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
+    = search_form_for @q, :url => office.search_categories_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         .input-group
           = f.text_field :name_cont , :class => "form-control" , :placeholder =>  t(:name)
@@ -53,7 +53,7 @@
             =t(:blanks)
             = f.radio_button :description_blank , true
       = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
-      = link_to  t(:cancel), categories_path, :class => "btn btn-warning"
+      = link_to  t(:cancel), office.categories_path, :class => "btn btn-warning"
     %hr
     - @roots.each do |group|
       %ul.cat

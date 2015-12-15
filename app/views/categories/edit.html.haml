@@ -5,10 +5,10 @@
   - parents(@category).each do | group|
     %li
       - if group.id
-        = link_to group.name , category_path(group)
+        = link_to group.name , office.category_path(group)
       - else
         = t(:new)
-        
+
 = bootstrap_form_for(@category, :html => { :multipart => true }) do |f|
   .row.form-group
     .col-md-5
@@ -38,4 +38,3 @@
       = f.file_field :main_picture
     .col-md-4
       = f.file_field :extra_picture
-        

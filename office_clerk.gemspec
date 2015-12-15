@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.has_rdoc = false
 
   s.add_runtime_dependency 'rails', '~> 4.2', '< 5.0'
-  s.add_runtime_dependency 'ransack', '~> 1.5', '>= 1.5.1'
+  s.add_runtime_dependency 'ransack', '~> 1.7'
   s.add_runtime_dependency "valid_email" ,  '~> 0.0', '>= 0.0.10'
   s.add_runtime_dependency 'sass-rails' , '~> 5.0'
   s.add_runtime_dependency "haml" , '~> 4.0'

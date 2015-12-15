@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 describe "Sessions" do
+  
   it "redirect to sign in when accessing admin" do
     visit suppliers_path
     ensure_path sign_in_path
   end
   it "signs in with account" do
-    user = create :clerk 
+    user = create :clerk
     visit_path sign_in_path
     fill_in(:email , :with => user.email)
     fill_in(:password , :with => "password")
