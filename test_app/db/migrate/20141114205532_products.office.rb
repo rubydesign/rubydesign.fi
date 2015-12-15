@@ -3,9 +3,9 @@ class Products < ActiveRecord::Migration
     create_table :products do |t|
       t.float       :price      , :null => false
       t.string      :name       , :null => false
-      t.string      :link        
-      t.text        :description , :default => ""
-      t.text        :summary      , :default => ""
+      t.string      :link
+      t.text        :description
+      t.text        :summary      
       t.attachment  :main_picture
       t.attachment  :extra_picture
       t.boolean     :online ,       :default => false
