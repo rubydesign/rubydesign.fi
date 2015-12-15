@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.integer  "product_id"
     t.integer  "category_id"
     t.integer  "supplier_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"

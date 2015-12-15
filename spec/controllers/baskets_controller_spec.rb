@@ -12,7 +12,7 @@ describe BasketsController do
   # BasketsController. Be sure to keep this updated.
   before :all do
     create :admin  unless Clerk.where(:admin => true).first
-  end  
+  end
   let(:valid_session) { { :clerk_email => Clerk.where(:admin => true).first.email } }
 
   describe "GET index" do
@@ -80,7 +80,7 @@ describe BasketsController do
       it "redirects to the basket" do
         basket = create :basket
         put :update, {:id => basket.to_param, :basket => attributes_for(:basket)}, valid_session
-        expect(response).to redirect_to( :action => :edit , :id => basket.id)
+        expect(response).to redirect_to( edit_basket_path(basket))
       end
     end
 

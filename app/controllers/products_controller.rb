@@ -61,7 +61,7 @@ class ProductsController < AdminController
     if @product.save
       redirect_to products_url , :notice => t("deleted") + ": " + @product.full_name
     else
-      redirect_to product_url , :notice => "#{t(:error)} : #{t(:product_has_inventory)}"
+      redirect_to product_url(@product) , :notice => "#{t(:error)} : #{t(:product_has_inventory)}"
     end
   end
 

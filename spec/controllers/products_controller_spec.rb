@@ -10,7 +10,7 @@ describe ProductsController do
 
   before :all do
     create :admin  unless Clerk.where(:admin => true).first
-  end  
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -122,6 +122,7 @@ describe ProductsController do
   end
 
   describe "DELETE destroy" do
+    routes { OfficeClerk::Engine.routes }
     it "deletes the requested product" do
       product = create :product_without_inventory
       before = Product.count
