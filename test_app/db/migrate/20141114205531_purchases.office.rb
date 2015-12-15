@@ -6,7 +6,7 @@ class Purchases < ActiveRecord::Migration
       t.date :ordered_on
       t.date :received_on
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

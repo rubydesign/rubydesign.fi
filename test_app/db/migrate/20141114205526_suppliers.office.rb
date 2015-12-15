@@ -4,7 +4,7 @@ class Suppliers < ActiveRecord::Migration
     create_table :suppliers do |t|
       t.string      :supplier_name
       t.string      :address
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
