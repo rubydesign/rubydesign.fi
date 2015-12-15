@@ -12,7 +12,7 @@
             = t(:products)
           = paginate @products
       .col-md-2
-        = link_to  t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary"
+        = link_to  t(:new) + ' ' + t(:product) , office.new_product_path , :class => "btn btn-primary"
   .col-md-3
     = image_tag "office_clerk/products.jpg" , :class => "img-responsive"
 
@@ -23,15 +23,15 @@
         %thead
           %tr
             %th=t( "picture")
-            %th= sort_link @q, :ean
-            %th= sort_link @q, :name
-            %th= sort_link @q, :price
-            %th= sort_link @q, :cost
+            %th= sort_link [:office,@q], :ean
+            %th= sort_link [:office,@q], :name
+            %th= sort_link [:office,@q], :price
+            %th= sort_link [:office,@q], :cost
             %th
               =t(:supplier)
               %br
               =t(:category)
-            %th= sort_link @q, :inventory
+            %th= sort_link [:office,@q], :inventory
             %th
               %label.checkbox
                 = @product_scope.length.to_s + " " + t(:products)
@@ -42,7 +42,7 @@
               %td.image= image_tag product.main_picture.url(:thumb)
               %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
               %td.name
-                = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
+                = link_to office.product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name
               %td.price.text-right=euros(product.price)
               %td.price.text-right=euros(product.cost)
@@ -52,12 +52,12 @@
                 =product.category.name if product.category
               %td.inventory=product.inventory
               -if params[:basket]
-                %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
+                %td= link_to t(:add_to_basket) , office.edit_basket_path(:id => params[:basket] , :add => product.id)
               -else
-                %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
+                %td= link_to t(:edit) ,office.edit_product_path(product), :title => t(:edit)
     = paginate @products
   .col-md-3
-    = search_form_for @q, :url => search_products_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
+    = search_form_for @q, :url => office.search_products_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         .input-group
           - if params[:basket]
@@ -115,4 +115,4 @@
         .col-md-8
           = f.collection_select :category_id_eq, Category.all, :id, :name, {:include_blank => true}, :class=>"form-control"
       = f.submit t(:filter), :class => "btn btn-success" , :id => :filter
-      = link_to  t(:cancel), products_path, :class => "btn btn-warning"
+      = link_to  t(:cancel), office.products_path, :class => "btn btn-warning"

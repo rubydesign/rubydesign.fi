@@ -8,5 +8,5 @@
             -next unless product
             %td= image_tag product.main_picture.url(:thumb)
             %td
-              = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
+              = link_to office.product_path(product), :title => t(:show) , :class => product.online && "online" do
                 = product.full_name

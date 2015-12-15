@@ -14,10 +14,10 @@ module BasketsHelper
       case basket.kori
       when Order
         text += I18n.t(:order)
-        link = order_path(basket.kori)
+        link = office.order_path(basket.kori)
       when Purchase
         text += I18n.t(:purchase)
-        link = purchase_path(basket.kori)
+        link = office.purchase_path(basket.kori)
       else
         raise "System Error: Locked basket without order #{basket.id}"
       end
@@ -28,8 +28,8 @@ module BasketsHelper
       else
         text = t(:basket)
       end
-      link = edit_basket_path(basket)
+      link = office.edit_basket_path(basket)
     end
-    return link_to text , link , options 
+    return link_to text , link , options
   end
 end

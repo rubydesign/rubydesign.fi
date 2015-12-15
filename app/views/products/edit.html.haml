@@ -1,6 +1,6 @@
 = render "head"
-
-= bootstrap_form_for(@product, :html => { :multipart => true , :role=>"form"} ) do |f|
+- url = @product.persisted? ? office.product_path(@product) : office.products_path
+= bootstrap_form_for(@product, :html => { :multipart => true , :role=>"form"} , :url => url) do |f|
   = f.hidden_field( :product_id) if @product.product_id
   .row
     .col-md-8
@@ -42,6 +42,6 @@
         .col-md-8
           = f.submit :class => "btn btn-success"
           -if @product.product_id
-            = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
+            = link_to t(:cancel), office.product_path(@product.product), :class => "btn btn-warning"
           -else
-            = link_to t(:cancel), products_path, :class => "btn btn-warning"
+            = link_to t(:cancel), office.products_path, :class => "btn btn-warning"

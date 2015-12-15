@@ -1,26 +1,26 @@
-= bootstrap_form_for @order, :url => shipment_order_path do |f|
+= bootstrap_form_for @order, :url => office.shipment_order_path do |f|
   .row
     = f.alert_message t(:fix_errors) , error_summary: false
-    
+
   .row
     .col-md-8
       .row
         .col-md-9#address_form
-          %h4=t(:contact_details) 
+          %h4=t(:contact_details)
           = f.text_field :name , :placeholder => t(:name)
           = f.text_field :street , :placeholder => t(:street)
           = f.text_field :city , :placeholder => t(:city)
           = f.text_field :phone , :placeholder => t(:phone)
           = f.email_field :email, :placeholder => t(:email)
-          %hr  
+          %hr
           %button.btn.btn-primary.btn-lg#make_order{:type => "submit"}
-            =t(:update) 
-          
+            =t(:update)
+
         .col-md-3
     .col-md-4
       %h4
         =t(:choose_shipment)
-        = @order.shipment_type              
+        = @order.shipment_type
       - OfficeClerk::ShippingMethod.all.each_value do |s|
         -next unless s.available?(@order.basket)
         .radio
@@ -45,14 +45,13 @@
               %span#basket_total= @order.basket.total_price.round(2)
               €
         %tbody
-          %tr 
-            %th Toimituskulut 
+          %tr
+            %th Toimituskulut
             %td.text-right
               %span#shipping_cost= @order.shipment_price
               €
-          %tr 
+          %tr
             %th Tilaus yhteensä
             %th.text-right
               %span#order_total= @order.total_price.round(2)
               €
-    

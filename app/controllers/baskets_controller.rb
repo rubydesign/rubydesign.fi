@@ -41,7 +41,7 @@ class BasketsController < AdminController
       return render :edit , :notice => t(:basket_empty)
     end
     order = Order.create! :basket => @basket , :email => current_clerk.email , :ordered_on => Date.today
-    redirect_to :action => :show , :controller => :orders , :id => order.id
+    redirect_to order_path(order)
   end
 
   def purchase
@@ -54,7 +54,7 @@ class BasketsController < AdminController
       return
     end
     purchase = Purchase.create! :basket => @basket
-    redirect_to :action => :show , :controller => :purchases , :id => purchase.id
+    redirect_to office.purchase_path(purchase)
   end
 
   def new
@@ -77,7 +77,7 @@ class BasketsController < AdminController
     else
       flash[:error] = "No discount given"
     end
-    redirect_to :action => :edit
+    redirect_to office.edit_basket_path(@basket)
   end
 
   # ean search at the top of basket edit
@@ -94,12 +94,11 @@ class BasketsController < AdminController
         @basket.add_product prod
       else
         # stor the basket in the session ( or the url ???)
-        redirect_to :action => :index, :controller => :products,
-              :q => {"name_or_product_name_cont"=> ean},:basket => @basket.id
+        redirect_to office.products_path(:q => {"name_or_product_name_cont"=> ean},:basket => @basket.id)
         return
       end
     end
-    redirect_to :action => :edit
+    redirect_to office.basket_path(@basket)
   end
 
   def edit

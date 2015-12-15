@@ -5,33 +5,33 @@
         %h2= t(:orders)
         = paginate @orders
       .col-md-2
-        = link_to  t(:new) + ' ' + t(:order) , new_order_path , :class => "btn btn-primary new_order"
+        = link_to  t(:new) + ' ' + t(:order) , office.new_order_path , :class => "btn btn-primary new_order"
   .col-md-3
     = image_tag "office_clerk/orders.jpg" , :class => "img-responsive"
-    
+
 .row
   .col-md-9
     %div
       %table.table.table-hover.table-condensed
         %thead
           %tr
-            %th= sort_link @q, :number
-            %th.text-right= sort_link @q, :ordered_on
+            %th= sort_link [:office,@q], :number
+            %th.text-right= sort_link [:office,@q], :ordered_on
             %th.text-right= t(:items)
-            %th.text-right= sort_link @q, :basket_total_price
-            %th= sort_link @q, :email
-            %th.text-right= sort_link @q, :paid_on
-            %th.text-right= sort_link @q, :shipped_on
+            %th.text-right= sort_link [:office,@q], :basket_total_price
+            %th= sort_link [:office,@q], :email
+            %th.text-right= sort_link [:office,@q], :paid_on
+            %th.text-right= sort_link [:office,@q], :shipped_on
         %tbody
           - @orders.each do |order|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td.number
-                = link_to order.number.to_s , order_path(order), :title => t(:show)
+                = link_to order.number.to_s , office.order_path(order), :title => t(:show)
                 -unless order.note.blank?
                   %span.glyphicon.glyphicon-flag
               %td.text-right= date(order.ordered_on)
               %td.text-right= order.basket.items.length rescue "basket #{order.id}"
-              %td.text-right= link_to euros(order.total_price),  basket_path(order.basket)
+              %td.text-right= link_to euros(order.total_price),  office.basket_path(order.basket)
               %td.email= order.email
               %td.text-right= date(order.paid_on)
               %td.text-right= date(order.shipped_on)
@@ -39,10 +39,10 @@
         .btn-group
           = paginate @orders
         .btn-group.pull-right
-          = link_to orders_path({:format => :csv}.merge( params)), {:class => "btn btn-primary"} do
+          = link_to office.orders_path({:format => :csv}.merge( params)), {:class => "btn btn-primary"} do
             %i.icon-download CSV
   .col-md-3
-    = search_form_for @q, :url => search_orders_path, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|
+    = search_form_for @q, :url => office.search_orders_path, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|
       .form-group
         .input-group
           = f.text_field :number_cont ,:class => "form-control" , :placeholder =>  t(:order_number)
@@ -93,4 +93,4 @@
         .form-group.col-md-4
           = f.text_field :canceled_on_lteq , :class => "form-control datepicker",:value => sort_date(:canceled_on_lteq)
       = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
-      = link_to  t(:cancel), orders_path, :class => "btn btn-warning"
+      = link_to  t(:cancel), office.orders_path, :class => "btn btn-warning"

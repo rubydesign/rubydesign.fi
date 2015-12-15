@@ -35,7 +35,7 @@ describe "edit baskets" do
   it "discounts basket" do
     basket = create :basket_with_item
     total = basket.total_price
-    visit discount_basket_path(basket , :discount => "10")
+    visit office.discount_basket_path(basket , :discount => "10")
     expect_basket_total total * 0.9
   end
   it "zeros basket" do

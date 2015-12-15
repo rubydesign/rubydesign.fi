@@ -8,8 +8,8 @@
         = link_to group.name , office.category_path(group)
       - else
         = t(:new)
-
-= bootstrap_form_for(@category, :html => { :multipart => true }) do |f|
+- url = @category.persisted? ? office.category_path(@category) : office.categories_path
+= bootstrap_form_for(@category, :html => { :multipart => true } , :url => url) do |f|
   .row.form-group
     .col-md-5
       = f.text_field :name
@@ -32,7 +32,7 @@
       = f.submit :class => "btn btn-success"
       %br
       %br
-      = link_to t(:back), categories_path, :class => "btn btn-warning"
+      = link_to t(:back), office.categories_path, :class => "btn btn-warning"
   .row
     .col-md-4
       = f.file_field :main_picture

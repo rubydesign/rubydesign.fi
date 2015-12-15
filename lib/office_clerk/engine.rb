@@ -5,7 +5,7 @@ module OfficeClerk
     engine_name "office"
 
     config.autoload_paths += %W(#{config.root}/lib)
-#    config.assets.paths += 
+#    config.assets.paths +=
     config.exceptions_app = self.routes
     initializer "office_clerk.assets.precompile" do |app|
       app.config.assets.precompile += %w(office_clerk.css office_clerk.js)
@@ -20,7 +20,7 @@ module OfficeClerk
     end
 
     # have to init the BestInPlace first to be able to include helpers
-    config.railties_order = [BestInPlace::Railtie , OfficeClerk::Engine  , :all  ] 
+    config.railties_order = [BestInPlace::Railtie , OfficeClerk::Engine  , :all  ]
     config.after_initialize do
       BestInPlace::ViewHelpers.extend OfficeHelper
     end

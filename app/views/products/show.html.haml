@@ -21,55 +21,55 @@
       .col-md-6
         %p
           %b= t(:price) + " : "
-          = in_place @product , :price , :display_with => :best_euros
+          = in_place @product , :price , :display_with => :best_euros , :url => office.product_path(@product)
         %p
           %b= t(:cost) + " : "
-          = in_place @product , :cost , :display_with => :best_euros
+          = in_place @product , :cost , :display_with => :best_euros , :url => office.product_path(@product)
         %p
           %b= t(:category) + " : "
-          = link_to @product.category.name ,category_path(@product.category) if @product.category
+          = link_to @product.category.name , office.category_path(@product.category) if @product.category
         %p
           %b= t(:link) + " : "
           = @product.link
         %p
           %b= t(:ean) + " : "
-          = in_place @product , :ean
+          = in_place @product , :ean , :url => office.product_path(@product)
       .col-md-6
         %p
           %b= t(:weight) + " : "
-          = in_place @product , :weight
+          = in_place @product , :weight , :url => office.product_path(@product)
         %p
           %b= t(:inventory) + " : "
           = @product.inventory
         %p
           %b= t(:stock_level) + " : "
-          = in_place @product , :stock_level
+          = in_place @product , :stock_level , :url => office.product_path(@product)
         %p
           %b= t(:supplier) + " : "
           = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
         %p
           %b= t(:scode) + " : "
-          = in_place @product , :scode
+          = in_place @product , :scode , :url => office.product_path(@product)
         %p
           %b= t(:tax_percent) + " : "
-          = in_place @product , :tax
+          = in_place @product , :tax , :url => office.product_path(@product)
   .col-md-4
     %p
       %b= t(:summary) + " : "
-      = in_place @product , :summary
+      = in_place @product , :summary , :url => office.product_path(@product)
     %p
       %b= t(:description) + " : "
-      = in_place @product , :description , :as => :textarea
+      = in_place @product , :description , :as => :textarea , :url => office.product_path(@product)
   .col-md-4
     =render :partial => "products/preview_box" , :locals => {:product => @product}
     = markdown @product.description
 %br
 .row.product_show_row_buttons
   .col-md-2
-    = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success"
+    = link_to t(:edit), office.edit_product_path(@product), :class => "btn btn-success"
   .col-md-2
-    = link_to t(:delete) , product_path(@product), :method => :delete , :class => "btn btn-danger", :data => {  :confirm => t(:are_you_sure )}
+    = link_to t(:delete) , office.product_path(@product), :method => :delete , :class => "btn btn-danger", :data => {  :confirm => t(:are_you_sure )}
   -unless @product.product_item?
     .col-md-2
-      = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
+      = link_to t(:new_item) , office.new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
   .col-md-6.product_show_row_end
