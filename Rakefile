@@ -3,6 +3,8 @@
 
 require File.expand_path('../test_app/config/application', __FILE__)
 
+require 'bundler/gem_tasks'
+
 TestApp::Application.load_tasks
 
 desc 'Rebuild test and run specs'
