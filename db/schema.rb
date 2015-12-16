@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20131226151332) do
   create_table "baskets", force: true do |t|
     t.integer  "kori_id"
     t.string   "kori_type"
-    t.decimal  "total_price", default: 0.0
-    t.decimal  "total_tax",   default: 0.0
+    t.decimal  "total_price", default: 0.0, precision: 10, scale: 4
+    t.decimal  "total_tax",   default: 0.0, precision: 10, scale: 4
     t.date     "locked"
     t.datetime "created_at"
     t.datetime "updated_at"
