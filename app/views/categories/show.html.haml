@@ -16,7 +16,7 @@
     %ol.breadcrumb
       - parents(@category).each do | group|
         %li
-          = link_to group.name , category_path(group)
+          = link_to group.name , office.category_path(group)
     .row
       .col-md-6
         %p

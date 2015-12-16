@@ -46,7 +46,7 @@
           = in_place @product , :stock_level , :url => office.product_path(@product)
         %p
           %b= t(:supplier) + " : "
-          = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
+          = link_to @product.supplier.supplier_name ,office.supplier_path(@product.supplier) if @product.supplier
         %p
           %b= t(:scode) + " : "
           = in_place @product , :scode , :url => office.product_path(@product)

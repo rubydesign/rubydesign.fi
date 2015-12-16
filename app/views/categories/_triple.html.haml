@@ -8,5 +8,5 @@
             -next unless group
             %td= image_tag group.main_picture.url(:thumb)
             %td
-              = link_to category_path(group), :title => t(:show) do
+              = link_to office.category_path(group), :title => t(:show) do
                 = group.name
