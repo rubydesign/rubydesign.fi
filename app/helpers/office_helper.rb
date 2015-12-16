@@ -70,7 +70,6 @@ module OfficeHelper
   def paginate(collection , options = {})
     #options = options.merge defaults
     options[:renderer] = BootstrapPagination::Rails
-    options[:params] = { :url_scope => :office }
     will_paginate collection, options
   end
 
