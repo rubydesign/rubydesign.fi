@@ -98,7 +98,7 @@ class BasketsController < AdminController
         return
       end
     end
-    redirect_to office.basket_path(@basket)
+    redirect_to office.edit_basket_path(@basket)
   end
 
   def edit
