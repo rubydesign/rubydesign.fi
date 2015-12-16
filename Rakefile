@@ -3,6 +3,7 @@
 
 require File.expand_path('../test_app/config/application', __FILE__)
 
+require "bundler/vendored_thor" unless defined?(Thor)
 require 'bundler/gem_tasks'
 
 TestApp::Application.load_tasks
