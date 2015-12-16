@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 module OfficeHelper
-  
+
   # users are stored in the session by email
   # if user is not logged i , return nil
   def current_clerk
     return @current_clerk if @current_clerk
     return nil unless session[:clerk_email]
-    @current_clerk = Clerk.where( :email => session[:clerk_email] ).limit(1).first 
+    @current_clerk = Clerk.where( :email => session[:clerk_email] ).limit(1).first
   end
   def current_basket_or_nil
     return @current_basket unless @current_basket.nil?
     if session[:current_basket]
-      Basket.where( :id => session[:current_basket] ).limit(1).first 
+      Basket.where( :id => session[:current_basket] ).limit(1).first
     else
       nil
     end
@@ -29,21 +29,21 @@ module OfficeHelper
     end
     @current_basket
   end
-  
+
   def has_ssl?
     return false unless Rails.env.production?
     OfficeClerk.config(:has_ssl) == true
   end
-  
+
   # when the order is made and the basket locked, it's time to make a new one
   def new_basket
     session[:current_basket] = nil
   end
-  
+
   def shipping_method name
     OfficeClerk::ShippingMethod.method(name)
   end
-  
+
   def markdown text
     return "" if text.blank?
     return sanitize Kramdown::Document.new(text).to_html
@@ -70,7 +70,26 @@ module OfficeHelper
   def paginate(collection , options = {})
     #options = options.merge defaults
     options[:renderer] = BootstrapPagination::Rails
+    options[:params] = { :url_scope => :office }
     will_paginate collection, options
+  end
+
+end
+
+require "bootstrap_pagination/version"
+
+BootstrapPagination::Rails.class_eval do
+  def url(page)
+    @base_url_params ||= begin
+      url_params = merge_get_params(default_url_params)
+      url_params[:only_path] = true
+      merge_optional_params(url_params)
+    end
+
+    url_params = @base_url_params.dup
+    add_current_page_param(url_params, page)
+
+    OfficeClerk::Engine.routes.url_for(url_params)
   end
 
 end
