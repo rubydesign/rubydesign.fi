@@ -31,7 +31,7 @@ class OrdersController < AdminController
     mail = eval("OrderMailer.#{action}(@order)")
     mail.deliver
     flash.notice = "Sent #{action}"
-    redirect_to :action => :show
+    redirect_to order_path(@order)
   end
   def pay
     @order.pay_now

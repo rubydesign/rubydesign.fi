@@ -10,12 +10,12 @@ class SessionsController < OfficeController
     if clerk && clerk.valid_password?(params[:password])
       session[:clerk_email] = clerk.email
       if clerk.admin
-         redirect_to baskets_url , :notice => I18n.t(:signed_in)
-       else
-         redirect_after_sign_up
-       end
+        redirect_to baskets_url , :notice => I18n.t(:signed_in)
+      else
+        redirect_after_sign_up
+      end
     else
-      redirect_to :sign_in , :notice => I18n.t(:sign_in_invalid)
+      redirect_to sign_in_url , :notice => I18n.t(:sign_in_invalid)
     end
   end
 

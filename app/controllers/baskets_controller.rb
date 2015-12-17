@@ -146,7 +146,7 @@ class BasketsController < AdminController
   def redirect_if_locked
     if @basket.locked?
       flash.notice = t('basket_locked')
-      redirect_to :action => :show
+      redirect_to basket_path(@basket)
       return true
     end
     return false
