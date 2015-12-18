@@ -8,7 +8,7 @@ module OfficeClerk
 #    config.assets.paths +=
     config.exceptions_app = self.routes
     initializer "office_clerk.assets.precompile" do |app|
-      app.config.assets.precompile += %w(office_clerk.css office_clerk.js office_clerk/*.jpg )
+      app.config.assets.precompile += %w(office_clerk.css office_clerk.js office_clerk/*.jpg missing*.png)
     end
 
     config.i18n.enforce_available_locales = false
