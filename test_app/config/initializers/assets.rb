@@ -9,4 +9,5 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( office_clerk.css office_clerk.js  )
-Rails.application.config.assets.precompile += %w( office_clerk/*.jpg missing*.png up-icon.png down-icon.png)
+Rails.application.config.assets.precompile += %w( office_clerk/*.jpg  up-icon.png down-icon.png )
+Rails.application.config.assets.precompile += ["missing_thumb.png", "missing.png", "missing_list.png", "missing_product.png"]

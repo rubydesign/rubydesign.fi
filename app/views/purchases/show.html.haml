@@ -3,7 +3,7 @@
     = t(:purchase)
   %p
     %b= t(:name)
-    = in_place @purchase , :name , :url => office.purchases_path(@purchase)
+    = in_place @purchase , :name 
 .row
   .col-md-3
     %p
@@ -12,7 +12,7 @@
         -if @purchase.ordered_on
           = date(@purchase.ordered_on)
         -else
-          = link_to t(:order) , office.order_purchase_path(@purchase) , :class => "btn btn-primary order_link"
+          = link_to t(:order) , order_purchase_path(@purchase) , :class => "btn btn-primary order_link"
   .col-md-3
     %p
       %b
@@ -20,12 +20,12 @@
         -if @purchase.received_on
           = date(@purchase.received_on)
         -else
-          = link_to t(:receive) , office.receive_purchase_path(@purchase) , :class => "btn btn-primary receive_link"
+          = link_to t(:receive) , receive_purchase_path(@purchase) , :class => "btn btn-primary receive_link"
   .col-md-6
     %p
       %b
         = t(:suppliers) + " : "
-      = raw @purchase.basket.suppliers.collect {|s| link_to( s.supplier_name , office.supplier_path(s)) }.join(",")
+      = raw @purchase.basket.suppliers.collect {|s| link_to( s.supplier_name , supplier_path(s)) }.join(",")
 
 = render "baskets/small" , :basket => @purchase.basket
 
@@ -33,15 +33,15 @@
   .col-md-5
     %b= t(:order_actions)
     %br
-    = link_to t(:edit), office.edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+    = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
     \ 
-    = link_to t(:back), office.purchases_path, :class => "btn btn-warning"
+    = link_to t(:back), purchases_path, :class => "btn btn-warning"
 
 -unless @purchase.received_on
   %h3{"style" => "color:red"}
     = t(:inventory)
     %br
-    = link_to t(:inventory) , office.inventory_purchase_path(@purchase) , :class => "btn btn-primary btn-danger inventory_link", :data => { :confirm => t(:are_you_sure) }
+    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary btn-danger inventory_link", :data => { :confirm => t(:are_you_sure) }
 
 .row
   %br

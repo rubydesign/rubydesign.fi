@@ -5,7 +5,7 @@
         %h2= t(:purchases)
         = paginate @purchases
       .col-md-2
-        = link_to  t(:new) + ' ' + t(:purchase) , office.new_purchase_path , :class => "btn btn-primary new_purchase"
+        = link_to  t(:new) + ' ' + t(:purchase) , new_purchase_path , :class => "btn btn-primary new_purchase"
   .col-md-3
     = image_tag "office_clerk/purchases.jpg" , :class => "img-responsive"
 .row
@@ -27,13 +27,13 @@
               %td= date(purchase.ordered_on)
               %td= date(purchase.received_on)
               %td= purchase.basket.items.length
-              %td= link_to euros(purchase.basket.total_price) , office.basket_path(purchase.basket)
-              %td= link_to t(:show) , office.purchase_path(purchase), :title => t(:show)
+              %td= link_to euros(purchase.basket.total_price) , basket_path(purchase.basket)
+              %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
       .btn-toolbar
         .btn-group
           = paginate @purchases
   .col-md-3
-    = search_form_for @q, :url => office.search_purchases_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
+    = search_form_for @q, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         = f.text_field :name_cont , :class => "form-control" , :placeholder =>  t(:name)
       .row
@@ -54,4 +54,4 @@
           = f.text_field :received_on_lt , :class => "form-control datepicker"
       %br
       = f.submit t(:filter),  :id => :filter , :class => "btn btn-success"
-      = link_to  t(:cancel), office.purchases_path, :class => "btn btn-warning"
+      = link_to  t(:cancel), purchases_path, :class => "btn btn-warning"

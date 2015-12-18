@@ -15,6 +15,9 @@ module OfficeClerk
     initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
       FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
     end
+    config.assets.precompile += %w( office_clerk.css office_clerk.js  )
+    config.assets.precompile += %w( office_clerk/*.jpg  up-icon.png down-icon.png )
+    config.assets.precompile += ["missing_thumb.png", "missing.png", "missing_list.png", "missing_product.png"]
 
     # have to init the BestInPlace first to be able to include helpers
     config.railties_order = [BestInPlace::Railtie , OfficeClerk::Engine  , :all  ]

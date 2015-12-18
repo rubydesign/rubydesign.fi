@@ -5,7 +5,7 @@
         %h2= t(:suppliers)
         = paginate @suppliers
       .col-md-2
-        = link_to  t(:new) + ' ' + t(:supplier) , office.new_supplier_path , :class => "btn btn-primary"
+        = link_to  t(:new) + ' ' + t(:supplier) , new_supplier_path , :class => "btn btn-primary"
   .col-md-3
     = image_tag "office_clerk/suppliers.jpg" , :class => "img-responsive"
 .row
@@ -26,14 +26,14 @@
               %td.name=supplier.supplier_name
               %td=supplier.products.count
               %td=supplier.whole_address
-              %td= link_to t(:show) , office.supplier_path(supplier), :title => t(:show)
-              %td= link_to t(:edit) , office.edit_supplier_path(supplier), :title => t(:edit)
+              %td= link_to t(:show) , supplier_path(supplier), :title => t(:show)
+              %td= link_to t(:edit) , edit_supplier_path(supplier), :title => t(:edit)
     = paginate @suppliers
   .col-md-3
-    = search_form_for @q, :url => office.search_suppliers_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
+    = search_form_for @q, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
         = f.text_field :supplier_name_cont , :class => "form-control", :placeholder =>  t(:name)
       .form-group
         = f.text_field :address_cont , :class => "form-control", :placeholder =>  t(:address)
       = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
-      = link_to  t(:cancel), office.suppliers_path, :class => "btn btn-warning"
+      = link_to  t(:cancel), suppliers_path, :class => "btn btn-warning"

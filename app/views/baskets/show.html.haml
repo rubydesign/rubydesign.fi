@@ -13,5 +13,5 @@
 = render "small" , :basket => @basket
 
 .col-md-12.basket_show_end
-  = link_to t(:back), office.orders_path, :class => "btn btn-warning"
-  = link_to t(:destroy) , office.basket_path(@basket), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @basket.locked.blank?
+  = link_to t(:back), orders_path, :class => "btn btn-warning"
+  = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @basket.locked.blank?

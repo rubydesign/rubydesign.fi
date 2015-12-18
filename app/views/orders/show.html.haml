@@ -23,7 +23,7 @@
             = @order.street
             = @order.city
             %br
-            = link_to @order.email.to_s , office.search_orders_path( :"q[email_cont]" => @order.email )
+            = link_to @order.email.to_s , search_orders_path( :"q[email_cont]" => @order.email )
             %br
             = @order.phone.to_s
 
@@ -34,9 +34,9 @@
             %br
             %br
 
-            = link_to t(:edit) , office.shipment_order_path(@order) , :class => "btn btn-info shipment_type"
+            = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
 
-            = link_to t(:new) + ' ' + t(:order) , office.new_order_path( :address => @order.id) , :class => "btn btn-primary copy_order"
+            = link_to t(:new) + ' ' + t(:order) , new_order_path( :address => @order.id) , :class => "btn btn-primary copy_order"
 
         %tr
           %td
@@ -46,7 +46,7 @@
             -if @order.paid_on
               = date(@order.paid_on)
             -else
-              = link_to t(:paid), office.pay_order_path(@order), :class => "btn btn-info pay_now"
+              = link_to t(:paid), pay_order_path(@order), :class => "btn btn-info pay_now"
 
           %td
             %b
@@ -54,7 +54,7 @@
             -unless(@order.shipped_on.blank?)
               =date(@order.shipped_on)
             -else
-              = link_to t(:ship), office.ship_order_path(@order), :class => "btn btn-info ship_now"
+              = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
 
         %tr
           %td
@@ -67,13 +67,13 @@
   .col-md-4
     %p
       %b= t(:note)
-      = in_place @order , :note, :as => :textarea , :url => office.order_path(@order)
+      = in_place @order , :note, :as => :textarea
     %p
       %b= t(:shipment_info)
-      = in_place @order , :shipment_info , :url => office.order_path(@order)
+      = in_place @order , :shipment_info
     %p
       %b= t(:payment_info)
-      = in_place @order , :payment_info , :url => office.order_path(@order)
+      = in_place @order , :payment_info 
     %p
       %br
       %br
@@ -114,20 +114,20 @@
     %b= t(:order_actions)
     %br
 
-    = link_to t(:back), office.orders_path, :class => "btn btn-warning"
+    = link_to t(:back), orders_path, :class => "btn btn-warning"
     \ 
-    = link_to t(:edit), office.edit_basket_path(@order.basket), :class => "btn btn-info edit_basket" unless @order.basket.locked?
+    = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket" unless @order.basket.locked?
     \ 
-    = link_to t(:cancel), office.cancel_order_path(@order), :data =>{:confirm => t(:cancel_confirmation )} , :class => "btn btn-danger cancel_order" if @order.basket.locked?
+    = link_to t(:cancel), cancel_order_path(@order), :data =>{:confirm => t(:cancel_confirmation )} , :class => "btn btn-danger cancel_order" if @order.basket.locked?
     \ 
-    = link_to t(:destroy) , office.order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil? and @order.paid_on.nil?
+    = link_to t(:destroy) , order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil? and @order.paid_on.nil?
 
   .col-md-2
   .col-md-5
     %b= t(:order_mail)
     %br
     - mail_actions.each do |action|
-      = link_to t("order_button.#{action}") , office.mail_order_path( @order , :act => action) , :class => "btn btn-info"
+      = link_to t("order_button.#{action}") , mail_order_path( @order , :act => action) , :class => "btn btn-info"
       \ 
 
 

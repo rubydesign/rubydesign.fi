@@ -5,7 +5,7 @@
         %h2= t(:baskets)
         = paginate @baskets
       .col-md-2
-        = link_to  t(:new) + ' ' + t(:basket) , office.new_basket_path , :class => "btn btn-primary"
+        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
   .col-md-3
     = image_tag "office_clerk/baskets.jpg" , :class => "img-responsive"
 .row
@@ -36,7 +36,7 @@
               %td= basket_edit_link(basket)
     = paginate @baskets
   .col-md-3
-    = search_form_for @q, :url => office.search_baskets_path, :html => { :class => "form-horizontal" }, :method => :get do |f|
+    = search_form_for @q , :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group.row
         .col-md-3
           = f.label(:type)
@@ -60,4 +60,4 @@
         .form-group.col-md-4
           = f.search_field :created_at_lteq , :class => "form-control datepicker" , :value => sort_date(:created_at_lteq)
       = f.submit t(:filter), :class => "btn btn-success"
-      = link_to  t(:cancel), office.baskets_path, :class => "btn btn-warning"
+      = link_to  t(:cancel), baskets_path, :class => "btn btn-warning"
