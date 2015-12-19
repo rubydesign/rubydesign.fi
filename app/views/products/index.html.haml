@@ -37,24 +37,25 @@
                 = @product_scope.length.to_s + " " + t(:products)
         %tbody
           - @products.each do |product|
-          -next if params[:basket] and product.line?
-            %tr{:class => "line-#{cycle("1","2")}"}
-              %td.image= image_tag product.main_picture.url(:thumb)
-              %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
-              %td.name
-                = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
-                  =product.full_name
-              %td.price.text-right=euros(product.price)
-              %td.price.text-right=euros(product.cost)
-              %td.supplier
-                =product.supplier.supplier_name if product.supplier
-                %br
-                =product.category.name if product.category
-              %td.inventory=product.inventory
-              -if params[:basket]
-                %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
-              -else
-                %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
+            -next if params[:basket] and product.line?
+            - cache(product.cache_key + ":" + params[:basket].to_s) do
+              %tr{:class => "line-#{cycle("1","2")}"}
+                %td.image= image_tag product.main_picture.url(:thumb)
+                %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
+                %td.name
+                  = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
+                    =product.full_name
+                %td.price.text-right=euros(product.price)
+                %td.price.text-right=euros(product.cost)
+                %td.supplier
+                  =product.supplier.supplier_name if product.supplier
+                  %br
+                  =product.category.name if product.category
+                %td.inventory=product.inventory
+                -if params[:basket]
+                  %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
+                -else
+                  %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
     = paginate @products
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" }, :method => :get do |f|
