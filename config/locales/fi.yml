@@ -149,7 +149,7 @@ fi:
   ordered: Tilattu
   ordered_on: Tilauspäivä
   orders: Tilaukset
-  paid: Maksa
+  pay: Maksa
   paid_on: Maksettu
   password: Salasana
   payment_info: Maksukoodi
