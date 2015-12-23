@@ -44,7 +44,7 @@
         .col-md-9
           = f.select :kori_type_eq, [["",""] , [t(:order) , "Order"] , [t(:purchase),"Purchase"]] , {},  :class => "form-control"
       .form-group
-        = f.text_field :items_product_name_or_items_product_product_name_cont , :class => "form-control" , :placeholder => t(:product) + " " +t(:name_contains)
+        = f.text_field :items_name_cont , :class => "form-control" , :placeholder => t(:product) + " " +t(:name_contains)
       .form-group.row
         .col-md-4
           = f.label(:total_price)
