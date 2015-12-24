@@ -1,7 +1,11 @@
-%b
-  = t(:paid_on) + ":"
-\
--if @order.paid_on
-  = date(@order.paid_on)
--else
-  = link_to t(:pay), pay_order_path(@order), :class => "btn btn-info pay_now"
+%td
+  %b= t(:payment_info)
+  = in_place @order , :payment_info
+%td
+  -unless @order.paid_on.blank?
+    %b
+      = t(:paid_on) + ":"
+    \
+    = date(@order.paid_on)
+  -else
+    = link_to t(:pay), pay_order_path(@order), :class => "btn btn-info pay_now"

@@ -1,8 +1,12 @@
-.row
-  %h2
-    = t(:order) + " : " + @order.number.to_s
-    - unless @order.canceled_on.blank?
-      = t(:canceled_on) + " : " + date(@order.canceled_on)
+.row.order_show
+  .col-md-7
+    %h2
+      = t(:order) + " : " + @order.number.to_s
+      - unless @order.canceled_on.blank?
+        = t(:canceled_on) + " : " + date(@order.canceled_on)
+  .col-md-3
+    %br
+      %b= t(:total_price) + " : " + euros(@order.total_price)
 
 .row
   .col-md-7
@@ -40,32 +44,22 @@
 
         %tr
           %td
-            =render "payment"
+            \
           %td
-            =render "shipment"
+            \
+
+
+  .col-md-5
+    %table.table.table-condensed.no-bg.no-border
+      %tbody
         %tr
-          %td
-            \
-          %td
-            \
-
-
-  .col-md-1
-  .col-md-4
-    %p
-      %b= t(:note)
-      = in_place @order , :note, :as => :textarea
-    %p
-      %b= t(:shipment_info)
-      = in_place @order , :shipment_info
-    %p
-      %b= t(:payment_info)
-      = in_place @order , :payment_info
-    %p
-      %br
-      %br
-      %br
-      %b= t(:total_price) + " : " + euros(@order.total_price)
+          %td{ colspan: 2}
+            %b= t(:note)
+            = in_place @order , :note, :as => :textarea
+        %tr
+          =render "shipment"
+      %tr
+        = render "payment"
 
 
 -content_for :basket do

@@ -1,6 +1,10 @@
-%b
-  = t(:shipped_on) + " : "
--unless(@order.shipped_on.blank?)
-  =date(@order.shipped_on)
--else
-  = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
+%td
+  %b= t(:shipment_info)
+  = in_place @order , :shipment_info
+%td
+  -unless(@order.shipped_on.blank?)
+    %b
+      = t(:shipped_on) + " : "
+    =date(@order.shipped_on)
+  -else
+    = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info ship_now"
