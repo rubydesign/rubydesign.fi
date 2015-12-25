@@ -1,4 +1,4 @@
-.row
+.row.clerks_index_start
   .col-md-9.clerks
     .row
       .col-md-10
@@ -35,3 +35,4 @@
         = f.text_field :address_cont ,:class => "form-control" , :placeholder =>  t(:address)
       = f.submit t(:filter),  :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), clerks_path, :class => "btn btn-warning"
+.clerks_index_end

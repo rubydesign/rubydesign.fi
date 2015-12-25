@@ -1,4 +1,4 @@
-.row
+.row.suppliers_index_start
   .col-md-9.suppliers
     .row
       .col-md-10
@@ -37,3 +37,4 @@
         = f.text_field :address_cont , :class => "form-control", :placeholder =>  t(:address)
       = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), suppliers_path, :class => "btn btn-warning"
+.suppliers_index_end

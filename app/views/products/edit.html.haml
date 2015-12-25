@@ -1,3 +1,4 @@
+.product_edit_start
 = render "head"
 - url = @product.persisted? ? product_path(@product) : products_path
 = bootstrap_form_for(@product, :html => { :multipart => true , :role=>"form"} ) do |f|
@@ -45,3 +46,4 @@
             = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
           -else
             = link_to t(:cancel), products_path, :class => "btn btn-warning"
+.product_edit_end

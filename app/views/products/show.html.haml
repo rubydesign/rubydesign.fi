@@ -1,3 +1,4 @@
+.product_show_start
 = render "head"
 
 -if @product.line?
@@ -59,7 +60,7 @@
       = in_place @product , :summary
     %p
       %b= t(:description) + " : "
-      = in_place @product , :description , :as => :textarea 
+      = in_place @product , :description , :as => :textarea
   .col-md-4
     =render :partial => "products/preview_box" , :locals => {:product => @product}
     = markdown @product.description
@@ -73,3 +74,4 @@
     .col-md-2
       = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
   .col-md-6.product_show_row_end
+.product_show_end

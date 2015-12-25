@@ -1,3 +1,4 @@
+.sipment_start
 = bootstrap_form_for @order do |f|
   .row
     = f.alert_message t(:fix_errors) , error_summary: false
@@ -55,3 +56,4 @@
             %th.text-right
               %span#order_total= @order.total_price.round(2)
               €
+.sipment_end

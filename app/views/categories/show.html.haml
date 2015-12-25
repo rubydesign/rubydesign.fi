@@ -1,4 +1,4 @@
-.row
+.row.categories_show_start
   .col-md-6
     %h2
       = t(:category)
@@ -32,3 +32,4 @@
 
 =render "triple" , :groups => @category.categories
 =render "products/triple" , :products => @category.products.no_items
+.categories_show_end

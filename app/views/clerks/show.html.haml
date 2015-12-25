@@ -1,4 +1,4 @@
-%h2
+%h2.clerks_show_start
   = t(:clerk) + " : " + @clerk.email
   -if @clerk.admin
     (
@@ -17,3 +17,4 @@
 
 = link_to t(:edit), edit_clerk_path(@clerk), :class => "btn btn-success"
 = link_to t(:back), clerks_path, :class => "btn btn-warning"
+.clerks_show_end

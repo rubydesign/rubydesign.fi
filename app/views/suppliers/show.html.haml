@@ -1,4 +1,4 @@
-%h2
+%h2.suppliers_show_start
   = t(:supplier) + " : " +  @supplier.supplier_name
 
 .col-md-6
@@ -24,3 +24,4 @@
 = link_to t(:back), suppliers_path, :class => "btn btn-warning"
 
 =render "products/triple" , :products => @supplier.products.no_items
+.suppliers_show_end

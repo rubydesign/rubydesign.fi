@@ -1,9 +1,9 @@
-.row
+.row.purchase_show_start
   %h2
     = t(:purchase)
   %p
     %b= t(:name)
-    = in_place @purchase , :name 
+    = in_place @purchase , :name
 .row
   .col-md-3
     %p
@@ -47,3 +47,4 @@
   %br
   .col-md-12
     .purchase_show_last
+.purchase_show_end

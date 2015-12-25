@@ -1,4 +1,4 @@
-.row
+.row.product_index_start
   .col-md-9.products
     .row
       .col-md-10
@@ -117,3 +117,4 @@
           = f.collection_select :category_id_eq, Category.all, :id, :name, {:include_blank => true}, :class=>"form-control"
       = f.submit t(:filter), :class => "btn btn-success" , :id => :filter
       = link_to  t(:cancel), products_path, :class => "btn btn-warning"
+.product_index_end

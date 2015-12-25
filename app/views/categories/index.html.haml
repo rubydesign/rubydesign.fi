@@ -1,4 +1,4 @@
-.row
+.row.categories_index_start
   .col-md-9.categories
     .row
       .col-md-10
@@ -58,3 +58,4 @@
     - @roots.each do |group|
       %ul.cat
         = render "treeview" , :group => group
+.categories_index_end

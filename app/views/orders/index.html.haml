@@ -1,4 +1,4 @@
-.row
+.row.order_index_start
   .col-md-9.orders
     .row
       .col-md-10
@@ -94,3 +94,4 @@
           = f.text_field :canceled_on_lteq , :class => "form-control datepicker",:value => sort_date(:canceled_on_lteq)
       = f.submit t(:filter), :id => :filter , :class => "btn btn-success"
       = link_to  t(:cancel), orders_path, :class => "btn btn-warning"
+.order_index_end

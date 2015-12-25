@@ -1,4 +1,4 @@
-%h2
+%h2.suppliers_edit_start
   = t params["action"]
   = t(:supplier)
 = bootstrap_form_for(@supplier) do |f|
@@ -8,3 +8,4 @@
   .form-actions
     = f.submit :class => "btn btn-success"
     = link_to t(:back), suppliers_path, :class => "btn btn-warning"
+.suppliers_edit_end

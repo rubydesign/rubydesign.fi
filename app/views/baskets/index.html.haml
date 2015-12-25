@@ -1,4 +1,4 @@
-.row
+.row.basket_index_start
   .col-md-9.baskets
     .row
       .col-md-10
@@ -62,3 +62,4 @@
           = f.search_field :created_at_lteq , :class => "form-control datepicker" , :value => sort_date(:created_at_lteq)
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), baskets_path, :class => "btn btn-warning"
+.basket_index_end
