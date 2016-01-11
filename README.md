@@ -10,19 +10,24 @@ Office Clerk is the back office helper, your accountant, storage manager, secret
 
 ####  Status
 
-In production for 2 sites. Work continues on refinements. That could qualify for 1.0 but i'll wait a few months. 
+Version 1.0.0 (beginning 2016) In production for 2 years on sites with less than 10000 orders a year.
 
 ### Other clerks
 
-The original plan (as per web-site) is being implemented: several extension "clerk" will be optional. Some are ready (one not)
+The original plan has been implemented: several extension "clerk" will be optional.
+Below a list of what is available, and off course you should write your own.
 
 ### AccountantClerk
 
-This currenly does graphical sales reports. Purchase order creation is planned.
+This currently does graphical sales reports. Purchase order creation is planned.
 
 ### Print Clerk
 
 A invoice generator. Also barcode generation and receipt printing (for POS use).
+
+### Stripe Clerk
+
+Stripe Payment engine. (Only for client, ie shop)
 
 ### Sales Clerk
 
@@ -34,7 +39,7 @@ The easy way (tryout or new project):
 
 - clone sales_clerk
 - bundle and migrate it
-- change the git/config 
+- change the git/config
 - start editing
 
 The longer route, adding to existing project
@@ -45,12 +50,26 @@ The longer route, adding to existing project
 
 ### Further
 
-If you got this far and still have question , mail me, or mail the [list](https://groups.google.com/forum/#!forum/rubyclerks)
-
-Check the [User Guide](http://rubyclerks.org/user_guide/01_index.html), 
+Check the [User Guide](http://rubyclerks.org/user_guide/01_index.html),
 then the [Developer Guide](http://rubyclerks.org/developer_guide/01_index.html).
 
+If you got this far and still have question , mail me, or mail the [list](https://groups.google.com/forum/#!forum/rubyclerks)
+
 Fill issues if you find, or discuss with me for ideas.
+
+### Release strategy
+
+One of the things that got me started on this project was the effort i spent to keep up with
+releases. I think for a working system one should not have to spend great effort just to keep it
+working. In other words, i will try and resist change on the core.
+
+1. patch releases will require no changes, should be safe to upgrade any time
+2. minor releases may include html changes and possibly migrations that add things.
+3. Only mayor releases would need actual non trivial work to upgrade. I am not looking for one of
+  those in the foreseeable future, stability is key.   
+
+That may sound a bit pragmatic and it is. But it applies to the core only. I do encourage you to
+write extensions and am happy to add decent extensions to the organisation.
 
 ### Similar Projects
 
@@ -58,4 +77,3 @@ Fill issues if you find, or discuss with me for ideas.
  * "Ror-e":http://ror-e.com/ has some nice purchase features, and did great work to standardise rails usage
  * "MarketStreet":https://github.com/alex-nexus/market_street/ has taken the ball from ror-e and is running strong with an impressive list of goals
  * "TryShoppe":http://tryshoppe.com/ is new and lightweight. Very nice looking interface.
- 
