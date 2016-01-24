@@ -11,7 +11,7 @@ describe "edit baskets" do
     visit_path edit_basket_path(basket)
     name = basket.items.first.name
     within(".table") {  first('a', :text => I18n.t(:delete)).click }
-    expect{ find(".table").find(".name" , :minimum => 1) }.to raise_error
+    expect{ find(".table").find(".name" , :minimum => 1) }.to raise_error Capybara::ElementNotFound
     expect(page).not_to have_content(name )
   end
   it "add quantity to item" do
