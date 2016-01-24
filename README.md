@@ -12,6 +12,8 @@ Office Clerk is the back office helper, your accountant, storage manager, secret
 
 Version 1.0.0 (beginning 2016) In production for 2 years on sites with less than 10000 orders a year.
 
+It works with ruby 2.0 or higher and rails 4.2
+
 ### Other clerks
 
 The original plan has been implemented: several extension "clerk" will be optional.

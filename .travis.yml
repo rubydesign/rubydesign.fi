@@ -5,8 +5,6 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate
   - CODECLIMATE_REPO_TOKEN=3f97bb5305cd65f6683587a32b4b3eae42cfec26d3de56374b10b3efb78ccf6a bundle exec rspec
 rvm:
-  - 1.9.3
   - 2.0.0
   - 2.1.4
   - 2.2.3
-  
