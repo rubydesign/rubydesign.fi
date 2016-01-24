@@ -17,7 +17,7 @@ group :development do
   gem 'better_errors' , :platforms=>[:mri_20, :mri_21, :rbx]
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21,:rbx]
   gem 'quiet_assets'
-  gem "i18n-tasks"
+  gem "i18n-tasks" , "0.9.0"
 end
 group :test do
   gem "codeclimate-test-reporter"
