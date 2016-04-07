@@ -1,4 +1,5 @@
-.col-md-4
+.col-md-3.col-sm-2.col-xs-1
+.col-md-6.col-sm-8.col-xs-10
   %h1= t(:sign_in)
   = bootstrap_form_tag :url => office.create_session_path do |f|
     .form_group
@@ -7,4 +8,3 @@
       = f.password_field :password , value: params[:password] , :label => t(:password)
     .form_group
       = f.submit  t(:sign_in) , :class => "btn btn-info submit"
-  
