@@ -56,7 +56,12 @@
                   %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
                 -else
                   %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
-    = paginate @products
+      .btn-toolbar.row
+        .btn-group.pull-left
+          = paginate @products
+        %ul.pagination.csv
+          %li
+            = link_to "CSV",products_path({:format => :csv}.merge( params)) 
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group

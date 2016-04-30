@@ -38,9 +38,9 @@
       .btn-toolbar
         .btn-group
           = paginate @orders
-        .btn-group.pull-right
-          = link_to orders_path({:format => :csv}.merge( params)), {:class => "btn btn-primary"} do
-            %i.icon-download CSV
+        %ul.pagination.csv
+          %li
+            = link_to "CSV", orders_path({:format => :csv}.merge( params))
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|
       .form-group
