@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "valid_email" ,  '~> 0.0', '>= 0.0.10'
   s.add_runtime_dependency 'sass-rails' , '~> 5.0'
   s.add_runtime_dependency "haml" , '~> 4.0'
-  s.add_runtime_dependency "jquery-rails" , '~> 3.1'
+  s.add_runtime_dependency "jquery-rails" , '~> 4.0'
   s.add_runtime_dependency 'coffee-rails' , '~> 4.0'
   s.add_runtime_dependency 'gon' , '~> 5.2'
   s.add_runtime_dependency 'jquery-ui-rails' , '~> 5.0'
