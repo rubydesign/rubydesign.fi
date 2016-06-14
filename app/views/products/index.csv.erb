@@ -1,7 +1,9 @@
-<%= [t(:ean) , t(:name) , t(:inventory) ].join(";") %>
+<%= [t(:ean) , t(:name) , t(:inventory) , t(:category) , t(:price)].join(";") %>
 <% @product_scope.each do |product| %>
 <% values = [ product.line? ? "#{product.products.length} #{t(:items)}" : product.ean]  %>
 <% values << product.full_name %>
 <% values << product.inventory %>
+<% values << product.category.name %>
+<% values << product.price %>
 <%= values.join(";")   %>
 <%end%>
