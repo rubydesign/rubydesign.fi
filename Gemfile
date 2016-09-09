@@ -6,7 +6,7 @@ gem 'sqlite3'
 
 #asset / production reelated
 gem "therubyracer"
-gem "libv8" , "3.16.14.13"
+gem "libv8" 
 gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
 

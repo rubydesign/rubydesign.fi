@@ -177,7 +177,7 @@ GEM
     kramdown (1.11.1)
     launchy (2.4.3)
       addressable (~> 2.3)
-    libv8 (3.16.14.13)
+    libv8 (3.16.14.15)
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -340,7 +340,7 @@ DEPENDENCIES
   guard-rspec
   i18n-spec
   i18n-tasks (= 0.8.7)
-  libv8 (= 3.16.14.13)
+  libv8
   office_clerk!
   quiet_assets
   rb-readline
