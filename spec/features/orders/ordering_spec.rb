@@ -81,4 +81,17 @@ describe "Orders" do
       expect(order.send atrr).to eq value
     end
   end
+  it  "allows shipment info to be changed, without email" do
+    address = { :name => "Markus Janhunen" , :street => "123 my street",
+                :city => "123 my town" , :phone => "0400404" , :email => ""}
+    order = create(:order_paid)
+    visit_path shipment_order_path(order)
+    address.each do |atrr, value|
+      fill_in("order_#{atrr}" , :with => value)
+    end
+    find("#make_order").click
+    ensure_path order_path(order)
+    expect(page).to have_text("kelvollinen")
+  end
+
 end
