@@ -6,7 +6,7 @@ begin
   puts "Using Spring loaded rspec"
 rescue LoadError
 end
-guard :rspec , :cmd => command do
+guard :rspec , cmd: "bundle exec spring rspec" do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -29,4 +29,3 @@ guard :rspec , :cmd => command do
   # locales
   watch(%r{^config/locales/.*yml})     { |m| "spec/i18n_spec.rb" }
 end
-
