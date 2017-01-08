@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 feature "new product" do
   before :each do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Basket totals" do
   let(:basket) { create :basket_2_items }

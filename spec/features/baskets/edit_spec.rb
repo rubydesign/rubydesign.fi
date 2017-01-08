@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 # lots of edit possibilities for price/quantity and items
 

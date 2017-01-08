@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 #Note of incompleteness:
 # this is close to the original generated code and tests more crud than the actual basket functionality

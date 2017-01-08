@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Purchases" do
   before(:each) do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe PurchasesController do
   routes { OfficeClerk::Engine.routes }

@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe CategoriesController do
   routes { OfficeClerk::Engine.routes }

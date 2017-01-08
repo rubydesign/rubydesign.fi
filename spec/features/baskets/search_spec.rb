@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Basket search functionality" do
   before(:each) do

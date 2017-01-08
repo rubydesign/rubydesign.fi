@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "edit basket screen, no editing" do
   before :each do

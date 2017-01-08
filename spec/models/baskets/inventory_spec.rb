@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Basket inventory" do
   it "deducts ok and adjusts inventory" do

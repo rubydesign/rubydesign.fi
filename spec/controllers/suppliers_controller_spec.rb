@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe SuppliersController do
   routes { OfficeClerk::Engine.routes }

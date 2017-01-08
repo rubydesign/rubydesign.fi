@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe ProductsController do
   routes { OfficeClerk::Engine.routes }

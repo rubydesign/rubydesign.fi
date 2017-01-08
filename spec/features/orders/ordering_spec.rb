@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Orders" do
   before(:each) do
