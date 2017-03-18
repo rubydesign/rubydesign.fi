@@ -65,15 +65,22 @@
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
-        .input-group
+        .input
           - if params[:basket]
             = hidden_field_tag :basket , params[:basket]
             = f.text_field :name_or_product_name_cont, :class => "form-control" , :placeholder => t(:name)
           -else
             = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
-          %span.input-group-addon
+      .form-group
+        .input-group
+          .input-group-addon
+            =t(:in_orders)
+            = f.radio_button :online_eq , true
+          .input-group-addon
             =t(:online)
             = f.radio_button :online_eq , true
+          
+      
       .form-group
         .input-group
           = f.text_field :summary_cont , :class => "form-control" , :placeholder => t(:summary)

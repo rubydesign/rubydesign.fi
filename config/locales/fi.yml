@@ -43,6 +43,7 @@ fi:
         cost: Kustannus
         description: Kuvaus
         ean: Ean
+        in_orders: Tilauksissa
         inventory: Inventaario
         name: Nimi
         online: Netissä
@@ -83,7 +84,7 @@ fi:
   baskets: Ostoskorit
   blanks: Tyhjät
   cancel: Peruuta
-  cancel_confirmation: Peruuminen palauta inventaario, ja nolla lähetyksen päivä.
+  cancel_confirmation: Peruuminen palauttaa inventaarion, ja nollaa lähetyksen päivämäärän.
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
@@ -116,6 +117,7 @@ fi:
   fix_errors: Puuttuu tietoja
   inventorized: Inventoitu
   inventory: Inventaario
+  in_orders: Tilauksissa
   item_removed: Tuote poistettu
   items: Tuotteet
   last_name: Sukunimi
@@ -132,7 +134,7 @@ fi:
   name_contains: Nimi sisältää
   new: Uusi
   new_item: Uusi tuote tuotelinjalle
-  nolla: Nolla hinnat
+  nolla: Nollaa hinnat
   not_online: ei netissä
   note: Muistiinpano
   online: Netissä

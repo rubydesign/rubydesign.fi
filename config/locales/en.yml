@@ -35,7 +35,7 @@ en:
         password: Passord
         password_confirmation: Password confirmation
         phone: Phonenumber
-        shipped_on: Shipped on
+        shipped_on: Shipped
         street: Street and number
         total: Total
       product:
@@ -43,6 +43,7 @@ en:
         cost: Cost
         description: Description
         ean: Ean
+        in_orders: In orders
         inventory: Inventory
         name: Name
         online: online
@@ -116,6 +117,7 @@ en:
   fix_errors: There are errors below
   inventorized: Inventorized
   inventory: Inventory
+  in_orders: In orders
   item_removed: Item removed
   items: Items
   last_name: Last Name
