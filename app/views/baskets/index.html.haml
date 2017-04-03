@@ -22,19 +22,18 @@
                 = @basket_scope.length.to_s + " " + t("baskets")
         %tbody
           - @baskets.each do |basket|
-            - cache(basket) do
-              %tr{:class => "line-#{cycle("1","2")}"}
-                %td
-                  = date(basket.created_at.to_date)
-                %td
-                  = euros basket.total_price
-                %td
-                  - basket.items.each do |item| #should break at 5 and do the rest as tooltip
-                    = item.quantity
-                    x
-                    = item.name
-                    %br
-                %td= basket_edit_link(basket)
+            %tr{:class => "line-#{cycle("1","2")}"}
+              %td
+                = date(basket.created_at.to_date)
+              %td
+                = euros basket.total_price
+              %td
+                - basket.items.each do |item| #should break at 5 and do the rest as tooltip
+                  = item.quantity
+                  x
+                  = item.name
+                  %br
+              %td= basket_edit_link(basket)
     = paginate @baskets
   .col-md-3
     = search_form_for @q , :html => { :class => "form-horizontal" }, :method => :get do |f|
