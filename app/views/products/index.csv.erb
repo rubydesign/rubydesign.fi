@@ -2,7 +2,7 @@
 <% @product_scope.each do |product| %>
 <% values = [ product.line? ? "#{product.products.length} #{t(:items)}" : product.ean]  %>
 <% values << product.full_name %>
-<% values << product.inventory %>
+<% values << (params[:in_orders]  ? @product_inventory[product.id] : product.inventory ) %>
 <% values << product.category_name %>
 <% values << product.price %>
 <%= values.join(";")   %>

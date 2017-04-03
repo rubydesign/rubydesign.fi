@@ -13,6 +13,7 @@ class ProductsController < AdminController
     @q = Product.search( param )
     @product_scope = @q.result(:distinct => true)
     @products = @product_scope.includes(:products , :supplier , :category).paginate( :page => params[:page], :per_page => 20 ).to_a
+    create_used_inventory_list if( params[:in_orders] )
   end
 
   def show
@@ -65,13 +66,25 @@ class ProductsController < AdminController
     end
   end
 
+  private
+
+  def create_used_inventory_list
+    order_ids = Order.where("created_at > ?" , 1.month.ago ).pluck(:id)
+    basket_ids = Basket.where(kori_id: order_ids).where(locked: nil).pluck(:id)
+    @product_inventory = {}
+    product_ids = @products.each {|p| @product_inventory[p.id] = p.inventory }
+    Item.where(basket_id: basket_ids).where(product_id: product_ids).each do |item|
+      @product_inventory[item.product_id] -=  item.quantity
+    end
+  end
+
   def load_product
     @product = Product.find(params[:id])
   end
 
   def params_for_model
-    params.require(:product).permit(:price,:cost,:weight,:name,:description, :online, :summary,:stock_level,
-      :link,:ean,:tax,:properties,:scode,:product_id,:category_id,:supplier_id, :main_picture,:extra_picture
-)
+    params.require(:product).permit(:price,:cost,:weight,:name,:description, :online, :summary,
+                                    :stock_level,:link,:ean,:tax,:properties,:scode,:product_id,
+                                    :category_id,:supplier_id, :main_picture,:extra_picture )
   end
 end

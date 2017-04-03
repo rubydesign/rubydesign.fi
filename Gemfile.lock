@@ -1,5 +1,5 @@
 PATH
-  remote: ../
+  remote: ..
   specs:
     office_clerk (1.0.0)
       bcrypt-ruby (~> 3.1)
@@ -360,4 +360,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
-   1.13.5
+   1.14.6

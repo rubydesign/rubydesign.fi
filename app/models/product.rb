@@ -77,6 +77,7 @@ class Product < ActiveRecord::Base
   def has_inventory?
     self.inventory > 0
   end
+
   # has the product been deleted (marked as deleted)
   def deleted?
     not deleted_on.blank?
