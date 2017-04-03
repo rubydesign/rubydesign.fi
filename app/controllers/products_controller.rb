@@ -71,10 +71,10 @@ class ProductsController < AdminController
   def create_used_inventory_list
     order_ids = Order.where("created_at > ?" , 1.month.ago ).pluck(:id)
     basket_ids = Basket.where(kori_id: order_ids).where(locked: nil).pluck(:id)
-    @product_inventory = {}
-    product_ids = @products.each {|p| @product_inventory[p.id] = p.inventory }
+    @product_inventory = Hash.new(0)
+    product_ids = @products.each {|p| p.id }
     Item.where(basket_id: basket_ids).where(product_id: product_ids).each do |item|
-      @product_inventory[item.product_id] -=  item.quantity
+      @product_inventory[item.product_id] = @product_inventory[item.product_id] + item.quantity
     end
   end
 

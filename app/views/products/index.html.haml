@@ -53,9 +53,9 @@
                 %br
                 =product.category.name if product.category
               %td.inventory
-                - if(params[:in_orders])
-                  = @product_inventory[product.id]
-                -else
+                - if(params[:in_orders] )
+                  = "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
+                - else
                   = product.inventory
               -if params[:basket]
                 %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
