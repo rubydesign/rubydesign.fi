@@ -33,7 +33,7 @@
               =t(:category)
             %th
               = sort_link [:office,@q], :inventory
-              = t(:in_orders) if(params[:in_orders])
+              = t(:in_orders) if(available_inventory)
             %th
               %label.checkbox
                 = @product_scope.length.to_s + " " + t(:products)
@@ -53,7 +53,7 @@
                 %br
                 =product.category.name if product.category
               %td.inventory
-                - if(params[:in_orders] )
+                - if(available_inventory )
                   = "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
                 - else
                   = product.inventory
@@ -80,7 +80,7 @@
         .input-group
           .input-group-addon
             =t(:in_orders)
-            = radio_button_tag :in_orders , true , params[:in_orders]
+            = radio_button_tag :in_orders , true , available_inventory
           .input-group-addon
             =t(:online)
             = f.radio_button :online_eq , true

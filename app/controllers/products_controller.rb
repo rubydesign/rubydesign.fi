@@ -1,6 +1,7 @@
 # encoding : utf-8
 
 class ProductsController < AdminController
+  include ProductsHelper
 
   before_filter :load_product, :only => [:show, :edit, :update, :destroy ]
 
@@ -13,7 +14,7 @@ class ProductsController < AdminController
     @q = Product.search( param )
     @product_scope = @q.result(:distinct => true)
     @products = @product_scope.includes(:products , :supplier , :category).paginate( :page => params[:page], :per_page => 20 ).to_a
-    create_used_inventory_list if( params[:in_orders] )
+    create_used_inventory_list if( available_inventory )
   end
 
   def show
