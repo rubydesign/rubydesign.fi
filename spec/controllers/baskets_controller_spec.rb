@@ -18,7 +18,7 @@ describe BasketsController do
   describe "GET index" do
     it "assigns all baskets as @baskets" do
       count_before = Basket.count
-      basket = create :basket
+      create :basket
       get :index, {}, valid_session
       expect(assigns(:basket_scope).count).to be  count_before + 1
     end

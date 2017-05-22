@@ -21,6 +21,7 @@ guard :rspec , cmd: "bundle exec spring rspec" do
 
 
   watch('app/models/basket.rb')  { Dir["spec/models/baskets/*_spec.rb"] }
+  watch('app/controllers/baskets_controller.rb')  { Dir["spec/features/baskets/*_spec.rb"] }
 
   # Capybara features specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$})     { |m| "spec/features/#{m[1]}_spec.rb" }
