@@ -30,4 +30,10 @@ describe "Basket totals" do
     basket.zero_prices!
     expect(basket.total_price).to eq 0.0
   end
+  it "adds cost price for POs" do
+    basket = create(:empty_purchase).basket
+    p = create :product
+    basket.add_product( p )
+    expect(basket.total_price).to eq p.cost
+  end
 end
