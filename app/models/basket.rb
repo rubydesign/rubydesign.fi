@@ -1,4 +1,6 @@
 class Basket < ActiveRecord::Base
+  ADD = 1
+  REMOVE = -1
 
   default_scope { order('created_at DESC') }
 
@@ -43,11 +45,10 @@ class Basket < ActiveRecord::Base
   end
 
   # receiving the goods means that the item quantity is added to the stock (product.inventory)
-  # also we change the price to the products cost price
   # locks the basket so receiving or deducting becomes an error.
   def receive!
     raise "Locked since #{self.locked}" if locked?
-    sum = do_receive(true) # change the prices
+    sum = do_adjust( ADD ) # one for adding products
     self.locked = Date.today
     self.save!
     sum
@@ -57,13 +58,7 @@ class Basket < ActiveRecord::Base
   # locks the basket so receiving or deducting becomes an error.
   def deduct!
     raise "Locked since #{self.locked}" if locked?
-    sum = 0
-    self.items.each do |item|
-      prod = item.product
-      prod.inventory = prod.inventory - item.quantity
-      sum += item.quantity
-      prod.save!
-    end
+    sum = do_adjust( REMOVE )
     self.locked = Date.today
     self.save!
     sum
@@ -73,7 +68,7 @@ class Basket < ActiveRecord::Base
   # very similar to receive, just we don't change prices (and don't lock)
   def cancel_order!
     self.locked = nil
-    do_receive(false) #don't change prices
+    do_adjust( ADD )
     self.save!
   end
 
@@ -124,16 +119,18 @@ class Basket < ActiveRecord::Base
     end
     reload
   end
+
   private
-  def do_receive change_prices
+
+  def do_adjust( multiplier )
     sum = 0
     self.items.each do |item|
       prod = item.product
-      prod.inventory = prod.inventory + item.quantity
-      prod.save!
+      prod.inventory = prod.inventory + multiplier * item.quantity
       sum += item.quantity
-      item.price = item.product.cost if change_prices
+      prod.save!
     end
     sum
   end
+
 end
