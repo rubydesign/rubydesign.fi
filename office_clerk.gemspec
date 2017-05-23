@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version      = "1.1"
   s.summary      = 'Backend of rubyclerks, a simple way to manage a buisness'
   s.description  = "Rubyclerks is a small buisness management solution, including an online presence (shop), but also POS, inventory and more."
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.2'
 
   s.authors      = ['Torsten Rüger']
   s.email        = ['torsten@villataika.fi']
