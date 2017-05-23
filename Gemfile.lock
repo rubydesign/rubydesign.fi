@@ -7,7 +7,7 @@ PATH
       bootstrap-sass (~> 3.1)
       bootstrap_form (~> 2.2)
       coffee-rails (~> 4.0)
-      gon (~> 5.2)
+      gon (~> 6)
       haml (~> 4.0)
       jquery-rails (~> 4.0)
       jquery-ui-rails (~> 5.0)
@@ -130,11 +130,11 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    gon (5.2.3)
-      actionpack (>= 2.3.0)
+    gon (6.1.0)
+      actionpack (>= 3.0)
       json
       multi_json
-      request_store (>= 1.0.5)
+      request_store (>= 1.0)
     guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
