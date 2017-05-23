@@ -2,7 +2,7 @@
 class BasketsController < AdminController
   include BasketsHelper
 
-  before_filter :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order ,
+  before_action :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order ,
                                         :checkout, :purchase , :discount , :ean , :zero]
 
   def index

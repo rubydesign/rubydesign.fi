@@ -1,7 +1,7 @@
 # encoding : utf-8
 class ClerksController < AdminController
 
-  before_filter :load_clerk, :only => [:show, :edit, :update, :destroy]
+  before_action :load_clerk, :only => [:show, :edit, :update, :destroy]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource

@@ -1,12 +1,10 @@
 # coding: utf-8
 $:.push File.expand_path("../lib", __FILE__)
 
-require "office_clerk/version"
-
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'office_clerk'
-  s.version      = OfficeClerk::VERSION
+  s.version      = "1.1"
   s.summary      = 'Backend of rubyclerks, a simple way to manage a buisness'
   s.description  = "Rubyclerks is a small buisness management solution, including an online presence (shop), but also POS, inventory and more."
   s.required_ruby_version = '>= 1.9.3'
@@ -23,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = false
 
-  s.add_runtime_dependency 'rails', '~> 4.2', '< 5.0'
+  s.add_runtime_dependency 'rails', '~> 5.0', '< 5.1'
   s.add_runtime_dependency 'ransack', '~> 1.7'
   s.add_runtime_dependency "valid_email" ,  '~> 0.0', '>= 0.0.10'
   s.add_runtime_dependency 'sass-rails' , '~> 5.0'

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,11 +15,11 @@ ActiveRecord::Schema.define(version: 20141114205532) do
   create_table "baskets", force: :cascade do |t|
     t.integer  "kori_id"
     t.string   "kori_type"
-    t.decimal  "total_price", default: 0.0
-    t.decimal  "total_tax",   default: 0.0
+    t.decimal  "total_price", default: "0.0"
+    t.decimal  "total_tax",   default: "0.0"
     t.date     "locked"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -41,9 +40,8 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.datetime "extra_picture_updated_at"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.index ["link"], name: "index_categories_on_link", unique: true
   end
-
-  add_index "categories", ["link"], name: "index_categories_on_link", unique: true
 
   create_table "clerks", force: :cascade do |t|
     t.string   "email",              default: "",    null: false
@@ -53,9 +51,8 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["email"], name: "index_clerks_on_email", unique: true
   end
-
-  add_index "clerks", ["email"], name: "index_clerks_on_email", unique: true
 
   create_table "items", force: :cascade do |t|
     t.integer  "quantity",   default: 1
@@ -116,12 +113,11 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.integer  "supplier_id"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["link"], name: "index_products_on_link"
+    t.index ["product_id"], name: "index_products_on_product_id"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
-
-  add_index "products", ["category_id"], name: "index_products_on_category_id"
-  add_index "products", ["link"], name: "index_products_on_link"
-  add_index "products", ["product_id"], name: "index_products_on_product_id"
-  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id"
 
   create_table "purchases", force: :cascade do |t|
     t.string   "name"

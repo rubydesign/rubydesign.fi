@@ -2,7 +2,7 @@
 
 class ProductsController < AdminController
 
-  before_filter :load_product, :only => [:show, :edit, :update, :destroy ]
+  before_action :load_product, :only => [:show, :edit, :update, :destroy ]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource

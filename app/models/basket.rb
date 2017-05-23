@@ -27,7 +27,7 @@ class Basket < ActiveRecord::Base
     self.total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
   end
 
-  def touch
+  def touch(*names, time: nil)
     cache_total
     super
     save!

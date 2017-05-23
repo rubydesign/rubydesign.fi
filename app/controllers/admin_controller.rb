@@ -3,9 +3,9 @@ class AdminController < OfficeController
 
   layout "office_clerk"
 
-  before_filter :clean_search , :only => [:index , :search]
+  before_action :clean_search , :only => [:index , :search]
 
-  before_filter :require_admin
+  before_action :require_admin
 
   def require_admin
     clerk = current_clerk

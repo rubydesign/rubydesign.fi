@@ -1,7 +1,7 @@
 # encoding : utf-8
 class PurchasesController < AdminController
 
-  before_filter :load_purchase, :only => [:show, :edit, :update , :order , :receive , :inventory]
+  before_action :load_purchase, :only => [:show, :edit, :update , :order , :receive , :inventory]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource

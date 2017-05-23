@@ -6,7 +6,7 @@
 #
 class SuppliersController < AdminController
 
-  before_filter :load_supplier, :only => [:show, :edit, :update, :destroy]
+  before_action :load_supplier, :only => [:show, :edit, :update, :destroy]
 
   # Uncomment for check abilities with CanCan
   # authorize_resource

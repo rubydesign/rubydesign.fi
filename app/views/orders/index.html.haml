@@ -40,7 +40,7 @@
           = paginate @orders
         %ul.pagination.csv
           %li
-            = link_to "CSV", orders_path({:format => :csv}.merge( params))
+            = link_to "CSV", orders_path({:format => :csv}.merge( params.to_unsafe_h))
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|
       .form-group

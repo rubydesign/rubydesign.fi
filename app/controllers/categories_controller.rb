@@ -1,7 +1,7 @@
 # encoding : utf-8
 class CategoriesController < AdminController
 
-  before_filter :load_category, :only => [ :edit, :update, :destroy]
+  before_action :load_category, :only => [ :edit, :update, :destroy]
 
   def index
     @q = Category.search(params[:q])

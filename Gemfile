@@ -6,7 +6,7 @@ gem 'sqlite3'
 
 #asset / production reelated
 gem "therubyracer"
-gem "libv8" 
+gem "libv8"
 gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
 
@@ -16,7 +16,6 @@ gem "autoprefixer-rails" , '< 6.0' , :platform => [:ruby_19]
 group :development do
   gem 'better_errors' , :platforms=>[:mri_20, :mri_21, :rbx]
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21,:rbx]
-  gem 'quiet_assets'
   gem "i18n-tasks" , "0.8.7"
 end
 group :test do
