@@ -1,6 +1,6 @@
 #this file is included by category_spec, so the guard matchers work
 
-require 'spec_helper'
+
 
 describe "Category search" do
   before :each do

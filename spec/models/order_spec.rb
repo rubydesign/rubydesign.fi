@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe Order do
   let(:order) { create :order }

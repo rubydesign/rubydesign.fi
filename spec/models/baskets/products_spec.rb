@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe Basket do
   it "creates basket" do

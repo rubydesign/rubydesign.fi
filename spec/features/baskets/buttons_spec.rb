@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 # lots of buttons appear and disapear, check that that all works
 

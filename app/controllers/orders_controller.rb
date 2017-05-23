@@ -67,7 +67,7 @@ class OrdersController < AdminController
         format.html { redirect_to(@order, :notice => t(:update_success, :model => :order)) }
         format.json { respond_with_bip(@order) }
       else
-        format.html { render :action => :edit }
+        format.html { render :action => :shipment }
         format.json { respond_with_bip(@order) }
       end
     end

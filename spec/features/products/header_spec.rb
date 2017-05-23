@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "header texts" do
   before :each do

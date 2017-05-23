@@ -6,7 +6,7 @@ begin
   puts "Using Spring loaded rspec"
 rescue LoadError
 end
-guard :rspec , :cmd => command do
+guard :rspec , cmd: "bundle exec spring rspec" do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -19,14 +19,13 @@ guard :rspec , :cmd => command do
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
+
+  watch('app/models/basket.rb')  { Dir["spec/models/baskets/*_spec.rb"] }
+  watch('app/controllers/baskets_controller.rb')  { Dir["spec/features/baskets/*_spec.rb"] }
+
   # Capybara features specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$})     { |m| "spec/features/#{m[1]}_spec.rb" }
-
-  # Turnip features and steps
-  watch(%r{^spec/acceptance/(.+)\.feature$})
-  watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 
   # locales
   watch(%r{^config/locales/.*yml})     { |m| "spec/i18n_spec.rb" }
 end
-

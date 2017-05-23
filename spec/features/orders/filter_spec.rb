@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Order index" do
   before(:each) do

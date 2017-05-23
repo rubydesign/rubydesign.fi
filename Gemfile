@@ -17,6 +17,9 @@ group :development do
   gem 'better_errors' , :platforms=>[:mri_20, :mri_21, :rbx]
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21,:rbx]
   gem "i18n-tasks" , "0.8.7"
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen'
 end
 group :test do
   gem "codeclimate-test-reporter"

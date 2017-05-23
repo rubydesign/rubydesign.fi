@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe Supplier do
   it "factory is ok" do

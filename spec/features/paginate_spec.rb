@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Pagination"  do
   before(:each) do

@@ -31,49 +31,60 @@
               =t(:supplier)
               %br
               =t(:category)
-            %th= sort_link [:office,@q], :inventory
+            %th
+              = sort_link [:office,@q], :inventory
+              = t(:in_orders) if(available_inventory)
             %th
               %label.checkbox
                 = @product_scope.length.to_s + " " + t(:products)
         %tbody
           - @products.each do |product|
             -next if params[:basket] and product.line?
-            - cache(product.cache_key + ":" + params[:basket].to_s) do
-              %tr{:class => "line-#{cycle("1","2")}"}
-                %td.image= image_tag product.main_picture.url(:thumb)
-                %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
-                %td.name
-                  = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
-                    =product.full_name
-                %td.price.text-right=euros(product.price)
-                %td.price.text-right=euros(product.cost)
-                %td.supplier
-                  =product.supplier.supplier_name if product.supplier
-                  %br
-                  =product.category.name if product.category
-                %td.inventory=product.inventory
-                -if params[:basket]
-                  %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
-                -else
-                  %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
+            %tr{:class => "line-#{cycle("1","2")}"}
+              %td.image= image_tag product.main_picture.url(:thumb)
+              %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
+              %td.name
+                = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
+                  =product.full_name
+              %td.price.text-right=euros(product.price)
+              %td.price.text-right=euros(product.cost)
+              %td.supplier
+                =product.supplier.supplier_name if product.supplier
+                %br
+                =product.category.name if product.category
+              %td.inventory
+                - if(available_inventory )
+                  = "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
+                - else
+                  = product.inventory
+              -if params[:basket]
+                %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
+              -else
+                %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
       .btn-toolbar.row
         .btn-group.pull-left
           = paginate @products
         %ul.pagination.csv
           %li
-            = link_to "CSV",products_path({:format => :csv}.merge( params.to_unsafe_h)) 
+            = link_to "CSV",products_path({:format => :csv}.merge( params.to_unsafe_h))
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" }, :method => :get do |f|
       .form-group
-        .input-group
+        .input
           - if params[:basket]
             = hidden_field_tag :basket , params[:basket]
             = f.text_field :name_or_product_name_cont, :class => "form-control" , :placeholder => t(:name)
           -else
             = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
-          %span.input-group-addon
+      .form-group
+        .input-group
+          .input-group-addon
+            =t(:in_orders)
+            = radio_button_tag :in_orders , true , available_inventory
+          .input-group-addon
             =t(:online)
             = f.radio_button :online_eq , true
+
       .form-group
         .input-group
           = f.text_field :summary_cont , :class => "form-control" , :placeholder => t(:summary)

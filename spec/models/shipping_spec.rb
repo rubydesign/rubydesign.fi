@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "ShippingMethod"  do
   it "has at least one method with data" do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "GET /products" do
   before :each do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe "Basket totals" do
   let(:basket) { create :basket_2_items }
@@ -29,5 +29,11 @@ describe "Basket totals" do
   it "zeros basket" do
     basket.zero_prices!
     expect(basket.total_price).to eq 0.0
+  end
+  it "adds cost price for POs" do
+    basket = create(:empty_purchase).basket
+    p = create :product
+    basket.add_product( p )
+    expect(basket.total_price).to eq p.cost
   end
 end

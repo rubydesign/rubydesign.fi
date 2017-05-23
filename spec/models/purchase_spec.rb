@@ -1,4 +1,4 @@
-require 'spec_helper'
+
 
 describe Purchase do
   it "factory is ok" do

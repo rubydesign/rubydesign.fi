@@ -21,7 +21,6 @@ test_app/log
 **.war
 *.rbc
 *.sassc
-.rspec
 .redcar/
 .sass-cache
 /coverage.data
