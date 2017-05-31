@@ -202,3 +202,7 @@ thead, tbody {  vertical-align: top;
 .no-border td {
   border: none;
 }
+
+table .price , .inventory {
+  white-space: nowrap;
+}
