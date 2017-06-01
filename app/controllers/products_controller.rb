@@ -12,8 +12,8 @@ class ProductsController < AdminController
     param = params[:q] || {}
     param.merge!(:product_id_null => 1)    unless( params[:basket])
     @q = Product.search( param )
-    @product_scope = @q.result(:distinct => true)
-    @products = @product_scope.includes(:products , :supplier , :category).paginate( :page => params[:page], :per_page => 20 ).to_a
+    @product_scope = @q.result(:distinct => true).includes(:products , :supplier , :category)
+    @products = @product_scope.paginate( :page => params[:page], :per_page => 20 ).to_a
     create_used_inventory_list if( available_inventory )
   end
 
@@ -73,7 +73,8 @@ class ProductsController < AdminController
     order_ids = Order.where("created_at > ?" , 1.month.ago ).pluck(:id)
     basket_ids = Basket.where(kori_id: order_ids).where(locked: nil).pluck(:id)
     @product_inventory = Hash.new(0)
-    product_ids = @products.each {|p| p.id }
+    for_products = available_inventory ? @product_scope : @products
+    product_ids = for_products.each {|p| p.id }
     Item.where(basket_id: basket_ids).where(product_id: product_ids).each do |item|
       @product_inventory[item.product_id] = @product_inventory[item.product_id] + item.quantity
     end
