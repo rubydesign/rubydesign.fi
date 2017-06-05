@@ -4,7 +4,7 @@ module OfficeClerk
   class Engine < ::Rails::Engine
     engine_name "office"
 
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.eager_load_paths += %W(#{config.root}/lib)
 #    config.assets.paths +=
     config.exceptions_app = self.routes
 
