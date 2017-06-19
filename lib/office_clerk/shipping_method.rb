@@ -8,7 +8,7 @@ module OfficeClerk
     end
     attr_reader :data , :name , :type , :description
 
-    # the relevant interface for a shipping method is 
+    # the relevant interface for a shipping method is
     # a) whether it applies to the order (basket) : available?
     # b) how much sendin costs, price_for(basket)
     def price_for(basket)
@@ -21,7 +21,7 @@ module OfficeClerk
     ## class stuff after here, global list etc
     @@methods = nil
     def self.all
-      return @@methods if @@methods 
+      return @@methods if @@methods
       @@methods = {}
       config = OfficeClerk.config(:shipping)
       config.each do |key , method|
@@ -31,7 +31,7 @@ module OfficeClerk
         rescue
           puts "No such Class #{method[:class]}, check config.yml"
         end
-        @@methods[key] = clas.new( method.merge(:type => key) )
+        @@methods[key] = clas.new( method.merge(:type => key) ) if clas
       end
       @@methods
     end
