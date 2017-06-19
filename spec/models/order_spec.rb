@@ -43,7 +43,14 @@ describe Order do
     expect(order.taxes.length).to eq 1
     expect(order.taxes.first).to eq [10.0 , 0.9091]
   end
-
+  it "handles invalid shipment info" do
+    expect(shipped_order.shipment_type = :invalid).not_to be nil
+  end
+  it "setting invalid shipment info doesn change the info" do
+    info = shipped_order.shipment_type
+    shipped_order.shipment_type = :invalid
+    expect(shipped_order.shipment_type).to eq info
+  end
   it "adds shipping tax to taxes" do
     expect(shipped_order.taxes.length).to eq 2
     expect(shipped_order.taxes.first).to eq [10.0 , 0.9091]

@@ -71,9 +71,10 @@ class Order < ActiveRecord::Base
   end
 
   def shipment_type= typ
-    write_attribute(:shipment_type, typ)
     calc = OfficeClerk::ShippingMethod.all[typ.to_sym]
-    cost = calc.price_for(self.basket) rescue 0
+    return nil unless calc
+    cost = calc.price_for(self.basket)
+    write_attribute(:shipment_type, typ)
     self.shipment_price = cost
     self.shipment_tax = OfficeClerk.config("defaults.tax").to_f rescue 0
   end
