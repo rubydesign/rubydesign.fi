@@ -15,6 +15,12 @@ describe Basket do
     expect(basket.items.length).to be  1
     expect(basket.items.first.quantity).to be  1
   end
+  it "removes a product" do
+    basket = create :basket_with_item
+    expect(basket.items.length).to be  1
+    basket.remove_product basket.items.first.product
+    expect(basket.reload.items.length).to be  0
+  end
   it "adds 2 products without duplication" do
     basket = create :basket
     prod =  create :product

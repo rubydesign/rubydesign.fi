@@ -72,7 +72,6 @@ en:
       product: Product
       purchase: Purchase
       supplier: Supplier
-  add: Add
   add_to_basket: Add to basket
   address: Adress
   admin: Admin
@@ -130,6 +129,7 @@ en:
   make_purchase: Make Purchase
   manage: Manage
   may_be_blank: May be blank
+  more: More
   name: Name
   name_contains: Name contains
   new: New
@@ -171,6 +171,7 @@ en:
   receive: Receive
   received: Received
   received_on: Received On
+  remove: Remove
   scode: Supplier code
   search: Search
   select: Select

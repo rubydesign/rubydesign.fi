@@ -99,6 +99,12 @@ class Basket < ActiveRecord::Base
     ss
   end
 
+  def remove_product(prod)
+    raise "Locked since #{self.locked}" if locked?
+    item = items.where(:product_id => prod.id ).limit(1).first
+    return unless item
+    item.delete
+  end
   #when adding a product (with quantity) we ensure there is only one item for each product
   def add_product prod , quant = 1
     return unless prod

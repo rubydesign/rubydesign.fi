@@ -103,10 +103,13 @@ class BasketsController < AdminController
 
   def edit
     return if redirect_if_locked
-    if p_id = (params[:add] || params[:delete])
+    if p_id = (params[:add] || params[:remove])
       add = params[:add].blank? ? -1 : 1
       @basket.add_product Product.find(p_id) , add
       flash.now.notice = params[:add] ? t('product_added') : t('item_removed')
+    elsif prod_id = params[:delete]
+      @basket.remove_product Product.find(prod_id)
+      flash.now.notice = t('item_removed')
     end
     @basket.save!
   end

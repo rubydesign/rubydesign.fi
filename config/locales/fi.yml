@@ -72,7 +72,6 @@ fi:
       product: Tuote
       purchase: Sisäänosto
       supplier: Tuottaja
-  add: Lisää
   add_to_basket: Lisää ostoskoriin
   address: Osoite
   admin: Admin
@@ -130,6 +129,7 @@ fi:
   make_purchase: Luo Sisäänosto
   manage: Hallinta
   may_be_blank: Voi jättää tyhjäksi
+  more: Lisää
   name: Nimi
   name_contains: Nimi sisältää
   new: Uusi
@@ -171,6 +171,7 @@ fi:
   receive: Ota vastaan
   received: Vastaanotettu
   received_on: Vastaanotettu
+  remove: Vähentä
   scode: Tuottajatunnus
   search: Hae
   select: Valitse
