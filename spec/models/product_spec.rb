@@ -1,5 +1,3 @@
-
-
 describe Product do
   it "factory is ok" do
     pro = build :product
@@ -14,6 +12,7 @@ describe Product do
     expect(pro.scode).not_to be nil
     expect(pro.inventory). to be > 0
     expect(pro.type).to be :product
+    expect(pro.supplier).not_to be nil
   end
 
   it "default factory product and not items" do

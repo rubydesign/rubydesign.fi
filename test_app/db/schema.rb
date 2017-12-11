@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114205532) do
+ActiveRecord::Schema.define(version: 20171211182305) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "kori_id"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 20141114205532) do
     t.date     "received_on"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "supplier_id"
+    t.index ["supplier_id"], name: "index_purchases_on_supplier_id"
   end
 
   create_table "suppliers", force: :cascade do |t|

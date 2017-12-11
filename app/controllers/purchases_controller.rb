@@ -38,22 +38,16 @@ class PurchasesController < AdminController
   def new
     today = Date.today
     basket = Basket.create!
-    @purchase = Purchase.new :name => "#{I18n.t(:purchase)} #{I18n.l(today)}" , :basket => basket 
+    @purchase = Purchase.new :name => "#{I18n.t(:purchase)} #{I18n.l(today)}" , :basket => basket
+    if( supplier_id = params[:supplier])
+      @purchase.supplier = Supplier.find( supplier_id )
+    end
     @purchase.save!
     redirect_to edit_basket_path basket
   end
 
   def edit
 
-  end
-
-  def create
-    @purchase = Purchase.create(params_for_model)
-    if @purchase.save
-      redirect_to purchase_path(@purchase), :notice => t(:create_success, :model => "purchase")
-    else
-      render :show
-    end
   end
 
   def update
@@ -80,4 +74,3 @@ class PurchasesController < AdminController
     params.require(:purchase).permit(:name,:ordered_on,:received_on,:basket_id)
   end
 end
-

@@ -7,6 +7,7 @@ FactoryGirl.define do
     price 10
     tax 10.0
     inventory 5
+    supplier
     factory :shop_product do
       online true
       after(:create) do |prod|
@@ -19,7 +20,7 @@ FactoryGirl.define do
       end
     end
     factory :product_line do
-      after(:create) do |prod| 
+      after(:create) do |prod|
         create :product , :product_id => prod.id
       end
     end

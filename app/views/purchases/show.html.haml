@@ -1,9 +1,13 @@
 .row.purchase_show_start
-  %h2
-    = t(:purchase)
-  %p
-    %b= t(:name)
-    = in_place @purchase , :name
+  .col-md-6
+    %h2
+      = t(:purchase)
+    %p
+      %b= t(:name)
+      = in_place @purchase , :name
+  .col-md-6
+    - @purchase.basket.suppliers.each do |s|
+      = link_to( t(:new) + " : " + s.supplier_name , new_purchase_path(supplier: s.id) ,:class => "btn btn-primary purchase_link")
 .row
   .col-md-3
     %p
@@ -25,7 +29,8 @@
     %p
       %b
         = t(:suppliers) + " : "
-      = raw @purchase.basket.suppliers.collect {|s| link_to( s.supplier_name , supplier_path(s)) }.join(",")
+      - @purchase.basket.suppliers.each do |s|
+        = link_to( s.supplier_name , supplier_path(s))
 
 = render "baskets/small" , :basket => @purchase.basket
 
