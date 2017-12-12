@@ -52,4 +52,15 @@
   %br
   .col-md-12
     .purchase_show_last
+      =link_to "Print Invoice" , "/purchases/' + @purchase.id + '/invoice" , class: "btn btn-primary"
+
 .purchase_show_end
+  {{ message }}
+
+:javascript
+  new Vue({
+    el: '.purchase_show_end',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })

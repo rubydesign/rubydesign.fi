@@ -27,14 +27,6 @@ module Barcode
     send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.full_name}.pdf"
   end
 
-  def barcode_button
-    load_product
-    if @product.line?
-      render :nothing => true
-    else
-      render :layout => false
-    end
-  end
   private
 
   def create_pdf

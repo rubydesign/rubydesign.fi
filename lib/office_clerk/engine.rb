@@ -1,4 +1,5 @@
 require "best_in_place"
+require "vuejs-rails"
 
 module OfficeClerk
   class Engine < ::Rails::Engine

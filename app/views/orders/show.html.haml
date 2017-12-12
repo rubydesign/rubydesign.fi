@@ -117,6 +117,9 @@
   .col-md-12
     %b= t(:order_print)
     .order_show_back
+      - print_styles.each do |style|
+        = link_to t("#{style}.header") , print_path(style), :class => "btn btn-primary"
+
   %br
   %br
 .order_show_end

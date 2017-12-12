@@ -1,10 +1,5 @@
 module Print
 
-  def button_list
-    load_order
-    render :layout => false
-  end
-
   def receipt
     load_order
   end

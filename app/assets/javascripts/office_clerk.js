@@ -15,6 +15,7 @@
 //= require_self
 
 //= require printer
+//= require vue
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 
