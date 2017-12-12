@@ -1,0 +1,45 @@
+.receipt
+  #receipt-header
+    = render :partial => "orders/receipt_header"
+  .receipt-info
+    - date = @order.ordered_on || @order.ordered_on
+    =l(date.to_date) 
+    /
+    =t(:order)
+    =@order.number
+    %br/
+  .receipt-wrapper
+    .receipt-line_items
+      %table.receipt-line_items
+        %thead
+          %tr
+            %th Tuote
+            %th Määrä
+            %th Loppusumma
+        %tbody
+          - @order.basket.items.each do |i|
+            %tr
+              %td.receipt-cell= i.product.full_name
+              %td.receipt-cell.receipt-qty= i.quantity
+              %td.receipt-cell.receipt-total= euros i.total
+    .spacer
+       
+    .receipt-totals
+      %table.receipt-totals
+        %tbody
+          %tr
+            %td.receipt-cel1.bold
+              %strong= t(:order_total)
+            %td.receipt-cel2.cell{align: "right"}
+              %strong
+                %span#receipt-summary-order-total= euros @order.total_price
+          %tr
+            %td.receipt-cel1
+            %td.receipt-cel2
+          -@order.taxes.each do |tax_rate , amount|
+            %tr.receipt-total
+              %td.receipt-cel1.bold
+                = t(:vat) + " " + tax_rate.to_s + " % "
+              %td.receipt-cel2.receipt-cell{align: "right"}= euros amount
+  .receipt-footer
+    = render :partial => "orders/receipt_footer"

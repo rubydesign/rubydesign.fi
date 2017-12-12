@@ -1,0 +1,14 @@
+.row.address    
+  - addresses = [ @order.name ,   @order.street,   @order.city ]
+
+  %table
+    %tr
+      %td{:width => "17%"}
+      %td.shipping_header.bold{:width => "45%"}
+    - addresses.each do |row|
+      %tr
+        %td.cell{:height => "15px", :width => "45%"}
+          = row
+        %td{:width => "17%"}
+        %td.cell{:height => "15px", :width => "45%"}
+          = "   "

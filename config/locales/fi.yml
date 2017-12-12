@@ -210,8 +210,32 @@ fi:
     next_label: seuraava
     page_gap: "&hellip;"
     previous_label: edellinen
+    profit: Kate
   profit: Kate
   date_range: Päivämäärä
   group_by: Ryhmitellä
   all: Kaikki
   property: Omaisuus
+  item_total: Tuotteet
+  barcode: Viivakoodi
+  invoice:
+    header: Lasku
+    print: Tulosta Lasku
+    thanks: Kiitos tilauksestasi!
+  slip:
+    header: Kuormakirja
+    print: Tulosta Kuormakirja
+    thanks: Tarkistathan tilauksen välittömästi. Kiitos tilauksestasi!
+  receipt:
+    header: Kuitti
+    print: Tulosta Kuitti
+  reminder:
+    header: Maksumuistutus
+    print: Maksumuistutus
+    thanks: "Kirjanpitomme mukaan emme ole saaneet suoritustanne tästä
+            laskusta.<br/> <br/>Pyydämme maksamaan laskun heti. <br/><br/>
+            Mikäli lasku on jo maksettu, tämä maksuhuomautus on aiheeton."
+  purchase invoice:
+      header: Purchase Invoice
+  purchase_total: Yhteensä
+  order_total: Tilaus yhteensä

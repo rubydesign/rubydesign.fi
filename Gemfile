@@ -26,6 +26,8 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-screenshot'
+  gem "poltergeist"
+  gem "phantomjs" , :require => 'phantomjs/poltergeist'
   gem 'database_cleaner'
   gem "factory_girl_rails"
   gem 'email_spec'

@@ -1,0 +1,11 @@
+.row.header
+  .col-xs-6
+    = image_tag "kauppa/invoice-logo.gif",  :id => "logo"
+    .sender
+      = raw OfficeClerk.config(:shop_address)
+    %br  
+  .col-xs-6.text-right 
+    %p.title= I18n.t("#{@template}.header")
+    %b= I18n.t(:order_number).to_s + " " + @order.number  
+    &nbsp;/&nbsp;
+    = I18n.l(@order.ordered_on.to_date) if @order.ordered_on

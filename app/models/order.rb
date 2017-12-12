@@ -1,3 +1,5 @@
+require "reference_number"
+
 class Order < ActiveRecord::Base
   has_one :basket , :as => :kori , :autosave => true , :dependent => :destroy
 
@@ -77,6 +79,13 @@ class Order < ActiveRecord::Base
     write_attribute(:shipment_type, typ)
     self.shipment_price = cost
     self.shipment_tax = OfficeClerk.config("defaults.tax").to_f rescue 0
+  end
+
+  # this returns a finnish reference number, as used in the finnish bank system
+  # for referencing payments to bills.
+  def viite
+    base = self.number[1 .. -1]
+    ReferenceNumber.new(base).to_s
   end
 
   private

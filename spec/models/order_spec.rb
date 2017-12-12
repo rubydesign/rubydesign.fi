@@ -14,6 +14,10 @@ describe Order do
     expect(Order.new.save).to eq false
   end
 
+  it "returns a reference number" do
+    expect(order.viite.length).to be 10 
+  end
+
   it "doesnt save order with just mail" do
     expect(Order.new(:email => "torsten@villataika.fi").save).to eq false
   end

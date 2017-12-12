@@ -10,6 +10,7 @@ OfficeClerk::Engine.routes.draw do
       get "search" => "purchases#index"
     end
     member do
+      get :invoice, to: 'purchase_invoices#show'
       get :order
       get :receive
       get :inventory
@@ -27,6 +28,7 @@ OfficeClerk::Engine.routes.draw do
       get :purchase
       get :checkout
       get :zero
+      get :button_list
     end
   end
 
@@ -41,6 +43,11 @@ OfficeClerk::Engine.routes.draw do
       get :ship
       get :cancel
       patch :shipment
+      get :button_list
+      get :invoice
+      get :receipt
+      get :slip
+      get :reminder
     end
   end
 
@@ -66,6 +73,8 @@ OfficeClerk::Engine.routes.draw do
     end
     member do
       get :delete
+      get :barcode  #print the barcode and price on a 50x25 mm area
+      get :barcode_button
     end
   end
 

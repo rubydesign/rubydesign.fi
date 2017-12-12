@@ -1,0 +1,13 @@
+%table.totals
+  %tr
+    %td.cel1.bold
+      = t(:purchase_total)
+      \:
+    %td.cel2.bold{:align => "right"}= euros(@purchase.basket.total_price)
+  %tr
+    %td
+      &nbsp;
+    %tr
+      %td.cel1
+        = "#{t(:vat)}:"
+      %td.cel2{:align => "right"}= euros(@purchase.basket.total_tax)

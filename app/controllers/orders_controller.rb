@@ -1,6 +1,7 @@
 # encoding : utf-8
 class OrdersController < AdminController
-
+  include Print
+  
   before_action :load_order, :only => [ :show, :edit, :destroy, :update , :cancel,
                                         :ship, :shipment ,  :pay , :mail]
 

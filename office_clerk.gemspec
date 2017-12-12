@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.name         = 'office_clerk'
-  s.version      = "1.2"
+  s.version      = "1.3"
   s.summary      = 'Backend of rubyclerks, a simple way to manage a buisness'
   s.description  = "Rubyclerks is a small buisness management solution, including an online presence (shop), but also POS, inventory and more."
   s.required_ruby_version = '>= 2.2'
@@ -39,7 +39,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "paperclip" , '~> 4.0'
   s.add_runtime_dependency 'rails-i18n' , '~> 4.0'
   s.add_runtime_dependency 'flot-rails', '0.0.6'
-
   s.add_runtime_dependency "bcrypt-ruby" , '~> 3.1'
+  s.add_runtime_dependency "barby" , "~> 0.6"
+  s.add_runtime_dependency "chunky_png" , "~> 1.3"
+  s.add_runtime_dependency "prawn" ,  "~> 2.0"
+  s.add_runtime_dependency "reference_number"
 
 end

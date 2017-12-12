@@ -6,9 +6,16 @@ module OrdersHelper
     conf.split(" ").collect{|s| s.strip }
   end
   def mail_path action
-    
+
   end
   def number_with_comma n
     number_with_precision(n , :precision => 2 , :separator => "," , :strip_insignificant_zeros => false)
   end
+  def print_styles
+    OfficeClerk.config(:print_styles).split
+  end
+  def print_path style
+    eval("office.#{style}_order_path(@order)")
+  end
+
 end

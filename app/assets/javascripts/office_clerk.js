@@ -14,6 +14,8 @@
 //= require bootstrap.min
 //= require_self
 
+//= require printer
+
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 
 $(function() {

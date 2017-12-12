@@ -1,0 +1,13 @@
+- unless @order.note.blank? 
+  = @order.note
+  %br
+%br
+
+- unless @slip
+  Maksaessasi käytä viitenumeroa: #{@order.viite}
+  %br
+- unless @order.shipment_info.blank?
+  Postin seurantatunnus on #{@order.shipment_info}
+  %br
+%b
+  = raw t("#{@template}.thanks" )

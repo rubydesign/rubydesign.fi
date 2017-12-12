@@ -1,0 +1,21 @@
+- title(I18n.t("#{@template}.header") + " " + @order.number)
+
+.invoice
+  = render :partial => "orders/invoice_header"
+
+
+  = render :partial => "orders/invoice_address"
+
+
+  .row.wrapper
+    .items
+      = render :partial => "orders/invoice_items"
+    .spacer
+      \&nbsp;
+    .row
+      .totals
+        = render :partial => "orders/invoice_totals" unless @slip
+    .thanks
+      = render :partial => "orders/invoice_thanks"
+
+  = render :partial => "orders/invoice_footer"

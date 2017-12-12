@@ -1,0 +1,17 @@
+%table.items
+  %tr
+    %td.sku.bold= t(:ean)
+    %td.desc.bold= t(:description)
+    %td.price.bold.text-right= t(:price)
+    %td.qty.bold.text-right= t(:quantity)
+    %td.total.bold.text-right= t(:total)
+  - @purchase.basket.items.each do |item|
+    %tr
+      %td.cell= item.product.ean
+      %td.cell
+        = item.product.full_name rescue item.product.name
+        - if item.discount > 0
+          (#{-item.discount}%)
+      %td.cell.price.text-right= best_euros(item.price)
+      %td.cell.qty.text-right= item.quantity
+      %td.cell.total.text-right= number_to_currency(item.price * item.quantity)

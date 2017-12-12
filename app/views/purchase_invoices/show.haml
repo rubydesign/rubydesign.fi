@@ -1,0 +1,14 @@
+- title(I18n.t("#{@template}.header") + " " + @purchase.name)
+
+.invoice
+  = render "invoice_header"
+
+  .row.wrapper
+    .items
+      = render "invoice_items"
+    .spacer
+      \&nbsp;
+    .row
+      .totals
+        = render "invoice_totals"
+    = render "invoice_footer"

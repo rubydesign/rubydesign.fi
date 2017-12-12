@@ -8,6 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *= require jquery-ui
+ *= require reporter
+ *= require printer 
  */
 
 
@@ -116,14 +118,13 @@ thead, tbody {  vertical-align: top;
 
 .purchases{
   background: image-url('office_clerk/purchases-2.jpg') no-repeat;
-  height: 161px;
 }
 
 .categories{
   background: image-url('office_clerk/categories-2.jpg') no-repeat;
 }
 
-.suppliers{
+.suppliers_index_start{
   background: image-url('office_clerk/suppliers-2.jpg') no-repeat;
 }
 

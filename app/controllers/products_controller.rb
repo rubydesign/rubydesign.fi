@@ -2,7 +2,8 @@
 
 class ProductsController < AdminController
   include ProductsHelper
-
+  include Barcode
+  
   before_action :load_product, :only => [:show, :edit, :update, :destroy ]
 
   # Uncomment for check abilities with CanCan

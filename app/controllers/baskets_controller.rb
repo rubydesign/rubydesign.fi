@@ -101,6 +101,11 @@ class BasketsController < AdminController
     redirect_to office.edit_basket_path(@basket)
   end
 
+  def button_list
+    load_basket
+    render :layout => false
+  end
+
   def edit
     return if redirect_if_locked
     if p_id = (params[:add] || params[:remove])

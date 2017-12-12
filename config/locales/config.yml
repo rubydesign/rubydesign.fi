@@ -7,3 +7,11 @@ config:
     tax: 24.0
   print_styles: ""
   mail_buttons: "confirm cancel paid shipped"
+  print_styles: "receipt slip invoice reminder"
+  invoice_logo_path: "invoice_logo.jpg"
+  footer_center: Päätoiminimi Lightning Raisa & Torsten Oy<br/>Y-Tunnus 2380478-1<br/>Maksuehto 14 päivää netto<br/>Viivästyskorko 12 %
+  footer_left: Auringosta Itään, Kuusta Länteen
+  footer_left2: IBAN FI1017 4530 0013 2474<br/>BIC NDEAFIHH (Nordea)
+  footer_right: Fiskarsintie 847, 10480 Antskog<br/>info@auringostaitaan.fi<br/>puh 09- 621 7001
+  shop: Auringosta Itään, Kuusta Länteen
+  shop_address: Fiskarsintie 847, 10480 Antskog

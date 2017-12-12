@@ -1,6 +1,5 @@
 
-
-describe "GET /products" do
+describe "Products filters" do
   before :each do
     sign_in
    end
