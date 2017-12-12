@@ -210,3 +210,8 @@ fi:
     next_label: seuraava
     page_gap: "&hellip;"
     previous_label: edellinen
+  profit: Kate
+  date_range: Päivämäärä
+  group_by: Ryhmitellä
+  all: Kaikki
+  property: Omaisuus

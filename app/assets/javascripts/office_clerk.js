@@ -6,6 +6,11 @@
 //= require jquery-ui/datepicker-fi
 //= require best_in_place.jquery-ui
 
+//= require 'jquery.flot'
+//= require 'jquery.flot.resize'
+//= require 'jquery.flot.time'
+//= require 'jquery.flot.stack'
+
 //= require bootstrap.min
 //= require_self
 

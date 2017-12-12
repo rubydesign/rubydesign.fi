@@ -210,3 +210,8 @@ en:
     next_label: Next &#8594;
     page_gap: "&hellip;"
     previous_label: "&#8592; Previous"
+    profit: Profit
+  date_range: Date
+  group_by: Group by
+  all: All
+  property: Property

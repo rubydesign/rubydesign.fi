@@ -1,8 +1,12 @@
 .row.manage_start
+  .col-md-6
+    %h2
+      =link_to "Reports" , "/manage/report"
+
 .row.config
   .col-md-12
-  %h3 Config
-  .row
-    - conf = I18n.backend.send(:translations)[:config]
-    = render "hash" , :config => conf if conf
+    %h3 Config
+    .row
+      - conf = I18n.backend.send(:translations)[:config]
+      = render "hash" , :config => conf if conf
 .row.manage_end
