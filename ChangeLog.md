@@ -1,3 +1,12 @@
+### 1.1 - 1.5
+
+Folding in external engines for easier development.
+Starting to use vue for more dynamic views
+
+### 0.9 - 1.1
+
+System has been in production for 3 years
+
 ### 0.8
 
 - fix order search
@@ -21,7 +30,7 @@
 - Fix some date-formats
 - improve searching for non-existing fields
 - introduce product/category summary field (for lists)
-- Start to unse gon and make other clerks independant
+- Start to use gon and make other clerks independant
 - ssl configuration possible
 - better payment/shipment for orders (tbc)
 - second production site

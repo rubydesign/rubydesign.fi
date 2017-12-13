@@ -27,7 +27,6 @@ class BasketsController < AdminController
   end
 
   def show
-    gon.basket_id = @basket.id
   end
 
   def zero

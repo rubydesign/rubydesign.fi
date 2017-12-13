@@ -6,7 +6,7 @@ module Reporter
     table = Item.includes(:product)
     table = table.includes(:category) if (@group_by == "by_category")
     @search = table.ransack(search)
-    gon.flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 } , :stack => true } ,
+    @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 } , :stack => true } ,
                       :legend => {  :container => "#legend"} ,
                       :xaxis =>  { :mode => "time" }
                     }
@@ -73,7 +73,7 @@ module Reporter
       sum = buck.inject(0.0){|total , val | total + val[1] }.round(2)
       { :label => "#{label} =#{sum}" , :data => buck }
     end
-    gon.flot_data = flot_data.sort{ |a,b| b[:label].split("=")[1].to_f <=> a[:label].split("=")[1].to_f }
+    @flot_data = flot_data.sort{ |a,b| b[:label].split("=")[1].to_f <=> a[:label].split("=")[1].to_f }
   end
 
   def get_bucket item

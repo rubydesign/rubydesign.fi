@@ -13,7 +13,6 @@ class PurchasesController < AdminController
   end
 
   def show
-    gon.purchase_id = @purchase.id
   end
 
   # order this from supplier

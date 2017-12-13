@@ -11,7 +11,6 @@ require 'bootstrap_form'
 require "paperclip"
 require 'rails-i18n'
 require "jquery-rails"
-require "gon"
 require "bcrypt"
 require "valid_email"
 require "best_in_place"

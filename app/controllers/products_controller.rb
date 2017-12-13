@@ -3,7 +3,7 @@
 class ProductsController < AdminController
   include ProductsHelper
   include Barcode
-  
+
   before_action :load_product, :only => [:show, :edit, :update, :destroy ]
 
   # Uncomment for check abilities with CanCan
@@ -19,7 +19,6 @@ class ProductsController < AdminController
   end
 
   def show
-    gon.product_id = @product.id
   end
 
   def new

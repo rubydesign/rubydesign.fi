@@ -3,7 +3,7 @@
     #placeholder{:style => "width:800px;height:400px;"}
     %script#source{:type => "text/javascript"}
       $(function () {
-      $.plot($("#placeholder"), gon.flot_data , gon.flot_options );
+        $.plot($("#placeholder"), #{@flot_data.to_json} , #{@flot_options.to_json} );
       });
     #legend
   .col-md-3

@@ -5,9 +5,13 @@
     %p
       %b= t(:name)
       = in_place @purchase , :name
-  .col-md-6
+  .col-md-5
     - @purchase.basket.suppliers.each do |s|
       = link_to( t(:new) + " : " + s.supplier_name , new_purchase_path(supplier: s.id) ,:class => "btn btn-primary purchase_link")
+  .col-md-1
+    -unless @purchase.received_on
+      = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary btn-danger inventory_link", :data => { :confirm => t(:are_you_sure) }
+
 .row
   .col-md-3
     %p
@@ -36,31 +40,22 @@
 
 .row
   .col-md-5
-    %b= t(:order_actions)
     %br
     = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
-    \ 
     = link_to t(:back), purchases_path, :class => "btn btn-warning"
+    = link_to "Print Invoice" , "/purchases/#{@purchase.id}/invoice" , class: "btn btn-primary"
 
--unless @purchase.received_on
-  %h3{"style" => "color:red"}
-    = t(:inventory)
-    %br
-    = link_to t(:inventory) , inventory_purchase_path(@purchase) , :class => "btn btn-primary btn-danger inventory_link", :data => { :confirm => t(:are_you_sure) }
-
-.row
-  %br
-  .col-md-12
-    .purchase_show_last
-      =link_to "Print Invoice" , "/purchases/' + @purchase.id + '/invoice" , class: "btn btn-primary"
 
 .purchase_show_end
-  {{ message }}
-
+  Vue tässä
+  %br
+  {{ basket.items }}
 :javascript
   new Vue({
     el: '.purchase_show_end',
     data: {
-      message: 'Hello Vue!'
+      purchase: #{@purchase.to_json(include: :supplier)},
+      basket: #{@purchase.basket.to_json(include: :items)},
+      products: #{@products.to_json}
     }
   })
