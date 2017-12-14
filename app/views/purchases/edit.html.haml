@@ -1,60 +1,60 @@
-.row
+.row.vueapp
   .col-md-6
     %h2= in_place @purchase , :name
-
-.row.vueapp
-  %table.table.table-striped.table-bordered.table-condensed
-    %thead
-      %tr
-        %th= t(:picture)
-        %th= t(:name)
-        %th= t(:quantity)
-        %th= t(:price)
-        %th= t(:total)
-    %tbody
-      %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
-        %td
-          %img{ "v-bind:src" => "item.picture" }
-        %td
-          %a{ ":href" => "'/products/' + item.product_id"}
-            {{item.name}}
-        %td.quantity
-          {{item.quantity}}
-          .overlay
-            %a{ "@click" => "item.quantity += 1; changed = true"}
-              =image_tag "plus.png"
-            %span {{item.quantity}}
-            %a{ "@click" => "item.quantity -= 1; changed = true"}
-              =image_tag "minus.png"
-        %td
-          {{item.price}}
-        %td
-          {{item.price * item.quantity}}
-        -# %td= image_tag item.product.main_picture.url(:thumb) if item.product
-        -# %td.name= link_to_if item.product, item.name , product_path(item.product)
-        -# %td= item.quantity
-        -# %td= euros item.price
-
-
-    %thead
-      %tr
-        %th{colspan: 2}
-          = t(:total)
-        %td
-          {{total_amount()}}
-        %th
-          %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
-            Save
-        %td
-          {{total_price()}}
-
+  .col-md-2
+  .col-md-2.pill{"@click" => "tab = 1" , "v-bind:class" => "{active_pill: tab == 1}"}
+    Basket
+  .col-md-2.pill{"@click" => "tab = 2", "v-bind:class" => "{active_pill: tab == 2}"}
+    Products
+  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th= t(:picture)
+          %th= t(:name)
+          %th= t(:quantity)
+          %th= t(:price)
+          %th= t(:total)
+      %tbody
+        %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
+          %td
+            %img{ "v-bind:src" => "item.picture" }
+          %td
+            %a{ ":href" => "'/products/' + item.product_id"}
+              {{item.name}}
+          %td.quantity
+            {{item.quantity}}
+            .overlay
+              %a{ "@click" => "item.quantity += 1; changed = true"}
+                =image_tag "plus.png"
+              %span {{item.quantity}}
+              %a{ "@click" => "item.quantity -= 1; changed = true"}
+                =image_tag "minus.png"
+          %td {{item.price}}
+          %td {{item.price * item.quantity}}
+      %thead
+        %tr
+          %th{colspan: 2}
+            = t(:total)
+          %td
+            {{total_amount()}}
+          %th
+            %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
+              Save
+          %td
+            {{total_price()}}
+  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
+    TAB 2
+  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 3}"}
+    TAB 3
 :javascript
-  new Vue({
+  var app = new Vue({
     el: '.vueapp',
     data: {
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
       products: #{@products.to_json},
+      tab: 1,
       changed: false
     } ,
     methods: {
