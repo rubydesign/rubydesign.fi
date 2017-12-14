@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "kramdown" , '~> 1.5'
   s.add_runtime_dependency "best_in_place" , '~> 3.0'
   s.add_runtime_dependency "vuejs-rails" , '~> 2.4.2'
+  s.add_runtime_dependency "rabl" , '~> 0.13.1'
 
   s.add_runtime_dependency 'will_paginate-bootstrap' , '~> 1.0'
   s.add_runtime_dependency 'bootstrap-sass', '~> 3.1'

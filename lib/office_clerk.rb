@@ -15,9 +15,9 @@ require "bcrypt"
 require "valid_email"
 require "best_in_place"
 require "ransack"
-
 require "office_clerk/shipping_method"
 require_relative "reporter"
+require "rabl"
 
 module OfficeClerk
   # Configuration is stored in locale/config.yml under the main key (ie "locale") config
