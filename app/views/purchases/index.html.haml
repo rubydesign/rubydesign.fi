@@ -28,7 +28,11 @@
               %td= date(purchase.received_on)
               %td= purchase.basket.items.length
               %td= link_to euros(purchase.basket.total_price) , basket_path(purchase.basket)
-              %td= link_to t(:show) , purchase_path(purchase), :title => t(:show)
+              %td
+                -if purchase.basket.locked?
+                  = link_to t(:show) , purchase_path(purchase), :title => t(:show)
+                -else
+                  = link_to t(:edit) , edit_purchase_path(purchase), :title => t(:edit)
       .btn-toolbar
         .btn-group
           = paginate @purchases

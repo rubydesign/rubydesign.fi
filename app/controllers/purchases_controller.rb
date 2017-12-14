@@ -46,7 +46,11 @@ class PurchasesController < AdminController
   end
 
   def edit
-
+    if( @purchase.basket.locked?)
+      redirect_to purchase_path(@purchase) , notice: "Cant edit, locked"
+    end
+    @products = Product.where(supplier_id: @purchase.supplier_id).select(:id ,
+                  :main_picture_file_name , :stock_level, :name , :cost).to_a
   end
 
   def update

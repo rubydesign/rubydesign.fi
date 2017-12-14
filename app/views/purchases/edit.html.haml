@@ -1,0 +1,77 @@
+.row
+  .col-md-6
+    %h2= in_place @purchase , :name
+
+.row.vueapp
+  %table.table.table-striped.table-bordered.table-condensed
+    %thead
+      %tr
+        %th= t(:picture)
+        %th= t(:name)
+        %th= t(:quantity)
+        %th= t(:price)
+    %tbody
+      %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
+        %td
+          %img{ "v-bind:src" => "item.picture" }
+        %td
+          %a{ ":href" => "'/products/' + item.product_id"}
+            {{item.name}}
+        %td
+          {{item.quantity}}
+        %td
+          {{item.price}}
+        -# %td= image_tag item.product.main_picture.url(:thumb) if item.product
+        -# %td.name= link_to_if item.product, item.name , product_path(item.product)
+        -# %td= item.quantity
+        -# %td= euros item.price
+
+
+    %thead
+      %tr
+        %th{colspan: 2}
+          = t(:total)
+        %td
+          {{total_amount()}}
+        %td
+          {{total_price()}}
+
+:javascript
+  new Vue({
+    el: '.vueapp',
+    data: {
+      purchase: #{@purchase.to_json(include: :supplier)},
+      basket: #{ render( partial: "purchases/basket.json") },
+      products: #{@products.to_json}
+    } ,
+    methods: {
+      product_picture: function(item) {
+        var prod = this.product_for(item);
+        if(prod) return prod.main_picture_file_name;
+        return ""
+      },
+      total_price: function() {
+        var length = this.basket.items.length;
+        var sum = 0;
+        for(var i = 0; i < length; i++) {
+          sum = sum + this.basket.items[i].price * this.basket.items[i].quantity
+        }
+        return sum;
+      },
+      total_amount: function() {
+        var length = this.basket.items.length;
+        var sum = 0;
+        for(var i = 0; i < length; i++) {
+          sum = sum + this.basket.items[i].quantity
+        }
+        return sum;
+      },
+      product_for: function(item) {
+        var length = this.products.length;
+        for(var i = 0; i < length; i++) {
+          if(item.product_id == this.products[i].id) return this.products[i];
+        }
+        return item.product_id;
+      }
+    }
+  })

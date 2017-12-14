@@ -41,21 +41,7 @@
 .row
   .col-md-5
     %br
-    = link_to t(:edit), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+    = link_to t(:edit) + " " + t(:basket), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
     = link_to t(:back), purchases_path, :class => "btn btn-warning"
     = link_to "Print Invoice" , "/purchases/#{@purchase.id}/invoice" , class: "btn btn-primary"
-
-
-.purchase_show_end
-  Vue tässä
-  %br
-  {{ basket.items }}
-:javascript
-  new Vue({
-    el: '.purchase_show_end',
-    data: {
-      purchase: #{@purchase.to_json(include: :supplier)},
-      basket: #{@purchase.basket.to_json(include: :items)},
-      products: #{@products.to_json}
-    }
-  })
+    = link_to t(:edit) , edit_purchase_path(@purchase), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
