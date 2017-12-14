@@ -1,0 +1,19 @@
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th= t(:picture)
+      %th= t(:name)
+      %th= t(:inventory)
+      %th= t(:cost)
+  %tbody
+    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "product in products"}
+      %td
+        %img{ "v-bind:src" => "product.picture" }
+      %td
+        %a{ ":href" => "'/products/' + product.id"}
+          {{product.name}}
+      %td.inventory {{product.inventory}}
+      %td           {{product.cost}}
+      %td
+        %a{ "@click" => "to_basket(product)" , "v-if" => "!in_basket(product)"}
+          =image_tag "plus.png" , width: "30px"
