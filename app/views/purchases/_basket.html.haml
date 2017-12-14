@@ -1,0 +1,35 @@
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th= t(:picture)
+      %th= t(:name)
+      %th= t(:quantity)
+      %th= t(:price)
+      %th= t(:total)
+  %tbody
+    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
+      %td
+        %img{ "v-bind:src" => "item.picture" }
+      %td
+        %a{ ":href" => "'/products/' + item.product_id"}
+          {{item.name}}
+      %td.quantity
+        {{item.quantity}}
+        .overlay
+          %a{ "@click" => "item.quantity += 1; changed = true"}
+            =image_tag "plus.png"
+          %span {{item.quantity}}
+          %a{ "@click" => "item.quantity -= 1; changed = true"}
+            =image_tag "minus.png"
+      %td {{item.price}}
+      %td {{(item.price * item.quantity).toFixed(2)}}
+    %tr
+      %th{colspan: 2}
+        = t(:total)
+      %td
+        {{total_amount()}}
+      %th
+        %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
+          Save
+      %td
+        {{total_price().toFixed(2)}}

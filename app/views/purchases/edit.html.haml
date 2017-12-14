@@ -7,44 +7,9 @@
   .col-md-2.pill{"@click" => "tab = 2", "v-bind:class" => "{active_pill: tab == 2}"}
     Products
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
-    %table.table.table-striped.table-bordered.table-condensed
-      %thead
-        %tr
-          %th= t(:picture)
-          %th= t(:name)
-          %th= t(:quantity)
-          %th= t(:price)
-          %th= t(:total)
-      %tbody
-        %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
-          %td
-            %img{ "v-bind:src" => "item.picture" }
-          %td
-            %a{ ":href" => "'/products/' + item.product_id"}
-              {{item.name}}
-          %td.quantity
-            {{item.quantity}}
-            .overlay
-              %a{ "@click" => "item.quantity += 1; changed = true"}
-                =image_tag "plus.png"
-              %span {{item.quantity}}
-              %a{ "@click" => "item.quantity -= 1; changed = true"}
-                =image_tag "minus.png"
-          %td {{item.price}}
-          %td {{item.price * item.quantity}}
-      %thead
-        %tr
-          %th{colspan: 2}
-            = t(:total)
-          %td
-            {{total_amount()}}
-          %th
-            %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
-              Save
-          %td
-            {{total_price()}}
+    =render "basket"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
-    TAB 2
+    =render "products"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 3}"}
     TAB 3
 :javascript
@@ -53,26 +18,36 @@
     data: {
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
-      products: #{@products.to_json},
-      tab: 1,
+      products: #{ render( partial: "purchases/products.json") },
+      tab: 2,
       changed: false
     } ,
     methods: {
       submit_basket: function(){
         console.log("Submit basket");
       },
+
+      to_basket: function(product){
+        this.basket.items.push({ name: product.name , picture: product.picture,
+                                 quantity: 1, price: product.cost, product_id: product.id});
+        this.changed = true;
+      },
+      in_basket: function(product) {
+        for(var i = 0; i < this.basket.items.length; i++) {
+          if(this.basket.items[i].product_id == product.id) return true;
+        }
+        return false;
+      },
       total_price: function() {
-        var length = this.basket.items.length;
         var sum = 0;
-        for(var i = 0; i < length; i++) {
+        for(var i = 0; i < this.basket.items.length; i++) {
           sum = sum + this.basket.items[i].price * this.basket.items[i].quantity
         }
         return sum;
       },
       total_amount: function() {
-        var length = this.basket.items.length;
         var sum = 0;
-        for(var i = 0; i < length; i++) {
+        for(var i = 0; i < this.basket.items.length; i++) {
           sum = sum + this.basket.items[i].quantity
         }
         return sum;
