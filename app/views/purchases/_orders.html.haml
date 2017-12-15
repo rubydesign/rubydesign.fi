@@ -1,0 +1,15 @@
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th Id
+      %th= t(:name)
+      %th= t(:quantity)
+  %tbody
+    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "order in orders"}
+      %td
+        %a{ ":href" => "'/orders/' + order.id"}
+          {{order.id}}
+      %td
+        {{order.name}}
+      %td.quantity
+        {{order.quantity}}

@@ -1,19 +1,21 @@
 .row.vueapp
   .col-md-6
     %h2= in_place @purchase , :name
-  .col-md-2
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
     %h3
       %a{"@click" => "tab = 1"} Basket
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
     %h3
       %a{"@click" => "tab = 2"} Products
+  .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 3}"}
+    %h3
+      %a{"@click" => "tab = 3"} Orders
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
     =render "basket"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
     =render "products"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 3}"}
-    TAB 3
+    =render "orders"
 :javascript
   var app = new Vue({
     el: '.vueapp',
@@ -21,6 +23,7 @@
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
       products: #{ render( partial: "purchases/products.json") },
+      orders: #{ render( partial: "purchases/orders.json") },
       tab: 1,
       searchQuery: "",
       columns: ["inventory" , "stock_level" , "stock_diff", "cost"],
