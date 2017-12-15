@@ -1,10 +1,10 @@
+:javascript
+  $(function () {
+    $.plot($("#placeholder"), #{@flot_data.to_json} , #{@flot_options.to_json} );
+  });
 .row
   .col-md-9
     #placeholder{:style => "width:800px;height:400px;"}
-    %script#source{:type => "text/javascript"}
-      $(function () {
-        $.plot($("#placeholder"), #{@flot_data.to_json} , #{@flot_options.to_json} );
-      });
     #legend
   .col-md-3
     = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|

@@ -3,8 +3,11 @@ module Reporter
   def report
     set_instance_data
     search = build_search
-    table = Item.includes(:product)
-    table = table.includes(:category) if (@group_by == "by_category")
+    if (@group_by == "by_category")
+      table = Item.includes(:product => :category)
+    else
+      table = Item.includes(:product)
+    end
     @search = table.ransack(search)
     @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 } , :stack => true } ,
                       :legend => {  :container => "#legend"} ,
@@ -57,6 +60,8 @@ module Reporter
   def group_data
     all = @search.result(:distinct => true )
     flot = {}
+    smallest = all.first ? all.first.created_at : Time.now - 1.week
+    largest = all.first ? all.last.created_at : Time.now
     smallest = all.first ? all.first.created_at : Time.now - 1.week
     largest = all.first ? all.last.created_at : Time.now
     if( @group_by == "all" )
