@@ -28,8 +28,8 @@
         = t(:total)
       %td
         {{total_amount()}}
-      %th
+      %td
         %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
           Save
-      %td
+      %th
         {{total_price().toFixed(2)}}

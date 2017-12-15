@@ -1,9 +1,39 @@
 .vueapp
+  th
+    cursor: pointer
+    user-select: none
+    .active
+      color: #fff
+      .arrow
+        opacity: 1
+
+    .arrow
+      display: inline-block
+      vertical-align: middle
+      width: 0
+      height: 0
+      margin-left: 5px
+      opacity: 0.66
+      &.asc
+        border-left: 4px solid transparent
+        border-right: 4px solid transparent
+        border-bottom: 4px solid black
+      &.dsc
+        border-left: 4px solid transparent
+        border-right: 4px solid transparent
+        border-top: 4px solid black
+
   .pill
-    font-size: 2rem
+    h3
+      margin-top: 10px
+      a
+        text-decoration: none
   .active_pill
     background-color: lightgrey
     border-radius: 5px
+  th
+    input
+      font-weight: normal
   .tab
     display: none
   .active_tab

@@ -2,10 +2,12 @@
   .col-md-6
     %h2= in_place @purchase , :name
   .col-md-2
-  .col-md-2.pill{"@click" => "tab = 1" , "v-bind:class" => "{active_pill: tab == 1}"}
-    Basket
-  .col-md-2.pill{"@click" => "tab = 2", "v-bind:class" => "{active_pill: tab == 2}"}
-    Products
+  .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
+    %h3
+      %a{"@click" => "tab = 1"} Basket
+  .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
+    %h3
+      %a{"@click" => "tab = 2"} Products
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
     =render "basket"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
@@ -19,14 +21,49 @@
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
       products: #{ render( partial: "purchases/products.json") },
-      tab: 2,
+      tab: 1,
+      searchQuery: "",
+      columns: ["inventory" , "cost"],
+      sortOrders: {inventory: 1, cost: 1},
+      sortKey: "",
       changed: false
-    } ,
+    },
+    computed: {
+      filteredData: function () {
+        if (this.searchQuery) {
+          query = this.searchQuery;
+          data = this.products.filter(function(prod) {
+            return prod.name.toLowerCase().indexOf(query.toLowerCase()) > -1
+          })
+        } else {
+          data = this.products
+        }
+        var order = this.sortOrders[this.sortKey] || 1
+        var sortKey = this.sortKey
+        if(sortKey) {
+          data = data.slice().sort(function (a, b) {
+            a = parseFloat(a[sortKey])
+            b = parseFloat(b[sortKey])
+            return (a === b ? 0 : a > b ? 1 : -1) * order
+          })
+        }
+        return data
+      }
+    },
+    filters: {
+      capitalize: function (str) {
+        return str.charAt(0).toUpperCase() + str.slice(1)
+      }
+    },
     methods: {
+      sortBy: function (key) {
+        console.log("Sortby " + key);
+        this.sortKey = key;
+        this.sortOrders[key] = this.sortOrders[key] * -1;
+      },
       submit_basket: function(){
         console.log("Submit basket");
       },
-
       to_basket: function(product){
         this.basket.items.push({ name: product.name , picture: product.picture,
                                  quantity: 1, price: product.cost, product_id: product.id});

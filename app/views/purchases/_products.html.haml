@@ -2,11 +2,15 @@
   %thead
     %tr
       %th= t(:picture)
-      %th= t(:name)
-      %th= t(:inventory)
-      %th= t(:cost)
+      %th
+        = t(:name)
+        %input{:name => "query", "v-model" => "searchQuery"}
+      %th{ "v-for" => "key in columns" , "@click" => "sortBy(key)" , ":class" => "{ active: sortKey == key }" }
+        {{ key | capitalize }}
+        %span.arrow{":class" => "sortOrders[key] > 0 ? 'asc' : 'dsc'"}
+      %th
   %tbody
-    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "product in products"}
+    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "product in filteredData"}
       %td
         %img{ "v-bind:src" => "product.picture" }
       %td
