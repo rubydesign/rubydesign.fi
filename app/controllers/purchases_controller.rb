@@ -49,7 +49,7 @@ class PurchasesController < AdminController
     if( @purchase.basket.locked?)
       redirect_to purchase_path(@purchase) , notice: "Cant edit, locked"
     end
-    @products = Product.where(supplier_id: @purchase.supplier_id)
+    @products = Product.where(supplier_id: @purchase.supplier_id).where("inventory > ?", 0)
   end
 
   def update

@@ -16,8 +16,8 @@
       %td
         %a{ ":href" => "'/products/' + product.id"}
           {{product.name}}
-      %td.inventory {{product.inventory}}
-      %td           {{product.cost}}
+      %td{ "v-for" => "key in columns" }
+        {{ product[key]}}
       %td
         %a{ "@click" => "to_basket(product)" , "v-if" => "!in_basket(product)"}
           =image_tag "plus.png" , width: "30px"
