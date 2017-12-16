@@ -7,9 +7,14 @@
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
     %h3
       %a{"@click" => "tab = 2"} Products
+      %a.right{"@click" => "products_to_basket"}
+        =image_tag "plus.png" , width: "30px"
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 3}"}
     %h3
       %a{"@click" => "tab = 3"} Orders
+      %a.right{"@click" => "orders_to_basket"}
+        =image_tag "plus.png" , width: "30px"
+
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
     =render "basket"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
@@ -73,6 +78,20 @@
       },
       submit_basket: function(){
         console.log("Submit basket");
+      },
+      orders_to_basket: function(){
+        for(var i = 0; i < this.products.length; i++) {
+          var product = this.products[i]
+          if(product.ordered > 0 && !this.in_basket(product)) this.to_basket(product)
+        }
+        this.changed = true;
+      },
+      products_to_basket: function(){
+        for(var i = 0; i < this.products.length; i++) {
+          var product = this.products[i]
+          if(product.stock_diff < 0 && !this.in_basket(product)) this.to_basket(product)
+        }
+        this.changed = true;
       },
       to_basket: function(product){
         var amount = product.ordered + product.stock_level
