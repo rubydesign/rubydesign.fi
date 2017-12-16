@@ -71,13 +71,28 @@
       }
     },
     methods: {
+      itemProp: function(item, index , prop) {
+        return { value: item[prop] ,
+                name: 'basket[items_attributes][' + index +'][' + prop + ']',
+                id: 'basket_items_attributes_' + index + '_' + prop
+               }
+      },
       sortBy: function (key) {
         console.log("Sortby " + key);
         this.sortKey = key;
         this.sortOrders[key] = this.sortOrders[key] * -1;
       },
-      submit_basket: function(){
-        console.log("Submit basket");
+      submit_basket: function(event){
+        event.preventDefault();
+        var that = this;
+        $.post( '/baskets/' + this.basket.id , $(".edit_basket").serializeArray() , null , "json")
+          .done( function( out ) {
+          that.changed = false;
+          console.log( out );
+        }).fail(function() {
+          console.log( "error" );
+        });
+
       },
       orders_to_basket: function(){
         for(var i = 0; i < this.products.length; i++) {
@@ -96,8 +111,8 @@
       to_basket: function(product){
         var amount = product.ordered + product.stock_level
         if(amount == 0 ) amount = 1
-        this.basket.items.push({ name: product.name , picture: product.picture,
-                                 quantity: amount, price: product.cost, product_id: product.id});
+        this.basket.items.push({ name: product.name , quantity: amount,
+                      price: product.cost, product_id: product.id});
         this.changed = true;
       },
       in_basket: function(product) {

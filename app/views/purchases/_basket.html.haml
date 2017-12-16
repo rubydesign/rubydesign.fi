@@ -24,6 +24,13 @@
       %th= t(:total)
       %td {{total_amount()}}
       %td
-        %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
-          Save
-      %th {{total_price().toFixed(2)}}
+        = form_for(@purchase.basket) do |f|
+          %span{"v-for" => "(item , index) in this.basket.items"}
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'id')" , "v-if"=> "item.id"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'name')"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'price')"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'quantity')"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'product_id')"}/
+          = f.submit :class => "btn btn-success commit" ,"v-if" => "changed", "@click" => "submit_basket"
+      %th
+        {{total_price().toFixed(2)}}
