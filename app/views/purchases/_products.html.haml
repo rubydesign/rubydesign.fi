@@ -4,7 +4,10 @@
       %th= t(:picture)
       %th
         = t(:name)
-        %input{:name => "query", "v-model" => "searchQuery"}
+        %input{:name => "query", "v-model" => "nameQuery"}
+      %th
+        = t(:category)
+        %input{:category => "query", "v-model" => "categoryQuery"}
       %th{ "v-for" => "(value, key) in columns" , "@click" => "sortBy(key)" , ":class" => "{ active: sortKey == key }" }
         {{ value | capitalize }}
         %span.arrow{":class" => "sortOrders[key] > 0 ? 'asc' : 'dsc'"}
@@ -16,6 +19,8 @@
       %td
         %a{ ":href" => "'/products/' + product.id"}
           {{product.name}}
+      %td
+        {{product.category}}
       %td{ "v-for" => "(val , key ) in columns" }
         {{ product[key]}}
       %td

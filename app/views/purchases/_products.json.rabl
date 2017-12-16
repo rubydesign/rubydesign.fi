@@ -9,3 +9,6 @@ end
 node :ordered do |product|
   @ordered_products[product.id]
 end
+node :category do |product|
+  product.category ? product.category.name : "none" 
+end
