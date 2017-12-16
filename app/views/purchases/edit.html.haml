@@ -1,4 +1,4 @@
-.row.vueapp
+.row.purchase-app
   .col-md-6
     %h2= in_place @purchase , :name
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
@@ -23,7 +23,7 @@
     =render "orders"
 :javascript
   var app = new Vue({
-    el: '.vueapp',
+    el: '.purchase-app',
     data: {
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
