@@ -26,8 +26,9 @@
       orders: #{ render( partial: "purchases/orders.json") },
       tab: 1,
       searchQuery: "",
-      columns: {inventory: "#{t(:inventory)}" , stock_level: "#{t(:stock_level)}" , stock_diff: "diff", cost: "#{t(:cost)}"},
-      sortOrders: {inventory: 1, cost: 1 , stock_level: 1 , stock_diff: 1},
+      columns: {inventory: "#{t(:inventory)}" , stock_level: "#{t(:stock_level).split.first}" ,
+          stock_diff: "diff", cost: "#{t(:cost)}" ,ordered: "#{t(:order)}"},
+      sortOrders: {inventory: 1, cost: 1 , stock_level: 1 , stock_diff: 1, ordered: 1},
       sortKey: "",
       changed: false
     },
@@ -68,8 +69,10 @@
         console.log("Submit basket");
       },
       to_basket: function(product){
+        var amount = product.ordered + product.stock_level
+        if(amount == 0 ) amount = 1
         this.basket.items.push({ name: product.name , picture: product.picture,
-                                 quantity: 1, price: product.cost, product_id: product.id});
+                                 quantity: amount, price: product.cost, product_id: product.id});
         this.changed = true;
       },
       in_basket: function(product) {

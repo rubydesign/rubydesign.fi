@@ -6,3 +6,6 @@ end
 node :stock_diff do |product|
   product.inventory - product.stock_level
 end
+node :ordered do |product|
+  @ordered_products[product.id]
+end

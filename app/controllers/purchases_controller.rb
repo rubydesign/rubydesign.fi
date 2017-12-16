@@ -49,8 +49,7 @@ class PurchasesController < AdminController
     if( @purchase.basket.locked?)
       redirect_to purchase_path(@purchase) , notice: "Cant edit, locked"
     end
-    @products = Product.where(supplier_id: @purchase.supplier_id).where("inventory > ?", 0)
-    @orders =  Order.where("created_at > ?" ,Time.now - 2.weeks).where(shipped_on: nil)
+    create_data
   end
 
   def update
@@ -66,6 +65,14 @@ class PurchasesController < AdminController
   end
 
   protected
+  def create_data
+    @products = Product.where(supplier_id: @purchase.supplier_id).where("inventory > ?", 0)
+    @orders =  Order.where("created_at > ?" ,Time.now - 2.weeks).where(shipped_on: nil)
+    @ordered_products = Hash.new(0)
+    @orders.includes(basket: :items).each do |order|
+      order.basket.items.each{ |item| @ordered_products[item.product_id] += item.quantity}
+    end
+  end
 
   def load_purchase
     @purchase = Purchase.where( :id => params[:id]).includes( :basket => {:items => {:product => :supplier}} ).first
