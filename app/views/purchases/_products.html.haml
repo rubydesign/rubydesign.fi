@@ -1,9 +1,9 @@
 %table.table.table-striped.table-condensed
   %thead
     %tr
-      %th= t(:picture)
       %th
         = t(:name)
+        %br/
         %input{:name => "query", "v-model" => "nameQuery"}
       %th
         = t(:category)
@@ -14,8 +14,6 @@
       %th
   %tbody
     %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "product in filteredData"}
-      %td
-        %img{ "v-bind:src" => "product.picture" }
       %td
         %a{ ":href" => "'/products/' + product.id"}
           {{product.name}}

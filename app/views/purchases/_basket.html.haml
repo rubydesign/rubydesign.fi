@@ -1,15 +1,12 @@
 %table.table.table-striped.table-condensed
   %thead
     %tr
-      %th= t(:picture)
       %th= t(:name)
       %th= t(:quantity)
       %th= t(:price)
       %th= t(:total)
   %tbody
     %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
-      %td
-        %img{ "v-bind:src" => "item.picture" }
       %td
         %a{ ":href" => "'/products/' + item.product_id"}
           {{item.name}}
@@ -26,7 +23,7 @@
       %td {{item.price}}
       %td {{(item.price * item.quantity).toFixed(2)}}
     %tr
-      %th{colspan: 2}
+      %th
         = t(:total)
       %td
         {{total_amount()}}
