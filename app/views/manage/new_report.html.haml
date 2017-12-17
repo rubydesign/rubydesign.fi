@@ -4,9 +4,13 @@
   var allItems = #{ render( partial: "manage/items.json") };
 .row.new_report
   .col-md-9
-    #placeholder{:style => "width:800px;height:400px;"}
-      %vue-chartist{":data" => "data" , ":options" => "options", "type" => "Line"}
+    #placeholder
+      %vue-chartist{":data" => "data" , ":options" => "options"}
     #legend
+      %button{ "@click" => "updateData()"}
+        Update Data
+      %button{ "@click" => "updateOptions()"}
+        Update Options
   .col-md-3
     = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
       .form-group
@@ -67,27 +71,45 @@
         .col-md-4
           = f.submit :day , :class => "btn btn-success" , :name => 'period'
 :javascript
-  const PIE = 'Pie';
-  const LINE = 'Line';
-  const BAR = 'Bar';
-  new Vue({
-    el: '#placeholder',
-    data: function () {
-      return {
-        data: {
-          labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          series: [
-            [12, 9, 7, 8, 5],
-            [2, 1, 3.5, 7, 3],
-            [1, 3, 4, 5, 6]
-          ]
-        },
-        options: {
-          fullWidth: true,
-          chartPadding: {
-            right: 40
-          }
+  var app = new Vue({
+    el: '.new_report',
+    data: {
+      items: allItems,
+      options: {
+        fullWidth: true,
+        stackBars: true,
+        chartPadding: {
+          right: 40
         }
-      };
+      },
+      interval: 'week',
+    },
+    computed: {
+      data: function() {
+        var all = {}
+        var vals = []
+        labels = []
+        for( var item in this.items ){
+          var bucket = moment(this.items[item].created_at).week()
+          var was = all[bucket] || 0
+          all[bucket] = was + this.items[item].quantity
+        }
+        for( var key in all){
+          vals.push(all[key])
+          labels.push( "Week " + key )
+        }
+        return {
+          labels: labels,
+          series: [ vals ]
+        }
+      }
+    },
+    methods: {
+      updateData() {
+          this.data.series.push([100, 30, 44, 52, 61]);
+      },
+      updateOptions() {
+          this.options.chartPadding.right = 10;
+      }
     }
   });

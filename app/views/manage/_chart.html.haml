@@ -1,4 +1,7 @@
 :javascript
+  const PIE = 'Pie';
+  const LINE = 'Line';
+  const BAR = 'Bar';
   Vue.component('vue-chartist', {
     name: 'vue-chartist',
     template: "<div class='v-chartist-container'> </div>",
@@ -9,7 +12,7 @@
           return val === PIE || val === LINE || val === BAR;
         },
         default() {
-          return LINE;
+          return BAR;
         }
       },
       data: {
