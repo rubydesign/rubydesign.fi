@@ -2,7 +2,8 @@
 class ManageController < AdminController
 
   include Reporter
-  
+  include NewReporter
+
   def all
   end
 end

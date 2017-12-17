@@ -101,5 +101,8 @@ OfficeClerk::Engine.routes.draw do
   match '/manage/report' => 'manage#report' ,
                     :as => "manage_reports",  :via  => [:get, :post]
 
+  match '/manage/new_report' => 'manage#new_report' ,
+                    :as => "new_manage_reports",  :via  => [:get, :post]
+
 
 end
