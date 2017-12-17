@@ -1,5 +1,5 @@
 collection @products
-attributes :id , :name , :inventory, :stock_level, :cost
+attributes :id , :name , :inventory, :stock_level, :cost , :scode
 node :picture do |product|
   product.main_picture.url(:thumb)
 end
@@ -10,5 +10,5 @@ node :ordered do |product|
   @ordered_products[product.id]
 end
 node :category do |product|
-  product.category ? product.category.name : "none" 
+  product.category ? product.category.name : "none"
 end

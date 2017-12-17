@@ -39,7 +39,16 @@
       changed: false
     },
     computed: {
-      filteredData: function () {
+      filteredBasket: function () {
+        d = this.basket.items
+        d = d.slice().sort(function (a, b) {
+          a = a["name"]
+          b = b["name"]
+          return (a === b ? 0 : a > b ? 1 : -1) * 1
+        })
+        return d
+      },
+      filteredProducts: function () {
         data = this.products
         if (this.nameQuery) {
           query = this.nameQuery;
@@ -111,7 +120,7 @@
       to_basket: function(product){
         var amount = product.ordered + product.stock_level
         if(amount == 0 ) amount = 1
-        this.basket.items.push({ name: product.name , quantity: amount,
+        this.basket.items.push({ name: product.name , quantity: amount, scode: product.scode,
                       price: product.cost, product_id: product.id});
         this.changed = true;
       },
