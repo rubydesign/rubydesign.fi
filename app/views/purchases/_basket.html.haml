@@ -18,7 +18,9 @@
         .overlay
           %a{ "@click" => "item.quantity += 1; changed = true"}
             =image_tag "plus.png"
+          \&nbsp;
           %span {{item.quantity}}
+          \&nbsp;
           %a{ "@click" => "item.quantity -= 1; changed = true"}
             =image_tag "minus.png"
       %td {{item.price}}
