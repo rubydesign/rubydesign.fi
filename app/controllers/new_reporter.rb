@@ -13,8 +13,10 @@ module NewReporter
                       :legend => {  :container => "#legend"} ,
                       :xaxis =>  { :mode => "time" }
                     }
-    @items = Item.where(created_at: 3.months.ago..Date.today).includes(:basket)
-    group_data
+    @items = Item.where(created_at: 3.months.ago..Date.today).
+                  includes(:product).includes(:basket).
+                  joins(:basket).where.not("baskets.locked": nil)
+#    group_data
   end
 
   private

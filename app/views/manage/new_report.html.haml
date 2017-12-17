@@ -4,22 +4,19 @@
   var allItems = #{ render( partial: "manage/items.json") };
 .row.new_report
   .col-md-9
-    #placeholder
+    #placeholder{style: "width: 100%;height: 100%;"}
       %vue-chartist{":data" => "data" , ":options" => "options"}
     #legend
-      %button{ "@click" => "updateData()"}
-        Update Data
-      %button{ "@click" => "updateOptions()"}
-        Update Options
+      %button
+        Total {{total}}
+      %button
+        Items {{total_items}}
   .col-md-3
     = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
       .form-group
-        = select_tag :type,  options_for_select( { t("order") => "Order" , t("purchase") =>  "Purchase"  } , @type) , :class => "form-control"
-      .form-group
-        .col-md-4
-          = f.label :product_name_cont, t("name")
-        .col-md-8
-          = f.text_field :product_name_or_product_product_name_cont, :size => 15 , :class => "form-control"
+        %select.form-control{"v-model" => "kind"  }
+          %option{ value: "Order"}= t(:order)
+          %option{ value: "Purchase"}= t(:purchase)
       .form-group
         .col-md-4
           = f.label :supplier , t(:supplier)
@@ -30,18 +27,6 @@
           = f.label :category, t(:category)
         .col-md-8
           = f.collection_select :product_category_id_eq, Category.all, :id, :name, {:include_blank => true}, :class=>"form-control"
-      .form-group
-        .col-md-4
-          = f.label :property , t(:property)
-        .col-md-8
-          = f.text_field :product_properties_cont, :size => 15 , :class => "form-control"
-      .form-group
-        .col-md-4
-          = f.label :price , t(:price)
-        .col-md-4
-          = f.text_field :price_gt , :size => 6 , :class => "form-control"
-        .col-md-4
-          = f.text_field :price_lt , :size => 6 , :class => "form-control"
       .form-group
         %label= t("date_range")
         .date-range-filter
@@ -78,26 +63,41 @@
       options: {
         fullWidth: true,
         stackBars: true,
+        height: 400,
         chartPadding: {
           right: 40
         }
       },
+      total: 0,
+      total_items: 0,
+      kind: "Order",
       interval: 'week',
     },
     computed: {
+      kinds: function(){
+        var that = this.kind
+        return this.items.filter(function(i) { return i.kind == that ; })
+      },
       data: function() {
+        var items = this.kinds
         var all = {}
+        var total = 0
+        var total_items = 0
         var vals = []
         labels = []
-        for( var item in this.items ){
-          var bucket = moment(this.items[item].created_at).week()
+        for( var item in items ){
+          var bucket = moment(items[item].created_at).week()
           var was = all[bucket] || 0
-          all[bucket] = was + this.items[item].quantity
+          all[bucket] = was + items[item].quantity
+          total += items[item].quantity
+          total_items += 1
         }
         for( var key in all){
           vals.push(all[key])
           labels.push( "Week " + key )
         }
+        this.total = total
+        this.total_items = total_items
         return {
           labels: labels,
           series: [ vals ]
@@ -105,11 +105,5 @@
       }
     },
     methods: {
-      updateData() {
-          this.data.series.push([100, 30, 44, 52, 61]);
-      },
-      updateOptions() {
-          this.options.chartPadding.right = 10;
-      }
     }
   });
