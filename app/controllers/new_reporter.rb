@@ -9,7 +9,7 @@ module NewReporter
       table = Item.includes(:product)
     end
     @search = table.ransack(search)
-    @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 } , :stack => true } ,
+    @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 }  } ,
                       :legend => {  :container => "#legend"} ,
                       :xaxis =>  { :mode => "time" }
                     }
