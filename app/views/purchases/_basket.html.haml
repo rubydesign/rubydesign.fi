@@ -1,7 +1,6 @@
-%table.table.table-striped.table-bordered.table-condensed
+%table.table.table-striped.table-condensed
   %thead
     %tr
-
       %th= t(:scode)
       %th= t(:name)
       %th= t(:quantity)
@@ -19,7 +18,9 @@
         .overlay
           %a{ "@click" => "item.quantity += 1; changed = true"}
             =image_tag "plus.png"
+          \&nbsp;
           %span {{item.quantity}}
+          \&nbsp;
           %a{ "@click" => "item.quantity -= 1; changed = true"}
             =image_tag "minus.png"
       %td {{item.price}}
