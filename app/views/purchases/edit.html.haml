@@ -1,19 +1,21 @@
 .row.vueapp
-  .col-md-6
+  .col-md-6.purchases
     %h2= in_place @purchase , :name
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
-    %h3
+    %h4
       %a{"@click" => "tab = 1"} Basket
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
-    %h3
+    %h4
       %a{"@click" => "tab = 2"} Products
+      \&nbsp;
       %a.right{"@click" => "products_to_basket"}
-        =image_tag "plus.png" , width: "30px"
+        =image_tag "plus.png" , width: "20px"
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 3}"}
-    %h3
+    %h4
       %a{"@click" => "tab = 3"} Orders
+      \&nbsp;
       %a.right{"@click" => "orders_to_basket"}
-        =image_tag "plus.png" , width: "30px"
+        =image_tag "plus.png" , width: "20px"
 
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
     =render "basket"

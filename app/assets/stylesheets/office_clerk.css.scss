@@ -120,6 +120,7 @@ thead, tbody {  vertical-align: top;
 
 .purchases{
   background: image-url('office_clerk/purchases-2.jpg') no-repeat;
+  min-height: 140px;
 }
 
 .categories{
@@ -208,4 +209,8 @@ thead, tbody {  vertical-align: top;
 
 table .price , .inventory {
   white-space: nowrap;
+}
+
+a .tooltip {
+  text-decoration: none;
 }
