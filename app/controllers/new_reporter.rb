@@ -12,10 +12,13 @@ module NewReporter
     @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 }  } ,
                       :legend => {  :container => "#legend"} ,
                       :xaxis =>  { :mode => "time" }
-                    }
+                    }               #last attribute must be created_at
+    @attributes = ["id", "baskets.kori_type" , "products.category_id",
+                    "quantity" , "created_at"]
     @items = Item.where(created_at: 3.months.ago..Date.today).
                   includes(:product).includes(:basket).
-                  joins(:basket).where.not("baskets.locked": nil)
+                  where.not(baskets: {locked: nil}).
+                  pluck(*@attributes).map{|i| i[-1] = i[-1].to_i*1000 ; i}
 #    group_data
   end
 

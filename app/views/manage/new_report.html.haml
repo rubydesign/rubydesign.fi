@@ -1,7 +1,7 @@
 =render "chart"
 
 :javascript
-  var allItems = #{ render( partial: "manage/items.json") };
+  var allItems = #{ @items.to_json };
 .row.new_report
   .col-md-9
     #placeholder{style: "width: 100%;height: 100%;"}
@@ -60,6 +60,9 @@
     el: '.new_report',
     data: {
       items: allItems,
+      attributes: #{@attributes.to_json} ,
+      categories: #{Category.all.to_json( only: [:id , :name])} ,
+      suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
       options: {
         fullWidth: true,
         stackBars: true,
@@ -75,8 +78,9 @@
     },
     computed: {
       kinds: function(){
+        var index = this.attributes.indexOf("baskets.kori_type")
         var that = this.kind
-        return this.items.filter(function(i) { return i.kind == that ; })
+        return this.items.filter(function(item) { return item[index] == that ; })
       },
       data: function() {
         var items = this.kinds
@@ -85,11 +89,14 @@
         var total_items = 0
         var vals = []
         labels = []
-        for( var item in items ){
-          var bucket = moment(items[item].created_at).week()
+        var created_at = this.attributes.indexOf("created_at")
+        var quantity = this.attributes.indexOf("quantity")
+        for(var i = 0; i < items.length; i++) {
+          item = items[i]
+          var bucket = moment(item[created_at]).week()
           var was = all[bucket] || 0
-          all[bucket] = was + items[item].quantity
-          total += items[item].quantity
+          all[bucket] = was + item[quantity]
+          total += item[quantity]
           total_items += 1
         }
         for( var key in all){
