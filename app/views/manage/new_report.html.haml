@@ -88,6 +88,9 @@
       .col-md-6
         %label= t(:week)
         %input{:type => "radio", "v-model" => "interval", :value => "week"}/
+    .col-md-12{"v-for" => "(v,g) in groups"}
+      %span{":class" => "'ct-series-a'"}
+        {{name_for(g)}}
 :javascript
   var app = new Vue({
     el: '.new_report',
@@ -224,6 +227,21 @@
       bucket: function(item){
         if( this.interval == "week") return moment(item[this.created_index]).week()
         return moment(item[this.created_index]).month()
+      },
+      hash_find: function( hash , dat , property){
+        var index = parseInt(dat)
+        for(key in hash){
+          if( hash[key]["id"] == index) return hash[key][property]
+        }
+        console.log("Not found " + dat + " for " + property)
+        return "undefined"
+      },
+      name_for: function(i){
+        var by = this.group_by
+        if( by == "products.category_id") return this.hash_find(this.categories, i , "name")
+        if( by == "products.supplier_id") return this.hash_find(this.suppliers, i , "supplier_name")
+        if( by == "product_id") return "Product"
+        return "all"
       },
       loadData: function(){
         this.start = moment(this.start)
