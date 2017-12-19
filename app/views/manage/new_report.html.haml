@@ -89,8 +89,11 @@
         %label= t(:week)
         %input{:type => "radio", "v-model" => "interval", :value => "week"}/
     .col-md-12{"v-for" => "(v,g) in groups"}
-      %span{":class" => "'ct-series-a'"}
-        {{name_for(g)}}
+      %span{":class" => "'ct-series-' + String.fromCharCode(97 + group_indexes.indexOf(g))"}
+        %a{"@click" =>"set_group(g)"}
+          {{name_for(g)}}
+        %span.ct-line
+          total
 :javascript
   var app = new Vue({
     el: '.new_report',
@@ -177,6 +180,14 @@
         }
         return all
       },
+      group_indexes: function(){
+        var groups = this.groups
+        var indexes = []
+        for( key in groups){
+          indexes.push(key)
+        }
+        return indexes
+      },
       total_items: function(){
         return this.filteredCategories.length
       },
@@ -235,6 +246,14 @@
         }
         console.log("Not found " + dat + " for " + property)
         return "undefined"
+      },
+      set_group: function(g){
+        if(this.group_by == "products.supplier_id"){
+          this.supplier = g
+        }
+        if(this.group_by == "products.category_id"){
+          this.category = g
+        }
       },
       name_for: function(i){
         var by = this.group_by
