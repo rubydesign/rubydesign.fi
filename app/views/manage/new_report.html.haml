@@ -104,6 +104,7 @@
       },
       start: moment(#{@start.to_time.to_i * 1000}),
       end: moment(#{@end.to_time.to_i * 1000}),
+      created_index: #{@attributes.to_json}.indexOf("created_at"),
       show: "price",
       kind: "Order",
       supplier: "",
@@ -111,6 +112,33 @@
       interval: 'week',
     },
     computed: {
+      buckets: function(){
+        var start = moment(this.start)
+        var all = {}
+        while(start < this.end) {
+          if( this.interval == "week") {
+            buck = start.week()
+            label = "Week " + (buck + 1)
+            start.add(1,"week")
+          }else{
+            buck = start.month()
+            label = start.format("MMM")
+            start.add(1,"month")
+          }
+          all[buck] = label
+        }
+        return all
+      },
+      labels: function(){
+        var all = []
+        var buckets = this.buckets
+        for(key in buckets){
+          var val = buckets[key]
+          console.log("val " + val)
+          all.push(val)
+        }
+        return all
+      },
       filteredKinds: function(){
         var index = this.attributes.indexOf("baskets.kori_type")
         var that = this.kind
@@ -155,7 +183,6 @@
         var items = this.filteredCategories
         var all = {}
         var vals = []
-        labels = []
         var show = this.attributes.indexOf( this.show )
         for(var i = 0; i < items.length; i++) {
           item = items[i]
@@ -165,25 +192,21 @@
         }
         for( var key in all){
           vals.push(all[key])
-          if(this.interval == "week"){
-            labels.push( "Week " + (parseInt(key) + 1) )
-          }else{
-            labels.push( moment().month(parseInt(key)).format("MMM") )
-          }
         }
         return {
-          labels: labels,
+          labels: this.labels,
           series: [ vals ]
         }
       }
     },
     methods: {
       bucket: function(item){
-        var created_at = this.attributes.indexOf("created_at")
-        if( this.interval == "week") return moment(item[created_at]).week()
-        return moment(item[created_at]).month()
+        if( this.interval == "week") return moment(item[this.created_index]).week()
+        return moment(item[this.created_index]).month()
       },
       loadData: function(){
+        this.start = moment(this.start)
+        this.end = moment(this.end)
         var that = this
         $.getJSON("/manage/new_report.json" ,
           { start: that.start.unix() , end:   that.end.unix() } ,
