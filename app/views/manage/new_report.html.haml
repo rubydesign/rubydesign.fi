@@ -14,53 +14,66 @@
       %button
         {{show}} {{total_shown.toFixed(0)}}
   .col-md-3
-    = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
-      .form-group
-        %select.form-control{"v-model" => "kind"  }
-          %option{ value: "Order"}= t(:order)
-          %option{ value: "Purchase"}= t(:purchase)
-      .form-group
-        .col-md-4
-          = f.label :supplier , t(:supplier)
-        .col-md-8
-          %select.form-control{"v-model" => "supplier"  }
-            %option{ value: ""}
-            %option{ "v-for" => "s in suppliers", "v-bind:value": "s['id']" }
-              {{ s['supplier_name']}}
-      .form-group
-        .col-md-4
-          = f.label :category, t(:category)
-        .col-md-8
-          %select.form-control{"v-model" => "category"  }
-            %option{ value: ""}
-            %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
-              {{ c['name']}}
-      .form-group
+    .form-group
+      %select.form-control{"v-model" => "kind"  }
+        %option{ value: "Order"}= t(:order)
+        %option{ value: "Purchase"}= t(:purchase)
+    .form-group
+      .col-md-4
+        = t(:supplier)
+      .col-md-8
+        %select.form-control{"v-model" => "supplier"  }
+          %option{ value: ""}
+          %option{ "v-for" => "s in suppliers", "v-bind:value": "s['id']" }
+            {{ s['supplier_name']}}
+    .form-group
+      .col-md-4
+        = t(:category)
+      .col-md-8
+        %select.form-control{"v-model" => "category"  }
+          %option{ value: ""}
+          %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
+            {{ c['name']}}
+    .form-group
+      .col-md-12
         %label= t("date_range")
-        .date-range-filter
-          .col-md-6
-            = f.text_field :created_at_gt, :class => 'datepicker form-control' , :value => sort_date(:created_at_gt)
-          .col-md-6
-            = f.text_field :created_at_lt, :class => 'datepicker form-control', :value => sort_date(:created_at_lt)
-      .form-group
-        .col-md-4
-          %label= t("group_by")
-        .col-md-8
-          = select_tag :group_by,  options_for_select( group_options , @group_by) , :class => "form-control"
-      .form-group
+      .col-md-12
+        .col-md-3
+          %a{ "@click" => "minusStartMonth" }
+            =image_tag "minus.png" , width: "25px"
         .col-md-6
-          %label{:for => "one"} Hinta
-          %input#one{:type => "radio", "v-model" => "show", :value => "price"}/
+          %span
+            {{start.format('MM YYYY')}}
+        .col-md-3
+          %a{ "@click" => "plusStartMonth" }
+            =image_tag "plus.png" , width: "25px"
+      .col-md-12
+        .col-md-3
+          %a{ "@click" => "minusEndMonth" }
+            =image_tag "minus.png" , width: "25px"
         .col-md-6
-          %label{:for => "two"}= t(:quantity)
-          %input#two{:type => "radio", "v-model" => "show", :value => "quantity"}/
-      .form-group
-        .col-md-4
-          = f.submit :month , :class => "btn btn-success" , :name => 'period'
-        .col-md-4
-          = f.submit :week , :class => "btn btn-success" , :name => 'period'
-        .col-md-4
-          = f.submit :day , :class => "btn btn-success" , :name => 'period'
+          %span
+            {{end.format('MM YYYY')}}
+        .col-md-3
+          %a{ "@click" => "plusEndMonth" }
+            =image_tag "plus.png" , width: "25px"
+    .form-group
+      .col-md-4
+        %label= t("group_by")
+      .col-md-8
+        = select_tag :group_by,  options_for_select( group_options , @group_by) , :class => "form-control"
+    .form-group
+      .col-md-6
+        %label{:for => "one"} Hinta
+        %input#one{:type => "radio", "v-model" => "show", :value => "price"}/
+      .col-md-6
+        %label{:for => "two"}= t(:quantity)
+        %input#two{:type => "radio", "v-model" => "show", :value => "quantity"}/
+    .form-group
+      .col-md-6
+        =# f.submit :month , :class => "btn btn-success" , :name => 'period'
+      .col-md-6
+        = #f.submit :week , :class => "btn btn-success" , :name => 'period'
 :javascript
   var app = new Vue({
     el: '.new_report',
@@ -77,6 +90,8 @@
           right: 40
         }
       },
+      start: moment(#{@start.to_time.to_i * 1000}),
+      end: moment(#{@end.to_time.to_i * 1000}),
       show: "price",
       kind: "Order",
       supplier: "",
@@ -124,7 +139,6 @@
         }
         return total
       },
-
       data: function() {
         var items = this.filteredCategories
         var all = {}
@@ -149,5 +163,31 @@
       }
     },
     methods: {
+      loadData: function(){
+        var that = this
+        $.getJSON("/manage/new_report.json" ,
+          { start: that.start.unix() ,
+            end:   that.end.unix()
+          } , function(ret){
+            that.items = ret
+            console.log("Got " + ret.length)
+          })
+      },
+      plusStartMonth: function(){
+        this.start.add(1,"week").endOf("month")
+        this.loadData()
+      },
+      minusStartMonth: function(){
+        this.start.subtract(1,"week").startOf("month")
+        this.loadData()
+      },
+      plusEndMonth: function(){
+        this.end.add(1,"week").endOf("month")
+        this.loadData()
+      },
+      minusEndMonth: function(){
+        this.end.subtract(1,"week").startOf("month")
+        this.loadData()
+      },
     }
   });

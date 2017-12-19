@@ -1,26 +1,20 @@
 module NewReporter
 
   def new_report
-    set_instance_data
-    search = build_search
-    if (@group_by == "by_category")
-      table = Item.includes(:product => :category)
-    else
-      table = Item.includes(:product)
-    end
-    @search = table.ransack(search)
-    @flot_options = { :series => {  :bars =>  { :show => true , :barWidth => @days * 24*60*60*1000 }  } ,
-                      :legend => {  :container => "#legend"} ,
-                      :xaxis =>  { :mode => "time" }
-                    }               #last attribute must be created_at
     @attributes = [ "price" , "quantity" , "id", "name" , "basket_id" ,
                     "baskets.kori_type" , "products.category_id",
                     "products.supplier_id" , "created_at"]
-    @items = Item.where(created_at: 3.months.ago..Date.today).
+    @start = params[:start] ? Time.at(params[:start].to_i) : 3.months.ago.beginning_of_month
+    @end =   params[:end]   ? Time.at(params[:end].to_i)   : Date.today.end_of_month
+    @items = Item.where(created_at: @start..@end).
                   includes(:product).includes(:basket).
                   where.not(baskets: {locked: nil}).
                   pluck(*@attributes).map{|i| i[-1] = i[-1].to_i*1000;i[0] = i[0]*i[1] ; i}
-#    group_data
+
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @items.to_json , layout: false }
+    end
   end
 
   private
