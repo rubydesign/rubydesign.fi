@@ -12,7 +12,7 @@
       %button
         Items {{total_items}}
       %button
-        {{show}} {{total.toFixed(0)}}
+        {{show}} {{total_shown.toFixed(0)}}
   .col-md-3
     = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
       .form-group
@@ -78,7 +78,6 @@
         }
       },
       show: "price",
-      total: 0,
       kind: "Order",
       supplier: "",
       category: "",
@@ -116,10 +115,19 @@
         }
         return Object.keys(all).length
       },
+      total_shown: function(){
+        var show  = this.attributes.indexOf( this.show )
+        var items = this.filteredCategories
+        var total = 0
+        for(var i = 0; i < items.length; i++) {
+          total += items[i][show]
+        }
+        return total
+      },
+
       data: function() {
         var items = this.filteredCategories
         var all = {}
-        var total = 0
         var vals = []
         labels = []
         var created_at = this.attributes.indexOf("created_at")
@@ -129,13 +137,11 @@
           var bucket = moment(item[created_at]).week()
           var was = all[bucket] || 0
           all[bucket] = was + item[show]
-          total += item[show]
         }
         for( var key in all){
           vals.push(all[key])
           labels.push( "Week " + key )
         }
-        this.total = total
         return {
           labels: labels,
           series: [ vals ]
