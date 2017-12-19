@@ -53,7 +53,7 @@
             =image_tag "minus.png" , width: "25px"
         .col-md-6
           %span
-            {{start.format('MM YYYY')}}
+            {{start.format('DD MM YYYY')}}
         .col-md-3
           %a{ "@click" => "plusStartMonth" }
             =image_tag "plus.png" , width: "25px"
@@ -63,7 +63,7 @@
             =image_tag "minus.png" , width: "25px"
         .col-md-6
           %span
-            {{end.format('MM YYYY')}}
+            {{end.format('DD MM YYYY')}}
         .col-md-3
           %a{ "@click" => "plusEndMonth" }
             =image_tag "plus.png" , width: "25px"
@@ -165,7 +165,11 @@
         }
         for( var key in all){
           vals.push(all[key])
-          labels.push( this.interval + " " + (parseInt(key) + 1) )
+          if(this.interval == "week"){
+            labels.push( "Week " + (parseInt(key) + 1) )
+          }else{
+            labels.push( moment().month(parseInt(key)).format("MMM") )
+          }
         }
         return {
           labels: labels,
@@ -182,12 +186,8 @@
       loadData: function(){
         var that = this
         $.getJSON("/manage/new_report.json" ,
-          { start: that.start.unix() ,
-            end:   that.end.unix()
-          } , function(ret){
-            that.items = ret
-            console.log("Got " + ret.length)
-          })
+          { start: that.start.unix() , end:   that.end.unix() } ,
+          function(ret){ that.items = ret ; })
       },
       plusStartMonth: function(){
         this.start.add(1,"week").endOf("month")
