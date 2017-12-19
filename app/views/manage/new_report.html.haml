@@ -39,6 +39,16 @@
         %label= t("date_range")
       .col-md-12
         .col-md-3
+          %a{ "@click" => "minusYear" }
+            =image_tag "minus.png" , width: "25px"
+        .col-md-6
+          %a{ "@click" => "thisYear" }
+            Vuosi
+        .col-md-3
+          %a{ "@click" => "plusYear" }
+            =image_tag "plus.png" , width: "25px"
+      .col-md-12
+        .col-md-3
           %a{ "@click" => "minusStartMonth" }
             =image_tag "minus.png" , width: "25px"
         .col-md-6
@@ -64,11 +74,11 @@
         = select_tag :group_by,  options_for_select( group_options , @group_by) , :class => "form-control"
     .form-group
       .col-md-6
-        %label{:for => "one"} Hinta
-        %input#one{:type => "radio", "v-model" => "show", :value => "price"}/
+        %label Hinta
+        %input{:type => "radio", "v-model" => "show", :value => "price"}/
       .col-md-6
-        %label{:for => "two"}= t(:quantity)
-        %input#two{:type => "radio", "v-model" => "show", :value => "quantity"}/
+        %label= t(:quantity)
+        %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
     .form-group
       .col-md-6
         =# f.submit :month , :class => "btn btn-success" , :name => 'period'
@@ -187,6 +197,21 @@
       },
       minusEndMonth: function(){
         this.end.subtract(1,"week").startOf("month")
+        this.loadData()
+      },
+      thisYear: function(){
+        this.start.startOf("year")
+        this.end.endOf("year")
+        this.loadData()
+      },
+      minusYear: function(){
+        this.start.subtract(50,"week").startOf("month")
+        this.end.subtract(54,"week").endOf("month")
+        this.loadData()
+      },
+      plusYear: function(){
+        this.start.add(54,"week").startOf("month")
+        this.end.add(50,"week").endOf("month")
         this.loadData()
       },
     }
