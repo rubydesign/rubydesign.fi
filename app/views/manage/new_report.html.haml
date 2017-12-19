@@ -8,9 +8,11 @@
       %vue-chartist{":data" => "data" , ":options" => "options"}
     #legend
       %button
-        Total {{total}}
+        Orders {{total_orders}}
       %button
         Items {{total_items}}
+      %button
+        {{show}} {{total.toFixed(0)}}
   .col-md-3
     = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
       .form-group
@@ -46,12 +48,12 @@
         .col-md-8
           = select_tag :group_by,  options_for_select( group_options , @group_by) , :class => "form-control"
       .form-group
-        .col-md-4
-          Hinta
-          = radio_button_tag :price_or,  :total , :total == @price_or
-        .col-md-4
-          = t(:quantity)
-          = radio_button_tag :price_or,  :quantity , :quantity == @price_or
+        .col-md-6
+          %label{:for => "one"} Hinta
+          %input#one{:type => "radio", "v-model" => "show", :value => "price"}/
+        .col-md-6
+          %label{:for => "two"}= t(:quantity)
+          %input#two{:type => "radio", "v-model" => "show", :value => "quantity"}/
       .form-group
         .col-md-4
           = f.submit :month , :class => "btn btn-success" , :name => 'period'
@@ -75,8 +77,8 @@
           right: 40
         }
       },
+      show: "price",
       total: 0,
-      total_items: 0,
       kind: "Order",
       supplier: "",
       category: "",
@@ -102,29 +104,38 @@
         var index = this.attributes.indexOf("products.category_id")
         return items.filter(function(item) { return item[index] == that ; })
       },
+      total_items: function(){
+        return this.filteredCategories.length
+      },
+      total_orders: function(){
+        var items = this.filteredCategories
+        var basket = this.attributes.indexOf("basket_id")
+        var all = {}
+        for(var i = 0; i < items.length; i++) {
+          all[items[i][basket]] = 1
+        }
+        return Object.keys(all).length
+      },
       data: function() {
         var items = this.filteredCategories
         var all = {}
         var total = 0
-        var total_items = 0
         var vals = []
         labels = []
         var created_at = this.attributes.indexOf("created_at")
-        var quantity = this.attributes.indexOf("quantity")
+        var show = this.attributes.indexOf( this.show )
         for(var i = 0; i < items.length; i++) {
           item = items[i]
           var bucket = moment(item[created_at]).week()
           var was = all[bucket] || 0
-          all[bucket] = was + item[quantity]
-          total += item[quantity]
-          total_items += 1
+          all[bucket] = was + item[show]
+          total += item[show]
         }
         for( var key in all){
           vals.push(all[key])
           labels.push( "Week " + key )
         }
         this.total = total
-        this.total_items = total_items
         return {
           labels: labels,
           series: [ vals ]

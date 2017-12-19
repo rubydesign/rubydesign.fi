@@ -13,12 +13,13 @@ module NewReporter
                       :legend => {  :container => "#legend"} ,
                       :xaxis =>  { :mode => "time" }
                     }               #last attribute must be created_at
-    @attributes = ["id", "baskets.kori_type" , "products.category_id",
-                    "products.supplier_id" , "quantity" , "created_at"]
+    @attributes = [ "price" , "quantity" , "id", "name" , "basket_id" ,
+                    "baskets.kori_type" , "products.category_id",
+                    "products.supplier_id" , "created_at"]
     @items = Item.where(created_at: 3.months.ago..Date.today).
                   includes(:product).includes(:basket).
                   where.not(baskets: {locked: nil}).
-                  pluck(*@attributes).map{|i| i[-1] = i[-1].to_i*1000 ; i}
+                  pluck(*@attributes).map{|i| i[-1] = i[-1].to_i*1000;i[0] = i[0]*i[1] ; i}
 #    group_data
   end
 
