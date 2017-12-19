@@ -81,9 +81,11 @@
         %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
     .form-group
       .col-md-6
-        =# f.submit :month , :class => "btn btn-success" , :name => 'period'
+        %label= t(:month)
+        %input{:type => "radio", "v-model" => "interval", :value => "month"}/
       .col-md-6
-        = #f.submit :week , :class => "btn btn-success" , :name => 'period'
+        %label= t(:week)
+        %input{:type => "radio", "v-model" => "interval", :value => "week"}/
 :javascript
   var app = new Vue({
     el: '.new_report',
@@ -154,17 +156,16 @@
         var all = {}
         var vals = []
         labels = []
-        var created_at = this.attributes.indexOf("created_at")
         var show = this.attributes.indexOf( this.show )
         for(var i = 0; i < items.length; i++) {
           item = items[i]
-          var bucket = moment(item[created_at]).week()
+          var bucket = this.bucket(item)
           var was = all[bucket] || 0
           all[bucket] = was + item[show]
         }
         for( var key in all){
           vals.push(all[key])
-          labels.push( "Week " + key )
+          labels.push( this.interval + " " + (parseInt(key) + 1) )
         }
         return {
           labels: labels,
@@ -173,6 +174,11 @@
       }
     },
     methods: {
+      bucket: function(item){
+        var created_at = this.attributes.indexOf("created_at")
+        if( this.interval == "week") return moment(item[created_at]).week()
+        return moment(item[created_at]).month()
+      },
       loadData: function(){
         var that = this
         $.getJSON("/manage/new_report.json" ,

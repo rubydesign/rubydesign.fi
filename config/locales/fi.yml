@@ -214,6 +214,8 @@ fi:
   profit: Kate
   date_range: Päivämäärä
   group_by: Ryhmitellä
+  week: Viiko
+  month: Kuukausi
   all: Kaikki
   property: Ominaisuus
   item_total: Tuotteet
