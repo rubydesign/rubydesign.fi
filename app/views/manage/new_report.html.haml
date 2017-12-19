@@ -83,13 +83,27 @@
       interval: 'week',
     },
     computed: {
-      kinds: function(){
+      filteredKinds: function(){
         var index = this.attributes.indexOf("baskets.kori_type")
         var that = this.kind
         return this.items.filter(function(item) { return item[index] == that ; })
       },
+      filteredSuppliers: function(){
+        var that = this.supplier
+        var items = this.filteredKinds
+        if(that == "" ) return items
+        var index = this.attributes.indexOf("products.supplier_id")
+        return items.filter(function(item) { return item[index] == that ; })
+      },
+      filteredCategories: function(){
+        var that = this.category
+        var items = this.filteredSuppliers
+        if(that == "" ) return items
+        var index = this.attributes.indexOf("products.category_id")
+        return items.filter(function(item) { return item[index] == that ; })
+      },
       data: function() {
-        var items = this.kinds
+        var items = this.filteredCategories
         var all = {}
         var total = 0
         var total_items = 0

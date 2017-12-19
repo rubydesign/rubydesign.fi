@@ -14,7 +14,7 @@ module NewReporter
                       :xaxis =>  { :mode => "time" }
                     }               #last attribute must be created_at
     @attributes = ["id", "baskets.kori_type" , "products.category_id",
-                    "quantity" , "created_at"]
+                    "products.supplier_id" , "quantity" , "created_at"]
     @items = Item.where(created_at: 3.months.ago..Date.today).
                   includes(:product).includes(:basket).
                   where.not(baskets: {locked: nil}).
