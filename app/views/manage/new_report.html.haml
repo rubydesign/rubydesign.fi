@@ -215,14 +215,13 @@
         var series = []
         for(group in groups){
           var items = groups[group]
-          var all = {}
-          var vals = []
+          var all = this.new_group()
           for(var i = 0; i < items.length; i++) {
             item = items[i]
             var bucket = this.bucket(item)
-            var was = all[bucket] || 0
-            all[bucket] = was + item[show]
+            all[bucket] = all[bucket] + item[show]
           }
+          var vals = []
           for( var key in all){
             vals.push(all[key])
           }
@@ -246,6 +245,13 @@
         }
         console.log("Not found " + dat + " for " + property)
         return "undefined"
+      },
+      new_group: function(){
+        var group = {}
+        for( bucket in this.buckets){
+          group[bucket] = 0
+        }
+        return group
       },
       set_group: function(g){
         if(this.group_by == "products.supplier_id"){
