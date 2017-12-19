@@ -88,12 +88,12 @@
       .col-md-6
         %label= t(:week)
         %input{:type => "radio", "v-model" => "interval", :value => "week"}/
-    .col-md-12{"v-for" => "(v,g) in groups"}
-      %span{":class" => "'ct-series-' + String.fromCharCode(97 + group_indexes.indexOf(g))"}
-        %a{"@click" =>"set_group(g)"}
-          {{name_for(g)}}
+    .col-md-12{"v-for" => "pair in totals_shown"}
+      %span{":class" => "'ct-series-' + String.fromCharCode(97 + group_indexes.indexOf(pair[0]))"}
+        %a{"@click" =>"set_group(pair[0])"}
+          {{name_for(pair[0])}}
         %span.ct-line
-          total
+          {{pair[1].toFixed(0)}}
 :javascript
   var app = new Vue({
     el: '.new_report',
@@ -208,6 +208,25 @@
           total += items[i][show]
         }
         return total
+      },
+      totals_shown: function(){
+        var groups = this.groups
+        var show = this.attributes.indexOf( this.show )
+        var totals = []
+        for(group in groups){
+          var items = groups[group]
+          var total = 0
+          for(var i = 0; i < items.length; i++) {
+            total = total + items[i][show]
+          }
+          totals.push( [group, total])
+        }
+        totals = totals.slice().sort(function (a, b) {
+          a = parseFloat(a[1])
+          b = parseFloat(b[1])
+          return (a === b ? 0 : a < b ? 1 : -1) 
+        })
+        return totals
       },
       data: function() {
         var groups = this.groups
