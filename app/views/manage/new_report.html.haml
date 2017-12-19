@@ -50,28 +50,30 @@
       .col-md-12
         .col-md-3
           %a{ "@click" => "minusStartMonth" }
-            =image_tag "minus.png" , width: "25px"
+            =image_tag "minus.png" , width: "20px"
         .col-md-6
           %span
             {{start.format('DD MM YYYY')}}
         .col-md-3
           %a{ "@click" => "plusStartMonth" }
-            =image_tag "plus.png" , width: "25px"
+            =image_tag "plus.png" , width: "20px"
       .col-md-12
         .col-md-3
           %a{ "@click" => "minusEndMonth" }
-            =image_tag "minus.png" , width: "25px"
+            =image_tag "minus.png" , width: "20px"
         .col-md-6
           %span
             {{end.format('DD MM YYYY')}}
         .col-md-3
           %a{ "@click" => "plusEndMonth" }
-            =image_tag "plus.png" , width: "25px"
+            =image_tag "plus.png" , width: "20px"
     .form-group
       .col-md-4
-        %label= t("group_by")
+        = t(:group_by)
       .col-md-8
-        = select_tag :group_by,  options_for_select( group_options , @group_by) , :class => "form-control"
+        %select.form-control{"v-model" => "group_by"  }
+          %option{ "v-for" => "(g,v) in group_names", "v-bind:value": "v" }
+            {{g}}
     .form-group
       .col-md-6
         %label Hinta
@@ -96,7 +98,6 @@
       suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
       options: {
         fullWidth: true,
-        stackBars: true,
         height: 400,
         chartPadding: {
           right: 40
@@ -105,6 +106,8 @@
       start: moment(#{@start.to_time.to_i * 1000}),
       end: moment(#{@end.to_time.to_i * 1000}),
       created_index: #{@attributes.to_json}.indexOf("created_at"),
+      group_names: #{@group_names.to_json},
+      group_by: "all",
       show: "price",
       kind: "Order",
       supplier: "",
@@ -134,7 +137,6 @@
         var buckets = this.buckets
         for(key in buckets){
           var val = buckets[key]
-          console.log("val " + val)
           all.push(val)
         }
         return all
@@ -158,6 +160,20 @@
         var index = this.attributes.indexOf("products.category_id")
         return items.filter(function(item) { return item[index] == that ; })
       },
+      groups: function() {
+        var items = this.filteredCategories
+        if(this.group_by == "all") return { all: items}
+        var group_by = this.attributes.indexOf(this.group_by)
+        var all = {}
+        for( var i in items){
+          var item = items[i]
+          var key = item[group_by]
+          var series = all[ key ] || []
+          series.push(item)
+          all[ key ] = series
+        }
+        return all
+      },
       total_items: function(){
         return this.filteredCategories.length
       },
@@ -180,22 +196,27 @@
         return total
       },
       data: function() {
-        var items = this.filteredCategories
-        var all = {}
-        var vals = []
+        var groups = this.groups
         var show = this.attributes.indexOf( this.show )
-        for(var i = 0; i < items.length; i++) {
-          item = items[i]
-          var bucket = this.bucket(item)
-          var was = all[bucket] || 0
-          all[bucket] = was + item[show]
-        }
-        for( var key in all){
-          vals.push(all[key])
+        var series = []
+        for(group in groups){
+          var items = groups[group]
+          var all = {}
+          var vals = []
+          for(var i = 0; i < items.length; i++) {
+            item = items[i]
+            var bucket = this.bucket(item)
+            var was = all[bucket] || 0
+            all[bucket] = was + item[show]
+          }
+          for( var key in all){
+            vals.push(all[key])
+          }
+          series.push(vals)
         }
         return {
           labels: this.labels,
-          series: [ vals ]
+          series: series
         }
       }
     },
