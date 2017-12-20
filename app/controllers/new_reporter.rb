@@ -6,8 +6,8 @@ module NewReporter
                     "baskets.kori_type" , "products.category_id",
                     "products.supplier_id" , "created_at"]
     @group_names = { "all" => "All" ,
-                     "products.category_id" => t(:category) ,
                      "products.supplier_id" => t(:supplier) ,
+                     "products.category_id" => t(:category) ,
                      "product_id" => t(:product) }
     @start = params[:start] ? Time.at(params[:start].to_i) : 3.months.ago.beginning_of_month
     @end =   params[:end]   ? Time.at(params[:end].to_i)   : Date.today.end_of_month

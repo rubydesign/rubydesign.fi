@@ -1,98 +1,100 @@
 =render "chart"
-
 :javascript
   var allItems = #{ @items.to_json };
 .row.new_report
-  .col-md-9
+  .col-md-10
+    .row
+      .col-md-4
+        .form-group
+          %select.form-control{"v-model" => "kind"  }
+            %option{ value: "Order"}= t(:order)
+            %option{ value: "Purchase"}= t(:purchase)
+      .col-md-4
+        .form-group
+          %select.form-control{"v-model" => "supplier"  }
+            %option{ value: ""}= t(:supplier)
+            %option{ "v-for" => "s in suppliers", "v-bind:value": "s['id']" }
+              {{ s['supplier_name']}}
+      .col-md-4
+        .form-group
+          %select.form-control{"v-model" => "category"  }
+            %option{ value: ""}= t(:category)
+            %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
+              {{ c['name']}}
+    .row
+      .col-md-2
+      .col-md-2
+        %span.btn.btn-info
+          Orders {{total_orders}}
+      .col-md-2
+        %span.btn.btn-info
+          Items {{total_items}}
+      .col-md-2
+        %span.btn.btn-info
+          {{show}} {{total_shown.toFixed(0)}}
+      .col-md-2
+
     #placeholder{style: "width: 100%;height: 100%;"}
       %vue-chartist{":data" => "data" , ":options" => "options"}
-    #legend
-      %button
-        Orders {{total_orders}}
-      %button
-        Items {{total_items}}
-      %button
-        {{show}} {{total_shown.toFixed(0)}}
-  .col-md-3
+  .col-md-2
     .form-group
-      %select.form-control{"v-model" => "kind"  }
-        %option{ value: "Order"}= t(:order)
-        %option{ value: "Purchase"}= t(:purchase)
-    .form-group
-      .col-md-4
-        = t(:supplier)
-      .col-md-8
-        %select.form-control{"v-model" => "supplier"  }
-          %option{ value: ""}
-          %option{ "v-for" => "s in suppliers", "v-bind:value": "s['id']" }
-            {{ s['supplier_name']}}
-    .form-group
-      .col-md-4
-        = t(:category)
-      .col-md-8
-        %select.form-control{"v-model" => "category"  }
-          %option{ value: ""}
-          %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
-            {{ c['name']}}
-    .form-group
-      .col-md-12
-        %label= t("date_range")
-      .col-md-12
-        .col-md-3
+      .row
+        .center
+          %label= t("date_range")
+      .row
+        .col-md-2
           %a{ "@click" => "minusYear" }
             =image_tag "minus.png" , width: "25px"
-        .col-md-6
+        .col-md-8.center
           %a{ "@click" => "thisYear" }
             Vuosi
-        .col-md-3
+        .col-md-2
           %a{ "@click" => "plusYear" }
             =image_tag "plus.png" , width: "25px"
-      .col-md-12
-        .col-md-3
+      .row
+        .col-md-2
           %a{ "@click" => "minusStartMonth" }
             =image_tag "minus.png" , width: "20px"
-        .col-md-6
-          %span
-            {{start.format('DD MM YYYY')}}
-        .col-md-3
+        .col-md-8.center
+          {{start.format('DD MM YYYY')}}
+        .col-md-2
           %a{ "@click" => "plusStartMonth" }
             =image_tag "plus.png" , width: "20px"
-      .col-md-12
-        .col-md-3
+      .row
+        .col-md-2
           %a{ "@click" => "minusEndMonth" }
             =image_tag "minus.png" , width: "20px"
-        .col-md-6
-          %span
-            {{end.format('DD MM YYYY')}}
-        .col-md-3
+        .col-md-8.center
+          {{end.format('DD MM YYYY')}}
+        .col-md-2
           %a{ "@click" => "plusEndMonth" }
             =image_tag "plus.png" , width: "20px"
-    .form-group
-      .col-md-4
+    .row
+      .puoli
+        %label Hinta
+        %input{:type => "radio", "v-model" => "show", :value => "price"}/
+      .puoliv
+        %label= t(:quantity)
+        %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
+    .row
+      .puoli
+        %label= t(:month)
+        %input{:type => "radio", "v-model" => "interval", :value => "month"}/
+      .puoliv
+        %label= t(:week)
+        %input{:type => "radio", "v-model" => "interval", :value => "week"}/
+    .row
+      .puoli
         = t(:group_by)
-      .col-md-8
+      .puoliv
         %select.form-control{"v-model" => "group_by"  }
           %option{ "v-for" => "(g,v) in group_names", "v-bind:value": "v" }
             {{g}}
-    .form-group
-      .col-md-6
-        %label Hinta
-        %input{:type => "radio", "v-model" => "show", :value => "price"}/
-      .col-md-6
-        %label= t(:quantity)
-        %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
-    .form-group
-      .col-md-6
-        %label= t(:month)
-        %input{:type => "radio", "v-model" => "interval", :value => "month"}/
-      .col-md-6
-        %label= t(:week)
-        %input{:type => "radio", "v-model" => "interval", :value => "week"}/
-    .col-md-12{"v-for" => "pair in totals_shown"}
+    .row{"v-for" => "pair in totals_shown"}
       %span{":class" => "'ct-series-' + String.fromCharCode(97 + group_indexes.indexOf(pair[0]))"}
-        %a{"@click" =>"set_group(pair[0])"}
+        %a.puoli{"@click" =>"set_group(pair[0])"}
           {{name_for(pair[0])}}
-        %span.ct-line
+        .puoliv.center.ct-line
           {{pair[1].toFixed(0)}}
 :javascript
   var app = new Vue({
@@ -104,10 +106,7 @@
       suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
       options: {
         fullWidth: true,
-        height: 400,
-        chartPadding: {
-          right: 40
-        }
+        height: 500,
       },
       start: moment(#{@start.to_time.to_i * 1000}),
       end: moment(#{@end.to_time.to_i * 1000}),
@@ -224,7 +223,7 @@
         totals = totals.slice().sort(function (a, b) {
           a = parseFloat(a[1])
           b = parseFloat(b[1])
-          return (a === b ? 0 : a < b ? 1 : -1) 
+          return (a === b ? 0 : a < b ? 1 : -1)
         })
         return totals
       },

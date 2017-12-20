@@ -14,7 +14,21 @@
  *= require chartist
  */
 
-
+ .ct-label {
+   font-size: 1.4rem
+ }
+.center{
+  text-align: center;
+}
+.puoli{
+  float: left;
+  width:50%;
+}
+.puoliv{
+  float: left;
+  width:50%;
+  padding-left: 10px;
+}
 $navbar-inverse-bg: #6827EC;
 $navbar-height:70px;
 body { padding-top: 80px; }
