@@ -70,31 +70,31 @@
           %a{ "@click" => "plusEndMonth" }
             =image_tag "plus.png" , width: "20px"
     .row
-      .puoli
+      .half
         %label Hinta
         %input{:type => "radio", "v-model" => "show", :value => "price"}/
-      .puoliv
+      .halfv
         %label= t(:quantity)
         %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
     .row
-      .puoli
+      .half
         %label= t(:month)
         %input{:type => "radio", "v-model" => "interval", :value => "month"}/
-      .puoliv
+      .halfv
         %label= t(:week)
         %input{:type => "radio", "v-model" => "interval", :value => "week"}/
     .row
-      .puoli
+      .half
         = t(:group_by)
-      .puoliv
+      .halfv
         %select.form-control{"v-model" => "group_by"  }
           %option{ "v-for" => "(g,v) in group_names", "v-bind:value": "v" }
             {{g}}
     .row{"v-for" => "pair in totals_shown"}
       %span{":class" => "'ct-series-' + String.fromCharCode(97 + group_indexes.indexOf(pair[0]))"}
-        %a.puoli{"@click" =>"set_group(pair[0])"}
+        %a.seven{"@click" =>"set_group(pair[0])"}
           {{name_for(pair[0])}}
-        .puoliv.center.ct-line
+        .threel.center.ct-line
           {{pair[1].toFixed(0)}}
 :javascript
   var app = new Vue({
@@ -279,11 +279,19 @@
           this.category = g
         }
       },
+      product_name: function(i){
+        var items = this.items
+        var product_index = this.attributes.indexOf("product_id")
+        for(var j = 0; j < items.length; j++) {
+          if( items[j][product_index] == i ) return items[j][this.attributes.indexOf("name")]
+        }
+        return "deleted"
+      },
       name_for: function(i){
         var by = this.group_by
         if( by == "products.category_id") return this.hash_find(this.categories, i , "name")
         if( by == "products.supplier_id") return this.hash_find(this.suppliers, i , "supplier_name")
-        if( by == "product_id") return "Product"
+        if( by == "product_id") return this.product_name(i)
         return "all"
       },
       loadData: function(){

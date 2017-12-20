@@ -20,13 +20,22 @@
 .center{
   text-align: center;
 }
-.puoli{
+.half{
   float: left;
   width:50%;
 }
-.puoliv{
+.halfl{
   float: left;
   width:50%;
+  padding-left: 10px;
+}
+.seven{
+  float: left;
+  width: 70%;
+}
+.threel{
+  float: left;
+  width:30%;
   padding-left: 10px;
 }
 $navbar-inverse-bg: #6827EC;
