@@ -321,6 +321,7 @@
         var by = this.group_by
         if( by == "products.category_id") return this.hash_find(this.categories, i , "name")
         if( by == "products.supplier_id") return this.hash_find(this.suppliers, i , "supplier_name")
+        if( by == "email") return i.replace("@", " @ ");
         if( by == "product_id") return this.product_name(i)
         return "all"
       },

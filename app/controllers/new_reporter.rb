@@ -24,11 +24,11 @@ module NewReporter
                   where.not(baskets: {locked: nil}).
                   pluck(*@attributes).map do|item|
                     item[created_index] = item[created_index].to_i*1000
-                    item[price_index] = item[price_index]*item[quantity_index] 
+                    item[price_index] = item[price_index]*item[quantity_index]
                     item << emails[ item[basket_index] ]
                     item
                   end
-
+    @attributes << "email"
     respond_to do |format|
       format.html { render }
       format.json { render json: @items.to_json , layout: false }
