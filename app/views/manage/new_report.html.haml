@@ -24,13 +24,13 @@
     .row
       .col-md-1
       .col-md-2
-        %span.btn.btn-info
+        %span.btn.btn-info{ "@click" => "group_by = 'email'"}
           Customers {{total_email}}
       .col-md-2
         %span.btn.btn-info
           Orders {{total_basket}}
       .col-md-2
-        %span.btn.btn-info
+        %span.btn.btn-info{ "@click" => "group_by = 'product_id'"}
           Products {{total_product}}
       .col-md-2
         %span.btn.btn-info
@@ -304,9 +304,11 @@
       set_group: function(g){
         if(this.group_by == "products.supplier_id"){
           this.supplier = g
+          this.group_by = "all"
         }
         if(this.group_by == "products.category_id"){
           this.category = g
+          this.group_by = "all"
         }
       },
       product_name: function(i){

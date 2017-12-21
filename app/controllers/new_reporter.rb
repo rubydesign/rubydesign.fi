@@ -18,7 +18,15 @@ module NewReporter
     quantity_index = @attributes.index("quantity")
     emails = Basket.unscoped.where("baskets.created_at": @start..@end).
                   includes(:order).where.not(locked: nil).
-                  pluck("baskets.id" , "orders.email").to_h
+                  pluck("baskets.id" , "orders.email", "orders.address").
+                  collect do |basket,email,address|
+                    if address.blank?
+                      [basket, email]
+                    else
+                      name = address.split("\n")[1]
+                      name ? [basket, name.sub("name: ","")] : [basket, email]
+                    end
+                  end.to_h
     @items = Item.where(created_at: @start..@end).
                   includes(:product).includes(:basket).
                   where.not(baskets: {locked: nil}).
