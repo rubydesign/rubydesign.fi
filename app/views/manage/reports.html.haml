@@ -22,23 +22,28 @@
             %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
               {{ c['name']}}
     .row
-      .col-md-1
       .col-md-2
         %span.btn.btn-info{ "@click" => "group_by = 'email'"}
           Customers {{total_email}}
       .col-md-2
         %span.btn.btn-info
-          Orders {{total_basket}}
+          =t(:orders)
+          {{total_basket}}
+      .col-md-2
+        %span.btn.btn-info{ "@click" => "group_by = 'products.supplier_id'"}
+          =t(:suppliers)
+          {{total_supplier}}
+      .col-md-2
+        %span.btn.btn-info{ "@click" => "group_by = 'products.category_id'"}
+          =t(:categories)
+          {{total_category}}
       .col-md-2
         %span.btn.btn-info{ "@click" => "group_by = 'product_id'"}
-          Products {{total_product}}
-      .col-md-2
-        %span.btn.btn-info
-          Items {{filteredCategories.length}}
+          =t(:products)
+          {{total_product}}
       .col-md-2
         %span.btn.btn-info
           {{show}} {{total_shown.toFixed(0)}}
-      .col-md-1
 
     #placeholder{style: "width: 100%;height: 100%;"}
       %vue-chartist{":data" => "data" , ":options" => "options"}
@@ -79,20 +84,23 @@
       .half
         %label Hinta
         %input{:type => "radio", "v-model" => "show", :value => "price"}/
-      .halfv
+      .halfl
         %label= t(:quantity)
         %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
     .row
       .half
         %label= t(:month)
         %input{:type => "radio", "v-model" => "interval", :value => "month"}/
-      .halfv
+      .halfl
         %label= t(:week)
         %input{:type => "radio", "v-model" => "interval", :value => "week"}/
     .row
-      .half
+      .seven
         = t(:group_by)
-      .halfv
+      .threel
+        %a{ "@click" => "group_by = 'all'" }
+          =image_tag "minus.png" , width: "25px"
+      %div
         %select.form-control{"v-model" => "group_by"  }
           %option{ "v-for" => "(g,v) in group_names", "v-bind:value": "v" }
             {{g}}
@@ -198,6 +206,12 @@
       },
       total_product: function(){
         return this.total_for("product_id")
+      },
+      total_supplier: function(){
+        return this.total_for("products.supplier_id")
+      },
+      total_category: function(){
+        return this.total_for("products.category_id")
       },
       total_basket: function(){
         return this.total_for("basket_id")
@@ -331,7 +345,7 @@
         this.start = moment(this.start)
         this.end = moment(this.end)
         var that = this
-        $.getJSON("/manage/new_report.json" ,
+        $.getJSON("/manage/reports.json" ,
           { start: that.start.unix() , end:   that.end.unix() } ,
           function(ret){ that.items = ret ; })
       },
