@@ -1,6 +1,5 @@
 =render "chart"
 :javascript
-  var allEmails = #{ @orders.to_json };
   var allItems = #{ @items.to_json };
 .row.new_report
   .col-md-10
@@ -26,16 +25,16 @@
       .col-md-1
       .col-md-2
         %span.btn.btn-info
-          Customers {{total_customers}}
+          Customers {{total_email}}
       .col-md-2
         %span.btn.btn-info
-          Orders {{total_orders.length}}
+          Orders {{total_basket}}
       .col-md-2
         %span.btn.btn-info
-          Products {{total_products.length}}
+          Products {{total_product}}
       .col-md-2
         %span.btn.btn-info
-          Items {{total_items}}
+          Items {{filteredCategories.length}}
       .col-md-2
         %span.btn.btn-info
           {{show}} {{total_shown.toFixed(0)}}
@@ -108,7 +107,6 @@
     el: '.new_report',
     data: {
       items: allItems,
-      emails: allEmails,
       attributes: #{@attributes.to_json} ,
       categories: #{Category.all.to_json( only: [:id , :name])} ,
       suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
@@ -195,8 +193,14 @@
         }
         return indexes
       },
-      total_items: function(){
-        return this.filteredCategories.length
+      total_email: function(){
+        return this.total_for("email")
+      },
+      total_product: function(){
+        return this.total_for("product_id")
+      },
+      total_basket: function(){
+        return this.total_for("basket_id")
       },
       total_orders: function(){
         var items = this.filteredCategories
@@ -208,17 +212,8 @@
         return Object.keys(all)
       },
       total_customers: function(){
-        var emails = this.emails
-        var orders = this.total_orders
-        var all = {}
-        for(var i = 0; i < orders.length; i++) {
-          all[emails[orders[i]]] = 1
-        }
-        return Object.keys(all).length
-      },
-      total_products: function(){
         var items = this.filteredCategories
-        var product = this.attributes.indexOf("product_id")
+        var product = this.attributes.indexOf("email")
         var all = {}
         for(var i = 0; i < items.length; i++) {
           all[items[i][product]] = 1
@@ -278,6 +273,15 @@
       }
     },
     methods: {
+      total_for: function(attribute){
+        var items = this.filteredCategories
+        var val = this.attributes.indexOf(attribute)
+        var all = {}
+        for(var i = 0; i < items.length; i++) {
+          all[items[i][val]] = 1
+        }
+        return Object.keys(all).length
+      },
       bucket: function(item){
         if( this.interval == "week") return moment(item[this.created_index]).week()
         return moment(item[this.created_index]).month()
