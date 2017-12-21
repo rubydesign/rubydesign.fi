@@ -15,6 +15,9 @@ module NewReporter
                   includes(:product).includes(:basket).
                   where.not(baskets: {locked: nil}).
                   pluck(*@attributes).map{|i| i[-1] = i[-1].to_i*1000;i[0] = i[0]*i[1] ; i}
+    @orders = Basket.unscoped.where("baskets.created_at": @start..@end).
+                  includes(:order).where.not(locked: nil).
+                  pluck("baskets.id" , "orders.email").to_h
 
     respond_to do |format|
       format.html { render }

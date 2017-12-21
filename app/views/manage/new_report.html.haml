@@ -1,5 +1,6 @@
 =render "chart"
 :javascript
+  var allEmails = #{ @orders.to_json };
   var allItems = #{ @items.to_json };
 .row.new_report
   .col-md-10
@@ -22,17 +23,23 @@
             %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
               {{ c['name']}}
     .row
-      .col-md-2
+      .col-md-1
       .col-md-2
         %span.btn.btn-info
-          Orders {{total_orders}}
+          Customers {{total_customers}}
+      .col-md-2
+        %span.btn.btn-info
+          Orders {{total_orders.length}}
+      .col-md-2
+        %span.btn.btn-info
+          Products {{total_products.length}}
       .col-md-2
         %span.btn.btn-info
           Items {{total_items}}
       .col-md-2
         %span.btn.btn-info
           {{show}} {{total_shown.toFixed(0)}}
-      .col-md-2
+      .col-md-1
 
     #placeholder{style: "width: 100%;height: 100%;"}
       %vue-chartist{":data" => "data" , ":options" => "options"}
@@ -101,6 +108,7 @@
     el: '.new_report',
     data: {
       items: allItems,
+      emails: allEmails,
       attributes: #{@attributes.to_json} ,
       categories: #{Category.all.to_json( only: [:id , :name])} ,
       suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
@@ -197,7 +205,25 @@
         for(var i = 0; i < items.length; i++) {
           all[items[i][basket]] = 1
         }
+        return Object.keys(all)
+      },
+      total_customers: function(){
+        var emails = this.emails
+        var orders = this.total_orders
+        var all = {}
+        for(var i = 0; i < orders.length; i++) {
+          all[emails[orders[i]]] = 1
+        }
         return Object.keys(all).length
+      },
+      total_products: function(){
+        var items = this.filteredCategories
+        var product = this.attributes.indexOf("product_id")
+        var all = {}
+        for(var i = 0; i < items.length; i++) {
+          all[items[i][product]] = 1
+        }
+        return Object.keys(all)
       },
       total_shown: function(){
         var show  = this.attributes.indexOf( this.show )
@@ -303,7 +329,7 @@
           function(ret){ that.items = ret ; })
       },
       plusStartMonth: function(){
-        this.start.add(1,"week").endOf("month")
+        this.start.add(5,"week").startOf("month")
         this.loadData()
       },
       minusStartMonth: function(){
@@ -315,7 +341,7 @@
         this.loadData()
       },
       minusEndMonth: function(){
-        this.end.subtract(1,"week").startOf("month")
+        this.end.subtract(5,"week").endOf("month")
         this.loadData()
       },
       thisYear: function(){
