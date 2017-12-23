@@ -49,8 +49,8 @@ fi:
         online: Netissä
         price: Hinta
         scode: Tuottajatunnus
-        summary: Yhteenveto
         stock_level: Haluttu Inventaario
+        summary: Yhteenveto
         supplier: Tuottaja
         tax: Veroprosentti
         weight: Paino
@@ -75,8 +75,10 @@ fi:
   add_to_basket: Lisää ostoskoriin
   address: Osoite
   admin: Admin
+  all: Kaikki
   are_you_sure: Oletko varma
   back: Takaisin
+  barcode: Viivakoodi
   basket: Ostoskori
   basket_empty: Ostoskori on tyhjä
   basket_locked: Ostoskoria ei voi muuttaa
@@ -101,6 +103,7 @@ fi:
   create: Luo
   create_success: Luotu onnistuneesti
   customer: Asiakas
+  date_range: Päivämäärä
   delete: Poista
   deleted: Poistettu
   description: Kuvaus
@@ -114,10 +117,16 @@ fi:
   filter: Hae
   first_name: Etunimi
   fix_errors: Puuttuu tietoja
+  group_by: Ryhmitellä
+  in_orders: Tilauksissa
   inventorized: Inventoitu
   inventory: Inventaario
-  in_orders: Tilauksissa
+  invoice:
+    header: Lasku
+    print: Tulosta Lasku
+    thanks: Kiitos tilauksestasi!
   item_removed: Tuote poistettu
+  item_total: Tuotteet
   items: Tuotteet
   last_name: Sukunimi
   link: linkki
@@ -129,6 +138,7 @@ fi:
   make_purchase: Luo Sisäänosto
   manage: Hallinta
   may_be_blank: Voi jättää tyhjäksi
+  month: Kuukausi
   more: Lisää
   name: Nimi
   name_contains: Nimi sisältää
@@ -148,12 +158,13 @@ fi:
   order_mail: Lähetä sähköposti
   order_number: Tilausnumero
   order_print: Tulosta
+  order_total: Tilaus yhteensä
   ordered: Tilattu
   ordered_on: Tilauspäivä
   orders: Tilaukset
-  pay: Maksa
   paid_on: Maksettu
   password: Salasana
+  pay: Maksa
   payment_info: Maksukoodi
   phone: Puhelin
   picture: Kuva
@@ -165,12 +176,24 @@ fi:
   product_item: Tuote Tuotelinjalla
   product_line: Tuotelinja
   products: Tuotteet
+  profit: Kate
+  property: Ominaisuus
   purchase: Sisäänosto
+  purchase invoice:
+    header: Purchase Invoice
+  purchase_total: Yhteensä
   purchases: Sisäänostot
   quantity: Määrä
+  receipt:
+    header: Kuitti
+    print: Tulosta Kuitti
   receive: Ota vastaan
   received: Vastaanotettu
   received_on: Vastaanotettu
+  reminder:
+    header: Maksumuistutus
+    print: Maksumuistutus
+    thanks: Kirjanpitomme mukaan emme ole saaneet suoritustanne tästä laskusta.<br/> <br/>Pyydämme maksamaan laskun heti. <br/><br/> Mikäli lasku on jo maksettu, tämä maksuhuomautus on aiheeton.
   remove: Vähentä
   scode: Tuottajatunnus
   search: Hae
@@ -189,6 +212,10 @@ fi:
   signed_in: Sisäänkirjautunut
   signed_out: Uloskirjautunut
   signed_up: Tili luottu
+  slip:
+    header: Kuormakirja
+    print: Tulosta Kuormakirja
+    thanks: Tarkistathan tilauksen välittömästi. Kiitos tilauksestasi!
   stock_level: Haluttu Inventaario
   street: Osoite
   street1: Osoite1
@@ -205,39 +232,10 @@ fi:
   update: Päivitä
   update_success: Päivitetty onnistuneesti
   vat: Alv
+  week: Viiko
   weight: Paino
   will_paginate:
     next_label: seuraava
     page_gap: "&hellip;"
     previous_label: edellinen
     profit: Kate
-  profit: Kate
-  date_range: Päivämäärä
-  group_by: Ryhmitellä
-  week: Viiko
-  month: Kuukausi
-  all: Kaikki
-  property: Ominaisuus
-  item_total: Tuotteet
-  barcode: Viivakoodi
-  invoice:
-    header: Lasku
-    print: Tulosta Lasku
-    thanks: Kiitos tilauksestasi!
-  slip:
-    header: Kuormakirja
-    print: Tulosta Kuormakirja
-    thanks: Tarkistathan tilauksen välittömästi. Kiitos tilauksestasi!
-  receipt:
-    header: Kuitti
-    print: Tulosta Kuitti
-  reminder:
-    header: Maksumuistutus
-    print: Maksumuistutus
-    thanks: "Kirjanpitomme mukaan emme ole saaneet suoritustanne tästä
-            laskusta.<br/> <br/>Pyydämme maksamaan laskun heti. <br/><br/>
-            Mikäli lasku on jo maksettu, tämä maksuhuomautus on aiheeton."
-  purchase invoice:
-      header: Purchase Invoice
-  purchase_total: Yhteensä
-  order_total: Tilaus yhteensä

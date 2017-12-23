@@ -75,8 +75,10 @@ en:
   add_to_basket: Add to basket
   address: Adress
   admin: Admin
+  all: All
   are_you_sure: Are you sure?
   back: Back
+  barcode: Barcode
   basket: Basket
   basket_empty: Basket is empty
   basket_locked: Basket is locked, cancel to change
@@ -101,6 +103,7 @@ en:
   create: Luo
   create_success: Successfully created
   customer: Customer
+  date_range: Date
   delete: Delete
   deleted: Deleted
   description: Description
@@ -114,10 +117,16 @@ en:
   filter: Filter
   first_name: First Name
   fix_errors: There are errors below
+  group_by: Group by
+  in_orders: In orders
   inventorized: Inventorized
   inventory: Inventory
-  in_orders: In orders
+  invoice:
+    header: Customer Invoice
+    print: Print Invoice
+    thanks: Thank you for your order.
   item_removed: Item removed
+  item_total: Products
   items: Items
   last_name: Last Name
   link: Link
@@ -129,6 +138,7 @@ en:
   make_purchase: Make Purchase
   manage: Manage
   may_be_blank: May be blank
+  month: Month
   more: More
   name: Name
   name_contains: Name contains
@@ -148,12 +158,13 @@ en:
   order_mail: Send email
   order_number: Order Number
   order_print: Print
+  order_total: Order total
   ordered: Ordered
   ordered_on: Ordered On
   orders: Orders
-  pay: Pay
   paid_on: Paid on
   password: Password
+  pay: Pay
   payment_info: Payment info
   phone: Phone
   picture: Picture
@@ -165,12 +176,24 @@ en:
   product_item: Product Item
   product_line: Product Line
   products: Products
+  profit: Profit
+  property: Property
   purchase: Purchase
+  purchase invoice:
+    header: Purchase Invoice
+  purchase_total: Total
   purchases: Purchases
   quantity: Quantity
+  receipt:
+    header: Receipt
+    print: Receipt
   receive: Receive
   received: Received
   received_on: Received On
+  reminder:
+    header: Payment Reminder
+    print: Reminder
+    thanks: Our system has not registered any payment for this Invoice. We kindly request you correct this situation.
   remove: Remove
   scode: Supplier code
   search: Search
@@ -189,6 +212,10 @@ en:
   signed_in: Logged in
   signed_out: Logged out
   signed_up: Signed up
+  slip:
+    header: Packaging Slip
+    print: Print Slip
+    thanks: Please check the contents immediately.
   stock_level: Stock aim
   street: Street
   street1: Street1
@@ -205,39 +232,10 @@ en:
   update: Update
   update_success: Successfully updated
   vat: Vat
+  week: Week
   weight: Weight
   will_paginate:
     next_label: Next &#8594;
     page_gap: "&hellip;"
     previous_label: "&#8592; Previous"
     profit: Profit
-  date_range: Date
-  group_by: Group by
-  all: All
-  property: Property
-  item_total: Products
-  barcode: Barcode
-  invoice:
-    header: Customer Invoice
-    thanks: Thank you for your order.
-    print: Print Invoice
-  slip:
-    header: Packaging Slip
-    print: Print Slip
-    thanks: Please check the contents immediately.
-  reminder:
-    header: Payment Reminder
-    print: Reminder
-    thanks: Our system has not registered any payment for this Invoice. We kindly request you
-            correct this situation.
-  receipt:
-    header: Receipt
-    print: Receipt
-
-  purchase invoice:
-    header: Purchase Invoice
-  purchase_total: Total
-  profit: Profit
-  order_total: Order total
-  week: Week
-  month: Month
