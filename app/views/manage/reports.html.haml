@@ -4,27 +4,34 @@
 .row.new_report
   .col-md-10
     .row
-      .col-md-4
+      .col-md-3
         .form-group
           %select.form-control{"v-model" => "kind"  }
             %option{ value: "Order"}= t(:order)
             %option{ value: "Purchase"}= t(:purchase)
-      .col-md-4
+      .col-md-1
+      .col-md-3
         .form-group
           %select.form-control{"v-model" => "supplier"  }
             %option{ value: ""}= t(:supplier)
             %option{ "v-for" => "s in suppliers", "v-bind:value": "s['id']" }
               {{ s['supplier_name']}}
-      .col-md-4
+      .col-md-1
+        %a{ "@click" => "supplier = ''" , "v-if" => "supplier != ''"}
+          =image_tag "minus.png" , width: "25px"
+      .col-md-3
         .form-group
-          %select.form-control{"v-model" => "category"  }
+          %select.form-control{"v-model" => "category" }
             %option{ value: ""}= t(:category)
             %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
               {{ c['name']}}
+      .col-md-1
+        %a{ "@click" => "category = ''" , "v-if" => "category != ''"}
+          =image_tag "minus.png" , width: "25px"
     .row
       .col-md-2
-        %span.btn.btn-info{ "@click" => "group_by = 'email'"}
-          Customers {{total_email}}
+        %span.btn.btn-info{ "@click" => "group_by = 'customer'"}
+          Customers {{total_customer}}
       .col-md-2
         %span.btn.btn-info
           =t(:orders)
@@ -201,8 +208,8 @@
         }
         return indexes
       },
-      total_email: function(){
-        return this.total_for("email")
+      total_customer: function(){
+        return this.total_for("customer")
       },
       total_product: function(){
         return this.total_for("product_id")
@@ -227,7 +234,7 @@
       },
       total_customers: function(){
         var items = this.filteredCategories
-        var product = this.attributes.indexOf("email")
+        var product = this.attributes.indexOf("customer")
         var all = {}
         for(var i = 0; i < items.length; i++) {
           all[items[i][product]] = 1
@@ -337,7 +344,7 @@
         var by = this.group_by
         if( by == "products.category_id") return this.hash_find(this.categories, i , "name")
         if( by == "products.supplier_id") return this.hash_find(this.suppliers, i , "supplier_name")
-        if( by == "email") return i.replace("@", " @ ");
+        if( by == "customer") return i.replace("@", " @ ");
         if( by == "product_id") return this.product_name(i)
         return "all"
       },

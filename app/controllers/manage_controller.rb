@@ -4,7 +4,7 @@ class ManageController < AdminController
 
   def all
   end
-  
+
   def reports
     @attributes = [ "price" , "quantity" , "id", "name" ,
                     "basket_id" , "product_id" ,
@@ -14,7 +14,7 @@ class ManageController < AdminController
                      "products.supplier_id" => t(:supplier) ,
                      "products.category_id" => t(:category) ,
                      "product_id" => t(:product) ,
-                     "email" => t(:email) }
+                     "customer" => t(:customer) }
     @start = params[:start] ? Time.at(params[:start].to_i) : 3.months.ago.beginning_of_month
     @end =   params[:end]   ? Time.at(params[:end].to_i)   : Date.today.end_of_month
     basket_index =   @attributes.index("basket_id")
@@ -41,7 +41,7 @@ class ManageController < AdminController
                     item << emails[ item[basket_index] ]
                     item
                   end
-    @attributes << "email"
+    @attributes << "customer"
     respond_to do |format|
       format.html { render }
       format.json { render json: @items.to_json , layout: false }
