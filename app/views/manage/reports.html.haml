@@ -167,21 +167,16 @@
         }
         return all
       },
-      filteredKinds: function(){
+      filteredCategories: function(){
         var index = this.attributes.indexOf("baskets.kori_type")
         var that = this.kind
-        return this.items.filter(function(item) { return item[index] == that ; })
-      },
-      filteredSuppliers: function(){
-        var that = this.supplier
-        var items = this.filteredKinds
-        if(that == "" ) return items
-        var index = this.attributes.indexOf("products.supplier_id")
-        return items.filter(function(item) { return item[index] == that ; })
-      },
-      filteredCategories: function(){
-        var that = this.category
-        var items = this.filteredSuppliers
+        var items = this.items.filter(function(item) { return item[index] == that ; })
+        that = this.supplier
+        if(that != "" ) {
+          var index = this.attributes.indexOf("products.supplier_id")
+          items = items.filter(function(item) { return item[index] == that ; })
+        }
+        that = this.category
         if(that == "" ) return items
         var index = this.attributes.indexOf("products.category_id")
         return items.filter(function(item) { return item[index] == that ; })
