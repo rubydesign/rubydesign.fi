@@ -31,23 +31,23 @@
     .row
       .col-md-2
         %span.btn.btn-info{ "@click" => "group_by = 'customer'"}
-          Customers {{total_customer}}
+          Customers {{total_for("customer")}}
       .col-md-2
         %span.btn.btn-info
           =t(:orders)
-          {{total_basket}}
+          {{total_for("basket_id")}}
       .col-md-2
         %span.btn.btn-info{ "@click" => "group_by = 'products.supplier_id'"}
           =t(:suppliers)
-          {{total_supplier}}
+          {{total_for("products.supplier_id")}}
       .col-md-2
         %span.btn.btn-info{ "@click" => "group_by = 'products.category_id'"}
           =t(:categories)
-          {{total_category}}
+          {{total_for("products.category_id")}}
       .col-md-2
         %span.btn.btn-info{ "@click" => "group_by = 'product_id'"}
           =t(:products)
-          {{total_product}}
+          {{total_for("product_id")}}
       .col-md-2
         %span.btn.btn-info
           {{show}} {{total_shown.toFixed(0)}}
@@ -202,39 +202,6 @@
           indexes.push(key)
         }
         return indexes
-      },
-      total_customer: function(){
-        return this.total_for("customer")
-      },
-      total_product: function(){
-        return this.total_for("product_id")
-      },
-      total_supplier: function(){
-        return this.total_for("products.supplier_id")
-      },
-      total_category: function(){
-        return this.total_for("products.category_id")
-      },
-      total_basket: function(){
-        return this.total_for("basket_id")
-      },
-      total_orders: function(){
-        var items = this.filteredCategories
-        var basket = this.attributes.indexOf("basket_id")
-        var all = {}
-        for(var i = 0; i < items.length; i++) {
-          all[items[i][basket]] = 1
-        }
-        return Object.keys(all)
-      },
-      total_customers: function(){
-        var items = this.filteredCategories
-        var product = this.attributes.indexOf("customer")
-        var all = {}
-        for(var i = 0; i < items.length; i++) {
-          all[items[i][product]] = 1
-        }
-        return Object.keys(all)
       },
       total_shown: function(){
         var show  = this.attributes.indexOf( this.show )
