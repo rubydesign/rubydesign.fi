@@ -6,9 +6,13 @@
       = render "products/online" , :object => @category
     %p
       %b
+        = t(:position) + " : "
+      = @category.position
+    %p
+      %b
         = t(:summary) + " : "
       = markdown @category.summary
-      %br
+    %p
       %b
         = t(:description) + " : "
       = markdown @category.description
@@ -22,12 +26,10 @@
         %p
           = image_tag @category.main_picture.url
       .col-md-6
-        %p
-          = image_tag @category.extra_picture.url
 
   = link_to t(:edit), edit_category_path(@category), :class => "btn btn-primary"
   = link_to t(:back), categories_path, :class => "btn btn-primary"
-  = render "shop_link" 
+  = render "shop_link"
 
 =render "triple" , :groups => @category.categories
 =render "products/triple" , :products => @category.products.no_items

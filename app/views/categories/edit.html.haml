@@ -12,29 +12,24 @@
   .row.form-group
     .col-md-5
       = f.text_field :name
-      .row
-        .col-md-2
-          = f.check_box :online
-        .col-md-10
-          = f.text_field :link
+      = f.text_field :link
       = f.select :category_id , Category.all.order(:name).map { |c| [c.name, c.id ] }, :prompt => t(:select) , :include_blank => true
-      = f.text_field :position
     .col-md-7
       = f.text_area :summary , :rows => 2
-      = f.text_area :description , :rows => 10
+      = f.text_area :description , :rows => 7
   .row
     .col-md-4
       = image_tag @category.main_picture.url
-    .col-md-4
-      = image_tag @category.extra_picture.url
+    .col-md-2
+      = f.check_box :online
+      = f.text_field :position
+    .col-md-1
     .col-md-4
       = f.submit :class => "btn btn-success"
       %br
       %br
       = link_to t(:back), categories_path, :class => "btn btn-warning"
   .row
-    .col-md-4
+    .col-md-6
       = f.file_field :main_picture
-    .col-md-4
-      = f.file_field :extra_picture
 .categories_edit_end

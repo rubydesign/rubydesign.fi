@@ -26,7 +26,7 @@ class CategoriesController < AdminController
   def create
     @category = Category.create(params_for_model)
     if @category.save
-      flash.notice = t(:create_success, :model => "category") 
+      flash.notice = t(:create_success, :model => "category")
       redirect_to category_path(@category)
     else
       render :edit
@@ -46,15 +46,15 @@ class CategoriesController < AdminController
         end
         notice += "<br> #{count} " + t(:products) + " " + (@category.online ? t(:made_online) : t(:made_offline))
       end
-      redirect_to category_path(@category),  :notice => notice 
+      redirect_to category_path(@category),  :notice => notice
     else
-      render :action => :edit 
+      render :action => :edit
     end
   end
 
   def destroy
     @category.destroy if @category.categories.empty?
-    redirect_to categories_url 
+    redirect_to categories_url
   end
 
   private
@@ -64,8 +64,7 @@ class CategoriesController < AdminController
   end
 
   def params_for_model
-    params.require(:category).permit(:category_id,:name,:link,:main_picture,:extra_picture,:position, :online,
+    params.require(:category).permit(:category_id,:name,:link,:main_picture,:position, :online,
                                     :summary, :description)
   end
 end
-

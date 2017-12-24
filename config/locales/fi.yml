@@ -113,7 +113,6 @@ fi:
   edit: Muokkaa
   email: S-posti
   error: Virhe
-  extra_picture: Toinen kuva
   filter: Hae
   first_name: Etunimi
   fix_errors: Puuttuu tietoja
@@ -177,6 +176,7 @@ fi:
   product_line: Tuotelinja
   products: Tuotteet
   profit: Kate
+  position: Järjetysnummero
   property: Ominaisuus
   purchase: Sisäänosto
   purchase invoice:

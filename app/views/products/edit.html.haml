@@ -4,44 +4,44 @@
 = bootstrap_form_for(@product, :html => { :multipart => true , :role=>"form"} ) do |f|
   = f.hidden_field( :product_id) if @product.product_id
   .row
-    .col-md-8
+    .col-md-5
+      .row
+        .col-md-12
+          = f.text_area :summary, :rows => 4
+      .row
+        .col-md-12
+          = f.text_area :description, :rows => 10
+    .col-md-7
       .row
         .col-md-6
           = f.text_field :name
         .col-md-6
           - unless @product.product_id
             = f.text_field :link
-      .row
-        .col-md-12
-          = f.text_area :description, :rows => 10
-      .row
-        .col-md-6
-          = image_tag @product.main_picture.url(:list)
-          = f.file_field :main_picture , :label => t(:main_picture)
-        .col-md-6
-          = image_tag @product.extra_picture.url(:list)
-          = f.file_field :extra_picture , :label => t(:extra_picture)
-    .col-md-4
-      .row
-        .col-md-12
-          = f.text_area :summary, :rows => 4
-        .col-md-6
+        .col-md-4
           = f.text_field :price
           = f.text_field :cost
+        .col-md-4
           = f.text_field :scode
-        .col-md-6
           = f.text_field :weight
+        .col-md-4
           = f.text_field :ean
           = f.text_field :tax
       .row
-        .col-md-6
+        .col-md-4
+          = image_tag @product.main_picture.url(:list)
+          = f.file_field :main_picture , :label => t(:main_picture)
+        .col-md-4
           = f.select :supplier_id,  Supplier.all.order(:supplier_name).map { |c| [c.supplier_name, c.id ] }, :prompt => t(:select)
-        .col-md-6
+        .col-md-4
           = f.select :category_id , Category.all.order(:name).map { |c| [c.name, c.id ] }, :prompt => t(:select)
         .col-md-4
           = f.check_box :online
-        .col-md-8
+        .col-md-4
+          = f.text_field :position
+        .col-md-4
           = f.submit :class => "btn btn-success"
+        .col-md-4
           -if @product.product_id
             = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
           -else
