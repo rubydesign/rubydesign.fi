@@ -84,3 +84,21 @@
         height: 30px
     &:hover .overlay
       display: block
+
+  .popup
+    position: relative
+    .overlay
+      display: none
+      position: absolute
+      top: 10%
+      left: 15%
+      width: 600px
+      box-shadow: 1px 1px 12px #6f6f6f
+      text-align: left
+      border-radius: 9px
+      z-index: 30
+      font-size: .85em
+      .table-striped > tbody > tr:nth-of-type(odd)
+        background-color: #dfeef1
+    &:hover .overlay
+      display: block
