@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211182305) do
+ActiveRecord::Schema.define(version: 20171224215858) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "kori_id"
@@ -24,22 +24,18 @@ ActiveRecord::Schema.define(version: 20171211182305) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "category_id"
-    t.boolean  "online",                     default: false
+    t.boolean  "online",                    default: false
     t.string   "name"
     t.text     "description"
     t.text     "summary"
-    t.integer  "position",                   default: 1
+    t.integer  "position",                  default: 1
     t.string   "link"
     t.string   "main_picture_file_name"
     t.string   "main_picture_content_type"
     t.integer  "main_picture_file_size"
     t.datetime "main_picture_updated_at"
-    t.string   "extra_picture_file_name"
-    t.string   "extra_picture_content_type"
-    t.integer  "extra_picture_file_size"
-    t.datetime "extra_picture_updated_at"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.index ["link"], name: "index_categories_on_link", unique: true
   end
 
@@ -85,8 +81,8 @@ ActiveRecord::Schema.define(version: 20171211182305) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.float    "price",                                      null: false
-    t.string   "name",                                       null: false
+    t.float    "price",                                     null: false
+    t.string   "name",                                      null: false
     t.string   "link"
     t.text     "description"
     t.text     "summary"
@@ -94,25 +90,22 @@ ActiveRecord::Schema.define(version: 20171211182305) do
     t.string   "main_picture_content_type"
     t.integer  "main_picture_file_size"
     t.datetime "main_picture_updated_at"
-    t.string   "extra_picture_file_name"
-    t.string   "extra_picture_content_type"
-    t.integer  "extra_picture_file_size"
-    t.datetime "extra_picture_updated_at"
-    t.boolean  "online",                     default: false
-    t.float    "cost",                       default: 0.0
-    t.float    "weight",                     default: 0.1
-    t.string   "ean",                        default: ""
-    t.float    "tax",                        default: 0.0
-    t.integer  "inventory",                  default: 0
-    t.integer  "stock_level",                default: 0
-    t.string   "properties",                 default: ""
-    t.string   "scode",                      default: ""
+    t.boolean  "online",                    default: false
+    t.float    "cost",                      default: 0.0
+    t.float    "weight",                    default: 0.1
+    t.string   "ean",                       default: ""
+    t.float    "tax",                       default: 0.0
+    t.integer  "inventory",                 default: 0
+    t.integer  "stock_level",               default: 0
+    t.string   "properties",                default: ""
+    t.string   "scode",                     default: ""
     t.date     "deleted_on"
     t.integer  "product_id"
     t.integer  "category_id"
     t.integer  "supplier_id"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "position",                  default: 1
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["link"], name: "index_products_on_link"
     t.index ["product_id"], name: "index_products_on_product_id"
