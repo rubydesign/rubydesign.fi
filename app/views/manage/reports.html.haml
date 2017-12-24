@@ -1,0 +1,384 @@
+=render "chart"
+:javascript
+  var allItems = #{ @items.to_json };
+.row.new_report
+  .col-md-10
+    .row
+      .col-md-4
+        .form-group
+          %select.form-control{"v-model" => "kind"  }
+            %option{ value: "Order"}= t(:order)
+            %option{ value: "Purchase"}= t(:purchase)
+      .col-md-4
+        .form-group
+          %select.form-control{"v-model" => "supplier"  }
+            %option{ value: ""}= t(:supplier)
+            %option{ "v-for" => "s in suppliers", "v-bind:value": "s['id']" }
+              {{ s['supplier_name']}}
+      .col-md-4
+        .form-group
+          %select.form-control{"v-model" => "category"  }
+            %option{ value: ""}= t(:category)
+            %option{ "v-for" => "c in categories", "v-bind:value": "c['id']" }
+              {{ c['name']}}
+    .row
+      .col-md-2
+        %span.btn.btn-info{ "@click" => "group_by = 'email'"}
+          Customers {{total_email}}
+      .col-md-2
+        %span.btn.btn-info
+          =t(:orders)
+          {{total_basket}}
+      .col-md-2
+        %span.btn.btn-info{ "@click" => "group_by = 'products.supplier_id'"}
+          =t(:suppliers)
+          {{total_supplier}}
+      .col-md-2
+        %span.btn.btn-info{ "@click" => "group_by = 'products.category_id'"}
+          =t(:categories)
+          {{total_category}}
+      .col-md-2
+        %span.btn.btn-info{ "@click" => "group_by = 'product_id'"}
+          =t(:products)
+          {{total_product}}
+      .col-md-2
+        %span.btn.btn-info
+          {{show}} {{total_shown.toFixed(0)}}
+
+    #placeholder{style: "width: 100%;height: 100%;"}
+      %vue-chartist{":data" => "data" , ":options" => "options"}
+  .col-md-2
+    .form-group
+      .row
+        .center
+          %label= t("date_range")
+      .row
+        .col-md-2
+          %a{ "@click" => "minusYear" }
+            =image_tag "minus.png" , width: "25px"
+        .col-md-8.center
+          %a{ "@click" => "thisYear" }
+            Vuosi
+        .col-md-2
+          %a{ "@click" => "plusYear" }
+            =image_tag "plus.png" , width: "25px"
+      .row
+        .col-md-2
+          %a{ "@click" => "minusStartMonth" }
+            =image_tag "minus.png" , width: "20px"
+        .col-md-8.center
+          {{start.format('DD MM YYYY')}}
+        .col-md-2
+          %a{ "@click" => "plusStartMonth" }
+            =image_tag "plus.png" , width: "20px"
+      .row
+        .col-md-2
+          %a{ "@click" => "minusEndMonth" }
+            =image_tag "minus.png" , width: "20px"
+        .col-md-8.center
+          {{end.format('DD MM YYYY')}}
+        .col-md-2
+          %a{ "@click" => "plusEndMonth" }
+            =image_tag "plus.png" , width: "20px"
+    .row
+      .half
+        %label Hinta
+        %input{:type => "radio", "v-model" => "show", :value => "price"}/
+      .halfl
+        %label= t(:quantity)
+        %input{:type => "radio", "v-model" => "show", :value => "quantity"}/
+    .row
+      .half
+        %label= t(:month)
+        %input{:type => "radio", "v-model" => "interval", :value => "month"}/
+      .halfl
+        %label= t(:week)
+        %input{:type => "radio", "v-model" => "interval", :value => "week"}/
+    .row
+      .seven
+        = t(:group_by)
+      .threel
+        %a{ "@click" => "group_by = 'all'" }
+          =image_tag "minus.png" , width: "25px"
+      %div
+        %select.form-control{"v-model" => "group_by"  }
+          %option{ "v-for" => "(g,v) in group_names", "v-bind:value": "v" }
+            {{g}}
+    .row{"v-for" => "pair in totals_shown"}
+      %span{":class" => "'ct-series-' + String.fromCharCode(97 + group_indexes.indexOf(pair[0]))"}
+        %a.seven{"@click" =>"set_group(pair[0])"}
+          {{name_for(pair[0])}}
+        .threel.center.ct-line
+          {{pair[1].toFixed(0)}}
+:javascript
+  var app = new Vue({
+    el: '.new_report',
+    data: {
+      items: allItems,
+      attributes: #{@attributes.to_json} ,
+      categories: #{Category.all.to_json( only: [:id , :name])} ,
+      suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
+      options: {
+        fullWidth: true,
+        height: 500,
+      },
+      start: moment(#{@start.to_time.to_i * 1000}),
+      end: moment(#{@end.to_time.to_i * 1000}),
+      created_index: #{@attributes.to_json}.indexOf("created_at"),
+      group_names: #{@group_names.to_json},
+      group_by: "all",
+      show: "price",
+      kind: "Order",
+      supplier: "",
+      category: "",
+      interval: 'week',
+    },
+    computed: {
+      buckets: function(){
+        var start = moment(this.start)
+        var all = {}
+        while(start < this.end) {
+          if( this.interval == "week") {
+            buck = start.week()
+            label = "Week " + (buck + 1)
+            start.add(1,"week")
+          }else{
+            buck = start.month()
+            label = start.format("MMM")
+            start.add(1,"month")
+          }
+          all[buck] = label
+        }
+        return all
+      },
+      labels: function(){
+        var all = []
+        var buckets = this.buckets
+        for(key in buckets){
+          var val = buckets[key]
+          all.push(val)
+        }
+        return all
+      },
+      filteredKinds: function(){
+        var index = this.attributes.indexOf("baskets.kori_type")
+        var that = this.kind
+        return this.items.filter(function(item) { return item[index] == that ; })
+      },
+      filteredSuppliers: function(){
+        var that = this.supplier
+        var items = this.filteredKinds
+        if(that == "" ) return items
+        var index = this.attributes.indexOf("products.supplier_id")
+        return items.filter(function(item) { return item[index] == that ; })
+      },
+      filteredCategories: function(){
+        var that = this.category
+        var items = this.filteredSuppliers
+        if(that == "" ) return items
+        var index = this.attributes.indexOf("products.category_id")
+        return items.filter(function(item) { return item[index] == that ; })
+      },
+      groups: function() {
+        var items = this.filteredCategories
+        if(this.group_by == "all") return { all: items}
+        var group_by = this.attributes.indexOf(this.group_by)
+        var all = {}
+        for( var i in items){
+          var item = items[i]
+          var key = item[group_by]
+          var series = all[ key ] || []
+          series.push(item)
+          all[ key ] = series
+        }
+        return all
+      },
+      group_indexes: function(){
+        var groups = this.groups
+        var indexes = []
+        for( key in groups){
+          indexes.push(key)
+        }
+        return indexes
+      },
+      total_email: function(){
+        return this.total_for("email")
+      },
+      total_product: function(){
+        return this.total_for("product_id")
+      },
+      total_supplier: function(){
+        return this.total_for("products.supplier_id")
+      },
+      total_category: function(){
+        return this.total_for("products.category_id")
+      },
+      total_basket: function(){
+        return this.total_for("basket_id")
+      },
+      total_orders: function(){
+        var items = this.filteredCategories
+        var basket = this.attributes.indexOf("basket_id")
+        var all = {}
+        for(var i = 0; i < items.length; i++) {
+          all[items[i][basket]] = 1
+        }
+        return Object.keys(all)
+      },
+      total_customers: function(){
+        var items = this.filteredCategories
+        var product = this.attributes.indexOf("email")
+        var all = {}
+        for(var i = 0; i < items.length; i++) {
+          all[items[i][product]] = 1
+        }
+        return Object.keys(all)
+      },
+      total_shown: function(){
+        var show  = this.attributes.indexOf( this.show )
+        var items = this.filteredCategories
+        var total = 0
+        for(var i = 0; i < items.length; i++) {
+          total += items[i][show]
+        }
+        return total
+      },
+      totals_shown: function(){
+        var groups = this.groups
+        var show = this.attributes.indexOf( this.show )
+        var totals = []
+        for(group in groups){
+          var items = groups[group]
+          var total = 0
+          for(var i = 0; i < items.length; i++) {
+            total = total + items[i][show]
+          }
+          totals.push( [group, total])
+        }
+        totals = totals.slice().sort(function (a, b) {
+          a = parseFloat(a[1])
+          b = parseFloat(b[1])
+          return (a === b ? 0 : a < b ? 1 : -1)
+        })
+        return totals
+      },
+      data: function() {
+        var groups = this.groups
+        var show = this.attributes.indexOf( this.show )
+        var series = []
+        for(group in groups){
+          var items = groups[group]
+          var all = this.new_group()
+          for(var i = 0; i < items.length; i++) {
+            item = items[i]
+            var bucket = this.bucket(item)
+            all[bucket] = all[bucket] + item[show]
+          }
+          var vals = []
+          for( var key in all){
+            vals.push(all[key])
+          }
+          series.push(vals)
+        }
+        return {
+          labels: this.labels,
+          series: series
+        }
+      }
+    },
+    methods: {
+      total_for: function(attribute){
+        var items = this.filteredCategories
+        var val = this.attributes.indexOf(attribute)
+        var all = {}
+        for(var i = 0; i < items.length; i++) {
+          all[items[i][val]] = 1
+        }
+        return Object.keys(all).length
+      },
+      bucket: function(item){
+        if( this.interval == "week") return moment(item[this.created_index]).week()
+        return moment(item[this.created_index]).month()
+      },
+      hash_find: function( hash , dat , property){
+        var index = parseInt(dat)
+        for(key in hash){
+          if( hash[key]["id"] == index) return hash[key][property]
+        }
+        console.log("Not found " + dat + " for " + property)
+        return "undefined"
+      },
+      new_group: function(){
+        var group = {}
+        for( bucket in this.buckets){
+          group[bucket] = 0
+        }
+        return group
+      },
+      set_group: function(g){
+        if(this.group_by == "products.supplier_id"){
+          this.supplier = g
+          this.group_by = "all"
+        }
+        if(this.group_by == "products.category_id"){
+          this.category = g
+          this.group_by = "all"
+        }
+      },
+      product_name: function(i){
+        var items = this.items
+        var product_index = this.attributes.indexOf("product_id")
+        for(var j = 0; j < items.length; j++) {
+          if( items[j][product_index] == i ) return items[j][this.attributes.indexOf("name")]
+        }
+        return "deleted"
+      },
+      name_for: function(i){
+        var by = this.group_by
+        if( by == "products.category_id") return this.hash_find(this.categories, i , "name")
+        if( by == "products.supplier_id") return this.hash_find(this.suppliers, i , "supplier_name")
+        if( by == "email") return i.replace("@", " @ ");
+        if( by == "product_id") return this.product_name(i)
+        return "all"
+      },
+      loadData: function(){
+        this.start = moment(this.start)
+        this.end = moment(this.end)
+        var that = this
+        $.getJSON("/manage/reports.json" ,
+          { start: that.start.unix() , end:   that.end.unix() } ,
+          function(ret){ that.items = ret ; })
+      },
+      plusStartMonth: function(){
+        this.start.add(5,"week").startOf("month")
+        this.loadData()
+      },
+      minusStartMonth: function(){
+        this.start.subtract(1,"week").startOf("month")
+        this.loadData()
+      },
+      plusEndMonth: function(){
+        this.end.add(1,"week").endOf("month")
+        this.loadData()
+      },
+      minusEndMonth: function(){
+        this.end.subtract(5,"week").endOf("month")
+        this.loadData()
+      },
+      thisYear: function(){
+        this.start.startOf("year")
+        this.end.endOf("year")
+        this.loadData()
+      },
+      minusYear: function(){
+        this.start.subtract(50,"week").startOf("month")
+        this.end.subtract(54,"week").endOf("month")
+        this.loadData()
+      },
+      plusYear: function(){
+        this.start.add(54,"week").startOf("month")
+        this.end.add(50,"week").endOf("month")
+        this.loadData()
+      },
+    }
+  });

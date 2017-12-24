@@ -6,6 +6,10 @@ class Basket < ActiveRecord::Base
 
   belongs_to :kori, polymorphic: true  #kori is basket in finnish
 
+
+  belongs_to :order, -> { where(baskets: {kori_type: 'Order'}).includes( :baskets) },
+              foreign_key: 'kori_id'
+
   has_many :items, autosave: true , :dependent => :destroy
 
   before_save :cache_total

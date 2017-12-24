@@ -99,7 +99,9 @@ OfficeClerk::Engine.routes.draw do
 
   get "manage/all" => "manage#all"
   match '/manage/report' => 'manage#report' ,
-                    :as => "manage_reports",  :via  => [:get, :post]
+                    :as => "manage_report",  :via  => [:get, :post]
+
+  get '/manage/reports' => 'manage#reports'
 
 
 end

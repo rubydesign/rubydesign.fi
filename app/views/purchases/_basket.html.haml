@@ -1,13 +1,15 @@
 %table.table.table-striped.table-condensed
   %thead
     %tr
-      %th= t(:picture)
+      %th= t(:scode)
       %th= t(:name)
       %th= t(:quantity)
       %th= t(:price)
       %th= t(:total)
   %tbody
-    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in basket.items"}
+    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "item in filteredBasket"}
+      %td
+        {{item.scode}}
       %td
         %img{ "v-bind:src" => "item.picture" }
       %td
@@ -26,12 +28,16 @@
       %td {{item.price}}
       %td {{(item.price * item.quantity).toFixed(2)}}
     %tr
-      %th{colspan: 2}
-        = t(:total)
+      %th= t(:total)
+      %td {{total_amount()}}
       %td
-        {{total_amount()}}
-      %td
-        %a.btn.btn-primary{"v-if" => "changed", "@click" => "submit_basket"}
-          Save
+        = form_for(@purchase.basket) do |f|
+          %span{"v-for" => "(item , index) in this.basket.items"}
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'id')" , "v-if"=> "item.id"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'name')"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'price')"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'quantity')"}/
+            %input{hidden: true , "v-bind" => "itemProp(item,index,'product_id')"}/
+          = f.submit :class => "btn btn-success commit" ,"v-if" => "changed", "@click" => "submit_basket"
       %th
         {{total_price().toFixed(2)}}

@@ -10,10 +10,35 @@
  *= require jquery-ui
  *= require reporter
  *= require printer
- *= require vueapp
+ *= require purchase_app
+ *= require chartist
  */
 
-
+ .ct-label {
+   font-size: 1.4rem
+ }
+.center{
+  text-align: center;
+}
+.half{
+  float: left;
+  width:50%;
+}
+.halfl{
+  text-align: right;
+  float: left;
+  width:50%;
+  padding-left: 10px;
+}
+.seven{
+  float: left;
+  width: 70%;
+}
+.threel{
+  float: left;
+  width:30%;
+  padding-left: 10px;
+}
 $navbar-inverse-bg: #6827EC;
 $navbar-height:70px;
 body { padding-top: 80px; }

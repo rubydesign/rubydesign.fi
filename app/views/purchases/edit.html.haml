@@ -1,4 +1,4 @@
-.row.vueapp
+.row.purchase-app
   .col-md-6.purchases
     %h2= in_place @purchase , :name
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
@@ -25,7 +25,7 @@
     =render "orders"
 :javascript
   var app = new Vue({
-    el: '.vueapp',
+    el: '.purchase-app',
     data: {
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
@@ -41,7 +41,16 @@
       changed: false
     },
     computed: {
-      filteredData: function () {
+      filteredBasket: function () {
+        d = this.basket.items
+        d = d.slice().sort(function (a, b) {
+          a = a["name"]
+          b = b["name"]
+          return (a === b ? 0 : a > b ? 1 : -1) * 1
+        })
+        return d
+      },
+      filteredProducts: function () {
         data = this.products
         if (this.nameQuery) {
           query = this.nameQuery;
@@ -73,13 +82,28 @@
       }
     },
     methods: {
+      itemProp: function(item, index , prop) {
+        return { value: item[prop] ,
+                name: 'basket[items_attributes][' + index +'][' + prop + ']',
+                id: 'basket_items_attributes_' + index + '_' + prop
+               }
+      },
       sortBy: function (key) {
         console.log("Sortby " + key);
         this.sortKey = key;
         this.sortOrders[key] = this.sortOrders[key] * -1;
       },
-      submit_basket: function(){
-        console.log("Submit basket");
+      submit_basket: function(event){
+        event.preventDefault();
+        var that = this;
+        $.post( '/baskets/' + this.basket.id , $(".edit_basket").serializeArray() , null , "json")
+          .done( function( out ) {
+          that.changed = false;
+          console.log( out );
+        }).fail(function() {
+          console.log( "error" );
+        });
+
       },
       orders_to_basket: function(){
         for(var i = 0; i < this.products.length; i++) {
@@ -98,8 +122,8 @@
       to_basket: function(product){
         var amount = product.ordered + product.stock_level
         if(amount == 0 ) amount = 1
-        this.basket.items.push({ name: product.name , picture: product.picture,
-                                 quantity: amount, price: product.cost, product_id: product.id});
+        this.basket.items.push({ name: product.name , quantity: amount, scode: product.scode,
+                      price: product.cost, product_id: product.id});
         this.changed = true;
       },
       in_basket: function(product) {

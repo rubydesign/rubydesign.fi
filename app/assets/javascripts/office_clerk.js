@@ -16,6 +16,8 @@
 
 //= require printer
 //= require vue
+//= require chartist
+//= require moment
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 

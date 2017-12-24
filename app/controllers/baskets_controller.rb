@@ -123,10 +123,19 @@ class BasketsController < AdminController
   end
 
   def update
-    return if redirect_if_locked
-    @basket.update_attributes(params_for_basket)
-    flash.notice = t(:update_success, :model => "basket")
-    redirect_to edit_basket_path(@basket)
+    respond_to do |format|
+      if @basket.locked?
+        format.html { redirect_if_locked }
+        format.json { render json: {}, status: :error }
+      else
+        @basket.update_attributes(params_for_basket)
+        format.html do
+          flash.notice = t(:update_success, :model => "basket")
+          redirect_to edit_basket_path(@basket)
+        end
+        format.json { render json: {}, status: :ok }
+      end
+    end
   end
 
   def destroy
@@ -166,6 +175,6 @@ class BasketsController < AdminController
 
   def params_for_basket
     return {} if params[:basket].blank? or params[:basket].empty?
-    params.require(:basket).permit( :items_attributes => [:quantity , :price , :id] )
+    params.require(:basket).permit( :items_attributes => [:quantity ,:name, :price , :id, :product_id] )
   end
 end

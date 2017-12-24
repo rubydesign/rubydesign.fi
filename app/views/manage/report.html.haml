@@ -7,7 +7,7 @@
     #placeholder{:style => "width:800px;height:400px;"}
     #legend
   .col-md-3
-    = search_form_for @search , :url => office.manage_reports_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
+    = search_form_for @search , :url => office.manage_report_url , :html => { :class => "form-horizontal" , :role => "form"} do |f|
       .form-group
         = select_tag :type,  options_for_select( { t("order") => "Order" , t("purchase") =>  "Purchase"  } , @type) , :class => "form-control"
       .form-group

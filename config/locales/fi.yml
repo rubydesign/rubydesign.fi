@@ -214,8 +214,10 @@ fi:
   profit: Kate
   date_range: Päivämäärä
   group_by: Ryhmitellä
+  week: Viiko
+  month: Kuukausi
   all: Kaikki
-  property: Omaisuus
+  property: Ominaisuus
   item_total: Tuotteet
   barcode: Viivakoodi
   invoice:

@@ -13,7 +13,7 @@
         %span.arrow{":class" => "sortOrders[key] > 0 ? 'asc' : 'dsc'"}
       %th
   %tbody
-    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "product in filteredData"}
+    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "product in filteredProducts"}
       %td
         %img{ "v-bind:src" => "product.picture" }
       %td
