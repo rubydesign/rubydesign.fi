@@ -3,19 +3,21 @@
     %tr
       %th Id
       %th= t(:name)
+      %th= t(:ordered_on)
       %th= t(:quantity)
+      %th= t(:total)
   %tbody
-    %tr{:class => "line-#{cycle("1","2")}" ,"v-for" => "order in orders"}
-      %td
-        %a{ ":href" => "'/orders/' + order.id"}
-          {{order.id}}
-      %td
-        %a{"data-toggle" => "tooltip", :href => "#", "data-placement" => "right", "data-html" => "true", :title => "Villiruusu hiustenhoitoaine x4 <br>Frangipani-Inkapähkinä Shampoo x8<br>Age Miracle päivävoide x2"} {{order.name}}
-
-        %a{"data-content" => "Villiruusu hiustenhoitoaine x4 <br>Frangipani-Inkapähkinä Shampoo x8<br>Age Miracle päivävoide x2", "data-toggle" => "popover", "data-html" => "true", :href => "#"} {{order.name}}
-
-
-
-
-      %td.quantity
-        {{order.quantity}}
+    - @orders.each do |order|
+      %tr{:class => "line-#{cycle("1","2")}"}
+        %td
+          = link_to order.id , order
+        %td
+          = link_to order, class: :poppy do
+            = order.name
+            .overlay
+              = render "baskets/small" , basket: order.basket
+        %td= date(order.ordered_on)
+        %td.quantity
+          = order.basket.items.length
+        %td
+          = order.basket.total_price
