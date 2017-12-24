@@ -43,8 +43,8 @@
       filteredBasket: function () {
         d = this.basket.items
         d = d.slice().sort(function (a, b) {
-          a = a["name"]
-          b = b["name"]
+          a = a["position"]
+          b = b["position"]
           return (a === b ? 0 : a > b ? 1 : -1) * 1
         })
         return d
@@ -122,7 +122,7 @@
         var amount = product.ordered + product.stock_level
         if(amount == 0 ) amount = 1
         this.basket.items.push({ name: product.name , quantity: amount, scode: product.scode,
-                      price: product.cost, product_id: product.id});
+                      price: product.cost, product_id: product.id, position: product.position});
         this.changed = true;
       },
       in_basket: function(product) {

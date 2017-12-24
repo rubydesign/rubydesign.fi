@@ -67,7 +67,7 @@ class PurchasesController < AdminController
   protected
   def create_data
     @products = Product.where(supplier_id: @purchase.supplier_id).
-                        where("inventory > ?", 0).
+                        where("stock_level = >", 0).
                         includes(:category)
     @ordered_products = Hash.new(0)
     last_purchase = Purchase.where(supplier_id: @purchase.supplier_id).

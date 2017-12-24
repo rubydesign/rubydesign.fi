@@ -1,5 +1,5 @@
 collection @products
-attributes :id , :name , :inventory, :stock_level, :cost , :scode
+attributes :id , :name , :inventory, :stock_level, :cost , :scode , :position
 node :picture do |product|
   product.main_picture.url(:thumb)
 end

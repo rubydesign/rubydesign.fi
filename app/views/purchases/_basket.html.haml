@@ -27,7 +27,10 @@
       %td {{(item.price * item.quantity).toFixed(2)}}
     %tr
       %th= t(:total)
-      %td {{total_amount()}}
+      %td
+        {{total_amount()}}
+      %td
+        = link_to( t(:back) , purchase_path(@purchase) , class: "btn btn-info")
       %td
         = form_for(@purchase.basket) do |f|
           %span{"v-for" => "(item , index) in this.basket.items"}

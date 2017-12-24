@@ -5,4 +5,7 @@ child :items , :object_root => false do
   node :scode do |item|
     item.product.scode
   end
+  node :position do |item|
+    item.product.position
+  end
 end
