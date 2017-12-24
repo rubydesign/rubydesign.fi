@@ -30,7 +30,6 @@
       purchase: #{@purchase.to_json(include: :supplier)},
       basket: #{ render( partial: "purchases/basket.json") },
       products: #{ render( partial: "purchases/products.json") },
-      orders: #{ render( partial: "purchases/orders.json") },
       tab: 1,
       nameQuery: "",
       categoryQuery: "",
