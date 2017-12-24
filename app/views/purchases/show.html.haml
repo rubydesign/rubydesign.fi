@@ -39,9 +39,13 @@
 = render "baskets/small" , :basket => @purchase.basket
 
 .row
-  .col-md-5
-    %br
+  .col-md-2
+    = link_to t(:edit) + " " + t(:purchase), edit_purchase_path(@purchase), :class => "btn btn-success edit_basket" unless @purchase.basket.locked?
+  .col-md-2
     = link_to t(:edit) + " " + t(:basket), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+  .col-md-2
     = link_to t(:back), purchases_path, :class => "btn btn-warning"
+  .col-md-2
     = link_to "Print Invoice" , "/purchases/#{@purchase.id}/invoice" , class: "btn btn-primary"
+  .col-md-2
     = link_to t(:edit) , edit_purchase_path(@purchase), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
