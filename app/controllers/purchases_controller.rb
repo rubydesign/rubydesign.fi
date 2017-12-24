@@ -66,14 +66,16 @@ class PurchasesController < AdminController
 
   protected
   def create_data
-    @products = Product.where(supplier_id: @purchase.supplier_id).where("inventory > ?", 0)
+    @products = Product.where(supplier_id: @purchase.supplier_id).
+                        where("inventory > ?", 0).
+                        includes(:category)
     @ordered_products = Hash.new(0)
     last_purchase = Purchase.where(supplier_id: @purchase.supplier_id).
                     where("created_at < ?" ,@purchase.created_at).
                     order(created_at: :desc).first
     since = last_purchase  ? last_purchase.created_at : Time.now - 4.weeks
     @orders =  Order.where("created_at > ?" ,since).where(shipped_on: nil)
-    @orders.includes(basket: :items).each do |order|
+    @orders.includes(basket: {items: :product}).each do |order|
       order.basket.items.each{ |item| @ordered_products[item.product_id] += item.quantity}
     end
   end
