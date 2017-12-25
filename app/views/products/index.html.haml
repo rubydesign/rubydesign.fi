@@ -22,11 +22,11 @@
       %table.table.table-condensed
         %thead
           %tr
-            %th=t( "picture")
-            %th= sort_link [:office,@q], :ean
+            %th= sort_link [:office,@q], :scode
             %th= sort_link [:office,@q], :name
-            %th= sort_link [:office,@q], :price
-            %th= sort_link [:office,@q], :cost
+            %th
+              = sort_link [:office,@q], :price
+              = sort_link [:office,@q], :cost
             %th
               =t(:supplier)
               %br
@@ -34,20 +34,19 @@
             %th
               = sort_link [:office,@q], :inventory
               = t(:in_orders) if(available_inventory)
-            %th
-              %label.checkbox
-                = @product_scope.length.to_s + " " + t(:products)
+              = sort_link [:office,@q], :stock_level , t(:stock_level).split.first
         %tbody
           - @products.each do |product|
             -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td.image= image_tag product.main_picture.url(:thumb)
-              %td.ean= product.line? ? "#{product.products.length} #{t(:items)}" : product.ean
+              %td= product.scode
               %td.name
                 = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name
-              %td.price.text-right=euros(product.price)
-              %td.price.text-right=euros(product.cost)
+              %td.price.text-right
+                =euros(product.price)
+                %br
+                =euros(product.cost)
               %td.supplier
                 =product.supplier.supplier_name if product.supplier
                 %br
@@ -57,10 +56,10 @@
                   = "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
                 - else
                   = product.inventory
-              -if params[:basket]
-                %td= link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
-              -else
-                %td= link_to t(:edit) ,edit_product_path(product), :title => t(:edit)
+                %br
+                = product.stock_level
+                -if params[:basket]
+                  = link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
       .btn-toolbar.row
         .btn-group.pull-left
           = paginate @products
@@ -121,6 +120,12 @@
           = f.text_field :inventory_gteq , :class => "form-control"
         .col-md-4
           = f.text_field :inventory_lteq , :class => "form-control"
+        .col-md-4
+          = f.label(:stock_level)
+        .col-md-4
+          = f.text_field :stock_level_gteq , :class => "form-control"
+        .col-md-4
+          = f.text_field :stock_level_lteq , :class => "form-control"
       .form-group
         .col-md-4
           = f.label t(:supplier)
