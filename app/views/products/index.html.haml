@@ -24,7 +24,6 @@
           %tr
             %th
               = sort_link [:office,@q], :position
-              %br
               = sort_link [:office,@q], :scode
             %th= sort_link [:office,@q], :name
             %th
@@ -32,7 +31,6 @@
               = sort_link [:office,@q], :cost
             %th
               =t(:supplier)
-              %br
               =t(:category)
             %th
               = sort_link [:office,@q], :inventory
@@ -44,25 +42,23 @@
             %tr{:class => "line-#{cycle("1","2")}"}
               %td
                 = product.position
-                %br
                 = product.scode
               %td.name
                 = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name
-              %td.price.text-right
+              %td.price
                 =euros(product.price)
-                %br
+                \|
                 =euros(product.cost)
               %td.supplier
                 =product.supplier.supplier_name if product.supplier
-                %br
                 =product.category.name if product.category
               %td.inventory
                 - if(available_inventory )
                   = "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
                 - else
                   = product.inventory
-                %br
+                \|
                 = product.stock_level
                 -if params[:basket]
                   = link_to t(:add_to_basket) , edit_basket_path(:id => params[:basket] , :add => product.id)
