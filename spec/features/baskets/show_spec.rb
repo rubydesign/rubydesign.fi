@@ -10,7 +10,7 @@ describe "edit basket screen, no editing" do
     td = find(".table").first(".name")
     expect(td).to have_content(basket.items.first.name)
   end
-  xit "renders 2 items with amount and total" do
+  it "renders 2 items with amount and total" do
     basket = create :basket_2_items
     visit_path edit_basket_path(basket)
     td = find(".table").first(".name")

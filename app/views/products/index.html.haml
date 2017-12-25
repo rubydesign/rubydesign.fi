@@ -22,7 +22,10 @@
       %table.table.table-condensed
         %thead
           %tr
-            %th= sort_link [:office,@q], :scode
+            %th
+              = sort_link [:office,@q], :position
+              %br
+              = sort_link [:office,@q], :scode
             %th= sort_link [:office,@q], :name
             %th
               = sort_link [:office,@q], :price
@@ -39,7 +42,10 @@
           - @products.each do |product|
             -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= product.scode
+              %td
+                = product.position
+                %br
+                = product.scode
               %td.name
                 = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name

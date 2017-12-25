@@ -3,6 +3,10 @@ module ProductHelper
     click_button(:filter)
     all(".supplier").count
   end
+  def category_count
+    click_button(:filter)
+    all(".image").count
+  end
   def create_ab type , hash
     attribute , values = hash.first
     values.each do | value|
@@ -21,7 +25,6 @@ module ProductHelper
     create_ab :order , hash
     visit orders_path
   end
-  alias :category_count :product_count
   def order_count
     click_button(:filter)
     all(".number").count
