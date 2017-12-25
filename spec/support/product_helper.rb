@@ -1,7 +1,7 @@
 module ProductHelper
   def product_count
     click_button(:filter)
-    all(".image").count
+    all(".supplier").count
   end
   def create_ab type , hash
     attribute , values = hash.first

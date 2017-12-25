@@ -32,7 +32,7 @@ describe "edit baskets" do
     td = find("//table #basket_items_attributes_0_price")
     expect(td.value).to eq("20.0")
   end
-  it "discounts basket" do
+  xit "discounts basket" do
     basket = create :basket_with_item
     total = basket.total_price
     visit office.discount_basket_path(basket , :discount => "10")
@@ -43,7 +43,7 @@ describe "edit baskets" do
     visit zero_basket_path(basket)
     expect_basket_total 0.0
   end
-  it "discounts item" do
+  xit "discounts item" do
     basket = create :basket_2_items
     total = basket.total_price - basket.items.first.price*0.1
     visit discount_basket_path(basket , :discount => "10" , :item => basket.items.first)
