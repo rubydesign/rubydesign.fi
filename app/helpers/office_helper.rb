@@ -44,14 +44,14 @@ module OfficeHelper
     OfficeClerk::ShippingMethod.method(name)
   end
 
-  def markdown text
+  def markdown( text )
     return "" if text.blank?
     return sanitize Kramdown::Document.new(text).to_html
   end
 
   # euros displays the prices in ... da da .. . euros.
   # This could of course be configurable, but since taxes and possibly shipping don't work in us, i wait for the pull
-  def euros price
+  def euros( price )
     price ? number_to_currency(price , :precision => 2 , :unit => "€") : 0.0
   end
 

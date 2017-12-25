@@ -220,7 +220,8 @@ thead, tbody {  vertical-align: top;
     text-align: right;
     position: absolute;
     bottom: 2px;
-    right: 22px; }
+    right: 22px;
+  }
 
 }
 
@@ -228,6 +229,12 @@ thead, tbody {  vertical-align: top;
   background: none;
 }
 
+.euro{
+  white-space: nowrap;
+  &:after {
+    content: " €"
+  }
+}
 .no-border td {
   border: none;
 }

@@ -25,7 +25,13 @@
             %th
               = sort_link [:office,@q], :position
               = sort_link [:office,@q], :scode
-            %th= sort_link [:office,@q], :name
+            %th
+              = sort_link [:office,@q], :name
+              %span.right
+                %label= t(:vat)
+                %input{:type => "radio", "v-model" => "alv", :value => "true"}/
+                %label 0%
+                %input{:type => "radio", "v-model" => "alv", :value => "false"}/
             %th
               = sort_link [:office,@q], :price
               = sort_link [:office,@q], :cost
@@ -46,10 +52,10 @@
               %td.name
                 = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
                   =product.full_name
-              %td.price
-                =euros(product.price)
+              %td
+                %span.euro {{ price_for(#{product.id}) }}
                 \|
-                =euros(product.cost)
+                %span.euro {{ cost_for(#{product.id}) }}
               %td.supplier
                 =product.supplier.supplier_name if product.supplier
                 =product.category.name if product.category
@@ -141,3 +147,34 @@
       = f.submit t(:filter), :class => "btn btn-success" , :id => :filter
       = link_to  t(:cancel), products_path, :class => "btn btn-warning"
 .product_index_end
+:javascript
+  var app = new Vue({
+    el: '.table',
+    data: {
+      products: #{@products.to_json(only: [:id , :price , :cost , :tax])},
+      alv: "true"
+    },
+    computed: {
+      filteredBasket: function() {
+      }
+    },
+    methods: {
+      attribute_for: function(id , attribute) {
+        for(var i = 0; i < this.products.length; i++) {
+          var product = this.products[i]
+          if(product.id == id) {
+            var num = product[attribute]
+            if( this.alv == "false") num = 100 * num / (100 + product.tax)
+            return num.toFixed(2)
+          }
+        }
+        return id
+      },
+      cost_for: function(id) {
+        return this.attribute_for(id , "cost")
+      },
+      price_for: function(id) {
+        return this.attribute_for(id , "price")
+      },
+    }
+  })
