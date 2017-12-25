@@ -1,17 +1,13 @@
 # encoding : utf-8
 class CategoriesController < AdminController
 
-  before_action :load_category, :only => [ :edit, :update, :destroy]
+  before_action :load_category, :only => [ :edit, :show, :update, :destroy]
 
   def index
     @q = Category.search(params[:q])
     @category_scope = @q.result(:distinct => true)
     @categories = @category_scope.includes(:products , :categories ).paginate( :page => params[:page],:per_page => 20).to_a
     @roots = Category.where(:category_id => nil).includes(:products , :categories ).to_a
-  end
-
-  def show
-    @category = Category.where(:id => params[:id]).includes(:products).first
   end
 
   def new
@@ -53,14 +49,19 @@ class CategoriesController < AdminController
   end
 
   def destroy
-    @category.destroy if @category.categories.empty?
-    redirect_to categories_url
+    if( @category.products.count || @category.categories.count)
+      @category.delete
+      @category.save
+      redirect_to categories_url , :notice => t(:deleted) + ": " + @category.name
+    else
+      redirect_to category_url(@category) , :notice => "#{t(:error)} : #{t(:category_not_empty)}"
+    end
   end
 
   private
 
   def load_category
-    @category = Category.find(params[:id])
+    @category = Category.where(:id => params[:id]).includes(:products).first
   end
 
   def params_for_model

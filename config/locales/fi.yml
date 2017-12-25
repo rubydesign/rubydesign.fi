@@ -89,6 +89,7 @@ fi:
   canceled_on: Peruutettu
   categories: Tuoteryhmät
   category: Tuoteryhmä
+  category_not_empty: Tuoteryhmässä on tuoteet
   checkout: Checkout
   choose_product_for_basket: Valitse tuote ostoskoriin
   choose_shipment: Valitse toimitustapa

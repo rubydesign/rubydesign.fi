@@ -24,7 +24,7 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :main_picture, :content_type => /\Aimage\/.*\Z/
 
   # default product scope only lists non-deleted products
-  default_scope {where(:deleted_on => nil).order('created_at DESC') }
+  default_scope {where(:deleted_on => nil).order(created_at: :desc) }
   scope :online, -> { where(:online => true) }
   scope :no_items, -> { where(:product_id => nil) }
   scope :with_inventory, -> { where("inventory > 0") }

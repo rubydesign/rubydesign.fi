@@ -1,5 +1,3 @@
-
-
 describe Clerk  do
   before(:each) do
     sign_in
@@ -24,7 +22,7 @@ describe Clerk  do
     visit_path edit_clerk_path(clerk)
     fill_in :clerk_name , :with => "my name"
     click_button :submit
-    ensure_path clerk_path(clerk)    
+    ensure_path clerk_path(clerk)
   end
   it "does not creates a new clerk if passwords mismatch" do
     visit_path new_clerk_path
@@ -33,5 +31,9 @@ describe Clerk  do
     fill_in :clerk_password_confirmation , :with => "my_other_password"
     click_button :submit
     ensure_path clerks_path
+  end
+  it "lists 30 clerks" do
+    30.times{ create(:clerk) }
+    visit_path clerks_path
   end
 end

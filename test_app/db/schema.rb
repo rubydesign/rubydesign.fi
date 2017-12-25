@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171224215858) do
+ActiveRecord::Schema.define(version: 20171225183213) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "kori_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171224215858) do
     t.datetime "main_picture_updated_at"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.date     "deleted_on"
     t.index ["link"], name: "index_categories_on_link", unique: true
   end
 

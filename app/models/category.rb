@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-  default_scope { order('position') }
+  default_scope {where(:deleted_on => nil). order('position') }
 
   has_many :products, :dependent => :nullify
   has_many :categories, :dependent => :nullify
@@ -14,10 +14,21 @@ class Category < ActiveRecord::Base
   scope :online, -> { where(:online => true) }
 
   def generate_url_if_needed
-    if self.link.blank? && self.name != nil
-      self.link = self.name.gsub(" " , "_").downcase
+    if self.deleted_on.blank?
+      self.link = self.name.gsub(" " , "_").downcase if self.link.blank? && self.name != nil
+      return true
+    else
+      return false
     end
-    true
+  end
+
+  # deleting sets the deleted_on flag to today
+  # Categories can not be deleted because of the risk of invalidating old orders
+  # to actually remove a Category from the db, use the console
+  def delete
+    self.deleted_on = Date.today
+    self.link = "pois"
+    self
   end
 
   # just a shorthand to apply Products.shop_products scope to the groups products
