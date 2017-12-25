@@ -13,7 +13,7 @@ fi:
         link: Linkki
         name: Nimi
         online: Netissä
-        position: Järjetysnummero
+        position: Järjestysnumero
         summary: Yhteenveto
       clerk:
         city: Postinumero ja -toimipaikka
@@ -28,8 +28,8 @@ fi:
         city: Postinumero ja -toimipaikka
         email: S-posti
         name: Etu- ja sukunimi
-        note: Muisti
-        number: Tilauksen numero
+        note: Muistiinpano
+        number: Tilausnumero
         ordered_on: Tilattu
         paid_on: Maksettu
         password: Salasana
@@ -49,7 +49,7 @@ fi:
         online: Netissä
         price: Hinta
         scode: Tuottajatunnus
-        stock_level: Haluttu Inventaario
+        stock_level: Haluttu inventaario
         summary: Yhteenveto
         supplier: Tuottaja
         tax: Veroprosentti
@@ -116,7 +116,7 @@ fi:
   filter: Hae
   first_name: Etunimi
   fix_errors: Puuttuu tietoja
-  group_by: Ryhmitellä
+  group_by: Ryhmittele
   in_orders: Tilauksissa
   inventorized: Inventoitu
   inventory: Inventaario
@@ -170,16 +170,16 @@ fi:
   price: Hinta
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
-  product_has_inventory: Tuoteessa on inventaario
+  product_has_inventory: Tuotteella on inventaario
   product_item: Tuote Tuotelinjalla
   product_line: Tuotelinja
   products: Tuotteet
   profit: Kate
-  position: Järjetysnummero
+  position: Järjestysnumero
   property: Ominaisuus
   purchase: Sisäänosto
   purchase invoice:
-    header: Purchase Invoice
+    header: Ostolasku
   purchase_total: Yhteensä
   purchases: Sisäänostot
   quantity: Määrä
@@ -193,7 +193,7 @@ fi:
     header: Maksumuistutus
     print: Maksumuistutus
     thanks: Kirjanpitomme mukaan emme ole saaneet suoritustanne tästä laskusta.<br/> <br/>Pyydämme maksamaan laskun heti. <br/><br/> Mikäli lasku on jo maksettu, tämä maksuhuomautus on aiheeton.
-  remove: Vähentä
+  remove: Vähennä
   scode: Tuottajatunnus
   search: Hae
   select: Valitse
@@ -205,17 +205,17 @@ fi:
   shop: Kauppa
   show: Näytä
   sign_in: Kirjaudu sisään
-  sign_in_invalid: Sposti tai salasana virheellinen
+  sign_in_invalid: Sähköposti tai salasana virheellinen
   sign_out: Kirjaudu ulos
   sign_up: Luo tili
   signed_in: Sisäänkirjautunut
   signed_out: Uloskirjautunut
-  signed_up: Tili luottu
+  signed_up: Tili luotu
   slip:
     header: Kuormakirja
     print: Tulosta Kuormakirja
     thanks: Tarkistathan tilauksen välittömästi. Kiitos tilauksestasi!
-  stock_level: Haluttu Inventaario
+  stock_level: Haluttu inventaario
   street: Osoite
   street1: Osoite1
   street2: Osoite2
@@ -231,7 +231,7 @@ fi:
   update: Päivitä
   update_success: Päivitetty onnistuneesti
   vat: Alv
-  week: Viiko
+  week: Viikko
   weight: Paino
   will_paginate:
     next_label: seuraava
