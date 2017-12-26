@@ -223,6 +223,7 @@ en:
   summary: Summary
   supplier: Supplier
   suppliers: Suppliers
+  supplier_not_empty: Supplier has Products
   tax_percent: Tax percent
   to_order: To order
   to_purchase: To purchase

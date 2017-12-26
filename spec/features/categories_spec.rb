@@ -22,5 +22,10 @@ describe Category  do
       visit_path category_path(@category)
       expect(page).to have_link(I18n.t(:delete))
     end
+    it "deletes" do
+      visit_path category_path(@category)
+      click_link(I18n.t(:delete))
+      expect(current_path).to eq categories_path
+    end
   end
 end

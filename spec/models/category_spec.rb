@@ -18,8 +18,7 @@ describe Category do
 
   it "deletes " do
     cat = create :category
-    cat.delete
-    expect(cat.save).to be  true
+    expect(cat.delete.save).to be  true
     expect(cat.link).to eq  "pois_1"
     expect(Category.where(:id => cat.id).first).to be  nil
     expect(Category.unscoped.find(cat.id)).not_to be nil
@@ -28,10 +27,8 @@ describe Category do
   it "deletes twice" do
     cat1 = create :category
     cat2 = create :category
-    cat1.delete
-    cat2.delete
-    expect(cat1.save).to be  true
-    expect(cat2.save).to be  true
+    expect(cat1.delete.save).to be  true
+    expect(cat2.delete.save).to be  true
     expect(cat1.link).to start_with   "pois"
     expect(Category.where(:id => cat1.id).first).to be  nil
     expect(Category.where(:id => cat2.id).first).to be  nil

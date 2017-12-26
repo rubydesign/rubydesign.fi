@@ -21,6 +21,9 @@
       = t(:country) + " : " + @supplier.country.to_s
 
 = link_to t(:edit), edit_supplier_path(@supplier), :class => "btn btn-success"
+= link_to t(:delete) , supplier_path(@supplier),
+          :method => :delete , :class => "btn btn-danger",
+          :data => {  :confirm => t(:are_you_sure )}
 = link_to t(:back), suppliers_path, :class => "btn btn-warning"
 
 =render "products/triple" , :products => @supplier.products.no_items

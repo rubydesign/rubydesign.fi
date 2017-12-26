@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225183213) do
+ActiveRecord::Schema.define(version: 20171226105754) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "kori_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20171225183213) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.integer  "position",                  default: 1
+    t.integer  "pack_unit"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["link"], name: "index_products_on_link"
     t.index ["product_id"], name: "index_products_on_product_id"
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 20171225183213) do
     t.string   "address"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.date     "deleted_on"
   end
 
 end

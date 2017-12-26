@@ -49,9 +49,8 @@ class CategoriesController < AdminController
   end
 
   def destroy
-    if( @category.products.count || @category.categories.count)
-      @category.delete
-      @category.save
+    if( @category.products.empty?  || @category.categories.empty? )
+      @category.delete.save
       redirect_to categories_url , :notice => t(:deleted) + ": " + @category.name
     else
       redirect_to category_url(@category) , :notice => "#{t(:error)} : #{t(:category_not_empty)}"

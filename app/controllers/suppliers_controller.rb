@@ -47,8 +47,12 @@ class SuppliersController < AdminController
   end
 
   def destroy
-    #    @supplier.deleted_at = Time.now
-    redirect_to suppliers_url
+    if( @supplier.products.empty? )
+      @supplier.delete.save
+      redirect_to suppliers_path , :notice => t(:deleted) + ": " + @supplier.supplier_name
+    else
+      redirect_to supplier_path(@category) , :notice => "#{t(:error)} : #{t(:supplier_not_empty)}"
+    end
   end
 
   private
@@ -58,6 +62,6 @@ class SuppliersController < AdminController
   end
 
   def params_for_supplier
-    params.require(:supplier).permit!
+    params.require(:supplier).permit(:supplier_name,:address)
   end
 end

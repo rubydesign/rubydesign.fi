@@ -223,6 +223,7 @@ fi:
   summary: Yhteenveto
   supplier: Tuottaja
   suppliers: Tuottajat
+  supplier_not_empty: Tuottajalla on tuoteet
   tax_percent: Veroprosentti
   to_order: Tilaukselle
   to_purchase: Sisänostoksille
