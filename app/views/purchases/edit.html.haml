@@ -119,8 +119,8 @@
         this.changed = true;
       },
       to_basket: function(product){
-        var amount = product.ordered + product.stock_level
-        if(amount == 0 ) amount = 1
+        var amount = product.ordered + product.stock_level - product.inventory
+        if(amount < 0) return
         this.basket.items.push({ name: product.name , quantity: amount, scode: product.scode,
                       price: product.cost, product_id: product.id, position: product.position});
         this.changed = true;
