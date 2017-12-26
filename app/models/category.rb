@@ -27,7 +27,7 @@ class Category < ActiveRecord::Base
   # to actually remove a Category from the db, use the console
   def delete
     self.deleted_on = Date.today
-    self.link = "pois"
+    self.link = "pois_#{self.id}"
     self
   end
 
