@@ -5,7 +5,7 @@
   =render "line"
 
 .row
-  .col-md-5
+  .col-md-4
     .row
       .col-md-12
         %p
@@ -16,29 +16,21 @@
         %p
           %b= t(:description) + " : "
           = in_place @product , :description , :as => :textarea
-  .col-md-7
+  .col-md-8
     .row
       .col-md-12
         %p
           %b= t(:link) + " : "
           = @product.link
-      .col-md-4
-        %p
-          %b= t(:price) + " : "
-          = in_place @product , :price , :display_with => :best_euros
-      .col-md-4
+      .col-md-6
         %p
           %b= t(:scode) + " : "
           = in_place @product , :scode
-      .col-md-4
+      .col-md-6
         %p
           %b= t(:ean) + " : "
           = in_place @product , :ean
-
-      .col-md-4
-        %p
-          %b= t(:cost) + " : "
-          = in_place @product , :cost , :display_with => :best_euros
+    .row
       .col-md-4
         %p
           %b= t(:weight) + " : "
@@ -49,8 +41,8 @@
           = in_place @product , :tax
       .col-md-4
         %p
-          %b= t(:stock_level) + " : "
-          = in_place @product , :stock_level
+          %b= t(:inventory) + " : "
+          = @product.inventory
 
     .row
       .col-md-4
@@ -68,12 +60,25 @@
           = link_to @product.category.name , category_path(@product.category) if @product.category
       .col-md-4
         %p
+          %b= t(:price) + " : "
+          = in_place @product , :price , :display_with => :best_euros
+      .col-md-4
+        %p
+          %b= t(:cost) + " : "
+          = in_place @product , :cost , :display_with => :best_euros
+
+      .col-md-4
+        %p
           %b= t(:position) + " : "
           = in_place @product , :position
       .col-md-4
         %p
-          %b= t(:inventory) + " : "
-          = @product.inventory
+          %b= t(:stock_level) + " : "
+          = in_place @product , :stock_level
+      .col-md-4
+        %p
+          %b= t(:pack_unit) + " : "
+          = in_place @product , :pack_unit
 
 .row.product_show_row_buttons
   .col-md-2

@@ -162,6 +162,7 @@ fi:
   ordered: Tilattu
   ordered_on: Tilauspäivä
   orders: Tilaukset
+  pack_unit: Pakkaus
   paid_on: Maksettu
   password: Salasana
   pay: Maksa
