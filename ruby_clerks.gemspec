@@ -3,15 +3,15 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
-  s.name         = 'office_clerk'
-  s.version      = "1.5"
-  s.summary      = 'Backend of rubyclerks, a simple way to manage a buisness'
-  s.description  = "Rubyclerks is a small buisness management solution, including an online presence (shop), but also POS, inventory and more."
+  s.name         = 'ruby_clerks'
+  s.version      = "2.0"
+  s.summary      = 'Rubyclerks: a simple way to manage a buisness'
+  s.description  = "Rubyclerks is a small buisness management solution including inventory and more."
   s.required_ruby_version = '>= 2.2'
 
   s.authors      = ['Torsten Rüger']
   s.email        = ['torsten@villataika.fi']
-  s.homepage     = 'https://github.com/rubyclerks/office_clerk'
+  s.homepage     = 'https://github.com/dancinglightning/ruby_clerks'
   s.license      = 'MIT'
 
   s.files        = `git ls-files`.split("\n")

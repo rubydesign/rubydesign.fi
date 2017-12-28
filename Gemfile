@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "office_clerk" , :path => "../"
+gem "ruby_clerks" , :path => "../"
 
 gem 'sqlite3'
 

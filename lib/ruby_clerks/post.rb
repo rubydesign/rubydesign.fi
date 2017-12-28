@@ -1,5 +1,5 @@
-require "office_clerk/shipping_method"
-module OfficeClerk
+require "ruby_clerks/shipping_method"
+module RubyClerks
   class Post < ShippingMethod
 
     DEFAULTS ={   :weight_table     => '1 2 5 10 20' ,

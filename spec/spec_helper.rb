@@ -13,12 +13,12 @@ require 'rspec/rails'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 
-module OfficeClerk
+module RubyClerks
   module RSpec
     module ControllerRoutes
       extend ActiveSupport::Concern
       included do
-        routes { ::OfficeClerk::Engine.routes }
+        routes { ::RubyClerks::Engine.routes }
       end
     end
   end
@@ -26,9 +26,9 @@ end
 
 RSpec.configure do |config|
 
-  config.include OfficeClerk::Engine.routes.url_helpers
+  config.include RubyClerks::Engine.routes.url_helpers
 
-  config.include OfficeClerk::RSpec::ControllerRoutes, type: :controller
+  config.include RubyClerks::RSpec::ControllerRoutes, type: :controller
 
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!

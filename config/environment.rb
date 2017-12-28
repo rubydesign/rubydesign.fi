@@ -2,5 +2,5 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-OfficeClerk::Application.initialize!
+RubyClerks::Application.initialize!
 

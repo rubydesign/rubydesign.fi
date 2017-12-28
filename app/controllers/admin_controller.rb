@@ -1,7 +1,7 @@
 # encoding : utf-8
 class AdminController < OfficeController
 
-  layout "office_clerk"
+  layout "ruby_clerks"
 
   before_action :clean_search , :only => [:index , :search]
 

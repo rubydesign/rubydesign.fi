@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    office_clerk (1.5)
+    ruby_clerks (2.0)
       barby (~> 0.6)
       bcrypt-ruby (~> 3.1)
       best_in_place (~> 3.0)
@@ -379,11 +379,11 @@ DEPENDENCIES
   i18n-spec
   i18n-tasks (= 0.8.7)
   libv8
-  office_clerk!
   phantomjs
   poltergeist
   rb-readline
   rspec-rails
+  ruby_clerks!
   spring
   spring-commands-rspec
   spring-watcher-listen

@@ -3,8 +3,8 @@ class OfficeController < ApplicationController
   helper OfficeHelper
   include OfficeHelper
 
-  helper  OfficeClerk::Engine.routes.url_helpers
-  include OfficeClerk::Engine.routes.url_helpers
+  helper  RubyClerks::Engine.routes.url_helpers
+  include RubyClerks::Engine.routes.url_helpers
 
   def error
     logger.info "Error" + request.url

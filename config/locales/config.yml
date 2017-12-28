@@ -1,7 +1,7 @@
 config:
   shipping:
     pickup:
-      class: "OfficeClerk::Pickup"
+      class: "RubyClerks::Pickup"
       name: Nouto myymälästämme
   defaults:
     tax: 24.0

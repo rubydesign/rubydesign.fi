@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :office_clerk do
+# task :ruby_clerks do
 #   # Task goes here
 # end

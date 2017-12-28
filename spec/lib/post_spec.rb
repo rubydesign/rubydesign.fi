@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe OfficeClerk::Post do
+RSpec.describe RubyClerks::Post do
 
   describe 'using the default weight-price table: [1 2 5 10 20] => [2 5 10 15 18]' do
     context '.handling fee' do
@@ -82,14 +82,14 @@ RSpec.describe OfficeClerk::Post do
     context '.available?(package)' do
       it 'is false when item weighs more than 20kg' do
         basket = basket_with(:weight => 25 )
-        expect(OfficeClerk::Post.new({}).available?(basket)).to be(false)
+        expect(RubyClerks::Post.new({}).available?(basket)).to be(false)
       end
     end
   end
 
   context "unladed classes" do
     it " dont crash" do
-      OfficeClerk::ShippingMethod.all.each do |name , method|
+      RubyClerks::ShippingMethod.all.each do |name , method|
         expect(method.name).not_to include("missing")
       end
     end
@@ -102,14 +102,14 @@ RSpec.describe OfficeClerk::Post do
     basket
   end
   def price_for_basket(basket , args = {})
-    OfficeClerk::Post.new(args).price_for(basket)
+    RubyClerks::Post.new(args).price_for(basket)
   end
 
   context 'returns description' do
     %w(en fi).each do |locale|
       it "in supported language: #{locale}" do
         I18n.with_locale(locale.to_sym) do
-          OfficeClerk::ShippingMethod.all.each do |name , method|
+          RubyClerks::ShippingMethod.all.each do |name , method|
             next if (name == "duda") || (name == "Nouto")
             expect(method.name).not_to be_blank
           end

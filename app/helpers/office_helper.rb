@@ -32,7 +32,7 @@ module OfficeHelper
 
   def has_ssl?
     return false unless Rails.env.production?
-    OfficeClerk.config(:has_ssl) == true
+    RubyClerks.config(:has_ssl) == true
   end
 
   # when the order is made and the basket locked, it's time to make a new one
@@ -41,7 +41,7 @@ module OfficeHelper
   end
 
   def shipping_method name
-    OfficeClerk::ShippingMethod.method(name)
+    RubyClerks::ShippingMethod.method(name)
   end
 
   def markdown( text )

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount OfficeClerk::Engine => "/"
+  mount RubyClerks::Engine => "/"
   root :to => 'sessions#sign_in' , :as => :root
 
 end

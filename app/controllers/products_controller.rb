@@ -26,7 +26,7 @@ class ProductsController < AdminController
       parent = Product.find params[:parent_id]
       @product = parent.new_product_item
     else
-      @product = Product.new :tax => OfficeClerk.config("defaults.tax")
+      @product = Product.new :tax => RubyClerks.config("defaults.tax")
     end
     render :edit
   end

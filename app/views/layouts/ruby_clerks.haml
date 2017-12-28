@@ -3,10 +3,10 @@
   %head
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? content_for(:title) :  "Office Clerk"
-    = stylesheet_link_tag "office_clerk" ,  :media => :all
+    = stylesheet_link_tag "ruby_clerks" ,  :media => :all
     -office_assets.each do |ass|
       = stylesheet_link_tag ass , :media => :all
-    = javascript_include_tag "office_clerk"
+    = javascript_include_tag "ruby_clerks"
     -office_assets.each do |ass|
       = javascript_include_tag ass
     = csrf_meta_tags

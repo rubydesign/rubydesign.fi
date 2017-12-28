@@ -7,7 +7,7 @@ describe "Orders" do
   it "should render print buttons" , :js => true do
     order = create :order
     visit_path order_path order
-    OfficeClerk.config(:print_styles).split.each do |style|
+    RubyClerks.config(:print_styles).split.each do |style|
       expect(page).to have_link("" , href: "/orders/#{order.id}/#{style}")
     end
   end

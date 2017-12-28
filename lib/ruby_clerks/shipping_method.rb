@@ -1,4 +1,4 @@
-module OfficeClerk
+module RubyClerks
   class ShippingMethod
     def initialize data
       @data = data
@@ -23,7 +23,7 @@ module OfficeClerk
     def self.all
       return @@methods if @@methods
       @@methods = {}
-      config = OfficeClerk.config(:shipping)
+      config = RubyClerks.config(:shipping)
       config.each do |key , method|
         begin
           clas_name = method[:class]
