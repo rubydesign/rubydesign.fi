@@ -1,3 +1,6 @@
+-content_for :head do
+  = javascript_include_tag "report"
+
 =render "chart"
 :javascript
   var allItems = #{ @items.to_json };

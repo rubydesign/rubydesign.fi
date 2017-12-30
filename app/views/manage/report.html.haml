@@ -1,3 +1,5 @@
+-content_for :head do
+  = javascript_include_tag "flot"
 :javascript
   $(function () {
     $.plot($("#placeholder"), #{@flot_data.to_json} , #{@flot_options.to_json} );

@@ -1,23 +1,15 @@
 //= require jquery.min
-//= require jquery_ujs
+//= require bootstrap.min
+
 //= require best_in_place
+//= require best_in_place.jquery-ui
 
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-fi
-//= require best_in_place.jquery-ui
 
-//= require 'jquery.flot'
-//= require 'jquery.flot.resize'
-//= require 'jquery.flot.time'
-//= require 'jquery.flot.stack'
-
-//= require bootstrap.min
 //= require_self
 
-//= require printer
 //= require vue
-//= require chartist
-//= require moment
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 
