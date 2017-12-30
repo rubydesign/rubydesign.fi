@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226105754) do
+ActiveRecord::Schema.define(version: 20171230210927) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer  "kori_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171226105754) do
     t.date     "locked"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["kori_id"], name: "index_baskets_on_kori_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171226105754) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.date     "deleted_on"
+    t.index ["category_id"], name: "index_categories_on_category_id"
     t.index ["link"], name: "index_categories_on_link", unique: true
   end
 
@@ -60,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171226105754) do
     t.integer  "basket_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["basket_id"], name: "index_items_on_basket_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -79,6 +83,7 @@ ActiveRecord::Schema.define(version: 20171226105754) do
     t.string   "address"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "message"
   end
 
   create_table "products", force: :cascade do |t|

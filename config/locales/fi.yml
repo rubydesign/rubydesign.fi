@@ -138,6 +138,7 @@ fi:
   make_purchase: Luo Sisäänosto
   manage: Hallinta
   may_be_blank: Voi jättää tyhjäksi
+  message: Viesti
   month: Kuukausi
   more: Lisää
   name: Nimi
