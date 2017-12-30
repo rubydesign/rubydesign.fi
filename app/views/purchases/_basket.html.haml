@@ -41,4 +41,4 @@
             %input{hidden: true , "v-bind" => "itemProp(item,index,'product_id')"}/
           = f.submit :class => "btn btn-success commit" ,"v-if" => "changed", "@click" => "submit_basket"
       %th
-        {{total_price().toFixed(2)}}
+        {{(total_price()/ 1.24).toFixed(2)}}
