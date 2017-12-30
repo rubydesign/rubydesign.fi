@@ -1,6 +1,6 @@
 %td
-  %b= t(:shipment_info)
-  = in_place @order , :shipment_info
+  %b= t(:message)
+  = in_place @order , :message
 %td
   -unless(@order.shipped_on.blank?)
     %b

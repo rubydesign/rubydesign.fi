@@ -16,7 +16,7 @@ module RubyClerks
     initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
       FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
     end
-    config.assets.precompile += %w( ruby_clerks.css ruby_clerks.js  )
+    config.assets.precompile += %w( ruby_clerks.css ruby_clerks.js report.js flot.js)
     config.assets.precompile += %w( ruby_clerks/*.jpg  up-icon.png down-icon.png receipt-logo.gif)
     config.assets.precompile += %w(missing_thumb.png missing.png missing_list.png missing_product.png)
     config.assets.precompile += %w(plus.png minus.png)

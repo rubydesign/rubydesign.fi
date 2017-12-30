@@ -62,7 +62,7 @@ $tausta-bg: scale-color($primary-color, $lightness: 95%);
         max-width: 90%;
 }
 
-a.online{
+a.online , .green {
   color: green;
 }
 
@@ -245,4 +245,28 @@ table .price , .inventory {
 
 a .tooltip {
   text-decoration: none;
+}
+
+.ttip {
+  position: relative;
+  display: inline-block;
+  .ttiptext {
+    display: none;
+    width: 320px;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+    border-style: double;
+    border-width: 2px;
+    border-color: black;
+    padding: 10px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+  }
+  &:hover .ttiptext {
+    display: block;
+  }
 }

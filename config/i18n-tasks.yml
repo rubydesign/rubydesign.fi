@@ -78,6 +78,7 @@ ignore_unused:
   - "order_button.*"
   - product_line
   - product_item
+  - shipment_info
   - create
   - "*.print"
 
