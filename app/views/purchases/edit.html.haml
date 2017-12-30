@@ -133,7 +133,7 @@
       },
       in_basket: function(product) {
         for(var i = 0; i < this.basket.items.length; i++) {
-          if(this.basket.items[i].product_id == product.id) return basket.items[i];
+          if(this.basket.items[i].product_id == product.id) return this.basket.items[i];
         }
         return false;
       },
