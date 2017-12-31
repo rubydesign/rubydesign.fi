@@ -23,6 +23,12 @@
     =render "products"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 3}"}
     =render "orders"
+.row
+  .col-md-2
+    = link_to( t(:back) , purchase_path(@purchase) , class: "btn btn-info")
+  .col-md-2
+    = link_to t(:edit) + " " + t(:basket), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+
 :javascript
   var app = new Vue({
     el: '.purchase-app',
