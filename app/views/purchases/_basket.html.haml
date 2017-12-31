@@ -4,6 +4,7 @@
       %th= t(:scode)
       %th= t(:name)
       %th= t(:quantity)
+      %th= t(:pack_unit)
       %th= t(:price)
       %th= t(:total)
   %tbody
@@ -23,10 +24,12 @@
           \&nbsp;
           %a{ "@click" => "item.quantity -= 1; changed = true"}
             =image_tag "minus.png"
+      %td {{item.pack_unit}}
       %td {{item.price}}
       %td {{(item.price * item.quantity).toFixed(2)}}
     %tr
       %th= t(:total)
+      %td
       %td
         {{total_amount()}}
       %td

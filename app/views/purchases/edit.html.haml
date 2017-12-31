@@ -3,16 +3,16 @@
     %h2= in_place @purchase , :name
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
     %h4
-      %a{"@click" => "tab = 1"} Basket
+      %a{"@click" => "tab = 1"}= t(:basket)
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
     %h4
-      %a{"@click" => "tab = 2"} Products
+      %a{"@click" => "tab = 2"}= t(:products)
       \&nbsp;
       %a.right{"@click" => "products_to_basket"}
         =image_tag "plus.png" , width: "20px"
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 3}"}
     %h4
-      %a{"@click" => "tab = 3"} Orders
+      %a{"@click" => "tab = 3"}=t(:orders)
       \&nbsp;
       %a.right{"@click" => "orders_to_basket"}
         =image_tag "plus.png" , width: "20px"
@@ -40,8 +40,9 @@
       nameQuery: "",
       categoryQuery: "",
       columns: {inventory: "#{t(:inventory)}" , stock_level: "#{t(:stock_level).split.first}" ,
-          stock_diff: "diff", cost: "#{t(:cost)}" ,ordered: "#{t(:order)}" },
-      sortOrders: {inventory: 1, cost: 1 , stock_level: 1 , stock_diff: 1, ordered: 1},
+          stock_diff: "diff", pack_unit: "#{t(:pack_unit)}", cost: "#{t(:cost)}" ,ordered: "#{t(:order)}" },
+      sortOrders: {inventory: 1, cost: 1 , stock_level: 1 , stock_diff: 1,
+                   pack_unit: 1 , ordered: 1},
       sortKey: "",
       changed: false
     },
@@ -132,8 +133,13 @@
           if( item.quantity != amount) this.changed = true;
           item.quantity = amount
         } else {
-          this.basket.items.push({ name: product.name , quantity: amount, scode: product.scode,
-                      price: product.cost, product_id: product.id, position: product.position});
+          this.basket.items.push({ name: product.name ,
+                               quantity: amount,
+                                  scode: product.scode,
+                                  price: product.cost,
+                             product_id: product.id,
+                              pack_unit: product.pack_unit,
+                               position: product.position});
           this.changed = true
         }
       },

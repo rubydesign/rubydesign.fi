@@ -8,4 +8,7 @@ child :items , :object_root => false do
   node :position do |item|
     item.product.position
   end
+  node :pack_unit do |item|
+    item.product.pack_unit
+  end
 end
