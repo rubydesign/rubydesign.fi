@@ -37,16 +37,11 @@
             = @order.shipment_type
             %br
             %br
-
             = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
-
             = link_to t(:new) + ' ' + t(:order) , new_order_path( :address => @order.id) , :class => "btn btn-primary copy_order"
-
         %tr
           %td
-            \
           %td
-            \
 
 
   .col-md-5
@@ -61,32 +56,56 @@
       %tr
         = render "payment"
 
-
--content_for :basket do
-  %tr
-    %td
-    %td
-    %td
-      %b= t(:total_tax) + " : "
-    %td
-      %b= euros(@order.total_tax)
-  %tr
-    %td
-    %td
-    %td
-      %b= t(:shipment_price) + " : "
-    %td
-      %b= euros(@order.shipment_price)
-  %tr
-    %td
-    %td
-    %td
-      %b= t(:total_price) + " : "
-    %td
-      %b= euros(@order.total_price)
-
 .row
-  = render "baskets/small" , :basket => @order.basket
+  .col-md-12
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th= t(:scode)
+          %th= t(:name)
+          %th= t(:quantity)
+          %th= t(:price)
+          %th= t(:total)
+      %tbody
+        - @order.basket.items.each do |item|
+          %tr{:class => "line-#{cycle("1","2")}"}
+            %td= item.product.scode if item.product
+            %td.name= link_to_if item.product, item.name , product_path(item.product)
+            %td= item.quantity
+            %td= euros item.price
+            %td= item.total
+        %tr
+          %td
+          %td
+          %td
+            %b= @order.basket.quantity
+          %td
+          %td
+            %b= euros @order.basket.total_price
+        %tr
+          %td
+          %td
+          %td
+            %b= t(:total_tax) + " : "
+          %td
+          %td
+            %b= euros(@order.total_tax)
+        %tr
+          %td
+          %td
+          %td
+            %b= t(:shipment_price) + " : "
+          %td
+          %td
+            %b= euros(@order.shipment_price)
+        %tr
+          %td
+          %td
+          %td
+            %b= t(:total_price) + " : "
+          %td
+          %td
+            %b= euros(@order.total_price)
 
 .row
   %br

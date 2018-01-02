@@ -125,6 +125,9 @@ fi:
     header: Lasku
     print: Tulosta Lasku
     thanks: Kiitos tilauksestasi!
+  rakennus:
+    header: RR Lasku
+    thanks: "<br/> Ystävallisin terveisin, <br/> Torsten Ruger"
   item_removed: Tuote poistettu
   item_total: Tuotteet
   items: Tuotteet

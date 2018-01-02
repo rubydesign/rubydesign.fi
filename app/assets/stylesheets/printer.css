@@ -1,4 +1,4 @@
-@page  { 
+@page  {
 	margin-left:8mm;
 	margin-right:8mm;
 	margin-top:8mm;
@@ -7,11 +7,10 @@
 
 .receipt {
     font-family:"Trebuchet MS";
-	font-size:32px;
-	color:#000000;
+		font-size:32px;
+		color:#000000;
     width: 700px;
 }
-
 
 div#receipt-header {
   text-align: center;
@@ -31,13 +30,13 @@ div#receipt-header {
   width: 700px;
 }
 
-div.receipt-wrapper {
+.receipt-wrapper {
   width: 700px;
   padding-top: 48px;
   text-align: left;
 }
 
-div.receipt-totals {
+.receipt-totals {
   margin-bottom: 20px;
   padding: 6px;
 }
@@ -59,7 +58,9 @@ table.receipt-totals {
   width: 80px;
 }
 
- 
+.right{
+	text-align: right;
+}
 div.receipt-footer {
   width: 700px;
   padding: 6px;
@@ -83,10 +84,8 @@ div.receipt-footer {
 }
 
 .invoice img#logo {
-  width: 300px; }
-
-
-
+  width: 300px;
+}
 
 .invoice .address {
   border-top:1px dotted grey;
@@ -128,7 +127,7 @@ div.receipt-footer {
   margin-bottom: 20px;
   float: right;
   margin-right: 15px;
-	
+
 }
 
 .invoice .totals .cel1 {
@@ -154,16 +153,16 @@ div.receipt-footer {
   width: 100px;
 }
 
+.num{
+	white-space: nowrap;
+}
 .invoice .title { font-weight: bold; color: #FF9933; font-size: 18px; }
 .invoice .bold { font-weight: bold; }
 
 
 
 @media screen {
-.invoice {max-width: 690px;}
-
-
+	.invoice {
+		max-width: 690px;
+	}
 }
-
-
-

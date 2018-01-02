@@ -1,0 +1,93 @@
+- title(I18n.t("#{@template}.header") + " " + @order.number)
+.invoice.rr
+  .row
+    .col-xs-7.logo.rr
+      =image_tag "kauppa/rrlvip.gif", {:width => "315"}
+      .sender-rr
+        Fiskarsintie 847, 10480 Antskog
+
+    .col-xs-5.text-right
+      %p.title
+        Lasku
+      %b= I18n.t(:order_number).to_s + " " + @order.number
+      %br
+      = I18n.l(@order.ordered_on.to_date) if @order.ordered_on
+
+  = render :partial => "orders/invoice_address"
+  .row.wrapper
+    .items
+      %table.items
+        %tr
+          %td.desc.bold= t(:description)
+          %td.price.bold.text-right= t(:price)
+          %td.qty.bold.text-right= t(:quantity)
+          %td.total.bold.text-right= t(:total)
+        - @order.basket.items.each do |item|
+          %tr
+            %td.cell
+              = item.product.full_name rescue item.product.name
+              - if item.discount > 0
+                (#{-item.discount}%)
+            %td.cell.price.text-right= best_euros(item.price)
+            %td.cell.qty.text-right= item.quantity
+            %td.cell.total.text-right= number_to_currency(item.price * item.quantity)
+        %tr
+          %td
+            \ 
+        %tr
+          %td
+            \ 
+          %td.cel1.bold.right
+            = t(:shipment_price) + " : "
+          %td
+          %td.cel2.right= euros(@order.shipment_price)
+        %tr
+          %td
+        %tr
+          %td
+          %td.cel1.bold.right
+            Yhteensä alv 0:
+          %td
+          %td.cel2.bold.right.num= number_to_currency(@order.total_price - @order.total_tax)
+        - @order.taxes.each do |tax , value|
+          %tr
+            %td
+            %td.cel1.bold.right= "#{t(:vat)} #{tax}:"
+            %td
+            %td.cel2.cell.right.num= number_to_currency value
+        %tr
+          %td
+          %td.cel1.bold.right
+            %strong= "#{t(:order_total)}:"
+          %td
+          %td.cel2.cell.right
+            %strong
+              %span#summary-order-total= number_to_currency @order.total_price
+    .thanks
+      = render :partial => "orders/invoice_thanks"
+
+  .row.footer
+    .col-xs-4
+      IBAN FI1017 4530 0013 2474
+      %br
+      BIC NDEAFIHH (Nordea)
+      %br
+      Maksuehto 14 päivää netto
+      %br
+      Viivästyskorko 12 %
+    .col-xs-4
+      %b Päätoiminimi
+      %br
+      Lightning Raisa & Torsten Oy
+      %br
+      Y-Tunnus 2380478-1
+
+
+    .col-xs-4
+      %b Ruukin Rakennus ja LVI-palvelu
+      %br
+      Fiskarsintie 847, 10480 Antskog
+      %br
+      torsten@villataika.fi
+      %br
+      puh 040 730 8052

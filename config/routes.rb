@@ -46,6 +46,7 @@ RubyClerks::Engine.routes.draw do
       get :receipt
       get :slip
       get :reminder
+      get :rakennus
     end
   end
 

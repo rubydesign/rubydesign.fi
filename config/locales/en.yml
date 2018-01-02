@@ -121,6 +121,9 @@ en:
   in_orders: In orders
   inventorized: Inventorized
   inventory: Inventory
+  rakennus:
+    header: RR Lasku
+    thanks: "<br/> Ystävallisin terveisin, <br/> Torsten Ruger"
   invoice:
     header: Customer Invoice
     print: Print Invoice
