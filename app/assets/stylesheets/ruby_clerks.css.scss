@@ -12,6 +12,7 @@
  *= require printer
  *= require purchase_app
  *= require chartist
+ *= require reboot
  */
 
  .ct-label {
@@ -39,9 +40,6 @@
   width:30%;
   padding-left: 10px;
 }
-$navbar-inverse-bg: #6827EC;
-$navbar-height:70px;
-body { padding-top: 80px; }
 
 $primary-color: #6827EC;
 $topbar-bg: $primary-color;
@@ -55,7 +53,6 @@ $table-border-color: scale-color($primary-color, $lightness: 85%);
 
 $tausta-bg: scale-color($primary-color, $lightness: 95%);
 
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 .container-fluid{

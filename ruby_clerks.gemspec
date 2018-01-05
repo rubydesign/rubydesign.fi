@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 5.0', '< 5.1'
   s.add_runtime_dependency 'ransack', '~> 1.7'
   s.add_runtime_dependency "valid_email" ,  '~> 0.0', '>= 0.0.10'
+  s.add_runtime_dependency 'susy' , '~> 2.0'
   s.add_runtime_dependency 'sass-rails' , '~> 5.0'
   s.add_runtime_dependency "haml" , '~> 4.0'
   s.add_runtime_dependency "jquery-rails" , '~> 4.0'
@@ -35,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rabl" , '~> 0.13.1'
 
   s.add_runtime_dependency 'will_paginate-bootstrap' , '~> 1.0'
-  s.add_runtime_dependency 'bootstrap-sass', '~> 3.1'
+  s.add_runtime_dependency 'bootstrap', '~> 4.0.beta3'
   s.add_runtime_dependency 'bootstrap_form' , '~> 2.2'
   s.add_runtime_dependency "paperclip" , '~> 4.0'
   s.add_runtime_dependency 'rails-i18n' , '~> 4.0'

@@ -6,7 +6,7 @@ require "kramdown"
 require "will_paginate"
 require 'coffee_script'
 require 'will_paginate-bootstrap'
-require 'bootstrap-sass'
+require 'bootstrap'
 require 'bootstrap_form'
 require "paperclip"
 require 'rails-i18n'
