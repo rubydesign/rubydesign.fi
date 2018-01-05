@@ -75,13 +75,14 @@ ignore_missing:
 ignore_unused:
   - 'activerecord.*'
   - "kaminari.*"
+  - "simple_form.*"
   - "order_button.*"
   - product_line
   - product_item
   - shipment_info
   - create
   - "*.print"
-
+  - helpers.page_entries_info*
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

@@ -91,7 +91,7 @@ describe "Orders" do
     end
     find("#make_order").click
     ensure_path order_path(order)
-    expect(page).to have_text("kelvollinen")
+    expect(page).to have_text("ei voi olla sisällötön")
   end
 
 end
