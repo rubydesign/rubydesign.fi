@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "vuejs-rails" , '~> 2.4.2'
   s.add_runtime_dependency "rabl" , '~> 0.13.1'
 
-  s.add_runtime_dependency 'will_paginate-bootstrap' , '~> 1.0'
+  s.add_runtime_dependency 'kaminari' , '~> 1.1'
   s.add_runtime_dependency 'bootstrap', '~> 4.0.beta3'
   s.add_runtime_dependency 'bootstrap_form' , '~> 2.2'
   s.add_runtime_dependency "paperclip" , '~> 4.0'

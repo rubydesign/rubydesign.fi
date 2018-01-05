@@ -1,5 +1,6 @@
 require "best_in_place"
 require "vuejs-rails"
+require "kaminari"
 
 module RubyClerks
   class Engine < ::Rails::Engine
