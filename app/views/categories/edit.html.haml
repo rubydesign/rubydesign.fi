@@ -8,7 +8,7 @@
         = link_to group.name , category_path(group)
       - else
         = t(:new)
-= bootstrap_form_for(@category, :html => { :multipart => true } ) do |f|
+= simple_form_for(@category, :html => { :multipart => true } ) do |f|
   .row.form-group
     .col-md-5
       = f.text_field :name

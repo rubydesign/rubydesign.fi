@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'kaminari' , '~> 1.1'
   s.add_runtime_dependency 'bootstrap', '~> 4.0.beta3'
-  s.add_runtime_dependency 'bootstrap_form' , '~> 2.2'
+  s.add_runtime_dependency 'simple_form' , '~> 3.5'
   s.add_runtime_dependency "paperclip" , '~> 4.0'
   s.add_runtime_dependency 'rails-i18n' , '~> 4.0'
   s.add_runtime_dependency 'flot-rails', '0.0.6'

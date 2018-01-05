@@ -3,7 +3,7 @@
   = t(:clerk)
   -if @clerk.admin
     =t(:admin)
-= bootstrap_form_for(@clerk) do |f|
+= simple_form_for(@clerk) do |f|
   .row
     = f.check_box :admin
     = f.email_field :email

@@ -1,7 +1,7 @@
 .col-md-3.col-sm-2.col-xs-1
 .col-md-6.col-sm-8.col-xs-10
   %h1= t(:sign_up)
-  = bootstrap_form_for @clerk , :url => office.sign_up_path do |f|
+  = simple_form_for @clerk , :url => office.sign_up_path do |f|
     .form_group
       = f.text_field :email
     .form_group

@@ -5,7 +5,6 @@ require "jquery-ui-rails"
 require "kramdown"
 require 'coffee_script'
 require 'bootstrap'
-require 'bootstrap_form'
 require "paperclip"
 require 'rails-i18n'
 require "jquery-rails"

@@ -14,7 +14,7 @@ class SuppliersController < AdminController
   def index
     @q = Supplier.search(params[:q])
     @supplier_scope = @q.result(:distinct => true)
-    @suppliers = @supplier_scope.paginate(:page => params[:page], :per_page => 20).to_a
+    @suppliers = @supplier_scope.page(params[:page])
   end
 
   def show

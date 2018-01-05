@@ -1,5 +1,5 @@
 .sipment_start
-= bootstrap_form_for @order do |f|
+= simple_form_for @order do |f|
   .row
     = f.alert_message t(:fix_errors) , error_summary: false
 
