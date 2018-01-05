@@ -159,7 +159,7 @@
 :ruby2js
   class ProductMethods
     def attribute_for(id , attribute)
-      0.upto(self.products.length) do
+      0.upto(self.products.length) do |i|
         product = self.products[i]
         if(product.id == id)
           num = product[attribute]
