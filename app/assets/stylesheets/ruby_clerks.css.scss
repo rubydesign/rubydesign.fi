@@ -53,7 +53,32 @@ $table-border-color: scale-color($primary-color, $lightness: 85%);
 
 $tausta-bg: scale-color($primary-color, $lightness: 95%);
 
-@import "bootstrap";
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+@import "bootstrap/print";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+
+@import "bootstrap/images";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+@import "bootstrap/transitions";
+@import "bootstrap/dropdown";
+@import "bootstrap/button-group";
+@import "bootstrap/input-group";
+
+@import "bootstrap/breadcrumb";
+@import "bootstrap/pagination";
+
+@import "bootstrap/alert";
+
+@import "bootstrap/utilities";
 
 .container-fluid{
         max-width: 90%;
