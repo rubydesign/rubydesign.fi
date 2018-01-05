@@ -1,7 +1,7 @@
 .product_edit_start
 = render "head"
 - url = @product.persisted? ? product_path(@product) : products_path
-= simple_form_for(@product, :html => { :multipart => true , :role=>"form"} ) do |f|
+= simple_form_for(@product, :html => { :multipart => true } ) do |f|
   = f.hidden_field( :product_id) if @product.product_id
   .row
     .col-md-4

@@ -1,18 +1,20 @@
-%h2.clerks_edit_start
-  = t params["action"]
-  = t(:clerk)
-  -if @clerk.admin
-    =t(:admin)
-= simple_form_for(@clerk) do |f|
-  .row
-    = f.check_box :admin
-    = f.email_field :email
-    = render "addresses/form_fields" ,:f => f
-    -unless @clerk.new_record?
-      =f.label t(:may_be_blank)
-    = f.password_field :password
-    = f.password_field :password_confirmation
-  .form-actions
-    = f.submit :class => "btn btn-success" , :id => "submit"
-    = link_to t(:back), clerks_path, :class => "btn btn-warning"
+.row
+  .col-2
+  .col-8
+    %h2.clerks_edit_start
+      = t params["action"]
+      = t(:clerk)
+      -if @clerk.admin
+        =t(:admin)
+    = simple_form_for(@clerk) do |f|
+      = f.input :admin
+      = f.input :email
+      = render "addresses/form_fields" ,:f => f
+      -unless @clerk.new_record?
+        =f.label t(:may_be_blank)
+      = f.input :password
+      = f.input :password_confirmation
+      .form-actions
+        = f.submit :class => "btn btn-success" , :id => "submit"
+        = link_to t(:back), clerks_path, :class => "btn btn-warning"
 .clerks_edit_end
