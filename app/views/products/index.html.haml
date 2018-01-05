@@ -156,6 +156,26 @@
       = f.submit t(:filter), :class => "btn btn-success" , :id => :filter
       = link_to  t(:cancel), products_path, :class => "btn btn-warning"
 .product_index_end
+:ruby2js
+  class ProductMethods
+    def attribute_for(id , attribute)
+      0.upto(self.products.length) do
+        product = self.products[i]
+        if(product.id == id)
+          num = product[attribute]
+          num = 100 * num / (100 + product.tax) if( self.alv == "false")
+          return num.toFixed(2)
+        end
+      end
+      return id
+    end
+    def cost_for(id)
+      return this.attribute_for(id , "cost")
+    end
+    def price_for(id)
+      return this.attribute_for(id , "price")
+    end
+  end
 :javascript
   var app = new Vue({
     el: '.table',
@@ -163,27 +183,5 @@
       products: #{@products.to_json(only: [:id , :price , :cost , :tax])},
       alv: "true"
     },
-    computed: {
-      filteredBasket: function() {
-      }
-    },
-    methods: {
-      attribute_for: function(id , attribute) {
-        for(var i = 0; i < this.products.length; i++) {
-          var product = this.products[i]
-          if(product.id == id) {
-            var num = product[attribute]
-            if( this.alv == "false") num = 100 * num / (100 + product.tax)
-            return num.toFixed(2)
-          }
-        }
-        return id
-      },
-      cost_for: function(id) {
-        return this.attribute_for(id , "cost")
-      },
-      price_for: function(id) {
-        return this.attribute_for(id , "price")
-      },
-    }
+    methods: ProductMethods.prototype ,
   })

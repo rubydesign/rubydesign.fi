@@ -18,6 +18,10 @@ require "ransack"
 require "ruby_clerks/shipping_method"
 require_relative "reporter"
 require "rabl"
+require "ruby2js"
+require "ruby2js/filter/rubyjs"
+require "ruby2js/filter/functions"
+require "ruby2js/haml"
 
 module RubyClerks
   # Configuration is stored in locale/config.yml under the main key (ie "locale") config
