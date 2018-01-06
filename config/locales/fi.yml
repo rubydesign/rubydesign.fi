@@ -202,7 +202,6 @@ fi:
   remove: Vähennä
   scode: Tuottajatunnus
   search: Hae
-  select: Valitse
   ship: Lähetä
   shipment_info: Lähetyksen koodi
   shipment_price: Toimituskulut
