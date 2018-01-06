@@ -9,7 +9,7 @@ class Items < ActiveRecord::Migration
       t.references  :product
       t.references  :basket
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

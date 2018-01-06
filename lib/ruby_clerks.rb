@@ -21,6 +21,7 @@ require "rabl"
 require "ruby2js"
 require "ruby2js/filter/functions"
 require "ruby2js/haml"
+require "ruby2js/filter/vue"
 
 module RubyClerks
   # Configuration is stored in locale/config.yml under the main key (ie "locale") config

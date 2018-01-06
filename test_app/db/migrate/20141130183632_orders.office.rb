@@ -17,7 +17,7 @@ class Orders < ActiveRecord::Migration
       t.float       :shipment_tax   , :default => 0
       t.string      :address
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
