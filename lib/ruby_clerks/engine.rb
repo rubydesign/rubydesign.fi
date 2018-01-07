@@ -1,5 +1,4 @@
 require "best_in_place"
-require "vuejs-rails"
 
 module RubyClerks
   class Engine < ::Rails::Engine
@@ -17,6 +16,7 @@ module RubyClerks
       FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
     end
     config.assets.precompile += %w( ruby_clerks.css ruby_clerks.js report.js flot.js)
+    config.assets.precompile += %w( vue.js vue.min.js)
     config.assets.precompile += %w( ruby_clerks/*.jpg  up-icon.png down-icon.png receipt-logo.gif)
     config.assets.precompile += %w(missing_thumb.png missing.png missing_list.png missing_product.png)
     config.assets.precompile += %w(plus.png minus.png)

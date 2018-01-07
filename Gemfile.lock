@@ -26,7 +26,6 @@ PATH
       ruby2js
       sass-rails (~> 5.0)
       valid_email (~> 0.0, >= 0.0.10)
-      vuejs-rails (~> 2.4.2)
       will_paginate-bootstrap (~> 1.0)
 
 GEM
@@ -357,7 +356,6 @@ GEM
     valid_email (0.1.0)
       activemodel
       mail (>= 2.6.1)
-    vuejs-rails (2.4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)

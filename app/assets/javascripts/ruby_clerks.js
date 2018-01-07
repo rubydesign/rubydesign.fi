@@ -6,10 +6,9 @@
 
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-fi
+//= require vue
 
 //= require_self
-
-//= require vue
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );
 
