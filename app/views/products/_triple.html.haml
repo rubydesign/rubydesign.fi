@@ -1,6 +1,6 @@
 .row
   %h3= products.length.to_s + " " + t(:products)
-  %table.table.table-striped.table-bordered.table-condensed
+  %table.table.table-striped.table-bordered.table-sm
     %tbody
       - products.in_groups_of(3).each do |array|
         %tr{:class => "line-#{cycle("1","2")}"}

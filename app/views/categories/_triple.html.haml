@@ -1,6 +1,6 @@
 %h3= groups.count.to_s + " " + t(:categories)
 .row
-  %table.table.table-striped.table-bordered.table-condensed
+  %table.table.table-striped.table-bordered.table-sm
     %tbody
       - groups.in_groups_of(3).each do |array|
         %tr{:class => "line-#{cycle("1","2")}"}
