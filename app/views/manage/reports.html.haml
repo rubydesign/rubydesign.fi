@@ -1,3 +1,107 @@
+:ruby2js
+  class Appi < Vue
+    def initialize
+      @el = '.new_reports'
+      @items = allItems
+      @attributes = #{@attributes.to_json}
+      @categories = #{Category.all.to_json( only: [:id , :name])}
+      @suppliers = #{Supplier.all.to_json( only:  [:id , :supplier_name])}
+      @options = { fullWidth: true, height: 500, }
+      @start = moment(#{@start.to_time.to_i * 1000})
+      @end = moment(#{@end.to_time.to_i * 1000})
+      @created_index = #{@attributes.to_json}.indexOf("created_at")
+      @group_names = #{@group_names.to_json}
+      @group_by = "all"
+      @show = "price"
+      @kind = "Order"
+      @supplier = ""
+      @category = ""
+      @interval = 'week'
+    end
+    def buckets
+      start = moment(this.start)
+      all = {}
+      while(start < this.end) do
+        if( this.interval == "week")
+          buck = start.week()
+          label = "Week " + (buck + 1)
+          start.add(1,"week")
+        else
+          buck = start.month()
+          label = start.format("MMM")
+          start.add(1,"month")
+        end
+        all[buck] = label
+      end
+      return all
+    end
+    def labels
+      all = []
+      buckets = this.buckets
+      for key in buckets
+        all.push(buckets[key])
+      end
+      return all
+    end
+    def filteredCategories
+      index = self.attributes.indexOf("baskets.kori_type")
+      items = self.items.select { |item| item[index] == self.kind  }
+      if(self.supplier != "" )
+        index = self.attributes.indexOf("products.supplier_id")
+        items = items.select { |item| item[index] == self.supplier }
+      end
+      return items if(self.category == "" )
+      index = self.attributes.indexOf("products.category_id")
+      return items.select { |item| item[index] == self.category  }
+    end
+    def totals_shown
+      groups = this.groups
+      show = this.attributes.indexOf( this.show )
+      totals = []
+      for group in groups
+        items = groups[group]
+        total = 0
+        0.upto(items.length) do |i|
+          total = total + items[i][show]
+        end
+        totals.push( [group, total])
+      end
+      totals = totals.slice.sort do |a, b|
+        aa = parseFloat(a[1])
+        bb = parseFloat(b[1])
+        return aa == bb ? 0 : (aa < bb ? 1 : -1)
+      end
+      return totals
+    end
+    def total_for(attribute)
+      items = this.filteredCategories
+      val = this.attributes.indexOf(attribute)
+      all = {}
+      0.upto(items.length) { |i| all[items[i][val]] = 1}
+      return all.keys().length
+    end
+    def data
+      groups = this.groups
+      show = this.attributes.indexOf( this.show )
+      series = []
+      for group in groups
+        items = groups[group]
+        all = this.new_group()
+        0.upto(items.length) do | i|
+          item = items[i]
+          bucket = this.bucket(item)
+          all[bucket] = all[bucket] + item[show]
+        end
+        vals = []
+        for key in all
+          vals.push(all[key])
+        end
+        series.push(vals)
+      end
+      return { labels: this.labels, series: series }
+    end
+  end
+
 -content_for :head do
   = javascript_include_tag "report"
 
