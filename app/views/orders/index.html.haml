@@ -42,9 +42,10 @@
       .btn-toolbar
         .btn-group
           = paginate @orders
-        %ul.pagination.csv
-          %li
-            = link_to "CSV", orders_path({:format => :csv}.merge( params.to_unsafe_h))
+        .btn-group
+          %ul.pagination.csv
+            %li
+              = link_to "CSV", orders_path({:format => :csv}.merge( params.to_unsafe_h))
   .col-md-3
     = search_form_for @q, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|
       .form-group
@@ -62,7 +63,7 @@
         .col-md-4
           = f.text_field :basket_total_price_lteq , :class => "form-control"
       .form-group.row
-        .col-md-3
+        .col-md-4
           = f.label(:ordered_on)
         .col-md-4
           = f.search_field :ordered_on_gteq , :class => "form-control datepicker" , :value => sort_date(:ordered_on_gteq)
@@ -71,7 +72,7 @@
       .form-group.row
         .col-md-2
           = f.label(:paid_on)
-        .col-sm-1.radio
+        .col-sm-1.radio.radio-form
           = f.radio_button :paid_on_blank , true
         .col-md-4
           = f.text_field :paid_on_gteq , :class => "form-control datepicker" , :value => sort_date(:paid_on_gteq)

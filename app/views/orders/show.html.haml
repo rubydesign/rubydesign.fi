@@ -10,7 +10,7 @@
 
 .row
   .col-md-7
-    %table.table.table-condensed.no-bg.no-border
+    %table.table.table-sm.no-bg.no-border
       %tbody
         %tr
           %td
@@ -37,15 +37,15 @@
             = @order.shipment_type
             %br
             %br
-            = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info shipment_type"
-            = link_to t(:new) + ' ' + t(:order) , new_order_path( :address => @order.id) , :class => "btn btn-primary copy_order"
+            = link_to t(:edit) , shipment_order_path(@order) , :class => "btn btn-info btn-sm shipment_type"
+            = link_to t(:new) + ' ' + t(:order) , new_order_path( :address => @order.id) , :class => "btn btn-primary btn-sm copy_order"
         %tr
           %td
           %td
 
 
   .col-md-5
-    %table.table.table-condensed.no-bg.no-border
+    %table.table.table-sm.no-bg
       %tbody
         %tr
           %td{ colspan: 2}
@@ -53,12 +53,12 @@
             = in_place @order , :note, :as => :textarea
         %tr
           =render "shipment"
-      %tr
-        = render "payment"
+        %tr
+          = render "payment"
 
 .row
   .col-md-12
-    %table.table.table-striped.table-condensed
+    %table.table.table-sm
       %thead
         %tr
           %th= t(:scode)
@@ -114,30 +114,32 @@
     %b= t(:order_actions)
     %br
 
-    = link_to t(:back), orders_path, :class => "btn btn-warning"
+    = link_to t(:back), orders_path, :class => "btn btn-sm btn-warning"
     \ 
-    = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info edit_basket" unless @order.basket.locked?
+    = link_to t(:edit), edit_basket_path(@order.basket), :class => "btn btn-info btn-sm edit_basket" unless @order.basket.locked?
     \ 
-    = link_to t(:cancel), cancel_order_path(@order), :data =>{:confirm => t(:cancel_confirmation )} , :class => "btn btn-danger cancel_order" if @order.basket.locked?
+    = link_to t(:cancel), cancel_order_path(@order), :data =>{:confirm => t(:cancel_confirmation )} , :class => "btn btn-danger btn-sm cancel_order" if @order.basket.locked?
     \ 
-    = link_to t(:destroy) , order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @order.shipped_on.nil? and @order.paid_on.nil?
+    = link_to t(:destroy) , order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger btn-sm" if @order.shipped_on.nil? and @order.paid_on.nil?
 
   .col-md-2
   .col-md-5
     %b= t(:order_mail)
     %br
     - mail_actions.each do |action|
-      = link_to t("order_button.#{action}") , mail_order_path( @order , :act => action) , :class => "btn btn-info"
+      = link_to t("order_button.#{action}") , mail_order_path( @order , :act => action) , :class => "btn btn-info btn-sm"
       \ 
 
 
 .row
   %br
   .col-md-12
+    %br
+    \
     %b= t(:order_print)
     .order_show_back
       - print_styles.each do |style|
-        = link_to t("#{style}.header") , print_path(style), :class => "btn btn-primary"
+        = link_to t("#{style}.header") , print_path(style), :class => "btn btn-primary btn-sm"
 
   %br
   %br
