@@ -1,3 +1,5 @@
+:javascript
+  var allItems = #{ @items.to_json };
 :ruby2js
   class Appi < Vue
     def initialize
@@ -17,9 +19,26 @@
       @supplier = ""
       @category = ""
       @interval = 'week'
+      show = @attributes.indexOf( @show )
+      series = []
+      for group in this.groups
+        items = this.groups[group]
+        all = this.new_group()
+        0.upto(items.length) do | i|
+          item = items[i]
+          bucket = this.bucket(item)
+          all[bucket] = all[bucket] + item[show]
+        end
+        vals = []
+        for key in all
+          vals.push(all[key])
+        end
+        series.push(vals)
+      end
+      @series = series
     end
     def buckets
-      start = moment(this.start)
+      start = moment(@start)
       all = {}
       while(start < this.end) do
         if( this.interval == "week")
@@ -54,9 +73,38 @@
       index = self.attributes.indexOf("products.category_id")
       return items.select { |item| item[index] == self.category  }
     end
+    def groups
+      items = this.filteredCategories
+      return { all: items} if(this.group_by == "all")
+      group_by = this.attributes.indexOf(this.group_by)
+      all = {}
+      for i in items
+        item = items[i]
+        key = item[group_by]
+        series = all[ key ] || []
+        series.push(item)
+        all[ key ] = series
+      end
+      return all
+    end
+    def group_indexes
+      groups = this.groups
+      indexes = []
+      for key in groups
+        indexes.push(key)
+      end
+      return indexes
+    end
+    def total_shown
+      show  = this.attributes.indexOf( this.show )
+      items = this.filteredCategories
+      total = 0
+      0.upto(items.length) { |i| total += items[i][show] }
+      return total
+    end
     def totals_shown
       groups = this.groups
-      show = this.attributes.indexOf( this.show )
+      show = this.attributes.indexOf( @show )
       totals = []
       for group in groups
         items = groups[group]
@@ -80,25 +128,89 @@
       0.upto(items.length) { |i| all[items[i][val]] = 1}
       return all.keys().length
     end
-    def data
-      groups = this.groups
-      show = this.attributes.indexOf( this.show )
-      series = []
-      for group in groups
-        items = groups[group]
-        all = this.new_group()
-        0.upto(items.length) do | i|
-          item = items[i]
-          bucket = this.bucket(item)
-          all[bucket] = all[bucket] + item[show]
-        end
-        vals = []
-        for key in all
-          vals.push(all[key])
-        end
-        series.push(vals)
+    def bucket(item)
+      return moment(item[this.created_index]).week() if( this.interval == "week")
+      return moment(item[this.created_index]).month()
+    end
+    def hash_find( hash , dat , property)
+      index = parseInt(dat)
+      for key in hash
+        return hash[key][property] if( hash[key]["id"] == index)
       end
-      return { labels: this.labels, series: series }
+      console.log("Not found " + dat + " for " + property)
+      return "undefined"
+    end
+    def new_group
+      var group = {}
+      for bucket in this.buckets
+        group[bucket] = 0
+      end
+      return group
+    end
+    def set_group(g)
+      if(this.group_by == "products.supplier_id")
+        this.supplier = g
+        this.group_by = "all"
+      end
+      if(this.group_by == "products.category_id")
+        this.category = g
+        this.group_by = "all"
+      end
+    end
+    def product_name(i)
+      items = this.items
+      product_index = this.attributes.indexOf("product_id")
+      0.upto(items.length) do |j|
+        return items[j][this.attributes.indexOf("name")] if( items[j][product_index] == i )
+      end
+      return "deleted"
+    end
+    def name_for(i)
+      by = this.group_by
+      return this.hash_find(this.categories, i , "name") if( by == "products.category_id")
+      return this.hash_find(this.suppliers, i , "supplier_name") if( by == "products.supplier_id")
+      return i.replace("@", " @ ") if( by == "customer")
+      return this.product_name(i) if( by == "product_id")
+      return "all"
+    end
+    def loadData
+      this.start = moment(this.start)
+      this.end = moment(this.end)
+      jQuery.getJSON("/manage/reports.json" ,
+        { start: self.start.unix() , end: self.end.unix() }) do
+         |ret| self.items = ret
+        end
+    end
+    def plusStartMonth
+      this.start.add(5,"week").startOf("month")
+      this.loadData()
+    end
+    def minusStartMonth
+      this.start.subtract(1,"week").startOf("month")
+      this.loadData()
+    end
+    def plusEndMonth
+      this.end.add(1,"week").endOf("month")
+      this.loadData()
+    end
+    def minusEndMonth
+      this.end.subtract(5,"week").endOf("month")
+      this.loadData()
+    end
+    def thisYear
+      this.start.startOf("year")
+      this.end.endOf("year")
+      this.loadData()
+    end
+    def minusYear
+      this.start.subtract(50,"week").startOf("month")
+      this.end.subtract(54,"week").endOf("month")
+      this.loadData()
+    end
+    def plusYear
+      this.start.add(54,"week").startOf("month")
+      this.end.add(50,"week").endOf("month")
+      this.loadData()
     end
   end
 
@@ -106,8 +218,6 @@
   = javascript_include_tag "report"
 
 =render "chart"
-:javascript
-  var allItems = #{ @items.to_json };
 .row.new_report
   .col-md-10
     .row
