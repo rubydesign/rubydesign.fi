@@ -157,7 +157,12 @@
       = link_to  t(:cancel), products_path, :class => "btn btn-warning"
 .product_index_end
 :ruby2js
-  class ProductMethods
+  class ProductMethods < Vue
+    options el: '.table'
+    def initialize
+      @products = #{@products.to_json(only: [:id , :price , :cost , :tax])}
+      @alv = "true"
+    end
     def attribute_for(id , attribute)
       0.upto(self.products.length) do |i|
         product = self.products[i]
@@ -176,12 +181,3 @@
       return this.attribute_for(id , "price")
     end
   end
-:javascript
-  var app = new Vue({
-    el: '.table',
-    data: {
-      products: #{@products.to_json(only: [:id , :price , :cost , :tax])},
-      alv: "true"
-    },
-    methods: ProductMethods.prototype ,
-  })
