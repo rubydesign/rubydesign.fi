@@ -12,7 +12,7 @@
     = csrf_meta_tags
     = yield :head
   %body{:style => ""}
-    .container
+    .container-fluid
       .bar
         %ul
           %li{:class => params[:controller] == "products" && "active" }
