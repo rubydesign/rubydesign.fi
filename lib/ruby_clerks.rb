@@ -3,11 +3,8 @@ require "ruby_clerks/engine"
 require "haml"
 require "jquery-ui-rails"
 require "kramdown"
-require "will_paginate"
 require 'coffee_script'
-require 'will_paginate-bootstrap'
-require 'bootstrap-sass'
-require 'bootstrap_form'
+require 'bootstrap'
 require "paperclip"
 require 'rails-i18n'
 require "jquery-rails"

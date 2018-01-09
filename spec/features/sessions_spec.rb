@@ -1,7 +1,7 @@
 
 
 describe "Sessions" do
-  
+
   it "redirect to sign in when accessing admin" do
     visit suppliers_path
     ensure_path sign_in_path

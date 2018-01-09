@@ -1,35 +1,45 @@
-%h2.categories_edit_start
-  = t params["action"]
-  = t(:category)
-%ol.breadcrumb
-  - parents(@category).each do | group|
-    %li
-      - if group.id
-        = link_to group.name , category_path(group)
-      - else
-        = t(:new)
-= bootstrap_form_for(@category, :html => { :multipart => true } ) do |f|
-  .row.form-group
-    .col-md-5
-      = f.text_field :name
-      = f.text_field :link
-      = f.select :category_id , Category.all.order(:name).map { |c| [c.name, c.id ] }, :prompt => t(:select) , :include_blank => true
-    .col-md-7
-      = f.text_area :summary , :rows => 2
-      = f.text_area :description , :rows => 7
+.row
+  .col-12
+    %h2.categories_edit_start
+      = t params["action"]
+      = t(:category)
+    %ol.breadcrumb
+      - parents(@category).each do | group|
+        %li
+          - if group.id
+            = link_to group.name , category_path(group)
+          - else
+            = t(:new)
+= simple_form_for(@category, :html => { :multipart => true } ) do |f|
   .row
     .col-md-4
-      = image_tag @category.main_picture.url
-    .col-md-2
-      = f.check_box :online
-      = f.text_field :position
-    .col-md-1
-    .col-md-4
-      = f.submit :class => "btn btn-success"
-      %br
-      %br
-      = link_to t(:back), categories_path, :class => "btn btn-warning"
+      = f.input :name
+    .col-md-8
+      = f.input :link
   .row
-    .col-md-6
-      = f.file_field :main_picture
-.categories_edit_end
+    .col-md-4
+      = f.input :summary , as: :text , input_html: {rows: 5}
+    .col-md-8
+      = f.input :description , as: :text , input_html: {rows: 5}
+  .row
+    .col-4
+      .row
+        .col-md-4
+          = f.input :online
+        .col-md-8
+          = f.input :position
+      .row
+        .col-md-12
+          = f.association :category , label_method: :name,
+                                      value_method: :id, include_blank: true
+    .col-8
+      .row
+        .col-md-1
+        .col-md-4
+          = image_tag @category.main_picture.url
+          = f.file_field :main_picture
+        .col-md-3
+          = f.submit :class => "btn btn-success"
+        .col-md-3
+          = link_to t(:back), categories_path, :class => "btn btn-warning"
+.row.categories_edit_end

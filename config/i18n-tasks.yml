@@ -17,7 +17,7 @@ data:
   read:
     - config/locales/%{locale}.yml
     # - config/locales/*.%{locale}.yml
-    # - config/locales/**/*.%{locale}.yml
+    - config/locales/**/*.%{locale}.yml
 
   # key => file routes, matched top to bottom
   write:
@@ -74,14 +74,15 @@ ignore_missing:
 ## Consider these keys used
 ignore_unused:
   - 'activerecord.*'
-  - "will_paginate.*"
+  - "kaminari.*"
+  - "simple_form.*"
   - "order_button.*"
   - product_line
   - product_item
   - shipment_info
   - create
   - "*.print"
-
+  - helpers.page_entries_info*
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

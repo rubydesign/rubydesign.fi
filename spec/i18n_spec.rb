@@ -14,7 +14,6 @@ describe 'locale:' do
       it { is_expected.to have_one_top_level_namespace }
       it { is_expected.not_to have_legacy_interpolations }
       it { is_expected.to have_a_valid_locale }
-      it { is_expected.to be_a_complete_translation_of 'config/locales/en.yml' }
     end
   end
   context 'config/locales/en.yml' do

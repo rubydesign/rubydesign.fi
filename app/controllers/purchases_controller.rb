@@ -9,7 +9,7 @@ class PurchasesController < AdminController
   def index
     @q = Purchase.search params[:q]
     @purchase_scope = @q.result(:distinct => true)
-    @purchases = @purchase_scope.includes(:basket => {:items => :product} ).paginate( :page => params[:page],:per_page => 20 ).to_a
+    @purchases = @purchase_scope.includes(:basket => {:items => :product} ).page( params[:page])
   end
 
   def show

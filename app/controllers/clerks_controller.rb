@@ -9,7 +9,7 @@ class ClerksController < AdminController
   def index
     @q = Clerk.search params[:q]
     @clerk_scope = @q.result(:distinct => true)
-    @clerks = @clerk_scope.paginate( :page => params[:page],:per_page => 20)
+    @clerks = @clerk_scope.page(params[:page])
   end
 
   def show
@@ -26,7 +26,7 @@ class ClerksController < AdminController
   def create
     @clerk = Clerk.create(params_for_model)
     if @clerk.save
-      flash.notice = t(:create_success, :model => "clerk") 
+      flash.notice = t(:create_success, :model => "clerk")
       redirect_to clerk_path(@clerk)
     else
       render :edit
@@ -56,4 +56,3 @@ class ClerksController < AdminController
     params.require(:clerk).permit( :email,:name , :street , :city , :phone ,:password, :password_confirmation , :admin)
   end
 end
-

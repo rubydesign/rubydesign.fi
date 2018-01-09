@@ -1,50 +1,53 @@
-.product_edit_start
-= render "head"
-- url = @product.persisted? ? product_path(@product) : products_path
-= bootstrap_form_for(@product, :html => { :multipart => true , :role=>"form"} ) do |f|
-  = f.hidden_field( :product_id) if @product.product_id
-  .row
+= simple_form_for(@product, :html => { :multipart => true } ) do |f|
+  .product_edit_start.row
+    = render "head"
+    - url = @product.persisted? ? product_path(@product) : products_path
     .col-md-4
+      = f.hidden_field( :product_id) if @product.product_id
       .row
         .col-md-12
-          = f.text_area :summary, :rows => 4
+          = f.input :summary,  input_html: {rows: 4}
       .row
         .col-md-12
-          = f.text_area :description, :rows => 10
+          = f.input :description, input_html: {rows: 10}
     .col-md-8
       .row
         .col-md-6
-          = f.text_field :name
+          = f.input :name
         .col-md-6
           - unless @product.product_id
-            = f.text_field :link
+            = f.input :link
         .col-md-4
-          = f.text_field :price
+          = f.input :price
         .col-md-4
-          = f.text_field :scode
+          = f.input :scode
         .col-md-4
-          = f.text_field :ean
+          = f.input :ean
         .col-md-4
-          = f.text_field :cost
+          = f.input :cost
         .col-md-4
-          = f.text_field :weight
+          = f.input :weight
         .col-md-2
-          = f.text_field :tax
+          = f.input :tax
         .col-md-2
-          = f.check_box :online
+          = f.input :online
 
       .row
         .col-md-4
           = image_tag @product.main_picture.url(:list)
           = f.file_field :main_picture , :label => t(:main_picture)
-        .col-md-4
-          = f.select :supplier_id,  Supplier.all.order(:supplier_name).map { |c| [c.supplier_name, c.id ] }, :prompt => t(:select)
-        .col-md-4
-          = f.select :category_id , Category.all.order(:name).map { |c| [c.name, c.id ] }, :prompt => t(:select)
-        .col-md-4
-          = f.text_field :pack_unit
-        .col-md-4
-          = f.text_field :position
+        .col-md-8
+          .row
+            .col-md-6
+              = f.association :supplier , label_method: :supplier_name,
+                                          value_method: :id, include_blank: true
+            .col-md-6
+              = f.association :category , label_method: :name,
+                                          value_method: :id, include_blank: true
+            .col-md-6
+              = f.input :pack_unit
+            .col-md-6
+              = f.input :position
       .row
         .col-md-4
           = f.submit :class => "btn btn-success"

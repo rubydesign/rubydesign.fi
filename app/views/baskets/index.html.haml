@@ -51,13 +51,12 @@
           = f.text_field :total_price_gt , :class => "form-control"
         .col-md-4
           = f.text_field :total_price_lt , :class => "form-control"
-      .form-group
-        .col-md-3
+      .form-group.row
+        .col-md-4
           = f.label(:created_at)
-        .col-sm-1.radio
-        .form-group.col-md-6
+        .col-md-4
           = f.search_field :created_at_gteq , :class => "form-control datepicker" , :value => sort_date(:created_at_gteq)
-        .form-group.col-md-4
+        .col-md-4
           = f.search_field :created_at_lteq , :class => "form-control datepicker" , :value => sort_date(:created_at_lteq)
       = f.submit t(:filter), :class => "btn btn-success"
       = link_to  t(:cancel), baskets_path, :class => "btn btn-warning"

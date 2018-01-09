@@ -1,5 +1,8 @@
-//= require jquery.min
-//= require bootstrap.min
+//= require jquery2
+//= require popper
+//= require bootstrap/dropdown
+//= require bootstrap/tooltip
+//= require bootstrap/popover
 
 //= require best_in_place
 //= require best_in_place.jquery-ui
@@ -28,7 +31,7 @@ $(window).bind('page:change', function() {
 
 $(document).ready(function() {
   /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
+  $(".best_in_place").best_in_place();
   /* and fading alerts */
-  jQuery(".alert").delay(5000).fadeOut("slow");
+  $(".alert").delay(5000).fadeOut("slow");
 });

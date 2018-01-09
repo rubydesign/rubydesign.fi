@@ -6,72 +6,76 @@
 .row
   .col-md-8.ean_form
     = label_tag :ean
-    = form_tag ean_basket_path(@basket)  do |f|
-      = text_field_tag :ean , "" , :autofocus => true , :class => "ean_field" , :size => 45
+    = form_tag( ean_basket_path(@basket ), class: "form-inline")  do |f|
+      = text_field_tag :ean , "" , :autofocus => true , :class => "ean_field form-control" , :size => 45
       = submit_tag t(:search) ,  :class => "btn btn-xs ean_submit"
   .col-md-3
     = t(:discount )
     = form_tag edit_basket_path(@basket) , :method => :get do
-      = select_tag("discount" , options_for_select( ["",0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => "window.location.href='#{discount_basket_path(@basket)}?discount=' + this.value")
-.row
-  = form_for(@basket) do |f|
-    %table.table.table-hover.table-condensed
-      %thead
-        %tr
-          %th= t(:picture)
-          %th= t(:name)
-          %th= t(:quantity)
-          %th= t(:price)
-          %th= t(:discount)
-          %th{:colspan => "3"}= t(:actions)
-      %tbody
-        - @basket.items.each do |item|
-          %tr{:class => "line-#{cycle("1","2")}"}
-            %td.picture= image_tag item.product.main_picture.url(:thumb) if item.product
-            %td.name= item.name
-            = f.fields_for :items , item do |iform|
-              %td= iform.text_field :quantity , :label => false
-              %td= iform.text_field :price , :label => false
-            %td
-              = select_tag("discount" , options_for_select( [item.discount,0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => "window.location.href='#{discount_basket_path(@basket)}?item=#{item.id}&discount=' + this.value"  )
-            %td
-              = link_to t(:delete) , edit_basket_path(:delete => item.product.id)
-              = link_to t(:remove) , edit_basket_path(:remove => item.product.id)
-              = link_to t(:more) , edit_basket_path(:add => item.product.id)
+      = select_tag("discount" , options_for_select( ["",0,5,10,15,20,25,30,35,40,50,60,70] ),
+                    :onchange => "window.location.href='#{discount_basket_path(@basket)}?discount=' + this.value" ,
+                    class: "form-control")
+= form_for(@basket) do |f|
+  .row
+    .col-md-12
+      %table.table.table-hover.table-condensed
+        %thead
+          %tr
+            %th= t(:picture)
+            %th= t(:name)
+            %th= t(:quantity)
+            %th= t(:price)
+            %th= t(:discount)
+            %th{:colspan => "3"}= t(:actions)
+        %tbody
+          - @basket.items.each do |item|
+            %tr{:class => "line-#{cycle("1","2")}"}
+              %td.picture= image_tag item.product.main_picture.url(:thumb) if item.product
+              %td.name= item.name
+              = f.fields_for :items , item do |iform|
+                %td= iform.text_field :quantity , :label => false
+                %td= iform.text_field :price , :label => false
+              %td
+                = select_tag("discount" , options_for_select( [item.discount,0,5,10,15,20,25,30,35,40,50,60,70] ), :onchange => "window.location.href='#{discount_basket_path(@basket)}?item=#{item.id}&discount=' + this.value"  )
+              %td
+                = link_to t(:delete) , edit_basket_path(:delete => item.product.id)
+                = link_to t(:remove) , edit_basket_path(:remove => item.product.id)
+                = link_to t(:more) , edit_basket_path(:add => item.product.id)
 
-        %tr
-          %td{:colspan => 4}
-          %td.count
-            = t(:count)
-            = @basket.items.length
-          %td.total
-            = t(:total)
-            = euros @basket.total_price
+          %tr
+            %td{:colspan => 4}
+            %td.count
+              = t(:count)
+              = @basket.items.length
+            %td.total
+              = t(:total)
+              = euros @basket.total_price
 
 
-    .row.form-actions
-      .col-md-2
-        = f.submit :class => "btn btn-success commit"
-      - if @basket.kori_type.blank? and not @basket.empty?
+    .col-12
+      .row.form-actions
+        .col-md-2
+          = f.submit :class => "btn btn-success commit"
+        - if @basket.kori_type.blank? and not @basket.empty?
+          .col-md-1
+            = link_to t(:make_order), order_basket_path(@basket), :class => "btn btn-primary make_order"
+          .col-md-2
+            = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "btn btn-primary make_purchase"
+          .col-md-2
+            = link_to t(:checkout), checkout_basket_path(@basket) , :class => "btn btn-primary print_order"
+        - elsif @basket.isa(:order)
+          .col-md-2
+            = link_to t(:to_order), order_path(@basket.kori), :class => "btn btn-primary to_order"
+          .col-md-2
+            - if has_receipt?
+              = link_to t("receipt.header"), receipt_order_path(@basket.kori), :class => "btn btn-primary print_order"
+        - elsif @basket.isa(:purchase)
+          .col-md-2
+            = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "btn btn-primary to_purchase"
+        .col-md-2
+          = link_to t(:destroy) , basket_path(@basket), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @basket.locked? or @basket.kori
+        .col-md-2
+          = link_to t(:nolla) , zero_basket_path(@basket), :class => "btn btn-danger" unless @basket.locked?
         .col-md-1
-          = link_to t(:make_order), order_basket_path(@basket), :class => "btn btn-primary make_order"
-        .col-md-2
-          = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "btn btn-primary make_purchase"
-        .col-md-2
-          = link_to t(:checkout), checkout_basket_path(@basket) , :class => "btn btn-primary print_order"
-      - elsif @basket.isa(:order)
-        .col-md-2
-          = link_to t(:to_order), order_path(@basket.kori), :class => "btn btn-primary to_order"
-        .col-md-2
-          - if has_receipt?
-            = link_to t("receipt.header"), receipt_order_path(@basket.kori), :class => "btn btn-primary print_order"
-      - elsif @basket.isa(:purchase)
-        .col-md-2
-          = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "btn btn-primary to_purchase"
-      .col-md-2
-        = link_to t(:destroy) , basket_path(@basket), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @basket.locked? or @basket.kori
-      .col-md-2
-        = link_to t(:nolla) , zero_basket_path(@basket), :class => "btn btn-danger" unless @basket.locked?
-      .col-md-1
-        = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
+          = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
 .basket_edit_end

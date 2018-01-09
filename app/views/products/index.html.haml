@@ -19,7 +19,7 @@
 .row
   .col-md-9
     %div
-      %table.table.table-condensed
+      %table.table.table-striped.table-condensed
         %thead
           %tr
             %th
@@ -86,14 +86,15 @@
             = f.text_field :name_or_product_name_cont, :class => "form-control" , :placeholder => t(:name)
           -else
             = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
-      .form-group
-        .input-group
-          .input-group-addon
-            =t(:in_orders)
-            = radio_button_tag :in_orders , true , available_inventory
-          .input-group-addon
-            =t(:online)
-            = f.radio_button :online_eq , true
+      .form-group.row
+        .col-md-12
+          .input-group
+            .input-group-addon
+              =t(:in_orders)
+              = radio_button_tag :in_orders , true , available_inventory
+            .input-group-addon
+              =t(:online)
+              = f.radio_button :online_eq , true
 
       .form-group
         .input-group
@@ -107,12 +108,12 @@
           %span.input-group-addon
             =t(:blanks)
             = f.radio_button :description_blank , true
-      .form-group
+      .form-group.row
         .col-md-6
           = f.text_field :ean_cont , :class => "form-control" , :placeholder => t(:ean)
         .col-md-6
           = f.text_field :scode_cont , :class => "form-control" , :placeholder => t(:scode)
-      .form-group
+      .form-group.row
         .col-md-4
           = f.label(:price)
         .col-md-4
@@ -143,12 +144,12 @@
           = f.text_field :pack_unit_gteq , :class => "form-control"
         .col-md-4
           = f.text_field :pack_unit_lteq , :class => "form-control"
-      .form-group
+      .form-group.row
         .col-md-4
           = f.label t(:supplier)
         .col-md-8
           = f.collection_select :supplier_id_eq, Supplier.all, :id, :supplier_name, {:include_blank => true}, :class=>"form-control"
-      .form-group
+      .form-group.row
         .col-md-4
           = f.label t(:category)
         .col-md-8

@@ -1,4 +1,3 @@
-
 describe "Products filters" do
   before :each do
     sign_in

@@ -202,13 +202,11 @@ en:
   remove: Remove
   scode: Supplier code
   search: Search
-  select: Select
   ship: Ship
   shipment_info: Shipment info
   shipment_price: Shipment price
   shipment_type: Shipment type
   shipped_on: Shipped on
-  shop: Shop
   show: Show
   sign_in: Log in
   sign_in_invalid: Invalid email or password
@@ -240,8 +238,3 @@ en:
   vat: Vat
   week: Week
   weight: Weight
-  will_paginate:
-    next_label: Next &#8594;
-    page_gap: "&hellip;"
-    previous_label: "&#8592; Previous"
-    profit: Profit

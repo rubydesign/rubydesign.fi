@@ -1,4 +1,6 @@
 require "best_in_place"
+require "kaminari"
+require 'simple_form'
 
 module RubyClerks
   class Engine < ::Rails::Engine

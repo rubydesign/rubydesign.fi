@@ -202,13 +202,11 @@ fi:
   remove: Vähennä
   scode: Tuottajatunnus
   search: Hae
-  select: Valitse
   ship: Lähetä
   shipment_info: Lähetyksen koodi
   shipment_price: Toimituskulut
   shipment_type: Toimitustapa
   shipped_on: Lähetetty
-  shop: Kauppa
   show: Näytä
   sign_in: Kirjaudu sisään
   sign_in_invalid: Sähköposti tai salasana virheellinen
@@ -240,8 +238,3 @@ fi:
   vat: Alv
   week: Viikko
   weight: Paino
-  will_paginate:
-    next_label: seuraava
-    page_gap: "&hellip;"
-    previous_label: edellinen
-    profit: Kate

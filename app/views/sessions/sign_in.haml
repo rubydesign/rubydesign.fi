@@ -1,10 +1,10 @@
-.col-md-3.col-sm-2.col-xs-1
-.col-md-6.col-sm-8.col-xs-10
-  %h1= t(:sign_in)
-  = bootstrap_form_tag :url => office.create_session_path do |f|
-    .form_group
-      = f.text_field :email, value: params[:email] , :label => t(:email)
-    .form_group
-      = f.password_field :password , value: params[:password] , :label => t(:password)
-    .form_group
-      = f.submit  t(:sign_in) , :class => "btn btn-info submit"
+.row
+  .col-6
+    %h1= t(:sign_in)
+    = form_tag office.create_session_path do |f|
+      .form-group
+        = text_field_tag :email, params[:email] , :label => t(:email) , class: "form-control"
+      .form-group
+        = password_field_tag :password , params[:password] , :label => t(:password)
+      .form-group
+        = submit_tag  t(:sign_in) , :class => "btn btn-info submit"
