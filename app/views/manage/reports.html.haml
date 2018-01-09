@@ -1,222 +1,7 @@
 :javascript
   var allItems = #{ @items.to_json };
-:ruby2js
-  class Appi < Vue
-    def initialize
-      @el = '.new_reports'
-      @items = allItems
-      @attributes = #{@attributes.to_json}
-      @categories = #{Category.all.to_json( only: [:id , :name])}
-      @suppliers = #{Supplier.all.to_json( only:  [:id , :supplier_name])}
-      @options = { fullWidth: true, height: 500, }
-      @start = moment(#{@start.to_time.to_i * 1000})
-      @end = moment(#{@end.to_time.to_i * 1000})
-      @created_index = #{@attributes.to_json}.indexOf("created_at")
-      @group_names = #{@group_names.to_json}
-      @group_by = "all"
-      @show = "price"
-      @kind = "Order"
-      @supplier = ""
-      @category = ""
-      @interval = 'week'
-      show = @attributes.indexOf( @show )
-      series = []
-      for group in this.groups
-        items = this.groups[group]
-        all = this.new_group()
-        0.upto(items.length) do | i|
-          item = items[i]
-          bucket = this.bucket(item)
-          all[bucket] = all[bucket] + item[show]
-        end
-        vals = []
-        for key in all
-          vals.push(all[key])
-        end
-        series.push(vals)
-      end
-      @series = series
-    end
-    def buckets
-      start = moment(@start)
-      all = {}
-      while(start < this.end) do
-        if( this.interval == "week")
-          buck = start.week()
-          label = "Week " + (buck + 1)
-          start.add(1,"week")
-        else
-          buck = start.month()
-          label = start.format("MMM")
-          start.add(1,"month")
-        end
-        all[buck] = label
-      end
-      return all
-    end
-    def labels
-      all = []
-      buckets = this.buckets
-      for key in buckets
-        all.push(buckets[key])
-      end
-      return all
-    end
-    def filteredCategories
-      index = self.attributes.indexOf("baskets.kori_type")
-      items = self.items.select { |item| item[index] == self.kind  }
-      if(self.supplier != "" )
-        index = self.attributes.indexOf("products.supplier_id")
-        items = items.select { |item| item[index] == self.supplier }
-      end
-      return items if(self.category == "" )
-      index = self.attributes.indexOf("products.category_id")
-      return items.select { |item| item[index] == self.category  }
-    end
-    def groups
-      items = this.filteredCategories
-      return { all: items} if(this.group_by == "all")
-      group_by = this.attributes.indexOf(this.group_by)
-      all = {}
-      for i in items
-        item = items[i]
-        key = item[group_by]
-        series = all[ key ] || []
-        series.push(item)
-        all[ key ] = series
-      end
-      return all
-    end
-    def group_indexes
-      groups = this.groups
-      indexes = []
-      for key in groups
-        indexes.push(key)
-      end
-      return indexes
-    end
-    def total_shown
-      show  = this.attributes.indexOf( this.show )
-      items = this.filteredCategories
-      total = 0
-      0.upto(items.length) { |i| total += items[i][show] }
-      return total
-    end
-    def totals_shown
-      groups = this.groups
-      show = this.attributes.indexOf( @show )
-      totals = []
-      for group in groups
-        items = groups[group]
-        total = 0
-        0.upto(items.length) do |i|
-          total = total + items[i][show]
-        end
-        totals.push( [group, total])
-      end
-      totals = totals.slice.sort do |a, b|
-        aa = parseFloat(a[1])
-        bb = parseFloat(b[1])
-        return aa == bb ? 0 : (aa < bb ? 1 : -1)
-      end
-      return totals
-    end
-    def total_for(attribute)
-      items = this.filteredCategories
-      val = this.attributes.indexOf(attribute)
-      all = {}
-      0.upto(items.length) { |i| all[items[i][val]] = 1}
-      return all.keys().length
-    end
-    def bucket(item)
-      return moment(item[this.created_index]).week() if( this.interval == "week")
-      return moment(item[this.created_index]).month()
-    end
-    def hash_find( hash , dat , property)
-      index = parseInt(dat)
-      for key in hash
-        return hash[key][property] if( hash[key]["id"] == index)
-      end
-      console.log("Not found " + dat + " for " + property)
-      return "undefined"
-    end
-    def new_group
-      var group = {}
-      for bucket in this.buckets
-        group[bucket] = 0
-      end
-      return group
-    end
-    def set_group(g)
-      if(this.group_by == "products.supplier_id")
-        this.supplier = g
-        this.group_by = "all"
-      end
-      if(this.group_by == "products.category_id")
-        this.category = g
-        this.group_by = "all"
-      end
-    end
-    def product_name(i)
-      items = this.items
-      product_index = this.attributes.indexOf("product_id")
-      0.upto(items.length) do |j|
-        return items[j][this.attributes.indexOf("name")] if( items[j][product_index] == i )
-      end
-      return "deleted"
-    end
-    def name_for(i)
-      by = this.group_by
-      return this.hash_find(this.categories, i , "name") if( by == "products.category_id")
-      return this.hash_find(this.suppliers, i , "supplier_name") if( by == "products.supplier_id")
-      return i.replace("@", " @ ") if( by == "customer")
-      return this.product_name(i) if( by == "product_id")
-      return "all"
-    end
-    def loadData
-      this.start = moment(this.start)
-      this.end = moment(this.end)
-      jQuery.getJSON("/manage/reports.json" ,
-        { start: self.start.unix() , end: self.end.unix() }) do
-         |ret| self.items = ret
-        end
-    end
-    def plusStartMonth
-      this.start.add(5,"week").startOf("month")
-      this.loadData()
-    end
-    def minusStartMonth
-      this.start.subtract(1,"week").startOf("month")
-      this.loadData()
-    end
-    def plusEndMonth
-      this.end.add(1,"week").endOf("month")
-      this.loadData()
-    end
-    def minusEndMonth
-      this.end.subtract(5,"week").endOf("month")
-      this.loadData()
-    end
-    def thisYear
-      this.start.startOf("year")
-      this.end.endOf("year")
-      this.loadData()
-    end
-    def minusYear
-      this.start.subtract(50,"week").startOf("month")
-      this.end.subtract(54,"week").endOf("month")
-      this.loadData()
-    end
-    def plusYear
-      this.start.add(54,"week").startOf("month")
-      this.end.add(50,"week").endOf("month")
-      this.loadData()
-    end
-  end
-
 -content_for :head do
   = javascript_include_tag "report"
-
 =render "chart"
 .row.new_report
   .col-md-10
@@ -270,7 +55,7 @@
           {{show}} {{total_shown.toFixed(0)}}
 
     #placeholder{style: "width: 100%;height: 100%;"}
-      %vue-chartist{":data" => "data" , ":options" => "options"}
+      %vue-chartist{":data" => "plot_data" , ":options" => "options"}
   .col-md-2
     .form-group
       .row
@@ -334,237 +119,211 @@
           {{name_for(pair[0])}}
         .threel.center.ct-line
           {{pair[1].toFixed(0)}}
-:javascript
-  var app = new Vue({
-    el: '.new_report',
-    data: {
-      items: allItems,
-      attributes: #{@attributes.to_json} ,
-      categories: #{Category.all.to_json( only: [:id , :name])} ,
-      suppliers: #{Supplier.all.to_json( only:  [:id , :supplier_name])},
-      options: {
-        fullWidth: true,
-        height: 500,
-      },
-      start: moment(#{@start.to_time.to_i * 1000}),
-      end: moment(#{@end.to_time.to_i * 1000}),
-      created_index: #{@attributes.to_json}.indexOf("created_at"),
-      group_names: #{@group_names.to_json},
-      group_by: "all",
-      show: "price",
-      kind: "Order",
-      supplier: "",
-      category: "",
-      interval: 'week',
-    },
-    computed: {
-      buckets: function(){
-        var start = moment(this.start)
-        var all = {}
-        while(start < this.end) {
-          if( this.interval == "week") {
-            buck = start.week()
-            label = "Week " + (buck + 1)
-            start.add(1,"week")
-          }else{
-            buck = start.month()
-            label = start.format("MMM")
-            start.add(1,"month")
-          }
-          all[buck] = label
-        }
-        return all
-      },
-      labels: function(){
-        var all = []
-        var buckets = this.buckets
-        for(key in buckets){
-          var val = buckets[key]
-          all.push(val)
-        }
-        return all
-      },
-      filteredCategories: function(){
-        var index = this.attributes.indexOf("baskets.kori_type")
-        var that = this.kind
-        var items = this.items.filter(function(item) { return item[index] == that ; })
-        that = this.supplier
-        if(that != "" ) {
-          var index = this.attributes.indexOf("products.supplier_id")
-          items = items.filter(function(item) { return item[index] == that ; })
-        }
-        that = this.category
-        if(that == "" ) return items
-        var index = this.attributes.indexOf("products.category_id")
-        return items.filter(function(item) { return item[index] == that ; })
-      },
-      groups: function() {
-        var items = this.filteredCategories
-        if(this.group_by == "all") return { all: items}
-        var group_by = this.attributes.indexOf(this.group_by)
-        var all = {}
-        for( var i in items){
-          var item = items[i]
-          var key = item[group_by]
-          var series = all[ key ] || []
-          series.push(item)
-          all[ key ] = series
-        }
-        return all
-      },
-      group_indexes: function(){
-        var groups = this.groups
-        var indexes = []
-        for( key in groups){
-          indexes.push(key)
-        }
-        return indexes
-      },
-      total_shown: function(){
-        var show  = this.attributes.indexOf( this.show )
-        var items = this.filteredCategories
-        var total = 0
-        for(var i = 0; i < items.length; i++) {
-          total += items[i][show]
-        }
-        return total
-      },
-      totals_shown: function(){
-        var groups = this.groups
-        var show = this.attributes.indexOf( this.show )
-        var totals = []
-        for(group in groups){
-          var items = groups[group]
-          var total = 0
-          for(var i = 0; i < items.length; i++) {
-            total = total + items[i][show]
-          }
-          totals.push( [group, total])
-        }
-        totals = totals.slice().sort(function (a, b) {
-          a = parseFloat(a[1])
-          b = parseFloat(b[1])
-          return (a === b ? 0 : a < b ? 1 : -1)
-        })
-        return totals
-      },
-      data: function() {
-        var groups = this.groups
-        var show = this.attributes.indexOf( this.show )
-        var series = []
-        for(group in groups){
-          var items = groups[group]
-          var all = this.new_group()
-          for(var i = 0; i < items.length; i++) {
-            item = items[i]
-            var bucket = this.bucket(item)
-            all[bucket] = all[bucket] + item[show]
-          }
-          var vals = []
-          for( var key in all){
-            vals.push(all[key])
-          }
-          series.push(vals)
-        }
-        return {
-          labels: this.labels,
-          series: series
-        }
-      }
-    },
-    methods: {
-      total_for: function(attribute){
-        var items = this.filteredCategories
-        var val = this.attributes.indexOf(attribute)
-        var all = {}
-        for(var i = 0; i < items.length; i++) {
-          all[items[i][val]] = 1
-        }
-        return Object.keys(all).length
-      },
-      bucket: function(item){
-        if( this.interval == "week") return moment(item[this.created_index]).week()
-        return moment(item[this.created_index]).month()
-      },
-      hash_find: function( hash , dat , property){
-        var index = parseInt(dat)
-        for(key in hash){
-          if( hash[key]["id"] == index) return hash[key][property]
-        }
-        console.log("Not found " + dat + " for " + property)
-        return "undefined"
-      },
-      new_group: function(){
-        var group = {}
-        for( bucket in this.buckets){
-          group[bucket] = 0
-        }
-        return group
-      },
-      set_group: function(g){
-        if(this.group_by == "products.supplier_id"){
-          this.supplier = g
-          this.group_by = "all"
-        }
-        if(this.group_by == "products.category_id"){
-          this.category = g
-          this.group_by = "all"
-        }
-      },
-      product_name: function(i){
-        var items = this.items
-        var product_index = this.attributes.indexOf("product_id")
-        for(var j = 0; j < items.length; j++) {
-          if( items[j][product_index] == i ) return items[j][this.attributes.indexOf("name")]
-        }
-        return "deleted"
-      },
-      name_for: function(i){
-        var by = this.group_by
-        if( by == "products.category_id") return this.hash_find(this.categories, i , "name")
-        if( by == "products.supplier_id") return this.hash_find(this.suppliers, i , "supplier_name")
-        if( by == "customer") return i.replace("@", " @ ");
-        if( by == "product_id") return this.product_name(i)
-        return "all"
-      },
-      loadData: function(){
-        this.start = moment(this.start)
-        this.end = moment(this.end)
-        var that = this
-        $.getJSON("/manage/reports.json" ,
-          { start: that.start.unix() , end:   that.end.unix() } ,
-          function(ret){ that.items = ret ; })
-      },
-      plusStartMonth: function(){
-        this.start.add(5,"week").startOf("month")
-        this.loadData()
-      },
-      minusStartMonth: function(){
-        this.start.subtract(1,"week").startOf("month")
-        this.loadData()
-      },
-      plusEndMonth: function(){
-        this.end.add(1,"week").endOf("month")
-        this.loadData()
-      },
-      minusEndMonth: function(){
-        this.end.subtract(5,"week").endOf("month")
-        this.loadData()
-      },
-      thisYear: function(){
-        this.start.startOf("year")
-        this.end.endOf("year")
-        this.loadData()
-      },
-      minusYear: function(){
-        this.start.subtract(50,"week").startOf("month")
-        this.end.subtract(54,"week").endOf("month")
-        this.loadData()
-      },
-      plusYear: function(){
-        this.start.add(54,"week").startOf("month")
-        this.end.add(50,"week").endOf("month")
-        this.loadData()
-      },
-    }
-  });
+:ruby2js
+  class Appi < Vue
+    options el: '.new_report'
+
+    def initialize
+      @items = allItems
+      @attributes = #{@attributes.to_json}
+      @categories = #{Category.all.to_json( only: [:id , :name])}
+      @suppliers = #{Supplier.all.to_json( only:  [:id , :supplier_name])}
+      @options = { fullWidth: true, height: 500, }
+      @start = moment(#{@start.to_time.to_i * 1000})
+      @end = moment(#{@end.to_time.to_i * 1000})
+      @created_index = #{@attributes.to_json}.indexOf("created_at")
+      @group_names = #{@group_names.to_json}
+      @group_by = "all"
+      @show = "price"
+      @kind = "Order"
+      @supplier = ""
+      @category = ""
+      @interval = 'week'
+    end
+    def plot_data
+      show = @attributes.indexOf( @show )
+      series = []
+      for group in this.groups
+        items = this.groups[group]
+        all = this.new_group
+        0.upto(items.length-1) do | i|
+          item = items[i]
+          bucket = this.bucket(item)
+          all[bucket] = all[bucket] + item[show]
+        end
+        vals = []
+        for key in all
+          vals.push(all[key])
+        end
+        series.push(vals)
+      end
+      return {series: series , labels: this.labels}
+    end
+    def buckets
+      start = moment(@start)
+      all = {}
+      while(start < @end) do
+        if( @interval == "week")
+          buck = start.week()
+          label = "Week " + (buck + 1)
+          start.add(1,"week")
+        else
+          buck = start.month()
+          label = start.format("MMM")
+          start.add(1,"month")
+        end
+        all[buck] = label
+      end
+      return all
+    end
+    def labels
+      Object.values(this.buckets)
+    end
+    def filteredCategories
+      index = @attributes.indexOf("baskets.kori_type")
+      items = self.items.select { |item| item[index] == @kind  }
+      if(@supplier != "" )
+        index = self.attributes.indexOf("products.supplier_id")
+        items = items.select { |item| item[index] == @supplier }
+      end
+      return items if(@category == "" )
+      index = self.attributes.indexOf("products.category_id")
+      return items.select { |item| item[index] == @category  }
+    end
+    def groups
+      items = this.filteredCategories
+      return { all: items} if(@group_by == "all")
+      group_by = @attributes.indexOf(@group_by)
+      all = {}
+      for i in items
+        item = items[i]
+        key = item[group_by]
+        series = all[ key ] || []
+        series.push(item)
+        all[ key ] = series
+      end
+      return all
+    end
+    def group_indexes
+      indexes = []
+      for key in this.groups
+        indexes.push(key)
+      end
+      return indexes
+    end
+    def total_shown
+      show  = @attributes.indexOf( @show )
+      itemz = this.filteredCategories
+      total = 0
+      0.upto(itemz.length-1) { |i| total += itemz[i][show] }
+      return total
+    end
+    def totals_shown
+      show = @attributes.indexOf( @show )
+      totals = []
+      for group in this.groups
+        itemz = this.groups[group]
+        total = 0
+        0.upto(itemz.length-1) do |i|
+          total = total + itemz[i][show]
+        end
+        totals.push( [group, total])
+      end
+      totals = totals.slice().sort do |a, b|
+        aa = parseFloat(a[1])
+        bb = parseFloat(b[1])
+        return aa == bb ? 0 : (aa < bb ? 1 : -1)
+      end
+      return totals
+    end
+    def total_for(attribute)
+      itemz = this.filteredCategories
+      index = @attributes.indexOf(attribute)
+      all = {}
+      0.upto(itemz.length-1) { |i| all[itemz[i][index]] = 1}
+      return all.keys().length
+    end
+    def bucket(item)
+      return moment(item[@created_index]).week() if( @interval == "week")
+      return moment(item[@created_index]).month()
+    end
+    def hash_find( hash , dat , property)
+      index = parseInt(dat)
+      for key in hash
+        return hash[key][property] if( hash[key]["id"] == index)
+      end
+      console.log("Not found " + dat + " for " + property)
+      return "undefined"
+    end
+    def new_group
+      group = {}
+      for bucket in this.buckets
+        group[bucket] = 0
+      end
+      return group
+    end
+    def set_group(g)
+      if(@group_by == "products.supplier_id")
+        @supplier = g
+        @group_by = "all"
+      end
+      if(@group_by == "products.category_id")
+        @category = g
+        @group_by = "all"
+      end
+    end
+    def product_name(i)
+      product_index = @attributes.indexOf("product_id")
+      0.upto(@items.length-1) do |j|
+        return @items[j][@attributes.indexOf("name")] if( @items[j][product_index] == i )
+      end
+      return "deleted"
+    end
+    def name_for(i)
+      by = @group_by
+      return this.hash_find(@categories, i , "name") if( by == "products.category_id")
+      return this.hash_find(@suppliers, i , "supplier_name") if( by == "products.supplier_id")
+      return i.replace("@", " @ ") if( by == "customer")
+      return this.product_name(i) if( by == "product_id")
+      return "all"
+    end
+    def loadData(_)
+      @start = moment(@start)
+      @end = moment(@end)
+      jQuery.getJSON("/manage/reports.json" ,
+        { start: @start.unix() , end: @end.unix() }) do
+         |ret| @items = ret
+        end
+    end
+    def plusStartMonth(_)
+      @start.add(5,"week").startOf("month")
+      this.loadData()
+    end
+    def minusStartMonth(_)
+      this.start.subtract(1,"week").startOf("month")
+      this.loadData()
+    end
+    def plusEndMonth(_)
+      this.end.add(1,"week").endOf("month")
+      this.loadData()
+    end
+    def minusEndMonth(_)
+      @end.subtract(5,"week").endOf("month")
+      this.loadData()
+    end
+    def thisYear(_)
+      @start.startOf("year")
+      @end.endOf("year")
+      this.loadData()
+    end
+    def minusYear(_)
+      @start.subtract(50,"week").startOf("month")
+      @end.subtract(54,"week").endOf("month")
+      this.loadData()
+    end
+    def plusYear(_)
+      @start.add(54,"week").startOf("month")
+      @end.add(50,"week").endOf("month")
+      this.loadData()
+    end
+  end
