@@ -9,7 +9,7 @@
         = t(:category)
         %input{:category => "query", "v-model" => "categoryQuery"}
       %th{ "v-for" => "(value, key) in columns" , "@click" => "sortBy(key)" , ":class" => "{ active: sortKey == key }" }
-        {{ value | capitalize }}
+        {{ capitalize(value) }}
         %span.arrow{":class" => "sortOrders[key] > 0 ? 'asc' : 'dsc'"}
       %th
   %tbody

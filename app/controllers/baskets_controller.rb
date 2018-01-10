@@ -133,7 +133,7 @@ class BasketsController < AdminController
           flash.notice = t(:update_success, :model => "basket")
           redirect_to edit_basket_path(@basket)
         end
-        format.json { render json: {}, status: :ok }
+        format.json { render( partial: "baskets/basket.json" , status: :ok) }
       end
     end
   end

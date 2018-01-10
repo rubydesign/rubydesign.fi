@@ -74,6 +74,7 @@ class PurchasesController < AdminController
     @orders.includes(basket: {items: :product}).each do |order|
       order.basket.items.each{ |item| @ordered_products[item.product_id] += item.quantity}
     end
+    @basket = @purchase.basket
   end
 
   def load_purchase
