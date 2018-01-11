@@ -1,11 +1,74 @@
-.product_show_start
-= render "head"
+.row
+  .product_show_start
+  = render "head"
 
--if @product.line?
-  =render "line"
+  -if @product.line?
+    =render "line"
 
 .row
-  .col-md-4
+  .col-md-8.product-window
+    %div
+      %table.table.table-sm.product-table
+        %tbody
+          %tr
+            %td
+              %b= t(:scode) + " : "
+              = in_place @product , :scode
+            %td
+              %b= t(:inventory) + " : "
+              = @product.inventory
+          %tr
+            %td
+              %b= t(:ean) + " : "
+              = in_place @product , :ean
+            %td
+              %b= t(:stock_level) + " : "
+              = in_place @product , :stock_level
+
+          %tr
+            %td
+              %b= t(:price) + " : "
+              = in_place @product , :price , :display_with => :best_euros
+            %td
+              %b= t(:pack_unit) + " : "
+              = in_place @product , :pack_unit
+          %tr
+            %td
+              %b= t(:cost) + " : "
+              = in_place @product , :cost , :display_with => :best_euros
+            %td
+              %b= t(:position) + " : "
+              = in_place @product , :position
+          %tr
+            %td
+              %b= t(:tax_percent) + " : "
+              = in_place @product , :tax
+            %td
+              %b= t(:weight) + " : "
+              = in_place @product , :weight
+          %tr
+            %td
+              %b= t(:category) + " : "
+              = link_to @product.category.name , category_path(@product.category) if @product.category
+            %td
+              %b= t(:supplier) + " : "
+              = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
+
+    .row.product_show_row_buttons
+      .col-md-3
+        = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success"
+      .col-md-3
+        = link_to t(:delete) , product_path(@product), :method => :delete , :class => "btn btn-danger", :data => {  :confirm => t(:are_you_sure )}
+      -unless @product.product_item?
+        .col-md-3
+          = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
+      .col-md-6.product_show_row_end
+        .col-md-2
+          -unless @product.line?
+            = link_to t(:barcode) , office.barcode_product_path( @product), :class => "btn btn-primary"
+
+
+  .col-md-4.product-window
     .row
       .col-md-12
         %p
@@ -16,82 +79,15 @@
         %p
           %b= t(:description) + " : "
           = in_place @product , :description , :as => :textarea
-  .col-md-8
-    .row
-      .col-md-12
-        %p
-          %b= t(:link) + " : "
-          = @product.link
-      .col-md-6
-        %p
-          %b= t(:scode) + " : "
-          = in_place @product , :scode
-      .col-md-6
-        %p
-          %b= t(:ean) + " : "
-          = in_place @product , :ean
-    .row
-      .col-md-4
-        %p
-          %b= t(:weight) + " : "
-          = in_place @product , :weight
-      .col-md-4
-        %p
-          %b= t(:tax_percent) + " : "
-          = in_place @product , :tax
-      .col-md-4
-        %p
-          %b= t(:inventory) + " : "
-          = @product.inventory
-
     .row
       .col-md-4
         %p
           %b= t(:main_picture) + " : "
           %br
           = image_tag @product.main_picture.url
-      .col-md-4
+      .col-md-8
         %p
-          %b= t(:supplier) + " : "
-          = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
-      .col-md-4
-        %p
-          %b= t(:category) + " : "
-          = link_to @product.category.name , category_path(@product.category) if @product.category
-      .col-md-4
-        %p
-          %b= t(:price) + " : "
-          = in_place @product , :price , :display_with => :best_euros
-      .col-md-4
-        %p
-          %b= t(:cost) + " : "
-          = in_place @product , :cost , :display_with => :best_euros
-
-      .col-md-4
-        %p
-          %b= t(:position) + " : "
-          = in_place @product , :position
-      .col-md-4
-        %p
-          %b= t(:stock_level) + " : "
-          = in_place @product , :stock_level
-      .col-md-4
-        %p
-          %b= t(:pack_unit) + " : "
-          = in_place @product , :pack_unit
-
-.row.product_show_row_buttons
-  .col-md-2
-    = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success"
-  .col-md-2
-    = link_to t(:delete) , product_path(@product), :method => :delete , :class => "btn btn-danger", :data => {  :confirm => t(:are_you_sure )}
-  -unless @product.product_item?
-    .col-md-2
-      = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
-  .col-md-6.product_show_row_end
-    .col-md-2
-      -unless @product.line?
-        = link_to t(:barcode) , office.barcode_product_path( @product), :class => "btn btn-primary"
-
+          %b= t(:link) + " : "
+          = @product.link
 
 .product_show_end
