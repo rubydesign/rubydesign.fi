@@ -2,16 +2,16 @@
   .col-md-6.purchases
     %h2= in_place @purchase , :name
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
-    %h4
+    %h6
       %a{"@click" => "tab = 1"}= t(:basket)
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
-    %h4
+    %h6
       %a{"@click" => "tab = 2"}= t(:products)
       \&nbsp;
       %a.right{"@click" => "products_to_basket"}
         =image_tag "plus.png" , width: "20px"
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 3}"}
-    %h4
+    %h6
       %a{"@click" => "tab = 3"}=t(:orders)
       \&nbsp;
       %a.right{"@click" => "orders_to_basket"}

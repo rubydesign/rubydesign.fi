@@ -1,10 +1,10 @@
 fi:
   views:
     pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Prev"
-      next: "Next &rsaquo;"
+      first: "&laquo; eka"
+      last: "vika &raquo;"
+      previous: "&lsaquo; edellinen"
+      next: "seuraava &rsaquo;"
       truncate: "&hellip;"
   helpers:
     page_entries_info:

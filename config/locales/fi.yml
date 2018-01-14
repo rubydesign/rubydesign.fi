@@ -166,7 +166,7 @@ fi:
   ordered: Tilattu
   ordered_on: Tilauspäivä
   orders: Tilaukset
-  pack_unit: Pakkaus
+  pack_unit: Pakkauskoko
   paid_on: Maksettu
   password: Salasana
   pay: Maksa
@@ -226,7 +226,7 @@ fi:
   summary: Yhteenveto
   supplier: Tuottaja
   suppliers: Tuottajat
-  supplier_not_empty: Tuottajalla on tuoteet
+  supplier_not_empty: Tuottajalla on tuotteita
   tax_percent: Veroprosentti
   to_order: Tilaukselle
   to_purchase: Sisänostoksille
