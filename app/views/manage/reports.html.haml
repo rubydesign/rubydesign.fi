@@ -121,7 +121,7 @@
           {{pair[1].toFixed(0)}}
 :ruby2js
   class Appi < Vue
-    options el: '.new_report'
+    el '.new_report'
 
     def initialize
       @items = allItems
@@ -143,21 +143,15 @@
     def plot_data
       show = @attributes.indexOf( @show )
       series = []
-      for group in this.groups
-        items = this.groups[group]
-        all = this.new_group
-        0.upto(items.length-1) do | i|
-          item = items[i]
-          bucket = this.bucket(item)
+      Object.values(self.groups).each() do |items|
+        all = self.new_group()
+        items.each do |item|
+          bucket = self.bucket(item)
           all[bucket] = all[bucket] + item[show]
         end
-        vals = []
-        for key in all
-          vals.push(all[key])
-        end
-        series.push(vals)
+        series << Object.values(all)
       end
-      return {series: series , labels: this.labels}
+      return {series: series , labels: self.labels}
     end
     def buckets
       start = moment(@start)
@@ -179,6 +173,11 @@
     def labels
       Object.values(this.buckets)
     end
+    def new_group(_)
+      group = {}
+      this.buckets.each_key { |bucket| group[bucket] = 0 }
+      return group
+    end
     def filteredCategories
       index = @attributes.indexOf("baskets.kori_type")
       items = self.items.select { |item| item[index] == @kind  }
@@ -195,39 +194,27 @@
       return { all: items} if(@group_by == "all")
       group_by = @attributes.indexOf(@group_by)
       all = {}
-      for i in items
-        item = items[i]
+      items.each do |item|
         key = item[group_by]
-        series = all[ key ] || []
-        series.push(item)
+        series = all[ item[group_by] ] || []
+        series << item
         all[ key ] = series
       end
       return all
     end
     def group_indexes
-      indexes = []
-      for key in this.groups
-        indexes.push(key)
-      end
-      return indexes
+      this.groups.keys()
     end
     def total_shown
       show  = @attributes.indexOf( @show )
-      itemz = this.filteredCategories
-      total = 0
-      0.upto(itemz.length-1) { |i| total += itemz[i][show] }
-      return total
+      return self.filteredCategories.inject(0) { |total , item| total + item[show] }
     end
     def totals_shown
       show = @attributes.indexOf( @show )
       totals = []
-      for group in this.groups
-        itemz = this.groups[group]
-        total = 0
-        0.upto(itemz.length-1) do |i|
-          total = total + itemz[i][show]
-        end
-        totals.push( [group, total])
+      self.groups.keys().each do |group|
+        total =  self.groups[group].inject(0) { |total , item| total + item[show] }
+        totals << [group, total]
       end
       totals = totals.slice().sort do |a, b|
         aa = parseFloat(a[1])
@@ -237,10 +224,9 @@
       return totals
     end
     def total_for(attribute)
-      itemz = this.filteredCategories
       index = @attributes.indexOf(attribute)
       all = {}
-      0.upto(itemz.length-1) { |i| all[itemz[i][index]] = 1}
+      this.filteredCategories.each { |item| all[item[index]] = 1}
       return all.keys().length
     end
     def bucket(item)
@@ -255,13 +241,6 @@
       console.log("Not found " + dat + " for " + property)
       return "undefined"
     end
-    def new_group
-      group = {}
-      for bucket in this.buckets
-        group[bucket] = 0
-      end
-      return group
-    end
     def set_group(g)
       if(@group_by == "products.supplier_id")
         @supplier = g
@@ -274,10 +253,11 @@
     end
     def product_name(i)
       product_index = @attributes.indexOf("product_id")
-      0.upto(@items.length-1) do |j|
-        return @items[j][@attributes.indexOf("name")] if( @items[j][product_index] == i )
+      ret = "deleted"
+      @items.each do |item|
+        ret = item[@attributes.indexOf("name")] if( item[product_index] == i )
       end
-      return "deleted"
+      return ret
     end
     def name_for(i)
       by = @group_by

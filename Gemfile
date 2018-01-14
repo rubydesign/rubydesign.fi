@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem "ruby_clerks" , :path => "../"
+gemspec
 
 gem 'sqlite3'
 
-#asset / production reelated
+#gem "ruby2js" , path: ".."
+
+#asset / production related
 gem "therubyracer"
 gem "libv8"
 gem "rb-readline"

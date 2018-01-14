@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = false
 
-  s.add_runtime_dependency 'ruby2js'
+  s.add_runtime_dependency 'ruby2js' , '~> 2.1.24'
   s.add_runtime_dependency 'rails', '~> 5.0', '< 5.1'
   s.add_runtime_dependency 'ransack', '~> 1.7'
   s.add_runtime_dependency "valid_email" ,  '~> 0.0', '>= 0.0.10'

@@ -165,15 +165,11 @@
       @alv = "true"
     end
     def attribute_for(id , attribute)
-      0.upto(self.products.length) do |i|
-        product = self.products[i]
-        if(product.id == id)
-          num = product[attribute]
-          num = 100 * num / (100 + product.tax) if( self.alv == "false")
-          return num.toFixed(2)
-        end
-      end
-      return id
+      product = this.products.find { |product| return product.id == id }
+      return id unless product
+      num = product[attribute]
+      num = 100 * num / (100 + product.tax) if( self.alv == "false")
+      return num.toFixed(2)
     end
     def cost_for(id)
       return this.attribute_for(id , "cost")

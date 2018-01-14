@@ -123,10 +123,9 @@
       end
     end
     def in_basket(product)
-      0.upto(this.basket.items.length - 1) do |i|
-        return this.basket.items[i] if(this.basket.items[i].product_id == product.id)
-      end
-      return false;
+      is_in = false
+      this.basket.items.each { |item| is_in = item if(item.product_id == product.id) }
+      return is_in;
     end
     def total_price(_)
       sum = 0
