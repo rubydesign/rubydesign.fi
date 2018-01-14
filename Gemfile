@@ -4,6 +4,7 @@ gemspec
 
 gem 'sqlite3'
 
+gem 'ruby2js'  , git: "https://github.com/rubys/ruby2js"
 #gem "ruby2js" , path: ".."
 
 #asset / production related

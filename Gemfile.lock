@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/rubys/ruby2js
+  revision: 75c74006d37e04ad96733120ce24a6a58a5b1a07
+  specs:
+    ruby2js (2.1.24)
+      parser
+
 PATH
   remote: .
   specs:
@@ -316,8 +323,6 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
-    ruby2js (2.1.24)
-      parser
     ruby_dep (1.5.0)
     sass (3.4.25)
     sass-rails (5.0.7)
@@ -401,6 +406,7 @@ DEPENDENCIES
   poltergeist
   rb-readline
   rspec-rails
+  ruby2js!
   ruby_clerks!
   spring
   spring-commands-rspec
