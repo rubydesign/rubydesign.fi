@@ -1,0 +1,54 @@
+%script{'type'=>"text/x-template", id: 'table-component'}
+  %table.table.table-striped.table-sm
+    %thead
+      %th{ "v-for" => "id in column_order" ,
+           "@click" => "sortBy(id)",
+           ":class" => "{ active: sortKey == id }"}
+        {{columns[id]['name']}}
+        %span.arrow{":class" => "sortOrders[id] > 0 ? 'asc' : 'dsc'" ,
+                    "v-if" => "columns[id]['sortable'] != false"}
+    %tbody
+      %tr{"v-for": "row in filteredData", class: "line-#{cycle("1","2")}"}
+        %template{ "v-for": "id in column_order"}
+          %td{"v-if": "columns[id]['render']"}
+            {{columns[id]['render']( row)}}
+          %td{"v-else": ""}
+            {{row[id]}}
+:ruby2js
+  class TableComponent < Vue
+    template "#table-component"
+    props [:columns, :table_data ,:column_order]
+    def initialize
+      @sortOrders = {}
+      self.column_order.each {|c| @sortOrders[c] = 1}
+      @sortKey = ""
+      @nameQuery = ""
+    end
+    def sortBy(key)
+      return if this.columns[key][:sortable] == false
+      @sortKey = key;
+      @sortOrders[key] = @sortOrders[key] * -1;
+    end
+    def filteredData
+      dat = this.table_data
+      if(@nameQuery)
+        dat = data.filter do |prod|
+          return prod.name.toLowerCase().indexOf(@nameQuery.toLowerCase()) > -1
+        end
+      end
+      order = @sortOrders[@sortKey] || 1
+      if(@sortKey)
+        type = self.columns[@sortKey]['type']
+        dat = dat.slice().sort do |a, b|
+          aa = a[@sortKey]
+          bb = b[@sortKey]
+          if( type == "Number")
+            aa = parseFloat(aa)
+            bb = parseFloat(bb)
+          end
+          return (aa === bb ? 0 : aa > bb ? 1 : -1) * order
+        end
+      end
+      return dat
+    end
+  end
