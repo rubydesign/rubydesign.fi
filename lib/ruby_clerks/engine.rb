@@ -19,9 +19,7 @@ module RubyClerks
     end
     config.assets.precompile += %w( ruby_clerks.css ruby_clerks.js report.js flot.js)
     config.assets.precompile += %w( vue.js vue.min.js)
-    config.assets.precompile += %w( ruby_clerks/*.jpg  up-icon.png down-icon.png receipt-logo.gif)
-    config.assets.precompile += %w(missing_thumb.png missing.png missing_list.png missing_product.png)
-    config.assets.precompile += %w(plus.png minus.png)
+    config.assets.precompile += %w( ruby_clerks/*.jpg *.jpg  *.png *.gif)
 
     # have to init the BestInPlace first to be able to include helpers
     config.railties_order = [BestInPlace::Railtie , RubyClerks::Engine  , :all  ]
