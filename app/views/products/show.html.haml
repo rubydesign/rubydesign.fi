@@ -55,17 +55,17 @@
               = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
 
     .row.product_show_row_buttons
-      .col-md-3
-        = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success"
-      .col-md-3
-        = link_to t(:delete) , product_path(@product), :method => :delete , :class => "btn btn-danger", :data => {  :confirm => t(:are_you_sure )}
+      .col-md-2
+        = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success btn-sm"
+      .col-md-2
+        = link_to t(:delete) , product_path(@product), :method => :delete , :class => "btn btn-danger btn-sm", :data => {  :confirm => t(:are_you_sure )}
       -unless @product.product_item?
-        .col-md-3
-          = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary"
-      .col-md-6.product_show_row_end
+        .col-md-4
+          = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary btn-sm"
+      .col-md-4.product_show_row_end
         .col-md-2
           -unless @product.line?
-            = link_to t(:barcode) , office.barcode_product_path( @product), :class => "btn btn-primary"
+            = link_to t(:barcode) , office.barcode_product_path( @product), :class => "btn btn-primary btn-sm"
 
 
   .col-md-4.product-window

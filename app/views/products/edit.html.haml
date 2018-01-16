@@ -2,14 +2,6 @@
   .product_edit_start.row
     = render "head"
     - url = @product.persisted? ? product_path(@product) : products_path
-    .col-md-4
-      = f.hidden_field( :product_id) if @product.product_id
-      .row
-        .col-md-12
-          = f.input :summary,  input_html: {rows: 4}
-      .row
-        .col-md-12
-          = f.input :description, input_html: {rows: 10}
     .col-md-8
       .row
         .col-md-6
@@ -56,4 +48,14 @@
             = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
           -else
             = link_to t(:cancel), products_path, :class => "btn btn-warning"
+
+    .col-md-4
+      = f.hidden_field( :product_id) if @product.product_id
+      .row
+        .col-md-12
+          = f.input :summary,  input_html: {rows: 4}
+      .row
+        .col-md-12
+          = f.input :description, input_html: {rows: 10}
+
 .product_edit_end
