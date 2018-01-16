@@ -7,6 +7,7 @@
         {{columns[id]['name']}}
         %span.arrow{":class" => "sortOrders[id] > 0 ? 'asc' : 'dsc'" ,
                     "v-if" => "columns[id]['sortable'] != false"}
+        %input{:category => "query", "v-model" => "queries[id]" , "v-if": "columns[id].searchable"}
     %tbody
       %tr{"v-for": "row in filteredData"}
         %td{ "v-for": "id in column_order"}
@@ -19,9 +20,12 @@
     props [:columns, :table_data ,:column_order]
     def initialize
       @sortOrders = {}
-      self.column_order.each {|c| @sortOrders[c] = 1}
+      @queries = {}
+      self.column_order.each do |c|
+        @sortOrders[c] = 1
+        @queries[c] = ""
+      end
       @sortKey = ""
-      @nameQuery = ""
     end
     def sortBy(key)
       return if this.columns[key][:sortable] == false
@@ -30,13 +34,15 @@
     end
     def filteredData
       dat = this.table_data
-      if(@nameQuery)
-        dat = data.filter do |prod|
-          return prod.name.toLowerCase().indexOf(@nameQuery.toLowerCase()) > -1
+      this.column_order.each do |col|
+        query = @queries[col].toLowerCase()
+        next unless @queries[col].length > 0
+        dat = dat.filter do |item|
+          return item[col].toLowerCase().indexOf(query) > -1
         end
       end
-      order = @sortOrders[@sortKey] || 1
       if(@sortKey)
+        order = @sortOrders[@sortKey] || 1
         type = self.columns[@sortKey]['type']
         dat = dat.slice().sort do |a, b|
           aa = a[@sortKey]

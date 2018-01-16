@@ -76,7 +76,7 @@
       @products = #{ render( partial: "purchases/products.json") }
       @basket_columns = { position: {name: "#{t(:position)}"},
                           scode: {name: "#{t(:scode)}"},
-                          name: {name: "#{t(:name)}"},
+                          name: {name: "#{t(:name)}" , searchable: true },
                           quantity: {name: "#{t(:quantity)}"},
                           pack_unit: {name: "#{t(:pack_unit)}"},
                           price: {name: "#{t(:price)}"},
