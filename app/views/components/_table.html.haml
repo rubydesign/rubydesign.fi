@@ -8,12 +8,11 @@
         %span.arrow{":class" => "sortOrders[id] > 0 ? 'asc' : 'dsc'" ,
                     "v-if" => "columns[id]['sortable'] != false"}
     %tbody
-      %tr{"v-for": "row in filteredData", class: "line-#{cycle("1","2")}"}
-        %template{ "v-for": "id in column_order"}
-          %td{"v-if": "columns[id]['render']"}
-            {{columns[id]['render']( row)}}
-          %td{"v-else": ""}
-            {{row[id]}}
+      %tr{"v-for": "row in filteredData"}
+        %td{ "v-for": "id in column_order"}
+          %slot{ ":name": "id" , "slot-scope": "row" , ":object": "row"}
+            {{ row[id] }}
+      %slot{name: "last"}
 :ruby2js
   class TableComponent < Vue
     template "#table-component"
