@@ -17,8 +17,44 @@
       %a.right{"@click" => "orders_to_basket"}
         =image_tag "plus.png" , width: "20px"
 
-  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
-    =render "basket"
+  .col-md-12.tab.basket{"v-bind:class" => "{active_tab: tab == 1}"}
+    %table-component{ ":columns": "basket_columns" ,
+                      ":table_data": "filteredBasket",
+                      ":column_order": "basket_order"}
+      %template{ slot: "name" , "slot-scope" => "row"}
+        %a{ ":href" => "'/products/' + row.object.product_id"}
+          {{row.object.name}}
+      %template{ slot: "quantity" , "slot-scope" => "row" , ":class": "quantity"}
+        {{row.object.quantity}}
+        .overlay
+          %a{ "@click" => "row.object.quantity += 1; changed = true"}
+            =image_tag "plus.png"
+          \&nbsp;
+          %span {{row.object.quantity}}
+          \&nbsp;
+          %a{ "@click" => "row.object.quantity -= 1; changed = true"}
+            =image_tag "minus.png"
+      %template{ slot: "total" , "slot-scope" => "row"}
+        {{(row.object.price * row.object.quantity).toFixed(2)}}
+      %template{slot: "last"}
+        %th= t(:total)
+        %td
+        %td
+        %td
+          {{total_amount()}}
+        %td
+        %td
+          = form_for(@purchase.basket) do |f|
+            %span{"v-for" => "(item , index) in this.basket.items"}
+              %input{hidden: true , "v-bind" => "itemProp(item,index,'id')" , "v-if"=> "item.id"}/
+              %input{hidden: true , "v-bind" => "itemProp(item,index,'name')"}/
+              %input{hidden: true , "v-bind" => "itemProp(item,index,'price')"}/
+              %input{hidden: true , "v-bind" => "itemProp(item,index,'quantity')"}/
+              %input{hidden: true , "v-bind" => "itemProp(item,index,'product_id')"}/
+            = f.submit :class => "btn btn-success commit" ,"v-if" => "changed", "@click" => "submit_basket"
+        %th
+          {{(total_price()/ 1.24).toFixed(2)}}
+
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
     =render "products"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 3}"}
@@ -29,6 +65,8 @@
   .col-md-2
     = link_to t(:edit) + " " + t(:basket), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
 
+=render "components/table"
+
 :ruby2js
   class App < Vue
     options el: '.purchase-app'
@@ -36,6 +74,14 @@
       @purchase = #{@purchase.to_json(include: :supplier)}
       @basket = #{ render( partial: "baskets/basket.json") }
       @products = #{ render( partial: "purchases/products.json") }
+      @basket_columns = { position: {name: "#{t(:position)}"},
+                          scode: {name: "#{t(:scode)}"},
+                          name: {name: "#{t(:name)}"},
+                          quantity: {name: "#{t(:quantity)}"},
+                          pack_unit: {name: "#{t(:pack_unit)}"},
+                          price: {name: "#{t(:price)}"},
+                          total: {name: "#{t(:total)}" , sortable: false} }
+      @basket_order = [:position,:scode,:name,:quantity,:pack_unit,:price,:total]
       @tab = 1
       @nameQuery = ""
       @categoryQuery = ""
