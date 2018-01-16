@@ -2,10 +2,10 @@
   %table.table.table-striped.table-sm
     %thead
       %th{ "v-for" => "id in column_order" ,
-           "@click" => "sortBy(id)",
            ":class" => "{ active: sortKey == id }"}
         {{columns[id]['name']}}
         %span.arrow{":class" => "sortOrders[id] > 0 ? 'asc' : 'dsc'" ,
+                    "@click" => "sortBy(id)",
                     "v-if" => "columns[id]['sortable'] != false"}
         %input{:category => "query", "v-model" => "queries[id]" , "v-if": "columns[id].searchable"}
     %tbody
@@ -22,15 +22,15 @@
       @sortOrders = {}
       @queries = {}
       self.column_order.each do |c|
-        @sortOrders[c] = 1
+        @sortOrders[c] = -1
         @queries[c] = ""
       end
       @sortKey = ""
     end
     def sortBy(key)
       return if this.columns[key][:sortable] == false
-      @sortKey = key;
       @sortOrders[key] = @sortOrders[key] * -1;
+      @sortKey = key;
     end
     def filteredData
       dat = this.table_data
@@ -47,11 +47,7 @@
         dat = dat.slice().sort do |a, b|
           aa = a[@sortKey]
           bb = b[@sortKey]
-          if( type == "Number")
-            aa = parseFloat(aa)
-            bb = parseFloat(bb)
-          end
-          return (aa === bb ? 0 : aa > bb ? 1 : -1) * order
+          return (aa === bb ? 0 : (aa > bb ? 1 : -1) ) * order
         end
       end
       return dat

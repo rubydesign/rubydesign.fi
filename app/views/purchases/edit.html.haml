@@ -19,7 +19,7 @@
 
   .col-md-12.tab.basket{"v-bind:class" => "{active_tab: tab == 1}"}
     %table-component{ ":columns": "basket_columns" ,
-                      ":table_data": "filteredBasket",
+                      ":table_data": "basket.items",
                       ":column_order": "basket_order"}
       %template{ slot: "name" , "slot-scope" => "row"}
         %a{ ":href" => "'/products/' + row.object.product_id"}
@@ -56,7 +56,16 @@
           {{(total_price()/ 1.24).toFixed(2)}}
 
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
-    =render "products"
+    %table-component{ ":columns": "product_columns" ,
+                      ":table_data": "products",
+                      ":column_order": "product_order"}
+      %template{ slot: "name" , "slot-scope" => "row"}
+        %a{ ":href" => "'/products/' + row.object.id"}
+          {{row.object.name}}
+      %template{ slot: "add" , "slot-scope" => "row"}
+        %a{ "@click" => "to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
+          =image_tag "plus.png" , width: "30px"
+
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 3}"}
     =render "orders"
 .row
@@ -72,8 +81,9 @@
     options el: '.purchase-app'
     def initialize
       @purchase = #{@purchase.to_json(include: :supplier)}
+      @tab = 1
+      @changed = false
       @basket = #{ render( partial: "baskets/basket.json") }
-      @products = #{ render( partial: "purchases/products.json") }
       @basket_columns = { position: {name: "#{t(:position)}"},
                           scode: {name: "#{t(:scode)}"},
                           name: {name: "#{t(:name)}" , searchable: true },
@@ -82,58 +92,25 @@
                           price: {name: "#{t(:price)}"},
                           total: {name: "#{t(:total)}" , sortable: false} }
       @basket_order = [:position,:scode,:name,:quantity,:pack_unit,:price,:total]
-      @tab = 1
-      @nameQuery = ""
-      @categoryQuery = ""
-      @columns = {inventory: "#{t(:inventory)}" , stock_level: "#{t(:stock_level).split.first}" ,
-          stock_diff: "diff", pack_unit: "#{t(:pack_unit)}", cost: "#{t(:cost)}" ,ordered: "#{t(:order)}" }
-      @sortOrders = {inventory: 1, cost: 1 , stock_level: 1 , stock_diff: 1,
-                   pack_unit: 1 , ordered: 1}
-      @sortKey = ""
-      @changed = false
-    end
-    def filteredBasket
-      return @basket.items.slice().sort do |a, b|
-        aa = a["position"]
-        bb = b["position"]
-        return (aa === bb ? 0 : aa > bb ? 1 : -1) * 1
-      end
-    end
-    def filteredProducts
-      dat = @products
-      if(@nameQuery)
-        dat = data.filter do |prod|
-          return prod.name.toLowerCase().indexOf(@nameQuery.toLowerCase()) > -1
-        end
-      end
-      if(@categoryQuery)
-        query = @categoryQuery;
-        dat = dat.filter do |prod|
-          return prod.category.toLowerCase().indexOf(query.toLowerCase()) > -1
-        end
-      end
-      order = @sortOrders[@sortKey] || 1
-      if(@sortKey)
-        dat = dat.slice().sort do |a, b|
-          aa = parseFloat(a[@sortKey])
-          bb = parseFloat(b[@sortKey])
-          return (aa === bb ? 0 : aa > bb ? 1 : -1) * order
-        end
-      end
-      return dat
-    end
-    def capitalize(string)
-     return string[0].toUpperCase() + string.substring(1)
+      @products = #{ render( partial: "purchases/products.json") }
+      @product_order = [ :scode , :name , :category , :inventory , :stock_level ,
+                         :stock_diff , :pack_unit , :cost , :ordered , :add]
+      @product_columns = {scode:      {name: "#{t(:scode)}" },
+                          name:       {name: "#{t(:name)}" , searchable: true},
+                          category:   {name: "#{t(:category)}" , searchable: true},
+                          inventory:  {name: "#{t(:inventory)}" },
+                          stock_level:{name: "#{t(:stock_level).split.first}"} ,
+                          stock_diff: {name: "diff"},
+                          pack_unit:  {name: "#{t(:pack_unit)}"},
+                          cost:       {name: "#{t(:cost)}"} ,
+                          ordered:    {name: "#{t(:order)}"} ,
+                          add:        {name: ""} }
     end
     def itemProp(item, index , prop)
       return { value: item[prop] ,
               name: 'basket[items_attributes][' + index +'][' + prop + ']',
               id: 'basket_items_attributes_' + index + '_' + prop
              }
-    end
-    def sortBy(key)
-      @sortKey = key;
-      @sortOrders[key] = @sortOrders[key] * -1;
     end
     def submit_basket(event)
       event.preventDefault()
