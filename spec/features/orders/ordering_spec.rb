@@ -93,5 +93,10 @@ describe "Orders" do
     ensure_path order_path(order)
     expect(page).to have_text("ei voi olla sisällötön")
   end
-
+  it "deletes an order" , js: true do
+    order = create(:order)
+    visit_path order_path(order)
+    find(".btn-danger").click
+    expect{Order.find order.id}.to raise_exception
+  end
 end
