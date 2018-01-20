@@ -19,13 +19,11 @@
     template "#table-component"
     props [:columns, :table_data ,:column_order]
     def initialize
-      @sortOrders = {}
-      @queries = {}
+      @sortOrders , @queries , @sortKey = {} , {} , ""
       self.column_order.each do |c|
         @sortOrders[c] = -1
         @queries[c] = ""
       end
-      @sortKey = ""
     end
     def sortBy(key)
       return if this.columns[key][:sortable] == false
@@ -41,15 +39,13 @@
           return item[col].toLowerCase().indexOf(query) > -1
         end
       end
-      if(@sortKey)
-        order = @sortOrders[@sortKey] || 1
-        type = self.columns[@sortKey]['type']
-        dat = dat.slice().sort do |a, b|
-          aa = a[@sortKey]
-          bb = b[@sortKey]
-          return (aa === bb ? 0 : (aa > bb ? 1 : -1) ) * order
-        end
+      return dat unless(@sortKey)
+      order = @sortOrders[@sortKey] || 1
+      type = self.columns[@sortKey]['type']
+      return dat.slice().sort do |a, b|
+        aa = a[@sortKey]
+        bb = b[@sortKey]
+        return (aa === bb ? 0 : (aa > bb ? 1 : -1) ) * order
       end
-      return dat
     end
   end

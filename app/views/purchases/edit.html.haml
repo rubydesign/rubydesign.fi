@@ -100,7 +100,7 @@
                           category:   {name: "#{t(:category)}" , searchable: true},
                           inventory:  {name: "#{t(:inventory)}" },
                           stock_level:{name: "#{t(:stock_level).split.first}"} ,
-                          stock_diff: {name: "diff"},
+                          stock_diff: {name: "Diff"},
                           pack_unit:  {name: "#{t(:pack_unit)}"},
                           cost:       {name: "#{t(:cost)}"} ,
                           ordered:    {name: "#{t(:order)}"} ,
@@ -146,9 +146,7 @@
       end
     end
     def in_basket(product)
-      is_in = false
-      this.basket.items.each { |item| is_in = item if(item.product_id == product.id) }
-      return is_in;
+      return @basket.items.find { |item| item.product_id == product.id }
     end
     def total_price(_)
       sum = 0
