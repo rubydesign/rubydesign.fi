@@ -10,11 +10,10 @@
   .row.wrapper
     .items
       = render :partial => "orders/invoice_items"
-    .spacer
+    .spacer.w-100
       \&nbsp;
-    .row
-      .totals
-        = render :partial => "orders/invoice_totals" unless @slip
+    .totals.w-100
+      = render :partial => "orders/invoice_totals" unless @slip
     .thanks
       = render :partial => "orders/invoice_thanks"
 

@@ -268,21 +268,23 @@ a .tooltip {
 .ttip {
   position: relative;
   display: inline-block;
+  img { max-width: 15px }
   .ttiptext {
     display: none;
     width: 320px;
     background-color: white;
-    color: black;
     border-radius: 6px;
-    border-style: double;
-    border-width: 2px;
-    border-color: black;
     padding: 10px;
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: -5px;
     left: 105%;
+    box-shadow: 1px 1px 12px #6f6f6f;
+    font-size: .85em;
+    .ttip-green {
+      color: green;
+    }
   }
   &:hover .ttiptext {
     display: block;
