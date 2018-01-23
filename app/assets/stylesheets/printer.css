@@ -81,6 +81,14 @@ div.receipt-footer {
 .invoice .sender {
 	margin-left: 58px;
 	line-height: 0%;
+	font-weight: bold;
+}
+
+.invoice .sender-rr {
+	margin-left: 65px;
+	line-height: 94%;
+	font-weight: bold;
+	padding-bottom: 7px;
 }
 
 .invoice img#logo {
@@ -156,7 +164,19 @@ div.receipt-footer {
 .num{
 	white-space: nowrap;
 }
-.invoice .title { font-weight: bold; color: #FF9933; font-size: 18px; }
+.invoice .title {
+	font-weight: bold;
+	color: #FF9933;
+	font-size: 18px;
+}
+
+.invoice .title-rr {
+	font-weight: bold;
+	color: #469634;;
+	font-size: 18px;
+	padding-bottom: 9px;
+}
+
 .invoice .bold { font-weight: bold; }
 
 

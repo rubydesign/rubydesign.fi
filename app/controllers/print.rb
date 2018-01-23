@@ -1,6 +1,6 @@
 module Print
 
-  def receipt
+  def rakennus
     load_order
   end
 
