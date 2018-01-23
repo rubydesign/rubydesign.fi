@@ -40,7 +40,7 @@
               %td.text-right= order.basket.items.length rescue "basket #{order.id}"
               %td.text-right.purchase-app
                 = link_to order, class: :poppy do
-                  = basket_path(order.basket)
+                  = euros(order.total_price)
                   .overlay
                     = render "baskets/small" , basket: order.basket
 
