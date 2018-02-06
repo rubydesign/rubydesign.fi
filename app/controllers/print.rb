@@ -4,7 +4,7 @@ module Print
     load_order
     @template = "rakennus"
   end
-  def rakennus
+  def ecoframe
     load_order
     @template = "ecoframe"
   end
