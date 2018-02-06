@@ -2,8 +2,12 @@ module Print
 
   def rakennus
     load_order
+    @template = "rakennus"
   end
-  alias :ecoframe :rakennus
+  def rakennus
+    load_order
+    @template = "ecoframe"
+  end
 
   def invoice
     load_order
