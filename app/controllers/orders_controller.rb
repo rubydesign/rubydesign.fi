@@ -7,10 +7,9 @@ class OrdersController < AdminController
 
   def index
     @q = Order.search(params[:q])
-    @order_scope = @q.result( :distinct => true).includes(:basket => :items )
+    @order_scope = @q.result( :distinct => true).includes(:basket => {:items => :product} )
     @orders = @order_scope.page(params[:page])
   end
-
   def show
   end
 

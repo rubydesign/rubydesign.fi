@@ -3,6 +3,7 @@ module Print
   def rakennus
     load_order
   end
+  alias :ecoframe :rakennus
 
   def invoice
     load_order

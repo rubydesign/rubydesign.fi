@@ -47,6 +47,7 @@ RubyClerks::Engine.routes.draw do
       get :slip
       get :reminder
       get :rakennus
+      get :ecoframe
     end
   end
 
