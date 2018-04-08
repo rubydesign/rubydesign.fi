@@ -1,10 +1,11 @@
-<%= [t(:ean) , t(:name) , t(:inventory) , t(:category) , t(:price)].join(";") %>
+<%= [t(:position),t(:ean) , t(:name) , t(:inventory) , t(:category) , t(:price)].join(";") %>
 <% @product_scope.each do |product| %>
-<% values = [ product.line? ? "#{product.products.length} #{t(:items)}" : product.ean]  %>
-<% values << product.full_name %>
-<% values << (available_inventory  ? "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
- : product.inventory ) %>
-<% values << product.category_name %>
-<% values << product.price %>
-<%= values.join(";")   %>
+  <% values = [product.position] %>
+  <% values << product.line? ? "#{product.products.length} #{t(:items)}" : product.ean  %>
+  <% values << product.full_name %>
+  <% values << (available_inventory  ? "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
+   : product.inventory ) %>
+  <% values << product.category_name %>
+  <% values << product.price %>
+  <%= values.join(";")   %>
 <%end%>
