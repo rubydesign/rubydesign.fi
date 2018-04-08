@@ -14,5 +14,5 @@
 
 .col-md-12.basket_show_end
   = link_to t(:back), orders_path, :class => "btn btn-warning"
-  = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" if @basket.locked.blank?
+  = link_to t(:destroy) , basket_path(@basket), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @basket.locked.blank? or @basket.kori
   = link_to t("receipt.header"), receipt_order_path(@basket.kori) , :target => "_blank" , :class => "btn btn-primary print_order" if @basket.isa(:order)

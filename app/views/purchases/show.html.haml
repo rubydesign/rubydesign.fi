@@ -5,7 +5,7 @@
     %p
       %b= t(:name)
       = in_place @purchase , :name
-  .col-md-5
+  .col-md-4
     - @purchase.basket.suppliers.each do |s|
       = link_to( t(:new) + " : " + s.supplier_name , new_purchase_path(supplier: s.id) ,:class => "btn btn-primary purchase_link")
   .col-md-1
@@ -49,3 +49,5 @@
     = link_to "Print Invoice" , "/purchases/#{@purchase.id}/invoice" , class: "btn btn-primary"
   .col-md-2
     = link_to t(:edit) , edit_purchase_path(@purchase), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+  .col-md-2
+    = link_to t(:destroy) , purchase_path(@purchase), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @purchase.basket.locked?

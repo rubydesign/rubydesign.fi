@@ -73,6 +73,8 @@
     = link_to( t(:back) , purchase_path(@purchase) , class: "btn btn-info")
   .col-md-2
     = link_to t(:edit) + " " + t(:basket), edit_basket_path(@purchase.basket), :class => "btn btn-info edit_basket" unless @purchase.basket.locked?
+  .col-md-2
+    = link_to t(:destroy) , purchase_path(@purchase), :data => { :confirm => t(:are_you_sure) }, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @purchase.basket.locked?
 
 =render "components/table"
 

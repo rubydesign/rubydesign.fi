@@ -1,7 +1,7 @@
 # encoding : utf-8
 class PurchasesController < AdminController
 
-  before_action :load_purchase, :only => [:show, :edit, :update , :order , :receive , :inventory]
+  before_action :load_purchase, :only => [:show, :edit, :update , :order , :receive , :inventory,:destroy]
 
   # Uncomment for check abilities with CanCan
   #authorize_resource
@@ -62,6 +62,18 @@ class PurchasesController < AdminController
         format.json { respond_with_bip(@purchase) }
       end
     end
+  end
+
+  def destroy
+    # the idea is that you can't delete a basket once something has been "done" with it (order..)
+    if @purchase.basket.locked?
+      flash.notice = t('basket_locked')
+    else
+      flash.notice = t('purchase') + " " + t(:deleted)
+      @purchase.basket.destroy
+      @purchase.destroy
+    end
+    redirect_to purchases_path
   end
 
   protected
