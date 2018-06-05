@@ -183,9 +183,7 @@ fi:
   product_item: Tuote Tuotelinjalla
   product_line: Tuotelinja
   products: Tuotteet
-  profit: Kate
   position: Järjestysnumero
-  property: Ominaisuus
   purchase: Sisäänosto
   purchase invoice:
     header: Ostolasku
