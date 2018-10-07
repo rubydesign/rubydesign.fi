@@ -1,7 +1,7 @@
 .row.address
   - addresses = [ @order.name ,   @order.street,   @order.city ]
 
-  %table
+  %table{:width => "300px"}
     %tr
       %td{:width => "17%"}
       %td.shipping_header.bold{:width => "100%"}
