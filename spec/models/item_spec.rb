@@ -1,5 +1,3 @@
-
-
 describe Item do
   it "saves factory" do
     i = build :item
@@ -32,5 +30,20 @@ describe Item do
       expect(c.product.price).not_to be nil
       expect(c.product.tax).not_to be nil
     end
+  end
+  it "fails invalid quanity" do
+    item = build :item
+    item.quantity = "a"
+    expect(item.save).not_to be true
+  end
+  it "fails invalid quanity float" do
+    item = build :item
+    item.quantity = 1.2
+    expect(item.save).not_to be true
+  end
+  it "fails invalid price" do
+    item = build :item
+    item.price = "a"
+    expect(item.save).not_to be true
   end
 end

@@ -1,8 +1,10 @@
 class Item < ActiveRecord::Base
-  belongs_to :basket , :touch => true
+  belongs_to :basket , touch: true
   belongs_to :product
 
-  validates :name, :presence => true
+  validates :name, presence: true
+  validates :quantity, numericality: { only_integer: true }
+  validates :price, numericality: true
 
   # total price, ie quantity times price
   def total
