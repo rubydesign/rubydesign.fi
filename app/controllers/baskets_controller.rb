@@ -123,17 +123,17 @@ class BasketsController < AdminController
   end
 
   def update
+    return if redirect_if_locked
     respond_to do |format|
-      if @basket.locked?
-        format.html { redirect_if_locked }
-        format.json { render json: {}, status: :error }
-      else
-        @basket.update_attributes(params_for_basket)
+      if @basket.update_attributes(params_for_basket)
         format.html do
           flash.notice = t(:update_success, :model => "basket")
           redirect_to edit_basket_path(@basket)
         end
         format.json { render( partial: "baskets/basket.json" , status: :ok) }
+      else
+        format.html { render :edit }
+        format.json { render json: {}, status: :error }
       end
     end
   end

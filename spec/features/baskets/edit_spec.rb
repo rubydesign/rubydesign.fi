@@ -1,5 +1,3 @@
-
-
 # lots of edit possibilities for price/quantity and items
 
 describe "edit baskets" do
@@ -50,6 +48,15 @@ describe "edit baskets" do
     expect_basket_total total
     td = find("//table #basket_items_attributes_0_price")
     expect(td.value).to eq((basket.items.first.price*0.9).round(2).to_s)
+  end
+  it "rerender for invalid item price" do
+    basket = create :basket_with_item
+    visit_path edit_basket_path(basket)
+    expect(find( "//table #basket_items_attributes_0_price").value).to eq basket.items.first.price.to_s
+    fill_in "basket_items_attributes_0_price" , :with => "Hi"
+    find(".commit").click()
+    td = find("//table #basket_items_attributes_0_price")
+    expect(td.value).to eq("Hi")
   end
 
 end
