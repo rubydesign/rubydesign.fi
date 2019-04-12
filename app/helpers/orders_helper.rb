@@ -15,7 +15,7 @@ module OrdersHelper
     RubyClerks.config(:print_styles).split
   end
   def print_path style
-    eval("office.#{style}_order_path(@order)")
+    eval("#{style}_order_path(@order)")
   end
 
 end

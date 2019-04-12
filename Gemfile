@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'ruby2js' , '~> 3.0'
+gem 'ruby2js'
 gem 'ransack'
 gem "valid_email" , '0.0.10'
 gem 'sass-rails' , '~> 5.0'
@@ -24,26 +24,25 @@ gem "prawn" ,  "~> 2.0"
 gem "reference_number"
 
 gem 'rails', '~> 5.2.3'
-
 gem 'sqlite3'
 
-gem "therubyracer"
-gem "libv8"
 gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
 
 gem "autoprefixer-rails"
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'mini_racer'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "i18n-tasks" , "0.8.7"
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 group :test do
-  gem "codeclimate-test-reporter"
   gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-screenshot'

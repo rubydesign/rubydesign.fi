@@ -3,8 +3,7 @@ require "kaminari"
 require 'simple_form'
 
 module RubyClerks
-  class Engine < ::Rails::Engine
-    engine_name "office"
+  class Engine #< ::Rails::Engine
 
     config.eager_load_paths += %W(#{config.root}/lib)
 #    config.assets.paths +=
@@ -16,15 +15,6 @@ module RubyClerks
     # for testing this makes engine factories available
     initializer "model_core.factories", :after => "factory_girl.set_factory_paths" do
       FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
-    end
-    config.assets.precompile += %w( ruby_clerks.css ruby_clerks.js report.js)
-    config.assets.precompile += %w( vue.js vue.min.js)
-    config.assets.precompile += %w( ruby_clerks/*.jpg *.jpg  *.png *.gif)
-
-    # have to init the BestInPlace first to be able to include helpers
-    config.railties_order = [BestInPlace::Railtie , RubyClerks::Engine  , :all  ]
-    config.after_initialize do
-      BestInPlace::ViewHelpers.extend OfficeHelper
     end
 
   end

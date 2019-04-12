@@ -65,7 +65,7 @@
       .col-md-4.product_show_row_end
         .col-md-2
           -unless @product.line?
-            = link_to t(:barcode) , office.barcode_product_path( @product), :class => "btn btn-primary btn-sm"
+            = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary btn-sm"
 
 
   .col-md-4.product-window
