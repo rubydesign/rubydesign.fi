@@ -1,4 +1,4 @@
-RubyClerks::Engine.routes.draw do
+Rails.application.routes.draw do
 
   get "sign_out" => "sessions#sign_out"
   get "sign_in"  => "sessions#sign_in"
