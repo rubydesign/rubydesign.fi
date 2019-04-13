@@ -13,9 +13,9 @@ gem "best_in_place" , '~> 3.0'
 gem "rabl" , '~> 0.13.1'
 
 gem 'kaminari' , '~> 1.1'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap'
 gem 'simple_form'
-gem "paperclip" , '~> 4.0'
+gem "paperclip" , ">= 5.2.0"
 gem 'rails-i18n' , '~> 4.0'
 gem "bcrypt-ruby" , '~> 3.1'
 gem "barby" , "~> 0.6"
@@ -32,6 +32,12 @@ gem 'uglifier', '>= 1.3.0'
 gem "autoprefixer-rails"
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_racer'
+
+gem 'rack-attack'
+
+group  :production do
+  gem "mysql2"
+end
 
 group :development do
   gem 'better_errors'
