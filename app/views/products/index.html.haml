@@ -161,7 +161,7 @@
   class ProductMethods < Vue
     options el: '.table'
     def initialize
-      @products = #{@products.to_json(only: [:id , :price , :cost , :tax])}
+      @products = #{@products.to_json(only: [:id , :price , :cost , :tax]).html_safe}
       @alv = "true"
     end
     def attribute_for(id , attribute)

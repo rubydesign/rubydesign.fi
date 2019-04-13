@@ -82,7 +82,7 @@
   class App < Vue
     options el: '.purchase-app'
     def initialize
-      @purchase = #{@purchase.to_json(include: :supplier)}
+      @purchase = #{@purchase.to_json(include: :supplier).html_safe}
       @tab = 1
       @changed = false
       @basket = #{ render( partial: "baskets/basket.json") }

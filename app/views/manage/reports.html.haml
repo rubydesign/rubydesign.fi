@@ -1,5 +1,5 @@
 :javascript
-  var allItems = #{ @items.to_json };
+  var allItems = #{ @items.to_json.html_safe };
 -content_for :head do
   = javascript_include_tag "report"
 =render "chart"
@@ -125,14 +125,14 @@
 
     def initialize
       @items = allItems
-      @attributes = #{@attributes.to_json}
-      @categories = #{Category.all.to_json( only: [:id , :name])}
-      @suppliers = #{Supplier.all.to_json( only:  [:id , :supplier_name])}
+      @attributes = #{@attributes.to_json.html_safe}
+      @categories = #{Category.all.to_json( only: [:id , :name]).html_safe}
+      @suppliers = #{Supplier.all.to_json( only:  [:id , :supplier_name]).html_safe}
       @options = { fullWidth: true, height: 500, }
       @start = moment(#{@start.to_time.to_i * 1000})
       @end = moment(#{@end.to_time.to_i * 1000})
-      @created_index = #{@attributes.to_json}.indexOf("created_at")
-      @group_names = #{@group_names.to_json}
+      @created_index = #{@attributes.to_json.html_safe}.indexOf("created_at")
+      @group_names = #{@group_names.to_json.html_safe}
       @group_by = "all"
       @show = "price"
       @kind = "Order"
