@@ -1,44 +1,42 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
+end
+
 ENV["RAILS_ENV"] = 'test'
-require File.expand_path("../../test_app/config/environment",  __FILE__)
+
+require File.expand_path("../../config/environment",  __FILE__)
 Rails.backtrace_cleaner.remove_silencers!
 
-require 'rspec/rails'
+require "rspec/rails"
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
-
-module RubyClerks
-  module RSpec
-    module ControllerRoutes
-      extend ActiveSupport::Concern
-      included do
-        routes { ::RubyClerks::Engine.routes }
-      end
-    end
-  end
-end
+ActiveRecord::Migration.check_pending!
 
 RSpec.configure do |config|
 
-  config.include RubyClerks::Engine.routes.url_helpers
-
-  config.include RubyClerks::RSpec::ControllerRoutes, type: :controller
+  config.include Rails.application.routes.url_helpers
 
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
 
-  # Run specs in random order to surface order dependencies. If you find an
-  # order dependency and want to debug it, you can fix the order by providing
-  # the seed, which is printed after each run.
-  #     --seed 1234
-  config.order = "random"
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+
+  # Many RSpec users commonly either run the entire suite or an individual
+  # file, and it's useful to allow more verbose output when running an individual spec file.
+  if config.files_to_run.one?
+    config.default_formatter = 'doc'
+  end
 
   if config.files_to_run.one?
     config.default_formatter = 'doc'
   end
 
-  # Print the 10 slowest examples and example groups at the end of the spec run,
-  #to help surface which specs are running  particularly slow.
-#  config.profile_examples = 10
+  config.order = :random
 end

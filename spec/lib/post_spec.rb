@@ -89,7 +89,7 @@ RSpec.describe RubyClerks::Post do
 
   context "unladed classes" do
     it " dont crash" do
-      RubyClerks::ShippingMethod.all.each do |name , method|
+      ShippingMethod.all.each do |name , method|
         expect(method.name).not_to include("missing")
       end
     end
@@ -109,7 +109,7 @@ RSpec.describe RubyClerks::Post do
     %w(en fi).each do |locale|
       it "in supported language: #{locale}" do
         I18n.with_locale(locale.to_sym) do
-          RubyClerks::ShippingMethod.all.each do |name , method|
+          ShippingMethod.all.each do |name , method|
             next if (name == "duda") || (name == "Nouto")
             expect(method.name).not_to be_blank
           end

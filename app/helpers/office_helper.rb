@@ -41,7 +41,7 @@ module OfficeHelper
   end
 
   def shipping_method name
-    RubyClerks::ShippingMethod.method(name)
+    ShippingMethod.method(name)
   end
 
   def markdown( text )

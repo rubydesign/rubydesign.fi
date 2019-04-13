@@ -73,7 +73,7 @@ class Order < ActiveRecord::Base
   end
 
   def shipment_type= typ
-    calc = RubyClerks::ShippingMethod.all[typ.to_sym]
+    calc = ShippingMethod.all[typ.to_sym]
     return nil unless calc
     cost = calc.price_for(self.basket)
     write_attribute(:shipment_type, typ)
