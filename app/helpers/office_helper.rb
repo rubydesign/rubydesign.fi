@@ -60,6 +60,9 @@ module OfficeHelper
   def best_euros p
     euros(p)
   end
+  def best_euros p
+    euros(p).sub("€", "") + " / " + euros(p/1.24)
+  end
 
   def date d
     return "" unless d

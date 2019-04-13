@@ -82,6 +82,12 @@ class OrdersController < AdminController
     redirect_to orders_url
   end
 
+  def rakennus
+    load_order
+    @invoice = true
+    @template = "rakennus"
+  end
+
   private
 
   def load_order
