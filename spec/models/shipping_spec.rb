@@ -8,7 +8,7 @@ describe "ShippingMethod"  do
   end
   it "provides pickup" do
     method = ShippingMethod.all[:pickup]
-    expect(method).not_to be nil
+    expect(method).not_to eq nil
     expect(method.name).not_to be nil
     expect(method.type).not_to be nil
   end

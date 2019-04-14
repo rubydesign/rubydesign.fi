@@ -4,7 +4,7 @@ class CategoriesController < AdminController
   before_action :load_category, :only => [ :edit, :show, :update, :destroy]
 
   def index
-    @q = Category.search(params[:q])
+    @q = Category.ransack(params[:q])
     @category_scope = @q.result(:distinct => true)
     @categories = @category_scope.includes(:products , :categories ).page( params[:page])
     @roots = Category.where(:category_id => nil).includes(:products , :categories ).to_a

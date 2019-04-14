@@ -4,6 +4,7 @@
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? content_for(:title) :  "Office Clerk"
     = stylesheet_link_tag "ruby_clerks" ,  :media => :all
+    = javascript_include_tag "ruby_clerks"
     = csrf_meta_tags
     = yield :head
   %body{:style => ""}

@@ -17,9 +17,9 @@ class Product < ActiveRecord::Base
   has_many :products
   has_many :items
   store :properties, accessors: [ :color, :size , :model_number ] #, coder: JSON
-  belongs_to :product
-  belongs_to :category
-  belongs_to :supplier
+  belongs_to :product , optional: true
+  belongs_to :category , optional: true
+  belongs_to :supplier , optional: true
   has_attached_file :main_picture
   validates_attachment_content_type :main_picture, :content_type => /\Aimage\/.*\Z/
 
@@ -134,7 +134,7 @@ class Product < ActiveRecord::Base
     Product.new :tax => self.tax , :weight => self.weight , :cost => self.cost ,  :product_id => self.id ,
         :supplier_id => self.supplier_id , :category_id => self.category_id , :price => self.price
   end
-  
+
   private
   def fix_cost
     if self.cost == 0.0

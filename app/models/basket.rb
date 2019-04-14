@@ -4,11 +4,11 @@ class Basket < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
 
-  belongs_to :kori, polymorphic: true  #kori is basket in finnish
+  belongs_to :kori, polymorphic: true  , optional: true #kori is basket in finnish
 
 
   belongs_to :order, -> { where(baskets: {kori_type: 'Order'}).includes( :baskets) },
-              foreign_key: 'kori_id'
+              foreign_key: 'kori_id' , optional: true
 
   has_many :items, autosave: true , :dependent => :destroy
 

@@ -3,7 +3,7 @@ class Purchase < ActiveRecord::Base
   default_scope {order('created_at DESC') }
 
   has_one :basket , :as => :kori ,  :autosave => true
-  belongs_to :supplier
+  belongs_to :supplier , optional: true
 
   def order!
     self.ordered_on = Date.today

@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
-  belongs_to :basket , touch: true
-  belongs_to :product
+  belongs_to :basket , touch: true , optional: true
+  belongs_to :product , optional: true
 
   validates :name, presence: true
   validates :quantity, numericality: { only_integer: true }

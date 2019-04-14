@@ -7,7 +7,7 @@ class ClerksController < AdminController
   #authorize_resource
 
   def index
-    @q = Clerk.search params[:q]
+    @q = Clerk.ransack params[:q]
     @clerk_scope = @q.result(:distinct => true)
     @clerks = @clerk_scope.page(params[:page])
   end

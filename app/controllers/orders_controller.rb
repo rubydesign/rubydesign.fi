@@ -6,7 +6,7 @@ class OrdersController < AdminController
                                         :ship, :shipment ,  :pay , :mail]
 
   def index
-    @q = Order.search(params[:q])
+    @q = Order.ransack(params[:q])
     @order_scope = @q.result( :distinct => true).includes(:basket => {:items => :product} )
     @orders = @order_scope.page(params[:page])
   end

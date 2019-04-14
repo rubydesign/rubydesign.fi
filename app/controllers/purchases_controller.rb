@@ -7,7 +7,7 @@ class PurchasesController < AdminController
   #authorize_resource
 
   def index
-    @q = Purchase.search params[:q]
+    @q = Purchase.ransack params[:q]
     @purchase_scope = @q.result(:distinct => true)
     @purchases = @purchase_scope.includes(:basket => {:items => :product} ).page( params[:page])
   end

@@ -12,7 +12,7 @@ class SuppliersController < AdminController
   # authorize_resource
 
   def index
-    @q = Supplier.search(params[:q])
+    @q = Supplier.ransack(params[:q])
     @supplier_scope = @q.result(:distinct => true)
     @suppliers = @supplier_scope.page(params[:page])
   end
