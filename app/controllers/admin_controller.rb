@@ -1,5 +1,5 @@
 # encoding : utf-8
-class AdminController < OfficeController
+class AdminController < ApplicationController
 
   layout "ruby_clerks"
 

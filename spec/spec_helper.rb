@@ -1,18 +1,18 @@
-if ENV['CODECLIMATE_REPO_TOKEN']
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
-end
-
 ENV["RAILS_ENV"] = 'test'
 
 require File.expand_path("../../config/environment",  __FILE__)
 Rails.backtrace_cleaner.remove_silencers!
 
 require "rspec/rails"
+require 'capybara/rspec'
+
+Capybara.server = :puma, { Silent: true }
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 ActiveRecord::Migration.check_pending!
+
+RSpec::Expectations.configuration.on_potential_false_positives = :nothing
 
 RSpec.configure do |config|
 

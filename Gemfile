@@ -11,6 +11,7 @@ gem 'jquery-ui-rails' , '~> 5.0'
 gem "kramdown" , '~> 1.5'
 gem "best_in_place" , '~> 3.0'
 gem "rabl" , '~> 0.13.1'
+gem 'high_voltage'
 
 gem 'kaminari' , '~> 1.1'
 gem 'bootstrap'
@@ -34,6 +35,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_racer'
 
 gem 'rack-attack'
+gem "puma"
 
 group  :production do
   gem "mysql2"
@@ -42,7 +44,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem "i18n-tasks" , "0.8.7"
+  gem "i18n-tasks" 
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

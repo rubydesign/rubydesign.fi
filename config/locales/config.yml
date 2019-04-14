@@ -1,12 +1,44 @@
 config:
   shipping:
     pickup:
-      class: "RubyClerks::Pickup"
+      class: "Pickup"
       name: Nouto myymälästämme
+    Business_14:
+      weight_table: '1 5 10 15 20 30 40'
+      price_table: '11.28 12 12.7 13.9 15.1 16.4 18.85'
+      name: Business 14 -paketti
+      class: "Post"
+      max_price: 620
+    mps:
+      weight_table: '1 5 10 15 20 30 40'
+      price_table: '17.1 17.3 18.1 19.3 20.5 21.7 24.2'
+      name: Monipaketti
+      class: "Post"
+      max_price: 620
+    Economy:
+      weight_table: '1 5 10 15 20 30 40'
+      price_table: '8 8.3 9 10.2 11.5 12.7 15.1'
+      name: Economy-paketti
+      class: "Post"
+      max_price: 620
+    maksikirje:
+      weight_table: '0.5 1 1.5 2'
+      price_table: '4.3 6.6 8.5 10.4'
+      name: Maksikirje 2 lk
+      class: "Post"
+      max_price: 620
+    kirje:
+      weight_table: '0.5 1 1.5'
+      price_table: '2.95 5.31 7.65'
+      name: Kirje 2 lk
+      class: "Post"
+      max_price: 620
+    Nouto:
+      class: "Pickup"
+      name: Nouto
   defaults:
     tax: 24.0
   mail_buttons: "confirm cancel paid shipped"
-  print_styles: "slip invoice reminder rakennus ecoframe"
   invoice_logo_path: "invoice_logo.jpg"
   footer_left2: IBAN FI1017 4530 0013 2474<br/>BIC NDEAFIHH (Nordea)
   shop: Auringosta Itään, Kuusta Länteen
@@ -23,3 +55,4 @@ config:
     10480 Antskog <br>
     info@farfalla.fi <br>
     puh 040 146 1222"
+  print_styles: "slip invoice reminder rakennus ecoframe"

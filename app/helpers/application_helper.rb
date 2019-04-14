@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-module OfficeHelper
+module ApplicationHelper
 
   # users are stored in the session by email
   # if user is not logged i , return nil

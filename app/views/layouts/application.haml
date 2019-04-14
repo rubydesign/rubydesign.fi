@@ -1,0 +1,18 @@
+!!!
+%html{:lang => (I18n.locale || I18n.default_locale)}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? content_for(:title) :  "Office Clerk"
+    = #stylesheet_link_tag "ruby_clerks" ,  :media => :all
+    = #javascript_include_tag "ruby_clerks"
+    = csrf_meta_tags
+    = yield :head
+  %body
+    .container-fluid
+      = render "layouts/messages"
+
+      = yield
+
+      .row
+        .col-md-12
+          %br

@@ -1,4 +1,4 @@
-class SessionsController < OfficeController
+class SessionsController < ApplicationController
 
   force_ssl :if => :has_ssl? , :except => :sign_out
 
@@ -43,10 +43,11 @@ class SessionsController < OfficeController
   private
 
   def redirect_after_sign_up
-    redirect_to main_app.root_url, :notice => t(:signed_up)
+    redirect_to root_url, :notice => t(:signed_up)
   end
+
   def redirect_after_sign_in
-    redirect_to main_app.root_url, :notice => t(:signed_in)
+    redirect_to root_url, :notice => t(:signed_in)
   end
   def params_for_clerk
     params.require(:clerk).permit(:email,:password,:password_confirmation)

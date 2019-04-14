@@ -53,6 +53,6 @@ describe "Sessions" do
     fill_in(:clerk_password , :with => "password")
     fill_in(:clerk_password_confirmation , :with => "password")
     find(".submit").click
-    ensure_path main_app.root_path
+    ensure_path root_path
   end
 end

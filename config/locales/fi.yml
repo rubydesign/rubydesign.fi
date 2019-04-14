@@ -239,3 +239,10 @@ fi:
   vat: Alv
   week: Viikko
   weight: Paino
+  total: Yhteensä
+  item_total: Tuotteet
+  order_total: Tilaus yhteensä
+  password: Salasana
+  phone: Puhelin
+  street: Jakeluosoite
+  price: Hinta sis alv / alv 0

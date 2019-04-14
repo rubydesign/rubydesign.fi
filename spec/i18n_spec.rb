@@ -16,9 +16,6 @@ describe 'locale:' do
       it { is_expected.to have_a_valid_locale }
     end
   end
-  context 'config/locales/en.yml' do
-    it { is_expected.to be_a_complete_translation_of 'config/locales/fi.yml' }
-  end
 end
 
 describe 'I18n' do

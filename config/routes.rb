@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'high_voltage/pages#show' , id: 'index'
+
   get "sign_out" => "sessions#sign_out"
   get "sign_in"  => "sessions#sign_in"
   post "create_session"  => "sessions#create"
@@ -102,5 +104,6 @@ Rails.application.routes.draw do
   get "manage/all" => "manage#all"
   get '/manage/reports' => 'manage#reports'
 
+  match '*path', via: :all, to: 'page#error_404' #if Rails.production?
 
 end

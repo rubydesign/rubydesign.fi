@@ -1,9 +1,9 @@
 # i18n-tasks finds and manages missing and unused translations https://github.com/glebm/i18n-tasks
 
-base_locale: en
+base_locale: fi
 ## i18n-tasks detects locales automatically from the existing locale files
 ## uncomment to set locales explicitly
-locales: [en, fi]
+locales: [ fi ]
 
 ## i18n-tasks report locale, default: en, available: en, ru
 # internal_locale: ru

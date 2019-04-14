@@ -6,7 +6,7 @@
 
 class OrderMailer < ActionMailer::Base
 
-  add_template_helper(OfficeHelper)
+  add_template_helper(ApplicationHelper)
   add_template_helper(OrdersHelper)
 
   def confirm(order)
