@@ -134,7 +134,7 @@ class Product < ActiveRecord::Base
     Product.new :tax => self.tax , :weight => self.weight , :cost => self.cost ,  :product_id => self.id ,
         :supplier_id => self.supplier_id , :category_id => self.category_id , :price => self.price
   end
-
+  
   private
   def fix_cost
     if self.cost == 0.0

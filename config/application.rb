@@ -5,6 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+require "bcrypt"
 
 module Rubydesign
   class Application < Rails::Application
@@ -16,9 +17,10 @@ module Rubydesign
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.cache_store = :memory_store, { size: 64.megabytes }
-
+    config.eager_load_paths << Rails.root.join('lib')
+    #config.autoload_paths += %W( lib/ )
     config.middleware.use Rack::Attack
-    config.i18n.available_locales = :fi
+    config.i18n.available_locales = :fi , :config
     config.i18n.default_locale = :fi
   end
 end

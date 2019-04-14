@@ -28,14 +28,14 @@
           %tr
             %td
               %b= t(:price) + " : "
-              = in_place @product , :price , :display_with => :best_euros
+              = in_place @product , :price , display_with: lambda { |v| best_euros(v) }
             %td
               %b= t(:pack_unit) + " : "
               = in_place @product , :pack_unit
           %tr
             %td
               %b= t(:cost) + " : "
-              = in_place @product , :cost , :display_with => :best_euros
+              = in_place @product , :cost , display_with: lambda { |v| best_euros(v) }
             %td
               %b= t(:position) + " : "
               = in_place @product , :position

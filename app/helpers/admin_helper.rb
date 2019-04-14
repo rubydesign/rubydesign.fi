@@ -19,14 +19,6 @@ module AdminHelper
     best_in_place(object , field , attributes)
   end
 
-  def office_assets
-    engines = Rails::Engine.subclasses.map(&:instance)
-    engines << Rails.application
-    engines.delete_if {|e| ! e.respond_to?(:office_assets) }
-    assets = engines.collect{ |e| e.office_assets }
-    assets.compact
-  end
-
   # helper so one doesn't hav to write the funny content_for in templates
   def title(page_title)
     content_for(:title) { page_title }
