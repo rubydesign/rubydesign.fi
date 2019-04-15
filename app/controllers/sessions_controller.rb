@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  force_ssl :if => :has_ssl? , :except => :sign_out
-
   def sign_in
   end
 
