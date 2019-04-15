@@ -7,6 +7,8 @@ set :repo_url, 'https://github.com/rubydesign/rubydesign.fi'
 set :deploy_to, '/var/www/vhosts/rubydesign.fi'
 
 append :linked_dirs, "public/images" ,"tmp/pids", "tmp/cache"
+# Default value for :linked_files is []
+set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
 set :passenger_restart_command, 'passenger-config restart-app'
 
