@@ -17,12 +17,13 @@ module Rubydesign
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.cache_store = :memory_store, { size: 64.megabytes }
+    config.eager_load = true
     config.eager_load_paths << Rails.root.join('lib')
     #config.autoload_paths += %W( lib/ )
     config.middleware.use Rack::Attack
     config.i18n.available_locales = :fi , :config
     config.i18n.default_locale = :fi
-    config.require_master_key = true 
+    config.require_master_key = true
   end
 end
 
