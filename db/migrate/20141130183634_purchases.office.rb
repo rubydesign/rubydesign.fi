@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131226151151)
-class Purchases < ActiveRecord::Migration
+class Purchases < ActiveRecord::Migration[4.2]
   def change
     create_table :purchases do |t|
       t.string :name

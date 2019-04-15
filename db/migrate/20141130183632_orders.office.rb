@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131226144134)
-class Orders < ActiveRecord::Migration
+class Orders < ActiveRecord::Migration[4.2]
   def change
     create_table :orders do |t|
       t.string      :number

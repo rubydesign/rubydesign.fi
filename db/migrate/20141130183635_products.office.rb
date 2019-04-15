@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131226151332)
-class Products < ActiveRecord::Migration
+class Products < ActiveRecord::Migration[4.2]
   def change
     create_table :products do |t|
       t.float       :price      , :null => false

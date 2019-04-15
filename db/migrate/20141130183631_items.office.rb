@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131226143747)
-class Items < ActiveRecord::Migration
+class Items < ActiveRecord::Migration[4.2]
   def change
     create_table :items do |t|
       t.integer     :quantity , :default => 1

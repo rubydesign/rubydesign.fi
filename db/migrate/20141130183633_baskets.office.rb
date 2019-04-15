@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131226144316)
-class Baskets < ActiveRecord::Migration
+class Baskets < ActiveRecord::Migration[4.2]
   def change
     create_table :baskets do |t|
       t.integer     :kori_id

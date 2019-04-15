@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131226143612)
-class Categories < ActiveRecord::Migration
+class Categories < ActiveRecord::Migration[4.2]
   def change
     create_table :categories do |t|
       t.references  :category

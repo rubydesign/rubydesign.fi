@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20131224171442)
-class Clerks < ActiveRecord::Migration
+class Clerks < ActiveRecord::Migration[4.2]
   def change
     create_table(:clerks) do |t|
       t.string :email,              :null => false, :default => ""

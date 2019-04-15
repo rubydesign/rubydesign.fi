@@ -1,5 +1,5 @@
 # This migration comes from office (originally 20171224204344)
-class AddPositionToProduct < ActiveRecord::Migration[5.0]
+class AddPositionToProduct < ActiveRecord::Migration[4.2][5.0]
   def change
     add_column     :products, :position, :int , default: 1
 
