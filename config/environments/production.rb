@@ -1,4 +1,4 @@
-Rails.application.config do
+Rails.application.configure do
 
   config.assets.precompile += %w( ruby_clerks.js ruby_clerks.css)
 
