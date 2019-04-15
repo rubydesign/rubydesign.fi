@@ -3,16 +3,18 @@
   %head
     %meta{:charset => "utf-8"}/
     %title= content_for?(:title) ? content_for(:title) :  "Office Clerk"
-    = #stylesheet_link_tag "ruby_clerks" ,  :media => :all
+    = stylesheet_link_tag "application" ,  :media => :all
     = #javascript_include_tag "ruby_clerks"
     = csrf_meta_tags
-    = yield :head
   %body
-    .container-fluid
-      = render "layouts/messages"
-
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,500,700", :rel => "stylesheet", :type => "text/css"}/
+    %header.container
+      %ul.nav
+        %li= link_to "Home" , root_path
+        %li= ext_link "My Github", "https://github.com/rubydesign/"
+        %li= ext_link "RubyX", "http://ruby-x.org"
+    %main.container
       = yield
-
-      .row
-        .col-md-12
-          %br
+    %footer.container
+      .row.center
+        %p © Copyright Torsten Ruger 2013-9

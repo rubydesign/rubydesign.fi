@@ -1,0 +1,93 @@
+
+
+.container
+  width: 90%
+  max-width: 1000px
+  margin: 0 auto
+.container
+  max-width: 90%
+.container_full
+  min-width: 100%
+  width: 100%
+  &:after
+    clear: both
+  .half_left
+    width: 47%
+    float: left
+    margin-right: 2%
+    position: relative
+    @media only screen and (max-width: 880px)
+      width: 100%
+  .half_right
+    width: 47%
+    float: left
+    position: relative
+    margin-left: 2%
+    @media only screen and (max-width: 880px)
+      width: 100%
+
+main , header , footer
+  a
+    color: #53a5ff
+    text-decoration: none
+
+  ul.nav
+    text-align: center
+    li
+      display: inline
+      margin-left: 5px
+      &:before
+        color: #b5e853
+        content: ">> "
+        width: 30px
+        height: 30px
+        left: -30px
+      a
+        border-bottom: 1px dashed #53a5ff
+        &:hover
+          border-bottom: 0px
+        small
+          color: lightgrey
+  .center
+    text-align: center
+
+  .row
+    clear: both
+    width: 100%
+    position: relative
+    float: left
+    
+  .tripple
+    width: 33%
+    @media only screen and (max-width: 880px)
+      width: 100%
+
+  .full_width
+    img
+      width: 100%
+  .debug_pic
+    border-color: white
+    border-width: 8px
+    border-style: solid
+    border-radius: 6px
+    img
+      width: 100%
+
+  .blog_nav
+    .next_post , .prev_post
+      width: 20%
+    .next_post
+      float: right
+    .prev_post
+      float: left
+  .blog_post
+    h1
+      span
+        font-size: 18px
+  .blog_index
+    h1
+      font-size: 20px
+    h2
+      font-size: 16px
+      span
+        font-size: 14px

@@ -1,5 +1,16 @@
 # -*- coding: utf-8 -*-
 module ApplicationHelper
+  def ext_link(name = nil, options = nil, html_options = nil, &block)
+    target_blank = {target: "_blank"}
+    if block_given?
+      options ||= {}
+      options = options.merge(target_blank)
+    else
+      html_options ||= {}
+      html_options = html_options.merge(target_blank)
+    end
+    link_to(name, options, html_options, &block)
+  end
 
   # users are stored in the session by email
   # if user is not logged i , return nil
