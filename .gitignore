@@ -14,6 +14,7 @@ test_app/log
 
 # configuration file introduced in Rails 4.1
 /config/secrets.yml
+/config/master.key
 
 .localeapp
 

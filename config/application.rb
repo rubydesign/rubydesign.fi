@@ -22,6 +22,7 @@ module Rubydesign
     config.middleware.use Rack::Attack
     config.i18n.available_locales = :fi , :config
     config.i18n.default_locale = :fi
+    config.require_master_key = true 
   end
 end
 
