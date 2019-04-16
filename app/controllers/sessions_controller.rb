@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def sign_out
     session[:clerk_email] = nil
-    redirect_to Rails.application.routes.url_helpers.root_path , :notice => I18n.t(:signed_out)
+    redirect_to sign_in_url , :notice => I18n.t(:signed_out)
   end
 
   def sign_up

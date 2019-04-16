@@ -12,7 +12,7 @@ describe "Sessions" do
     fill_in(:email , :with => user.email)
     fill_in(:password , :with => "password")
     click_button( I18n.t(:sign_in))
-    ensure_path Rails.application.routes.url_helpers.root_path
+    ensure_path "/"
   end
   it "goes to baskets for admins" do
     user = create :admin
@@ -38,7 +38,7 @@ describe "Sessions" do
   it "signs out" do
     sign_in
     visit sign_out_path
-    ensure_path Rails.application.routes.url_helpers.root_path
+    ensure_path sign_in_path
   end
   it "signs up needs confirmation" do
     visit_path sign_up_path
