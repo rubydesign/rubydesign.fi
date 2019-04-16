@@ -36,6 +36,7 @@ gem 'mini_racer'
 
 gem 'rack-attack'
 gem "puma"
+gem "neat"
 
 gem 'db_fixtures_dump'  , git: "https://github.com/rubydesign/db_fixtures_dump" #backup
 

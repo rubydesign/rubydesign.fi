@@ -8,13 +8,17 @@
     = csrf_meta_tags
   %body
     %link{:href => "http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,500,700", :rel => "stylesheet", :type => "text/css"}/
-    %header.container
+    %header
       %ul.nav
         %li= link_to "Home" , root_path
         %li= ext_link "My Github", "https://github.com/rubydesign/"
         %li= ext_link "RubyX", "http://ruby-x.org"
-    %main.container
+        %li= ext_link "EcoFrame House" , "https://ecoframe.house/en/homes"
+        %li= ext_link "Raisa tanssitemppeli" , "http://tanssitemppeli.fi"
+        %li= ext_link "VillaTaika B&B" , "http://villataika.fi/"
+
+    %main
       = yield
-    %footer.container
+    %footer
       .row.center
         %p © Copyright Torsten Ruger 2013-9

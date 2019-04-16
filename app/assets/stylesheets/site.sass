@@ -1,38 +1,16 @@
-
-
-.container
-  width: 90%
-  max-width: 1000px
-  margin: 0 auto
-.container
-  max-width: 90%
-.container_full
-  min-width: 100%
-  width: 100%
-  &:after
-    clear: both
-  .half_left
-    width: 47%
-    float: left
-    margin-right: 2%
-    position: relative
-    @media only screen and (max-width: 880px)
-      width: 100%
-  .half_right
-    width: 47%
-    float: left
-    position: relative
-    margin-left: 2%
-    @media only screen and (max-width: 880px)
-      width: 100%
+@import "neat"
 
 main , header , footer
+  @include grid-container
+
+  img.mini
+    width: 47%
   a
     color: #53a5ff
     text-decoration: none
 
   ul.nav
-    text-align: center
+    text-align: ce3ter
     li
       display: inline
       margin-left: 5px
@@ -56,11 +34,24 @@ main , header , footer
     width: 100%
     position: relative
     float: left
-    
-  .tripple
-    width: 33%
+  .half_left
+    @include grid-column(6)
     @media only screen and (max-width: 880px)
-      width: 100%
+      @include grid-column(12)
+  .half_right
+    @include grid-column(6)
+    @media only screen and (max-width: 880px)
+      @include grid-column(12)
+
+  .tripple
+    @include grid-column(4)
+    @media only screen and (max-width: 880px)
+      @include grid-column(12)
+
+  .quad
+    @include grid-column(3)
+    @media only screen and (max-width: 880px)
+      @include grid-column(12)
 
   .full_width
     img
