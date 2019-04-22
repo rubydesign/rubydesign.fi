@@ -4,9 +4,9 @@
       %th{ "v-for" => "id in column_order" ,
            ":class" => "{ active: sortKey == id }"}
         {{columns[id]['name']}}
-        %span.arrow{":class" => "sortOrders[id] > 0 ? 'asc' : 'dsc'" ,
-                    "@click" => "sortBy(id)",
-                    "v-if" => "columns[id]['sortable'] != false"}
+        %span.arrow{":class": "sortOrders[id] > 0 ? 'asc' : 'dsc'" ,
+                    "@click": "sortBy(id)",
+                    "v-if": "columns[id]['sortable'] != false"}
         %input{:category => "query", "v-model" => "queries[id]" , "v-if": "columns[id].searchable"}
     %tbody
       %tr{"v-for": "row in filteredData"}

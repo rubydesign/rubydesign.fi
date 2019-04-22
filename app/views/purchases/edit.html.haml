@@ -85,7 +85,7 @@
       @purchase = #{@purchase.to_json(include: :supplier).html_safe}
       @tab = 1
       @changed = false
-      @basket = #{ render( partial: "baskets/basket.json") }
+      @basket = #{ render( partial: "baskets/basket.json").html_safe }
       @basket_columns = { position: {name: "#{t(:position)}"},
                           scode: {name: "#{t(:scode)}"},
                           name: {name: "#{t(:name)}" , searchable: true },
@@ -94,7 +94,7 @@
                           price: {name: "#{t(:price)}"},
                           total: {name: "#{t(:total)}" , sortable: false} }
       @basket_order = [:position,:scode,:name,:quantity,:pack_unit,:price,:total]
-      @products = #{ render( partial: "purchases/products.json") }
+      @products = #{ render( partial: "purchases/products.json").html_safe }
       @product_order = [ :scode , :name , :category , :inventory , :stock_level ,
                          :stock_diff , :pack_unit , :cost , :ordered , :add]
       @product_columns = {scode:      {name: "#{t(:scode)}" },

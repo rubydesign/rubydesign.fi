@@ -4,7 +4,7 @@ gem 'ruby2js'
 gem 'ransack'
 gem "valid_email" , '0.0.10'
 gem 'sass-rails' , '~> 5.0'
-gem "haml" , '~> 5.0'
+gem "haml" , git: "https://github.com/haml/haml"
 gem "jquery-rails" , '~> 4.0'
 gem 'coffee-rails' , '~> 4.0'
 gem 'jquery-ui-rails' , '~> 5.0'
