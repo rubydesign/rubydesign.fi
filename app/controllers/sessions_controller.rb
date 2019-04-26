@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  layout "ruby_clerks"
   def sign_in
   end
 

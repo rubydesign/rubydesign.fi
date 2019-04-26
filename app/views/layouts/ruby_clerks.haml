@@ -27,7 +27,8 @@
             = link_to t(:clerks), clerks_path
           %li{:class => params[:controller] == "manage" && "active" }
             = link_to t(:manage), manage_all_path
-          %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
+          - if current_clerk
+            %li= link_to current_clerk.email , edit_clerk_path(current_clerk)
           %li= link_to t(:sign_out), sign_out_path
     .container-fluid
       = render "layouts/messages"
