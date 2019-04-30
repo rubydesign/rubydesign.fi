@@ -75,11 +75,11 @@ div.receipt-footer {
 }
 
 .invoice  {
-  font-size: 12px; }
+  font-size: 18px; }
 
 
 .invoice .sender {
-	margin-left: 58px;
+	margin-left: 72px;
 	line-height: 0%;
 	font-weight: bold;
 }
@@ -92,11 +92,11 @@ div.receipt-footer {
 }
 
 .invoice img#logo {
-  width: 300px;
+  width: 400px;
 }
 
 .invoice .address {
-  border-top:1px dotted grey;
+  border-top:2px dotted grey;
   margin-bottom: 10px;
   padding: 6px;
 }
@@ -106,8 +106,8 @@ div.receipt-footer {
 }
 
 .invoice .wrapper {
-  min-height: 540px;
-  border-top:1px dotted grey;
+  min-height: 740px;
+  border-top:2px dotted grey;
   padding: 6px;
 	margin-top: 20px;
   padding-top: 20px;
@@ -121,25 +121,25 @@ div.receipt-footer {
 	width: 120px;
 }
 .invoice .items .desc {
-	width: 330px;
+	width: 470px;
 }
 .invoice .items .price, .total {
-	width: 100px;
+	width: 130px;
 }
 .invoice .items .qty {
-	width: 60px;
+	width: 80px;
 }
 
 
 .invoice .totals {
   margin-bottom: 5px;
   float: right;
-  margin-right: 7px;
+  margin-right: 8px;
 
 }
 
 .invoice .totals .cel1 {
-  width: 100px;
+  width: 150px;
 }
 .invoice .totals .cel2 {
   width: 130px;
@@ -151,9 +151,9 @@ div.receipt-footer {
 }
 
 .invoice .footer {
-  border-top:1px dotted grey;
+  border-top:2px dotted grey;
   padding-top: 8px;
-  font-size: 11px;
+  font-size: 15px;
   .col-xs-4 { padding-left: 0px; }
 }
 
@@ -167,13 +167,13 @@ div.receipt-footer {
 .invoice .title {
 	font-weight: bold;
 	color: #FF9933;
-	font-size: 18px;
+	font-size: 24px;
 }
 
 .invoice .title-rr {
 	font-weight: bold;
 	color: #469634;;
-	font-size: 18px;
+	font-size: 24px;
 	padding-bottom: 9px;
 }
 
