@@ -64,6 +64,8 @@
       .form-group.row
         = f.text_field(:email_cont , :class => "form-control" , :placeholder => t(:email))
       .form-group.row
+        = f.search_field(:nimi_has , :class => "form-control" , :placeholder => t(:name))
+      .form-group.row
         .col-md-4
           = f.label(:total)
         .col-md-4

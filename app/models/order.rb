@@ -16,6 +16,15 @@ class Order < ActiveRecord::Base
 
   default_scope { order('created_at DESC')}
 
+  def self.nimi_has(nimi)
+    where("address like ? " , "% #{nimi}%" )
+  end
+
+  def self.ransackable_scopes(auth_object = nil)
+    [:nimi_has]
+  end
+#  private_class_method :ransackable_scopes
+
   # many a european goverment requires buisnesses to have running order/transaction numbers.
   # this is what we use, but it can easily be changed by redifining this method
   # format RYYYYRUNIN  R, 4 digit year and a running number
