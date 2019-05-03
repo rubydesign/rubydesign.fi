@@ -20,7 +20,7 @@ describe "Sessions" do
     fill_in(:email , :with => user.email)
     fill_in(:password , :with => "password")
     click_button( I18n.t(:sign_in))
-    ensure_path baskets_path
+    ensure_path orders_path
   end
   it "doesnt sign in without password" do
     user = create :clerk
@@ -40,14 +40,14 @@ describe "Sessions" do
     visit sign_out_path
     ensure_path sign_in_path
   end
-  it "signs up needs confirmation" do
+  it "signs up needs confirmation" , skip: "disabled" do
     visit_path sign_up_path
     fill_in(:clerk_email , :with => "some@mail.me")
     fill_in(:clerk_password , :with => "password")
     find(".submit").click
     ensure_path sign_up_path
   end
-  it "signs up" do
+  it "signs up" , skip: "disabled" do
     visit_path sign_up_path
     fill_in(:clerk_email , :with => "some@mail.me")
     fill_in(:clerk_password , :with => "password")
