@@ -187,11 +187,12 @@ div.receipt-footer {
 	}
 }
 
-.btn, .order_show_noprint {
-	visibility: hidden;
-}
 
 @media print {
+	.btn, .order_show_noprint {
+		visibility: hidden;
+	}
+
 	.order_show_pr {
 		font-size: 1.5em;
 		.col-md-7, .col-md-5 {
