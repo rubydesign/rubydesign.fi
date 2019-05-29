@@ -8,7 +8,7 @@
     %br
       %b= t(:total_price) + " : " + euros(@order.total_price)
 
-.row
+.row.order_show_pr
   .col-md-7
     %table.table.table-sm.no-bg.no-border
       %tbody
@@ -56,7 +56,7 @@
         %tr
           = render "payment"
 
-.row
+.row.order_show_pr
   .col-md-12
     %table.table.table-sm
       %thead
@@ -107,7 +107,7 @@
           %td
             %b= euros(@order.total_price)
 
-.row
+.row.order_show_noprint
   %br
 
   .col-md-5
@@ -131,7 +131,7 @@
       \ 
 
 
-.row
+.row.order_show_noprint
   %br
   .col-md-12
     %br
