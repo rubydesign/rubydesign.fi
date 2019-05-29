@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if clerk && clerk.valid_password?(params[:password])
       session[:clerk_email] = clerk.email
       if clerk.admin
-        redirect_to baskets_url , :notice => I18n.t(:signed_in)
+        redirect_to orders_url , :notice => I18n.t(:signed_in)
       else
         redirect_after_sign_up
       end
@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
     if request.get?
       @clerk = Clerk.new
     else
+      redirect_to sign_in_url , :notice => "No sign ups"
       begin
         @clerk = Clerk.new(params_for_clerk)
         if @clerk.save
