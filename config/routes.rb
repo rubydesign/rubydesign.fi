@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       post :ean
       get :order
       get :purchase
-      get :checkout
       get :zero
     end
   end
@@ -42,6 +41,7 @@ Rails.application.routes.draw do
       get :pay
       get :shipment
       get :ship
+      get :generate_number
       get :cancel
       patch :shipment
       get :invoice

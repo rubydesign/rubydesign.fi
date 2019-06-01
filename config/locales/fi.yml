@@ -88,7 +88,6 @@ fi:
   categories: Tuoteryhmät
   category: Tuoteryhmä
   category_not_empty: Tuoteryhmässä on tuoteet
-  checkout: Checkout
   choose_product_for_basket: Valitse tuote ostoskoriin
   choose_shipment: Valitse toimitustapa
   city: Kaupunki
@@ -116,6 +115,7 @@ fi:
   first_name: Etunimi
   fix_errors: Puuttuu tietoja
   group_by: Ryhmittele
+  generate_number: Luo numero
   in_orders: Tilauksissa
   inventorized: Inventoitu
   inventory: Inventaario

@@ -25,13 +25,6 @@ class OrdersController < AdminController
     redirect_to edit_basket_path basket
   end
 
-  def mail
-    action = params[:act]
-    mail = eval("OrderMailer.#{action}(@order)")
-    mail.deliver
-    flash.notice = "Sent #{action}"
-    redirect_to order_path(@order)
-  end
   def pay
     @order.pay_now
     @order.save

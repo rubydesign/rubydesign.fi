@@ -3,27 +3,12 @@ class BasketsController < AdminController
   include BasketsHelper
 
   before_action :load_basket, :only => [:show, :edit, :change , :update, :destroy , :order ,
-                                        :checkout, :purchase , :discount , :ean , :zero]
+                                         :purchase , :discount , :ean , :zero]
 
   def index
     @q = Basket.ransack( params[:q] )
     @basket_scope = @q.result( :distinct => true )
     @baskets = @basket_scope.includes({:items => :product} , :kori).page(params[:page] )
-  end
-
-  def checkout
-    if @basket.empty?
-      render :edit , :notice => t(:basket_empty)
-      return
-    end
-    order = @basket.kori || Order.new( :basket => @basket )
-    order.pos_checkout( current_clerk.email )
-    order.save!
-    if has_receipt?
-      redirect_to receipt_order_path(order)
-    else
-      redirect_to order_path(order)
-    end
   end
 
   def show

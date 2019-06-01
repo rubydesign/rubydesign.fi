@@ -70,17 +70,6 @@ class Order < ActiveRecord::Base
     self.save
   end
 
-  #quick checkout, ie ship (hand over) and pay (externally)
-  def pos_checkout email
-    self.ordered_on    = Date.today unless self.ordered_on
-    self.paid_on    = Date.today unless self.paid_on
-    self.shipped_on = Date.today unless self.shipped_on
-    self.shipment_price = 0 unless self.shipment_price
-    self.shipment_tax   = 0 unless self.shipment_tax
-    self.email = email
-    self.basket.deduct!
-  end
-
   def shipment_type= typ
     calc = ShippingMethod.all[typ.to_sym]
     return nil unless calc
