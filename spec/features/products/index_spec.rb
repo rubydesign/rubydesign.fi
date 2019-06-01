@@ -15,11 +15,6 @@ describe "Products filters" do
      fill_in("q[name_cont]" , :with => "name")
      expect(product_count).to be 1
    end
-   it "filters by online" do
-     product_ab :online => [true, false]
-     choose("q[online_eq]")
-     expect(product_count).to be 1
-   end
    it "filters by empty summary" do
      product_ab :summary =>[ "i have a summary", ""]
      choose("q[summary_blank]")

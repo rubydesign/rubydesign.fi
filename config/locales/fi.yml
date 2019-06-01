@@ -12,7 +12,6 @@ fi:
         description: Kuvaus
         link: Linkki
         name: Nimi
-        online: Netissä
         position: Järjestysnumero
         summary: Yhteenveto
       clerk:
@@ -46,7 +45,6 @@ fi:
         in_orders: Tilauksissa
         inventory: Inventaario
         name: Nimi
-        online: Netissä
         price: Hinta
         scode: Tuottajatunnus
         stock_level: Haluttu inventaario
@@ -137,8 +135,6 @@ fi:
   last_name: Sukunimi
   link: linkki
   locked: Lukittu
-  made_offline: poistettu netistä
-  made_online: laitettu nettiin
   main_picture: Kuva
   make_order: Luo Tilaus
   make_purchase: Luo Sisäänosto
@@ -152,9 +148,7 @@ fi:
   new: Uusi
   new_item: Uusi tuote tuotelinjalle
   nolla: Nollaa hinnat
-  not_online: ei netissä
   note: Muistiinpano
-  online: Netissä
   order: Tilaus
   order_actions: Toiminnot
   order_button:

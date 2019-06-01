@@ -9,9 +9,8 @@ FactoryGirl.define do
     inventory 5
     supplier
     factory :shop_product do
-      online true
       after(:create) do |prod|
-        cat = create :category , :online => true
+        cat = create :category 
         prod.category = cat
         prod.save!
       end

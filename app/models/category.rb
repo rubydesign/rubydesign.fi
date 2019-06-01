@@ -11,8 +11,6 @@ class Category < ActiveRecord::Base
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed
 
-  scope :online, -> { where(:online => true) }
-
   def generate_url_if_needed
     if self.deleted_on.blank?
       self.link = self.name.gsub(" " , "_").downcase if self.link.blank? && self.name != nil
@@ -31,8 +29,4 @@ class Category < ActiveRecord::Base
     self
   end
 
-  # just a shorthand to apply Products.shop_products scope to the groups products
-  def shop_products
-    products.shop_products
-  end
 end

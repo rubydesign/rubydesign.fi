@@ -51,7 +51,7 @@
                 = product.position
                 = product.scode
               %td.name
-                = link_to product_path(product), :title => t(:show) , :class => product.online && "online" do
+                = link_to product_path(product), :title => t(:show) do
                   =product.full_name
               %td
                 %span.euro {{ price_for(#{product.id}) }}
@@ -92,9 +92,6 @@
             .input-group-addon
               =t(:in_orders)
               = radio_button_tag :in_orders , true , available_inventory
-            .input-group-addon
-              =t(:online)
-              = f.radio_button :online_eq , true
 
       .form-group
         .input-group

@@ -83,10 +83,6 @@ $tausta-bg: scale-color($primary-color, $lightness: 95%);
         max-width: 90%;
 }
 
-a.online , .green {
-  color: green;
-}
-
 .alert {
   padding: 8px;
   radius: $global-radius;

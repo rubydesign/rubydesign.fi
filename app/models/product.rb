@@ -25,12 +25,8 @@ class Product < ActiveRecord::Base
 
   # default product scope only lists non-deleted products
   default_scope {where(:deleted_on => nil).order(created_at: :desc) }
-  scope :online, -> { where(:online => true) }
   scope :no_items, -> { where(:product_id => nil) }
   scope :with_inventory, -> { where("inventory > 0") }
-  # some shops may wish to add .with_inventory to the scope, but that means users can't see the page
-  # and for products you carry regularly that is not desirable. The Product page checks, and the controller
-  scope :shop_products , -> { online.no_items }
 
   validates :price, :numericality => true
   validates :cost, :numericality => true

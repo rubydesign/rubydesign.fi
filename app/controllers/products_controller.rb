@@ -87,7 +87,7 @@ class ProductsController < AdminController
   end
 
   def params_for_model
-    params.require(:product).permit(:price,:cost,:weight,:name,:description, :online, :summary,
+    params.require(:product).permit(:price,:cost,:weight,:name,:description, :summary,
                                     :stock_level,:link,:ean,:tax,:properties,:scode,:product_id,
                                     :category_id,:supplier_id, :main_picture, :position, :pack_unit)
   end

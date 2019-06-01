@@ -1,5 +1,5 @@
 %li
-  = link_to "#{group.name} (#{group.products.length})" , category_path(group), :title => t(:edit) , :class => group.online && "online"
+  = link_to "#{group.name} (#{group.products.length})" , category_path(group), :title => t(:edit)
   - ar = group.categories
   -if ar.length > 0
     %ul.subcat

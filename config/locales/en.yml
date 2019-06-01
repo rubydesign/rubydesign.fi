@@ -12,7 +12,6 @@ en:
         description: Description
         link: Link
         name: Name
-        online: Online
         position: Position
         summary: Summary
       clerk:
@@ -46,7 +45,6 @@ en:
         in_orders: In orders
         inventory: Inventory
         name: Name
-        online: online
         price: Price
         scode: Supplier code
         stock_level: Stock aim
@@ -137,8 +135,6 @@ en:
   last_name: Last Name
   link: Link
   locked: Locked
-  made_offline: taken offline
-  made_online: made online
   main_picture: Main Picture
   make_order: Make Order
   make_purchase: Make Purchase
@@ -152,9 +148,7 @@ en:
   new: New
   new_item: New product item
   nolla: Zero prices
-  not_online: not online
   note: Note
-  online: Online
   order: Order
   order_actions: Actions
   order_button:

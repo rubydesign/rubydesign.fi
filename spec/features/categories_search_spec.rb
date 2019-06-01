@@ -14,11 +14,6 @@ describe "Category search" do
      category_ab :name => ["one","two", "more"]
      expect(category_count).to be 3
    end
-   it "filters by online" do
-     category_ab :online => [true, false]
-     choose("q[online_eq]")
-     expect(category_count).to be 1
-   end
    it "filters by name" do
      category_ab :name =>[ "i have a name", "nono"]
      fill_in("q[name_cont]" , :with => "name")
