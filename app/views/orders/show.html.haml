@@ -1,9 +1,7 @@
 .row.order_show_start
   .col-md-7
     %h2
-      = t(:order) + " : " + @order.number.to_s
-      - if @order.number.blank?
-        = link_to t(:generate_number), generate_number_order_path(@order), :class => "btn btn-info btn-sm ship_now"
+      = t(:order) + " : " + @order.id_number
       - unless @order.canceled_on.blank?
         = t(:canceled_on) + " : " + date(@order.canceled_on)
   .col-md-3
@@ -142,6 +140,9 @@
     = link_to t(:cancel), cancel_order_path(@order), :data =>{:confirm => t(:cancel_confirmation )} , :class => "btn btn-danger btn-sm cancel_order" if @order.basket.locked?
     \ 
     = link_to t(:destroy) , order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger btn-sm" if @order.shipped_on.nil? and @order.paid_on.nil?
+    \ 
+    - if @order.number.blank? && !@order.basket.locked?
+      = link_to t(:deduct_only), deduct_only_order_path(@order), :class => "btn btn-info btn-sm ship_now"
 
   .col-md-2
   .col-md-5

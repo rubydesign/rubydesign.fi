@@ -115,7 +115,7 @@ fi:
   first_name: Etunimi
   fix_errors: Puuttuu tietoja
   group_by: Ryhmittele
-  generate_number: Luo numero
+  deduct_only: Tee Inventaario
   in_orders: Tilauksissa
   inventorized: Inventoitu
   inventory: Inventaario

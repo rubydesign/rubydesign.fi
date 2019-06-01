@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       get :pay
       get :shipment
       get :ship
-      get :generate_number
+      get :deduct_only
       get :cancel
       patch :shipment
       get :invoice
