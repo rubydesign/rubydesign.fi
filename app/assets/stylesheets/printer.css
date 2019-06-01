@@ -186,3 +186,18 @@ div.receipt-footer {
 		max-width: 690px;
 	}
 }
+
+
+@media print {
+	.btn, .order_show_noprint {
+		visibility: hidden;
+	}
+
+	.order_show_pr {
+		font-size: 1.5em;
+		.col-md-7, .col-md-5 {
+			flex-basis: 100%;
+			max-width: 100%;
+		}
+	}
+}
