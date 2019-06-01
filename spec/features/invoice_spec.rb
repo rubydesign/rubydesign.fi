@@ -13,12 +13,12 @@ describe "Orders" do
   end
   describe "invoice" do
     it "shows total" do
-      order = create :order
+      order = create :order_ordered
       visit_path "#{order_path(order)}/invoice"
       expect(page).to have_content I18n.t(:order_total)
     end
     it "uses best_euros to render price" do
-      order = create :order
+      order = create :order_ordered
       #TODO expect(???).to receive(:best_euros)
       visit_path "#{order_path(order)}/invoice"
     end

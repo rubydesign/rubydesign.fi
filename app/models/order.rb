@@ -5,7 +5,6 @@ class Order < ActiveRecord::Base
 
   store :address, accessors: [ :name , :street , :city , :phone ] #, coder: JSON
 
-  after_validation :generate_order_number, :on => :create
   validates :ordered_on,  :presence => true
 
   validates :name,  :presence => true , :if => :needs_address?
@@ -23,18 +22,22 @@ class Order < ActiveRecord::Base
   def self.ransackable_scopes(auth_object = nil)
     [:nimi_has]
   end
-#  private_class_method :ransackable_scopes
+  #  private_class_method :ransackable_scopes
 
   # many a european goverment requires buisnesses to have running order/transaction numbers.
   # this is what we use, but it can easily be changed by redifining this method
   # format RYYYYRUNIN  R, 4 digit year and a running number
   def generate_order_number
-    if last = Order.first # last, but default order is reversed
+    if (last = Order.first) && last.number # last, but default order is reversed
       num = last.number[5..9].to_i + 1
     else
       num = 30000
     end
     self.number = "R#{Time.now.year}#{num}"
+  end
+
+  def id_number
+    self.number ? self.number.to_s : self.id.to_s
   end
 
   def total_price

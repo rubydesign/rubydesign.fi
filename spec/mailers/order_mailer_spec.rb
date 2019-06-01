@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe OrderMailer, :type => :mailer do
-  let(:order) { create :order }
+  let(:order) { create :order_ordered }
 
   shared_examples_for "an order mail" do
     describe "mail basics" do

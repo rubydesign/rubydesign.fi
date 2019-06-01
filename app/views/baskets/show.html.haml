@@ -1,6 +1,6 @@
 %h2.basket_show_start
   = t(:basket) + " : "
-  = t(:order) + " " + @basket.kori.number.to_s if @basket.isa(:order)
+  = t(:order) + " " + @basket.kori.id_number if @basket.isa(:order)
 .col-md-4
   %p
     %b

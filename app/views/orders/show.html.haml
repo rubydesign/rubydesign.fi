@@ -2,6 +2,8 @@
   .col-md-7
     %h2
       = t(:order) + " : " + @order.number.to_s
+      - if @order.number.blank?
+        = link_to t(:generate_number), generate_number_order_path(@order), :class => "btn btn-info btn-sm ship_now"
       - unless @order.canceled_on.blank?
         = t(:canceled_on) + " : " + date(@order.canceled_on)
   .col-md-3
@@ -52,9 +54,28 @@
             %b= t(:note)
             = in_place @order , :note, :as => :textarea
         %tr
-          =render "shipment"
+          %td
+            %b= t(:message)
+            = in_place @order , :message
+          %td
+            -unless(@order.shipped_on.blank?)
+              %b
+                = t(:shipped_on) + " : "
+              =date(@order.shipped_on)
+            -else
+              = link_to t(:ship), ship_order_path(@order), :class => "btn btn-info btn-sm ship_now"
         %tr
-          = render "payment"
+          %td
+            %b= t(:payment_info)
+            = in_place @order , :payment_info
+          %td
+            -unless @order.paid_on.blank?
+              %b
+                = t(:paid_on) + ":"
+              \
+              = date(@order.paid_on)
+            -else
+              = link_to t(:pay), pay_order_path(@order), :class => "btn btn-info btn-sm pay_now"
 
 .row.order_show_pr
   .col-md-12

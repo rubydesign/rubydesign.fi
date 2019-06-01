@@ -3,6 +3,7 @@
 describe Order do
   let(:order) { create :order }
   let(:shipped_order) { create :order_shipped }
+  let(:ordered_order) { create :order_ordered }
 
   it "factory is ok" do
     o = build :order
@@ -14,8 +15,16 @@ describe Order do
     expect(Order.new.save).to eq false
   end
 
+  it "creates orders without ref numbers" do
+    expect(order.number).to be nil
+  end
+
+  it "creates ordered orders with ref numbers" do
+    expect(ordered_order.number).not_to be nil
+  end
+
   it "returns a reference number" do
-    expect(order.viite.length).to be 10 
+    expect(shipped_order.viite.length).to be 10
   end
 
   it "doesnt save order with just mail" do

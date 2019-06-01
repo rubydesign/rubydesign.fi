@@ -3,7 +3,7 @@ class OrdersController < AdminController
   include Print
 
   before_action :load_order, :only => [ :show, :edit, :destroy, :update , :cancel,
-                                        :ship, :shipment ,  :pay , :mail]
+                                        :ship, :shipment ,  :pay , :generate_number]
 
   def index
     @q = Order.ransack(params[:q])
@@ -31,8 +31,15 @@ class OrdersController < AdminController
     return redirect_to orders_path , :notice => t(:update_success) + ":#{@order.number}"
   end
 
+  def generate_number
+    @order.generate_order_number
+    @order.save!
+    return redirect_to order_path(@order), :notice => t(:update_success)
+  end
+
   def ship
     @order.ship_now
+    @order.generate_order_number
     @order.basket.deduct!
     @order.save!
     return redirect_to order_path(@order), :notice => t(:update_success)
