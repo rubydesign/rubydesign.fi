@@ -23,6 +23,12 @@ describe Order do
     expect(ordered_order.number).not_to be nil
   end
 
+  it "ups the number on 2 consecutive orders" do
+    numm = ordered_order.number
+    num2 = order.generate_order_number
+    expect(num2.last).not_to eq numm.last
+  end
+
   it "returns a reference number" do
     expect(shipped_order.viite.length).to be 10
   end
@@ -38,7 +44,6 @@ describe Order do
   end
 
   it "creates ok" do
-    order
     expect(order.basket.locked?).to eq false
   end
 

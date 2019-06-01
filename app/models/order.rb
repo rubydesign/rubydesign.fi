@@ -28,7 +28,8 @@ class Order < ActiveRecord::Base
   # this is what we use, but it can easily be changed by redifining this method
   # format RYYYYRUNIN  R, 4 digit year and a running number
   def generate_order_number
-    if (last = Order.first) && last.number # last, but default order is reversed
+    last = Order.where.not(number: nil).first
+    if last && last.number # last, but default order is reversed
       num = last.number[5..9].to_i + 1
     else
       num = 30000
