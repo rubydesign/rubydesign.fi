@@ -2,6 +2,8 @@ class Basket < ActiveRecord::Base
   ADD = 1
   REMOVE = -1
 
+  after_touch :update_cache
+
   default_scope { order('created_at DESC') }
 
   belongs_to :kori, polymorphic: true  , optional: true #kori is basket in finnish
@@ -11,8 +13,6 @@ class Basket < ActiveRecord::Base
               foreign_key: 'kori_id' , optional: true
 
   has_many :items, autosave: true , :dependent => :destroy
-
-  before_save :cache_total
 
   accepts_nested_attributes_for :items
 
@@ -28,15 +28,12 @@ class Basket < ActiveRecord::Base
     not self.locked.blank?
   end
 
-  def cache_total
-    self.total_price = (items.to_a.sum{ |i| i.total }).round(2)
-    self.total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
-  end
-
-  def touch(*names, time: nil)
-    cache_total
-    super
-    save!
+  def update_cache
+    total_price = (items.to_a.sum{ |i| i.total }).round(2)
+    total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
+    return if self.total_price == total_price
+    return if self.total_tax == total_tax
+    update_attributes!(total_price: total_price ,total_tax: total_tax)
   end
 
   #return a hash of rate => amount

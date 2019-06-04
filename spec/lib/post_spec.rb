@@ -98,7 +98,7 @@ RSpec.describe Post do
     basket = create :basket_with_item
     basket.items.first.product.update_attributes!(product)
     basket.items.first.update_attributes!(item)
-    basket.cache_total #TODO after save hook does not work to automatically update the totals
+    #basket.cache_total #TODO after save hook does not work to automatically update the totals
     basket
   end
   def price_for_basket(basket , args = {})
