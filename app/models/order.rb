@@ -86,6 +86,7 @@ class Order < ActiveRecord::Base
   # this returns a finnish reference number, as used in the finnish bank system
   # for referencing payments to bills.
   def viite
+    return "" unless self.number
     base = self.number[1 .. -1]
     ReferenceNumber.new(base).to_s
   end
