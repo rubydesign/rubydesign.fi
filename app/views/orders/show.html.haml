@@ -141,7 +141,7 @@
     \ 
     = link_to t(:destroy) , order_path(@order), :data => {:confirm => t(:are_you_sure )}, :method => :delete, :title => t(:destroy) , :class => "btn btn-danger btn-sm" if @order.shipped_on.nil? and @order.paid_on.nil?
     \ 
-    - if @order.id_number.blank? && !@order.basket.locked?
+    - if @order.number.blank? && !@order.basket.locked?
       = link_to t(:deduct_only), deduct_only_order_path(@order), :class => "btn btn-info btn-sm ship_now"
 
   .col-md-2
