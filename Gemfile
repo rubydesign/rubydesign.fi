@@ -23,6 +23,7 @@ gem "barby" , "~> 0.6"
 gem "chunky_png" , "~> 1.3"
 gem "prawn" ,  "~> 2.0"
 gem "reference_number"
+gem 'pry-rails'
 
 gem 'rails', '~> 5.2.3'
 gem 'sqlite3'
