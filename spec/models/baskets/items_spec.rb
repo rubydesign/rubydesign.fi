@@ -7,6 +7,12 @@ describe "Basket totals" do
     basket = create :basket_3_items
     expect(basket.items.length).to eq 3
   end
+  it "updates total on items remove" do
+    sum = basket.total_price
+    basket.items.first.quantity = 0
+    basket.save!
+    expect(basket.total_price).to eq 20
+  end
   it "updates total on add" do
     items = basket.items
     total = items.first.price * items.first.quantity + items.last.price * items.last.quantity

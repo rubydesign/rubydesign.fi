@@ -29,11 +29,10 @@ class Basket < ActiveRecord::Base
   end
 
   def update_cache
-    total_price = (items.to_a.sum{ |i| i.total }).round(2)
-    total_tax =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
-    return if self.total_price == total_price
-    return if self.total_tax == total_tax
-    update_attributes!(total_price: total_price ,total_tax: total_tax)
+    total_p = (items.to_a.sum{ |i| i.total }).round(2)
+    total_t =  (items.to_a.sum{ |i| i.tax_amount}).round(2)
+    return if self.total_price == total_p
+    update_attributes!(total_price: total_p ,total_tax: total_t)
   end
 
   #return a hash of rate => amount

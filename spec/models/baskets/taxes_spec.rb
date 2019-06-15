@@ -1,8 +1,8 @@
 
 
-describe "Basket totals" do
+describe "Basket taxes" do
   let(:basket) { create :basket_2_items }
-  
+
   it "calculates tax for 2" do
     expect(basket.items.length).to be 2
     taxes = basket.taxes
