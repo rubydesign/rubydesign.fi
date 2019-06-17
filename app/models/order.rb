@@ -12,6 +12,7 @@ class Order < ActiveRecord::Base
   validates :city,  :presence => true , :if => :needs_address?
   validates :phone, :presence => true , :if => :needs_address?
   validates :email, :presence => true , :email => {:ban_disposable_email => true, :mx_with_fallback => true }
+  #validates :order_number, uniqueness: true
 
   default_scope { order('created_at DESC')}
 
@@ -28,7 +29,8 @@ class Order < ActiveRecord::Base
   # this is what we use, but it can easily be changed by redifining this method
   # format RYYYYRUNIN  R, 4 digit year and a running number
   def generate_order_number
-    last = Order.where.not(number: nil).first
+    return unless self.number.blank?
+    last = Order.where.not(number: nil).order("number ASC").first
     if last && last.number # last, but default order is reversed
       num = last.number[5..9].to_i + 1
     else
