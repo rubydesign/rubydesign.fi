@@ -16,17 +16,24 @@ describe Order do
   end
 
   it "creates orders without ref numbers" do
-    expect(order.number).to be nil
+    expect(order.order_number).to be nil
   end
 
   it "creates ordered orders with ref numbers" do
     expect(ordered_order.number).not_to be nil
   end
 
+  it "returns id if no number" do
+    expect(order.id_number). to eq "1"
+  end
+  it "returns order_number if number" do
+    expect(ordered_order.id_number). to eq "R201930000"
+  end
+
   it "ups the number on 2 consecutive orders" do
-    numm = ordered_order.number
+    numm = ordered_order.order_number
     num2 = order.generate_order_number
-    expect(num2.last).not_to eq numm.last
+    expect(num2).to eq numm + 1
   end
 
   it "returns a reference number" do

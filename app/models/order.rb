@@ -29,18 +29,21 @@ class Order < ActiveRecord::Base
   # this is what we use, but it can easily be changed by redifining this method
   # format RYYYYRUNIN  R, 4 digit year and a running number
   def generate_order_number
-    return unless self.number.blank?
-    last = Order.where.not(number: nil).order("number ASC").first
-    if last && last.number # last, but default order is reversed
-      num = last.number[5..9].to_i + 1
+    return unless self.order_number.blank?
+    last = Order.where.not(order_number: nil).order("order_number ASC").first
+    if last
+      num = last.order_number % 100000 + 1
     else
       num = 30000
     end
-    self.number = "R#{Time.now.year}#{num}"
+    self.order_number = Time.now.year * 100000 + num
   end
 
+  def number
+    "R#{self.order_number}"
+  end
   def id_number
-    self.number ? self.number.to_s : self.id.to_s
+    self.order_number ? self.number : self.id.to_s
   end
 
   def total_price
@@ -88,7 +91,7 @@ class Order < ActiveRecord::Base
   # this returns a finnish reference number, as used in the finnish bank system
   # for referencing payments to bills.
   def viite
-    return "" unless self.number
+    return "" unless self.order_number
     base = self.number[1 .. -1]
     ReferenceNumber.new(base).to_s
   end
