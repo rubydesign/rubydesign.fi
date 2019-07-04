@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   validates :street,:presence => true , :if => :needs_address?
   validates :city,  :presence => true , :if => :needs_address?
   validates :phone, :presence => true , :if => :needs_address?
-  validates :email, :presence => true , :email => {:ban_disposable_email => true, :mx_with_fallback => true }
+  validates :email, :presence => true , :email => true
   #validates :order_number, uniqueness: true
 
   default_scope { order('created_at DESC')}
@@ -30,7 +30,7 @@ class Order < ActiveRecord::Base
   # format RYYYYRUNIN  R, 4 digit year and a running number
   def generate_order_number
     return unless self.order_number.blank?
-    last = Order.where.not(order_number: nil).order("order_number ASC").first
+    last = Order.unscoped.where.not(order_number: nil).order("order_number DESC").first
     if last
       num = last.order_number % 100000 + 1
     else

@@ -36,6 +36,22 @@ describe Order do
     expect(num2).to eq numm + 1
   end
 
+  it "ups the number on 3 non consecutive orders" do
+    one = create :order
+    two = create :order
+    three = create :order
+    num3 = three.generate_order_number
+    three.save!
+    num1 = one.generate_order_number
+    one.save!
+    puts  Order.where.not(order_number: nil).order("order_number ASC").last.inspect
+    num2 = two.generate_order_number
+    two.save!
+    puts num2
+    expect(num1).to eq num3 + 1
+    expect(num2).to eq num1 + 1
+  end
+
   it "returns a reference number" do
     expect(shipped_order.viite.length).to be 10
   end
