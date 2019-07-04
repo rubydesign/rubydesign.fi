@@ -15,7 +15,7 @@
       %table.table.table-striped.table-sm.table-hover
         %thead
           %tr
-            %th= sort_link [:office,@q], :number
+            %th= sort_link [:office,@q], :order_number
             %th.text-right= sort_link [:office,@q], :ordered_on
             %th.text-right= t(:items)
             %th.text-right= sort_link [:office,@q], :basket_total_price
@@ -58,7 +58,7 @@
     = search_form_for @q, :html => { :class => "form-horizontal" , :role => "form"}, :method => :get do |f|
       .form-group
         .input-group
-          = f.text_field :number_cont ,:class => "form-control" , :placeholder =>  t(:order_number)
+          = f.text_field :ordedr_number_eq ,:class => "form-control" , :placeholder =>  t(:order_number)
           %span.input-group-addon
             = f.radio_button :note_present , true
       .form-group.row
