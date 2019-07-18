@@ -73,7 +73,8 @@
               \
               = date(@order.paid_on)
             -else
-              = link_to t(:pay), pay_order_path(@order), :class => "btn btn-info btn-sm pay_now"
+              - unless(@order.shipped_on.blank?)
+                = link_to t(:pay), pay_order_path(@order), :class => "btn btn-info btn-sm pay_now"
 
 .row.order_show_pr
   .col-md-12

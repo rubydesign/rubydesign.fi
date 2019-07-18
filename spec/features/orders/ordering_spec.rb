@@ -33,7 +33,7 @@ describe "Orders" do
     ensure_path shipment_order_path(order)
   end
   it "pays an order" do
-    order = create(:order_ordered)
+    order = create(:order_shipped)
     visit_path order_path(order)
     find(".pay_now").click
   end
