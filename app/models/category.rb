@@ -5,8 +5,6 @@ class Category < ActiveRecord::Base
   has_many :products, :dependent => :nullify
   has_many :categories, :dependent => :nullify
   belongs_to :category, optional: true
-  has_attached_file :main_picture
-  validates_attachment_content_type :main_picture, :content_type => /\Aimage\/.*\Z/
 
   validates :name, :presence => true
   validates :link, presence: true, :if => :generate_url_if_needed

@@ -4,7 +4,7 @@ gem 'ruby2js'
 gem 'ransack'
 gem "valid_email" , '0.0.10'
 gem 'sass-rails' , '~> 5.0'
-gem "haml" , git: "https://github.com/haml/haml"
+gem "haml"
 gem "jquery-rails" , '~> 4.0'
 gem 'coffee-rails' , '~> 4.0'
 gem 'jquery-ui-rails' , '~> 5.0'
@@ -16,9 +16,8 @@ gem 'high_voltage'
 gem 'kaminari' , '~> 1.1'
 gem 'bootstrap'
 gem 'simple_form'
-gem "paperclip" , ">= 5.2.0"
 gem 'rails-i18n' , '~> 4.0'
-gem "bcrypt-ruby" , '~> 3.1'
+gem "bcrypt"
 gem "barby" , "~> 0.6"
 gem "chunky_png" , "~> 1.3"
 gem "prawn" ,  "~> 2.0"

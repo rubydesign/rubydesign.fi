@@ -20,8 +20,6 @@ class Product < ActiveRecord::Base
   belongs_to :product , optional: true
   belongs_to :category , optional: true
   belongs_to :supplier , optional: true
-  has_attached_file :main_picture
-  validates_attachment_content_type :main_picture, :content_type => /\Aimage\/.*\Z/
 
   # default product scope only lists non-deleted products
   default_scope {where(:deleted_on => nil).order(created_at: :desc) }

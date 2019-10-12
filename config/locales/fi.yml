@@ -133,9 +133,7 @@ fi:
   item_total: Tuotteet
   items: Tuotteet
   last_name: Sukunimi
-  link: linkki
   locked: Lukittu
-  main_picture: Kuva
   make_order: Luo Tilaus
   make_purchase: Luo Sisäänosto
   manage: Hallinta
@@ -169,7 +167,6 @@ fi:
   pay: Maksa
   payment_info: Maksukoodi
   phone: Puhelin
-  picture: Kuva
   price: Hinta
   product: Tuote
   product_added: Tuote lisätty ostoskoriin

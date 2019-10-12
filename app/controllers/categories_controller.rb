@@ -54,7 +54,7 @@ class CategoriesController < AdminController
   end
 
   def params_for_model
-    params.require(:category).permit(:category_id,:name,:link,:main_picture,:position,
+    params.require(:category).permit(:category_id,:name,:link,:position,
                                     :summary, :description)
   end
 end

@@ -14,7 +14,6 @@
       %table.table.table-striped.table-bordered.table-sm
         %thead
           %tr
-            %th=t( "picture")
             %th= sort_link [:office,@q], :name
             %th= t(:count)
             %th=t( "activerecord.attributes.category.category")
@@ -23,8 +22,7 @@
                 = @category_scope.length.to_s + " " +t(:categories)
         %tbody
           - @categories.each do |category|
-            %tr{:class => "line-#{cycle("1","2")}"}
-              %td.image= image_tag category.main_picture.url(:thumb)
+            %tr.line{:class => "line-#{cycle("1","2")}"}
               %td=link_to category.name, category_path(category), :title => t(:show)
               %td=category.products.length.to_s
               %td=link_to(category.category.name, category_path(category.category)) if category.category
