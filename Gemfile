@@ -42,7 +42,7 @@ gem "neat"
 gem 'db_fixtures_dump'  , git: "https://github.com/rubydesign/db_fixtures_dump" #backup
 
 group  :production do
-  gem "mysql2"
+  gem "pg"
 end
 
 group :development do
