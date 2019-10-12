@@ -19,9 +19,6 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: pg
   database: rubydesign
   username: rubydesign
-  password: <%= Rails.application.credentials.db_password%>
-  encoding: utf8
-  host: localhost
