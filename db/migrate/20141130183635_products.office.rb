@@ -7,8 +7,13 @@ class Products < ActiveRecord::Migration[4.2]
       t.string      :link
       t.text        :description
       t.text        :summary
-      t.attachment  :main_picture
-      t.attachment  :extra_picture
+
+
+      t.string "main_picture_file_name", limit: 255
+      t.string "main_picture_content_type", limit: 255
+      t.integer "main_picture_file_size"
+      t.datetime "main_picture_updated_at"
+
       t.boolean     :online ,       :default => false
       t.float       :cost ,         :default => 0.0
       t.float       :weight ,       :default => 0.1
