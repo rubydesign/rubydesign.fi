@@ -32,14 +32,14 @@ gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
 
 gem "autoprefixer-rails"
-gem 'bootsnap', '>= 1.1.0', require: false
+#gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_racer'
 
 gem 'rack-attack'
 gem "puma"
 gem "neat"
 
-gem 'db_fixtures_dump'  , git: "https://github.com/rubydesign/db_fixtures_dump" #backup
+#gem 'db_fixtures_dump'  , git: "https://github.com/rubydesign/db_fixtures_dump" #backup
 
 group  :production do
   gem "pg"
@@ -57,9 +57,9 @@ group :development do
   gem "i18n-tasks"
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'spring-commands-rspec'
+#  gem 'spring'
+#  gem 'spring-watcher-listen', '~> 2.0.0'
+#  gem 'spring-commands-rspec'
 end
 group :test do
   gem 'rspec-rails'
