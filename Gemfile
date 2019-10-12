@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.6.3"
 
+gem "irb"
 gem 'ruby2js'
 gem 'ransack'
 gem "valid_email" , '0.0.10'
