@@ -26,6 +26,7 @@ gem "reference_number"
 gem 'pry-rails'
 
 gem 'rails', '~> 5.2.3'
+gem 'sqlite3'
 
 gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
@@ -41,11 +42,10 @@ gem "neat"
 gem 'db_fixtures_dump'  , git: "https://github.com/rubydesign/db_fixtures_dump" #backup
 
 group  :production do
-  gem "pg"
+  gem "mysql2"
 end
 
 group :development do
-#  gem 'sqlite3'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'

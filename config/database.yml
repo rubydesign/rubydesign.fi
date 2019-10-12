@@ -25,9 +25,3 @@ production:
   password: <%= Rails.application.credentials.db_password%>
   encoding: utf8
   host: localhost
-
-other:
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
