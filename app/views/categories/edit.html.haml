@@ -12,10 +12,8 @@
             = t(:new)
 = simple_form_for(@category, :html => { :multipart => true } ) do |f|
   .row
-    .col-md-4
+    .col-md-6
       = f.input :name
-    .col-md-8
-      = f.input :link
   .row
     .col-md-4
       = f.input :summary , as: :text , input_html: {rows: 5}

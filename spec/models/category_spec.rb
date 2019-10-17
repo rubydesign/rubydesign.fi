@@ -19,7 +19,6 @@ describe Category do
   it "deletes " do
     cat = create :category
     expect(cat.delete.save).to be  true
-    expect(cat.link).to eq  "pois_1"
     expect(Category.where(:id => cat.id).first).to be  nil
     expect(Category.unscoped.find(cat.id)).not_to be nil
   end
@@ -29,7 +28,6 @@ describe Category do
     cat2 = create :category
     expect(cat1.delete.save).to be  true
     expect(cat2.delete.save).to be  true
-    expect(cat1.link).to start_with   "pois"
     expect(Category.where(:id => cat1.id).first).to be  nil
     expect(Category.where(:id => cat2.id).first).to be  nil
   end

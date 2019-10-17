@@ -3,6 +3,5 @@
 FactoryGirl.define do
   factory :category do
     sequence(:name) {|n| "Gourmet#{n}"}
-    sequence(:link) {|n| "gourmet#{n}"}
   end
 end

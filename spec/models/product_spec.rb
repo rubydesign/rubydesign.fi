@@ -6,7 +6,6 @@ describe Product do
   it "default factory produces values" do
     pro = create :product
     expect(pro.tax).not_to be nil
-    expect(pro.link).not_to be nil
     expect(pro.cost).not_to be nil
     expect(pro.ean).not_to be nil
     expect(pro.scode).not_to be nil

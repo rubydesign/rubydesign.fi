@@ -1,16 +1,5 @@
 # RubyClerk product may represent one of three things
 # - the normal product (all attributes work as expected)
-# - a product line, in which case it may not be sold and inventory is the sum of the items
-#                   other attributes (like price/cost) act as a template and are copied into children
-#                   where they are then used.
-# - an (line) item of a product line, in which case the default view concatenates name and description and
-#                   shows prices relative to it's parent
-#
-# This makes the model a three headed one and validation is a little more complicated
-# - a product line _may not_ have an ean (as it can't be sold)
-# - a product and product line _must_ have a link , but  (those are generated if needed)
-# - line item _may not_ have a link (this is enforced, not validated)
-
 # attributes : see permitted_attributes + inventory + deleted_on
 
 class Product < ActiveRecord::Base
@@ -28,14 +17,7 @@ class Product < ActiveRecord::Base
   validates :name, :presence => true
   validates :deleted_on , :absence => true , :if => :has_inventory?
 
-  before_save :check_attributes
   before_save :fix_cost
-
-  # if no url is set we generate one based on the name
-  # but product_items don't have urls, so not for them
-  def check_attributes
-    self.link = self.name.gsub(" " , "_").downcase if self.link.blank? && self.name != nil
-  end
 
   def has_inventory?
     self.inventory > 0
@@ -51,7 +33,6 @@ class Product < ActiveRecord::Base
   # to actually remove a product from the db, use the console
   def delete
     self.deleted_on = Date.today
-    self.link = ""
     self
   end
 

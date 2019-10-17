@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_100406) do
+ActiveRecord::Schema.define(version: 2019_10_17_111409) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "kori_id"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_100406) do
     t.text "description", default: ""
     t.text "summary", default: ""
     t.integer "position", default: 1
-    t.string "link", limit: 255
     t.string "main_picture_file_name", limit: 255
     t.string "main_picture_content_type", limit: 255
     t.integer "main_picture_file_size"
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_100406) do
     t.datetime "updated_at"
     t.date "deleted_on"
     t.index ["category_id"], name: "index_categories_on_category_id"
-    t.index ["link"], name: "index_categories_on_link", unique: true
   end
 
   create_table "clerks", force: :cascade do |t|
@@ -89,7 +87,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_100406) do
   create_table "products", force: :cascade do |t|
     t.float "price", null: false
     t.string "name", limit: 255, null: false
-    t.string "link", limit: 255
     t.text "description", default: ""
     t.text "summary", default: ""
     t.float "cost", default: 0.0
@@ -108,7 +105,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_100406) do
     t.integer "position", default: 1
     t.integer "pack_unit"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["link"], name: "index_products_on_link"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
