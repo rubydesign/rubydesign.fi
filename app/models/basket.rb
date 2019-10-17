@@ -116,7 +116,7 @@ class Basket < ActiveRecord::Base
     else
       price = (self.kori_type == "Purchase") ? prod.cost : prod.price
       exists = items.new :quantity => quant , :product => prod , :price => price ,
-                         :tax => prod.tax , :name => prod.full_name
+                         :tax => prod.tax , :name => prod.name
     end
     if( exists.quantity == 0)
       items.delete exists

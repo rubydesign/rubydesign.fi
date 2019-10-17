@@ -2,10 +2,7 @@
   .row
     .col-md-2
       -# = t params["action"]
-      %h3= t @product.type
     .col-md-8
       %h3
-        - if @product.product_item?
-          = link_to @product.product.name , product_url(@product.product)
         = @product.name
     .col-md-2

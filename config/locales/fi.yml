@@ -144,7 +144,6 @@ fi:
   name: Nimi
   name_contains: Nimi sisältää
   new: Uusi
-  new_item: Uusi tuote tuotelinjalle
   nolla: Nollaa hinnat
   note: Muistiinpano
   order: Tilaus
@@ -171,8 +170,6 @@ fi:
   product: Tuote
   product_added: Tuote lisätty ostoskoriin
   product_has_inventory: Tuotteella on inventaario
-  product_item: Tuote Tuotelinjalla
-  product_line: Tuotelinja
   products: Tuotteet
   position: Järjestysnumero
   purchase: Sisäänosto

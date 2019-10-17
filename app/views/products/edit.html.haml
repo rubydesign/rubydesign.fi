@@ -1,14 +1,12 @@
 = simple_form_for(@product, :html => { :multipart => true } ) do |f|
   .product_edit_start.row
     = render "head"
-    - url = @product.persisted? ? product_path(@product) : products_path
     .col-md-8
       .row
         .col-md-6
           = f.input :name
         .col-md-6
-          - unless @product.product_id
-            = f.input :link
+          = f.input :link
         .col-md-4
           = f.input :price
         .col-md-4
@@ -41,13 +39,10 @@
         .col-md-4
           = f.submit :class => "btn btn-success"
         .col-md-4
-          -if @product.product_id
-            = link_to t(:cancel), product_path(@product.product), :class => "btn btn-warning"
-          -else
-            = link_to t(:cancel), products_path, :class => "btn btn-warning"
+          - url = @product.persisted? ? product_path(@product) : products_path
+          = link_to t(:cancel), url, :class => "btn btn-warning"
 
     .col-md-4
-      = f.hidden_field( :product_id) if @product.product_id
       .row
         .col-md-12
           = f.input :summary,  input_html: {rows: 4}

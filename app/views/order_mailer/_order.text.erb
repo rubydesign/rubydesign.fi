@@ -3,7 +3,7 @@ Tilauksen tiedot
 ...............................................................................
 
 <% @order.basket.items.each do |item|%>
-<%= item.quantity%> x <%=item.product.full_name%> á <%= euros(item.price) %> = <%= euros(item.total)%> 
+<%= item.quantity%> x <%=item.product.name%> á <%= euros(item.price) %> = <%= euros(item.total)%> 
 <%end%>
 
 ...............................................................................

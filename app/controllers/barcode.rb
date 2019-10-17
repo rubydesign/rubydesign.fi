@@ -24,14 +24,14 @@ module Barcode
     pdf = create_pdf
     pdf.image( StringIO.new( aBarcode.to_png(:xdim => 5)) , :width => 50.mm ,
             :height => 10.mm , :at => [ 0 , 10.mm])
-    send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.full_name}.pdf"
+    send_data pdf.render , :type => "application/pdf" , :filename => "#{@product.name}.pdf"
   end
 
   private
 
   def create_pdf
     pdf = Prawn::Document.new( :page_size => [ 54.mm , 25.mm ] , :margin => 2.mm )
-    pdf.text( @product.full_name  , :align => :left )
+    pdf.text( @product.name  , :align => :left )
     pdf.text( "#{@product.price} € "  , :align => :right , :padding => 5.mm)
     pdf
   end

@@ -47,11 +47,7 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-passenger'
+  gem "phantomjs"
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "i18n-tasks"

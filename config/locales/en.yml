@@ -144,7 +144,6 @@ en:
   name: Name
   name_contains: Name contains
   new: New
-  new_item: New product item
   nolla: Zero prices
   note: Note
   order: Order
@@ -173,8 +172,6 @@ en:
   product: Product
   product_added: Product added
   product_has_inventory: Product has inventory
-  product_item: Product Item
-  product_line: Product Line
   products: Products
   purchase: Purchase
   purchase invoice:

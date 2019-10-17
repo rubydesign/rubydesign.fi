@@ -78,7 +78,7 @@ class BasketsController < AdminController
         @basket.add_product prod
       else
         # stor the basket in the session ( or the url ???)
-        redirect_to products_path(:q => {"name_or_product_name_cont"=> ean},:basket => @basket.id)
+        redirect_to products_path(:q => {"name_cont"=> ean},:basket => @basket.id)
         return
       end
     end

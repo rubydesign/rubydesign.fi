@@ -6,7 +6,7 @@ begin
   puts "Using Spring loaded rspec"
 rescue LoadError
 end
-guard :rspec , cmd: "bundle exec spring rspec" do
+guard :rspec , cmd: "bundle exec rspec" do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }

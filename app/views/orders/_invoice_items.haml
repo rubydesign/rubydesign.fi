@@ -9,7 +9,7 @@
     %tr
       %td.cell= item.product.ean unless @receipt
       %td.cell
-        = item.product.full_name rescue item.product.name
+        = item.product.name rescue item.product.name
         - if item.discount > 0
           (#{-item.discount}%)
       %td.cell.price.text-right= best_euros(item.price) unless @receipt

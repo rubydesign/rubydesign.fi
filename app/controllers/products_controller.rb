@@ -13,9 +13,8 @@ class ProductsController < AdminController
 
   def index
     param = params[:q] || {}
-    param.merge!(:product_id_null => 1)    unless( params[:basket])
     @q = Product.ransack( param )
-    @product_scope = @q.result(:distinct => true).includes(:products , :supplier , :category)
+    @product_scope = @q.result(:distinct => true).includes( :supplier , :category)
     @products = @product_scope.page(params[:page])
     create_used_inventory_list if( available_inventory )
   end
@@ -24,12 +23,7 @@ class ProductsController < AdminController
   end
 
   def new
-    if params[:parent_id]
-      parent = Product.find params[:parent_id]
-      @product = parent.new_product_item
-    else
-      @product = Product.new :tax => RubyClerks.config("defaults.tax")
-    end
+    @product = Product.new :tax => RubyClerks.config("defaults.tax")
     render :edit
   end
 
@@ -40,8 +34,7 @@ class ProductsController < AdminController
     @product = Product.create(params_for_model)
     if @product.save
       flash.notice = t(:create_success, :model => "product")
-      show = @product.product_item? ? @product.product : @product
-      redirect_to product_path(show)
+      redirect_to product_path(@product)
     else
       flash.alert = t(:fix_errors, :model => "product")
       render :action => :edit
@@ -63,7 +56,7 @@ class ProductsController < AdminController
   def destroy
     @product.delete
     if @product.save
-      redirect_to products_url , :notice => t("deleted") + ": " + @product.full_name
+      redirect_to products_url , :notice => t("deleted") + ": " + @product.name
     else
       redirect_to product_url(@product) , :notice => "#{t(:error)} : #{t(:product_has_inventory)}"
     end
@@ -88,7 +81,7 @@ class ProductsController < AdminController
 
   def params_for_model
     params.require(:product).permit(:price,:cost,:weight,:name,:description, :summary,
-                                    :stock_level,:link,:ean,:tax,:properties,:scode,:product_id,
+                                    :stock_level,:link,:ean,:tax,:properties,:scode,
                                     :category_id,:supplier_id, :position, :pack_unit)
   end
 end

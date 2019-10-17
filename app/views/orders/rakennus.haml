@@ -39,7 +39,7 @@
         - @order.basket.items.each do |item|
           %tr
             %td.cell
-              = item.product.full_name rescue item.product.name
+              = item.product.name rescue item.product.name
               - if item.discount > 0
                 (#{-item.discount}%)
             %td.cell.price.text-right= best_euros(item.price)

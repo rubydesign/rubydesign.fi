@@ -45,14 +45,13 @@
               = sort_link [:office,@q], :pack_unit
         %tbody
           - @products.each do |product|
-            -next if params[:basket] and product.line?
             %tr{:class => "line-#{cycle("1","2")}"}
               %td
                 = product.position
                 = product.scode
               %td.name
                 = link_to product_path(product), :title => t(:show) do
-                  =product.full_name
+                  =product.name
               %td
                 %span.euro {{ price_for(#{product.id}) }}
                 \|
@@ -83,7 +82,7 @@
         .input
           - if params[:basket]
             = hidden_field_tag :basket , params[:basket]
-            = f.text_field :name_or_product_name_cont, :class => "form-control" , :placeholder => t(:name)
+            = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
           -else
             = f.text_field :name_cont, :class => "form-control" , :placeholder => t(:name)
       .form-group.row

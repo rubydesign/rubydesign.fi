@@ -2,9 +2,6 @@
   .product_show_start
   = render "head"
 
-  -if @product.line?
-    =render "line"
-
 .row
   %div
     %table.table.table-sm.product-table
@@ -58,12 +55,8 @@
     = link_to t(:edit), edit_product_path(@product), :class => "btn btn-success btn-sm"
   .col-md-2
     = link_to t(:delete) , product_path(@product), :method => :delete , :class => "btn btn-danger btn-sm", :data => {  :confirm => t(:are_you_sure )}
-  .col-md-2
-    -unless @product.product_item?
-      = link_to t(:new_item) , new_product_path( :parent_id => @product.id), :class => "btn btn-primary btn-sm"
   .col-md-2.product_show_row_end
-    -unless @product.line?
-      = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary btn-sm"
+    = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary btn-sm"
   .col-md-2
     = link_to t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary bt-sm"
 

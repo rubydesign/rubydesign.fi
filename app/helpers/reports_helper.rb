@@ -16,7 +16,6 @@ module ReportsHelper
             t("category")     => :by_category  ,
             t("supplier")     => :by_supplier  ,
             t("product")      => :by_product  ,
-            t("product_line") => :by_product_line ,
             t("email")        => :by_email }
 #    Property.all.each { |p| opt[p.name] = p.name }
     opt

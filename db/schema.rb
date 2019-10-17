@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_122008) do
+ActiveRecord::Schema.define(version: 2019_10_17_100406) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "kori_id"
@@ -92,10 +92,6 @@ ActiveRecord::Schema.define(version: 2019_06_17_122008) do
     t.string "link", limit: 255
     t.text "description", default: ""
     t.text "summary", default: ""
-    t.string "main_picture_file_name", limit: 255
-    t.string "main_picture_content_type", limit: 255
-    t.integer "main_picture_file_size"
-    t.datetime "main_picture_updated_at"
     t.float "cost", default: 0.0
     t.float "weight", default: 0.1
     t.string "ean", limit: 255, default: ""
@@ -105,7 +101,6 @@ ActiveRecord::Schema.define(version: 2019_06_17_122008) do
     t.string "properties", limit: 255, default: ""
     t.string "scode", limit: 255, default: ""
     t.date "deleted_on"
-    t.integer "product_id"
     t.integer "category_id"
     t.integer "supplier_id"
     t.datetime "created_at"
@@ -114,7 +109,6 @@ ActiveRecord::Schema.define(version: 2019_06_17_122008) do
     t.integer "pack_unit"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["link"], name: "index_products_on_link"
-    t.index ["product_id"], name: "index_products_on_product_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 

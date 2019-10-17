@@ -26,7 +26,7 @@ describe Item do
   end
   it "has products" do
     [create(:item) , create(:item2) , create(:item22)].each do |c|
-      expect(c.product.full_name).not_to be blank?
+      expect(c.product.name).not_to be blank?
       expect(c.product.price).not_to be nil
       expect(c.product.tax).not_to be nil
     end
