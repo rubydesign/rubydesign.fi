@@ -23,7 +23,11 @@ class ProductsController < AdminController
   end
 
   def new
-    @product = Product.new :tax => RubyClerks.config("defaults.tax")
+    if(copy = params[:copy])
+      @product = Product.find(copy).copy_product
+    else
+      @product = Product.new :tax => RubyClerks.config("defaults.tax")
+    end
     render :edit
   end
 
@@ -82,6 +86,7 @@ class ProductsController < AdminController
   def params_for_model
     params.require(:product).permit(:price,:cost,:weight,:name,:description, :summary,
                                     :stock_level,:ean,:tax,:properties,:scode,
-                                    :category_id,:supplier_id, :position, :pack_unit)
+                                    :category_id,:supplier_id, :position, :pack_unit,
+                                    :dimension , :phase)
   end
 end

@@ -47,8 +47,9 @@
           - @products.each do |product|
             %tr{:class => "line-#{cycle("1","2")}"}
               %td
-                = product.position
-                = product.scode
+                =link_to edit_product_path(product) do
+                  = product.position
+                  = product.scode
               %td.name
                 = link_to product_path(product), :title => t(:show) do
                   =product.name
@@ -57,8 +58,12 @@
                 \|
                 %span.euro {{ cost_for(#{product.id}) }}
               %td.supplier
-                =product.supplier.supplier_name if product.supplier
-                =product.category.name if product.category
+                - if product.supplier
+                  = link_to products_path("q[supplier_id_eq]" => "#{product.supplier.id}") do
+                    = product.supplier.supplier_name
+                - if product.category
+                  = link_to products_path("q[category_id_eq]" => "#{product.category.id}") do
+                    = product.category.name
               %td.inventory
                 - if(available_inventory )
                   = "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "

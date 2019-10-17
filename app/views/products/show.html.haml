@@ -1,54 +1,55 @@
-.row
-  .product_show_start
-  = render "head"
+.row.product-window
+  %h3
+    = @product.name
 
-.row
-  %div
-    %table.table.table-sm.product-table
-      %tbody
-        %tr
-          %td
-            %b= t(:scode) + " : "
-            = in_place @product , :scode
-          %td
-            %b= t(:inventory) + " : "
-            = @product.inventory
-        %tr
-          %td
-            %b= t(:ean) + " : "
-            = in_place @product , :ean
-          %td
-            %b= t(:stock_level) + " : "
-            = in_place @product , :stock_level
-
-        %tr
-          %td
-            %b= t(:price) + " : "
-            = in_place @product , :price , display_with: lambda { |v| best_euros(v) }
-          %td
-            %b= t(:pack_unit) + " : "
-            = in_place @product , :pack_unit
-        %tr
-          %td
-            %b= t(:cost) + " : "
-            = in_place @product , :cost , display_with: lambda { |v| best_euros(v) }
-          %td
-            %b= t(:position) + " : "
-            = in_place @product , :position
-        %tr
-          %td
-            %b= t(:tax_percent) + " : "
-            = in_place @product , :tax
-          %td
-            %b= t(:weight) + " : "
-            = in_place @product , :weight
-        %tr
-          %td
-            %b= t(:category) + " : "
-            = link_to @product.category.name , category_path(@product.category) if @product.category
-          %td
-            %b= t(:supplier) + " : "
-            = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
+.row.h6
+  .col-md-4
+    %b= t(:scode) + " : "
+    = in_place @product , :scode
+  .col-md-4
+    %b= t(:inventory) + " : "
+    = @product.inventory
+  .col-md-4
+    %b= t(:stock_level) + " : "
+    = in_place @product , :stock_level
+.row.h6
+  .col-md-4
+    %b= t(:ean) + " : "
+    = in_place @product , :ean
+  .col-md-4
+    %b= t(:price) + " : "
+    = in_place @product , :price , display_with: lambda { |v| best_euros(v) }
+  .col-md-4
+    %b= t(:pack_unit) + " : "
+    = in_place @product , :pack_unit
+.row.h6
+  .col-md-4
+    %b= t(:position) + " : "
+    = in_place @product , :position
+  .col-md-4
+    %b= t(:cost) + " : "
+    = in_place @product , :cost , display_with: lambda { |v| best_euros(v) }
+  .col-md-4
+    %b= t(:tax_percent) + " : "
+    = in_place @product , :tax
+.row.h6
+  .col-md-4
+    %b= t(:weight) + " : "
+    = in_place @product , :weight
+  .col-md-4
+    %b= t(:phase) + " : "
+    = in_place @product , :phase
+  .col-md-4
+    %b= t(:dimension) + " : "
+    = in_place @product , :dimension
+.row.h6
+  .col-md-6
+    %b= t(:category) + " : "
+    = link_to @product.category.name , category_path(@product.category) if @product.category
+  .col-md-6
+    %b= t(:supplier) + " : "
+    = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
+%br
 
 .row.product_show_row_buttons
   .col-md-2
@@ -58,6 +59,6 @@
   .col-md-2.product_show_row_end
     = link_to t(:barcode) , barcode_product_path( @product), :class => "btn btn-primary btn-sm"
   .col-md-2
-    = link_to t(:new) + ' ' + t(:product) , new_product_path , :class => "btn btn-primary bt-sm"
+    = link_to t(:new) + ' ' + t(:product) , new_product_path(copy: @product.id) , :class => "btn btn-primary bt-sm"
 
 .product_show_end

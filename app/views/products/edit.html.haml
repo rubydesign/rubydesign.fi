@@ -1,6 +1,8 @@
 = simple_form_for(@product, :html => { :multipart => true } ) do |f|
   .product_edit_start.row
-    = render "head"
+    .h4
+      = t(:edit)
+      = @product.name
     .col-md-8
       .row
         .col-md-6
@@ -18,6 +20,9 @@
         .col-md-2
           = f.input :tax
         .col-md-2
+          = f.input :phase
+        .col-md-2
+          = f.input :dimension
 
       .row
         .col-md-4

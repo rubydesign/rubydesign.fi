@@ -236,4 +236,5 @@ fi:
   price: Hinta sis alv / alv 0
   house: Talo
   houses: Talot
-  
+  phase: osa
+  dimension: dimensio
