@@ -28,7 +28,11 @@ module BasketsHelper
       else
         text = t(:basket)
       end
-      link = edit_basket_path(basket)
+      if(basket.kind)
+        link = edit_house_path(basket)
+      else
+        link = edit_basket_path(basket)
+      end
     end
     return link_to text , link , options
   end

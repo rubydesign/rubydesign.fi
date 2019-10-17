@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_111409) do
+ActiveRecord::Schema.define(version: 2019_10_17_155313) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "kori_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_111409) do
     t.date "locked"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "kind"
     t.index ["kori_id"], name: "index_baskets_on_kori_id"
   end
 
@@ -104,6 +105,8 @@ ActiveRecord::Schema.define(version: 2019_10_17_111409) do
     t.datetime "updated_at"
     t.integer "position", default: 1
     t.integer "pack_unit"
+    t.integer "phase", default: 1
+    t.integer "dimension", default: 1
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end

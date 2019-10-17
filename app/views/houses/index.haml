@@ -1,0 +1,37 @@
+.row.house_index_start
+  .col-md-9.houses
+    .row
+      .col-md-10
+        %h2= t(:houses)
+        = paginate @houses
+      .col-md-2
+        = link_to  t(:new) + ' ' + t(:house) , new_house_path , :class => "btn btn-primary"
+  .col-md-3
+    = image_tag "ruby_clerks/houses.jpg" , :class => "img-responsive"
+.row
+  .col-md-9
+    %div
+      %table.table.table-striped.table-bordered.table-sm
+        %thead
+          %tr
+            %th= sort_link [:office,@q], :created_at
+            %th= sort_link [:office,@q], :total_price
+            %th= t(:items)
+            %th
+              %label.checkbox
+                = @house_scope.length.to_s + " " + t("houses")
+        %tbody
+          - @houses.each do |house|
+            %tr{:class => "line-#{cycle("1","2")}"}
+              %td
+                = date(house.created_at.to_date)
+              %td
+                = euros house.total_price
+              %td
+                - house.items.each do |item| #should break at 5 and do the rest as tooltip
+                  = item.quantity
+                  x
+                  = item.name
+                  %br
+              %td= basket_edit_link(house)
+    = paginate @houses

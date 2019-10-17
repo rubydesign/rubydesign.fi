@@ -234,3 +234,6 @@ fi:
   phone: Puhelin
   street: Jakeluosoite
   price: Hinta sis alv / alv 0
+  house: Talo
+  houses: Talot
+  

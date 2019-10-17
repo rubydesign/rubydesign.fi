@@ -32,6 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :houses do
+
+  end
+
   resources :orders , :except => [:edit] do
     collection do
       get "search" => "orders#index"
@@ -104,6 +108,6 @@ Rails.application.routes.draw do
   get "manage/all" => "manage#all"
   get '/manage/reports' => 'manage#reports'
 
-  match '*path', via: :all, to: 'page#error_404' #if Rails.production?
+  match '*path', via: :all, to: 'high_voltage/pages#show' , id: "404"#if Rails.production?
 
 end
