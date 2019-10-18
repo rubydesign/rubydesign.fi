@@ -33,5 +33,7 @@
                   x
                   = item.name
                   %br
-              %td= basket_edit_link(house)
+              %td
+                = basket_edit_link(house)
+                = house.id
     = paginate @houses

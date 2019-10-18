@@ -8,7 +8,6 @@ module BasketsHelper
   end
   def basket_edit_link basket , options = {}
     return "---" unless basket
-    return "" unless request.url.include?("basket")
     if basket.locked?
       text =  I18n.t(:locked) + ": "
       case basket.kori
@@ -29,6 +28,7 @@ module BasketsHelper
         text = t(:basket)
       end
       if(basket.kind)
+        text = t(:house)
         link = edit_house_path(basket)
       else
         link = edit_basket_path(basket)

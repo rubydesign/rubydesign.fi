@@ -18,10 +18,25 @@ class HousesController < AdminController
   end
 
   def edit
+    if( @basket.locked?)
+      redirect_to basket_path(@basket) , notice: "Cant edit, locked"
+    end
+    create_data
+  end
 
+  def self.rakennus
+    return @rakennus if @rakennus
+    @rakennus = Category.where(name: "Rakennus").first.id
+  end
+
+  protected
+
+  def create_data
+    @products = Product.where(category_id: self.class.rakennus).includes(:category)
   end
 
   private
+
   def load_basket
     @basket = Basket.find(params[:id])
   end
