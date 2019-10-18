@@ -1,18 +1,6 @@
-.row.purchase-app
-  .col-md-4
-    %h2= @basket.info
-  .col-md-4.basket
-    %b= t(:width) + " : "
-    {{basket.info.width}}
-    .overlay
-      %a{ "@click" => "basket.info.width += 1; changed = true"}
-        =image_tag "plus.png"
-      \&nbsp;
-      %span     {{basket.info.width}}
-      \&nbsp;
-      %a{ "@click" => "basket.info.width -= 1; changed = true"}
-        =image_tag "minus.png"
-
+.row.house-app
+  .col-md-6.basket
+    =render "header"
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
     %h6
       %a{"@click" => "tab = 1"}= t(:house)
@@ -58,26 +46,26 @@
         %th
           {{(total_price()/ 1.24).toFixed(2)}}
 
-  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
-    %table-component{ ":columns": "product_columns" ,
-                      ":table_data": "products",
-                      ":column_order": "product_order"}
-      %template{ slot: "name" , "slot-scope" => "row"}
-        %a{ ":href" => "'/products/' + row.object.id"}
-          {{row.object.name}}
-      %template{ slot: "add" , "slot-scope" => "row"}
-        %a{ "@click" => "to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
-          =image_tag "plus.png" , width: "30px"
+    .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
+      %table-component{ ":columns": "product_columns" ,
+                        ":table_data": "products",
+                        ":column_order": "product_order"}
+        %template{ slot: "name" , "slot-scope" => "row"}
+          %a{ ":href" => "'/products/' + row.object.id"}
+            {{row.object.name}}
+        %template{ slot: "add" , "slot-scope" => "row"}
+          %a{ "@click" => "to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
+            =image_tag "plus.png" , width: "30px"
 
-.row
-  .col-md-2
-    = link_to( t(:back) , basket_path(@basket) , class: "btn btn-info")
+  .row
+    .col-md-2
+      = link_to( t(:back) , basket_path(@basket) , class: "btn btn-info")
 
 =render "components/table"
 
 :ruby2js
   class App < Vue
-    options el: '.purchase-app'
+    options el: '.house-app'
     def initialize
       @tab = 1
       @changed = false
