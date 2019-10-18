@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_155313) do
+ActiveRecord::Schema.define(version: 2019_10_18_080042) do
 
   create_table "baskets", force: :cascade do |t|
     t.integer "kori_id"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2019_10_17_155313) do
     t.date "locked"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "type"
     t.string "kind"
+    t.string "info"
     t.index ["kori_id"], name: "index_baskets_on_kori_id"
   end
 
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_155313) do
     t.integer "basket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "info"
     t.index ["basket_id"], name: "index_items_on_basket_id"
     t.index ["product_id"], name: "index_items_on_product_id"
   end
@@ -96,7 +99,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_155313) do
     t.float "tax", default: 0.0
     t.integer "inventory", default: 0
     t.integer "stock_level", default: 0
-    t.string "properties", limit: 255, default: ""
     t.string "scode", limit: 255, default: ""
     t.date "deleted_on"
     t.integer "category_id"

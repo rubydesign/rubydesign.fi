@@ -1,7 +1,9 @@
 .row.product-window
   %h3
     = @product.name
-
+    (
+    %small=@product.id
+    )
 .row.h6
   .col-md-4
     %b= t(:scode) + " : "
@@ -49,6 +51,13 @@
   .col-md-6
     %b= t(:supplier) + " : "
     = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
+.row.h6
+  .col-md-6
+    %b= t(:summary) + " : "
+    = in_place @product , :summary
+  .col-md-6
+    %b= t(:description) + " : "
+    = in_place @product , :description
 %br
 
 .row.product_show_row_buttons

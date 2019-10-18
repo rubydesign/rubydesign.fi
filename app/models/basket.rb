@@ -2,19 +2,20 @@ class Basket < ActiveRecord::Base
   ADD = 1
   REMOVE = -1
 
-  after_touch :update_cache
-
-  default_scope { order('created_at DESC') }
+  store :info, accessors: [ :width, :length , :height , :gabel ] #, coder: JSON
 
   belongs_to :kori, polymorphic: true  , optional: true #kori is basket in finnish
-
 
   belongs_to :order, -> { where(baskets: {kori_type: 'Order'}).includes( :baskets) },
               foreign_key: 'kori_id' , optional: true
 
   has_many :items, autosave: true , :dependent => :destroy
 
+  default_scope { order('created_at DESC') }
+
   accepts_nested_attributes_for :items
+
+  after_touch :update_cache
 
   def quantity
     items.sum(:quantity)

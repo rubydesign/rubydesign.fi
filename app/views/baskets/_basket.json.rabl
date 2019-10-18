@@ -1,5 +1,5 @@
 object @basket
-attribute :id , :total_price
+attribute :id , :total_price , :info
 child :items , :object_root => false do
   attributes :id , :name , :quantity , :price , :product_id
   node :scode do |item|

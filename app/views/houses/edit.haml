@@ -1,15 +1,24 @@
 .row.purchase-app
-  .col-md-6.houses
-    %h2= @basket
+  .col-md-4
+    %h2= @basket.info
+  .col-md-4.basket
+    %b= t(:width) + " : "
+    {{basket.info.width}}
+    .overlay
+      %a{ "@click" => "basket.info.width += 1; changed = true"}
+        =image_tag "plus.png"
+      \&nbsp;
+      %span     {{basket.info.width}}
+      \&nbsp;
+      %a{ "@click" => "basket.info.width -= 1; changed = true"}
+        =image_tag "minus.png"
+
   .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
     %h6
-      %a{"@click" => "tab = 1"}= t(:basket)
+      %a{"@click" => "tab = 1"}= t(:house)
   .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
     %h6
       %a{"@click" => "tab = 2"}= t(:products)
-      \&nbsp;
-      %a.right{"@click" => "products_to_basket"}
-        =image_tag "plus.png" , width: "20px"
 
   .col-md-12.tab.basket{"v-bind:class" => "{active_tab: tab == 1}"}
     %table-component{ ":columns": "basket_columns" ,
@@ -105,9 +114,6 @@
       jQuery.post( '/baskets/' + @basket.id , jQuery(".edit_basket").serializeArray() , null , "json").
         done() { |saved_basket| @basket = saved_basket ; @changed = false }.
         fail() { alert( "save failed" ) }
-    end
-    def products_to_basket(_)
-      @products.each() {|product| self.to_basket(product) }
     end
     def to_basket(product)
       amount =  product.stock_level - product.inventory

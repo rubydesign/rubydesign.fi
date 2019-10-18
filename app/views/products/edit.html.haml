@@ -1,8 +1,10 @@
-= simple_form_for(@product, :html => { :multipart => true } ) do |f|
+.row
+  .h4
+    = t(:edit)
+    = @product.name
+
+= simple_form_for(@product ) do |f|
   .product_edit_start.row
-    .h4
-      = t(:edit)
-      = @product.name
     .col-md-8
       .row
         .col-md-6

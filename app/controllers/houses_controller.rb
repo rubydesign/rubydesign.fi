@@ -24,15 +24,15 @@ class HousesController < AdminController
     create_data
   end
 
-  def self.rakennus
-    return @rakennus if @rakennus
-    @rakennus = Category.where(name: "Rakennus").first.id
+  def self.ecoframe
+    return @ecoframe if @ecoframe
+    @ecoframe = Supplier.where(supplier_name: "EcoFrameHouse").first.id
   end
 
   protected
 
   def create_data
-    @products = Product.where(category_id: self.class.rakennus).includes(:category)
+    @products = Product.where(supplier_id: self.class.ecoframe).includes(:category , [:category , :category])
   end
 
   private
@@ -41,8 +41,4 @@ class HousesController < AdminController
     @basket = Basket.find(params[:id])
   end
 
-  def params_for_basket
-    return {} if params[:basket].blank? or params[:basket].empty?
-    params.require(:basket).permit( :items_attributes => [:quantity ,:name, :price , :id, :product_id] )
-  end
 end

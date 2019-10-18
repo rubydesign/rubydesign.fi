@@ -4,7 +4,7 @@
 
 class Product < ActiveRecord::Base
   has_many :items
-  store :properties, accessors: [ :color, :size , :model_number ] #, coder: JSON
+
   belongs_to :category , optional: true
   belongs_to :supplier , optional: true
 
@@ -43,7 +43,9 @@ class Product < ActiveRecord::Base
   def copy_product
     Product.new :tax => self.tax , :weight => self.weight , :cost => self.cost ,
         :supplier_id => self.supplier_id , :category_id => self.category_id ,
-        :price => self.price , :name => self.name + " copy"
+        :price => self.price , :name => self.name + " copy",
+        description: self.description , summary: self.summary,
+        phase: self.phase , dimension: self.dimension
   end
 
   private

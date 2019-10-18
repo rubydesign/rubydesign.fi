@@ -11,7 +11,12 @@ class CategoriesController < AdminController
   end
 
   def new
-    @category = Category.new
+    if(id = params[:copy])
+      sama = Category.find(id)
+      @category = Category.new(name: "#{sama.name} copy" , category_id: sama.category_id)
+    else
+      @category = Category.new
+    end
     render :edit
   end
 
