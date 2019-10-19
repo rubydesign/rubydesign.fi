@@ -28,11 +28,17 @@ class HousesController < AdminController
     return @ecoframe if @ecoframe
     @ecoframe = Supplier.where(supplier_name: "EcoFrameHouse").first.id
   end
+  def self.materials
+    return @materials if @materials
+    @materials = Category.where(name: "Materials").first.id
+  end
 
   protected
 
   def create_data
-    @products = Product.where(supplier_id: self.class.ecoframe).includes(:category , [:category , :category])
+    @products = Product.where(supplier_id: self.class.ecoframe).
+                        where.not(category_id: self.class.materials).
+                        includes(:category , [:category , :category])
   end
 
   private

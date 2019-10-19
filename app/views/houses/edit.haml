@@ -8,7 +8,7 @@
     %h6
       %a{"@click" => "tab = 2"}= t(:products)
 
-  .col-md-12.tab.basket{"v-bind:class" => "{active_tab: tab == 1}"}
+  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
     %table-component{ ":columns": "basket_columns" ,
                       ":table_data": "basket.items",
                       ":column_order": "basket_order"}
@@ -46,16 +46,16 @@
         %th
           {{(total_price()/ 1.24).toFixed(2)}}
 
-    .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
-      %table-component{ ":columns": "product_columns" ,
-                        ":table_data": "products",
-                        ":column_order": "product_order"}
-        %template{ slot: "name" , "slot-scope" => "row"}
-          %a{ ":href" => "'/products/' + row.object.id"}
-            {{row.object.name}}
-        %template{ slot: "add" , "slot-scope" => "row"}
-          %a{ "@click" => "to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
-            =image_tag "plus.png" , width: "30px"
+  .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 2}"}
+    %table-component{ ":columns": "product_columns" ,
+                      ":table_data": "products",
+                      ":column_order": "product_order"}
+      %template{ slot: "name" , "slot-scope" => "row"}
+        %a{ ":href" => "'/products/' + row.object.id"}
+          {{row.object.name}}
+      %template{ slot: "add" , "slot-scope" => "row"}
+        %a{ "@click" => "to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
+          =image_tag "plus.png" , width: "30px"
 
   .row
     .col-md-2
@@ -79,16 +79,13 @@
                           total: {name: "#{t(:total)}" , sortable: false} }
       @basket_order = [:position,:scode,:name,:quantity,:pack_unit,:price,:total]
       @products = #{ render( partial: "houses/products.json").html_safe }
-      @product_order = [ :scode , :name , :category , :inventory , :stock_level ,
-                          :pack_unit , :cost , :ordered , :add]
+      @product_order = [ :scode , :name , :category ,
+                          :pack_unit , :price , :add]
       @product_columns = {scode:      {name: "#{t(:scode)}" },
                           name:       {name: "#{t(:name)}" , searchable: true},
                           category:   {name: "#{t(:category)}" , searchable: true},
-                          inventory:  {name: "#{t(:inventory)}" },
-                          stock_level:{name: "#{t(:stock_level).split.first}"} ,
                           pack_unit:  {name: "#{t(:pack_unit)}"},
-                          cost:       {name: "#{t(:cost)}"} ,
-                          ordered:    {name: "#{t(:order)}"} ,
+                          price:      {name: "#{t(:price)}"} ,
                           add:        {name: ""} }
     end
     def itemProp(item, index , prop)
@@ -117,7 +114,7 @@
         this.basket.items.push({ name: product.name ,
                              quantity: amount,
                                 scode: product.scode,
-                                price: product.cost,
+                                price: product.price,
                            product_id: product.id,
                             pack_unit: product.pack_unit,
                              position: product.position});
