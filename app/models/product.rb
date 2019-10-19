@@ -48,6 +48,17 @@ class Product < ActiveRecord::Base
         phase: self.phase , dimension: self.dimension
   end
 
+  def amount_for(house)
+    return nil if self.description.blank?
+    begin
+      ret = eval(self.description).to_f
+      puts "#{name} is #{ret}"
+      ret
+    rescue => e
+      "error #{e.class}"
+    end
+  end
+
   private
   def fix_cost
     if self.cost == 0.0

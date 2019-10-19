@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
   belongs_to :product , optional: true
 
   validates :name, presence: true
-  validates :quantity, numericality: { only_integer: true }
+  validates :quantity, numericality: true 
   validates :price, numericality: true
 
   # total price, ie quantity times price

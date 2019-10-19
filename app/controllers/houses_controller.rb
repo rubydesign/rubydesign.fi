@@ -13,18 +13,26 @@ class HousesController < AdminController
     redirect_to edit_house_path(house)
   end
 
-  def show
-    raise "not implemented"
-  end
-
   def update
     house_params = params.require(:basket).permit( :width , :length , :height , :gabel)
     if @basket.update_attributes(house_params)
       flash.notice = t(:update_success, :model => "basket")
+      update_quantities
     else
       flash.notice = t(:update_failed, :model => "basket")
     end
     redirect_to edit_house_path(@basket)
+  end
+
+  def update_quantities
+    @basket.items.each do |item|
+      quantity = item.product.amount_for(@basket)
+      next unless quantity
+      next if quantity == "error"
+      next if item.quantity == quantity
+      item.quantity = quantity
+      item.save!
+    end
   end
 
   def edit
