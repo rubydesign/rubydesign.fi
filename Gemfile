@@ -41,21 +41,14 @@ gem "neat"
 
 #gem 'db_fixtures_dump'  , git: "https://github.com/rubydesign/db_fixtures_dump" #backup
 
-group  :production do
-  gem "pg"
-end
+gem "pg"
 
 group :development do
-  gem 'sqlite3'
   gem "phantomjs"
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "i18n-tasks"
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-#  gem 'spring'
-#  gem 'spring-watcher-listen', '~> 2.0.0'
-#  gem 'spring-commands-rspec'
 end
 group :test do
   gem 'rspec-rails'

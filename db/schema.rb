@@ -12,25 +12,27 @@
 
 ActiveRecord::Schema.define(version: 2019_10_18_080042) do
 
-  create_table "baskets", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "baskets", id: :serial, force: :cascade do |t|
     t.integer "kori_id"
-    t.string "kori_type", limit: 255
-    t.decimal "total_price", default: "0.0"
-    t.decimal "total_tax", default: "0.0"
+    t.string "kori_type"
+    t.decimal "total_price", precision: 10, scale: 4, default: "0.0"
+    t.decimal "total_tax", precision: 10, scale: 4, default: "0.0"
     t.date "locked"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "type"
     t.string "kind"
     t.string "info"
     t.index ["kori_id"], name: "index_baskets_on_kori_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :serial, force: :cascade do |t|
     t.integer "category_id"
-    t.string "name", limit: 255
-    t.text "description", default: ""
-    t.text "summary", default: ""
+    t.string "name"
+    t.text "description"
+    t.text "summary"
     t.integer "position", default: 1
     t.string "main_picture_file_name", limit: 255
     t.string "main_picture_content_type", limit: 255
@@ -42,22 +44,22 @@ ActiveRecord::Schema.define(version: 2019_10_18_080042) do
     t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
-  create_table "clerks", force: :cascade do |t|
-    t.string "email", limit: 255, default: "", null: false
+  create_table "clerks", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
     t.boolean "admin", default: false
-    t.string "encrypted_password", limit: 255
-    t.string "password_salt", limit: 255
-    t.string "address", limit: 255
+    t.string "encrypted_password"
+    t.string "password_salt"
+    t.string "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["email"], name: "index_clerks_on_email", unique: true
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: :serial, force: :cascade do |t|
     t.integer "quantity", default: 1
     t.float "price", default: 0.0
     t.float "tax", default: 0.0
-    t.string "name", limit: 255
+    t.string "name"
     t.integer "product_id"
     t.integer "basket_id"
     t.datetime "created_at"
@@ -67,39 +69,39 @@ ActiveRecord::Schema.define(version: 2019_10_18_080042) do
     t.index ["product_id"], name: "index_items_on_product_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "number", limit: 255
-    t.string "email", limit: 255
+  create_table "orders", id: :serial, force: :cascade do |t|
+    t.string "number"
+    t.string "note", default: ""
+    t.string "email"
     t.date "ordered_on"
     t.date "paid_on"
     t.date "canceled_on"
     t.date "shipped_on"
-    t.string "payment_type", limit: 255
-    t.string "payment_info", limit: 255
-    t.string "shipment_type", limit: 255
-    t.string "shipment_info", limit: 255
+    t.string "payment_type"
+    t.string "payment_info"
+    t.string "shipment_type"
+    t.string "shipment_info"
     t.float "shipment_price", default: 0.0
     t.float "shipment_tax", default: 0.0
-    t.string "address", limit: 255
+    t.string "address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "note", limit: 255, default: ""
     t.string "message"
     t.integer "order_number"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: :serial, force: :cascade do |t|
     t.float "price", null: false
-    t.string "name", limit: 255, null: false
-    t.text "description", default: ""
-    t.text "summary", default: ""
+    t.string "name", null: false
+    t.text "description"
+    t.text "summary"
     t.float "cost", default: 0.0
     t.float "weight", default: 0.1
-    t.string "ean", limit: 255, default: ""
+    t.string "ean", default: ""
     t.float "tax", default: 0.0
     t.integer "inventory", default: 0
     t.integer "stock_level", default: 0
-    t.string "scode", limit: 255, default: ""
+    t.string "scode", default: ""
     t.date "deleted_on"
     t.integer "category_id"
     t.integer "supplier_id"
@@ -113,8 +115,8 @@ ActiveRecord::Schema.define(version: 2019_10_18_080042) do
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
-  create_table "purchases", force: :cascade do |t|
-    t.string "name", limit: 255
+  create_table "purchases", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.date "ordered_on"
     t.date "received_on"
     t.datetime "created_at"
@@ -123,7 +125,7 @@ ActiveRecord::Schema.define(version: 2019_10_18_080042) do
     t.index ["supplier_id"], name: "index_purchases_on_supplier_id"
   end
 
-  create_table "resellers", force: :cascade do |t|
+  create_table "resellers", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "city"
@@ -133,12 +135,13 @@ ActiveRecord::Schema.define(version: 2019_10_18_080042) do
     t.string "post_code"
   end
 
-  create_table "suppliers", force: :cascade do |t|
-    t.string "supplier_name", limit: 255
-    t.string "address", limit: 255
+  create_table "suppliers", id: :serial, force: :cascade do |t|
+    t.string "supplier_name"
+    t.string "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date "deleted_on"
   end
 
+  add_foreign_key "purchases", "suppliers"
 end
