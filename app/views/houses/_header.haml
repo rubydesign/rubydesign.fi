@@ -1,35 +1,20 @@
-%table
-  %tr.basket
-    %td
-      %b= t(:length) + " : "
-      {{basket.info.length}}
-      .overlay
-        %a{ "@click" => "basket.info.length += 1; changed = true"}
-          =image_tag "plus.png" , height: 25
-        \&nbsp;
-        %span     {{basket.info.length}}
-        \&nbsp;
-        %a{ "@click" => "basket.info.length -= 1; changed = true"}
-          =image_tag "minus.png", height: 25
-    %td
-      %b= t(:width) + " : "
-      {{basket.info.width}}
-      .overlay
-        %a{ "@click" => "basket.info.width += 1; changed = true"}
-          =image_tag "plus.png", height: 25
-        \&nbsp;
-        %span     {{basket.info.width}}
-        \&nbsp;
-        %a{ "@click" => "basket.info.width -= 1; changed = true"}
-          =image_tag "minus.png", height: 25
-    %td
-      %b= t(:height) + " : "
-      {{basket.info.height}}
-      .overlay
-        %a{ "@click" => "basket.info.height += 1; changed = true"}
-          =image_tag "plus.png", height: 25
-        \&nbsp;
-        %span     {{basket.info.height}}
-        \&nbsp;
-        %a{ "@click" => "basket.info.height -= 1; changed = true"}
-          =image_tag "minus.png", height: 25
+.col-md-8
+  = simple_form_for(@basket , url: house_url(@basket) ) do |f|
+    .row
+      .col-md-2
+        = f.input :width
+      .col-md-2
+        = f.input :length
+      .col-md-2
+        = f.input :height
+      .col-md-2
+        = f.input :gabel
+      .col-md-2
+        = f.submit :class => "btn btn-success"
+
+.col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
+  %h6
+    %a{"@click" => "tab = 1"}= t(:house)
+.col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
+  %h6
+    %a{"@click" => "tab = 2"}= t(:products)

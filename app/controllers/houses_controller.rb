@@ -9,12 +9,22 @@ class HousesController < AdminController
   end
 
   def new
-    house = Basket.create! kind: "house"
+    house = Basket.create! kind: "house" , width: 8 , length: 12 , height: 2.8 , gabel: 2
     redirect_to edit_house_path(house)
   end
 
   def show
     raise "not implemented"
+  end
+
+  def update
+    house_params = params.require(:basket).permit( :width , :length , :height , :gabel)
+    if @basket.update_attributes(house_params)
+      flash.notice = t(:update_success, :model => "basket")
+    else
+      flash.notice = t(:update_failed, :model => "basket")
+    end
+    redirect_to edit_house_path(@basket)
   end
 
   def edit

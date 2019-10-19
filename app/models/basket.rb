@@ -3,6 +3,10 @@ class Basket < ActiveRecord::Base
   REMOVE = -1
 
   store :info, accessors: [ :width, :length , :height , :gabel ] #, coder: JSON
+  validates :width, numericality: true , allow_nil: true
+  validates :length, numericality: true, allow_nil: true
+  validates :height, numericality: true, allow_nil: true
+  validates :gabel, numericality: true, allow_nil: true
 
   belongs_to :kori, polymorphic: true  , optional: true #kori is basket in finnish
 

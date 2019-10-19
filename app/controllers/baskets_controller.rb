@@ -160,7 +160,6 @@ class BasketsController < AdminController
 
   def params_for_basket
     return {} if params[:basket].blank? or params[:basket].empty?
-    params.require(:basket).permit( :width , :length , :height , :gabel,
-                    :items_attributes => [:quantity ,:name, :price , :id, :product_id] )
+    params.require(:basket).permit( :items_attributes => [:quantity ,:name, :price , :id, :product_id] )
   end
 end

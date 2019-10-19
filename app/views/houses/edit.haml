@@ -1,15 +1,7 @@
 .row.house-app
-  .col-md-6.basket
-    =render "header"
-  .col-md-2.pill{ "v-bind:class" => "{active_pill: tab == 1}"}
-    %h6
-      %a{"@click" => "tab = 1"}= t(:house)
-  .col-md-2.pill{"v-bind:class" => "{active_pill: tab == 2}"}
-    %h6
-      %a{"@click" => "tab = 2"}= t(:products)
-
+  =render "header"
   .col-md-12.tab{"v-bind:class" => "{active_tab: tab == 1}"}
-    %table-component{ ":columns": "basket_columns" ,
+    %table-component.basket{ ":columns": "basket_columns" ,
                       ":table_data": "basket.items",
                       ":column_order": "basket_order"}
       %template{ slot: "name" , "slot-scope" => "row"}
@@ -54,8 +46,12 @@
         %a{ ":href" => "'/products/' + row.object.id"}
           {{row.object.name}}
       %template{ slot: "add" , "slot-scope" => "row"}
-        %a{ "@click" => "to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
+        %a{ "@click" => "product_to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
           =image_tag "plus.png" , width: "30px"
+      %template{ slot: "category" , "slot-scope" => "row"}
+        %a{ "@click" => "category_to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
+          =image_tag "plus.png" , width: "30px"
+        {{row.object.category}}
 
   .row
     .col-md-2
@@ -94,13 +90,19 @@
               id: 'basket_items_attributes_' + index + '_' + prop
              }
     end
+
     def submit_basket(event)
       event.preventDefault()
       jQuery.post( '/baskets/' + @basket.id , jQuery(".edit_basket").serializeArray() , null , "json").
         done() { |saved_basket| @basket = saved_basket ; @changed = false }.
         fail() { alert( "save failed" ) }
     end
-    def to_basket(product)
+    def category_to_basket(product)
+      @products.each do |p|
+        product_to_basket(p) if p.category == product.category
+      end
+    end
+    def product_to_basket(product)
       amount =  product.stock_level - product.inventory
       return if(amount < 0)
       if(product.pack_unit > 1)
