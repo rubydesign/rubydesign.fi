@@ -42,6 +42,7 @@
 
           %tr
             %td{:colspan => 4}
+              = f.submit :class => "btn btn-success commit"
             %td.count
               = t(:count)
               = @basket.items.length
@@ -53,26 +54,29 @@
     .col-12
       .row.form-actions
         .col-md-2
-          = f.submit :class => "btn btn-success commit"
+          = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
         - if @basket.kori_type.blank? and not @basket.empty?
-          .col-md-1
+          .col-md-2
             = link_to t(:make_order), order_basket_path(@basket), :class => "btn btn-primary make_order"
           .col-md-2
             = link_to t(:make_purchase), purchase_basket_path(@basket), :class => "btn btn-primary make_purchase"
-          .col-md-2
         - elsif @basket.isa(:order)
           .col-md-2
             = link_to t(:to_order), order_path(@basket.kori), :class => "btn btn-primary to_order"
-          .col-md-2
-            - if has_receipt?
+          - if has_receipt?
+            .col-md-2
               = link_to t("receipt.header"), receipt_order_path(@basket.kori), :class => "btn btn-primary print_order"
         - elsif @basket.isa(:purchase)
           .col-md-2
             = link_to t(:to_purchase), purchase_path(@basket.kori), :class => "btn btn-primary to_purchase"
-        .col-md-2
-          = link_to t(:destroy) , basket_path(@basket), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger" unless @basket.locked? or @basket.kori
-        .col-md-2
-          = link_to t(:nolla) , zero_basket_path(@basket), :class => "btn btn-danger" unless @basket.locked?
-        .col-md-1
-          = link_to  t(:new) + ' ' + t(:basket) , new_basket_path , :class => "btn btn-primary"
+        -if @basket.length
+          .col-md-2
+            = link_to t(:house) , edit_house_path(@basket) , :class => "btn btn-primary"
+        -unless @basket.locked? or @basket.kori
+          .col-md-2
+            = link_to t(:destroy) , basket_path(@basket), :confirm => t(:are_you_sure ), :method => :delete, :title => t(:destroy) , :class => "btn btn-danger"
+        -unless @basket.locked?
+          .col-md-2
+            = link_to t(:nolla) , zero_basket_path(@basket), :class => "btn btn-danger"
+
 .basket_edit_end

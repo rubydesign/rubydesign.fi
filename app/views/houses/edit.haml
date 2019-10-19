@@ -52,9 +52,11 @@
           =image_tag "plus.png" , width: "30px"
         {{row.object.category}}
 
-  .row
-    .col-md-2
-      = link_to( t(:back) , basket_path(@basket) , class: "btn btn-info")
+.row
+  .col-md-2
+    = link_to( t(:back) , houses_path , class: "btn btn-info")
+  .col-md-2
+    = link_to( t(:basket) , edit_basket_path(@basket) , class: "btn btn-info")
 
 =render "components/table"
 
@@ -73,11 +75,12 @@
                           total: {name: "#{t(:total)}" , sortable: false} }
       @basket_order = [:position,:scode,:name,:quantity,:price,:total]
       @products = #{ render( partial: "houses/products.json").html_safe }
-      @product_order = [ :scode , :name , :category , :amount , :price , :add]
+      @product_order = [ :scode , :name , :category , :description , :amount , :price , :add]
       @product_columns = {scode:      {name: "#{t(:scode)}" },
                           name:       {name: "#{t(:name)}" , searchable: true},
                           category:   {name: "#{t(:category)}" , searchable: true},
                           price:      {name: "#{t(:price)}"} ,
+                          description: {name: "#{t(:quantity)}"} ,
                           amount:      {name: "#{t(:quantity)}"} ,
                           add:        {name: ""} }
     end

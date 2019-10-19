@@ -238,3 +238,6 @@ fi:
   houses: Talot
   phase: osa
   dimension: dimensio
+  copy: kopioi
+  update_failed: Päivitys epäonnistui
+  

@@ -32,9 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :houses do
-
-  end
+  resources :houses , :except => [:show , :destroy]
 
   resources :orders , :except => [:edit] do
     collection do

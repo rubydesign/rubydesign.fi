@@ -228,3 +228,5 @@ en:
   vat: Vat
   week: Week
   weight: Weight
+  copy: copy
+  update_failed: Update failed
