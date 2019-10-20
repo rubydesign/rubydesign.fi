@@ -13,7 +13,7 @@ class Basket < ActiveRecord::Base
   belongs_to :order, -> { where(baskets: {kori_type: 'Order'}).includes( :baskets) },
               foreign_key: 'kori_id' , optional: true
 
-  has_many :items, autosave: true , :dependent => :destroy
+  has_many :items, -> { order(created_at: :asc) }, autosave: true , :dependent => :destroy
 
   default_scope { order('created_at DESC') }
 
@@ -142,7 +142,7 @@ class Basket < ActiveRecord::Base
   def end_wall_area
     self.width * (2*self.height + self.gable_height)
   end
-  
+
   def inner_length
     self.length - 2 * 0.4
   end
