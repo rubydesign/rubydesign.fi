@@ -51,9 +51,7 @@ class Product < ActiveRecord::Base
   def amount_for(house)
     return nil if self.description.blank?
     begin
-      ret = eval(self.description).to_f
-      puts "#{name} is #{ret}"
-      ret
+      eval(self.description).to_f
     rescue Exception => e
       "error #{e.class}"
     end
