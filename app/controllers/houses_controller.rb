@@ -9,12 +9,12 @@ class HousesController < AdminController
   end
 
   def new
-    house = Basket.create! kind: "house" , width: 8 , length: 12 , height: 2.8 , gabel: 2
+    house = Basket.create! kind: "house" , width: 8 , length: 12 , height: 2.8 , angle: 30
     redirect_to edit_house_path(house)
   end
 
   def update
-    house_params = params.require(:basket).permit( :width , :length , :height , :gabel)
+    house_params = params.require(:basket).permit( :width , :length , :height , :angel)
     if @basket.update_attributes(house_params)
       flash.notice = t(:update_success, :model => "basket")
       update_quantities

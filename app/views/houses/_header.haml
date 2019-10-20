@@ -3,12 +3,18 @@
     .row
       .col-md-2
         = f.input :width
+        %span
+          roof_length:
+          =@basket.roof_length
       .col-md-2
         = f.input :length
       .col-md-2
         = f.input :height
+        %span
+          gabel_height:
+          =@basket.gabel_height
       .col-md-2
-        = f.input :gabel
+        = f.input :angle
       .col-md-2
         = f.submit t(:update), :class => "btn btn-success"
 

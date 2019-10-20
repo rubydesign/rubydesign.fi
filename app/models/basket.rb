@@ -2,11 +2,11 @@ class Basket < ActiveRecord::Base
   ADD = 1
   REMOVE = -1
 
-  store :info, accessors: [ :width, :length , :height , :gabel ] #, coder: JSON
+  store :info, accessors: [ :width, :length , :height , :angle ] #, coder: JSON
   validates :width, numericality: true , allow_nil: true
   validates :length, numericality: true, allow_nil: true
   validates :height, numericality: true, allow_nil: true
-  validates :gabel, numericality: true, allow_nil: true
+  validates :angle, numericality: true, allow_nil: true
 
   belongs_to :kori, polymorphic: true  , optional: true #kori is basket in finnish
 
@@ -129,6 +129,26 @@ class Basket < ActiveRecord::Base
       exists.save!
     end
     reload
+  end
+
+  def gabel_height
+    (roof_length * Math.sin((Math::PI * self.angle) / 180)).round(2)
+  end
+
+  def roof_length
+    (0.5*self.width / Math.cos((Math::PI * self.angle) / 180)).round(2)
+  end
+
+  def end_wall_area
+    self.width * (2*self.height + self.gable_height)
+  end
+  
+  def inner_length
+    self.length - 2 * 0.4
+  end
+
+  def inner_width
+    self.width - 2 * 0.4
   end
 
   private
