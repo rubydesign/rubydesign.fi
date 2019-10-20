@@ -17,7 +17,7 @@ class HousesController < AdminController
   end
 
   def new
-    house = Basket.create! kind: "house" , width: 8 , length: 12 , height: 2.8 , angle: 30
+    house = Basket.create! kind: "house" , width: 8 , length: 12 , height: 3.3 , angle: 30
     redirect_to edit_house_path(house)
   end
 

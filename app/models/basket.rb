@@ -131,6 +131,19 @@ class Basket < ActiveRecord::Base
     reload
   end
 
+  def width
+    self.info[:width].to_f
+  end
+  def length
+    self.info[:length].to_f
+  end
+  def height
+    self.info[:height].to_f
+  end
+  def angle
+    self.info[:angle].to_f
+  end
+
   def gabel_height
     (roof_length * Math.sin((Math::PI * self.angle) / 180)).round(2)
   end
