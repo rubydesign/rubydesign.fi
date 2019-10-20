@@ -68,16 +68,15 @@
       @changed = false
       @basket = #{ render( partial: "baskets/basket.json").html_safe }
       @basket_columns = { position: {name: "#{t(:position)}"},
-                          scode: {name: "#{t(:scode)}"},
                           name: {name: "#{t(:name)}" , searchable: true },
+                          description: {name: "#{t(:quantity)}"} ,
                           quantity: {name: "#{t(:quantity)}"},
                           price: {name: "#{t(:price)}"},
                           total: {name: "#{t(:total)}" , sortable: false} }
-      @basket_order = [:position,:scode,:name,:quantity,:price,:total]
+      @basket_order = [:position,:name,:description,:quantity,:price,:total]
       @products = #{ render( partial: "houses/products.json").html_safe }
-      @product_order = [ :scode , :name , :category , :description , :amount , :price , :add]
-      @product_columns = {scode:      {name: "#{t(:scode)}" },
-                          name:       {name: "#{t(:name)}" , searchable: true},
+      @product_order = [ :name , :category , :description , :amount , :price , :add]
+      @product_columns = {name:       {name: "#{t(:name)}" , searchable: true},
                           category:   {name: "#{t(:category)}" , searchable: true},
                           price:      {name: "#{t(:price)}"} ,
                           description: {name: "#{t(:quantity)}"} ,
@@ -108,6 +107,7 @@
       this.basket.items.push({ name: product.name ,
                            quantity: amount,
                               scode: product.scode,
+                              description: product.description,
                               price: product.price,
                          product_id: product.id,
                            position: product.position});
