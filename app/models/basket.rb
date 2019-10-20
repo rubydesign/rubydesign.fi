@@ -153,7 +153,7 @@ class Basket < ActiveRecord::Base
   end
 
   def end_wall_area
-    self.width * (2*self.height + self.gabel_height)
+    (self.width * (2*self.height + self.gabel_height)).round(2)
   end
 
   def inner_length
