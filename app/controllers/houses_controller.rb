@@ -8,6 +8,14 @@ class HousesController < AdminController
     @houses = @house_scope.includes(:kori).page(params[:page] )
   end
 
+  def products
+    products = create_data
+    updated = 0
+    products.each { |p| updated += update_product(p) }
+    flash.notice = t(:update_success, :model => "product")  + "  #{updated}"
+    redirect_to houses_path
+  end
+
   def new
     house = Basket.create! kind: "house" , width: 8 , length: 12 , height: 2.8 , angle: 30
     redirect_to edit_house_path(house)
@@ -51,7 +59,7 @@ class HousesController < AdminController
     @materials = Category.where(name: "Materials").first.id
   end
 
-  protected
+  private
 
   def create_data
     @products = Product.where(supplier_id: self.class.ecoframe).
@@ -59,7 +67,25 @@ class HousesController < AdminController
                         includes(:category , [:category , :category])
   end
 
-  private
+  def update_product(product)
+    data = product.summary
+    return 0 if data.count(":") < 2
+    puts "#{product.id} #{data}"
+    lines = data.split("\n")
+    total = 0
+    lines.each do |line|
+      parts = line.split(":")
+      unless parts.length == 3
+        puts "INVALID data #{line}"
+        next
+      end
+      prod = Product.find(parts[1])
+      total += prod.price * parts[2].to_f
+    end
+    product.update_attribute(:price, total)
+    puts "updating #{product.name} to #{total}"
+    return 1
+  end
 
   def load_basket
     @basket = Basket.find(params[:id])

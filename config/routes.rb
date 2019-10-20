@@ -32,7 +32,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :houses , :except => [:show , :destroy]
+  resources :houses , :except => [:show , :destroy] do
+    collection do
+      get :products
+    end
+    member do
+      get :items
+    end
+  end
 
   resources :orders , :except => [:edit] do
     collection do
