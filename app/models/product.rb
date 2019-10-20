@@ -54,7 +54,7 @@ class Product < ActiveRecord::Base
       ret = eval(self.description).to_f
       puts "#{name} is #{ret}"
       ret
-    rescue => e
+    rescue Exception => e
       "error #{e.class}"
     end
   end
