@@ -48,15 +48,6 @@ class Product < ActiveRecord::Base
         phase: self.phase , dimension: self.dimension
   end
 
-  def amount_for(house)
-    return nil if self.description.blank?
-    begin
-      eval(self.description).to_f.round(2)
-    rescue Exception => e
-      "error #{e.class}"
-    end
-  end
-
   def update_price(save) #boolean
     return 0 if summary.count(":") < 2
     puts "#{self.id} #{summary}"

@@ -131,6 +131,17 @@ class Basket < ActiveRecord::Base
     reload
   end
 
+  def amount_for(product)
+    house = self
+    return nil if product.description.blank?
+    begin
+      eval(product.description).to_f.round(2)
+    rescue Exception => e
+      "error #{e.class}"
+    end
+  end
+
+
   def width
     self.info[:width].to_f
   end

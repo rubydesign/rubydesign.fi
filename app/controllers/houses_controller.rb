@@ -34,7 +34,7 @@ class HousesController < AdminController
 
   def update_quantities
     @basket.items.each do |item|
-      quantity = item.product.amount_for(@basket)
+      quantity = @basket.amount_for(item.product)
       next unless quantity
       next if quantity == "error"
       next if item.quantity == quantity
