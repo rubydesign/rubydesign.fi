@@ -1,20 +1,40 @@
 .row.basket_edit_start
   .col-md-12
+  %h2
+    = t(:edit) + ": "
     -if @basket.kori_type
-      %h2
-        = t(@basket.kori_type.downcase)
+      = t(@basket.kori_type.downcase)
+    = "(#{@basket.id})"
+
 .row
   .col-md-8.ean_form
-    = label_tag :ean
-    = form_tag( ean_basket_path(@basket ), class: "form-inline")  do |f|
-      = text_field_tag :ean , "" , :autofocus => true , :class => "ean_field form-control" , :size => 45
-      = submit_tag t(:search) ,  :class => "btn btn-xs ean_submit"
+    = form_tag( ean_basket_path(@basket ), class: "form-inline" , id: "auto_form" )  do |f|
+      = text_field_tag  :ean , "" , :autofocus => true ,  placeholder: t(:add_to_basket)  ,
+                        :class => "ean_field form-control" , :size => 45 , id: "auto_ean"
+      = submit_tag t(:search) ,  :class => "btn btn-xs btn-info ean_submit"
   .col-md-3
     = t(:discount )
     = form_tag edit_basket_path(@basket) , :method => :get do
       = select_tag("discount" , options_for_select( ["",0,5,10,15,20,25,30,35,40,50,60,70] ),
                     :onchange => "window.location.href='#{discount_basket_path(@basket)}?discount=' + this.value" ,
                     class: "form-control")
+:coffee
+  $ ->
+    $('#auto_ean').autocomplete(
+      minLength: 2
+      source: '#{names_products_path(:json)}'
+      focus: (event, ui) ->
+        $('#auto_ean').val ui.item.name
+        false
+      select: (event, ui) ->
+        $('#auto_ean').val ui.item.ean
+        $('#auto_form').submit()
+        false
+    ).data('uiAutocomplete')._renderItem = (ul, item) ->
+      $('<li></li>').data('ui-autocomplete-item', item).append('<a>' + item.name + '</a>').appendTo ul
+    return
+
+
 = form_for(@basket) do |f|
   .row
     .col-md-12

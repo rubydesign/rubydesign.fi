@@ -36,9 +36,6 @@ Rails.application.routes.draw do
     collection do
       get :products
     end
-    member do
-      get :items
-    end
   end
 
   resources :orders , :except => [:edit] do
@@ -81,6 +78,7 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       get "search" => "products#index"
+      get :names
     end
     member do
       get :delete

@@ -12,6 +12,8 @@
 //= require jquery-ui/datepicker-fi
 //= require vue
 
+//= require jquery-ui/autocomplete
+
 //= require_self
 
 $.datepicker.setDefaults( $.datepicker.regional[ 'fi' ] );

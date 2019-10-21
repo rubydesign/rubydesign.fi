@@ -19,6 +19,11 @@ class ProductsController < AdminController
     create_used_inventory_list if( available_inventory )
   end
 
+  def names
+    @products = Product.where('name ilike ?', "%#{params[:term]}%").limit(20)
+    render layout: false
+  end
+
   def show
   end
 

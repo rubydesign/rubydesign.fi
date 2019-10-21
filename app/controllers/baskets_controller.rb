@@ -69,20 +69,17 @@ class BasketsController < AdminController
     return if redirect_if_locked
     ean = params[:ean]
     ean.sub!("P+" , "P-") if ean[0,2] == "P+"
-    prod = Product.find_by_ean ean
+    if( ean.length == 13 and ean.to_i > 10000 )
+      prod = Product.find_by_ean ean
+    else
+      prod = Product.find_by_name ean
+    end
     if(prod)
       @basket.add_product prod
+      redirect_to edit_basket_path(@basket)
     else
-      prod = Product.find_by_scode ean
-      if(prod)
-        @basket.add_product prod
-      else
-        # stor the basket in the session ( or the url ???)
-        redirect_to products_path(:q => {"name_cont"=> ean},:basket => @basket.id)
-        return
-      end
+      redirect_to products_path(:q => {"name_cont"=> ean}, :basket => @basket.id)
     end
-    redirect_to edit_basket_path(@basket)
   end
 
   def edit
