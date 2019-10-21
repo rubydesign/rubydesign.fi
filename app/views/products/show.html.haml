@@ -54,10 +54,10 @@
 .row.h6
   .col-md-6
     %b= t(:summary) + " : "
-    = in_place @product , :summary
+    = in_place @product , :summary , :as => :textarea
   .col-md-6
     %b= t(:description) + " : "
-    = in_place @product , :description
+    = in_place @product , :description , :as => :textarea
 %br
 
 .row.product_show_row_buttons

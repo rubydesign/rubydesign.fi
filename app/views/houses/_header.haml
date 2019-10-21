@@ -8,6 +8,9 @@
           =@basket.roof_length
       .col-md-2
         = f.input :length
+        %span
+          floor:
+          =@basket.width * @basket.length
       .col-md-2
         = f.input :height
         %span
@@ -15,6 +18,9 @@
           =@basket.gabel_height
       .col-md-2
         = f.input :angle
+        %span
+          end_wall_area:
+          =@basket.end_wall_area
       .col-md-2
         = f.submit t(:update), :class => "btn btn-success"
 

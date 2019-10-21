@@ -75,10 +75,11 @@
                           total: {name: "#{t(:total)}" , sortable: false} }
       @basket_order = [:position,:name,:description,:quantity,:price,:total]
       @products = #{ render( partial: "houses/products.json").html_safe }
-      @product_order = [ :name , :category , :description , :amount , :price , :add]
+      @product_order = [ :name , :category ,:summary , :description , :amount , :price , :add]
       @product_columns = {name:       {name: "#{t(:name)}" , searchable: true},
                           category:   {name: "#{t(:category)}" , searchable: true},
                           price:      {name: "#{t(:price)}"} ,
+                          summary:    {name: "#{t(:summary)}"} ,
                           description: {name: "#{t(:quantity)}"} ,
                           amount:      {name: "#{t(:quantity)}"} ,
                           add:        {name: ""} }

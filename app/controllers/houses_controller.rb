@@ -11,7 +11,7 @@ class HousesController < AdminController
   def products
     products = create_data
     updated = 0
-    products.each { |p| updated += update_product(p) }
+    products.each { |p| updated += p.update_price(true) }
     flash.notice = t(:update_success, :model => "product")  + "  #{updated}"
     redirect_to houses_path
   end
@@ -67,25 +67,6 @@ class HousesController < AdminController
                         includes(:category , [:category , :category])
   end
 
-  def update_product(product)
-    data = product.summary
-    return 0 if data.count(":") < 2
-    puts "#{product.id} #{data}"
-    lines = data.split("\n")
-    total = 0
-    lines.each do |line|
-      parts = line.split(":")
-      unless parts.length == 3
-        puts "INVALID data #{line}"
-        next
-      end
-      prod = Product.find(parts[1])
-      total += prod.price * parts[2].to_f
-    end
-    product.update_attribute(:price, total)
-    puts "updating #{product.name} to #{total}"
-    return 1
-  end
 
   def load_basket
     @basket = Basket.find(params[:id])

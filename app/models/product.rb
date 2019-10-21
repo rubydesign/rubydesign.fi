@@ -51,10 +51,33 @@ class Product < ActiveRecord::Base
   def amount_for(house)
     return nil if self.description.blank?
     begin
-      eval(self.description).to_f
+      eval(self.description).to_f.round(2)
     rescue Exception => e
       "error #{e.class}"
     end
+  end
+
+  def update_price(save) #boolean
+    return 0 if summary.count(":") < 2
+    puts "#{self.id} #{summary}"
+    lines = summary.split("\n")
+    total = 0
+    lines.each do |line|
+      parts = line.split(":")
+      unless parts.length == 3
+        puts "INVALID data #{line}"
+        next
+      end
+      prod = Product.find(parts[1])
+      total += prod.price * parts[2].to_f
+    end
+    if(save)
+      update_attribute(:price, total)
+    else
+      self.price = total
+    end
+    puts "updating #{self.name} to #{total}"
+    return 1
   end
 
   private

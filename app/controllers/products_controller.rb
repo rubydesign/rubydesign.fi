@@ -36,6 +36,7 @@ class ProductsController < AdminController
 
   def create
     @product = Product.create(params_for_model)
+    @product.update_price(false)
     if @product.save
       flash.notice = t(:create_success, :model => "product")
       redirect_to product_path(@product)
@@ -46,8 +47,10 @@ class ProductsController < AdminController
   end
 
   def update
+    @product.assign_attributes(params_for_model)
+    @product.update_price(false)
     respond_to do |format|
-      if @product.update_attributes(params_for_model)
+      if @product.save
         format.html { redirect_to(@product, :notice => t(:update_success, :model => "product")) }
         format.json { respond_with_bip(@product) }
       else
