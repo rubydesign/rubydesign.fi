@@ -5,57 +5,52 @@
     %small=@product.id
     )
 .row.h6
-  .col-md-4
+  .third
     %b= t(:scode) + " : "
     = in_place @product , :scode
-  .col-md-4
+  .third
     %b= t(:inventory) + " : "
     = @product.inventory
-  .col-md-4
+  .third
     %b= t(:stock_level) + " : "
     = in_place @product , :stock_level
-.row.h6
-  .col-md-4
+  .third
     %b= t(:ean) + " : "
     = in_place @product , :ean
-  .col-md-4
+  .third
     %b= t(:price) + " : "
     = in_place @product , :price , display_with: lambda { |v| best_euros(v) }
-  .col-md-4
+  .third
     %b= t(:pack_unit) + " : "
     = in_place @product , :pack_unit
-.row.h6
-  .col-md-4
+  .third
     %b= t(:position) + " : "
     = in_place @product , :position
-  .col-md-4
+  .third
     %b= t(:cost) + " : "
     = in_place @product , :cost , display_with: lambda { |v| best_euros(v) }
-  .col-md-4
+  .third
     %b= t(:tax_percent) + " : "
     = in_place @product , :tax
-.row.h6
-  .col-md-4
+  .third
     %b= t(:weight) + " : "
     = in_place @product , :weight
-  .col-md-4
+  .third
     %b= t(:phase) + " : "
     = in_place @product , :phase
-  .col-md-4
+  .third
     %b= t(:dimension) + " : "
     = in_place @product , :dimension
-.row.h6
-  .col-md-6
+  .half
     %b= t(:category) + " : "
     = link_to @product.category.name , category_path(@product.category) if @product.category
-  .col-md-6
+  .half
     %b= t(:supplier) + " : "
     = link_to @product.supplier.supplier_name ,supplier_path(@product.supplier) if @product.supplier
-.row.h6
-  .col-md-6
+  .half
     %b= t(:summary) + " : "
     = in_place @product , :summary , :as => :textarea
-  .col-md-6
+  .half
     %b= t(:description) + " : "
     = in_place @product , :description , :as => :textarea
 %br

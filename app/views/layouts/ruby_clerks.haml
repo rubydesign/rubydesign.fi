@@ -2,6 +2,7 @@
 %html{:lang => (I18n.locale || I18n.default_locale)}
   %head
     %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
     %title= content_for?(:title) ? content_for(:title) :  "Office Clerk"
     = stylesheet_link_tag "ruby_clerks" ,  :media => :all
     = javascript_include_tag "ruby_clerks"

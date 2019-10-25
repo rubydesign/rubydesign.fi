@@ -5,54 +5,46 @@
 
 = simple_form_for(@product ) do |f|
   .product_edit_start.row
-    .col-md-8
-      .row
-        .col-md-6
-          = f.input :name
-        .col-md-4
-          = f.input :price
-        .col-md-4
-          = f.input :scode
-        .col-md-4
-          = f.input :ean
-        .col-md-4
-          = f.input :cost
-        .col-md-4
-          = f.input :weight
-        .col-md-2
-          = f.input :tax
-        .col-md-2
-          = f.input :phase
-        .col-md-2
-          = f.input :dimension
+    .col-md-6
+      = f.input :name
+    .col-md-3
+      = f.input :price
+    .col-md-3
+      = f.input :cost
 
-      .row
-        .col-md-4
-        .col-md-8
-          .row
-            .col-md-6
-              = f.association :supplier , label_method: :supplier_name,
-                                          value_method: :id, include_blank: true
-            .col-md-6
-              = f.association :category , label_method: :name,
-                                          value_method: :id, include_blank: true
-            .col-md-6
-              = f.input :pack_unit
-            .col-md-6
-              = f.input :position
-      .row
-        .col-md-4
-          = f.submit :class => "btn btn-success"
-        .col-md-4
-          - url = @product.persisted? ? product_path(@product) : products_path
-          = link_to t(:cancel), url, :class => "btn btn-warning"
+    .col-md-3
+      = f.input :ean
+    .col-md-3
+      = f.input :scode
+    .col-md-3
+      = f.input :weight
+    .col-md-3
+      = f.input :tax
+    .col-md-3
+      = f.input :phase
+    .col-md-3
+      = f.input :dimension
+    .col-md-3
+      = f.input :pack_unit
+    .col-md-3
+      = f.input :position
+
+    .col-md-6
+      = f.association :supplier , label_method: :supplier_name,
+                                  value_method: :id, include_blank: true
+    .col-md-6
+      = f.association :category , label_method: :name,
+                                  value_method: :id, include_blank: true
+
+    .col-md-6
+      = f.input :summary,  input_html: {rows: 4}
+    .col-md-6
+      = f.input :description, input_html: {rows: 10}
 
     .col-md-4
-      .row
-        .col-md-12
-          = f.input :summary,  input_html: {rows: 4}
-      .row
-        .col-md-12
-          = f.input :description, input_html: {rows: 10}
+      = f.submit :class => "btn btn-success"
+    .col-md-4
+      - url = @product.persisted? ? product_path(@product) : products_path
+      = link_to t(:cancel), url, :class => "btn btn-warning"
 
 .product_edit_end
