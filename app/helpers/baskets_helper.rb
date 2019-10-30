@@ -28,7 +28,7 @@ module BasketsHelper
         text = t(:basket)
       end
       if(basket.kind)
-        text = t(:house)
+        text = basket.name || t(:new)
         link = edit_house_path(basket)
       else
         link = edit_basket_path(basket)

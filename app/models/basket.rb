@@ -2,7 +2,7 @@ class Basket < ActiveRecord::Base
   ADD = 1
   REMOVE = -1
 
-  store :info, accessors: [ :width, :length , :height , :angle ] #, coder: JSON
+  store :info, accessors: [ :width, :length , :height , :angle , :name] #, coder: JSON
   validates :width, numericality: true , allow_nil: true
   validates :length, numericality: true, allow_nil: true
   validates :height, numericality: true, allow_nil: true

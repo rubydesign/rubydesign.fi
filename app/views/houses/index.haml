@@ -16,7 +16,11 @@
       %table.table.table-striped.table-bordered.table-sm
         %thead
           %tr
-            %th= sort_link [:office,@q], :created_at
+            %th= t(:name)
+            %th= t(:width)
+            %th= t(:length)
+            %th= t(:height)
+            %th= t(:angle)
             %th= sort_link [:office,@q], :total_price
             %th= t(:items)
             %th
@@ -25,17 +29,12 @@
         %tbody
           - @houses.each do |house|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td
-                = date(house.created_at.to_date)
-              %td
-                = euros house.total_price
-              %td
-                - house.items.each do |item| #should break at 5 and do the rest as tooltip
-                  = item.quantity
-                  x
-                  = item.name
-                  %br
-              %td
-                = basket_edit_link(house)
-                = house.id
+              %td= basket_edit_link(house)
+              %th= house.width
+              %th= house.length
+              %th= house.height
+              %th= house.angle
+              %td= euros house.total_price
+              %td= house.items.count
+              %td= house.id
     = paginate @houses

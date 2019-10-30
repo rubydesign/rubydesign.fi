@@ -22,7 +22,7 @@ class HousesController < AdminController
   end
 
   def update
-    house_params = params.require(:basket).permit( :width , :length , :height , :angel)
+    house_params = params.require(:basket).permit( :width , :length , :height , :angle , :name)
     if @basket.update_attributes(house_params)
       flash.notice = t(:update_success, :model => "basket")
       update_quantities
