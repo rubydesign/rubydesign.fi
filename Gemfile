@@ -57,7 +57,7 @@ group :test do
   gem "poltergeist"
   gem "phantomjs" , :require => 'phantomjs/poltergeist'
   gem 'database_cleaner'
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem 'email_spec'
   gem 'i18n-spec'
   gem 'guard-rails'

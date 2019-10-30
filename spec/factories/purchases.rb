@@ -1,6 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :purchase do
     sequence( :name) { |n| "purchase #{n}" }
     basket { create :basket_with_item }
@@ -13,9 +13,9 @@ FactoryGirl.define do
       end
     end
     factory :purchase_ordered do
-      ordered_on "2016-12-26"
+      ordered_on {"2018-12-26"}
       factory :purchase_received do
-        received_on "2016-12-26"
+        received_on {"2018-12-26"}
       end
     end
   end

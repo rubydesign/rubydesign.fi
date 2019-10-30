@@ -1,12 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :basket do
     factory :basket_with_item do
       items {build_list :item , 1 }
     end
     factory :basket_2_items do
-      items  {[FactoryGirl.create(:item2) , FactoryGirl.create(:item22)]}
+      items  {[FactoryBot.create(:item2) , FactoryBot.create(:item22)]}
     end
     factory :basket_3_items do
       items {build_list :item_quantity , 3 }

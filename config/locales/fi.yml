@@ -240,4 +240,8 @@ fi:
   dimension: dimensio
   copy: kopioi
   update_failed: Päivitys epäonnistui
-  
+  angle: Kaltevuus
+  area: Koko
+  height: Korkeä
+  length: Pitkä
+  width: Leveä

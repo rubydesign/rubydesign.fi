@@ -1,12 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   #minimal product
   factory :product do
     sequence( :name) { |n| "product #{n}" }
-    price 10
-    tax 10.0
-    inventory 5
+    price {10}
+    tax {10.0}
+    inventory {5}
     supplier
     factory :shop_product do
       after(:create) do |prod|

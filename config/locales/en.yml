@@ -230,3 +230,8 @@ en:
   weight: Weight
   copy: copy
   update_failed: Update failed
+  angle: Pitch
+  area: Area
+  height: Height
+  length: Length
+  width: Width

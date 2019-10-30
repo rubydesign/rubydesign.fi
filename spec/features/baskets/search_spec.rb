@@ -7,7 +7,7 @@ describe "Basket search functionality" do
   # this adds the product to the basket as it finds exactly one
   it "adds product by entering ean" do
     visit_path new_basket_path
-    p = create :product , :ean => "123456Z"
+    p = create :product , :ean => "1234567891234"
     within ".ean_form" do
       fill_in "ean" , :with => "#{p.ean}"
       click_on I18n.t(:search)
@@ -22,7 +22,7 @@ describe "Basket search functionality" do
     visit_path edit_basket_path(basket)
     p = create :product
     within ".ean_form" do
-      fill_in "ean" , :with => "#{p.name}"
+      fill_in "ean" , :with => "#{p.name[0 .. -3]}"
       click_on I18n.t(:search)
     end
     find(:xpath, "//tr[contains(., '#{p.name}')]/td/a", :text => I18n.t(:add_to_basket)).click
@@ -32,7 +32,7 @@ describe "Basket search functionality" do
   it "adds cost price for purchases" do
     basket = create(:empty_purchase).basket
     visit_path edit_basket_path(basket)
-    p = create :product  , :ean => "345678j"
+    p = create :product  , :ean => "1234567891234"
     within ".ean_form" do
       fill_in "ean" , :with => "#{p.ean}"
       click_on I18n.t(:search)

@@ -17,6 +17,7 @@
         %thead
           %tr
             %th= t(:name)
+            %th= t(:area)
             %th= t(:width)
             %th= t(:length)
             %th= t(:height)
@@ -29,7 +30,9 @@
         %tbody
           - @houses.each do |house|
             %tr{:class => "line-#{cycle("1","2")}"}
-              %td= basket_edit_link(house)
+              %td
+                = basket_edit_link(house)
+              %td= (house.width*house.length).to_i
               %th= house.width
               %th= house.length
               %th= house.height
