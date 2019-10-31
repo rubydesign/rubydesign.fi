@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
   validates :quantity, numericality: true
   validates :price, numericality: true
 
+  default_scope -> { order(created_at: :asc) }
   # total price, ie quantity times price
   def total
     self.price * self.quantity

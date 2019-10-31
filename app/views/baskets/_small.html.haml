@@ -15,8 +15,7 @@
           %td= euros item.price
       %tr
         %td{:colspan => 2}
-          %b
-            = basket_edit_link basket
+          = basket_edit_link @basket , :class => "btn btn-primary"
         %td
           = t(:quantity)
           = basket.quantity
