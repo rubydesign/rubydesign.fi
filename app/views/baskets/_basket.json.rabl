@@ -11,6 +11,9 @@ child :items , :object_root => false do
   node :description do |item|
     item.product.description
   end
+  node :category do |item|
+    item.product.category.name
+  end
   node :pack_unit do |item|
     item.product.pack_unit
   end

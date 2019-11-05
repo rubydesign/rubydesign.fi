@@ -42,14 +42,11 @@
                       ":table_data": "products",
                       ":column_order": "product_order"}
       %template{ slot: "name" , "slot-scope" => "row"}
-        %a{ ":href" => "'/products/' + row.object.id"}
-          {{row.object.name}}
-      %template{ slot: "add" , "slot-scope" => "row"}
         %a{ "@click" => "product_to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
           =image_tag "plus.png" , width: "30px"
+        %a{ ":href" => "'/products/' + row.object.id"}
+          {{row.object.name}}
       %template{ slot: "category" , "slot-scope" => "row"}
-        %a{ "@click" => "category_to_basket(row.object)" , "v-if" => "!in_basket(row.object)"}
-          =image_tag "plus.png" , width: "30px"
         {{row.object.category}}
 
 .row
@@ -69,20 +66,21 @@
       @basket = #{ render( partial: "baskets/basket.json").html_safe }
       @basket_columns = { position: {name: "#{t(:position)}"},
                           name: {name: "#{t(:name)}" , searchable: true },
+                          category: {name: "#{t(:category)}" , searchable: true },
                           description: {name: "#{t(:quantity)}"} ,
                           quantity: {name: "#{t(:quantity)}"},
                           price: {name: "#{t(:price)}"},
                           total: {name: "#{t(:total)}" , sortable: false} }
-      @basket_order = [:position,:name,:description,:quantity,:price,:total]
+      @basket_order = [:position,:name,:category,:description,:quantity,:price,:total]
       @products = #{ render( partial: "houses/products.json").html_safe }
-      @product_order = [ :name , :category ,:summary , :description , :amount , :price , :add]
+      @product_order = [ :name , :category ,:summary , :description , :amount , :price ]
       @product_columns = {name:       {name: "#{t(:name)}" , searchable: true},
                           category:   {name: "#{t(:category)}" , searchable: true},
                           price:      {name: "#{t(:price)}"} ,
                           summary:    {name: "#{t(:summary)}"} ,
                           description: {name: "#{t(:quantity)}"} ,
                           amount:      {name: "#{t(:quantity)}"} ,
-                          add:        {name: ""} }
+                          }
     end
     def itemProp(item, index , prop)
       return { value: item[prop] ,
@@ -97,15 +95,11 @@
         done() { |saved_basket| @basket = saved_basket ; @changed = false }.
         fail() { alert( "save failed" ) }
     end
-    def category_to_basket(product)
-      @products.each do |p|
-        product_to_basket(p) if p.category == product.category
-      end
-    end
     def product_to_basket(product)
       amount = product.amount
       return unless(amount > 0)
       this.basket.items.push({ name: product.name ,
+                           category: product.category,
                            quantity: amount,
                               scode: product.scode,
                               description: product.description,
