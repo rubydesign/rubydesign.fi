@@ -23,6 +23,7 @@ gem "bcrypt"
 gem "barby" , "~> 0.6"
 gem "chunky_png" , "~> 1.3"
 gem "prawn" ,  "~> 2.0"
+gem "hexapdf"
 gem "reference_number"
 gem 'pry-rails'
 
