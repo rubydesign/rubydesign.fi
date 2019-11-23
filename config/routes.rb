@@ -111,6 +111,8 @@ Rails.application.routes.draw do
   get "manage/all" => "manage#all"
   get '/manage/reports' => 'manage#reports'
 
+  get "api/purchase" => "api#purchase" , format: :json
+
   match '*path', via: :all, to: 'high_voltage/pages#show' , id: "404"#if Rails.production?
 
 end
