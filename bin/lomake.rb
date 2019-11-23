@@ -5,7 +5,7 @@ require 'hexapdf'
 response = HTTParty.get("https://rubydesign.fi/api/purchase.json")
 items = {}
 response.parsed_response["items"].each do |item|
-  items[item["scode"]] = item["quantity"]
+  items[item["scode"]] = item
 end
 class ShowTextProcessor < HexaPDF::Content::Processor
   attr_reader :total
@@ -18,17 +18,23 @@ class ShowTextProcessor < HexaPDF::Content::Processor
 
   def show_text(str)
     boxes = decode_text_with_positioning(str)
-    number = @items[ boxes.string ]
+    number = @items.delete( boxes.string )
     return unless number
     x, y = *boxes.lower_left
     @canvas.font('Courier', size: 8)
-    @canvas.text( number.to_s , at: [x - 23 , y + 3])
-    @total += number.to_s.to_i
+    @canvas.text( number["quantity"].to_s , at: [x - 23 , y + 3])
+    @total += number["quantity"]
   end
   alias :show_text_with_positioning :show_text
 end
 
 
+def dump_extra(items)
+  puts "ItemNo  Määrä Nimi"
+  items.each do | code , item|
+    puts "#{code}  #{item['quantity']} #{item['name']}"
+  end
+end
 
 Dir["app/assets/Farfalla*"].each do |file|
 
@@ -45,5 +51,5 @@ Dir["app/assets/Farfalla*"].each do |file|
     puts "writing #{out}  , #{total}"
     doc.write("#{Dir.home}/Desktop/#{out}")
   end
-
 end
+dump_extra(items) unless items.empty?
