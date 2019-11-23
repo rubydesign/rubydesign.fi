@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
-require 'net/http'
-require 'json'
+require 'httparty'
 require 'hexapdf'
 
-response = Net::HTTP.get(URI('https://rubydesign.fi/api/purchase'))
-items = JSON.parse(response)["items"]
-
+response = HTTParty.get("https://rubydesign.fi/api/purchase.json")
+items = {}
+response.parsed_response["items"].each do |item|
+  items[item["scode"]] = item["quantity"]
+end
 class ShowTextProcessor < HexaPDF::Content::Processor
   attr_reader :total
-  def initialize(page)
+  def initialize(page , items)
     super()
     @canvas = page.canvas(type: :overlay)
     @items = items
@@ -17,29 +18,32 @@ class ShowTextProcessor < HexaPDF::Content::Processor
 
   def show_text(str)
     boxes = decode_text_with_positioning(str)
-    return if boxes.string.empty?
-    puts "String #{boxes.string}"
-    if( boxes.string == "eppoapb75")
-      x, y = *boxes.lower_left
-      @canvas.font('Courier', size: 8)
-      @canvas.text( "10" , at: [x - 20 , y])
-    end
-
+    number = @items[ boxes.string ]
+    return unless number
+    x, y = *boxes.lower_left
+    @canvas.font('Courier', size: 8)
+    @canvas.text( number.to_s , at: [x - 23 , y + 3])
+    @total += number.to_s.to_i
   end
   alias :show_text_with_positioning :show_text
 end
 
 
 
-doc = HexaPDF::Document.open(ARGV.shift)
+Dir["app/assets/Farfalla*"].each do |file|
 
-total = 0
-doc.pages.each_with_index do |page, index|
-  puts "Sivu #{index + 1} #{file}"
-  processor = ShowTextProcessor.new(page, items)
-  page.process_contents(processor)
-  total += processor.total
-end
-if(total > 0)
-  doc.write('show_char_boxes.pdf', optimize: true)
+  doc = HexaPDF::Document.open(file)
+  out = file.split("/").last
+  total = 0
+  doc.pages.each_with_index do |page, index|
+    processor = ShowTextProcessor.new(page, items)
+    page.process_contents(processor)
+    #puts "Sivu #{index + 1} #{file}      #{processor.total}"
+    total += processor.total
+  end
+  if(total > 0)
+    puts "writing #{out}  , #{total}"
+    doc.write("#{Dir.home}/Desktop/#{out}")
+  end
+
 end

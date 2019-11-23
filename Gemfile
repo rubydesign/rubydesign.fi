@@ -14,7 +14,7 @@ gem "kramdown" , '~> 1.5'
 gem "best_in_place" , '~> 3.0'
 gem "rabl" , '~> 0.13.1'
 gem 'high_voltage'
-
+gem "httparty"
 gem 'kaminari' , '~> 1.1'
 gem 'bootstrap'
 gem 'simple_form'
