@@ -1,12 +1,18 @@
 #!/usr/bin/env ruby
-
+require 'net/http'
+require 'json'
 require 'hexapdf'
 
-class ShowTextProcessor < HexaPDF::Content::Processor
+response = Net::HTTP.get(URI('https://rubydesign.fi/api/purchase'))
+items = JSON.parse(response)["items"]
 
+class ShowTextProcessor < HexaPDF::Content::Processor
+  attr_reader :total
   def initialize(page)
     super()
     @canvas = page.canvas(type: :overlay)
+    @items = items
+    @total = 0
   end
 
   def show_text(str)
@@ -23,11 +29,17 @@ class ShowTextProcessor < HexaPDF::Content::Processor
   alias :show_text_with_positioning :show_text
 end
 
-api = 
+
+
 doc = HexaPDF::Document.open(ARGV.shift)
+
+total = 0
 doc.pages.each_with_index do |page, index|
   puts "Sivu #{index + 1} #{file}"
-  processor = ShowTextProcessor.new(page)
+  processor = ShowTextProcessor.new(page, items)
   page.process_contents(processor)
+  total += processor.total
 end
-doc.write('show_char_boxes.pdf', optimize: true)
+if(total > 0)
+  doc.write('show_char_boxes.pdf', optimize: true)
+end
