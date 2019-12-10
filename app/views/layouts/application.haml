@@ -20,5 +20,13 @@
     %main
       = yield
     %footer
+      .row
+        %ul.nav
+          %li= link_to "Home" , root_path
+          %li= ext_link "My Github", "https://github.com/rubydesign/"
+          %li= ext_link "RubyX", "http://ruby-x.org"
+          %li= ext_link "EcoFrame House" , "https://ecoframe.house/en/homes"
+          %li= ext_link "Raisa tanssitemppeli" , "http://tanssitemppeli.fi"
+          %li= ext_link "VillaTaika B&B" , "http://villataika.fi/"
       .row.center
         %p © Copyright Torsten Ruger 2013-9

@@ -45,10 +45,16 @@ main , header , footer
 
   .tripple
     @include grid-column(4)
-    @media only screen and (max-width: 880px)
+    &:nth-child(3n + 1)
+      clear: both
+    @media only screen and (max-width: 950px)
+      @include grid-column(6)
+      &:nth-child(3n + 1)
+        clear: none
+      &:nth-child(2n + 1)
+        clear: both
+    @media only screen and (max-width: 550px)
       @include grid-column(12)
-  .tripple:nth-child(3n + 1)
-    clear: both
 
   .quad
     @include grid-column(3)
@@ -84,3 +90,18 @@ main , header , footer
       font-size: 16px
       span
         font-size: 14px
+
+header
+  @media only screen and (max-width: 950px)
+    ul.nav
+      display: none
+    border-bottom: none
+
+footer ul.nav
+  display: none
+  li
+    list-style: initial
+    display: inherit
+
+  @media only screen and (max-width: 950px)
+    display: block
