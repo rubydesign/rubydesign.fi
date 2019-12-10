@@ -1,0 +1,22 @@
+.row.blog_nav
+  .prev_post=raw(prev_post(@post))
+  .next_post=raw(next_post(@post))
+
+.blog_post
+  .center_col
+    %h1
+      = @post.title.capitalize
+      %span
+        (
+        =@post.date
+        )
+  .center_col
+    = render( "posts/#{@post.template_name}" )
+
+.row
+  %ul.nav
+    - Post.posts.each do |slug, post|
+      %li
+        =link_to blog_post_path(slug) do
+          =post.title.capitalize
+          %small= post.date

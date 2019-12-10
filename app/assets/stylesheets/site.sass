@@ -47,6 +47,8 @@ main , header , footer
     @include grid-column(4)
     @media only screen and (max-width: 880px)
       @include grid-column(12)
+  .tripple:nth-child(3n + 1)
+    clear: both
 
   .quad
     @include grid-column(3)

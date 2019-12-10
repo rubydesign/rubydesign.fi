@@ -24,6 +24,9 @@ module Rubydesign
     config.i18n.available_locales = :fi , :config
     config.i18n.default_locale = :fi
     config.require_master_key = true
+
+    config.blog_path = Rails.root.to_s + "/app/views/posts"
+
   end
 end
 

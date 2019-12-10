@@ -75,4 +75,27 @@ module ApplicationHelper
     I18n.l d
   end
 
+
+  def post_link(post)
+    return "" unless post
+    link_to(blog_post_url(post.slug)) do
+      "#{post.title.capitalize} <span>(#{post.date})</span>".html_safe
+    end.html_safe
+  end
+
+  def prev_post(post)
+    index = Post.posts.keys.index(post.slug)
+    nav_post(index + 1 , "prev")
+  end
+  def next_post(post)
+    index = Post.posts.keys.index(post.slug)
+    nav_post(index - 1 , "next")
+  end
+  def nav_post(index, dir)
+    return "" unless index >= 0
+    post = Post.posts.values[index]
+    return "" unless post
+    link_to("#{dir} <span>(#{post.date})</span>".html_safe , blog_post_url(post.slug) , alt: post.title.capitalize)
+  end
+
 end
