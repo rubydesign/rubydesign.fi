@@ -5,6 +5,7 @@ require 'hexapdf'
 response = HTTParty.get("https://rubydesign.fi/api/purchase.json")
 items = {}
 response.parsed_response["items"].each do |item|
+  next if item["quantity"].to_i < 1
   items[item["scode"]] = item
 end
 class ShowTextProcessor < HexaPDF::Content::Processor
