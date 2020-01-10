@@ -1,3 +1,10 @@
+# change /var/lib/pgsql/data/pg_hba.conf to use md5 for local (at bottom)
+# createuser with CREATE login password 'password'
+# be rails db:create before restore below (no localhost)
+# PGPASSWORD=password pg_restore --verbose --clean --no-acl --no-owner -U rubydesign -d devel latest.dump
+
+# sudo systemctl restart postgresql
+
 development:
   adapter: postgresql
   encoding: unicode

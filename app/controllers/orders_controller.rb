@@ -6,7 +6,12 @@ class OrdersController < AdminController
                                         :ship, :shipment ,  :pay , :deduct_only]
 
   def index
-    @q = Order.ransack(params[:q])
+    query = params[:q] || {}
+    if query[:order_number_eq]
+      query[:order_number_eq] = query[:order_number_eq][1 .. -1]  if query[:order_number_eq][0] == "R"
+      query[:order_number_eq] = query[:order_number_eq][0 .. -2]  if query[:order_number_eq].length == 10
+    end
+    @q = Order.ransack( query )
     @order_scope = @q.result( :distinct => true).includes(:basket => {:items => :product} )
     @orders = @order_scope.page(params[:page])
   end
