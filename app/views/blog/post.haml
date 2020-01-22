@@ -16,6 +16,11 @@
 
 .row
   %ul.nav
+    %li
+      Follow or comment on
+      = ext_link "medium/@rubydesign" , "https://medium.com/@rubydesign"
+.row
+  %ul.nav
     - Post.posts.each do |slug, post|
       %li
         =link_to blog_post_path(slug) do
