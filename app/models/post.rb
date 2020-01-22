@@ -18,7 +18,7 @@ class Post
     @words.join("-").downcase
   end
   def title
-    @words.join(" ")
+    @words.join(" ").capitalize
   end
   def template_name
     "#{year}/#{month.to_s.rjust(2, '0')}-#{day.to_s.rjust(2, '0')}-#{@words.join("-")}"
