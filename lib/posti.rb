@@ -1,6 +1,6 @@
 require "shipping_method"
 
-class Post < ShippingMethod
+class Posti < ShippingMethod
 
   DEFAULTS ={   :weight_table     => '1 2 5 10 20' ,
                 :price_table      => '2 5 10 15 18' ,

@@ -82,7 +82,7 @@ RSpec.describe Post do
     context '.available?(package)' do
       it 'is false when item weighs more than 20kg' do
         basket = basket_with(:weight => 25 )
-        expect(Post.new({}).available?(basket)).to be(false)
+        expect(Posti.new({}).available?(basket)).to be(false)
       end
     end
   end
@@ -102,7 +102,7 @@ RSpec.describe Post do
     basket
   end
   def price_for_basket(basket , args = {})
-    Post.new(args).price_for(basket)
+    Posti.new(args).price_for(basket)
   end
 
   context 'returns description' do

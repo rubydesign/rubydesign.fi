@@ -7,31 +7,31 @@ config:
       weight_table: '1 5 10 15 20 30 40'
       price_table: '11.28 12 12.7 13.9 15.1 16.4 18.85'
       name: Business 14 -paketti
-      class: "Post"
+      class: "Posti"
       max_price: 620
     mps:
       weight_table: '1 5 10 15 20 30 40'
       price_table: '17.1 17.3 18.1 19.3 20.5 21.7 24.2'
       name: Monipaketti
-      class: "Post"
+      class: "Posti"
       max_price: 620
     Economy:
       weight_table: '1 5 10 15 20 30 40'
       price_table: '8 8.3 9 10.2 11.5 12.7 15.1'
       name: Economy-paketti
-      class: "Post"
+      class: "Posti"
       max_price: 620
     maksikirje:
       weight_table: '0.5 1 1.5 2'
       price_table: '4.3 6.6 8.5 10.4'
       name: Maksikirje 2 lk
-      class: "Post"
+      class: "Posti"
       max_price: 620
     kirje:
       weight_table: '0.5 1 1.5'
       price_table: '2.95 5.31 7.65'
       name: Kirje 2 lk
-      class: "Post"
+      class: "Posti"
       max_price: 620
     Nouto:
       class: "Pickup"
