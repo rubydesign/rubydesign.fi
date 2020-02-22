@@ -8,6 +8,7 @@ class OrdersController < AdminController
   def index
     query = params[:q] || {}
     if query[:order_number_eq]
+      query[:order_number_eq] = query[:order_number_eq].gsub(/\s/ , "")
       query[:order_number_eq] = query[:order_number_eq][1 .. -1]  if query[:order_number_eq][0] == "R"
       query[:order_number_eq] = query[:order_number_eq][0 .. -2]  if query[:order_number_eq].length == 10
     end

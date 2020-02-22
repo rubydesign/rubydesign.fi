@@ -26,4 +26,9 @@ describe "Order index" do
     fill_in("q[order_number_eq]" , :with => "2020348479")
     expect(order_count).to eq 1
   end
+  it "filters by copied number" do
+    order_ab :order_number =>[ 202034847, 202034848]
+    fill_in("q[order_number_eq]" , :with => "	20203 4847 ")
+    expect(order_count).to eq 1
+  end
 end
