@@ -45,7 +45,6 @@ gem "neat"
 gem "pg"
 
 group :development do
-  gem "phantomjs"
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "i18n-tasks"
