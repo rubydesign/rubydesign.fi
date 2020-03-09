@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler'
+Bundler.setup(:lomake)
 require 'httparty'
 require 'hexapdf'
 

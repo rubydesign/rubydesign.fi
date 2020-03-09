@@ -14,7 +14,6 @@ gem "kramdown" , '~> 1.5'
 gem "best_in_place" , '~> 3.0'
 gem "rabl" , '~> 0.13.1'
 gem 'high_voltage'
-gem "httparty"
 gem 'kaminari' , '~> 1.1'
 gem 'bootstrap'
 gem 'simple_form'
@@ -23,9 +22,13 @@ gem "bcrypt"
 gem "barby" , "~> 0.6"
 gem "chunky_png" , "~> 1.3"
 gem "prawn" ,  "~> 2.0"
-gem "hexapdf"
 gem "reference_number"
 gem 'pry-rails'
+
+group :lomake do
+  gem "hexapdf"
+  gem "httparty"
+end
 
 gem 'rails', '~> 5.2.3'
 
