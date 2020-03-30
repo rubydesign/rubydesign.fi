@@ -10,13 +10,11 @@ development:
   encoding: unicode
   database: devel
   pool: 5
-  username: rubydesign
-  password: password
+  username: postgres
 
 test:
   adapter: postgresql
   encoding: unicode
   database: test
   pool: 5
-  username: rubydesign
-  password: password
+  username: postgres

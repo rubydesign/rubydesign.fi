@@ -1,10 +1,15 @@
-<%= [t(:order_number) , t(:ordered_on) , t(:total_price) , t(:vat) + " 14" , t(:vat) + " 24" , t(:paid_on), t(:email) ].join(";") %>
+<%= [t(:order_number) , t(:ordered_on) ,t(:shipped_on) , t(:paid_on),
+    t(:total_price) , t(:vat) + " 14" , t(:vat) + " 24" ,
+    t(:email) ].join(";") %>
 <% @order_scope.each do |order| %>
-<% values = [ order.number.to_s , date(order.ordered_on) ,  number_with_comma(order.total_price)]  %>
+<% values = [ order.number.to_s ,
+            date(order.ordered_on) ,
+            date(order.shipped_on) ,
+            date(order.paid_on) ,
+            number_with_comma(order.total_price)]  %>
 <% taxes = order.taxes %>
 <% values << number_with_comma(taxes[14.0]) %>
 <% values << number_with_comma(taxes[24.0]) %>
-<% values << date(order.paid_on) %>
 <% values << order.email.to_s %>
 <%= values.join(";")   %>
 <%end%>
