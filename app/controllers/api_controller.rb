@@ -3,9 +3,9 @@
 
 class ApiController < ApplicationController
   layout false
-  
+
   def purchase
-    @purchase = Purchase.first
+    @purchase = Purchase.find(393)
   end
 
 end
