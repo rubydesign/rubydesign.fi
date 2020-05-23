@@ -5,19 +5,19 @@ config:
       name: Nouto myymälästämme
     Business_14:
       weight_table: '1 5 10 15 20 30 40'
-      price_table: '11.28 12 12.7 13.9 15.1 16.4 18.85'
+      price_table: '13.4 14.8 16.3 17.7 19.2 22.2 24.1'
       name: Business 14 -paketti
       class: "Posti"
       max_price: 620
     mps:
       weight_table: '1 5 10 15 20 30 40'
-      price_table: '17.1 17.3 18.1 19.3 20.5 21.7 24.2'
+      price_table: '16.0 17.4 18.9 20.4 21.8  24.8 26.7'
       name: Monipaketti
       class: "Posti"
       max_price: 620
     Economy:
       weight_table: '1 5 10 15 20 30 40'
-      price_table: '8 8.3 9 10.2 11.5 12.7 15.1'
+      price_table: '10.1 11.7 13.0 14.4 15.8 18.5 20.4'
       name: Economy-paketti
       class: "Posti"
       max_price: 620
