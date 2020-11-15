@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :vases
   root to: 'high_voltage/pages#show' , id: 'index'
 
   get "/blog" , to: "blog#index" , as: :blog_index

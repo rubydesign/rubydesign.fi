@@ -1,0 +1,10 @@
+%p#notice= notice
+%h1 Vases
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @vases.each do |vase|
+      %tr
+        %td= link_to vase.capitalize , vase_url( vase)
