@@ -2,8 +2,11 @@
 <% @product_scope.each do |product| %>
   <% values = [product.position] %>
   <% values << product.name %>
-  <% values << (available_inventory  ? "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
-   : product.inventory ) %>
+  <% values <<  product.inventory ) %>
+  <% if(available_inventory) %>
+   <% values << (available_inventory  ? "#{product.inventory - @product_inventory[product.id]} / #{@product_inventory[product.id]} "
+    : product.inventory ) %>
+  <% end %>
   <% values << product.category_name %>
   <% values << product.price %>
   <%= values.join(";")   %>
