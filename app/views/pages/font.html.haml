@@ -5,7 +5,7 @@
   Only the bevel and text can be changed (by just typing).
   Then download and do the rest in slicer.
 
-= javascript_include_tag "three"
+= javascript_include_tag "three_all"
 :javascript
   let font_asset = "#{asset_path('oleo.json')}" ;
 
@@ -13,7 +13,7 @@
   type to enter new text, drag to spin the text
   %br/
   %button#bevel add bevel
-  %br/
+  %button#exportBinary export binary
 
 
 :javascript
@@ -28,13 +28,13 @@
 
   let firstLetter = true;
 
-  let text = "0123456789",  	font = undefined;
+  let text = "0123456789",    font = undefined;
 
   let  bevelThickness = 2, bevelSize = 1.5 ;
   const height = 20,
-  	size = 70,
-  	hover = 30,
-  	curveSegments = 4;
+    size = 70,
+    hover = 30,
+    curveSegments = 4;
 
   let targetRotation = 0;
   let targetRotationOnPointerDown = 0;
@@ -51,230 +51,230 @@
 
   function init() {
 
-  	container = document.createElement( 'div' );
-  	document.body.appendChild( container );
+    container = document.createElement( 'div' );
+    document.body.appendChild( container );
 
-  	// CAMERA
+    // CAMERA
 
-  	camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1500 );
-  	camera.position.set( 0, 400, 700 );
+    camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1500 );
+    camera.position.set( 0, 400, 700 );
 
-  	cameraTarget = new THREE.Vector3( 0, 150, 0 );
+    cameraTarget = new THREE.Vector3( 0, 150, 0 );
 
-  	// SCENE
+    // SCENE
 
-  	scene = new THREE.Scene();
-  	scene.background = new THREE.Color( 0x000000 );
-  	scene.fog = new THREE.Fog( 0x000000, 250, 1400 );
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0x000000 );
+    scene.fog = new THREE.Fog( 0x000000, 250, 1400 );
 
-  	// LIGHTS
+    // LIGHTS
 
-  	const dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
-  	dirLight.position.set( 0, 0, 1 ).normalize();
-  	scene.add( dirLight );
+    const dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
+    dirLight.position.set( 0, 0, 1 ).normalize();
+    scene.add( dirLight );
 
-  	const pointLight = new THREE.PointLight( 0xffffff, 1.5 );
-  	pointLight.position.set( 0, 100, 90 );
-  	scene.add( pointLight );
+    const pointLight = new THREE.PointLight( 0xffffff, 1.5 );
+    pointLight.position.set( 0, 100, 90 );
+    scene.add( pointLight );
 
-  	// Get text from hash
+    // Get text from hash
 
     pointLight.color.setHSL( Math.random(), 1, 0.5 );
 
-  	materials = [
-  		new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
-  		new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
-  	];
+    materials = [
+      new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
+      new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
+    ];
 
-  	group = new THREE.Group();
-  	group.position.y = 100;
+    group = new THREE.Group();
+    group.position.y = 100;
 
-  	scene.add( group );
+    scene.add( group );
 
-  	loadFont();
+    loadFont();
 
-  	const plane = new THREE.Mesh(
-  		new THREE.PlaneBufferGeometry( 10000, 10000 ),
-  		new THREE.MeshBasicMaterial( { color: 0xffffff, opacity: 0.5, transparent: true } )
-  	);
-  	plane.position.y = 100;
-  	plane.rotation.x = - Math.PI / 2;
-  	scene.add( plane );
+    const plane = new THREE.Mesh(
+      new THREE.PlaneBufferGeometry( 10000, 10000 ),
+      new THREE.MeshBasicMaterial( { color: 0xffffff, opacity: 0.5, transparent: true } )
+    );
+    plane.position.y = 100;
+    plane.rotation.x = - Math.PI / 2;
+    scene.add( plane );
 
-  	// RENDERER
+    // RENDERER
 
-  	renderer = new THREE.WebGLRenderer( { antialias: true } );
-  	renderer.setPixelRatio( window.devicePixelRatio );
-  	renderer.setSize( window.innerWidth, window.innerHeight );
-  	container.appendChild( renderer.domElement );
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    container.appendChild( renderer.domElement );
 
-  	container.style.touchAction = 'none';
-  	container.addEventListener( 'pointerdown', onPointerDown, false );
+    container.style.touchAction = 'none';
+    container.addEventListener( 'pointerdown', onPointerDown, false );
 
-  	document.addEventListener( 'keypress', onDocumentKeyPress, false );
-  	document.addEventListener( 'keydown', onDocumentKeyDown, false );
+    document.addEventListener( 'keypress', onDocumentKeyPress, false );
+    document.addEventListener( 'keydown', onDocumentKeyDown, false );
 
-  	pointLight.color.setHSL( Math.random(), 1, 0.5 );
+    pointLight.color.setHSL( Math.random(), 1, 0.5 );
 
-  	document.getElementById( "bevel" ).addEventListener( 'click', function () {
+    document.getElementById( "bevel" ).addEventListener( 'click', function () {
 
-  		bevelThickness = bevelThickness + 0.5;
+      bevelThickness = bevelThickness + 0.5;
       bevelSize = bevelSize + 0.5;
-  		refreshText();
+      refreshText();
 
-  	}, false );
+    }, false );
 
-  	window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'resize', onWindowResize, false );
 
   }
 
   function onWindowResize() {
 
-  	windowHalfX = window.innerWidth / 2;
+    windowHalfX = window.innerWidth / 2;
 
-  	camera.aspect = window.innerWidth / window.innerHeight;
-  	camera.updateProjectionMatrix();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 
-  	renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth, window.innerHeight );
 
   }
 
   function onDocumentKeyDown( event ) {
 
-  	if ( firstLetter ) {
+    if ( firstLetter ) {
 
-  		firstLetter = false;
-  		text = "";
+      firstLetter = false;
+      text = "";
 
-  	}
+    }
 
-  	const keyCode = event.keyCode;
+    const keyCode = event.keyCode;
 
-  	// backspace
+    // backspace
 
-  	if ( keyCode == 8 ) {
+    if ( keyCode == 8 ) {
 
-  		event.preventDefault();
+      event.preventDefault();
 
-  		text = text.substring( 0, text.length - 1 );
-  		refreshText();
+      text = text.substring( 0, text.length - 1 );
+      refreshText();
 
-  		return false;
+      return false;
 
-  	}
+    }
 
   }
 
   function onDocumentKeyPress( event ) {
 
-  	const keyCode = event.which;
+    const keyCode = event.which;
 
-  	// backspace
+    // backspace
 
-  	if ( keyCode == 8 ) {
+    if ( keyCode == 8 ) {
 
-  		event.preventDefault();
+      event.preventDefault();
 
-  	} else {
+    } else {
 
-  		const ch = String.fromCharCode( keyCode );
-  		text += ch;
+      const ch = String.fromCharCode( keyCode );
+      text += ch;
 
-  		refreshText();
+      refreshText();
 
-  	}
+    }
 
   }
 
   function loadFont() {
 
-  	const loader = new THREE.FontLoader();
-  	loader.load( font_asset, function ( response ) {
+    const loader = new THREE.FontLoader();
+    loader.load( font_asset, function ( response ) {
 
-  		font = response;
+      font = response;
 
-  		refreshText();
+      refreshText();
 
-  	} );
+    } );
 
   }
 
   function createText() {
 
-  	textGeo = new THREE.TextGeometry( text, {
+    textGeo = new THREE.TextGeometry( text, {
 
-  		font: font,
+      font: font,
 
-  		size: size,
-  		height: height,
-  		curveSegments: curveSegments,
+      size: size,
+      height: height,
+      curveSegments: curveSegments,
 
-  		bevelThickness: bevelThickness,
-  		bevelSize: bevelSize,
+      bevelThickness: bevelThickness,
+      bevelSize: bevelSize,
       bevelEnabled: true
 
-  	} );
+    } );
 
-  	textGeo.computeBoundingBox();
-  	textGeo.computeVertexNormals();
+    textGeo.computeBoundingBox();
+    textGeo.computeVertexNormals();
 
-  	const triangle = new THREE.Triangle();
+    const triangle = new THREE.Triangle();
 
-  	const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
+    const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
 
-  	textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
+    textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
 
-  	textMesh1 = new THREE.Mesh( textGeo, materials );
+    textMesh1 = new THREE.Mesh( textGeo, materials );
 
-  	textMesh1.position.x = centerOffset;
-  	textMesh1.position.y = hover;
-  	textMesh1.position.z = 0;
+    textMesh1.position.x = centerOffset;
+    textMesh1.position.y = hover;
+    textMesh1.position.z = 0;
 
-  	textMesh1.rotation.x = 0;
-  	textMesh1.rotation.y = Math.PI * 2;
+    textMesh1.rotation.x = 0;
+    textMesh1.rotation.y = Math.PI * 2;
 
-  	group.add( textMesh1 );
+    group.add( textMesh1 );
 
   }
 
   function refreshText() {
 
-  	group.remove( textMesh1 );
+    group.remove( textMesh1 );
 
-  	if ( ! text ) return;
+    if ( ! text ) return;
 
-  	createText();
+    createText();
 
   }
 
   function onPointerDown( event ) {
 
-  	if ( event.isPrimary === false ) return;
+    if ( event.isPrimary === false ) return;
 
-  	pointerXOnPointerDown = event.clientX - windowHalfX;
-  	targetRotationOnPointerDown = targetRotation;
+    pointerXOnPointerDown = event.clientX - windowHalfX;
+    targetRotationOnPointerDown = targetRotation;
 
-  	document.addEventListener( 'pointermove', onPointerMove, false );
-  	document.addEventListener( 'pointerup', onPointerUp, false );
+    document.addEventListener( 'pointermove', onPointerMove, false );
+    document.addEventListener( 'pointerup', onPointerUp, false );
 
   }
 
   function onPointerMove( event ) {
 
-  	if ( event.isPrimary === false ) return;
+    if ( event.isPrimary === false ) return;
 
-  	pointerX = event.clientX - windowHalfX;
+    pointerX = event.clientX - windowHalfX;
 
-  	targetRotation = targetRotationOnPointerDown + ( pointerX - pointerXOnPointerDown ) * 0.02;
+    targetRotation = targetRotationOnPointerDown + ( pointerX - pointerXOnPointerDown ) * 0.02;
 
   }
 
   function onPointerUp() {
 
-  	if ( event.isPrimary === false ) return;
+    if ( event.isPrimary === false ) return;
 
-  	document.removeEventListener( 'pointermove', onPointerMove );
-  	document.removeEventListener( 'pointerup', onPointerUp );
+    document.removeEventListener( 'pointermove', onPointerMove );
+    document.removeEventListener( 'pointerup', onPointerUp );
 
   }
 
@@ -282,19 +282,46 @@
 
   function animate() {
 
-  	requestAnimationFrame( animate );
+    requestAnimationFrame( animate );
 
-  	render();
+    render();
 
   }
 
   function render() {
 
-  	group.rotation.y += ( targetRotation - group.rotation.y ) * 0.05;
+    group.rotation.y += ( targetRotation - group.rotation.y ) * 0.05;
 
-  	camera.lookAt( cameraTarget );
+    camera.lookAt( cameraTarget );
 
-  	renderer.clear();
-  	renderer.render( scene, camera );
+    renderer.clear();
+    renderer.render( scene, camera );
+
+  }
+
+  exporter = new STLExporter();
+  const buttonExportBinary = document.getElementById( 'exportBinary' );
+  buttonExportBinary.addEventListener( 'click', exportBinary );
+
+  function exportBinary() {
+    const result = exporter.parse( textMesh1, { binary: true } );
+    saveArrayBuffer( result, 'numbers.stl' );
+  }
+
+  const link = document.createElement( 'a' );
+  link.style.display = 'none';
+  document.body.appendChild( link );
+
+  function save( blob, filename ) {
+
+    link.href = URL.createObjectURL( blob );
+    link.download = filename;
+    link.click();
+
+  }
+
+  function saveArrayBuffer( buffer, filename ) {
+
+    save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
 
   }
