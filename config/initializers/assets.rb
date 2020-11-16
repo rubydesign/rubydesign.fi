@@ -14,5 +14,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( ruby_clerks.css ruby_clerks.js report.js)
-Rails.application.config.assets.precompile += %w( vue.js vue.min.js)
+Rails.application.config.assets.precompile += %w( vue.js vue.min.js vases.js optimer_bold.json)
 Rails.application.config.assets.precompile += %w( ruby_clerks/*.jpg *.jpg  *.png *.gif)

@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  config.assets.precompile += %w( ruby_clerks.js ruby_clerks.css)
+  config.assets.precompile += %w( ruby_clerks.js ruby_clerks.css )
 
   # Settings specified here will take precedence over those in config/application.rb.
 

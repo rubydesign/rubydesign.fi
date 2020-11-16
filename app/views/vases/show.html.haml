@@ -1,7 +1,28 @@
-%p#notice= notice
+
+#info
+  %a{:href => "https://threejs.org", :rel => "noopener", :target => "_blank"} three.js
+  \- procedural 3D text by
+  %a{:href => "http://www.lab4games.net/zz85/blog", :rel => "noopener", :target => "_blank"} zz85
+  \&amp; alteredq
+  %br/
+  type to enter new text, drag to spin the text
+  %br/
+  %button#color change color
+  %button#font change font
+  %button#weight change weight
+  %button#bevel change bevel
+  %br/
+  %a#permalink{:href => "#"} permalink
 
 %h1= @vase.capitalize
 
 = link_to 'Edit', edit_vase_path(@vase)
 |
 = link_to 'Back', vases_path
+
+= font_asset = asset_path('optimer_bold.json')
+
+:javascript
+    let font_asset = "#{font_asset}" ;
+
+= javascript_include_tag "vases"
