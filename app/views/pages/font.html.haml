@@ -9,22 +9,19 @@
   type to enter new text, drag to spin the text
   %br/
   %button#color change color
-  %button#font change font
-  %button#weight change weight
   %button#bevel change bevel
   %br/
-  %a#permalink{:href => "#"} permalink
 
 
 :javascript
 
   THREE.Cache.enabled = true;
 
-  let container,  permalink, hex;
+  let container, hex;
 
   let camera, cameraTarget, scene, renderer;
 
-  let group, textMesh1, textMesh2, textGeo, materials;
+  let group, textMesh1, textGeo, materials;
 
   let firstLetter = true;
 
@@ -32,10 +29,7 @@
 
   	bevelEnabled = true,
 
-  	font = undefined,
-
-  	fontName = "optimer", // helvetiker, optimer, gentilis, droid sans, droid serif
-  	fontWeight = "bold"; // normal bold
+  	font = undefined;
 
   const height = 20,
   	size = 70,
@@ -45,31 +39,6 @@
 
   	bevelThickness = 2,
   	bevelSize = 1.5;
-
-  const mirror = true;
-
-  const fontMap = {
-
-  	"helvetiker": 0,
-  	"optimer": 1,
-  	"gentilis": 2,
-  	"droid/droid_sans": 3,
-  	"droid/droid_serif": 4
-
-  };
-
-  const weightMap = {
-
-  	"regular": 0,
-  	"bold": 1
-
-  };
-
-  const reverseFontMap = [];
-  const reverseWeightMap = [];
-
-  for ( const i in fontMap ) reverseFontMap[ fontMap[ i ] ] = i;
-  for ( const i in weightMap ) reverseWeightMap[ weightMap[ i ] ] = i;
 
   let targetRotation = 0;
   let targetRotationOnPointerDown = 0;
@@ -96,8 +65,6 @@
 
   	container = document.createElement( 'div' );
   	document.body.appendChild( container );
-
-  	permalink = document.getElementById( "permalink" );
 
   	// CAMERA
 
@@ -137,14 +104,9 @@
   		hex = colorhash;
   		pointLight.color.setHex( parseInt( colorhash, 16 ) );
 
-  		fontName = reverseFontMap[ parseInt( fonthash ) ];
-  		fontWeight = reverseWeightMap[ parseInt( weighthash ) ];
-
   		bevelEnabled = parseInt( bevelhash );
 
   		text = decodeURI( texthash );
-
-  		updatePermalink();
 
   	} else {
 
@@ -196,35 +158,6 @@
   		pointLight.color.setHSL( Math.random(), 1, 0.5 );
   		hex = decimalToHex( pointLight.color.getHex() );
 
-  		updatePermalink();
-
-  	}, false );
-
-  	document.getElementById( "font" ).addEventListener( 'click', function () {
-
-  		fontIndex ++;
-
-  		fontName = reverseFontMap[ fontIndex % reverseFontMap.length ];
-
-  		loadFont();
-
-  	}, false );
-
-
-  	document.getElementById( "weight" ).addEventListener( 'click', function () {
-
-  		if ( fontWeight === "bold" ) {
-
-  			fontWeight = "regular";
-
-  		} else {
-
-  			fontWeight = "bold";
-
-  		}
-
-  		loadFont();
-
   	}, false );
 
   	document.getElementById( "bevel" ).addEventListener( 'click', function () {
@@ -257,15 +190,6 @@
   function boolToNum( b ) {
 
   	return b ? 1 : 0;
-
-  }
-
-  function updatePermalink() {
-
-  	const link = hex + fontMap[ fontName ] + weightMap[ fontWeight ] + boolToNum( bevelEnabled ) + "#" + encodeURI( text );
-
-  	permalink.href = "#" + link;
-  	window.location.hash = link;
 
   }
 
@@ -407,29 +331,11 @@
 
   	group.add( textMesh1 );
 
-  	if ( mirror ) {
-
-  		textMesh2 = new THREE.Mesh( textGeo, materials );
-
-  		textMesh2.position.x = centerOffset;
-  		textMesh2.position.y = - hover;
-  		textMesh2.position.z = height;
-
-  		textMesh2.rotation.x = Math.PI;
-  		textMesh2.rotation.y = Math.PI * 2;
-
-  		group.add( textMesh2 );
-
-  	}
-
   }
 
   function refreshText() {
 
-  	updatePermalink();
-
   	group.remove( textMesh1 );
-  	if ( mirror ) group.remove( textMesh2 );
 
   	if ( ! text ) return;
 

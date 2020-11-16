@@ -30600,16 +30600,15 @@
 		constructor: FontLoader,
 		load: function load(url, onLoad, onProgress, onError) {
 			var scope = this;
-			console.log("Loading font");
-			console.log(url);
-			console.log(this.path);
+			// console.log("Loading font");
+			// console.log(url);
+			// console.log(this.path);
 			var loader = new FileLoader(this.manager);
 			loader.setPath(this.path);
 			loader.setRequestHeader(this.requestHeader);
 			loader.setWithCredentials(scope.withCredentials);
 			loader.load(url, function (text) {
 				var json;
-				console.log(text)
 				try {
 					json = JSON.parse(text);
 				} catch (e) {
