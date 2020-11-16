@@ -1,15 +1,18 @@
-:javascript
-  let font_asset = "#{asset_path('optimer_bold.json')}" ;
-
 %h1 Fonts
 
+%p
+  A little exercise in generating numbers, copied from three example.
+  Only the bevel and text can be changed (by just typing).
+  Then download and do the rest in slicer.
+
 = javascript_include_tag "three"
+:javascript
+  let font_asset = "#{asset_path('oleo.json')}" ;
 
 #info
   type to enter new text, drag to spin the text
   %br/
-  %button#color change color
-  %button#bevel change bevel
+  %button#bevel add bevel
   %br/
 
 
@@ -17,7 +20,7 @@
 
   THREE.Cache.enabled = true;
 
-  let container, hex;
+  let container;
 
   let camera, cameraTarget, scene, renderer;
 
@@ -25,20 +28,13 @@
 
   let firstLetter = true;
 
-  let text = "0123456789",
+  let text = "0123456789",  	font = undefined;
 
-  	bevelEnabled = true,
-
-  	font = undefined;
-
+  let  bevelThickness = 2, bevelSize = 1.5 ;
   const height = 20,
   	size = 70,
   	hover = 30,
-
-  	curveSegments = 4,
-
-  	bevelThickness = 2,
-  	bevelSize = 1.5;
+  	curveSegments = 4;
 
   let targetRotation = 0;
   let targetRotationOnPointerDown = 0;
@@ -52,14 +48,6 @@
 
   init();
   animate();
-
-  function decimalToHex( d ) {
-
-  	let hex = Number( d ).toString( 16 );
-  	hex = "000000".substr( 0, 6 - hex.length ) + hex;
-  	return hex.toUpperCase();
-
-  }
 
   function init() {
 
@@ -91,29 +79,7 @@
 
   	// Get text from hash
 
-  	const hash = document.location.hash.substr( 1 );
-
-  	if ( hash.length !== 0 ) {
-
-  		const colorhash = hash.substring( 0, 6 );
-  		const fonthash = hash.substring( 6, 7 );
-  		const weighthash = hash.substring( 7, 8 );
-  		const bevelhash = hash.substring( 8, 9 );
-  		const texthash = hash.substring( 10 );
-
-  		hex = colorhash;
-  		pointLight.color.setHex( parseInt( colorhash, 16 ) );
-
-  		bevelEnabled = parseInt( bevelhash );
-
-  		text = decodeURI( texthash );
-
-  	} else {
-
-  		pointLight.color.setHSL( Math.random(), 1, 0.5 );
-  		hex = decimalToHex( pointLight.color.getHex() );
-
-  	}
+    pointLight.color.setHSL( Math.random(), 1, 0.5 );
 
   	materials = [
   		new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
@@ -142,33 +108,21 @@
   	renderer.setSize( window.innerWidth, window.innerHeight );
   	container.appendChild( renderer.domElement );
 
-  	// STATS
-
-
-  	// EVENTS
-
   	container.style.touchAction = 'none';
   	container.addEventListener( 'pointerdown', onPointerDown, false );
 
   	document.addEventListener( 'keypress', onDocumentKeyPress, false );
   	document.addEventListener( 'keydown', onDocumentKeyDown, false );
 
-  	document.getElementById( "color" ).addEventListener( 'click', function () {
-
-  		pointLight.color.setHSL( Math.random(), 1, 0.5 );
-  		hex = decimalToHex( pointLight.color.getHex() );
-
-  	}, false );
+  	pointLight.color.setHSL( Math.random(), 1, 0.5 );
 
   	document.getElementById( "bevel" ).addEventListener( 'click', function () {
 
-  		bevelEnabled = ! bevelEnabled;
-
+  		bevelThickness = bevelThickness + 0.5;
+      bevelSize = bevelSize + 0.5;
   		refreshText();
 
   	}, false );
-
-  	//
 
   	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -182,14 +136,6 @@
   	camera.updateProjectionMatrix();
 
   	renderer.setSize( window.innerWidth, window.innerHeight );
-
-  }
-
-  //
-
-  function boolToNum( b ) {
-
-  	return b ? 1 : 0;
 
   }
 
@@ -265,7 +211,7 @@
 
   		bevelThickness: bevelThickness,
   		bevelSize: bevelSize,
-  		bevelEnabled: bevelEnabled
+      bevelEnabled: true
 
   	} );
 
@@ -273,48 +219,6 @@
   	textGeo.computeVertexNormals();
 
   	const triangle = new THREE.Triangle();
-
-  	// "fix" side normals by removing z-component of normals for side faces
-  	// (this doesn't work well for beveled geometry as then we lose nice curvature around z-axis)
-
-  	if ( ! bevelEnabled ) {
-
-  		const triangleAreaHeuristics = 0.1 * ( height * size );
-
-  		for ( let i = 0; i < textGeo.faces.length; i ++ ) {
-
-  			const face = textGeo.faces[ i ];
-
-  			if ( face.materialIndex == 1 ) {
-
-  				for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
-
-  					face.vertexNormals[ j ].z = 0;
-  					face.vertexNormals[ j ].normalize();
-
-  				}
-
-  				const va = textGeo.vertices[ face.a ];
-  				const vb = textGeo.vertices[ face.b ];
-  				const vc = textGeo.vertices[ face.c ];
-
-  				const s = triangle.set( va, vb, vc ).getArea();
-
-  				if ( s > triangleAreaHeuristics ) {
-
-  					for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
-
-  						face.vertexNormals[ j ].copy( face.normal );
-
-  					}
-
-  				}
-
-  			}
-
-  		}
-
-  	}
 
   	const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
 
