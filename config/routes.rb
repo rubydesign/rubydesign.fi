@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :vases
   root to: 'high_voltage/pages#show' , id: 'index'
 
   get "/blog" , to: "blog#index" , as: :blog_index
@@ -117,6 +116,10 @@ Rails.application.routes.draw do
 
   get "api/purchase" => "api#purchase" , format: :json
 
-  match '*path', via: :all, to: 'high_voltage/pages#show' , id: "404"#if Rails.production?
+end
 
+Rails.application.config.after_initialize do |application|
+  application.routes.append do
+    match '*path', via: :all, to: 'high_voltage/pages#show' , id: "404"#if Rails.production?
+  end
 end
