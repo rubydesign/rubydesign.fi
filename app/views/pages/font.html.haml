@@ -12,7 +12,8 @@
 #info
   type to enter new text, drag to spin the text
   %br/
-  %button#bevel add bevel
+  %button#less_bevel less bevel
+  %button#more_bevel more bevel
   %button#exportBinary export binary
 
 
@@ -20,16 +21,16 @@
 
   THREE.Cache.enabled = true;
 
-  let camera, cameraTarget, scene, renderer;
+  let camera, scene, renderer;
 
-  let group, textMesh1, textGeo, materials;
+  let group, textMesh1, materials;
 
   let firstLetter = true;
 
-  let text = "0123456789",    font = undefined;
+  let text = "123456789",    font = undefined;
 
-  let  bevelThickness = 2, bevelSize = 2 , curveSegments = 8;
-  const height = 20, size = 50;
+  let  bevelThickness = 3, bevelSize = 3 , curveSegments = 8;
+  const height = 20, size = 80;
 
   init();
   animate();
@@ -41,8 +42,6 @@
     camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1500 );
     camera.position.set( 0, 400, 700 );
 
-    cameraTarget = new THREE.Vector3( 0, 150, 0 );
-
     // SCENE
 
     scene = new THREE.Scene();
@@ -51,9 +50,8 @@
     // LIGHTS
     const light = new THREE.AmbientLight( 0x404040 , 1.5); // soft white light
     scene.add( light );
-    const pointLight = new THREE.PointLight( 0xffffff, 1.5 );
+    const pointLight = new THREE.PointLight( 0x404040, 1.5 );
     pointLight.position.set( 0, 100, 90 );
-    pointLight.color.setHSL( Math.random(), 1, 0.5 );
     scene.add( pointLight );
 
     materials = [
@@ -85,13 +83,19 @@
     document.addEventListener( 'keypress', onDocumentKeyPress, false );
     document.addEventListener( 'keydown', onDocumentKeyDown, false );
 
-    add_bevel = document.getElementById( "bevel" )
-    add_bevel.addEventListener( 'click', function () {
+    more_bevel = document.getElementById( "more_bevel" )
+    more_bevel.addEventListener( 'click', function () {
       bevelThickness = bevelThickness + 0.5;
       bevelSize = bevelSize + 0.5;
       curveSegments = curveSegments + 1;
       refreshText();
-
+    }, false );
+    less_bevel = document.getElementById( "less_bevel" )
+    less_bevel.addEventListener( 'click', function () {
+      bevelThickness = bevelThickness - 0.5;
+      bevelSize = bevelSize - 0.5;
+      curveSegments = curveSegments - 1;
+      refreshText();
     }, false );
 
     window.addEventListener( 'resize', onWindowResize, false );
@@ -182,8 +186,6 @@
 
     textGeo.computeBoundingBox();
     textGeo.computeVertexNormals();
-
-    const triangle = new THREE.Triangle();
 
     const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
 
