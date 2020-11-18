@@ -5,27 +5,30 @@
   Only the bevel and text can be changed (by just typing).
   Then download and do the rest in slicer.
 
+  %button#exportBinary export binary
 .row
   .canvas_container
     %canvas#viewer
 
   #info
-    type to enter new text, drag to spin the text
-    %br/
-    %button#less_bevel less bevel
-    %button#more_bevel more bevel
-    %button#exportBinary export binary
+    %input{ "v-model":"text"}
+    %range-slider{"v-model":"bevelThickness" , ":min":"2", ":max":"11" ,
+                  ":step": "0.5"} Bevel Thickness {{bevelThickness}}
+    %range-slider{"v-model":"bevelSize" , ":min":"2", ":max":"11" ,
+                  ":step": "0.5"} Bevel Size {{bevelSize}}
+    %range-slider{"v-model":"size" , ":min":"20", ":max":"100" ,
+                  ":step": "2"} Font Size {{size}}
+    %range-slider{"v-model":"height" , ":min":"10", ":max":"30" ,
+                  ":step": "1"} Font Height {{height}}
+    %label Orbital
+    %input{:type => "radio", "v-model" => "orbital"}
 
 = javascript_include_tag "three_all"
 :javascript
   let font_asset = "#{asset_path('oleo.json')}" ;
   let firstLetter = true;
-
   let text = "123456789",    font = undefined;
-
-  let  bevelThickness = 3, bevelSize = 3 , curveSegments = 8;
-  const height = 20, size = 80;
-
+  let curveSegments = 8;
 
   function loadFont() {
     const loader = new THREE.FontLoader();
@@ -37,31 +40,24 @@
   }
 
   function createText() {
-    textGeo = new THREE.TextGeometry( text, {
-
+    textGeo = new THREE.TextGeometry( Numbers._data.text, {
       font: font,
-      size: size,
-      height: height,
+      size: Numbers._data.size,
+      height: Numbers._data.height,
       curveSegments: curveSegments,
-      bevelThickness: bevelThickness,
-      bevelSize: bevelSize,
+      bevelThickness: Numbers._data.bevelThickness,
+      bevelSize: Numbers._data.bevelSize,
       bevelEnabled: true
     } );
-
     textGeo.computeBoundingBox();
     textGeo.computeVertexNormals();
-
     const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
-
     textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
-
     main_mesh = new THREE.Mesh( textGeo, materials );
-
     main_mesh.position.x = centerOffset;
     main_mesh.position.y = 0;
 
     group.add( main_mesh );
-
   }
 
   function refreshText() {
@@ -75,46 +71,18 @@
   init();
   animate();
 
-  //UI fromm here on
-  function onDocumentKeyDown( event ) {
-    if ( firstLetter ) {
-      firstLetter = false;
-      text = "";
-    }
-    const keyCode = event.keyCode;
-    // backspace
-    if ( keyCode == 8 ) {
-      event.preventDefault();
-      text = text.substring( 0, text.length - 1 );
-      refreshText();
-      return false;
-    }
-  }
+:ruby2js
+  class Numbers < Vue
+    el '#info'
 
-  function onDocumentKeyPress( event ) {
-    const keyCode = event.which;
-    // backspace
-    if ( keyCode == 8 ) {
-      event.preventDefault();
-    } else {
-      const ch = String.fromCharCode( keyCode );
-      text += ch;
-      refreshText();
-    }
-  }
-  document.addEventListener( 'keypress', onDocumentKeyPress, false );
-  document.addEventListener( 'keydown', onDocumentKeyDown, false );
-  more_bevel = document.getElementById( "more_bevel" )
-  more_bevel.addEventListener( 'click', function () {
-    bevelThickness = bevelThickness + 0.5;
-    bevelSize = bevelSize + 0.5;
-    curveSegments = curveSegments + 1;
-    refreshText();
-  }, false );
-  less_bevel = document.getElementById( "less_bevel" )
-  less_bevel.addEventListener( 'click', function () {
-    bevelThickness = bevelThickness - 0.5;
-    bevelSize = bevelSize - 0.5;
-    curveSegments = curveSegments - 1;
-    refreshText();
-  }, false );
+    def initialize
+      @orbital = false
+      @bevelThickness = 3
+      @text = "1 2 3 4 5"
+      @bevelSize = 3
+      @size = 50
+      @height = 20
+    end
+  end
+:javascript
+  Numbers.$watch("_data" ,  refreshText  , {deep: true})

@@ -1,6 +1,8 @@
 //= require three.js
 //= require STLExporter.js
 //= require OrbitControls.js
+//= require vue
+//= require range_slider
 
 THREE.Cache.enabled = true;
 let camera, scene, renderer , materials;
@@ -43,7 +45,6 @@ function init() {
   controls.minDistance = 100;
   controls.maxDistance = 50000;
 
-
   window.addEventListener( 'resize', onWindowResize, false );
 
 }
@@ -51,7 +52,7 @@ function init() {
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  //renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
 
@@ -65,27 +66,17 @@ function render() {
   renderer.render( scene, camera );
 }
 
-exporter = new STLExporter();
-const buttonExportBinary = document.getElementById( 'exportBinary' );
-buttonExportBinary.addEventListener( 'click', exportBinary );
-
 function exportBinary() {
-  const result = exporter.parse( main_mesh, { binary: true } );
-  saveArrayBuffer( result, 'numbers.stl' );
-}
-
-const link = document.createElement( 'a' );
-link.style.display = 'none';
-document.body.appendChild( link );
-
-function save( blob, filename ) {
-
+  exporter = new STLExporter();
+  buffer = exporter.parse( main_mesh, { binary: true } );
+  blob = new Blob( [ buffer ], { type: 'application/octet-stream' } );
+  const link = document.createElement( 'a' );
+  link.style.display = 'none';
+  document.body.appendChild( link );
   link.href = URL.createObjectURL( blob );
-  link.download = filename;
+  link.download = 'numbers.stl';
   link.click();
-
 }
 
-function saveArrayBuffer( buffer, filename ) {
-  save( new Blob( [ buffer ], { type: 'application/octet-stream' } ), filename );
-}
+buttonExportBinary = document.getElementById( 'exportBinary' );
+buttonExportBinary.addEventListener( 'click', exportBinary );
