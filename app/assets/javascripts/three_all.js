@@ -16,7 +16,7 @@ function init() {
 
   // SCENE
   scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0x000000 );
+  scene.background = new THREE.Color( 0x202020 );
 
   // LIGHTS
   const light = new THREE.AmbientLight( 0x404040 , 1.5); // soft white light
@@ -31,7 +31,7 @@ function init() {
   pointLight.position.set( 200, 0, 0 );
   scene.add( pointLight );
 
-  material = new THREE.MeshBasicMaterial( { color: 0x6ed3fb } );
+  material = new THREE.MeshPhongMaterial( { color: 0x6ed3fb } );
 
   group = new THREE.Group();
   group.position.y = 50;
