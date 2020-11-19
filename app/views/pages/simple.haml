@@ -12,31 +12,46 @@
 
   #info
     %range-slider{"v-model":"radiusTop" , ":min":"0", ":max":"100" ,
-                  ":step": "0.5"} Radius Top {{radiusTop}}
+                  ":step": "1"} Radius Top {{radiusTop}}
     %range-slider{"v-model":"radiusBottom" , ":min":"0", ":max":"200" ,
-                  ":step": "0.5"} Radius Bottom {{radiusBottom}}
-    %range-slider{"v-model":"height" , ":min":"10", ":max":"300" ,
+                  ":step": "1"} Radius Bottom {{radiusBottom}}
+    %range-slider{"v-model":"height" , ":min":"10", ":max":"400" ,
                   ":step": "1"} Lamp height {{height}}
-    %range-slider{"v-model":"heightSegments" , ":min":"10", ":max":"100" ,
-                  ":step": "2"} height Segments {{heightSegments}}
-    %range-slider{"v-model":"radialSegments" , ":min":"10", ":max":"100" ,
-                  ":step": "2"} radial Segments {{radialSegments}}
+    %range-slider{"v-model":"heightSegments" , ":min":"1", ":max":"100" ,
+                  ":step": "1"} height Segments {{heightSegments}}
+    %range-slider{"v-model":"radialSegments" , ":min":"1", ":max":"100" ,
+                  ":step": "1"} radial Segments {{radialSegments}}
+    %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
+                  ":step": "15"} Twist degrees {{twist}}
 
     %label Orbital
     %input{:type => "radio", "v-model" => "orbital"}
 
 = javascript_include_tag "three_all"
 :javascript
-
+  simple = 0;
   function createMesh() {
-    console.log(Simple._data.heightSegments);
-    geo =  new THREE.CylinderBufferGeometry(
+    simple =  new THREE.CylinderGeometry(
               Simple._data.radiusTop,
               Simple._data.radiusBottom,
               Simple._data.height,
               Simple._data.radialSegments,
               Simple._data.heightSegments ,
               true    );
+    il = simple.vertices.length;
+    // twist the cone aroud it's y axis by "twist" amount (of degrees)
+    for ( let i = 0; i < il; i ++ ) {
+      const vertex = simple.vertices[ i ];
+      angle = (Simple._data.twist * vertex.y) / Simple._data.height  ;
+      const rad = Math.PI * angle / 180.0;
+      x = vertex.x;
+      z = vertex.z;
+      // by caching sin/cos per y performance would be better. But its good enough
+      vertex.x = (x * Math.cos(rad)) - (z * Math.sin(rad));
+      vertex.z = (z * Math.cos(rad)) + (x * Math.sin(rad));
+    };
+    simple.computeFlatVertexNormals();
+    geo = new THREE.BufferGeometry().fromGeometry(simple);
     main_mesh = new THREE.Mesh( geo, material );
     group.add( main_mesh );
   }
@@ -49,14 +64,17 @@
     el '#info'
 
     def initialize
-      @radiusTop = 40
-      @radiusBottom = 140
-      @height = 240
-      @radialSegments = 20
-      @heightSegments = 20
+      @radiusTop = 20
+      @radiusBottom = 80
+      @height = 180
+      @radialSegments = 12
+      @heightSegments = 18
+      @twist = 120
       @orbital = false
+    end
+    def watch()
+     {"_data": { handler:  lambda{refreshMesh()}  , deep: true}}
     end
   end
 :javascript
-  Simple.$watch("_data" ,  refreshMesh  , {deep: true});
   createMesh();
