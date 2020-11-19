@@ -5,7 +5,7 @@
 //= require range_slider
 
 THREE.Cache.enabled = true;
-let camera, scene, renderer , materials;
+let camera, scene, renderer , material;
 // group is where the mesh is added to
 let group, main_mesh;
 
@@ -21,14 +21,17 @@ function init() {
   // LIGHTS
   const light = new THREE.AmbientLight( 0x404040 , 1.5); // soft white light
   scene.add( light );
-  const pointLight = new THREE.PointLight( 0x404040, 1.5 );
-  pointLight.position.set( 0, 100, 90 );
+  pointLight = new THREE.PointLight( 0x404040, 1.5 );
+  pointLight.position.set( 0, 200, 100 );
+  scene.add( pointLight );
+  pointLight = new THREE.PointLight( 0x404040, 1.5 );
+  pointLight.position.set( 0, -100, -200 );
+  scene.add( pointLight );
+  pointLight = new THREE.PointLight( 0x404040, 1.5 );
+  pointLight.position.set( 200, 0, 0 );
   scene.add( pointLight );
 
-  materials = [
-    new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
-    new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
-  ];
+  material = new THREE.MeshBasicMaterial( { color: 0x6ed3fb } );
 
   group = new THREE.Group();
   group.position.y = 50;
@@ -64,6 +67,12 @@ function animate() {
 function render() {
   renderer.clear();
   renderer.render( scene, camera );
+}
+
+function refreshMesh() {
+  group.remove( main_mesh );
+  createMesh();
+  render();
 }
 
 function exportBinary() {

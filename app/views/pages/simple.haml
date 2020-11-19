@@ -1,0 +1,61 @@
+%h1 Simple lamp
+
+%p
+  This is a basic cylinder geometry, copied fromm threejs.
+  One can get surprisingly far by using the sliders.
+
+
+  %button#exportBinary export binary
+.row
+  .canvas_container
+    %canvas#viewer
+
+  #info
+    %range-slider{"v-model":"radiusTop" , ":min":"0", ":max":"100" ,
+                  ":step": "0.5"} Radius Top {{radiusTop}}
+    %range-slider{"v-model":"radiusBottom" , ":min":"0", ":max":"200" ,
+                  ":step": "0.5"} Radius Bottom {{radiusBottom}}
+    %range-slider{"v-model":"height" , ":min":"10", ":max":"300" ,
+                  ":step": "1"} Lamp height {{height}}
+    %range-slider{"v-model":"heightSegments" , ":min":"10", ":max":"100" ,
+                  ":step": "2"} height Segments {{heightSegments}}
+    %range-slider{"v-model":"radialSegments" , ":min":"10", ":max":"100" ,
+                  ":step": "2"} radial Segments {{radialSegments}}
+
+    %label Orbital
+    %input{:type => "radio", "v-model" => "orbital"}
+
+= javascript_include_tag "three_all"
+:javascript
+
+  function createMesh() {
+    console.log(Simple._data.heightSegments);
+    geo =  new THREE.CylinderBufferGeometry(
+              Simple._data.radiusTop,
+              Simple._data.radiusBottom,
+              Simple._data.height,
+              Simple._data.radialSegments,
+              Simple._data.heightSegments ,
+              true    );
+    main_mesh = new THREE.Mesh( geo, material );
+    group.add( main_mesh );
+  }
+
+  init();
+  animate();
+
+:ruby2js
+  class Simple < Vue
+    el '#info'
+
+    def initialize
+      @radiusTop = 40
+      @radiusBottom = 140
+      @height = 240
+      @radialSegments = 20
+      @heightSegments = 20
+      @orbital = false
+    end
+  end
+:javascript
+  Simple.$watch("_data" ,  refreshMesh  , {deep: true})

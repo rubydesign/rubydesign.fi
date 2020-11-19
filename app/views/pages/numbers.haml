@@ -1,9 +1,9 @@
-%h1 Fonts
+%h1 Text
 
 %p
   A little exercise in generating numbers, copied from three example.
-  Only the bevel and text can be changed (by just typing).
-  Then download and do the rest in slicer.
+  Properties can be changed by sliders,
+  then download (export) and do the rest in slicer.
 
   %button#exportBinary export binary
 .row
@@ -34,12 +34,12 @@
     const loader = new THREE.FontLoader();
     loader.load( font_asset, function ( response ) {
       font = response;
-      refreshText();
+      refreshMesh();
     } );
 
   }
 
-  function createText() {
+  function createMesh() {
     textGeo = new THREE.TextGeometry( Numbers._data.text, {
       font: font,
       size: Numbers._data.size,
@@ -53,18 +53,11 @@
     textGeo.computeVertexNormals();
     const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
     textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
-    main_mesh = new THREE.Mesh( textGeo, materials );
+    main_mesh = new THREE.Mesh( textGeo, material );
     main_mesh.position.x = centerOffset;
     main_mesh.position.y = 0;
 
     group.add( main_mesh );
-  }
-
-  function refreshText() {
-    group.remove( main_mesh );
-    if ( ! text ) return;
-    createText();
-    render();
   }
 
   loadFont();
@@ -85,4 +78,4 @@
     end
   end
 :javascript
-  Numbers.$watch("_data" ,  refreshText  , {deep: true})
+  Numbers.$watch("_data" ,  refreshMesh  , {deep: true})
