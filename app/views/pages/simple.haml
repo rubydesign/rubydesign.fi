@@ -11,15 +11,21 @@
     %canvas#viewer
 
   #info
-    %range-slider{"v-model":"radiusTop" , ":min":"0", ":max":"100" ,
-                  ":step": "1"} Radius Top {{radiusTop}}
-    %range-slider{"v-model":"radiusBottom" , ":min":"0", ":max":"200" ,
-                  ":step": "1"} Radius Bottom {{radiusBottom}}
+    %range-slider{"v-model":"radius0" , ":min":"0", ":max":"200" ,
+                  ":step": "1"} Radius 0 {{radius0}}
+    %range-slider{"v-model":"radius25" , ":min":"0", ":max":"200" ,
+                  ":step": "1"} Radius at 25% {{radius25}}
+    %range-slider{"v-model":"radius50" , ":min":"0", ":max":"200" ,
+                  ":step": "1"} Radius at 50% {{radius50}}
+    %range-slider{"v-model":"radius75" , ":min":"0", ":max":"200" ,
+                  ":step": "1"} Radius at 75% {{radius75}}
+    %range-slider{"v-model":"radius100" , ":min":"0", ":max":"200" ,
+                  ":step": "1"} Radius at 100% {{radius100}}
     %range-slider{"v-model":"height" , ":min":"10", ":max":"400" ,
                   ":step": "1"} Lamp height {{height}}
     %range-slider{"v-model":"heightSegments" , ":min":"1", ":max":"100" ,
                   ":step": "1"} height Segments {{heightSegments}}
-    %range-slider{"v-model":"radialSegments" , ":min":"1", ":max":"100" ,
+    %range-slider{"v-model":"radialSegments" , ":min":"3", ":max":"100" ,
                   ":step": "1"} radial Segments {{radialSegments}}
     %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
                   ":step": "15"} Twist degrees {{twist}}
@@ -30,26 +36,55 @@
 = javascript_include_tag "three_all"
 :javascript
   simple = 0;
+  function radius( x , y){
+    return Math.sqrt( x*x + y*y);
+  }
   function createMesh() {
+    data = Simple._data;
     simple =  new THREE.CylinderGeometry(
-              Simple._data.radiusTop,
-              Simple._data.radiusBottom,
-              Simple._data.height,
-              Simple._data.radialSegments,
-              Simple._data.heightSegments ,
+              data.radius0,
+              data.radius100,
+              data.height,
+              data.radialSegments,
+              data.heightSegments ,
               true    );
     il = simple.vertices.length;
-    // twist the cone aroud it's y axis by "twist" amount (of degrees)
+    bez = bezier(-data.height/2 , data.radius100 ,
+                  -data.height/4 , data.radius75 ,
+                   0 , data.radius50 ,
+                   data.height/4 , data.radius25 ,
+                   data.height/2 , data.radius0);
+    curve = bez.curve(data.heightSegments + 1 );
+    //console.log(curve)
+    // apply the bezier (radiusXX) to the radius
     for ( let i = 0; i < il; i ++ ) {
       const vertex = simple.vertices[ i ];
-      angle = (Simple._data.twist * vertex.y) / Simple._data.height  ;
-      const rad = Math.PI * angle / 180.0;
-      x = vertex.x;
-      z = vertex.z;
-      // by caching sin/cos per y performance would be better. But its good enough
-      vertex.x = (x * Math.cos(rad)) - (z * Math.sin(rad));
-      vertex.z = (z * Math.cos(rad)) + (x * Math.sin(rad));
+      old_radius = radius(vertex.x , vertex.z);
+      curve_index = Math.round(data.heightSegments/2 +  data.heightSegments * vertex.y / data.height);
+      if(curve.CURV[curve_index]){
+        ratio = curve.CURV[curve_index][1] / old_radius ;
+        vertex.y = curve.CURV[curve_index][0]
+      } else {
+        console.log( "Index " + curve_index + " at " + vertex.y );
+        ratio = 1 ;
+      }
+      //console.log( " ratio " + ratio)
+      vertex.x = ratio * vertex.x ;
+      vertex.z = ratio * vertex.z ;
     };
+
+    // twist the cone around it's y axis by "twist" amount (of degrees)
+    for ( let i = 0; i < il; i ++ ) {
+      const vertex = simple.vertices[ i ];
+      angle = (data.twist * vertex.y) / data.height  ;
+      const rad = Math.PI * angle / 180.0;
+      old_x = vertex.x
+      old_z = vertex.z
+      // by caching sin/cos per y performance would be better. But its good enough
+      vertex.x = old_x * Math.cos(rad) - old_z * Math.sin(rad)
+      vertex.z = old_z * Math.cos(rad) + old_x * Math.sin(rad)
+    };
+
     simple.computeFlatVertexNormals();
     geo = new THREE.BufferGeometry().fromGeometry(simple);
     main_mesh = new THREE.Mesh( geo, material );
@@ -64,8 +99,11 @@
     el '#info'
 
     def initialize
-      @radiusTop = 20
-      @radiusBottom = 80
+      @radius0 = 20
+      @radius25 = 30
+      @radius50 = 40
+      @radius75 = 60
+      @radius100 = 80
       @height = 180
       @radialSegments = 12
       @heightSegments = 18

@@ -3,6 +3,7 @@
 //= require OrbitControls.js
 //= require vue
 //= require range_slider
+//= require bezier
 
 THREE.Cache.enabled = true;
 let camera, scene, renderer , material;
