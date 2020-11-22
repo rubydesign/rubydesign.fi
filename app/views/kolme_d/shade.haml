@@ -1,37 +1,40 @@
-%h1 Simple lamp
+%h1= params[:id].gsub("_"," ").capitalize
 
 %p
-  This is a basic cylinder geometry, copied fromm threejs.
-  One can get surprisingly far by using the sliders.
-
-  %button#exportBinary export binary
+  = @text
+  %br
+  See all 3d designs at
+  = link_to "here" , kolme_d_url(:index)
 .row
   .canvas_container
     %canvas#viewer
-  #info
-    %range-slider{"v-model":"radius0" , ":min":"0", ":max":"200" ,
-                  ":step": "1"} Radius 0 {{radius0}}
-    -if(@data[:radius25])
-      %range-slider{"v-model":"radius25" , ":min":"0", ":max":"200" ,
-                    ":step": "1"} Radius at 25% {{radius25}}
-      %range-slider{"v-model":"radius50" , ":min":"0", ":max":"200" ,
-                    ":step": "1"} Radius at 50% {{radius50}}
-      %range-slider{"v-model":"radius75" , ":min":"0", ":max":"200" ,
-                    ":step": "1"} Radius at 75% {{radius75}}
-    %range-slider{"v-model":"radius100" , ":min":"0", ":max":"200" ,
-                  ":step": "1"} Radius at 100% {{radius100}}
-    %range-slider{"v-model":"height" , ":min":"10", ":max":"400" ,
-                  ":step": "1"} Lamp height {{height}}
-    %range-slider{"v-model":"heightSegments" , ":min":"1", ":max":"100" ,
-                  ":step": "1"} height Segments {{heightSegments}}
-    %range-slider{"v-model":"radialSegments" , ":min":"3", ":max":"100" ,
-                  ":step": "1"} radial Segments {{radialSegments}}
-    -if( @data[:twist] )
-      %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
-                    ":step": "15"} Twist degrees {{twist}}
+  #info_container
+    #info
+      %range-slider{"v-model":"radius0" , ":min":"0", ":max":"200" ,
+                    ":step": "1"} Radius 0 {{radius0}}
+      -if(@data[:radius25])
+        %range-slider{"v-model":"radius25" , ":min":"0", ":max":"200" ,
+                      ":step": "1"} Radius at 25% {{radius25}}
+        %range-slider{"v-model":"radius50" , ":min":"0", ":max":"200" ,
+                      ":step": "1"} Radius at 50% {{radius50}}
+        %range-slider{"v-model":"radius75" , ":min":"0", ":max":"200" ,
+                      ":step": "1"} Radius at 75% {{radius75}}
+      %range-slider{"v-model":"radius100" , ":min":"0", ":max":"200" ,
+                    ":step": "1"} Radius at 100% {{radius100}}
+      %range-slider{"v-model":"height" , ":min":"10", ":max":"400" ,
+                    ":step": "1"} Lamp height {{height}}
+      %range-slider{"v-model":"heightSegments" , ":min":"1", ":max":"100" ,
+                    ":step": "1"} height Segments {{heightSegments}}
+      %range-slider{"v-model":"radialSegments" , ":min":"3", ":max":"100" ,
+                    ":step": "1"} radial Segments {{radialSegments}}
+      -if( @data[:twist] )
+        %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
+                      ":step": "15"} Twist degrees {{twist}}
+    %button#exportBinary export binary
 
 = javascript_include_tag "three_all"
 :ruby2js
+  part_name = "#{params[:id]}.stl"
   simple = 0
   def radius( x , y)
     return Math.sqrt( x*x + y*y)

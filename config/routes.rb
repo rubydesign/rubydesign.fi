@@ -116,7 +116,7 @@ Rails.application.routes.draw do
 
   get "api/purchase" => "api#purchase" , format: :json
 
-  get "/3d/*id" => 'kolme_d#show'
+  get "/3d/*id" => 'kolme_d#show' , as: :kolme_d
 end
 
 Rails.application.config.after_initialize do |application|

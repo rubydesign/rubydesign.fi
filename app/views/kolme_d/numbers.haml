@@ -4,27 +4,29 @@
   A little exercise in generating numbers, copied from three example.
   Properties can be changed by sliders,
   then download (export) and do the rest in slicer.
-
-  %button#exportBinary export binary
+  %br
+  See all 3d designs at
+  = link_to "here" , kolme_d_url(:index)
 .row
   .canvas_container
     %canvas#viewer
 
-  #info
-    %input{ "v-model":"text"}
-    %range-slider{"v-model":"bevelThickness" , ":min":"2", ":max":"11" ,
-                  ":step": "0.5"} Bevel Thickness {{bevelThickness}}
-    %range-slider{"v-model":"bevelSize" , ":min":"2", ":max":"11" ,
-                  ":step": "0.5"} Bevel Size {{bevelSize}}
-    %range-slider{"v-model":"size" , ":min":"20", ":max":"100" ,
-                  ":step": "2"} Font Size {{size}}
-    %range-slider{"v-model":"height" , ":min":"10", ":max":"30" ,
-                  ":step": "1"} Font Height {{height}}
-    %label Orbital
-    %input{:type => "radio", "v-model" => "orbital"}
+  #info_container
+    #info
+      %input{ "v-model":"text"}
+      %range-slider{"v-model":"bevelThickness" , ":min":"2", ":max":"11" ,
+                    ":step": "0.5"} Bevel Thickness {{bevelThickness}}
+      %range-slider{"v-model":"bevelSize" , ":min":"2", ":max":"11" ,
+                    ":step": "0.5"} Bevel Size {{bevelSize}}
+      %range-slider{"v-model":"size" , ":min":"20", ":max":"100" ,
+                    ":step": "2"} Font Size {{size}}
+      %range-slider{"v-model":"height" , ":min":"10", ":max":"30" ,
+                    ":step": "1"} Font Height {{height}}
+    %button#exportBinary export binary
 
 = javascript_include_tag "three_all"
 :javascript
+  part_name = "numbers.stl"
   let font_asset = "#{asset_path('oleo.json')}" ;
   let firstLetter = true;
   let text = "123456789",    font = undefined;

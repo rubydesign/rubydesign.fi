@@ -1,0 +1,55 @@
+.row
+  %p
+    After having tried learning a 3d program for a good few hours, i changed to
+    good old programming. My main objective was to create lampshades for our rooms
+    but i already have more ideas, now that the framework is done.
+    %br
+    All pages have some real time controls so you can design your own, and with
+    the stl export, print them :-)
+.row
+  .tripple
+    %h2 Simple lamp
+    .half
+      This started as a staight cylinder, but basic height and roughness control
+      already made it interesting.
+    .half
+      = link_to kolme_d_url(:basic_shade) do
+        =image_tag "3d/basic_shade.png" , class: :full
+  .tripple
+    %h2 Twisted lamp
+    .half
+      I then proceeded to twist the geometry. This gives for interesting effects
+      especially when used with the segment controls.
+    .half
+      = link_to kolme_d_url(:twisted_shade) do
+        =image_tag "3d/twisted_shade.png" , class: :full
+  .tripple
+    %h2 Curved lamp
+    .half
+      Next step was to create a curved outer shape, basically applying a bezier
+      curve to the radius. Good results come from high segments (smooth surface).
+    .half
+      = link_to kolme_d_url(:curved_shade) do
+        =image_tag "3d/curved_shade.png" , class: :full
+  .tripple
+    %h2 Full control
+    .half
+      With all controls enabled, one can create quite a variety of lamps.
+    .half
+      = link_to kolme_d_url(:pair_shade) do
+        =image_tag "3d/pair_shade.png" , class: :full
+  .tripple
+    %h2 Bell shape
+    .half
+      Just another shape i happen to like. Which just shows how different they can be.
+    .half
+      = link_to kolme_d_url(:bell_shade) do
+        =image_tag "3d/bell_shade.png" , class: :full
+  .tripple
+    %h2 Numbers (and text)
+    .half
+      I did some basic number generator for our rooms (keys and such).
+      One can change the text but not the font.
+    .half
+      = link_to kolme_d_url(:numbers) do
+        =image_tag "3d/numbers.png" , class: :full

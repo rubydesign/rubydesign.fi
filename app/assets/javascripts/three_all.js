@@ -88,7 +88,7 @@ function exportBinary() {
   link.style.display = 'none';
   document.body.appendChild( link );
   link.href = URL.createObjectURL( blob );
-  link.download = 'numbers.stl';
+  link.download = part_name;
   link.click();
 }
 
