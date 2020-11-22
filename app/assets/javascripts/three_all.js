@@ -78,7 +78,11 @@ function refreshMesh() {
 
 function exportBinary() {
   exporter = new STLExporter();
-  buffer = exporter.parse( main_mesh, { binary: true } );
+  geo = group.children[0].geometry.clone();
+  mesh = new THREE.Mesh( geo, material );
+  mesh.geometry.rotateX( Math.PI / 2)  ;
+//  mesh.geometry.rotateY( Math.PI)  ;
+  buffer = exporter.parse( mesh, { binary: true } );
   blob = new Blob( [ buffer ], { type: 'application/octet-stream' } );
   const link = document.createElement( 'a' );
   link.style.display = 'none';
