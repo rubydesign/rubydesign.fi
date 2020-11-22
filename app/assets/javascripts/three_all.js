@@ -8,7 +8,7 @@
 THREE.Cache.enabled = true;
 let camera, scene, renderer , material;
 // group is where the mesh is added to
-let group, main_mesh;
+let group;
 
 function init() {
   // CAMERA
@@ -71,9 +71,9 @@ function render() {
 }
 
 function refreshMesh() {
-  group.remove( main_mesh );
-  createMesh();
-  render();
+  group.clear();
+  group.add( createMesh() )
+  render()
 }
 
 function exportBinary() {

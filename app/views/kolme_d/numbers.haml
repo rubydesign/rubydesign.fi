@@ -53,11 +53,10 @@
     textGeo.computeVertexNormals();
     const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
     textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
-    main_mesh = new THREE.Mesh( textGeo, material );
-    main_mesh.position.x = centerOffset;
-    main_mesh.position.y = 0;
-
-    group.add( main_mesh );
+    mesh = new THREE.Mesh( textGeo, material );
+    mesh.position.x = centerOffset;
+    mesh.position.y = 0;
+    return mesh;
   }
 
   loadFont();

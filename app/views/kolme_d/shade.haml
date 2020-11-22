@@ -4,12 +4,10 @@
   This is a basic cylinder geometry, copied fromm threejs.
   One can get surprisingly far by using the sliders.
 
-
   %button#exportBinary export binary
 .row
   .canvas_container
     %canvas#viewer
-
   #info
     %range-slider{"v-model":"radius0" , ":min":"0", ":max":"200" ,
                   ":step": "1"} Radius 0 {{radius0}}
@@ -30,16 +28,42 @@
     %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
                   ":step": "15"} Twist degrees {{twist}}
 
-    %label Orbital
-    %input{:type => "radio", "v-model" => "orbital"}
-
 = javascript_include_tag "three_all"
-:javascript
-  simple = 0;
-  function radius( x , y){
-    return Math.sqrt( x*x + y*y);
-  }
-  function createMesh() {
+:ruby2js
+  simple = 0
+  def radius( x , y)
+    return Math.sqrt( x*x + y*y)
+  end
+  def bezier_transform(simple)
+      data = Simple._data;
+      bez = bezier(-data.height/2 , data.radius100 ,
+                    -data.height/4 , data.radius75 ,
+                     0 , data.radius50 ,
+                     data.height/4 , data.radius25 ,
+                     data.height/2 , data.radius0);
+      curve = bez.curve(data.heightSegments + 1 )
+      # apply the bezier (radiusXX) to the radius of each vertex
+      simple.vertices.each do |vertex|
+        old_radius = radius(vertex.x , vertex.z)
+        curve_index = Math.round(data.heightSegments/2 +  data.heightSegments * vertex.y / data.height)
+        ratio = curve.CURV[curve_index][1] / old_radius
+        vertex.x = ratio * vertex.x
+        vertex.z = ratio * vertex.z
+      end
+  end
+  def twist_transform(simple)
+    data = Simple._data;
+    #twist the cone around it's y axis by "twist" amount (of degrees)
+    simple.vertices.each do |vertex|
+      rad = (Math.PI * data.twist * vertex.y) / (data.height * 180)
+      old_x = vertex.x
+      old_z = vertex.z
+      vertex.x = old_x * Math.cos(rad) - old_z * Math.sin(rad)
+      vertex.z = old_z * Math.cos(rad) + old_x * Math.sin(rad)
+    end
+  end
+
+  def createMesh
     data = Simple._data;
     simple =  new THREE.CylinderGeometry(
               data.radius0,
@@ -47,72 +71,25 @@
               data.height,
               data.radialSegments,
               data.heightSegments ,
-              true    );
-    il = simple.vertices.length;
-    bez = bezier(-data.height/2 , data.radius100 ,
-                  -data.height/4 , data.radius75 ,
-                   0 , data.radius50 ,
-                   data.height/4 , data.radius25 ,
-                   data.height/2 , data.radius0);
-    curve = bez.curve(data.heightSegments + 1 );
-    //console.log(curve)
-    // apply the bezier (radiusXX) to the radius
-    for ( let i = 0; i < il; i ++ ) {
-      const vertex = simple.vertices[ i ];
-      old_radius = radius(vertex.x , vertex.z);
-      curve_index = Math.round(data.heightSegments/2 +  data.heightSegments * vertex.y / data.height);
-      if(curve.CURV[curve_index]){
-        ratio = curve.CURV[curve_index][1] / old_radius ;
-        vertex.y = curve.CURV[curve_index][0]
-      } else {
-        console.log( "Index " + curve_index + " at " + vertex.y );
-        ratio = 1 ;
-      }
-      //console.log( " ratio " + ratio)
-      vertex.x = ratio * vertex.x ;
-      vertex.z = ratio * vertex.z ;
-    };
+              true    )
+    bezier_transform(simple)
+    twist_transform(simple)
+    simple.computeFlatVertexNormals()
+    geo = new THREE.BufferGeometry().fromGeometry(simple)
+    return new THREE.Mesh( geo, material )
+  end
 
-    // twist the cone around it's y axis by "twist" amount (of degrees)
-    for ( let i = 0; i < il; i ++ ) {
-      const vertex = simple.vertices[ i ];
-      angle = (data.twist * vertex.y) / data.height  ;
-      const rad = Math.PI * angle / 180.0;
-      old_x = vertex.x
-      old_z = vertex.z
-      // by caching sin/cos per y performance would be better. But its good enough
-      vertex.x = old_x * Math.cos(rad) - old_z * Math.sin(rad)
-      vertex.z = old_z * Math.cos(rad) + old_x * Math.sin(rad)
-    };
+  init()
+  animate()
 
-    simple.computeFlatVertexNormals();
-    geo = new THREE.BufferGeometry().fromGeometry(simple);
-    main_mesh = new THREE.Mesh( geo, material );
-    group.add( main_mesh );
-  }
-
-  init();
-  animate();
-
-:ruby2js
   class Simple < Vue
     el '#info'
-
     def initialize
-      @radius0 = 20
-      @radius25 = 30
-      @radius50 = 40
-      @radius75 = 60
-      @radius100 = 80
-      @height = 180
-      @radialSegments = 12
-      @heightSegments = 18
-      @twist = 120
-      @orbital = false
+      return #{@dat.to_json.html_safe}
     end
     def watch()
      {"_data": { handler:  lambda{refreshMesh()}  , deep: true}}
     end
   end
-:javascript
-  createMesh();
+
+  refreshMesh()
