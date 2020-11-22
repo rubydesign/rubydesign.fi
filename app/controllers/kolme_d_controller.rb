@@ -6,24 +6,28 @@ class KolmeDController < ApplicationController
   end
   private
   def set_template
-    return lamp if ["shade"].include?(params[:id])
+    return lamp if params[:id].end_with?("shade")
     @template = "kolme_d/#{params[:id]}"
   end
   def lamp
     @template = "kolme_d/shade"
-    @dat = basic_lamp
+    @data = send( params[:id] )
   end
-  def basic_lamp
+  def basic_shade
     {  radius0:   20 ,
-       radius25:  30 ,
-       radius50:  40 ,
-       radius75:  60 ,
        radius100: 80 ,
        height:   180 ,
-       twist:    120,
        radialSegments: 12,
        heightSegments: 18,
-       orbital: false,
-  }
+     }
+  end
+  def twisted_shade
+    basic_shade.merge!( twist: 120)
+  end
+  def curved_shade
+    basic_shade.merge!( radius25: 30 , radius50:  40 , radius75:  60)
+  end
+  def shade
+    curved_shade.merge!( twist: 120 )
   end
 end

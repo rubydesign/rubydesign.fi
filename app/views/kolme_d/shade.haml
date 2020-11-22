@@ -11,12 +11,13 @@
   #info
     %range-slider{"v-model":"radius0" , ":min":"0", ":max":"200" ,
                   ":step": "1"} Radius 0 {{radius0}}
-    %range-slider{"v-model":"radius25" , ":min":"0", ":max":"200" ,
-                  ":step": "1"} Radius at 25% {{radius25}}
-    %range-slider{"v-model":"radius50" , ":min":"0", ":max":"200" ,
-                  ":step": "1"} Radius at 50% {{radius50}}
-    %range-slider{"v-model":"radius75" , ":min":"0", ":max":"200" ,
-                  ":step": "1"} Radius at 75% {{radius75}}
+    -if(@data[:radius25])
+      %range-slider{"v-model":"radius25" , ":min":"0", ":max":"200" ,
+                    ":step": "1"} Radius at 25% {{radius25}}
+      %range-slider{"v-model":"radius50" , ":min":"0", ":max":"200" ,
+                    ":step": "1"} Radius at 50% {{radius50}}
+      %range-slider{"v-model":"radius75" , ":min":"0", ":max":"200" ,
+                    ":step": "1"} Radius at 75% {{radius75}}
     %range-slider{"v-model":"radius100" , ":min":"0", ":max":"200" ,
                   ":step": "1"} Radius at 100% {{radius100}}
     %range-slider{"v-model":"height" , ":min":"10", ":max":"400" ,
@@ -25,8 +26,9 @@
                   ":step": "1"} height Segments {{heightSegments}}
     %range-slider{"v-model":"radialSegments" , ":min":"3", ":max":"100" ,
                   ":step": "1"} radial Segments {{radialSegments}}
-    %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
-                  ":step": "15"} Twist degrees {{twist}}
+    -if( @data[:twist] )
+      %range-slider{"v-model":"twist" , ":min":"0", ":max":"360" ,
+                    ":step": "15"} Twist degrees {{twist}}
 
 = javascript_include_tag "three_all"
 :ruby2js
@@ -72,8 +74,8 @@
               data.radialSegments,
               data.heightSegments ,
               true    )
-    bezier_transform(simple)
-    twist_transform(simple)
+    bezier_transform(simple) if data.radius25
+    twist_transform(simple) if data.twist
     simple.computeFlatVertexNormals()
     geo = new THREE.BufferGeometry().fromGeometry(simple)
     return new THREE.Mesh( geo, material )
@@ -85,7 +87,7 @@
   class Simple < Vue
     el '#info'
     def initialize
-      return #{@dat.to_json.html_safe}
+      return #{@data.to_json.html_safe}
     end
     def watch()
      {"_data": { handler:  lambda{refreshMesh()}  , deep: true}}
