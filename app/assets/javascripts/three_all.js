@@ -72,8 +72,15 @@ function render() {
 
 function refreshMesh() {
   group.clear();
-  group.add( createMesh() )
-  render()
+  group.add( createMesh() );
+  render();
+}
+function updateU(){
+  newUrl = "/3d/shade?";
+  for (let key in Simple._data) {
+    newUrl = newUrl + key + "=" + Simple._data[key] + "&";
+  }
+  window.history.replaceState('shade', 'Your design', newUrl);
 }
 
 function exportBinary() {

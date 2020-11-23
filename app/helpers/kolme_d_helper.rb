@@ -27,4 +27,7 @@ module KolmeDHelper
       A Bell shape i happen to like.
     "
   end
+  def shade_text
+    "This is your own creation, enjoy and share."
+  end
 end

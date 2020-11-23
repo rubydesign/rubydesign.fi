@@ -93,7 +93,7 @@
       return #{@data.to_json.html_safe}
     end
     def watch()
-     {"_data": { handler:  lambda{refreshMesh()}  , deep: true}}
+     {"_data": { handler:  lambda{refreshMesh();updateU()}  , deep: true}}
     end
   end
 

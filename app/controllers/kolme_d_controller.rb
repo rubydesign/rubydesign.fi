@@ -15,6 +15,14 @@ class KolmeDController < ApplicationController
     @data = send( params[:id] )
     @text = send( "#{params[:id]}_text" )
   end
+  def shade
+    ret = {}
+    curved_shade.keys.each do |key|
+      next unless val = params[key]
+      ret[key] = val.to_f
+    end
+    ret
+  end
   def basic_shade
     {  radius0:   20 ,
        radius100: 130 ,
@@ -27,8 +35,8 @@ class KolmeDController < ApplicationController
     {  radius0:   20 ,
        radius100: 100 ,
        height:   180 ,
-       radialSegments: 8,
        heightSegments: 12,
+       radialSegments: 8,
        twist: 120
     }
   end
@@ -39,31 +47,31 @@ class KolmeDController < ApplicationController
        radius75:  60 ,
        radius100: 130 ,
        height:   180 ,
-       radialSegments: 100,
        heightSegments: 18,
+       radialSegments: 100,
      }
   end
   def pair_shade
-    {  radius0:   20 ,
-       radius25: 10 ,
-       radius50:  40 ,
+    {  radius0:   30 ,
+       radius25: 1 ,
+       radius50:  75 ,
        radius75:  90 ,
        radius100: 50 ,
-       height:   180 ,
-       radialSegments: 8,
-       heightSegments: 12,
+       height:   250 ,
+       heightSegments: 24,
+       radialSegments: 16,
        twist: 120
     }
   end
   def bell_shade
-    {  radius0:   20 ,
+    {  radius0:   30 ,
        radius25:  30 ,
        radius50:  70 ,
        radius75: 120 ,
        radius100: 80 ,
-       height:   180 ,
-       radialSegments: 22,
+       height:   160 ,
        heightSegments: 12,
+       radialSegments: 18 ,
        twist: 120
     }
   end
