@@ -18,8 +18,8 @@
         Lasku
       %b= I18n.t(:order_number).to_s + " " + @order.id_number
       %br
-      = I18n.l(@order.ordered_on.to_date) if @order.ordered_on
-
+      = I18n.l(@order.shipped_on.to_date) if @order.shipped_on
+      
   .row.address
     - addresses = [ @order.name ,   @order.street,   @order.city ]
 
