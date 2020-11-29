@@ -2,29 +2,29 @@ class KolmeDController < ApplicationController
   include KolmeDHelper
 
   def show
-    set_template(params[:id])
+    set_data
     render( template: @template)
   end
   private
-  def set_template(id)
-    return lamp if id.end_with?("shade")
+  def set_data
+    id = params[:id]
     @template = "kolme_d/#{id}"
+    set_lamp_data if all_shades.include?(id.to_sym)
   end
-  def lamp
+  def set_lamp_data
     @template = "kolme_d/shade"
-    @data = send( params[:id] )
-    @text = send( "#{params[:id]}_text" )
+    send( params[:id] )
+    @header , @text = send( "#{params[:id]}_text" )
   end
   def shade
-    ret = {}
-    curved_shade.keys.each do |key|
+    @data = {}
+    bell_shade.keys.each do |key|
       next unless val = params[key]
-      ret[key] = val.to_f
+      @data[key] = val.to_f
     end
-    ret
   end
   def basic_shade
-    {  radius0:   20 ,
+    @data = {  radius0:   20 ,
        radius100: 130 ,
        height:   180 ,
        radialSegments: 24,
@@ -32,7 +32,7 @@ class KolmeDController < ApplicationController
      }
   end
   def twisted_shade
-    {  radius0:   20 ,
+    @data = {  radius0:   20 ,
        radius100: 100 ,
        height:   180 ,
        heightSegments: 12,
@@ -41,35 +41,35 @@ class KolmeDController < ApplicationController
     }
   end
   def curved_shade
-    {  radius0:   20 ,
+    @data = {  radius0:   20 ,
        radius25: 30 ,
        radius50:  40 ,
        radius75:  60 ,
        radius100: 130 ,
-       height:   180 ,
+       height:   200 ,
        heightSegments: 18,
        radialSegments: 100,
      }
   end
   def pair_shade
-    {  radius0:   30 ,
+    @data = {  radius0:   25 ,
        radius25: 1 ,
        radius50:  75 ,
-       radius75:  90 ,
-       radius100: 50 ,
-       height:   250 ,
-       heightSegments: 24,
-       radialSegments: 16,
+       radius75:  80 ,
+       radius100: 40 ,
+       height:   180 ,
+       heightSegments: 16,
+       radialSegments: 8,
        twist: 120
     }
   end
   def bell_shade
-    {  radius0:   30 ,
+    @data = {  radius0:   30 ,
        radius25:  30 ,
-       radius50:  70 ,
-       radius75: 120 ,
-       radius100: 80 ,
-       height:   160 ,
+       radius50:  90 ,
+       radius75: 150 ,
+       radius100: 100 ,
+       height:   250 ,
        heightSegments: 12,
        radialSegments: 18 ,
        twist: 120
