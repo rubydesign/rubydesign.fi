@@ -52,15 +52,15 @@ class KolmeDController < ApplicationController
      }
   end
   def pair_shade
-    @data = {  radius0:   25 ,
-       radius25: 1 ,
-       radius50:  75 ,
-       radius75:  80 ,
-       radius100: 40 ,
-       height:   180 ,
-       heightSegments: 16,
-       radialSegments: 8,
-       twist: 120
+    @data = {  radius0:   40 ,
+       radius25: -10 ,
+       radius50:  60 ,
+       radius75:  120 ,
+       radius100: 45 ,
+       height:   300 ,
+       heightSegments: 20 ,
+       radialSegments: 10,
+       twist: 240
     }
   end
   def bell_shade

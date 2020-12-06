@@ -26,6 +26,7 @@ module KolmeDHelper
     ["Pair shape",
       "With the 5 control points can pull the shape out and back in.
        And by using the Segments get some very nice looks.
+       This one is for large printers, but you can always scale.
     "]
   end
   def bell_shade_text
