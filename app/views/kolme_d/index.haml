@@ -9,7 +9,7 @@
     %br
     And if you edit the shapes, you can save the generated parmalink to share or save.
 .row
-  = all_shades.each do |shade|
+  - all_shades.each do |shade|
     - next if shade == :shade
     - texts = send(:"#{shade}_text")
     .tripple
