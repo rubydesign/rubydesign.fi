@@ -59,7 +59,6 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-
 function animate() {
   requestAnimationFrame( animate );
   render();
@@ -83,12 +82,14 @@ function updateU(){
   window.history.replaceState('shade', 'Your design', newUrl);
 }
 
-function exportBinary() {
+function export_stl(turn) {
   exporter = new STLExporter();
   geo = group.children[0].geometry.clone();
   mesh = new THREE.Mesh( geo, material );
-  mesh.geometry.rotateX( Math.PI / 2)  ;
-  mesh.geometry.rotateY( Math.PI)  ;
+  if(turn != true){
+    mesh.geometry.rotateX( - Math.PI / 2)  ;
+    mesh.geometry.rotateY( Math.PI);
+  }
   buffer = exporter.parse( mesh, { binary: true } );
   blob = new Blob( [ buffer ], { type: 'application/octet-stream' } );
   const link = document.createElement( 'a' );
@@ -98,6 +99,3 @@ function exportBinary() {
   link.download = part_name;
   link.click();
 }
-
-buttonExportBinary = document.getElementById( 'exportBinary' );
-buttonExportBinary.addEventListener( 'click', exportBinary );

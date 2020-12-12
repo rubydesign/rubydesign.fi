@@ -29,7 +29,7 @@
   part_name = "numbers.stl"
   let font_asset = "#{asset_path('oleo.json')}" ;
   let firstLetter = true;
-  let text = "123456789",    font = undefined;
+  let font = undefined;
   let curveSegments = 8;
 
   function loadFont() {
@@ -52,12 +52,10 @@
       bevelEnabled: true
     } );
     textGeo.computeBoundingBox();
-    textGeo.computeVertexNormals();
     const centerOffset = - 0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
     textGeo = new THREE.BufferGeometry().fromGeometry( textGeo );
     mesh = new THREE.Mesh( textGeo, material );
     mesh.position.x = centerOffset;
-    mesh.position.y = 0;
     return mesh;
   }
 
@@ -71,12 +69,18 @@
 
     def initialize
       @orbital = false
-      @bevelThickness = 3
       @text = "1 2 3 4 5"
-      @bevelSize = 3
-      @size = 50
-      @height = 20
+      @bevelThickness = 3
+      @bevelSize = 4
+      @size = 90
+      @height = 6
     end
   end
 :javascript
   Numbers.$watch("_data" ,  refreshMesh  , {deep: true})
+  function exportBinary() {
+    part_name = Numbers._data.text + ".stl";
+    export_stl(true);
+  }
+
+  document.getElementById( 'exportBinary' ).addEventListener( 'click', exportBinary );
