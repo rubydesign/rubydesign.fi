@@ -24,6 +24,8 @@ gem "prawn" ,  "~> 2.0"
 gem "reference_number"
 gem 'pry-rails'
 
+gem 'rails_same_site_cookie'
+
 group :lomake do
   gem "hexapdf"
   gem "httparty"

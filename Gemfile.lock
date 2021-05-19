@@ -258,6 +258,9 @@ GEM
     rails-i18n (4.0.2)
       i18n (~> 0.6)
       rails (>= 4.0)
+    rails_same_site_cookie (0.1.8)
+      rack (>= 1.5)
+      user_agent_parser (~> 2.5)
     railties (5.2.4.4)
       actionpack (= 5.2.4.4)
       activesupport (= 5.2.4.4)
@@ -346,6 +349,7 @@ GEM
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.5.0)
+    user_agent_parser (2.7.0)
     valid_email (0.0.10)
       activemodel
       mail (~> 2.6.1)
@@ -399,6 +403,7 @@ DEPENDENCIES
   rack-attack
   rails (~> 5.2.3)
   rails-i18n (~> 4.0)
+  rails_same_site_cookie
   ransack
   rb-readline
   reference_number
