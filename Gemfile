@@ -1,3 +1,5 @@
+ruby "2.6.7"
+
 source 'https://rubygems.org'
 
 gem "irb"
