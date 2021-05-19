@@ -68,20 +68,21 @@
       =image_tag "villataika.jpg" , class: :mini
 .tripple
   %h2 About me
-  %p After studying physics i programmed prefessionally for about 10 years.
-  %p Then i moved to the country and started a new life.
+  %p
+    After studying physics i programmed prefessionally for about 10 years.
+    Then i moved to the country and started a new life.
   %p Later i came back to coding semi professional, and even later (now), just for fun
+  %p
+    At some point i started the building company, and now we are doing the
+    = ext_link "Feenix." , "http://hubfeenix.fi"
   %p
     = ext_link "https://github.com/rubydesign" do
       =image_tag "torsten.jpg" , class: :mini
-    %br
-    PS: The picture is supposed to be fun: I rarely wear sun glasses and never smirk
-    like that. Just a moment in India :-)
 .tripple
   %h2 Work
   %p
     Having enjoyed woodworking as a hobby, i took up building part time after
-    VillaTaika was done.
+    Villa Taika was done.
   %p
     Soon after i met Dave from England who introduced me to Timber framing
     and we did that together for many years.
@@ -101,12 +102,8 @@
     It has now been over thirty adult years, a good twenty after meeting my master,
     over 15 after finding the love of my life. The resulting experience is, i think,
     unique enough to be aired. But maybe more than that i want to polish it
-    for myself. A work in (slow) progress since HubFeenix happened, that can be
-    followed and commented on
-    =succeed(".") do
-      =ext_link "medium.com/@rubydesign" , "https://medium.com/@rubydesign"
+    for myself. A work in (slow) progress since HubFeenix happened.
 
-
-  %p=post_link(Post.posts.values[0])
-  %p=post_link(Post.posts.values[1])
   %p=post_link(Post.posts.values[2])
+  %p=post_link(Post.posts.values[1])
+  %p=post_link(Post.posts.values[0])
