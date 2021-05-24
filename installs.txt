@@ -3,8 +3,8 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 ~/.rbenv/bin/rbenv init
 mkdir -p "$(rbenv root)"/plugins
 sudo yum install -y openssl-devel readline-devel
-rbenv install 2.5.8
-rbenv global 2.5.8
+rbenv install 2.6.7
+rbenv global 2.6.7
 
 sudo dnf install tilix
 sudo dnf install pinta
@@ -13,14 +13,7 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install vlc
 wget -qnc https://repo.nordvpn.com/yum/nordvpn/centos/noarch/Packages/n/nordvpn-release-1.0.0-1.noarch.rpm
-sudo dnf install nordvpn-release-1.0.0-1.noarch.rpm
-sudo dnf update
 
-sudo dnf install nordvpn
-wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
-sudo yum install ./gitkraken-amd64.rpm
-sudo curl -o /etc/yum.repos.d/skype-stable.repo https://repo.skype.com/rpm/stable/skype-stable.repo
-sudo dnf install skypeforlinux
 sudo dnf install dnf-plugins-core
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -46,7 +39,6 @@ sudo gem install bundler
 sudo dnf install qbittorrent
 sudo dnf install gnome-tweaks
 # extension caffeine , cpu power manager, auto move windows
-sudo dnf install alsa-firmware
 sudo dnf install exfat-utils
 sudo dnf install fuse-exfat
 sudo dnf install qemu
