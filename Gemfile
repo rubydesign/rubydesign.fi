@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby "2.6.5"
 
 gem "irb"
 gem 'ruby2js'
@@ -30,7 +29,7 @@ group :lomake do
   gem "httparty"
 end
 
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2'
 
 gem "rb-readline"
 gem 'uglifier', '>= 1.3.0'
