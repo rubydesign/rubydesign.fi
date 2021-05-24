@@ -3,7 +3,7 @@
 
 class ApiController < ApplicationController
   layout false
-  
+
   def purchase
     @purchase = Purchase.first
   end

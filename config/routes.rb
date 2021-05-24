@@ -116,6 +116,11 @@ Rails.application.routes.draw do
 
   get "api/purchase" => "api#purchase" , format: :json
 
-  match '*path', via: :all, to: 'high_voltage/pages#show' , id: "404"#if Rails.production?
+  get "/3d/*id" => 'kolme_d#show' , as: :kolme_d
+end
 
+Rails.application.config.after_initialize do |application|
+  application.routes.append do
+    match '*path', via: :all, to: 'high_voltage/pages#show' , id: "404"#if Rails.production?
+  end
 end

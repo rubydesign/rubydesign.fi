@@ -5,6 +5,8 @@ main , header , footer
 
   img.mini
     width: 47%
+  img.full
+    width: 100%
   a
     color: #53a5ff
     text-decoration: none
@@ -34,11 +36,7 @@ main , header , footer
     width: 100%
     position: relative
     float: left
-  .half_left
-    @include grid-column(6)
-    @media only screen and (max-width: 880px)
-      @include grid-column(12)
-  .half_right
+  .half
     @include grid-column(6)
     @media only screen and (max-width: 880px)
       @include grid-column(12)
