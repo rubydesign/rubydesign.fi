@@ -1,10 +1,17 @@
+sudo dnf install emacs-nox
+
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 ~/.rbenv/bin/rbenv init
 mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 sudo yum install -y openssl-devel readline-devel
 rbenv install 2.6.7
 rbenv global 2.6.7
+
+sudo rpm --import https://packagecloud.io/AtomEditor/atom/gpgkey
+sudo sh -c 'echo -e "[Atom]\nname=Atom Editor\nbaseurl=https://packagecloud.io/AtomEditor/atom/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/AtomEditor/atom/gpgkey" > /etc/yum.repos.d/atom.repo'
+sudo dnf install atom
 
 sudo dnf install tilix
 sudo dnf install pinta
@@ -15,8 +22,6 @@ sudo dnf install vlc
 wget -qnc https://repo.nordvpn.com/yum/nordvpn/centos/noarch/Packages/n/nordvpn-release-1.0.0-1.noarch.rpm
 
 sudo dnf install dnf-plugins-core
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
 sudo dnf install sqlite-devel
 
@@ -26,16 +31,18 @@ sudo dnf install libpq-devel
 sudo yum install -y gcc zlib-devel
 sudo yum group install "Development Tools"
 sudo dnf install postgresql-server postgresql
-sudo dnf install postgresql-server
+
+
 sudo systemctl enable postgresql
 sudo postgresql-setup initdb
+sudo dnf install emacs-nox
 sudo emacs /var/lib/pgsql/data/pg_hba.conf
 # change peer to trust (last) towards bottom of file
 # local   all             postgres                                trust
 sudo service postgresql restart
 # heroku pg:backups:download
 # pg_restore --verbose --clean --no-acl --no-owner -U postgres -d devel latest.dump
-sudo gem install bundler
+
 sudo dnf install qbittorrent
 sudo dnf install gnome-tweaks
 # extension caffeine , cpu power manager, auto move windows
@@ -43,10 +50,6 @@ sudo dnf install exfat-utils
 sudo dnf install fuse-exfat
 sudo dnf install qemu
 sudo dnf install binutils-arm-linux-gnu
-sudo dnf install emacs-nox
 
-printf "[resilio-sync]\nname=Resilio Sync\nbaseurl=https://linux-packages.resilio.com/resilio-sync/rpm/\$basearch\nenabled=1\ngpgcheck=1\n" | sudo tee /etc/yum.repos.d/resilio-sync.repo
-sudo rpm --import https://linux-packages.resilio.com/resilio-sync/key.asc
-sudo yum install resilio-sync
-systemctl --user enable resilio-sync
-systemctl --user start resilio-sync
+# https://src.fedoraproject.org/rpms/syncthing
+systemctl --user enable --now syncthing.service
